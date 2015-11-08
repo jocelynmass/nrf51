@@ -20,18 +20,15 @@ SRC  = src/main.c
 SRC  += $(STARTUP_DIR)/startup.c                      
 
 # include directory
-INCLUDE = include/  
-INCLUDE += $(STARTUP_DIR)          
-# add "-I" to in                    
-INCLUDE_DIR  = $(patsubst %,-I%,$(INCLUDE))           
+INCLUDES = include/          
 
-$(info $(INCLUDE_DIR))
+# add option "-I" before each included folders                    
+INCLUDE_DIR  = $(patsubst %,-I%,$(INCLUDES))    
+
 # Project name
-
 PROJECT_NAME = led_blinking
 
 # Options
-
 OBJS  = $(SRC:.c=.o)
 
 CPFLAGS = -mcpu=cortex-m0 -Os -gdwarf-2 -mthumb -fomit-frame-pointer -Wall -Wstrict-prototypes -fverbose-asm -Wa,-ahlms=$(<:.c=.lst) $(DEFS)
