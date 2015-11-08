@@ -1,2 +1,2 @@
 # nrf51
-nrf51822 GCC based projects
+This repository contains all the source files used on https://diyiot.wordpress.com/ blog
