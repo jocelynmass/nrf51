@@ -1,5 +1,6 @@
 # Object files
 *.o
+*.d
 *.ko
 *.obj
 *.elf
@@ -13,6 +14,7 @@
 *.a
 *.la
 *.lo
+*.lst
 
 # Shared objects (inc. Windows DLLs)
 *.dll
@@ -27,6 +29,8 @@
 *.i*86
 *.x86_64
 *.hex
+*.bin
+*.map
 
 # Debug files
 *.dSYM/
