@@ -20,8 +20,13 @@ SRC  = src/main.c
 SRC  += $(STARTUP_DIR)/startup.c                      
 
 # include directory
-INCLUDES = include/          
+INCLUDES = include/   
+INCLUDES += cfg/    
 
+# Drivers
+USE_DRV_NOSD := y
+
+include ../sdk/sdk.mk
 # add option "-I" before each included folders                    
 INCLUDE_DIR  = $(patsubst %,-I%,$(INCLUDES))    
 
@@ -33,7 +38,11 @@ OBJS  = $(SRC:.c=.o)
 
 CPFLAGS = -mcpu=cortex-m0 -Os -gdwarf-2 -mthumb -fomit-frame-pointer -Wall -Wstrict-prototypes -fverbose-asm -Wa,-ahlms=$(<:.c=.lst) $(DEFS)
 LDFLAGS = -mcpu=cortex-m0 -lc -mthumb -nostartfiles -T$(LDSCRIPT) -Wl,-Map=$(PROJECT_NAME).map,--cref,--no-warn-mismatch $(LIBDIR)
- 
+
+# Define target processor
+TARGET 	:= 	NRF51
+CPFLAGS += -D$(TARGET) 
+
 # Generate dependency information
 CPFLAGS += -MD -MP -MF .dep\$(@F).d
  
