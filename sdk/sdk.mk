@@ -164,7 +164,7 @@ CPFLAGS   += -DUSE_LIB_PWM
 endif
 ifeq ($(USE_LIB_SCHEDULER), y)
 INCLUDES  += $(SDK_DIRECTORY)/libraries/scheduler
-SRC 	  += $(shell find $(SDK_DIRECTORY)/libraries/scheduler -name *.c)
+SRC 	  += $(SDK_DIRECTORY)/libraries/scheduler/app_scheduler.c
 CPFLAGS   += -DUSE_LIB_SCHEDULER
 endif
 ifeq ($(USE_LIB_SENSORSIM), y)
@@ -203,6 +203,7 @@ SRC 	  += $(shell find $(SDK_DIRECTORY)/libraries/util -name *.c)
 
 ifeq ($(USE_SD110), y)
 # SD110, BLE stack
-INCLUDES  += $(SDK_DIRECTORY)/softdevice/common
-INCLUDES  += $(SDK_DIRECTORY)/softdevice/s110
+INCLUDES  += $(SDK_DIRECTORY)/softdevice/common/softdevice_handler
+SRC 	  += $(shell find $(SDK_DIRECTORY)/softdevice/common/softdevice_handler -name *.c)
+INCLUDES  += $(SDK_DIRECTORY)/softdevice/s110/headers
 endif
