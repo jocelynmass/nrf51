@@ -41,7 +41,7 @@ CPFLAGS   += -DUSE_DRV_PPI
 endif
 ifeq ($(USE_DRV_PSTORAGE), y)
 INCLUDES  += $(SDK_DIRECTORY)/drivers_nrf/pstorage
-SRC 	  += $(shell find $(SDK_DIRECTORY)/drivers_nrf/pstorage -name *.c)
+SRC 	  += $(SDK_DIRECTORY)/drivers_nrf/pstorage/pstorage.c
 CPFLAGS   += -DUSE_DRV_PSTORAGE
 endif
 ifeq ($(USE_DRV_QDEC), y)
@@ -184,7 +184,7 @@ CPFLAGS   += -DUSE_LIB_SIMPLE_TIMER
 endif
 ifeq ($(USE_LIB_TIMER), y)
 INCLUDES  += $(SDK_DIRECTORY)/libraries/timer
-SRC 	  += $(shell find $(SDK_DIRECTORY)/libraries/timer -name *.c)
+SRC 	  += $(SDK_DIRECTORY)/libraries/timer/app_timer.c
 CPFLAGS   += -DUSE_LIB_TIMER
 endif
 ifeq ($(USE_LIB_TRACE), y)
@@ -196,6 +196,18 @@ ifeq ($(USE_LIB_UART), y)
 INCLUDES  += $(SDK_DIRECTORY)/libraries/uart
 SRC 	  += $(shell find $(SDK_DIRECTORY)/libraries/uart -name *.c)
 CPFLAGS   += -DUSE_LIB_UART
+endif
+
+ifeq ($(USE_BLE_ADV), y)
+INCLUDES  += $(SDK_DIRECTORY)/ble/ble_advertising
+SRC 	  += $(shell find $(SDK_DIRECTORY)/ble/ble_advertising -name *.c)
+CPFLAGS   += -DUSE_BLE_ADV
+endif
+
+ifeq ($(USE_BLE_COMMON), y)
+INCLUDES  += $(SDK_DIRECTORY)/ble/common
+SRC 	  += $(shell find $(SDK_DIRECTORY)/ble/common -name *.c)
+CPFLAGS   += -DUSE_BLE_COMMON
 endif
 
 INCLUDES  += $(SDK_DIRECTORY)/libraries/util
