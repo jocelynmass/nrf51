@@ -24,7 +24,16 @@ INCLUDES = include/
 INCLUDES += cfg/    
 
 # Drivers
-USE_DRV_NOSD := y
+USE_DRV_NOSD := n
+USE_LIB_SCHEDULER := y
+USE_SD110 := y
+USE_BLE_ADV := y
+USE_BLE_COMMON := y
+USE_LIB_TRACE := y
+USE_DRV_PSTORAGE := y
+USE_DRV_BLE_FLASH := y
+USE_LIB_TIMER := y
+
 
 include ../sdk/sdk.mk
 # add option "-I" before each included folders                    
@@ -37,11 +46,14 @@ PROJECT_NAME = sd_app
 OBJS  = $(SRC:.c=.o)
 
 CPFLAGS = -mcpu=cortex-m0 -Os -gdwarf-2 -mthumb -fomit-frame-pointer -Wall -Wstrict-prototypes -fverbose-asm -Wa,-ahlms=$(<:.c=.lst) $(DEFS)
-LDFLAGS = -mcpu=cortex-m0 -lc -mthumb -nostartfiles -T$(LDSCRIPT) -Wl,-Map=$(PROJECT_NAME).map,--cref,--no-warn-mismatch $(LIBDIR)
+CPFLAGS += -std=gnu99
+LDFLAGS = -mcpu=cortex-m0 -lc -mthumb -nostartfiles -T$(LDSCRIPT) -Wl,-Map=$(PROJECT_NAME).map,--cref,--no-warn-mismatch $(LIBDIR) 
+
 
 # Define target processor
 TARGET 	:= 	NRF51
-CPFLAGS += -D$(TARGET) 
+CPFLAGS += -D$(TARGET)
+CPFLAGS	+= -DBLE_STACK_SUPPORT_REQD 
 
 # Generate dependency information
 CPFLAGS += -MD -MP -MF .dep\$(@F).d
