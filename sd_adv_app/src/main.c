@@ -13,6 +13,7 @@
 #include "ble_advertising.h"
 
 #define APP_ADV_NAME					"SD_ADV_APP"
+#define APP_ADV_CUSTOM_DATA			    "hello world!"
 #define APP_ADV_INTERVAL                320        // 320 * 0.625ms = 200ms
 
 #define GREEN_LED_PIN					12
@@ -64,12 +65,23 @@ static void advertising_init(void)
 {
     uint32_t      err_code;
     ble_advdata_t advdata;
+    ble_advdata_manuf_data_t manfdata;
+
     memset(&advdata, 0, sizeof(advdata));
 
     // advertise the the full device name
     advdata.name_type = BLE_ADVDATA_FULL_NAME;
-    // 
+    // LE General Discoverable Mode, BR/EDR not supported.
     advdata.flags = BLE_GAP_ADV_FLAGS_LE_ONLY_GENERAL_DISC_MODE;
+
+    // Set the manufacturer specific data below
+    memset(&manfdata, 0, sizeof(manfdata));
+
+    manfdata.company_identifier = 0x1234;
+    manfdata.data.size = strlen(APP_ADV_CUSTOM_DATA);
+    manfdata.data.p_data = (uint8_t *)APP_ADV_CUSTOM_DATA;
+
+    advdata.p_manuf_specific_data = &manfdata;
 
     ble_adv_modes_config_t options = {0};
 
