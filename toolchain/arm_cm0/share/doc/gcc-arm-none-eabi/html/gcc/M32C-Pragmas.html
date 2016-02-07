@@ -10,7 +10,7 @@
 <link rel="next" href="MeP-Pragmas.html#MeP-Pragmas" title="MeP Pragmas">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -52,17 +52,17 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Pragmas.html#Pragmas">Pragmas</a>
 <hr>
 </div>
 
-<h4 class="subsection">6.59.2 M32C Pragmas</h4>
+<h4 class="subsection">6.60.2 M32C Pragmas</h4>
 
      <dl>
-<dt><code>GCC memregs </code><var>number</var><dd><a name="index-pragma_002c-memregs-3779"></a>Overrides the command-line option <code>-memregs=</code> for the current
+<dt><code>GCC memregs </code><var>number</var><dd><a name="index-pragma_002c-memregs-4154"></a>Overrides the command-line option <code>-memregs=</code> for the current
 file.  Use with care!  This pragma must be before any function in the
 file, and mixing different memregs values in different objects may
 make them incompatible.  This pragma is useful when a
 performance-critical function uses a memreg for temporary values,
 as it may allow you to reduce the number of memregs used.
 
-     <br><dt><code>ADDRESS </code><var>name</var> <var>address</var><dd><a name="index-pragma_002c-address-3780"></a>For any declared symbols matching <var>name</var>, this does three things
+     <br><dt><code>ADDRESS </code><var>name</var> <var>address</var><dd><a name="index-pragma_002c-address-4155"></a>For any declared symbols matching <var>name</var>, this does three things
 to that symbol: it forces the symbol to be located at the given
 address (a number), it forces the symbol to be volatile, and it
 changes the symbol's scope to be static.  This pragma exists for

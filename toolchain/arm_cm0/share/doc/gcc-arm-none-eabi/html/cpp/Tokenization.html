@@ -10,7 +10,7 @@
 <link rel="next" href="The-preprocessing-language.html#The-preprocessing-language" title="The preprocessing language">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1987-2014 Free Software Foundation, Inc.
+Copyright (C) 1987-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -101,10 +101,8 @@ preprocessor.  See <a href="C_002b_002b-Named-Operators.html#C_002b_002b-Named-O
 part of the &ldquo;basic source character set&rdquo;, at the implementation's
 discretion (such as accented Latin letters, Greek letters, or Chinese
 ideograms).  This may be done with an extended character set, or the
-`<samp><span class="samp">\u</span></samp>' and `<samp><span class="samp">\U</span></samp>' escape sequences.  The implementation of this
-feature in GCC is experimental; such characters are only accepted in
-the `<samp><span class="samp">\u</span></samp>' and `<samp><span class="samp">\U</span></samp>' forms and only if
-<samp><span class="option">-fextended-identifiers</span></samp> is used.
+`<samp><span class="samp">\u</span></samp>' and `<samp><span class="samp">\U</span></samp>' escape sequences.  GCC only accepts such
+characters in the `<samp><span class="samp">\u</span></samp>' and `<samp><span class="samp">\U</span></samp>' forms.
 
    <p>As an extension, GCC treats `<samp><span class="samp">$</span></samp>' as a letter.  This is for
 compatibility with some systems, such as VMS, where `<samp><span class="samp">$</span></samp>' is commonly

@@ -10,7 +10,7 @@
 <link rel="next" href="_0040code_007bGIMPLE_005fBIND_007d.html#g_t_0040code_007bGIMPLE_005fBIND_007d" title="@code{GIMPLE_BIND}">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -53,12 +53,12 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Tuple-specific-accessors.html#Tuple-spe
 <hr>
 </div>
 
-<h4 class="subsection">11.7.2 <code>GIMPLE_ASSIGN</code></h4>
+<h4 class="subsection">11.8.2 <code>GIMPLE_ASSIGN</code></h4>
 
-<p><a name="index-g_t_0040code_007bGIMPLE_005fASSIGN_007d-2201"></a>
+<p><a name="index-g_t_0040code_007bGIMPLE_005fASSIGN_007d-2217"></a>
 
 <div class="defun">
-&mdash; GIMPLE function: gimple <b>gimple_build_assign</b> (<var>tree lhs, tree rhs</var>)<var><a name="index-gimple_005fbuild_005fassign-2202"></a></var><br>
+&mdash; GIMPLE function: gassign <b>*gimple_build_assign</b> (<var>tree lhs, tree rhs</var>)<var><a name="index-g_t_002agimple_005fbuild_005fassign-2218"></a></var><br>
 <blockquote><p>Build a <code>GIMPLE_ASSIGN</code> statement.  The left-hand side is an lvalue
 passed in lhs.  The right-hand side can be either a unary or
 binary tree expression.  The expression tree rhs will be
@@ -68,11 +68,38 @@ already have a tree expression that you want to convert into a
 tuple.  However, try to avoid building expression trees for the
 sole purpose of calling this function.  If you already have the
 operands in separate trees, it is better to use
-<code>gimple_build_assign_with_ops</code>. 
+<code>gimple_build_assign</code> with <code>enum tree_code</code> argument and separate
+arguments for each operand. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: gimple <b>gimplify_assign</b> (<var>tree dst, tree src, gimple_seq *seq_p</var>)<var><a name="index-gimplify_005fassign-2203"></a></var><br>
+&mdash; GIMPLE function: gassign <b>*gimple_build_assign</b> (<var>tree lhs, enum tree_code subcode, tree op1, tree op2, tree op3</var>)<var><a name="index-g_t_002agimple_005fbuild_005fassign-2219"></a></var><br>
+<blockquote><p>This function is similar to two operand <code>gimple_build_assign</code>,
+but is used to build a <code>GIMPLE_ASSIGN</code> statement when the operands of the
+right-hand side of the assignment are already split into
+different operands.
+
+      <p>The left-hand side is an lvalue passed in lhs.  Subcode is the
+<code>tree_code</code> for the right-hand side of the assignment.  Op1, op2 and op3
+are the operands. 
+</p></blockquote></div>
+
+<div class="defun">
+&mdash; GIMPLE function: gassign <b>*gimple_build_assign</b> (<var>tree lhs, enum tree_code subcode, tree op1, tree op2</var>)<var><a name="index-g_t_002agimple_005fbuild_005fassign-2220"></a></var><br>
+<blockquote><p>Like the above 5 operand <code>gimple_build_assign</code>, but with the last
+argument <code>NULL</code> - this overload should not be used for
+<code>GIMPLE_TERNARY_RHS</code> assignments. 
+</p></blockquote></div>
+
+<div class="defun">
+&mdash; GIMPLE function: gassign <b>*gimple_build_assign</b> (<var>tree lhs, enum tree_code subcode, tree op1</var>)<var><a name="index-g_t_002agimple_005fbuild_005fassign-2221"></a></var><br>
+<blockquote><p>Like the above 4 operand <code>gimple_build_assign</code>, but with the last
+argument <code>NULL</code> - this overload should be used only for
+<code>GIMPLE_UNARY_RHS</code> and <code>GIMPLE_SINGLE_RHS</code> assignments. 
+</p></blockquote></div>
+
+<div class="defun">
+&mdash; GIMPLE function: gimple <b>gimplify_assign</b> (<var>tree dst, tree src, gimple_seq *seq_p</var>)<var><a name="index-gimplify_005fassign-2222"></a></var><br>
 <blockquote><p>Build a new <code>GIMPLE_ASSIGN</code> tuple and append it to the end of
 <code>*SEQ_P</code>. 
 </p></blockquote></div>
@@ -84,99 +111,86 @@ case they will be converted to a gimple operand if necessary.
  <p>This function returns the newly created <code>GIMPLE_ASSIGN</code> tuple.
 
 <div class="defun">
-&mdash; GIMPLE function: gimple <b>gimple_build_assign_with_ops</b> (<var>enum tree_code subcode, tree lhs, tree op1, tree op2</var>)<var><a name="index-gimple_005fbuild_005fassign_005fwith_005fops-2204"></a></var><br>
-<blockquote><p>This function is similar to <code>gimple_build_assign</code>, but is used to
-build a <code>GIMPLE_ASSIGN</code> statement when the operands of the
-right-hand side of the assignment are already split into
-different operands.
-
-      <p>The left-hand side is an lvalue passed in lhs.  Subcode is the
-<code>tree_code</code> for the right-hand side of the assignment.  Op1 and op2
-are the operands.  If op2 is null, subcode must be a <code>tree_code</code>
-for a unary expression. 
-</p></blockquote></div>
-
-<div class="defun">
-&mdash; GIMPLE function: enum tree_code <b>gimple_assign_rhs_code</b> (<var>gimple g</var>)<var><a name="index-gimple_005fassign_005frhs_005fcode-2205"></a></var><br>
+&mdash; GIMPLE function: enum tree_code <b>gimple_assign_rhs_code</b> (<var>gimple g</var>)<var><a name="index-gimple_005fassign_005frhs_005fcode-2223"></a></var><br>
 <blockquote><p>Return the code of the expression computed on the <code>RHS</code> of
 assignment statement <code>G</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: enum gimple_rhs_class <b>gimple_assign_rhs_class</b> (<var>gimple g</var>)<var><a name="index-gimple_005fassign_005frhs_005fclass-2206"></a></var><br>
+&mdash; GIMPLE function: enum gimple_rhs_class <b>gimple_assign_rhs_class</b> (<var>gimple g</var>)<var><a name="index-gimple_005fassign_005frhs_005fclass-2224"></a></var><br>
 <blockquote><p>Return the gimple rhs class of the code for the expression
 computed on the rhs of assignment statement <code>G</code>.  This will never
 return <code>GIMPLE_INVALID_RHS</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: tree <b>gimple_assign_lhs</b> (<var>gimple g</var>)<var><a name="index-gimple_005fassign_005flhs-2207"></a></var><br>
+&mdash; GIMPLE function: tree <b>gimple_assign_lhs</b> (<var>gimple g</var>)<var><a name="index-gimple_005fassign_005flhs-2225"></a></var><br>
 <blockquote><p>Return the <code>LHS</code> of assignment statement <code>G</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: tree * <b>gimple_assign_lhs_ptr</b> (<var>gimple g</var>)<var><a name="index-gimple_005fassign_005flhs_005fptr-2208"></a></var><br>
+&mdash; GIMPLE function: tree * <b>gimple_assign_lhs_ptr</b> (<var>gimple g</var>)<var><a name="index-gimple_005fassign_005flhs_005fptr-2226"></a></var><br>
 <blockquote><p>Return a pointer to the <code>LHS</code> of assignment statement <code>G</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: tree <b>gimple_assign_rhs1</b> (<var>gimple g</var>)<var><a name="index-gimple_005fassign_005frhs1-2209"></a></var><br>
+&mdash; GIMPLE function: tree <b>gimple_assign_rhs1</b> (<var>gimple g</var>)<var><a name="index-gimple_005fassign_005frhs1-2227"></a></var><br>
 <blockquote><p>Return the first operand on the <code>RHS</code> of assignment statement <code>G</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: tree * <b>gimple_assign_rhs1_ptr</b> (<var>gimple g</var>)<var><a name="index-gimple_005fassign_005frhs1_005fptr-2210"></a></var><br>
+&mdash; GIMPLE function: tree * <b>gimple_assign_rhs1_ptr</b> (<var>gimple g</var>)<var><a name="index-gimple_005fassign_005frhs1_005fptr-2228"></a></var><br>
 <blockquote><p>Return the address of the first operand on the <code>RHS</code> of assignment
 statement <code>G</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: tree <b>gimple_assign_rhs2</b> (<var>gimple g</var>)<var><a name="index-gimple_005fassign_005frhs2-2211"></a></var><br>
+&mdash; GIMPLE function: tree <b>gimple_assign_rhs2</b> (<var>gimple g</var>)<var><a name="index-gimple_005fassign_005frhs2-2229"></a></var><br>
 <blockquote><p>Return the second operand on the <code>RHS</code> of assignment statement <code>G</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: tree * <b>gimple_assign_rhs2_ptr</b> (<var>gimple g</var>)<var><a name="index-gimple_005fassign_005frhs2_005fptr-2212"></a></var><br>
+&mdash; GIMPLE function: tree * <b>gimple_assign_rhs2_ptr</b> (<var>gimple g</var>)<var><a name="index-gimple_005fassign_005frhs2_005fptr-2230"></a></var><br>
 <blockquote><p>Return the address of the second operand on the <code>RHS</code> of assignment
 statement <code>G</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: tree <b>gimple_assign_rhs3</b> (<var>gimple g</var>)<var><a name="index-gimple_005fassign_005frhs3-2213"></a></var><br>
+&mdash; GIMPLE function: tree <b>gimple_assign_rhs3</b> (<var>gimple g</var>)<var><a name="index-gimple_005fassign_005frhs3-2231"></a></var><br>
 <blockquote><p>Return the third operand on the <code>RHS</code> of assignment statement <code>G</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: tree * <b>gimple_assign_rhs3_ptr</b> (<var>gimple g</var>)<var><a name="index-gimple_005fassign_005frhs3_005fptr-2214"></a></var><br>
+&mdash; GIMPLE function: tree * <b>gimple_assign_rhs3_ptr</b> (<var>gimple g</var>)<var><a name="index-gimple_005fassign_005frhs3_005fptr-2232"></a></var><br>
 <blockquote><p>Return the address of the third operand on the <code>RHS</code> of assignment
 statement <code>G</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: void <b>gimple_assign_set_lhs</b> (<var>gimple g, tree lhs</var>)<var><a name="index-gimple_005fassign_005fset_005flhs-2215"></a></var><br>
+&mdash; GIMPLE function: void <b>gimple_assign_set_lhs</b> (<var>gimple g, tree lhs</var>)<var><a name="index-gimple_005fassign_005fset_005flhs-2233"></a></var><br>
 <blockquote><p>Set <code>LHS</code> to be the <code>LHS</code> operand of assignment statement <code>G</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: void <b>gimple_assign_set_rhs1</b> (<var>gimple g, tree rhs</var>)<var><a name="index-gimple_005fassign_005fset_005frhs1-2216"></a></var><br>
+&mdash; GIMPLE function: void <b>gimple_assign_set_rhs1</b> (<var>gimple g, tree rhs</var>)<var><a name="index-gimple_005fassign_005fset_005frhs1-2234"></a></var><br>
 <blockquote><p>Set <code>RHS</code> to be the first operand on the <code>RHS</code> of assignment
 statement <code>G</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: void <b>gimple_assign_set_rhs2</b> (<var>gimple g, tree rhs</var>)<var><a name="index-gimple_005fassign_005fset_005frhs2-2217"></a></var><br>
+&mdash; GIMPLE function: void <b>gimple_assign_set_rhs2</b> (<var>gimple g, tree rhs</var>)<var><a name="index-gimple_005fassign_005fset_005frhs2-2235"></a></var><br>
 <blockquote><p>Set <code>RHS</code> to be the second operand on the <code>RHS</code> of assignment
 statement <code>G</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: void <b>gimple_assign_set_rhs3</b> (<var>gimple g, tree rhs</var>)<var><a name="index-gimple_005fassign_005fset_005frhs3-2218"></a></var><br>
+&mdash; GIMPLE function: void <b>gimple_assign_set_rhs3</b> (<var>gimple g, tree rhs</var>)<var><a name="index-gimple_005fassign_005fset_005frhs3-2236"></a></var><br>
 <blockquote><p>Set <code>RHS</code> to be the third operand on the <code>RHS</code> of assignment
 statement <code>G</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: bool <b>gimple_assign_cast_p</b> (<var>gimple s</var>)<var><a name="index-gimple_005fassign_005fcast_005fp-2219"></a></var><br>
+&mdash; GIMPLE function: bool <b>gimple_assign_cast_p</b> (<var>const_gimple s</var>)<var><a name="index-gimple_005fassign_005fcast_005fp-2237"></a></var><br>
 <blockquote><p>Return true if <code>S</code> is a type-cast assignment. 
 </p></blockquote></div>
 

@@ -10,7 +10,7 @@
 <link rel="next" href="Host-I_002fO-Packets.html#Host-I_002fO-Packets" title="Host I/O Packets">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -48,12 +48,12 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Remote-Protocol.html#Remote-Protocol">R
 
 <h3 class="section">E.6 Tracepoint Packets</h3>
 
-<p><a name="index-tracepoint-packets-3319"></a><a name="index-packets_002c-tracepoint-3320"></a>
+<p><a name="index-tracepoint-packets-3413"></a><a name="index-packets_002c-tracepoint-3414"></a>
 Here we describe the packets <span class="sc">gdb</span> uses to implement
 tracepoints (see <a href="Tracepoints.html#Tracepoints">Tracepoints</a>).
 
      <dl>
-<dt>`<samp><span class="samp">QTDP:</span><var>n</var><span class="samp">:</span><var>addr</var><span class="samp">:</span><var>ena</var><span class="samp">:</span><var>step</var><span class="samp">:</span><var>pass</var><span class="samp">[:F</span><var>flen</var><span class="samp">][:X</span><var>len</var><span class="samp">,</span><var>bytes</var><span class="samp">][-]</span></samp>'<dd><a name="index-g_t_0040samp_007bQTDP_007d-packet-3321"></a>Create a new tracepoint, number <var>n</var>, at <var>addr</var>.  If <var>ena</var>
+<dt>`<samp><span class="samp">QTDP:</span><var>n</var><span class="samp">:</span><var>addr</var><span class="samp">:</span><var>ena</var><span class="samp">:</span><var>step</var><span class="samp">:</span><var>pass</var><span class="samp">[:F</span><var>flen</var><span class="samp">][:X</span><var>len</var><span class="samp">,</span><var>bytes</var><span class="samp">][-]</span></samp>'<dd><a name="index-g_t_0040samp_007bQTDP_007d-packet-3415"></a>Create a new tracepoint, number <var>n</var>, at <var>addr</var>.  If <var>ena</var>
 is `<samp><span class="samp">E</span></samp>', then the tracepoint is enabled; if it is `<samp><span class="samp">D</span></samp>', then
 the tracepoint is disabled.  The <var>step</var> gives the tracepoint's step
 count, and <var>pass</var> gives its pass count.  If an `<samp><span class="samp">F</span></samp>' is present,
@@ -131,7 +131,7 @@ separate tracepoint, as far as these restrictions are concerned.)
 <br><dt>`<samp><span class="samp"><!-- /@w --></span></samp>'<dd>The packet was not recognized. 
 </dl>
 
-     <br><dt>`<samp><span class="samp">QTDPsrc:</span><var>n</var><span class="samp">:</span><var>addr</var><span class="samp">:</span><var>type</var><span class="samp">:</span><var>start</var><span class="samp">:</span><var>slen</var><span class="samp">:</span><var>bytes</var></samp>'<dd><a name="index-g_t_0040samp_007bQTDPsrc_007d-packet-3322"></a>Specify a source string of tracepoint <var>n</var> at address <var>addr</var>. 
+     <br><dt>`<samp><span class="samp">QTDPsrc:</span><var>n</var><span class="samp">:</span><var>addr</var><span class="samp">:</span><var>type</var><span class="samp">:</span><var>start</var><span class="samp">:</span><var>slen</var><span class="samp">:</span><var>bytes</var></samp>'<dd><a name="index-g_t_0040samp_007bQTDPsrc_007d-packet-3416"></a>Specify a source string of tracepoint <var>n</var> at address <var>addr</var>. 
 This is useful to get accurate reproduction of the tracepoints
 originally downloaded at the beginning of the trace run.  The <var>type</var>
 is the name of the tracepoint part, such as `<samp><span class="samp">cond</span></samp>' for the
@@ -162,14 +162,19 @@ the ones in effect during the trace run; even a small discrepancy
 could cause `<samp><span class="samp">tdump</span></samp>' not to work, or a particular trace frame not
 be found.
 
-     <br><dt>`<samp><span class="samp">QTDV:</span><var>n</var><span class="samp">:</span><var>value</var></samp>'<dd><a name="index-define-trace-state-variable_002c-remote-request-3323"></a><a name="index-g_t_0040samp_007bQTDV_007d-packet-3324"></a>Create a new trace state variable, number <var>n</var>, with an initial
+     <br><dt>`<samp><span class="samp">QTDV:</span><var>n</var><span class="samp">:</span><var>value</var><span class="samp">:</span><var>builtin</var><span class="samp">:</span><var>name</var></samp>'<dd><a name="index-define-trace-state-variable_002c-remote-request-3417"></a><a name="index-g_t_0040samp_007bQTDV_007d-packet-3418"></a>Create a new trace state variable, number <var>n</var>, with an initial
 value of <var>value</var>, which is a 64-bit signed integer.  Both <var>n</var>
 and <var>value</var> are encoded as hexadecimal values. <span class="sc">gdb</span> has
 the option of not using this packet for initial values of zero; the
 target should simply create the trace state variables as they are
-mentioned in expressions.
+mentioned in expressions.  The value <var>builtin</var> should be 1 (one)
+if the trace state variable is builtin and 0 (zero) if it is not builtin. 
+<span class="sc">gdb</span> only sets <var>builtin</var> to 1 if a previous `<samp><span class="samp">qTfV</span></samp>' or
+`<samp><span class="samp">qTsV</span></samp>' packet had it set.  The contents of <var>name</var> is the
+hex-encoded name (without the leading `<samp><span class="samp">$</span></samp>') of the trace state
+variable.
 
-     <br><dt>`<samp><span class="samp">QTFrame:</span><var>n</var></samp>'<dd><a name="index-g_t_0040samp_007bQTFrame_007d-packet-3325"></a>Select the <var>n</var>'th tracepoint frame from the buffer, and use the
+     <br><dt>`<samp><span class="samp">QTFrame:</span><var>n</var></samp>'<dd><a name="index-g_t_0040samp_007bQTFrame_007d-packet-3419"></a>Select the <var>n</var>'th tracepoint frame from the buffer, and use the
 register and memory contents recorded there to answer subsequent
 request packets from <span class="sc">gdb</span>.
 
@@ -204,7 +209,7 @@ numbers.
      <br><dt>`<samp><span class="samp">QTFrame:outside:</span><var>start</var><span class="samp">:</span><var>end</var></samp>'<dd>Like `<samp><span class="samp">QTFrame:range:</span><var>start</var><span class="samp">:</span><var>end</var></samp>', but select the first
 frame <em>outside</em> the given range of addresses (exclusive).
 
-     <br><dt>`<samp><span class="samp">qTMinFTPILen</span></samp>'<dd><a name="index-g_t_0040samp_007bqTMinFTPILen_007d-packet-3326"></a>This packet requests the minimum length of instruction at which a fast
+     <br><dt>`<samp><span class="samp">qTMinFTPILen</span></samp>'<dd><a name="index-g_t_0040samp_007bqTMinFTPILen_007d-packet-3420"></a>This packet requests the minimum length of instruction at which a fast
 tracepoint (see <a href="Set-Tracepoints.html#Set-Tracepoints">Set Tracepoints</a>) may be placed.  For instance, on
 the 32-bit x86 architecture, it is possible to use a 4-byte jump, but
 it depends on the target system being able to create trampolines in
@@ -224,25 +229,25 @@ regardless of size.
 <br><dt>`<samp><span class="samp"><!-- /@w --></span></samp>'<dd>An empty reply indicates that the request is not supported by the stub. 
 </dl>
 
-     <br><dt>`<samp><span class="samp">QTStart</span></samp>'<dd><a name="index-g_t_0040samp_007bQTStart_007d-packet-3327"></a>Begin the tracepoint experiment.  Begin collecting data from
+     <br><dt>`<samp><span class="samp">QTStart</span></samp>'<dd><a name="index-g_t_0040samp_007bQTStart_007d-packet-3421"></a>Begin the tracepoint experiment.  Begin collecting data from
 tracepoint hits in the trace frame buffer.  This packet supports the
 `<samp><span class="samp">qRelocInsn</span></samp>' reply (see <a href="Tracepoint-Packets.html#Tracepoint-Packets">Relocate instruction reply packet</a>).
 
-     <br><dt>`<samp><span class="samp">QTStop</span></samp>'<dd><a name="index-g_t_0040samp_007bQTStop_007d-packet-3328"></a>End the tracepoint experiment.  Stop collecting trace frames.
+     <br><dt>`<samp><span class="samp">QTStop</span></samp>'<dd><a name="index-g_t_0040samp_007bQTStop_007d-packet-3422"></a>End the tracepoint experiment.  Stop collecting trace frames.
 
      <br><dt>`<samp><span class="samp">QTEnable:</span><var>n</var><span class="samp">:</span><var>addr</var></samp>'<dd><a name="QTEnable"></a>
-<a name="index-g_t_0040samp_007bQTEnable_007d-packet-3329"></a>Enable tracepoint <var>n</var> at address <var>addr</var> in a started tracepoint
+<a name="index-g_t_0040samp_007bQTEnable_007d-packet-3423"></a>Enable tracepoint <var>n</var> at address <var>addr</var> in a started tracepoint
 experiment.  If the tracepoint was previously disabled, then collection
 of data from it will resume.
 
      <br><dt>`<samp><span class="samp">QTDisable:</span><var>n</var><span class="samp">:</span><var>addr</var></samp>'<dd><a name="QTDisable"></a>
-<a name="index-g_t_0040samp_007bQTDisable_007d-packet-3330"></a>Disable tracepoint <var>n</var> at address <var>addr</var> in a started tracepoint
+<a name="index-g_t_0040samp_007bQTDisable_007d-packet-3424"></a>Disable tracepoint <var>n</var> at address <var>addr</var> in a started tracepoint
 experiment.  No more data will be collected from the tracepoint unless
 `<samp><span class="samp">QTEnable:</span><var>n</var><span class="samp">:</span><var>addr</var></samp>' is subsequently issued.
 
-     <br><dt>`<samp><span class="samp">QTinit</span></samp>'<dd><a name="index-g_t_0040samp_007bQTinit_007d-packet-3331"></a>Clear the table of tracepoints, and empty the trace frame buffer.
+     <br><dt>`<samp><span class="samp">QTinit</span></samp>'<dd><a name="index-g_t_0040samp_007bQTinit_007d-packet-3425"></a>Clear the table of tracepoints, and empty the trace frame buffer.
 
-     <br><dt>`<samp><span class="samp">QTro:</span><var>start1</var><span class="samp">,</span><var>end1</var><span class="samp">:</span><var>start2</var><span class="samp">,</span><var>end2</var><span class="samp">:...</span></samp>'<dd><a name="index-g_t_0040samp_007bQTro_007d-packet-3332"></a>Establish the given ranges of memory as &ldquo;transparent&rdquo;.  The stub
+     <br><dt>`<samp><span class="samp">QTro:</span><var>start1</var><span class="samp">,</span><var>end1</var><span class="samp">:</span><var>start2</var><span class="samp">,</span><var>end2</var><span class="samp">:...</span></samp>'<dd><a name="index-g_t_0040samp_007bQTro_007d-packet-3426"></a>Establish the given ranges of memory as &ldquo;transparent&rdquo;.  The stub
 will answer requests for these ranges from memory's current contents,
 if they were not collected as part of the tracepoint hit.
 
@@ -251,12 +256,12 @@ containing program code.  Since these areas never change, they should
 still have the same contents they did when the tracepoint was hit, so
 there's no reason for the stub to refuse to provide their contents.
 
-     <br><dt>`<samp><span class="samp">QTDisconnected:</span><var>value</var></samp>'<dd><a name="index-g_t_0040samp_007bQTDisconnected_007d-packet-3333"></a>Set the choice to what to do with the tracing run when <span class="sc">gdb</span>
+     <br><dt>`<samp><span class="samp">QTDisconnected:</span><var>value</var></samp>'<dd><a name="index-g_t_0040samp_007bQTDisconnected_007d-packet-3427"></a>Set the choice to what to do with the tracing run when <span class="sc">gdb</span>
 disconnects from the target.  A <var>value</var> of 1 directs the target to
 continue the tracing run, while 0 tells the target to stop tracing if
 <span class="sc">gdb</span> is no longer in the picture.
 
-     <br><dt>`<samp><span class="samp">qTStatus</span></samp>'<dd><a name="index-g_t_0040samp_007bqTStatus_007d-packet-3334"></a>Ask the stub if there is a trace experiment running right now.
+     <br><dt>`<samp><span class="samp">qTStatus</span></samp>'<dd><a name="index-g_t_0040samp_007bqTStatus_007d-packet-3428"></a>Ask the stub if there is a trace experiment running right now.
 
      <p>The reply has the form:
 
@@ -320,7 +325,7 @@ that the trace run will stop.
 
      </dl>
 
-     <br><dt>`<samp><span class="samp">qTP:</span><var>tp</var><span class="samp">:</span><var>addr</var></samp>'<dd><a name="index-tracepoint-status_002c-remote-request-3335"></a><a name="index-g_t_0040samp_007bqTP_007d-packet-3336"></a>Ask the stub for the current state of tracepoint number <var>tp</var> at
+     <br><dt>`<samp><span class="samp">qTP:</span><var>tp</var><span class="samp">:</span><var>addr</var></samp>'<dd><a name="index-tracepoint-status_002c-remote-request-3429"></a><a name="index-g_t_0040samp_007bqTP_007d-packet-3430"></a>Ask the stub for the current state of tracepoint number <var>tp</var> at
 address <var>addr</var>.
 
      <p>Replies:
@@ -332,7 +337,7 @@ steps' space consumption is added into the usage number.
 
      </dl>
 
-     <br><dt>`<samp><span class="samp">qTV:</span><var>var</var></samp>'<dd><a name="index-trace-state-variable-value_002c-remote-request-3337"></a><a name="index-g_t_0040samp_007bqTV_007d-packet-3338"></a>Ask the stub for the value of the trace state variable number <var>var</var>.
+     <br><dt>`<samp><span class="samp">qTV:</span><var>var</var></samp>'<dd><a name="index-trace-state-variable-value_002c-remote-request-3431"></a><a name="index-g_t_0040samp_007bqTV_007d-packet-3432"></a>Ask the stub for the value of the trace state variable number <var>var</var>.
 
      <p>Replies:
           <dl>
@@ -348,13 +353,13 @@ if the user is examining a trace frame in which the requested variable
 was not collected. 
 </dl>
 
-     <br><dt>`<samp><span class="samp">qTfP</span></samp>'<dd><a name="index-g_t_0040samp_007bqTfP_007d-packet-3339"></a><dt>`<samp><span class="samp">qTsP</span></samp>'<dd><a name="index-g_t_0040samp_007bqTsP_007d-packet-3340"></a>These packets request data about tracepoints that are being used by
+     <br><dt>`<samp><span class="samp">qTfP</span></samp>'<dd><a name="index-g_t_0040samp_007bqTfP_007d-packet-3433"></a><dt>`<samp><span class="samp">qTsP</span></samp>'<dd><a name="index-g_t_0040samp_007bqTsP_007d-packet-3434"></a>These packets request data about tracepoints that are being used by
 the target.  <span class="sc">gdb</span> sends <code>qTfP</code> to get the first piece
 of data, and multiple <code>qTsP</code> to get additional pieces.  Replies
 to these packets generally take the form of the <code>QTDP</code> packets
 that define tracepoints. (FIXME add detailed syntax)
 
-     <br><dt>`<samp><span class="samp">qTfV</span></samp>'<dd><a name="index-g_t_0040samp_007bqTfV_007d-packet-3341"></a><dt>`<samp><span class="samp">qTsV</span></samp>'<dd><a name="index-g_t_0040samp_007bqTsV_007d-packet-3342"></a>These packets request data about trace state variables that are on the
+     <br><dt>`<samp><span class="samp">qTfV</span></samp>'<dd><a name="index-g_t_0040samp_007bqTfV_007d-packet-3435"></a><dt>`<samp><span class="samp">qTsV</span></samp>'<dd><a name="index-g_t_0040samp_007bqTsV_007d-packet-3436"></a>These packets request data about trace state variables that are on the
 target.  <span class="sc">gdb</span> sends <code>qTfV</code> to get the first vari of data,
 and multiple <code>qTsV</code> to get additional variables.  Replies to
 these packets follow the syntax of the <code>QTDV</code> packets that define
@@ -362,7 +367,7 @@ trace state variables.
 
      <br><dt>`<samp><span class="samp">qTfSTM</span></samp>'<dt>`<samp><span class="samp">qTsSTM</span></samp>'<dd><a name="qTfSTM"></a>
 <a name="qTsSTM"></a>
-<a name="index-g_t_0040samp_007bqTfSTM_007d-packet-3343"></a><a name="index-g_t_0040samp_007bqTsSTM_007d-packet-3344"></a>These packets request data about static tracepoint markers that exist
+<a name="index-g_t_0040samp_007bqTfSTM_007d-packet-3437"></a><a name="index-g_t_0040samp_007bqTsSTM_007d-packet-3438"></a>These packets request data about static tracepoint markers that exist
 in the target program.  <span class="sc">gdb</span> sends <code>qTfSTM</code> to get the
 first piece of data, and multiple <code>qTsSTM</code> to get additional
 pieces.  Replies to these packets take the following form:
@@ -387,17 +392,17 @@ query), until the target responds with `<samp><span class="samp">l</span></samp>
 <dfn>last</dfn>).
 
      <br><dt>`<samp><span class="samp">qTSTMat:</span><var>address</var></samp>'<dd><a name="qTSTMat"></a>
-<a name="index-g_t_0040samp_007bqTSTMat_007d-packet-3345"></a>This packets requests data about static tracepoint markers in the
+<a name="index-g_t_0040samp_007bqTSTMat_007d-packet-3439"></a>This packets requests data about static tracepoint markers in the
 target program at <var>address</var>.  Replies to this packet follow the
 syntax of the `<samp><span class="samp">qTfSTM</span></samp>' and <code>qTsSTM</code> packets that list static
 tracepoint markers.
 
-     <br><dt>`<samp><span class="samp">QTSave:</span><var>filename</var></samp>'<dd><a name="index-g_t_0040samp_007bQTSave_007d-packet-3346"></a>This packet directs the target to save trace data to the file name
+     <br><dt>`<samp><span class="samp">QTSave:</span><var>filename</var></samp>'<dd><a name="index-g_t_0040samp_007bQTSave_007d-packet-3440"></a>This packet directs the target to save trace data to the file name
 <var>filename</var> in the target's filesystem.  The <var>filename</var> is encoded
 as a hex string; the interpretation of the file name (relative vs
 absolute, wild cards, etc) is up to the target.
 
-     <br><dt>`<samp><span class="samp">qTBuffer:</span><var>offset</var><span class="samp">,</span><var>len</var></samp>'<dd><a name="index-g_t_0040samp_007bqTBuffer_007d-packet-3347"></a>Return up to <var>len</var> bytes of the current contents of trace buffer,
+     <br><dt>`<samp><span class="samp">qTBuffer:</span><var>offset</var><span class="samp">,</span><var>len</var></samp>'<dd><a name="index-g_t_0040samp_007bqTBuffer_007d-packet-3441"></a>Return up to <var>len</var> bytes of the current contents of trace buffer,
 starting at <var>offset</var>.  The trace buffer is treated as if it were
 a contiguous collection of traceframes, as per the trace file format. 
 The reply consists as many hex-encoded bytes as the target can deliver
@@ -409,11 +414,11 @@ available.
 <var>value</var> is 1, or a linear buffer if the value is 0.
 
      <br><dt>`<samp><span class="samp">QTBuffer:size:</span><var>size</var></samp>'<dd><a name="QTBuffer_002dsize"></a>
-<a name="index-g_t_0040samp_007bQTBuffer-size_007d-packet-3348"></a>This packet directs the target to make the trace buffer be of size
+<a name="index-g_t_0040samp_007bQTBuffer-size_007d-packet-3442"></a>This packet directs the target to make the trace buffer be of size
 <var>size</var> if possible.  A value of <code>-1</code> tells the target to
 use whatever size it prefers.
 
-     <br><dt>`<samp><span class="samp">QTNotes:[</span><var>type</var><span class="samp">:</span><var>text</var><span class="samp">][;</span><var>type</var><span class="samp">:</span><var>text</var><span class="samp">]...</span></samp>'<dd><a name="index-g_t_0040samp_007bQTNotes_007d-packet-3349"></a>This packet adds optional textual notes to the trace run.  Allowable
+     <br><dt>`<samp><span class="samp">QTNotes:[</span><var>type</var><span class="samp">:</span><var>text</var><span class="samp">][;</span><var>type</var><span class="samp">:</span><var>text</var><span class="samp">]...</span></samp>'<dd><a name="index-g_t_0040samp_007bQTNotes_007d-packet-3443"></a>This packet adds optional textual notes to the trace run.  Allowable
 types include <code>user</code>, <code>notes</code>, and <code>tstop</code>, the
 <var>text</var> fields are arbitrary strings, hex-encoded.
 

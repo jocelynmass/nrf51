@@ -12,7 +12,7 @@
 <!--
 This file documents the GNU Assembler "as".
 
-Copyright (C) 1991-2013 Free Software Foundation, Inc.
+Copyright (C) 1991-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
@@ -45,7 +45,9 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Pseudo-Ops.html#Pseudo-Ops">Pseudo Ops<
 <hr>
 </div>
 
-<h3 class="section">7.8 <code>.bundle_align_mode </code><var>abs-expr</var></h3>
+<h3 class="section">7.8 Bundle directives</h3>
+
+<h4 class="subsection">7.8.1 <code>.bundle_align_mode </code><var>abs-expr</var></h4>
 
 <p><a name="index-g_t_0040code_007bbundle_005falign_005fmode_007d-directive-290"></a><a name="index-bundle-291"></a><a name="index-instruction-bundle-292"></a><a name="index-aligned-instruction-bundle-293"></a><code>.bundle_align_mode</code> enables or disables <dfn>aligned instruction
 bundle</dfn> mode.  In this mode, sequences of adjacent instructions are grouped
@@ -66,7 +68,7 @@ end of that bundle is filled with no-op instructions so the instruction
 starts in the next bundle.  As a corollary, it's an error if any single
 instruction's encoding is longer than the bundle size.
 
-<h3 class="section">7.9 <code>.bundle_lock</code> and <code>.bundle_unlock</code></h3>
+<h4 class="subsection">7.8.2 <code>.bundle_lock</code> and <code>.bundle_unlock</code></h4>
 
 <p><a name="index-g_t_0040code_007bbundle_005flock_007d-directive-294"></a><a name="index-g_t_0040code_007bbundle_005funlock_007d-directive-295"></a>The <code>.bundle_lock</code> and directive <code>.bundle_unlock</code> directives
 allow explicit control over instruction bundle padding.  These directives

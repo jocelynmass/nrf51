@@ -9,7 +9,7 @@
 <link rel="next" href="Invoking-GCC.html#Invoking-GCC" title="Invoking GCC">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -57,7 +57,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
 attempts to follow one or more versions of that standard, possibly
 with some exceptions, and possibly with some extensions.
 
-<h3 class="section">2.1 C language</h3>
+<h3 class="section">2.1 C Language</h3>
 
 <p><a name="index-C-standard-21"></a><a name="index-C-standards-22"></a><a name="index-ANSI-C-standard-23"></a><a name="index-ANSI-C-24"></a><a name="index-ANSI-C89-25"></a><a name="index-C89-26"></a><a name="index-ANSI-X3_002e159_002d1989-27"></a><a name="index-X3_002e159_002d1989-28"></a><a name="index-ISO-C-standard-29"></a><a name="index-ISO-C-30"></a><a name="index-ISO-C90-31"></a><a name="index-ISO_002fIEC-9899-32"></a><a name="index-ISO-9899-33"></a><a name="index-C90-34"></a><a name="index-ISO-C94-35"></a><a name="index-C94-36"></a><a name="index-ISO-C95-37"></a><a name="index-C95-38"></a><a name="index-ISO-C99-39"></a><a name="index-C99-40"></a><a name="index-ISO-C9X-41"></a><a name="index-C9X-42"></a><a name="index-ISO-C11-43"></a><a name="index-C11-44"></a><a name="index-ISO-C1X-45"></a><a name="index-C1X-46"></a><a name="index-Technical-Corrigenda-47"></a><a name="index-TC1-48"></a><a name="index-Technical-Corrigendum-1-49"></a><a name="index-TC2-50"></a><a name="index-Technical-Corrigendum-2-51"></a><a name="index-TC3-52"></a><a name="index-Technical-Corrigendum-3-53"></a><a name="index-AMD1-54"></a><a name="index-freestanding-implementation-55"></a><a name="index-freestanding-environment-56"></a><a name="index-hosted-implementation-57"></a><a name="index-hosted-environment-58"></a><a name="index-g_t_005f_005fSTDC_005fHOSTED_005f_005f-59"></a>
 GCC supports three versions of the C standard, although support for
@@ -114,12 +114,10 @@ they conflict with the C standard version selected.  You may also
 select an extended version of the C language explicitly with
 <samp><span class="option">-std=gnu90</span></samp> (for C90 with GNU extensions), <samp><span class="option">-std=gnu99</span></samp>
 (for C99 with GNU extensions) or <samp><span class="option">-std=gnu11</span></samp> (for C11 with GNU
-extensions).  The default, if no C language dialect
-options are given, is <samp><span class="option">-std=gnu90</span></samp>; this is intended to change
-to <samp><span class="option">-std=gnu11</span></samp> in some future release.  Some features that are
-part of the C99 standard are
-accepted as extensions in C90 mode, and some features that are part of
-the C11 standard are accepted as extensions in C90 and C99 modes.
+extensions).  The default, if no C language dialect options are given,
+is <samp><span class="option">-std=gnu11</span></samp>.  Some features that are part of the C99 standard
+are accepted as extensions in C90 mode, and some features that are part
+of the C11 standard are accepted as extensions in C90 and C99 modes.
 
  <p>The ISO C standard defines (in clause 4) two classes of conforming
 implementation.  A <dfn>conforming hosted implementation</dfn> supports the
@@ -174,7 +172,7 @@ to <code>abort</code>.
 information concerning the history of C that is available online, see
 <a href="http://gcc.gnu.org/readings.html">http://gcc.gnu.org/readings.html</a>
 
-<h3 class="section">2.2 C++ language</h3>
+<h3 class="section">2.2 C++ Language</h3>
 
 <p>GCC supports the original ISO C++ standard (1998) and contains
 experimental support for the second ISO C++ standard (2011).
@@ -212,7 +210,7 @@ may also select an extended version of the C++ language explicitly with
 <samp><span class="option">-std=gnu++11</span></samp> (for C++11 with GNU extensions).  The default, if
 no C++ language dialect options are given, is <samp><span class="option">-std=gnu++98</span></samp>.
 
-<h3 class="section">2.3 Objective-C and Objective-C++ languages</h3>
+<h3 class="section">2.3 Objective-C and Objective-C++ Languages</h3>
 
 <p><a name="index-Objective_002dC-65"></a><a name="index-Objective_002dC_002b_002b-66"></a>
 GCC supports &ldquo;traditional&rdquo; Objective-C (also known as &ldquo;Objective-C
@@ -274,12 +272,12 @@ an error if one of the new features is used.
  <p>For more information concerning the history of Objective-C that is
 available online, see <a href="http://gcc.gnu.org/readings.html">http://gcc.gnu.org/readings.html</a>
 
-<h3 class="section">2.4 Go language</h3>
+<h3 class="section">2.4 Go Language</h3>
 
 <p>As of the GCC 4.7.1 release, GCC supports the Go 1 language standard,
 described at <a href="http://golang.org/doc/go1.html">http://golang.org/doc/go1.html</a>.
 
-<h3 class="section">2.5 References for other languages</h3>
+<h3 class="section">2.5 References for Other Languages</h3>
 
 <p>See <a href="../gnat_rm/index.html#Top">GNAT Reference Manual</a>, for information on standard
 conformance and compatibility of the Ada compiler.

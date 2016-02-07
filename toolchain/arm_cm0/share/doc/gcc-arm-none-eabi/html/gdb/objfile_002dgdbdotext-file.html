@@ -9,7 +9,7 @@
 <link rel="next" href="dotdebug_005fgdb_005fscripts-section.html#dotdebug_005fgdb_005fscripts-section" title="dotdebug_gdb_scripts section">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -47,7 +47,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Auto_002dloading-extensions.html#Auto_0
 
 <h4 class="subsection">23.4.1 The <samp><var>objfile</var><span class="file">-gdb.</span><var>ext</var></samp> file</h4>
 
-<p><a name="index-g_t_0040file_007b_0040var_007bobjfile_007d_002dgdb_002egdb_007d-2708"></a><a name="index-g_t_0040file_007b_0040var_007bobjfile_007d_002dgdb_002epy_007d-2709"></a><a name="index-g_t_0040file_007b_0040var_007bobjfile_007d_002dgdb_002escm_007d-2710"></a>
+<p><a name="index-g_t_0040file_007b_0040var_007bobjfile_007d_002dgdb_002egdb_007d-2781"></a><a name="index-g_t_0040file_007b_0040var_007bobjfile_007d_002dgdb_002epy_007d-2782"></a><a name="index-g_t_0040file_007b_0040var_007bobjfile_007d_002dgdb_002escm_007d-2783"></a>
 When a new object file is read, <span class="sc">gdb</span> looks for a file named
 <samp><var>objfile</var><span class="file">-gdb.</span><var>ext</var></samp> (we call it <var>script-name</var> below),
 where <var>objfile</var> is the object file's name and
@@ -80,7 +80,7 @@ between Unix and MS-Windows hosts.
 
      <dl>
 <a name="set-auto_002dload-scripts_002ddirectory"></a>
-<a name="index-set-auto_002dload-scripts_002ddirectory-2711"></a><dt><code>set auto-load scripts-directory </code><span class="roman">[</span><var>directories</var><span class="roman">]</span><dd>Control <span class="sc">gdb</span> auto-loaded scripts location.  Multiple directory entries
+<a name="index-set-auto_002dload-scripts_002ddirectory-2784"></a><dt><code>set auto-load scripts-directory </code><span class="roman">[</span><var>directories</var><span class="roman">]</span><dd>Control <span class="sc">gdb</span> auto-loaded scripts location.  Multiple directory entries
 may be delimited by the host platform path separator in use
 (`<samp><span class="samp">:</span></samp>' on Unix, `<samp><span class="samp">;</span></samp>' on MS-Windows and MS-DOS).
 
@@ -105,7 +105,11 @@ systems, `<samp><span class="samp">;</span></samp>' on MS-Windows and MS-DOS) to
 to the <samp><span class="env">PATH</span></samp> environment variable.
 
      <p><a name="show-auto_002dload-scripts_002ddirectory"></a>
-<a name="index-show-auto_002dload-scripts_002ddirectory-2712"></a><br><dt><code>show auto-load scripts-directory</code><dd>Show <span class="sc">gdb</span> auto-loaded scripts location. 
+<a name="index-show-auto_002dload-scripts_002ddirectory-2785"></a><br><dt><code>show auto-load scripts-directory</code><dd>Show <span class="sc">gdb</span> auto-loaded scripts location.
+
+     <p><a name="add_002dauto_002dload_002dscripts_002ddirectory"></a>
+<a name="index-add_002dauto_002dload_002dscripts_002ddirectory-2786"></a><br><dt><code>add-auto-load-scripts-directory </code><span class="roman">[</span><var>directories</var><code>...</code><span class="roman">]</span><dd>Add an entry (or list of entries) to the list of auto-loaded scripts locations. 
+Multiple entries may be delimited by the host platform path separator in use. 
 </dl>
 
    <p><span class="sc">gdb</span> does not track which files it has already auto-loaded this way. 

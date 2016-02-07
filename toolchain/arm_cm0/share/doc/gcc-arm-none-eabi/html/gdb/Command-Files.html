@@ -10,7 +10,7 @@
 <link rel="next" href="Output.html#Output" title="Output">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -48,7 +48,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Sequences.html#Sequences">Sequences</a>
 
 <h4 class="subsection">23.1.3 Command Files</h4>
 
-<p><a name="index-command-files-1739"></a><a name="index-scripting-commands-1740"></a>A command file for <span class="sc">gdb</span> is a text file made of lines that are
+<p><a name="index-command-files-1783"></a><a name="index-scripting-commands-1784"></a>A command file for <span class="sc">gdb</span> is a text file made of lines that are
 <span class="sc">gdb</span> commands.  Comments (lines starting with <kbd>#</kbd>) may
 also be included.  An empty line in a command file does nothing; it
 does not mean to repeat the last command, as it would from the
@@ -61,8 +61,8 @@ using the <code>script-extension</code> setting.
 See <a href="Extending-GDB.html#Extending-GDB">Extending GDB</a>.
 
      
-<a name="index-source-1741"></a>
-<a name="index-execute-commands-from-a-file-1742"></a>
+<a name="index-source-1785"></a>
+<a name="index-execute-commands-from-a-file-1786"></a>
 <dl><dt><code>source [-s] [-v] </code><var>filename</var><dd>Execute the command file <var>filename</var>. 
 </dl>
 
@@ -125,8 +125,8 @@ complex scripts that loop over data structures, execute commands
 conditionally, etc.
 
      
-<a name="index-if-1743"></a>
-<a name="index-else-1744"></a>
+<a name="index-if-1787"></a>
+<a name="index-else-1788"></a>
 <dl><dt><code>if</code><dt><code>else</code><dd>This command allows to include in your script conditionally executed
 commands. The <code>if</code> command takes a single argument, which is an
 expression to evaluate.  It is followed by a series of commands that
@@ -135,23 +135,23 @@ There can then optionally be an <code>else</code> line, followed by a series
 of commands that are only executed if the expression was false.  The
 end of the list is marked by a line containing <code>end</code>.
 
-     <p><a name="index-while-1745"></a><br><dt><code>while</code><dd>This command allows to write loops.  Its syntax is similar to
+     <p><a name="index-while-1789"></a><br><dt><code>while</code><dd>This command allows to write loops.  Its syntax is similar to
 <code>if</code>: the command takes a single argument, which is an expression
 to evaluate, and must be followed by the commands to execute, one per
 line, terminated by an <code>end</code>.  These commands are called the
 <dfn>body</dfn> of the loop.  The commands in the body of <code>while</code> are
 executed repeatedly as long as the expression evaluates to true.
 
-     <p><a name="index-loop_005fbreak-1746"></a><br><dt><code>loop_break</code><dd>This command exits the <code>while</code> loop in whose body it is included. 
+     <p><a name="index-loop_005fbreak-1790"></a><br><dt><code>loop_break</code><dd>This command exits the <code>while</code> loop in whose body it is included. 
 Execution of the script continues after that <code>while</code>s <code>end</code>
 line.
 
-     <p><a name="index-loop_005fcontinue-1747"></a><br><dt><code>loop_continue</code><dd>This command skips the execution of the rest of the body of commands
+     <p><a name="index-loop_005fcontinue-1791"></a><br><dt><code>loop_continue</code><dd>This command skips the execution of the rest of the body of commands
 in the <code>while</code> loop in whose body it is included.  Execution
 branches to the beginning of the <code>while</code> loop, where it evaluates
 the controlling expression.
 
-     <p><a name="index-end_0040r_007b-_0028if_002felse_002fwhile-commands_0029_007d-1748"></a><br><dt><code>end</code><dd>Terminate the block of commands that are the body of <code>if</code>,
+     <p><a name="index-end_0040r_007b-_0028if_002felse_002fwhile-commands_0029_007d-1792"></a><br><dt><code>end</code><dd>Terminate the block of commands that are the body of <code>if</code>,
 <code>else</code>, or <code>while</code> flow-control commands. 
 </dl>
 

@@ -10,7 +10,7 @@
 <link rel="next" href="Named-Address-Spaces.html#Named-Address-Spaces" title="Named Address Spaces">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -53,26 +53,26 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Target-Macros.html#Target-Macros">Targe
 <hr>
 </div>
 
-<h3 class="section">17.29 C++ ABI parameters</h3>
+<h3 class="section">17.28 C++ ABI parameters</h3>
 
-<p><a name="index-parameters_002c-c_002b_002b-abi-4834"></a>
+<p><a name="index-parameters_002c-c_002b_002b-abi-4868"></a>
 
 <div class="defun">
-&mdash; Target Hook: tree <b>TARGET_CXX_GUARD_TYPE</b> (<var>void</var>)<var><a name="index-TARGET_005fCXX_005fGUARD_005fTYPE-4835"></a></var><br>
+&mdash; Target Hook: tree <b>TARGET_CXX_GUARD_TYPE</b> (<var>void</var>)<var><a name="index-TARGET_005fCXX_005fGUARD_005fTYPE-4869"></a></var><br>
 <blockquote><p>Define this hook to override the integer type used for guard variables. 
 These are used to implement one-time construction of static objects.  The
 default is long_long_integer_type_node. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: bool <b>TARGET_CXX_GUARD_MASK_BIT</b> (<var>void</var>)<var><a name="index-TARGET_005fCXX_005fGUARD_005fMASK_005fBIT-4836"></a></var><br>
+&mdash; Target Hook: bool <b>TARGET_CXX_GUARD_MASK_BIT</b> (<var>void</var>)<var><a name="index-TARGET_005fCXX_005fGUARD_005fMASK_005fBIT-4870"></a></var><br>
 <blockquote><p>This hook determines how guard variables are used.  It should return
 <code>false</code> (the default) if the first byte should be used.  A return value of
 <code>true</code> indicates that only the least significant bit should be used. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: tree <b>TARGET_CXX_GET_COOKIE_SIZE</b> (<var>tree type</var>)<var><a name="index-TARGET_005fCXX_005fGET_005fCOOKIE_005fSIZE-4837"></a></var><br>
+&mdash; Target Hook: tree <b>TARGET_CXX_GET_COOKIE_SIZE</b> (<var>tree type</var>)<var><a name="index-TARGET_005fCXX_005fGET_005fCOOKIE_005fSIZE-4871"></a></var><br>
 <blockquote><p>This hook returns the size of the cookie to use when allocating an array
 whose elements have the indicated <var>type</var>.  Assumes that it is already
 known that a cookie is needed.  The default is
@@ -81,13 +81,13 @@ IA64/Generic C++ ABI.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: bool <b>TARGET_CXX_COOKIE_HAS_SIZE</b> (<var>void</var>)<var><a name="index-TARGET_005fCXX_005fCOOKIE_005fHAS_005fSIZE-4838"></a></var><br>
+&mdash; Target Hook: bool <b>TARGET_CXX_COOKIE_HAS_SIZE</b> (<var>void</var>)<var><a name="index-TARGET_005fCXX_005fCOOKIE_005fHAS_005fSIZE-4872"></a></var><br>
 <blockquote><p>This hook should return <code>true</code> if the element size should be stored in
 array cookies.  The default is to return <code>false</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: int <b>TARGET_CXX_IMPORT_EXPORT_CLASS</b> (<var>tree type, int import_export</var>)<var><a name="index-TARGET_005fCXX_005fIMPORT_005fEXPORT_005fCLASS-4839"></a></var><br>
+&mdash; Target Hook: int <b>TARGET_CXX_IMPORT_EXPORT_CLASS</b> (<var>tree type, int import_export</var>)<var><a name="index-TARGET_005fCXX_005fIMPORT_005fEXPORT_005fCLASS-4873"></a></var><br>
 <blockquote><p>If defined by a backend this hook allows the decision made to export
 class <var>type</var> to be overruled.  Upon entry <var>import_export</var>
 will contain 1 if the class is going to be exported, &minus;1 if it is going
@@ -97,14 +97,14 @@ backend's targeted operating system.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: bool <b>TARGET_CXX_CDTOR_RETURNS_THIS</b> (<var>void</var>)<var><a name="index-TARGET_005fCXX_005fCDTOR_005fRETURNS_005fTHIS-4840"></a></var><br>
+&mdash; Target Hook: bool <b>TARGET_CXX_CDTOR_RETURNS_THIS</b> (<var>void</var>)<var><a name="index-TARGET_005fCXX_005fCDTOR_005fRETURNS_005fTHIS-4874"></a></var><br>
 <blockquote><p>This hook should return <code>true</code> if constructors and destructors return
 the address of the object created/destroyed.  The default is to return
 <code>false</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: bool <b>TARGET_CXX_KEY_METHOD_MAY_BE_INLINE</b> (<var>void</var>)<var><a name="index-TARGET_005fCXX_005fKEY_005fMETHOD_005fMAY_005fBE_005fINLINE-4841"></a></var><br>
+&mdash; Target Hook: bool <b>TARGET_CXX_KEY_METHOD_MAY_BE_INLINE</b> (<var>void</var>)<var><a name="index-TARGET_005fCXX_005fKEY_005fMETHOD_005fMAY_005fBE_005fINLINE-4875"></a></var><br>
 <blockquote><p>This hook returns true if the key method for a class (i.e., the method
 which, if defined in the current translation unit, causes the virtual
 table to be emitted) may be an inline function.  Under the standard
@@ -115,12 +115,12 @@ method.  The default is to return <code>true</code>.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: void <b>TARGET_CXX_DETERMINE_CLASS_DATA_VISIBILITY</b> (<var>tree decl</var>)<var><a name="index-TARGET_005fCXX_005fDETERMINE_005fCLASS_005fDATA_005fVISIBILITY-4842"></a></var><br>
+&mdash; Target Hook: void <b>TARGET_CXX_DETERMINE_CLASS_DATA_VISIBILITY</b> (<var>tree decl</var>)<var><a name="index-TARGET_005fCXX_005fDETERMINE_005fCLASS_005fDATA_005fVISIBILITY-4876"></a></var><br>
 <blockquote><p><var>decl</var> is a virtual table, virtual table table, typeinfo object, or other similar implicit class data object that will be emitted with external linkage in this translation unit.  No ELF visibility has been explicitly specified.  If the target needs to specify a visibility other than that of the containing class, use this hook to set <code>DECL_VISIBILITY</code> and <code>DECL_VISIBILITY_SPECIFIED</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: bool <b>TARGET_CXX_CLASS_DATA_ALWAYS_COMDAT</b> (<var>void</var>)<var><a name="index-TARGET_005fCXX_005fCLASS_005fDATA_005fALWAYS_005fCOMDAT-4843"></a></var><br>
+&mdash; Target Hook: bool <b>TARGET_CXX_CLASS_DATA_ALWAYS_COMDAT</b> (<var>void</var>)<var><a name="index-TARGET_005fCXX_005fCLASS_005fDATA_005fALWAYS_005fCOMDAT-4877"></a></var><br>
 <blockquote><p>This hook returns true (the default) if virtual tables and other
 similar implicit class data objects are always COMDAT if they have
 external linkage.  If this hook returns false, then class data for
@@ -129,21 +129,21 @@ unit will not be COMDAT.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: bool <b>TARGET_CXX_LIBRARY_RTTI_COMDAT</b> (<var>void</var>)<var><a name="index-TARGET_005fCXX_005fLIBRARY_005fRTTI_005fCOMDAT-4844"></a></var><br>
+&mdash; Target Hook: bool <b>TARGET_CXX_LIBRARY_RTTI_COMDAT</b> (<var>void</var>)<var><a name="index-TARGET_005fCXX_005fLIBRARY_005fRTTI_005fCOMDAT-4878"></a></var><br>
 <blockquote><p>This hook returns true (the default) if the RTTI information for
 the basic types which is defined in the C++ runtime should always
 be COMDAT, false if it should not be COMDAT. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: bool <b>TARGET_CXX_USE_AEABI_ATEXIT</b> (<var>void</var>)<var><a name="index-TARGET_005fCXX_005fUSE_005fAEABI_005fATEXIT-4845"></a></var><br>
+&mdash; Target Hook: bool <b>TARGET_CXX_USE_AEABI_ATEXIT</b> (<var>void</var>)<var><a name="index-TARGET_005fCXX_005fUSE_005fAEABI_005fATEXIT-4879"></a></var><br>
 <blockquote><p>This hook returns true if <code>__aeabi_atexit</code> (as defined by the ARM EABI)
 should be used to register static destructors when <samp><span class="option">-fuse-cxa-atexit</span></samp>
 is in effect.  The default is to return false to use <code>__cxa_atexit</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: bool <b>TARGET_CXX_USE_ATEXIT_FOR_CXA_ATEXIT</b> (<var>void</var>)<var><a name="index-TARGET_005fCXX_005fUSE_005fATEXIT_005fFOR_005fCXA_005fATEXIT-4846"></a></var><br>
+&mdash; Target Hook: bool <b>TARGET_CXX_USE_ATEXIT_FOR_CXA_ATEXIT</b> (<var>void</var>)<var><a name="index-TARGET_005fCXX_005fUSE_005fATEXIT_005fFOR_005fCXA_005fATEXIT-4880"></a></var><br>
 <blockquote><p>This hook returns true if the target <code>atexit</code> function can be used
 in the same manner as <code>__cxa_atexit</code> to register C++ static
 destructors. This requires that <code>atexit</code>-registered functions in
@@ -152,12 +152,12 @@ unloaded. The default is to return false.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: void <b>TARGET_CXX_ADJUST_CLASS_AT_DEFINITION</b> (<var>tree type</var>)<var><a name="index-TARGET_005fCXX_005fADJUST_005fCLASS_005fAT_005fDEFINITION-4847"></a></var><br>
+&mdash; Target Hook: void <b>TARGET_CXX_ADJUST_CLASS_AT_DEFINITION</b> (<var>tree type</var>)<var><a name="index-TARGET_005fCXX_005fADJUST_005fCLASS_005fAT_005fDEFINITION-4881"></a></var><br>
 <blockquote><p><var>type</var> is a C++ class (i.e., RECORD_TYPE or UNION_TYPE) that has just been defined.  Use this hook to make adjustments to the class (eg, tweak visibility or perform any other required target modifications). 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: tree <b>TARGET_CXX_DECL_MANGLING_CONTEXT</b> (<var>const_tree decl</var>)<var><a name="index-TARGET_005fCXX_005fDECL_005fMANGLING_005fCONTEXT-4848"></a></var><br>
+&mdash; Target Hook: tree <b>TARGET_CXX_DECL_MANGLING_CONTEXT</b> (<var>const_tree decl</var>)<var><a name="index-TARGET_005fCXX_005fDECL_005fMANGLING_005fCONTEXT-4882"></a></var><br>
 <blockquote><p>Return target-specific mangling context of <var>decl</var> or <code>NULL_TREE</code>. 
 </p></blockquote></div>
 

@@ -10,7 +10,7 @@
 <link rel="next" href="FR30-Options.html#FR30-Options" title="FR30 Options">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -57,7 +57,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Submodel-Options.html#Submodel-Options"
 <p>These `<samp><span class="samp">-m</span></samp>' options are defined for the DEC Alpha implementations:
 
      <dl>
-<dt><code>-mno-soft-float</code><dt><code>-msoft-float</code><dd><a name="index-mno_002dsoft_002dfloat-1460"></a><a name="index-msoft_002dfloat-1461"></a>Use (do not use) the hardware floating-point instructions for
+<dt><code>-mno-soft-float</code><dt><code>-msoft-float</code><dd><a name="index-mno_002dsoft_002dfloat-1599"></a><a name="index-msoft_002dfloat-1600"></a>Use (do not use) the hardware floating-point instructions for
 floating-point operations.  When <samp><span class="option">-msoft-float</span></samp> is specified,
 functions in <samp><span class="file">libgcc.a</span></samp> are used to perform floating-point
 operations.  Unless they are replaced by routines that emulate the
@@ -70,7 +70,7 @@ them.
      <p>Note that Alpha implementations without floating-point operations are
 required to have floating-point registers.
 
-     <br><dt><code>-mfp-reg</code><dt><code>-mno-fp-regs</code><dd><a name="index-mfp_002dreg-1462"></a><a name="index-mno_002dfp_002dregs-1463"></a>Generate code that uses (does not use) the floating-point register set. 
+     <br><dt><code>-mfp-reg</code><dt><code>-mno-fp-regs</code><dd><a name="index-mfp_002dreg-1601"></a><a name="index-mno_002dfp_002dregs-1602"></a>Generate code that uses (does not use) the floating-point register set. 
 <samp><span class="option">-mno-fp-regs</span></samp> implies <samp><span class="option">-msoft-float</span></samp>.  If the floating-point
 register set is not used, floating-point operands are passed in integer
 registers as if they were integers and floating-point results are passed
@@ -82,7 +82,7 @@ option.
      <p>A typical use of this option is building a kernel that does not use,
 and hence need not save and restore, any floating-point registers.
 
-     <br><dt><code>-mieee</code><dd><a name="index-mieee-1464"></a>The Alpha architecture implements floating-point hardware optimized for
+     <br><dt><code>-mieee</code><dd><a name="index-mieee-1603"></a>The Alpha architecture implements floating-point hardware optimized for
 maximum performance.  It is mostly compliant with the IEEE floating-point
 standard.  However, for full compliance, software assistance is
 required.  This option generates code fully IEEE-compliant code
@@ -93,7 +93,7 @@ able to correctly support denormalized numbers and exceptional IEEE
 values such as not-a-number and plus/minus infinity.  Other Alpha
 compilers call this option <samp><span class="option">-ieee_with_no_inexact</span></samp>.
 
-     <br><dt><code>-mieee-with-inexact</code><dd><a name="index-mieee_002dwith_002dinexact-1465"></a>This is like <samp><span class="option">-mieee</span></samp> except the generated code also maintains
+     <br><dt><code>-mieee-with-inexact</code><dd><a name="index-mieee_002dwith_002dinexact-1604"></a>This is like <samp><span class="option">-mieee</span></samp> except the generated code also maintains
 the IEEE <var>inexact-flag</var>.  Turning on this option causes the
 generated code to implement fully-compliant IEEE math.  In addition to
 <code>_IEEE_FP</code>, <code>_IEEE_FP_EXACT</code> is defined as a preprocessor
@@ -103,7 +103,7 @@ very little code that depends on the <var>inexact-flag</var>, you should
 normally not specify this option.  Other Alpha compilers call this
 option <samp><span class="option">-ieee_with_inexact</span></samp>.
 
-     <br><dt><code>-mfp-trap-mode=</code><var>trap-mode</var><dd><a name="index-mfp_002dtrap_002dmode-1466"></a>This option controls what floating-point related traps are enabled. 
+     <br><dt><code>-mfp-trap-mode=</code><var>trap-mode</var><dd><a name="index-mfp_002dtrap_002dmode-1605"></a>This option controls what floating-point related traps are enabled. 
 Other Alpha compilers call this option <samp><span class="option">-fptm </span><var>trap-mode</var></samp>. 
 The trap mode can be set to one of four values:
 
@@ -121,7 +121,7 @@ completion (see Alpha architecture manual for details).
           <br><dt>`<samp><span class="samp">sui</span></samp>'<dd>Like `<samp><span class="samp">su</span></samp>', but inexact traps are enabled as well. 
 </dl>
 
-     <br><dt><code>-mfp-rounding-mode=</code><var>rounding-mode</var><dd><a name="index-mfp_002drounding_002dmode-1467"></a>Selects the IEEE rounding mode.  Other Alpha compilers call this option
+     <br><dt><code>-mfp-rounding-mode=</code><var>rounding-mode</var><dd><a name="index-mfp_002drounding_002dmode-1606"></a>Selects the IEEE rounding mode.  Other Alpha compilers call this option
 <samp><span class="option">-fprm </span><var>rounding-mode</var></samp>.  The <var>rounding-mode</var> can be one
 of:
 
@@ -141,7 +141,7 @@ rounding towards plus infinity.  Thus, unless your program modifies the
 <var>fpcr</var>, `<samp><span class="samp">d</span></samp>' corresponds to round towards plus infinity. 
 </dl>
 
-     <br><dt><code>-mtrap-precision=</code><var>trap-precision</var><dd><a name="index-mtrap_002dprecision-1468"></a>In the Alpha architecture, floating-point traps are imprecise.  This
+     <br><dt><code>-mtrap-precision=</code><var>trap-precision</var><dd><a name="index-mtrap_002dprecision-1607"></a>In the Alpha architecture, floating-point traps are imprecise.  This
 means without software assistance it is impossible to recover from a
 floating trap and program execution normally needs to be terminated. 
 GCC can generate code that can assist operating system trap handlers
@@ -163,13 +163,13 @@ instruction that caused a floating-point exception.
      <p>Other Alpha compilers provide the equivalent options called
 <samp><span class="option">-scope_safe</span></samp> and <samp><span class="option">-resumption_safe</span></samp>.
 
-     <br><dt><code>-mieee-conformant</code><dd><a name="index-mieee_002dconformant-1469"></a>This option marks the generated code as IEEE conformant.  You must not
+     <br><dt><code>-mieee-conformant</code><dd><a name="index-mieee_002dconformant-1608"></a>This option marks the generated code as IEEE conformant.  You must not
 use this option unless you also specify <samp><span class="option">-mtrap-precision=i</span></samp> and either
 <samp><span class="option">-mfp-trap-mode=su</span></samp> or <samp><span class="option">-mfp-trap-mode=sui</span></samp>.  Its only effect
 is to emit the line `<samp><span class="samp">.eflag 48</span></samp>' in the function prologue of the
 generated assembly file.
 
-     <br><dt><code>-mbuild-constants</code><dd><a name="index-mbuild_002dconstants-1470"></a>Normally GCC examines a 32- or 64-bit integer constant to
+     <br><dt><code>-mbuild-constants</code><dd><a name="index-mbuild_002dconstants-1609"></a>Normally GCC examines a 32- or 64-bit integer constant to
 see if it can construct it from smaller constants in two or three
 instructions.  If it cannot, it outputs the constant as a literal and
 generates code to load it from the data segment at run time.
@@ -181,15 +181,15 @@ using code, even if it takes more instructions (the maximum is six).
 loader.  Itself a shared library, it must relocate itself in memory
 before it can find the variables and constants in its own data segment.
 
-     <br><dt><code>-mbwx</code><dt><code>-mno-bwx</code><dt><code>-mcix</code><dt><code>-mno-cix</code><dt><code>-mfix</code><dt><code>-mno-fix</code><dt><code>-mmax</code><dt><code>-mno-max</code><dd><a name="index-mbwx-1471"></a><a name="index-mno_002dbwx-1472"></a><a name="index-mcix-1473"></a><a name="index-mno_002dcix-1474"></a><a name="index-mfix-1475"></a><a name="index-mno_002dfix-1476"></a><a name="index-mmax-1477"></a><a name="index-mno_002dmax-1478"></a>Indicate whether GCC should generate code to use the optional BWX,
+     <br><dt><code>-mbwx</code><dt><code>-mno-bwx</code><dt><code>-mcix</code><dt><code>-mno-cix</code><dt><code>-mfix</code><dt><code>-mno-fix</code><dt><code>-mmax</code><dt><code>-mno-max</code><dd><a name="index-mbwx-1610"></a><a name="index-mno_002dbwx-1611"></a><a name="index-mcix-1612"></a><a name="index-mno_002dcix-1613"></a><a name="index-mfix-1614"></a><a name="index-mno_002dfix-1615"></a><a name="index-mmax-1616"></a><a name="index-mno_002dmax-1617"></a>Indicate whether GCC should generate code to use the optional BWX,
 CIX, FIX and MAX instruction sets.  The default is to use the instruction
 sets supported by the CPU type specified via <samp><span class="option">-mcpu=</span></samp> option or that
 of the CPU on which GCC was built if none is specified.
 
-     <br><dt><code>-mfloat-vax</code><dt><code>-mfloat-ieee</code><dd><a name="index-mfloat_002dvax-1479"></a><a name="index-mfloat_002dieee-1480"></a>Generate code that uses (does not use) VAX F and G floating-point
+     <br><dt><code>-mfloat-vax</code><dt><code>-mfloat-ieee</code><dd><a name="index-mfloat_002dvax-1618"></a><a name="index-mfloat_002dieee-1619"></a>Generate code that uses (does not use) VAX F and G floating-point
 arithmetic instead of IEEE single and double precision.
 
-     <br><dt><code>-mexplicit-relocs</code><dt><code>-mno-explicit-relocs</code><dd><a name="index-mexplicit_002drelocs-1481"></a><a name="index-mno_002dexplicit_002drelocs-1482"></a>Older Alpha assemblers provided no way to generate symbol relocations
+     <br><dt><code>-mexplicit-relocs</code><dt><code>-mno-explicit-relocs</code><dd><a name="index-mexplicit_002drelocs-1620"></a><a name="index-mno_002dexplicit_002drelocs-1621"></a>Older Alpha assemblers provided no way to generate symbol relocations
 except via assembler macros.  Use of these macros does not allow
 optimal instruction scheduling.  GNU binutils as of version 2.12
 supports a new syntax that allows the compiler to explicitly mark
@@ -197,7 +197,7 @@ which relocations should apply to which instructions.  This option
 is mostly useful for debugging, as GCC detects the capabilities of
 the assembler when it is built and sets the default accordingly.
 
-     <br><dt><code>-msmall-data</code><dt><code>-mlarge-data</code><dd><a name="index-msmall_002ddata-1483"></a><a name="index-mlarge_002ddata-1484"></a>When <samp><span class="option">-mexplicit-relocs</span></samp> is in effect, static data is
+     <br><dt><code>-msmall-data</code><dt><code>-mlarge-data</code><dd><a name="index-msmall_002ddata-1622"></a><a name="index-mlarge_002ddata-1623"></a>When <samp><span class="option">-mexplicit-relocs</span></samp> is in effect, static data is
 accessed via <dfn>gp-relative</dfn> relocations.  When <samp><span class="option">-msmall-data</span></samp>
 is used, objects 8 bytes long or smaller are placed in a <dfn>small data area</dfn>
 (the <code>.sdata</code> and <code>.sbss</code> sections) and are accessed via
@@ -213,7 +213,7 @@ heap instead of in the program's data segment.
      <p>When generating code for shared libraries, <samp><span class="option">-fpic</span></samp> implies
 <samp><span class="option">-msmall-data</span></samp> and <samp><span class="option">-fPIC</span></samp> implies <samp><span class="option">-mlarge-data</span></samp>.
 
-     <br><dt><code>-msmall-text</code><dt><code>-mlarge-text</code><dd><a name="index-msmall_002dtext-1485"></a><a name="index-mlarge_002dtext-1486"></a>When <samp><span class="option">-msmall-text</span></samp> is used, the compiler assumes that the
+     <br><dt><code>-msmall-text</code><dt><code>-mlarge-text</code><dd><a name="index-msmall_002dtext-1624"></a><a name="index-mlarge_002dtext-1625"></a>When <samp><span class="option">-msmall-text</span></samp> is used, the compiler assumes that the
 code of the entire program (or shared library) fits in 4MB, and is
 thus reachable with a branch instruction.  When <samp><span class="option">-msmall-data</span></samp>
 is used, the compiler can assume that all local symbols share the
@@ -222,7 +222,7 @@ required for a function call from 4 to 1.
 
      <p>The default is <samp><span class="option">-mlarge-text</span></samp>.
 
-     <br><dt><code>-mcpu=</code><var>cpu_type</var><dd><a name="index-mcpu-1487"></a>Set the instruction set and instruction scheduling parameters for
+     <br><dt><code>-mcpu=</code><var>cpu_type</var><dd><a name="index-mcpu-1626"></a>Set the instruction set and instruction scheduling parameters for
 machine type <var>cpu_type</var>.  You can specify either the `<samp><span class="samp">EV</span></samp>'
 style name or the corresponding chip number.  GCC supports scheduling
 parameters for the EV4, EV5 and EV6 family of processors and
@@ -251,7 +251,7 @@ which selects the best architecture option for the host processor.
 <samp><span class="option">-mcpu=native</span></samp> has no effect if GCC does not recognize
 the processor.
 
-     <br><dt><code>-mtune=</code><var>cpu_type</var><dd><a name="index-mtune-1488"></a>Set only the instruction scheduling parameters for machine type
+     <br><dt><code>-mtune=</code><var>cpu_type</var><dd><a name="index-mtune-1627"></a>Set only the instruction scheduling parameters for machine type
 <var>cpu_type</var>.  The instruction set is not changed.
 
      <p>Native toolchains also support the value `<samp><span class="samp">native</span></samp>',
@@ -259,7 +259,7 @@ which selects the best architecture option for the host processor.
 <samp><span class="option">-mtune=native</span></samp> has no effect if GCC does not recognize
 the processor.
 
-     <br><dt><code>-mmemory-latency=</code><var>time</var><dd><a name="index-mmemory_002dlatency-1489"></a>Sets the latency the scheduler should assume for typical memory
+     <br><dt><code>-mmemory-latency=</code><var>time</var><dd><a name="index-mmemory_002dlatency-1628"></a>Sets the latency the scheduler should assume for typical memory
 references as seen by the application.  This number is highly
 dependent on the memory access patterns used by the application
 and the size of the external cache on the machine.

@@ -10,7 +10,7 @@
 <link rel="next" href="Remote-Configuration.html#Remote-Configuration" title="Remote Configuration">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -48,7 +48,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Remote-Debugging.html#Remote-Debugging"
 
 <h3 class="section">20.3 Using the <code>gdbserver</code> Program</h3>
 
-<p><a name="index-gdbserver-1229"></a><a name="index-remote-connection-without-stubs-1230"></a><code>gdbserver</code> is a control program for Unix-like systems, which
+<p><a name="index-gdbserver-1274"></a><a name="index-remote-connection-without-stubs-1275"></a><code>gdbserver</code> is a control program for Unix-like systems, which
 allows you to connect your program with a remote <span class="sc">gdb</span> via
 <code>target remote</code>&mdash;but without linking in the usual debugging stub.
 
@@ -80,7 +80,7 @@ target system with the same privileges as the user running
 
 <h4 class="subsection">20.3.1 Running <code>gdbserver</code></h4>
 
-<p><a name="index-arguments_002c-to-_0040code_007bgdbserver_007d-1231"></a><a name="index-g_t_0040code_007bgdbserver_007d_002c-command_002dline-arguments-1232"></a>
+<p><a name="index-arguments_002c-to-_0040code_007bgdbserver_007d-1276"></a><a name="index-g_t_0040code_007bgdbserver_007d_002c-command_002dline-arguments-1277"></a>
 Run <code>gdbserver</code> on the target system.  You need a copy of the
 program you want to debug, including any libraries it requires. 
 <code>gdbserver</code> does not need your program's symbol table, so you can
@@ -136,7 +136,7 @@ Both <code>stdout</code> and <code>stderr</code> use the same pipe.
 
 <h5 class="subsubsection">20.3.1.1 Attaching to a Running Program</h5>
 
-<p><a name="index-attach-to-a-program_002c-_0040code_007bgdbserver_007d-1233"></a><a name="index-g_t_0040option_007b_002d_002dattach_007d_002c-_0040code_007bgdbserver_007d-option-1234"></a>
+<p><a name="index-attach-to-a-program_002c-_0040code_007bgdbserver_007d-1278"></a><a name="index-g_t_0040option_007b_002d_002dattach_007d_002c-_0040code_007bgdbserver_007d-option-1279"></a>
 On some targets, <code>gdbserver</code> can also attach to running programs. 
 This is accomplished via the <code>--attach</code> argument.  The syntax is:
 
@@ -145,7 +145,7 @@ This is accomplished via the <code>--attach</code> argument.  The syntax is:
    <p><var>pid</var> is the process ID of a currently running process.  It isn't necessary
 to point <code>gdbserver</code> at a binary for the running process.
 
-   <p><a name="index-pidof-1235"></a>You can debug processes by name instead of process ID if your target has the
+   <p><a name="index-pidof-1280"></a>You can debug processes by name instead of process ID if your target has the
 <code>pidof</code> utility:
 
 <pre class="smallexample">     target&gt; gdbserver --attach <var>comm</var> `pidof <var>program</var>`
@@ -156,7 +156,7 @@ has multiple threads, most versions of <code>pidof</code> support the
 
 <h5 class="subsubsection">20.3.1.2 Multi-Process Mode for <code>gdbserver</code></h5>
 
-<p><a name="index-g_t_0040code_007bgdbserver_007d_002c-multiple-processes-1236"></a><a name="index-multiple-processes-with-_0040code_007bgdbserver_007d-1237"></a>
+<p><a name="index-g_t_0040code_007bgdbserver_007d_002c-multiple-processes-1281"></a><a name="index-multiple-processes-with-_0040code_007bgdbserver_007d-1282"></a>
 When you connect to <code>gdbserver</code> using <code>target remote</code>,
 <code>gdbserver</code> debugs the specified program only once.  When the
 program exits, or you detach from it, <span class="sc">gdb</span> closes the connection
@@ -171,7 +171,7 @@ The <code>run</code> command uses <code>set remote exec-file</code> (see <a href
 arguments are supported, except for wildcard expansion and I/O
 redirection (see <a href="Arguments.html#Arguments">Arguments</a>).
 
-   <p><a name="index-g_t_0040option_007b_002d_002dmulti_007d_002c-_0040code_007bgdbserver_007d-option-1238"></a>To start <code>gdbserver</code> without supplying an initial command to run
+   <p><a name="index-g_t_0040option_007b_002d_002dmulti_007d_002c-_0040code_007bgdbserver_007d-option-1283"></a>To start <code>gdbserver</code> without supplying an initial command to run
 or process ID to attach, use the <samp><span class="option">--multi</span></samp> command line option. 
 Then you can connect using <kbd>target extended-remote</kbd> and start
 the program you want to debug.
@@ -200,7 +200,7 @@ stays running even in the <kbd>target remote</kbd> mode.
 Such reconnecting is useful for features like <a href="disconnected-tracing.html#disconnected-tracing">disconnected tracing</a>.  For
 completeness, at most one <span class="sc">gdb</span> can be connected at a time.
 
-   <p><a name="index-g_t_0040option_007b_002d_002donce_007d_002c-_0040code_007bgdbserver_007d-option-1239"></a>By default, <code>gdbserver</code> keeps the listening TCP port open, so that
+   <p><a name="index-g_t_0040option_007b_002d_002donce_007d_002c-_0040code_007bgdbserver_007d-option-1284"></a>By default, <code>gdbserver</code> keeps the listening TCP port open, so that
 subsequent connections are possible.  However, if you start <code>gdbserver</code>
 with the <samp><span class="option">--once</span></samp> option, it will stop listening for any further
 connection attempts after connecting to the first <span class="sc">gdb</span> session.  This
@@ -216,13 +216,13 @@ instance closes its port after the first connection.
 
 <h5 class="subsubsection">20.3.1.4 Other Command-Line Arguments for <code>gdbserver</code></h5>
 
-<p><a name="index-g_t_0040option_007b_002d_002ddebug_007d_002c-_0040code_007bgdbserver_007d-option-1240"></a>The <samp><span class="option">--debug</span></samp> option tells <code>gdbserver</code> to display extra
+<p><a name="index-g_t_0040option_007b_002d_002ddebug_007d_002c-_0040code_007bgdbserver_007d-option-1285"></a>The <samp><span class="option">--debug</span></samp> option tells <code>gdbserver</code> to display extra
 status information about the debugging process. 
-<a name="index-g_t_0040option_007b_002d_002dremote_002ddebug_007d_002c-_0040code_007bgdbserver_007d-option-1241"></a>The <samp><span class="option">--remote-debug</span></samp> option tells <code>gdbserver</code> to display
+<a name="index-g_t_0040option_007b_002d_002dremote_002ddebug_007d_002c-_0040code_007bgdbserver_007d-option-1286"></a>The <samp><span class="option">--remote-debug</span></samp> option tells <code>gdbserver</code> to display
 remote protocol debug output.  These options are intended for
 <code>gdbserver</code> development and for bug reports to the developers.
 
-   <p><a name="index-g_t_0040option_007b_002d_002ddebug_002dformat_007d_002c-_0040code_007bgdbserver_007d-option-1242"></a>The <samp><span class="option">--debug-format=option1[,option2,...]</span></samp> option tells
+   <p><a name="index-g_t_0040option_007b_002d_002ddebug_002dformat_007d_002c-_0040code_007bgdbserver_007d-option-1287"></a>The <samp><span class="option">--debug-format=option1[,option2,...]</span></samp> option tells
 <code>gdbserver</code> to include additional information in each output. 
 Possible options are:
 
@@ -235,7 +235,7 @@ Possible options are:
    <p>Options are processed in order.  Thus, for example, if <samp><span class="option">none</span></samp>
 appears last then no additional information is added to debugging output.
 
-   <p><a name="index-g_t_0040option_007b_002d_002dwrapper_007d_002c-_0040code_007bgdbserver_007d-option-1243"></a>The <samp><span class="option">--wrapper</span></samp> option specifies a wrapper to launch programs
+   <p><a name="index-g_t_0040option_007b_002d_002dwrapper_007d_002c-_0040code_007bgdbserver_007d-option-1288"></a>The <samp><span class="option">--wrapper</span></samp> option specifies a wrapper to launch programs
 for debugging.  The option should be followed by the name of the
 wrapper, then any command-line arguments to pass to the wrapper, then
 <kbd>--</kbd> indicating the end of the wrapper arguments.
@@ -283,7 +283,7 @@ already on the target.
 
 <h4 class="subsection">20.3.3 Monitor Commands for <code>gdbserver</code></h4>
 
-<p><a name="index-monitor-commands_002c-for-_0040code_007bgdbserver_007d-1244"></a><a name="Monitor-Commands-for-gdbserver"></a>
+<p><a name="index-monitor-commands_002c-for-_0040code_007bgdbserver_007d-1289"></a><a name="Monitor-Commands-for-gdbserver"></a>
 
    <p>During a <span class="sc">gdb</span> session using <code>gdbserver</code>, you can use the
 <code>monitor</code> command to send special requests to <code>gdbserver</code>. 
@@ -309,7 +309,7 @@ Possible options are:
      <p>Options are processed in order.  Thus, for example, if <samp><span class="option">none</span></samp>
 appears last then no additional information is added to debugging output.
 
-     <br><dt><code>monitor set libthread-db-search-path [PATH]</code><dd><a name="index-gdbserver_002c-search-path-for-_0040code_007blibthread_005fdb_007d-1245"></a>When this command is issued, <var>path</var> is a colon-separated list of
+     <br><dt><code>monitor set libthread-db-search-path [PATH]</code><dd><a name="index-gdbserver_002c-search-path-for-_0040code_007blibthread_005fdb_007d-1290"></a>When this command is issued, <var>path</var> is a colon-separated list of
 directories to search for <code>libthread_db</code> (see <a href="Threads.html#Threads">set libthread-db-search-path</a>).  If you omit <var>path</var>,
 `<samp><span class="samp">libthread-db-search-path</span></samp>' will be reset to its default value.
 
@@ -326,7 +326,7 @@ of a multi-process mode debug session.
 
 <h4 class="subsection">20.3.4 Tracepoints support in <code>gdbserver</code></h4>
 
-<p><a name="index-tracepoints-support-in-_0040code_007bgdbserver_007d-1246"></a>
+<p><a name="index-tracepoints-support-in-_0040code_007bgdbserver_007d-1291"></a>
 On some targets, <code>gdbserver</code> supports tracepoints, fast
 tracepoints and static tracepoints.
 

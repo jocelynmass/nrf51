@@ -10,7 +10,7 @@
 <link rel="next" href="Liveness-information.html#Liveness-information" title="Liveness information">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -54,7 +54,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Control-Flow.html#Control-Flow">Control
 
 <h3 class="section">14.4 Maintaining the CFG</h3>
 
-<p><a name="index-cfghooks_002eh-3181"></a>
+<p><a name="index-cfghooks_002eh-3205"></a>
 An important task of each compiler pass is to keep both the control
 flow graph and all profile information up-to-date.  Reconstruction of
 the control flow graph after each pass is not an option, since it may be
@@ -78,55 +78,55 @@ when modifying instructions, so there rarely is a need to move them
 manually (such as in case someone wants to output instruction outside
 basic block explicitly).
 
- <p><a name="index-BLOCK_005fFOR_005fINSN_002c-gimple_005fbb-3182"></a>In the RTL representation, each instruction has a
+ <p><a name="index-BLOCK_005fFOR_005fINSN_002c-gimple_005fbb-3206"></a>In the RTL representation, each instruction has a
 <code>BLOCK_FOR_INSN</code> value that represents pointer to the basic block
 that contains the instruction.  In the <code>GIMPLE</code> representation, the
 function <code>gimple_bb</code> returns a pointer to the basic block
 containing the queried statement.
 
- <p><a name="index-GIMPLE-statement-iterators-3183"></a>When changes need to be applied to a function in its <code>GIMPLE</code>
+ <p><a name="index-GIMPLE-statement-iterators-3207"></a>When changes need to be applied to a function in its <code>GIMPLE</code>
 representation, <dfn>GIMPLE statement iterators</dfn> should be used.  These
 iterators provide an integrated abstraction of the flow graph and the
 instruction stream.  Block statement iterators are constructed using
-the <code>gimple_stmt_iterator</code> data structure and several modifier are
+the <code>gimple_stmt_iterator</code> data structure and several modifiers are
 available, including the following:
 
      <dl>
-<dt><code>gsi_start</code><a name="index-gsi_005fstart-3184"></a><dd>This function initializes a <code>gimple_stmt_iterator</code> that points to
+<dt><code>gsi_start</code><a name="index-gsi_005fstart-3208"></a><dd>This function initializes a <code>gimple_stmt_iterator</code> that points to
 the first non-empty statement in a basic block.
 
-     <br><dt><code>gsi_last</code><a name="index-gsi_005flast-3185"></a><dd>This function initializes a <code>gimple_stmt_iterator</code> that points to
+     <br><dt><code>gsi_last</code><a name="index-gsi_005flast-3209"></a><dd>This function initializes a <code>gimple_stmt_iterator</code> that points to
 the last statement in a basic block.
 
-     <br><dt><code>gsi_end_p</code><a name="index-gsi_005fend_005fp-3186"></a><dd>This predicate is <code>true</code> if a <code>gimple_stmt_iterator</code>
+     <br><dt><code>gsi_end_p</code><a name="index-gsi_005fend_005fp-3210"></a><dd>This predicate is <code>true</code> if a <code>gimple_stmt_iterator</code>
 represents the end of a basic block.
 
-     <br><dt><code>gsi_next</code><a name="index-gsi_005fnext-3187"></a><dd>This function takes a <code>gimple_stmt_iterator</code> and makes it point to
+     <br><dt><code>gsi_next</code><a name="index-gsi_005fnext-3211"></a><dd>This function takes a <code>gimple_stmt_iterator</code> and makes it point to
 its successor.
 
-     <br><dt><code>gsi_prev</code><a name="index-gsi_005fprev-3188"></a><dd>This function takes a <code>gimple_stmt_iterator</code> and makes it point to
+     <br><dt><code>gsi_prev</code><a name="index-gsi_005fprev-3212"></a><dd>This function takes a <code>gimple_stmt_iterator</code> and makes it point to
 its predecessor.
 
-     <br><dt><code>gsi_insert_after</code><a name="index-gsi_005finsert_005fafter-3189"></a><dd>This function inserts a statement after the <code>gimple_stmt_iterator</code>
+     <br><dt><code>gsi_insert_after</code><a name="index-gsi_005finsert_005fafter-3213"></a><dd>This function inserts a statement after the <code>gimple_stmt_iterator</code>
 passed in.  The final parameter determines whether the statement
 iterator is updated to point to the newly inserted statement, or left
 pointing to the original statement.
 
-     <br><dt><code>gsi_insert_before</code><a name="index-gsi_005finsert_005fbefore-3190"></a><dd>This function inserts a statement before the <code>gimple_stmt_iterator</code>
+     <br><dt><code>gsi_insert_before</code><a name="index-gsi_005finsert_005fbefore-3214"></a><dd>This function inserts a statement before the <code>gimple_stmt_iterator</code>
 passed in.  The final parameter determines whether the statement
 iterator is updated to point to the newly inserted statement, or left
 pointing to the original  statement.
 
-     <br><dt><code>gsi_remove</code><a name="index-gsi_005fremove-3191"></a><dd>This function removes the <code>gimple_stmt_iterator</code> passed in and
+     <br><dt><code>gsi_remove</code><a name="index-gsi_005fremove-3215"></a><dd>This function removes the <code>gimple_stmt_iterator</code> passed in and
 rechains the remaining statements in a basic block, if any. 
 </dl>
 
- <p><a name="index-BB_005fHEAD_002c-BB_005fEND-3192"></a>In the RTL representation, the macros <code>BB_HEAD</code> and <code>BB_END</code>
+ <p><a name="index-BB_005fHEAD_002c-BB_005fEND-3216"></a>In the RTL representation, the macros <code>BB_HEAD</code> and <code>BB_END</code>
 may be used to get the head and end <code>rtx</code> of a basic block.  No
 abstract iterators are defined for traversing the insn chain, but you
 can just use <code>NEXT_INSN</code> and <code>PREV_INSN</code> instead.  See <a href="Insns.html#Insns">Insns</a>.
 
- <p><a name="index-purge_005fdead_005fedges-3193"></a>Usually a code manipulating pass simplifies the instruction stream and
+ <p><a name="index-purge_005fdead_005fedges-3217"></a>Usually a code manipulating pass simplifies the instruction stream and
 the flow of control, possibly eliminating some edges.  This may for
 example happen when a conditional jump is replaced with an
 unconditional jump, but also when simplifying possibly trapping
@@ -136,14 +136,14 @@ manually.  However only few cases occur in practice.  The pass may
 call <code>purge_dead_edges</code> on a given basic block to remove
 superfluous edges, if any.
 
- <p><a name="index-redirect_005fedge_005fand_005fbranch_002c-redirect_005fjump-3194"></a>Another common scenario is redirection of branch instructions, but
+ <p><a name="index-redirect_005fedge_005fand_005fbranch_002c-redirect_005fjump-3218"></a>Another common scenario is redirection of branch instructions, but
 this is best modeled as redirection of edges in the control flow graph
 and thus use of <code>redirect_edge_and_branch</code> is preferred over more
 low level functions, such as <code>redirect_jump</code> that operate on RTL
 chain only.  The CFG hooks defined in <samp><span class="file">cfghooks.h</span></samp> should provide
 the complete API required for manipulating and maintaining the CFG.
 
- <p><a name="index-split_005fblock-3195"></a>It is also possible that a pass has to insert control flow instruction
+ <p><a name="index-split_005fblock-3219"></a>It is also possible that a pass has to insert control flow instruction
 into the middle of a basic block, thus creating an entry point in the
 middle of the basic block, which is impossible by definition: The
 block must be split to make sure it only has one entry point, i.e. the
@@ -151,7 +151,7 @@ head of the basic block.  The CFG hook <code>split_block</code> may be used
 when an instruction in the middle of a basic block has to become the
 target of a jump or branch instruction.
 
- <p><a name="index-insert_005finsn_005fon_005fedge-3196"></a><a name="index-commit_005fedge_005finsertions-3197"></a><a name="index-gsi_005finsert_005fon_005fedge-3198"></a><a name="index-gsi_005fcommit_005fedge_005finserts-3199"></a><a name="index-edge-splitting-3200"></a>For a global optimizer, a common operation is to split edges in the
+ <p><a name="index-insert_005finsn_005fon_005fedge-3220"></a><a name="index-commit_005fedge_005finsertions-3221"></a><a name="index-gsi_005finsert_005fon_005fedge-3222"></a><a name="index-gsi_005fcommit_005fedge_005finserts-3223"></a><a name="index-edge-splitting-3224"></a>For a global optimizer, a common operation is to split edges in the
 flow graph and insert instructions on them.  In the RTL
 representation, this can be easily done using the
 <code>insert_insn_on_edge</code> function that emits an instruction
@@ -164,7 +164,7 @@ includes the creation of new basic blocks where needed.  In the
 iterator on an edge, and <code>gsi_commit_edge_inserts</code> which flushes
 the instruction to actual instruction stream.
 
- <p><a name="index-verify_005fflow_005finfo-3201"></a><a name="index-CFG-verification-3202"></a>While debugging the optimization pass, the <code>verify_flow_info</code>
+ <p><a name="index-verify_005fflow_005finfo-3225"></a><a name="index-CFG-verification-3226"></a>While debugging the optimization pass, the <code>verify_flow_info</code>
 function may be useful to find bugs in the control flow graph updating
 code.
 

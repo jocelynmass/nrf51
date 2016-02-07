@@ -9,7 +9,7 @@
 <link rel="prev" href="Named-Address-Spaces.html#Named-Address-Spaces" title="Named Address Spaces">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -50,14 +50,14 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Target-Macros.html#Target-Macros">Targe
 <hr>
 </div>
 
-<h3 class="section">17.31 Miscellaneous Parameters</h3>
+<h3 class="section">17.30 Miscellaneous Parameters</h3>
 
-<p><a name="index-parameters_002c-miscellaneous-4857"></a>
+<p><a name="index-parameters_002c-miscellaneous-4891"></a>
 <!-- prevent bad page break with this line -->
 Here are several miscellaneous parameters.
 
 <div class="defun">
-&mdash; Macro: <b>HAS_LONG_COND_BRANCH</b><var><a name="index-HAS_005fLONG_005fCOND_005fBRANCH-4858"></a></var><br>
+&mdash; Macro: <b>HAS_LONG_COND_BRANCH</b><var><a name="index-HAS_005fLONG_005fCOND_005fBRANCH-4892"></a></var><br>
 <blockquote><p>Define this boolean macro to indicate whether or not your architecture
 has conditional branches that can span all of memory.  It is used in
 conjunction with an optimization that partitions hot and cold basic
@@ -67,7 +67,7 @@ to cross between sections into unconditional branches or indirect jumps.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>HAS_LONG_UNCOND_BRANCH</b><var><a name="index-HAS_005fLONG_005fUNCOND_005fBRANCH-4859"></a></var><br>
+&mdash; Macro: <b>HAS_LONG_UNCOND_BRANCH</b><var><a name="index-HAS_005fLONG_005fUNCOND_005fBRANCH-4893"></a></var><br>
 <blockquote><p>Define this boolean macro to indicate whether or not your architecture
 has unconditional branches that can span all of memory.  It is used in
 conjunction with an optimization that partitions hot and cold basic
@@ -77,13 +77,13 @@ to cross between sections into indirect jumps.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>CASE_VECTOR_MODE</b><var><a name="index-CASE_005fVECTOR_005fMODE-4860"></a></var><br>
+&mdash; Macro: <b>CASE_VECTOR_MODE</b><var><a name="index-CASE_005fVECTOR_005fMODE-4894"></a></var><br>
 <blockquote><p>An alias for a machine mode name.  This is the machine mode that
 elements of a jump-table should have. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>CASE_VECTOR_SHORTEN_MODE</b> (<var>min_offset, max_offset, body</var>)<var><a name="index-CASE_005fVECTOR_005fSHORTEN_005fMODE-4861"></a></var><br>
+&mdash; Macro: <b>CASE_VECTOR_SHORTEN_MODE</b> (<var>min_offset, max_offset, body</var>)<var><a name="index-CASE_005fVECTOR_005fSHORTEN_005fMODE-4895"></a></var><br>
 <blockquote><p>Optional: return the preferred mode for an <code>addr_diff_vec</code>
 when the minimum and maximum offset are known.  If you define this,
 it enables extra code in branch shortening to deal with <code>addr_diff_vec</code>. 
@@ -94,7 +94,7 @@ flags can be updated.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>CASE_VECTOR_PC_RELATIVE</b><var><a name="index-CASE_005fVECTOR_005fPC_005fRELATIVE-4862"></a></var><br>
+&mdash; Macro: <b>CASE_VECTOR_PC_RELATIVE</b><var><a name="index-CASE_005fVECTOR_005fPC_005fRELATIVE-4896"></a></var><br>
 <blockquote><p>Define this macro to be a C expression to indicate when jump-tables
 should contain relative addresses.  You need not define this macro if
 jump-tables never contain relative addresses, or jump-tables should
@@ -103,7 +103,7 @@ is in effect.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: unsigned int <b>TARGET_CASE_VALUES_THRESHOLD</b> (<var>void</var>)<var><a name="index-TARGET_005fCASE_005fVALUES_005fTHRESHOLD-4863"></a></var><br>
+&mdash; Target Hook: unsigned int <b>TARGET_CASE_VALUES_THRESHOLD</b> (<var>void</var>)<var><a name="index-TARGET_005fCASE_005fVALUES_005fTHRESHOLD-4897"></a></var><br>
 <blockquote><p>This function return the smallest number of different values for which it
 is best to use a jump-table instead of a tree of conditional branches. 
 The default is four for machines with a <code>casesi</code> instruction and
@@ -111,14 +111,14 @@ five otherwise.  This is best for most machines.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>WORD_REGISTER_OPERATIONS</b><var><a name="index-WORD_005fREGISTER_005fOPERATIONS-4864"></a></var><br>
+&mdash; Macro: <b>WORD_REGISTER_OPERATIONS</b><var><a name="index-WORD_005fREGISTER_005fOPERATIONS-4898"></a></var><br>
 <blockquote><p>Define this macro if operations between registers with integral mode
 smaller than a word are always performed on the entire register. 
 Most RISC machines have this property and most CISC machines do not. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>LOAD_EXTEND_OP</b> (<var>mem_mode</var>)<var><a name="index-LOAD_005fEXTEND_005fOP-4865"></a></var><br>
+&mdash; Macro: <b>LOAD_EXTEND_OP</b> (<var>mem_mode</var>)<var><a name="index-LOAD_005fEXTEND_005fOP-4899"></a></var><br>
 <blockquote><p>Define this macro to be a C expression indicating when insns that read
 memory in <var>mem_mode</var>, an integral mode narrower than a word, set the
 bits outside of <var>mem_mode</var> to be either the sign-extension or the
@@ -146,13 +146,13 @@ is larger then <var>mem_mode</var> but still smaller than <code>word_mode</code>
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>SHORT_IMMEDIATES_SIGN_EXTEND</b><var><a name="index-SHORT_005fIMMEDIATES_005fSIGN_005fEXTEND-4866"></a></var><br>
+&mdash; Macro: <b>SHORT_IMMEDIATES_SIGN_EXTEND</b><var><a name="index-SHORT_005fIMMEDIATES_005fSIGN_005fEXTEND-4900"></a></var><br>
 <blockquote><p>Define this macro if loading short immediate values into registers sign
 extends. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: unsigned int <b>TARGET_MIN_DIVISIONS_FOR_RECIP_MUL</b> (<var>enum machine_mode mode</var>)<var><a name="index-TARGET_005fMIN_005fDIVISIONS_005fFOR_005fRECIP_005fMUL-4867"></a></var><br>
+&mdash; Target Hook: unsigned int <b>TARGET_MIN_DIVISIONS_FOR_RECIP_MUL</b> (<var>machine_mode mode</var>)<var><a name="index-TARGET_005fMIN_005fDIVISIONS_005fFOR_005fRECIP_005fMUL-4901"></a></var><br>
 <blockquote><p>When <samp><span class="option">-ffast-math</span></samp> is in effect, GCC tries to optimize
 divisions by the same divisor, by turning them into multiplications by
 the reciprocal.  This target hook specifies the minimum number of divisions
@@ -162,13 +162,13 @@ has an instruction for the division, and 2 if it does not.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>MOVE_MAX</b><var><a name="index-MOVE_005fMAX-4868"></a></var><br>
+&mdash; Macro: <b>MOVE_MAX</b><var><a name="index-MOVE_005fMAX-4902"></a></var><br>
 <blockquote><p>The maximum number of bytes that a single instruction can move quickly
 between memory and registers or between two memory locations. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>MAX_MOVE_MAX</b><var><a name="index-MAX_005fMOVE_005fMAX-4869"></a></var><br>
+&mdash; Macro: <b>MAX_MOVE_MAX</b><var><a name="index-MAX_005fMOVE_005fMAX-4903"></a></var><br>
 <blockquote><p>The maximum number of bytes that a single instruction can move quickly
 between memory and registers or between two memory locations.  If this
 is undefined, the default is <code>MOVE_MAX</code>.  Otherwise, it is the
@@ -177,7 +177,7 @@ at run-time.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>SHIFT_COUNT_TRUNCATED</b><var><a name="index-SHIFT_005fCOUNT_005fTRUNCATED-4870"></a></var><br>
+&mdash; Macro: <b>SHIFT_COUNT_TRUNCATED</b><var><a name="index-SHIFT_005fCOUNT_005fTRUNCATED-4904"></a></var><br>
 <blockquote><p>A C expression that is nonzero if on this machine the number of bits
 actually used for the count of a shift operation is equal to the number
 of bits needed to represent the size of the object being shifted.  When
@@ -205,7 +205,7 @@ the implied truncation of the shift instructions.
  <p><a name="TARGET_005fSHIFT_005fTRUNCATION_005fMASK"></a>
 
 <div class="defun">
-&mdash; Target Hook: unsigned HOST_WIDE_INT <b>TARGET_SHIFT_TRUNCATION_MASK</b> (<var>enum machine_mode mode</var>)<var><a name="index-TARGET_005fSHIFT_005fTRUNCATION_005fMASK-4871"></a></var><br>
+&mdash; Target Hook: unsigned HOST_WIDE_INT <b>TARGET_SHIFT_TRUNCATION_MASK</b> (<var>machine_mode mode</var>)<var><a name="index-TARGET_005fSHIFT_005fTRUNCATION_005fMASK-4905"></a></var><br>
 <blockquote><p>This function describes how the standard shift patterns for <var>mode</var>
 deal with shifts by negative amounts or by more than the width of the mode. 
 See <a href="shift-patterns.html#shift-patterns">shift patterns</a>.
@@ -230,7 +230,7 @@ by overriding it.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>TRULY_NOOP_TRUNCATION</b> (<var>outprec, inprec</var>)<var><a name="index-TRULY_005fNOOP_005fTRUNCATION-4872"></a></var><br>
+&mdash; Macro: <b>TRULY_NOOP_TRUNCATION</b> (<var>outprec, inprec</var>)<var><a name="index-TRULY_005fNOOP_005fTRUNCATION-4906"></a></var><br>
 <blockquote><p>A C expression which is nonzero if on this machine it is safe to
 &ldquo;convert&rdquo; an integer of <var>inprec</var> bits to one of <var>outprec</var>
 bits (where <var>outprec</var> is smaller than <var>inprec</var>) by merely
@@ -247,7 +247,7 @@ such cases may improve things.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: int <b>TARGET_MODE_REP_EXTENDED</b> (<var>enum machine_mode mode, enum machine_mode rep_mode</var>)<var><a name="index-TARGET_005fMODE_005fREP_005fEXTENDED-4873"></a></var><br>
+&mdash; Target Hook: int <b>TARGET_MODE_REP_EXTENDED</b> (<var>machine_mode mode, machine_mode rep_mode</var>)<var><a name="index-TARGET_005fMODE_005fREP_005fEXTENDED-4907"></a></var><br>
 <blockquote><p>The representation of an integral mode can be such that the values
 are always extended to a wider integral mode.  Return
 <code>SIGN_EXTEND</code> if values of <var>mode</var> are represented in
@@ -276,7 +276,7 @@ extension.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>STORE_FLAG_VALUE</b><var><a name="index-STORE_005fFLAG_005fVALUE-4874"></a></var><br>
+&mdash; Macro: <b>STORE_FLAG_VALUE</b><var><a name="index-STORE_005fFLAG_005fVALUE-4908"></a></var><br>
 <blockquote><p>A C expression describing the value returned by a comparison operator
 with an integral mode and stored by a store-flag instruction
 (`<samp><span class="samp">cstore</span><var>mode</var><span class="samp">4</span></samp>') when the condition is true.  This description must
@@ -363,7 +363,7 @@ instructions, or if the value generated by these instructions is 1.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>FLOAT_STORE_FLAG_VALUE</b> (<var>mode</var>)<var><a name="index-FLOAT_005fSTORE_005fFLAG_005fVALUE-4875"></a></var><br>
+&mdash; Macro: <b>FLOAT_STORE_FLAG_VALUE</b> (<var>mode</var>)<var><a name="index-FLOAT_005fSTORE_005fFLAG_005fVALUE-4909"></a></var><br>
 <blockquote><p>A C expression that gives a nonzero <code>REAL_VALUE_TYPE</code> value that is
 returned when comparison operators with floating-point results are true. 
 Define this macro on machines that have comparison operations that return
@@ -372,7 +372,7 @@ this macro.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>VECTOR_STORE_FLAG_VALUE</b> (<var>mode</var>)<var><a name="index-VECTOR_005fSTORE_005fFLAG_005fVALUE-4876"></a></var><br>
+&mdash; Macro: <b>VECTOR_STORE_FLAG_VALUE</b> (<var>mode</var>)<var><a name="index-VECTOR_005fSTORE_005fFLAG_005fVALUE-4910"></a></var><br>
 <blockquote><p>A C expression that gives a rtx representing the nonzero true element
 for vector comparisons.  The returned rtx should be valid for the inner
 mode of <var>mode</var> which is guaranteed to be a vector mode.  Define
@@ -385,8 +385,8 @@ given mode.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>CLZ_DEFINED_VALUE_AT_ZERO</b> (<var>mode, value</var>)<var><a name="index-CLZ_005fDEFINED_005fVALUE_005fAT_005fZERO-4877"></a></var><br>
-&mdash; Macro: <b>CTZ_DEFINED_VALUE_AT_ZERO</b> (<var>mode, value</var>)<var><a name="index-CTZ_005fDEFINED_005fVALUE_005fAT_005fZERO-4878"></a></var><br>
+&mdash; Macro: <b>CLZ_DEFINED_VALUE_AT_ZERO</b> (<var>mode, value</var>)<var><a name="index-CLZ_005fDEFINED_005fVALUE_005fAT_005fZERO-4911"></a></var><br>
+&mdash; Macro: <b>CTZ_DEFINED_VALUE_AT_ZERO</b> (<var>mode, value</var>)<var><a name="index-CTZ_005fDEFINED_005fVALUE_005fAT_005fZERO-4912"></a></var><br>
 <blockquote><p>A C expression that indicates whether the architecture defines a value
 for <code>clz</code> or <code>ctz</code> with a zero operand. 
 A result of <code>0</code> indicates the value is undefined. 
@@ -413,7 +413,7 @@ breaking the API.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>Pmode</b><var><a name="index-Pmode-4879"></a></var><br>
+&mdash; Macro: <b>Pmode</b><var><a name="index-Pmode-4913"></a></var><br>
 <blockquote><p>An alias for the machine mode for pointers.  On most machines, define
 this to be the integer mode corresponding to the width of a hardware
 pointer; <code>SImode</code> on 32-bit machine or <code>DImode</code> on 64-bit machines. 
@@ -427,7 +427,7 @@ to <code>Pmode</code>.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>FUNCTION_MODE</b><var><a name="index-FUNCTION_005fMODE-4880"></a></var><br>
+&mdash; Macro: <b>FUNCTION_MODE</b><var><a name="index-FUNCTION_005fMODE-4914"></a></var><br>
 <blockquote><p>An alias for the machine mode used for memory references to functions
 being called, in <code>call</code> RTL expressions.  On most CISC machines,
 where an instruction can begin at any byte address, this should be
@@ -437,7 +437,7 @@ as the machine instruction words - typically <code>SImode</code> or <code>HImode
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>STDC_0_IN_SYSTEM_HEADERS</b><var><a name="index-STDC_005f0_005fIN_005fSYSTEM_005fHEADERS-4881"></a></var><br>
+&mdash; Macro: <b>STDC_0_IN_SYSTEM_HEADERS</b><var><a name="index-STDC_005f0_005fIN_005fSYSTEM_005fHEADERS-4915"></a></var><br>
 <blockquote><p>In normal operation, the preprocessor expands <code>__STDC__</code> to the
 constant 1, to signify that GCC conforms to ISO Standard C.  On some
 hosts, like Solaris, the system compiler uses a different convention,
@@ -450,29 +450,29 @@ files <code>__STDC__</code> will always expand to 1.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; C Target Hook: const char * <b>TARGET_C_PREINCLUDE</b> (<var>void</var>)<var><a name="index-TARGET_005fC_005fPREINCLUDE-4882"></a></var><br>
+&mdash; C Target Hook: const char * <b>TARGET_C_PREINCLUDE</b> (<var>void</var>)<var><a name="index-TARGET_005fC_005fPREINCLUDE-4916"></a></var><br>
 <blockquote><p>Define this hook to return the name of a header file to be included at the start of all compilations, as if it had been included with <code>#include &lt;</code><var>file</var><code>&gt;</code>.  If this hook returns <code>NULL</code>, or is not defined, or the header is not found, or if the user specifies <samp><span class="option">-ffreestanding</span></samp> or <samp><span class="option">-nostdinc</span></samp>, no header is included.
 
       <p>This hook can be used together with a header provided by the system C library to implement ISO C requirements for certain macros to be predefined that describe properties of the whole implementation rather than just the compiler. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; C Target Hook: bool <b>TARGET_CXX_IMPLICIT_EXTERN_C</b> (<var>const char*</var>)<var><a name="index-TARGET_005fCXX_005fIMPLICIT_005fEXTERN_005fC-4883"></a></var><br>
+&mdash; C Target Hook: bool <b>TARGET_CXX_IMPLICIT_EXTERN_C</b> (<var>const char*</var>)<var><a name="index-TARGET_005fCXX_005fIMPLICIT_005fEXTERN_005fC-4917"></a></var><br>
 <blockquote><p>Define this hook to add target-specific C++ implicit extern C functions. If this function returns true for the name of a file-scope function, that function implicitly gets extern "C" linkage rather than whatever language linkage the declaration would normally have.  An example of such function is WinMain on Win32 targets. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>NO_IMPLICIT_EXTERN_C</b><var><a name="index-NO_005fIMPLICIT_005fEXTERN_005fC-4884"></a></var><br>
+&mdash; Macro: <b>NO_IMPLICIT_EXTERN_C</b><var><a name="index-NO_005fIMPLICIT_005fEXTERN_005fC-4918"></a></var><br>
 <blockquote><p>Define this macro if the system header files support C++ as well as C. 
 This macro inhibits the usual method of using system header files in
 C++, which is to pretend that the file's contents are enclosed in
 `<samp><span class="samp">extern "C" {...}</span></samp>'. 
 </p></blockquote></div>
 
- <p><a name="index-g_t_0023pragma-4885"></a><a name="index-pragma-4886"></a>
+ <p><a name="index-g_t_0023pragma-4919"></a><a name="index-pragma-4920"></a>
 
 <div class="defun">
-&mdash; Macro: <b>REGISTER_TARGET_PRAGMAS</b> ()<var><a name="index-REGISTER_005fTARGET_005fPRAGMAS-4887"></a></var><br>
+&mdash; Macro: <b>REGISTER_TARGET_PRAGMAS</b> ()<var><a name="index-REGISTER_005fTARGET_005fPRAGMAS-4921"></a></var><br>
 <blockquote><p>Define this macro if you want to implement any target-specific pragmas. 
 If defined, it is a C expression which makes a series of calls to
 <code>c_register_pragma</code> or <code>c_register_pragma_with_expansion</code>
@@ -492,8 +492,8 @@ silently ignored, unless the user specifies <samp><span class="option">-Wunknown
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Function: void <b>c_register_pragma</b> (<var>const char *space, const char *name, void </var>(<var>*callback</var>) (<var>struct cpp_reader *</var>))<var><a name="index-c_005fregister_005fpragma-4888"></a></var><br>
-&mdash; Function: void <b>c_register_pragma_with_expansion</b> (<var>const char *space, const char *name, void </var>(<var>*callback</var>) (<var>struct cpp_reader *</var>))<var><a name="index-c_005fregister_005fpragma_005fwith_005fexpansion-4889"></a></var><br>
+&mdash; Function: void <b>c_register_pragma</b> (<var>const char *space, const char *name, void </var>(<var>*callback</var>) (<var>struct cpp_reader *</var>))<var><a name="index-c_005fregister_005fpragma-4922"></a></var><br>
+&mdash; Function: void <b>c_register_pragma_with_expansion</b> (<var>const char *space, const char *name, void </var>(<var>*callback</var>) (<var>struct cpp_reader *</var>))<var><a name="index-c_005fregister_005fpragma_005fwith_005fexpansion-4923"></a></var><br>
 <blockquote>
 <p>Each call to <code>c_register_pragma</code> or
 <code>c_register_pragma_with_expansion</code> establishes one pragma.  The
@@ -527,13 +527,13 @@ how to build this object file.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>HANDLE_PRAGMA_PACK_WITH_EXPANSION</b><var><a name="index-HANDLE_005fPRAGMA_005fPACK_005fWITH_005fEXPANSION-4890"></a></var><br>
+&mdash; Macro: <b>HANDLE_PRAGMA_PACK_WITH_EXPANSION</b><var><a name="index-HANDLE_005fPRAGMA_005fPACK_005fWITH_005fEXPANSION-4924"></a></var><br>
 <blockquote><p>Define this macro if macros should be expanded in the
 arguments of `<samp><span class="samp">#pragma pack</span></samp>'. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>TARGET_DEFAULT_PACK_STRUCT</b><var><a name="index-TARGET_005fDEFAULT_005fPACK_005fSTRUCT-4891"></a></var><br>
+&mdash; Macro: <b>TARGET_DEFAULT_PACK_STRUCT</b><var><a name="index-TARGET_005fDEFAULT_005fPACK_005fSTRUCT-4925"></a></var><br>
 <blockquote><p>If your target requires a structure packing default other than 0 (meaning
 the machine default), define this macro to the necessary value (in bytes). 
 This must be a value that would also be valid to use with
@@ -541,7 +541,7 @@ This must be a value that would also be valid to use with
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>DOLLARS_IN_IDENTIFIERS</b><var><a name="index-DOLLARS_005fIN_005fIDENTIFIERS-4892"></a></var><br>
+&mdash; Macro: <b>DOLLARS_IN_IDENTIFIERS</b><var><a name="index-DOLLARS_005fIN_005fIDENTIFIERS-4926"></a></var><br>
 <blockquote><p>Define this macro to control use of the character `<samp><span class="samp">$</span></samp>' in
 identifier names for the C family of languages.  0 means `<samp><span class="samp">$</span></samp>' is
 not allowed by default; 1 means it is allowed.  1 is the default;
@@ -549,7 +549,7 @@ there is no need to define this macro in that case.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>INSN_SETS_ARE_DELAYED</b> (<var>insn</var>)<var><a name="index-INSN_005fSETS_005fARE_005fDELAYED-4893"></a></var><br>
+&mdash; Macro: <b>INSN_SETS_ARE_DELAYED</b> (<var>insn</var>)<var><a name="index-INSN_005fSETS_005fARE_005fDELAYED-4927"></a></var><br>
 <blockquote><p>Define this macro as a C expression that is nonzero if it is safe for the
 delay slot scheduler to place instructions in the delay slot of <var>insn</var>,
 even if they appear to use a resource set or clobbered in <var>insn</var>. 
@@ -562,7 +562,7 @@ you should define this macro.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>INSN_REFERENCES_ARE_DELAYED</b> (<var>insn</var>)<var><a name="index-INSN_005fREFERENCES_005fARE_005fDELAYED-4894"></a></var><br>
+&mdash; Macro: <b>INSN_REFERENCES_ARE_DELAYED</b> (<var>insn</var>)<var><a name="index-INSN_005fREFERENCES_005fARE_005fDELAYED-4928"></a></var><br>
 <blockquote><p>Define this macro as a C expression that is nonzero if it is safe for the
 delay slot scheduler to place instructions in the delay slot of <var>insn</var>,
 even if they appear to set or clobber a resource referenced in <var>insn</var>. 
@@ -577,7 +577,7 @@ slot of <var>insn</var>.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>MULTIPLE_SYMBOL_SPACES</b><var><a name="index-MULTIPLE_005fSYMBOL_005fSPACES-4895"></a></var><br>
+&mdash; Macro: <b>MULTIPLE_SYMBOL_SPACES</b><var><a name="index-MULTIPLE_005fSYMBOL_005fSPACES-4929"></a></var><br>
 <blockquote><p>Define this macro as a C expression that is nonzero if, in some cases,
 global symbols from one translation unit may not be bound to undefined
 symbols in another translation unit without user intervention.  For
@@ -588,7 +588,7 @@ from shared libraries (DLLs).
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: tree <b>TARGET_MD_ASM_CLOBBERS</b> (<var>tree outputs, tree inputs, tree clobbers</var>)<var><a name="index-TARGET_005fMD_005fASM_005fCLOBBERS-4896"></a></var><br>
+&mdash; Target Hook: tree <b>TARGET_MD_ASM_CLOBBERS</b> (<var>tree outputs, tree inputs, tree clobbers</var>)<var><a name="index-TARGET_005fMD_005fASM_005fCLOBBERS-4930"></a></var><br>
 <blockquote><p>This target hook should add to <var>clobbers</var> <code>STRING_CST</code> trees for
 any hard regs the port wishes to automatically clobber for an asm. 
 It should return the result of the last <code>tree_cons</code> used to add a
@@ -600,7 +600,7 @@ for overlap with regards to asm-declared registers.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>MATH_LIBRARY</b><var><a name="index-MATH_005fLIBRARY-4897"></a></var><br>
+&mdash; Macro: <b>MATH_LIBRARY</b><var><a name="index-MATH_005fLIBRARY-4931"></a></var><br>
 <blockquote><p>Define this macro as a C string constant for the linker argument to link
 in the system math library, minus the initial `<samp><span class="samp">"-l"</span></samp>', or
 `<samp><span class="samp">""</span></samp>' if the target does not have a
@@ -610,7 +610,7 @@ separate math library.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>LIBRARY_PATH_ENV</b><var><a name="index-LIBRARY_005fPATH_005fENV-4898"></a></var><br>
+&mdash; Macro: <b>LIBRARY_PATH_ENV</b><var><a name="index-LIBRARY_005fPATH_005fENV-4932"></a></var><br>
 <blockquote><p>Define this macro as a C string constant for the environment variable that
 specifies where the linker should look for libraries.
 
@@ -619,7 +619,7 @@ is wrong.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>TARGET_POSIX_IO</b><var><a name="index-TARGET_005fPOSIX_005fIO-4899"></a></var><br>
+&mdash; Macro: <b>TARGET_POSIX_IO</b><var><a name="index-TARGET_005fPOSIX_005fIO-4933"></a></var><br>
 <blockquote><p>Define this macro if the target supports the following POSIX file
 functions, access, mkdir and  file locking with fcntl / F_SETLKW. 
 Defining <code>TARGET_POSIX_IO</code> will enable the test coverage code
@@ -629,7 +629,7 @@ for cross-profiling.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>MAX_CONDITIONAL_EXECUTE</b><var><a name="index-MAX_005fCONDITIONAL_005fEXECUTE-4900"></a></var><br>
+&mdash; Macro: <b>MAX_CONDITIONAL_EXECUTE</b><var><a name="index-MAX_005fCONDITIONAL_005fEXECUTE-4934"></a></var><br>
 <blockquote>
 <p>A C expression for the maximum number of instructions to execute via
 conditional execution instructions instead of a branch.  A value of
@@ -638,7 +638,7 @@ conditional execution instructions instead of a branch.  A value of
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>IFCVT_MODIFY_TESTS</b> (<var>ce_info, true_expr, false_expr</var>)<var><a name="index-IFCVT_005fMODIFY_005fTESTS-4901"></a></var><br>
+&mdash; Macro: <b>IFCVT_MODIFY_TESTS</b> (<var>ce_info, true_expr, false_expr</var>)<var><a name="index-IFCVT_005fMODIFY_005fTESTS-4935"></a></var><br>
 <blockquote><p>Used if the target needs to perform machine-dependent modifications on the
 conditionals used for turning basic blocks into conditionally executed code. 
 <var>ce_info</var> points to a data structure, <code>struct ce_if_block</code>, which
@@ -649,7 +649,7 @@ then-block and the else-block, respectively.  Set either <var>true_expr</var> or
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>IFCVT_MODIFY_MULTIPLE_TESTS</b> (<var>ce_info, bb, true_expr, false_expr</var>)<var><a name="index-IFCVT_005fMODIFY_005fMULTIPLE_005fTESTS-4902"></a></var><br>
+&mdash; Macro: <b>IFCVT_MODIFY_MULTIPLE_TESTS</b> (<var>ce_info, bb, true_expr, false_expr</var>)<var><a name="index-IFCVT_005fMODIFY_005fMULTIPLE_005fTESTS-4936"></a></var><br>
 <blockquote><p>Like <code>IFCVT_MODIFY_TESTS</code>, but used when converting more complicated
 if-statements into conditions combined by <code>and</code> and <code>or</code> operations. 
 <var>bb</var> contains the basic block that contains the test that is currently
@@ -657,7 +657,7 @@ being processed and about to be turned into a condition.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>IFCVT_MODIFY_INSN</b> (<var>ce_info, pattern, insn</var>)<var><a name="index-IFCVT_005fMODIFY_005fINSN-4903"></a></var><br>
+&mdash; Macro: <b>IFCVT_MODIFY_INSN</b> (<var>ce_info, pattern, insn</var>)<var><a name="index-IFCVT_005fMODIFY_005fINSN-4937"></a></var><br>
 <blockquote><p>A C expression to modify the <var>PATTERN</var> of an <var>INSN</var> that is to
 be converted to conditional execution format.  <var>ce_info</var> points to
 a data structure, <code>struct ce_if_block</code>, which contains information
@@ -665,7 +665,7 @@ about the currently processed blocks.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>IFCVT_MODIFY_FINAL</b> (<var>ce_info</var>)<var><a name="index-IFCVT_005fMODIFY_005fFINAL-4904"></a></var><br>
+&mdash; Macro: <b>IFCVT_MODIFY_FINAL</b> (<var>ce_info</var>)<var><a name="index-IFCVT_005fMODIFY_005fFINAL-4938"></a></var><br>
 <blockquote><p>A C expression to perform any final machine dependent modifications in
 converting code to conditional execution.  The involved basic blocks
 can be found in the <code>struct ce_if_block</code> structure that is pointed
@@ -673,7 +673,7 @@ to by <var>ce_info</var>.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>IFCVT_MODIFY_CANCEL</b> (<var>ce_info</var>)<var><a name="index-IFCVT_005fMODIFY_005fCANCEL-4905"></a></var><br>
+&mdash; Macro: <b>IFCVT_MODIFY_CANCEL</b> (<var>ce_info</var>)<var><a name="index-IFCVT_005fMODIFY_005fCANCEL-4939"></a></var><br>
 <blockquote><p>A C expression to cancel any machine dependent modifications in
 converting code to conditional execution.  The involved basic blocks
 can be found in the <code>struct ce_if_block</code> structure that is pointed
@@ -681,14 +681,14 @@ to by <var>ce_info</var>.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>IFCVT_MACHDEP_INIT</b> (<var>ce_info</var>)<var><a name="index-IFCVT_005fMACHDEP_005fINIT-4906"></a></var><br>
+&mdash; Macro: <b>IFCVT_MACHDEP_INIT</b> (<var>ce_info</var>)<var><a name="index-IFCVT_005fMACHDEP_005fINIT-4940"></a></var><br>
 <blockquote><p>A C expression to initialize any machine specific data for if-conversion
 of the if-block in the <code>struct ce_if_block</code> structure that is pointed
 to by <var>ce_info</var>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: void <b>TARGET_MACHINE_DEPENDENT_REORG</b> (<var>void</var>)<var><a name="index-TARGET_005fMACHINE_005fDEPENDENT_005fREORG-4907"></a></var><br>
+&mdash; Target Hook: void <b>TARGET_MACHINE_DEPENDENT_REORG</b> (<var>void</var>)<var><a name="index-TARGET_005fMACHINE_005fDEPENDENT_005fREORG-4941"></a></var><br>
 <blockquote><p>If non-null, this hook performs a target-specific pass over the
 instruction stream.  The compiler will run it at all optimization levels,
 just before the point at which it normally does delayed-branch scheduling.
@@ -703,7 +703,7 @@ definition is null.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: void <b>TARGET_INIT_BUILTINS</b> (<var>void</var>)<var><a name="index-TARGET_005fINIT_005fBUILTINS-4908"></a></var><br>
+&mdash; Target Hook: void <b>TARGET_INIT_BUILTINS</b> (<var>void</var>)<var><a name="index-TARGET_005fINIT_005fBUILTINS-4942"></a></var><br>
 <blockquote><p>Define this hook if you have any machine-specific built-in functions
 that need to be defined.  It should be a function that performs the
 necessary setup.
@@ -722,7 +722,7 @@ only language front ends that use those two functions will call
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: tree <b>TARGET_BUILTIN_DECL</b> (<var>unsigned code, bool initialize_p</var>)<var><a name="index-TARGET_005fBUILTIN_005fDECL-4909"></a></var><br>
+&mdash; Target Hook: tree <b>TARGET_BUILTIN_DECL</b> (<var>unsigned code, bool initialize_p</var>)<var><a name="index-TARGET_005fBUILTIN_005fDECL-4943"></a></var><br>
 <blockquote><p>Define this hook if you have any machine-specific built-in functions
 that need to be defined.  It should be a function that returns the
 builtin function declaration for the builtin function code <var>code</var>. 
@@ -733,7 +733,7 @@ If <var>code</var> is out of range the function should return
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: rtx <b>TARGET_EXPAND_BUILTIN</b> (<var>tree exp, rtx target, rtx subtarget, enum machine_mode mode, int ignore</var>)<var><a name="index-TARGET_005fEXPAND_005fBUILTIN-4910"></a></var><br>
+&mdash; Target Hook: rtx <b>TARGET_EXPAND_BUILTIN</b> (<var>tree exp, rtx target, rtx subtarget, machine_mode mode, int ignore</var>)<var><a name="index-TARGET_005fEXPAND_005fBUILTIN-4944"></a></var><br>
 <blockquote>
 <p>Expand a call to a machine specific built-in function that was set up by
 `<samp><span class="samp">TARGET_INIT_BUILTINS</span></samp>'.  <var>exp</var> is the expression for the
@@ -746,7 +746,115 @@ built-in function.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: tree <b>TARGET_RESOLVE_OVERLOADED_BUILTIN</b> (<var>unsigned int loc, tree fndecl, void *arglist</var>)<var><a name="index-TARGET_005fRESOLVE_005fOVERLOADED_005fBUILTIN-4911"></a></var><br>
+&mdash; Target Hook: tree <b>TARGET_BUILTIN_CHKP_FUNCTION</b> (<var>unsigned fcode</var>)<var><a name="index-TARGET_005fBUILTIN_005fCHKP_005fFUNCTION-4945"></a></var><br>
+<blockquote><p>This hook allows target to redefine built-in functions used by
+Pointer Bounds Checker for code instrumentation.  Hook should return
+fndecl of function implementing generic builtin whose code is
+passed in <var>fcode</var>.  Currently following built-in functions are
+obtained using this hook:
+
+     <div class="defun">
+&mdash; Built-in Function: __bounds_type <b>__chkp_bndmk</b> (<var>const void *lb, size_t size</var>)<var><a name="index-g_t_005f_005fchkp_005fbndmk-4946"></a></var><br>
+<blockquote><p>Function code - BUILT_IN_CHKP_BNDMK.  This built-in function is used
+by Pointer Bounds Checker to create bound values.  <var>lb</var> holds low
+bound of the resulting bounds.  <var>size</var> holds size of created bounds. 
+</p></blockquote></div>
+
+     <div class="defun">
+&mdash; Built-in Function: void <b>__chkp_bndstx</b> (<var>const void *ptr, __bounds_type b, const void **loc</var>)<var><a name="index-g_t_005f_005fchkp_005fbndstx-4947"></a></var><br>
+<blockquote><p>Function code - <code>BUILT_IN_CHKP_BNDSTX</code>.  This built-in function is used
+by Pointer Bounds Checker to store bounds <var>b</var> for pointer <var>ptr</var>
+when <var>ptr</var> is stored by address <var>loc</var>. 
+</p></blockquote></div>
+
+     <div class="defun">
+&mdash; Built-in Function: __bounds_type <b>__chkp_bndldx</b> (<var>const void **loc, const void *ptr</var>)<var><a name="index-g_t_005f_005fchkp_005fbndldx-4948"></a></var><br>
+<blockquote><p>Function code - <code>BUILT_IN_CHKP_BNDLDX</code>.  This built-in function is used
+by Pointer Bounds Checker to get bounds of pointer <var>ptr</var> loaded by
+address <var>loc</var>. 
+</p></blockquote></div>
+
+     <div class="defun">
+&mdash; Built-in Function: void <b>__chkp_bndcl</b> (<var>const void *ptr, __bounds_type b</var>)<var><a name="index-g_t_005f_005fchkp_005fbndcl-4949"></a></var><br>
+<blockquote><p>Function code - <code>BUILT_IN_CHKP_BNDCL</code>.  This built-in function is used
+by Pointer Bounds Checker to perform check for pointer <var>ptr</var> against
+lower bound of bounds <var>b</var>. 
+</p></blockquote></div>
+
+     <div class="defun">
+&mdash; Built-in Function: void <b>__chkp_bndcu</b> (<var>const void *ptr, __bounds_type b</var>)<var><a name="index-g_t_005f_005fchkp_005fbndcu-4950"></a></var><br>
+<blockquote><p>Function code - <code>BUILT_IN_CHKP_BNDCU</code>.  This built-in function is used
+by Pointer Bounds Checker to perform check for pointer <var>ptr</var> against
+upper bound of bounds <var>b</var>. 
+</p></blockquote></div>
+
+     <div class="defun">
+&mdash; Built-in Function: __bounds_type <b>__chkp_bndret</b> (<var>void *ptr</var>)<var><a name="index-g_t_005f_005fchkp_005fbndret-4951"></a></var><br>
+<blockquote><p>Function code - <code>BUILT_IN_CHKP_BNDRET</code>.  This built-in function is used
+by Pointer Bounds Checker to obtain bounds returned by a call statement. 
+<var>ptr</var> passed to built-in is <code>SSA_NAME</code> returned by the call. 
+</p></blockquote></div>
+
+     <div class="defun">
+&mdash; Built-in Function: __bounds_type <b>__chkp_intersect</b> (<var>__bounds_type b1, __bounds_type b2</var>)<var><a name="index-g_t_005f_005fchkp_005fintersect-4952"></a></var><br>
+<blockquote><p>Function code - <code>BUILT_IN_CHKP_INTERSECT</code>.  This built-in function
+returns intersection of bounds <var>b1</var> and <var>b2</var>. 
+</p></blockquote></div>
+
+     <div class="defun">
+&mdash; Built-in Function: __bounds_type <b>__chkp_narrow</b> (<var>const void *ptr, __bounds_type b, size_t s</var>)<var><a name="index-g_t_005f_005fchkp_005fnarrow-4953"></a></var><br>
+<blockquote><p>Function code - <code>BUILT_IN_CHKP_NARROW</code>.  This built-in function
+returns intersection of bounds <var>b</var> and
+[<var>ptr</var>, <var>ptr</var> + <var>s</var> - <code>1</code>]. 
+</p></blockquote></div>
+
+     <div class="defun">
+&mdash; Built-in Function: size_t <b>__chkp_sizeof</b> (<var>const void *ptr</var>)<var><a name="index-g_t_005f_005fchkp_005fsizeof-4954"></a></var><br>
+<blockquote><p>Function code - <code>BUILT_IN_CHKP_SIZEOF</code>.  This built-in function
+returns size of object referenced by <var>ptr</var>. <var>ptr</var> is always
+<code>ADDR_EXPR</code> of <code>VAR_DECL</code>.  This built-in is used by
+Pointer Bounds Checker when bounds of object cannot be computed statically
+(e.g. object has incomplete type). 
+</p></blockquote></div>
+
+     <div class="defun">
+&mdash; Built-in Function: const <b>void</b><var> *__chkp_extract_lower </var>(<var>__bounds_type b</var>)<var><a name="index-void-4955"></a></var><br>
+<blockquote><p>Function code - <code>BUILT_IN_CHKP_EXTRACT_LOWER</code>.  This built-in function
+returns lower bound of bounds <var>b</var>. 
+</p></blockquote></div>
+
+     <div class="defun">
+&mdash; Built-in Function: const <b>void</b><var> *__chkp_extract_upper </var>(<var>__bounds_type b</var>)<var><a name="index-void-4956"></a></var><br>
+<blockquote><p>Function code - <code>BUILT_IN_CHKP_EXTRACT_UPPER</code>.  This built-in function
+returns upper bound of bounds <var>b</var>. 
+</p></blockquote></div>
+      </p></blockquote></div>
+
+<div class="defun">
+&mdash; Target Hook: tree <b>TARGET_CHKP_BOUND_TYPE</b> (<var>void</var>)<var><a name="index-TARGET_005fCHKP_005fBOUND_005fTYPE-4957"></a></var><br>
+<blockquote><p>Return type to be used for bounds
+</p></blockquote></div>
+
+<div class="defun">
+&mdash; Target Hook: enum machine_mode <b>TARGET_CHKP_BOUND_MODE</b> (<var>void</var>)<var><a name="index-TARGET_005fCHKP_005fBOUND_005fMODE-4958"></a></var><br>
+<blockquote><p>Return mode to be used for bounds. 
+</p></blockquote></div>
+
+<div class="defun">
+&mdash; Target Hook: tree <b>TARGET_CHKP_MAKE_BOUNDS_CONSTANT</b> (<var>HOST_WIDE_INT lb, HOST_WIDE_INT ub</var>)<var><a name="index-TARGET_005fCHKP_005fMAKE_005fBOUNDS_005fCONSTANT-4959"></a></var><br>
+<blockquote><p>Return constant used to statically initialize constant bounds
+with specified lower bound <var>lb</var> and upper bounds <var>ub</var>. 
+</p></blockquote></div>
+
+<div class="defun">
+&mdash; Target Hook: int <b>TARGET_CHKP_INITIALIZE_BOUNDS</b> (<var>tree var, tree lb, tree ub, tree *stmts</var>)<var><a name="index-TARGET_005fCHKP_005fINITIALIZE_005fBOUNDS-4960"></a></var><br>
+<blockquote><p>Generate a list of statements <var>stmts</var> to initialize pointer
+bounds variable <var>var</var> with bounds <var>lb</var> and <var>ub</var>.  Return
+the number of generated statements. 
+</p></blockquote></div>
+
+<div class="defun">
+&mdash; Target Hook: tree <b>TARGET_RESOLVE_OVERLOADED_BUILTIN</b> (<var>unsigned int loc, tree fndecl, void *arglist</var>)<var><a name="index-TARGET_005fRESOLVE_005fOVERLOADED_005fBUILTIN-4961"></a></var><br>
 <blockquote><p>Select a replacement for a machine specific built-in function that
 was set up by `<samp><span class="samp">TARGET_INIT_BUILTINS</span></samp>'.  This is done
 <em>before</em> regular type checking, and so allows the target to
@@ -759,7 +867,7 @@ another <code>CALL_EXPR</code>.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: tree <b>TARGET_FOLD_BUILTIN</b> (<var>tree fndecl, int n_args, tree *argp, bool ignore</var>)<var><a name="index-TARGET_005fFOLD_005fBUILTIN-4912"></a></var><br>
+&mdash; Target Hook: tree <b>TARGET_FOLD_BUILTIN</b> (<var>tree fndecl, int n_args, tree *argp, bool ignore</var>)<var><a name="index-TARGET_005fFOLD_005fBUILTIN-4962"></a></var><br>
 <blockquote><p>Fold a call to a machine specific built-in function that was set up by
 `<samp><span class="samp">TARGET_INIT_BUILTINS</span></samp>'.  <var>fndecl</var> is the declaration of the
 built-in function.  <var>n_args</var> is the number of arguments passed to
@@ -770,7 +878,7 @@ containing a simplified expression for the call's result.  If
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: bool <b>TARGET_GIMPLE_FOLD_BUILTIN</b> (<var>gimple_stmt_iterator *gsi</var>)<var><a name="index-TARGET_005fGIMPLE_005fFOLD_005fBUILTIN-4913"></a></var><br>
+&mdash; Target Hook: bool <b>TARGET_GIMPLE_FOLD_BUILTIN</b> (<var>gimple_stmt_iterator *gsi</var>)<var><a name="index-TARGET_005fGIMPLE_005fFOLD_005fBUILTIN-4963"></a></var><br>
 <blockquote><p>Fold a call to a machine specific built-in function that was set up
 by `<samp><span class="samp">TARGET_INIT_BUILTINS</span></samp>'.  <var>gsi</var> points to the gimple
 statement holding the function call.  Returns true if any change
@@ -778,7 +886,7 @@ was made to the GIMPLE stream.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: int <b>TARGET_COMPARE_VERSION_PRIORITY</b> (<var>tree decl1, tree decl2</var>)<var><a name="index-TARGET_005fCOMPARE_005fVERSION_005fPRIORITY-4914"></a></var><br>
+&mdash; Target Hook: int <b>TARGET_COMPARE_VERSION_PRIORITY</b> (<var>tree decl1, tree decl2</var>)<var><a name="index-TARGET_005fCOMPARE_005fVERSION_005fPRIORITY-4964"></a></var><br>
 <blockquote><p>This hook is used to compare the target attributes in two functions to
 determine which function's features get higher priority.  This is used
 during function multi-versioning to figure out the order in which two
@@ -788,7 +896,7 @@ is checked for dispatching earlier.  <var>decl1</var> and <var>decl2</var> are
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: tree <b>TARGET_GET_FUNCTION_VERSIONS_DISPATCHER</b> (<var>void *decl</var>)<var><a name="index-TARGET_005fGET_005fFUNCTION_005fVERSIONS_005fDISPATCHER-4915"></a></var><br>
+&mdash; Target Hook: tree <b>TARGET_GET_FUNCTION_VERSIONS_DISPATCHER</b> (<var>void *decl</var>)<var><a name="index-TARGET_005fGET_005fFUNCTION_005fVERSIONS_005fDISPATCHER-4965"></a></var><br>
 <blockquote><p>This hook is used to get the dispatcher function for a set of function
 versions.  The dispatcher function is called to invoke the right function
 version at run-time. <var>decl</var> is one version from a set of semantically
@@ -796,7 +904,7 @@ identical versions.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: tree <b>TARGET_GENERATE_VERSION_DISPATCHER_BODY</b> (<var>void *arg</var>)<var><a name="index-TARGET_005fGENERATE_005fVERSION_005fDISPATCHER_005fBODY-4916"></a></var><br>
+&mdash; Target Hook: tree <b>TARGET_GENERATE_VERSION_DISPATCHER_BODY</b> (<var>void *arg</var>)<var><a name="index-TARGET_005fGENERATE_005fVERSION_005fDISPATCHER_005fBODY-4966"></a></var><br>
 <blockquote><p>This hook is used to generate the dispatcher logic to invoke the right
 function version at run-time for a given set of function versions. 
 <var>arg</var> points to the callgraph node of the dispatcher function whose
@@ -804,7 +912,7 @@ body must be generated.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: bool <b>TARGET_CAN_USE_DOLOOP_P</b> (<var>double_int iterations, double_int iterations_max, unsigned int loop_depth, bool entered_at_top</var>)<var><a name="index-TARGET_005fCAN_005fUSE_005fDOLOOP_005fP-4917"></a></var><br>
+&mdash; Target Hook: bool <b>TARGET_CAN_USE_DOLOOP_P</b> (<var>const widest_int &amp;iterations, const widest_int &amp;iterations_max, unsigned int loop_depth, bool entered_at_top</var>)<var><a name="index-TARGET_005fCAN_005fUSE_005fDOLOOP_005fP-4967"></a></var><br>
 <blockquote><p>Return true if it is possible to use low-overhead loops (<code>doloop_end</code>
 and <code>doloop_begin</code>) for a particular loop.  <var>iterations</var> gives the
 exact number of iterations, or 0 if not known.  <var>iterations_max</var> gives
@@ -819,7 +927,7 @@ if the loop must be the innermost, and if there are no other restrictions.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: const char * <b>TARGET_INVALID_WITHIN_DOLOOP</b> (<var>const_rtx insn</var>)<var><a name="index-TARGET_005fINVALID_005fWITHIN_005fDOLOOP-4918"></a></var><br>
+&mdash; Target Hook: const char * <b>TARGET_INVALID_WITHIN_DOLOOP</b> (<var>const rtx_insn *insn</var>)<var><a name="index-TARGET_005fINVALID_005fWITHIN_005fDOLOOP-4968"></a></var><br>
 <blockquote>
 <p>Take an instruction in <var>insn</var> and return NULL if it is valid within a
 low-overhead loop, otherwise return a string explaining why doloop
@@ -833,29 +941,17 @@ loops containing function calls or branch on table instructions.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: bool <b>TARGET_LEGITIMATE_COMBINED_INSN</b> (<var>rtx insn</var>)<var><a name="index-TARGET_005fLEGITIMATE_005fCOMBINED_005fINSN-4919"></a></var><br>
+&mdash; Target Hook: bool <b>TARGET_LEGITIMATE_COMBINED_INSN</b> (<var>rtx_insn *insn</var>)<var><a name="index-TARGET_005fLEGITIMATE_005fCOMBINED_005fINSN-4969"></a></var><br>
 <blockquote><p>Take an instruction in <var>insn</var> and return <code>false</code> if the instruction is not appropriate as a combination of two or more instructions.  The default is to accept all instructions. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>MD_CAN_REDIRECT_BRANCH</b> (<var>branch1, branch2</var>)<var><a name="index-MD_005fCAN_005fREDIRECT_005fBRANCH-4920"></a></var><br>
-<blockquote>
-<p>Take a branch insn in <var>branch1</var> and another in <var>branch2</var>. 
-Return true if redirecting <var>branch1</var> to the destination of
-<var>branch2</var> is possible.
-
-      <p>On some targets, branches may have a limited range.  Optimizing the
-filling of delay slots can result in branches being redirected, and this
-may in turn cause a branch offset to overflow. 
-</p></blockquote></div>
-
-<div class="defun">
-&mdash; Target Hook: bool <b>TARGET_CAN_FOLLOW_JUMP</b> (<var>const_rtx follower, const_rtx followee</var>)<var><a name="index-TARGET_005fCAN_005fFOLLOW_005fJUMP-4921"></a></var><br>
+&mdash; Target Hook: bool <b>TARGET_CAN_FOLLOW_JUMP</b> (<var>const rtx_insn *follower, const rtx_insn *followee</var>)<var><a name="index-TARGET_005fCAN_005fFOLLOW_005fJUMP-4970"></a></var><br>
 <blockquote><p>FOLLOWER and FOLLOWEE are JUMP_INSN instructions;  return true if FOLLOWER may be modified to follow FOLLOWEE;  false, if it can't.  For example, on some targets, certain kinds of branches can't be made to  follow through a hot/cold partitioning. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: bool <b>TARGET_COMMUTATIVE_P</b> (<var>const_rtx x, int outer_code</var>)<var><a name="index-TARGET_005fCOMMUTATIVE_005fP-4922"></a></var><br>
+&mdash; Target Hook: bool <b>TARGET_COMMUTATIVE_P</b> (<var>const_rtx x, int outer_code</var>)<var><a name="index-TARGET_005fCOMMUTATIVE_005fP-4971"></a></var><br>
 <blockquote><p>This target hook returns <code>true</code> if <var>x</var> is considered to be commutative. 
 Usually, this is just COMMUTATIVE_P (<var>x</var>), but the HP PA doesn't consider
 PLUS to be commutative inside a MEM.  <var>outer_code</var> is the rtx code
@@ -863,7 +959,7 @@ of the enclosing rtl, if known, otherwise it is UNKNOWN.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: rtx <b>TARGET_ALLOCATE_INITIAL_VALUE</b> (<var>rtx hard_reg</var>)<var><a name="index-TARGET_005fALLOCATE_005fINITIAL_005fVALUE-4923"></a></var><br>
+&mdash; Target Hook: rtx <b>TARGET_ALLOCATE_INITIAL_VALUE</b> (<var>rtx hard_reg</var>)<var><a name="index-TARGET_005fALLOCATE_005fINITIAL_005fVALUE-4972"></a></var><br>
 <blockquote>
 <p>When the initial value of a hard register has been copied in a pseudo
 register, it is often not necessary to actually allocate another register
@@ -886,7 +982,7 @@ allocation.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: int <b>TARGET_UNSPEC_MAY_TRAP_P</b> (<var>const_rtx x, unsigned flags</var>)<var><a name="index-TARGET_005fUNSPEC_005fMAY_005fTRAP_005fP-4924"></a></var><br>
+&mdash; Target Hook: int <b>TARGET_UNSPEC_MAY_TRAP_P</b> (<var>const_rtx x, unsigned flags</var>)<var><a name="index-TARGET_005fUNSPEC_005fMAY_005fTRAP_005fP-4973"></a></var><br>
 <blockquote><p>This target hook returns nonzero if <var>x</var>, an <code>unspec</code> or
 <code>unspec_volatile</code> operation, might cause a trap.  Targets can use
 this hook to enhance precision of analysis for <code>unspec</code> and
@@ -896,7 +992,7 @@ passed along.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: void <b>TARGET_SET_CURRENT_FUNCTION</b> (<var>tree decl</var>)<var><a name="index-TARGET_005fSET_005fCURRENT_005fFUNCTION-4925"></a></var><br>
+&mdash; Target Hook: void <b>TARGET_SET_CURRENT_FUNCTION</b> (<var>tree decl</var>)<var><a name="index-TARGET_005fSET_005fCURRENT_005fFUNCTION-4974"></a></var><br>
 <blockquote><p>The compiler invokes this hook whenever it changes its current function
 context (<code>cfun</code>).  You can define this function if
 the back end needs to perform any initialization or reset actions on a
@@ -916,14 +1012,14 @@ outside of any function scope.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>TARGET_OBJECT_SUFFIX</b><var><a name="index-TARGET_005fOBJECT_005fSUFFIX-4926"></a></var><br>
+&mdash; Macro: <b>TARGET_OBJECT_SUFFIX</b><var><a name="index-TARGET_005fOBJECT_005fSUFFIX-4975"></a></var><br>
 <blockquote><p>Define this macro to be a C string representing the suffix for object
 files on your target machine.  If you do not define this macro, GCC will
 use `<samp><span class="samp">.o</span></samp>' as the suffix for object files. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>TARGET_EXECUTABLE_SUFFIX</b><var><a name="index-TARGET_005fEXECUTABLE_005fSUFFIX-4927"></a></var><br>
+&mdash; Macro: <b>TARGET_EXECUTABLE_SUFFIX</b><var><a name="index-TARGET_005fEXECUTABLE_005fSUFFIX-4976"></a></var><br>
 <blockquote><p>Define this macro to be a C string representing the suffix to be
 automatically added to executable files on your target machine.  If you
 do not define this macro, GCC will use the null string as the suffix for
@@ -931,7 +1027,7 @@ executable files.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>COLLECT_EXPORT_LIST</b><var><a name="index-COLLECT_005fEXPORT_005fLIST-4928"></a></var><br>
+&mdash; Macro: <b>COLLECT_EXPORT_LIST</b><var><a name="index-COLLECT_005fEXPORT_005fLIST-4977"></a></var><br>
 <blockquote><p>If defined, <code>collect2</code> will scan the individual object files
 specified on its command line and create an export list for the linker. 
 Define this macro for systems like AIX, where the linker discards
@@ -940,7 +1036,7 @@ lists.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>MODIFY_JNI_METHOD_CALL</b> (<var>mdecl</var>)<var><a name="index-MODIFY_005fJNI_005fMETHOD_005fCALL-4929"></a></var><br>
+&mdash; Macro: <b>MODIFY_JNI_METHOD_CALL</b> (<var>mdecl</var>)<var><a name="index-MODIFY_005fJNI_005fMETHOD_005fCALL-4978"></a></var><br>
 <blockquote><p>Define this macro to a C expression representing a variant of the
 method call <var>mdecl</var>, if Java Native Interface (JNI) methods
 must be invoked differently from other methods on your target. 
@@ -956,7 +1052,7 @@ defined as this expression:
       </blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: bool <b>TARGET_CANNOT_MODIFY_JUMPS_P</b> (<var>void</var>)<var><a name="index-TARGET_005fCANNOT_005fMODIFY_005fJUMPS_005fP-4930"></a></var><br>
+&mdash; Target Hook: bool <b>TARGET_CANNOT_MODIFY_JUMPS_P</b> (<var>void</var>)<var><a name="index-TARGET_005fCANNOT_005fMODIFY_005fJUMPS_005fP-4979"></a></var><br>
 <blockquote><p>This target hook returns <code>true</code> past the point in which new jump
 instructions could be created.  On machines that require a register for
 every jump such as the SHmedia ISA of SH5, this point would typically be
@@ -971,7 +1067,7 @@ reload, so this target hook should be defined to a function such as:
       </blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: reg_class_t <b>TARGET_BRANCH_TARGET_REGISTER_CLASS</b> (<var>void</var>)<var><a name="index-TARGET_005fBRANCH_005fTARGET_005fREGISTER_005fCLASS-4931"></a></var><br>
+&mdash; Target Hook: reg_class_t <b>TARGET_BRANCH_TARGET_REGISTER_CLASS</b> (<var>void</var>)<var><a name="index-TARGET_005fBRANCH_005fTARGET_005fREGISTER_005fCLASS-4980"></a></var><br>
 <blockquote><p>This target hook returns a register class for which branch target register
 optimizations should be applied.  All registers in this class should be
 usable interchangeably.  After reload, registers in this class will be
@@ -980,7 +1076,7 @@ to inter-block scheduling.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: bool <b>TARGET_BRANCH_TARGET_REGISTER_CALLEE_SAVED</b> (<var>bool after_prologue_epilogue_gen</var>)<var><a name="index-TARGET_005fBRANCH_005fTARGET_005fREGISTER_005fCALLEE_005fSAVED-4932"></a></var><br>
+&mdash; Target Hook: bool <b>TARGET_BRANCH_TARGET_REGISTER_CALLEE_SAVED</b> (<var>bool after_prologue_epilogue_gen</var>)<var><a name="index-TARGET_005fBRANCH_005fTARGET_005fREGISTER_005fCALLEE_005fSAVED-4981"></a></var><br>
 <blockquote><p>Branch target register optimization will by default exclude callee-saved
 registers
 that are not already live during the current function; if this target hook
@@ -995,14 +1091,41 @@ to reserve space for caller-saved target registers.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: bool <b>TARGET_HAVE_CONDITIONAL_EXECUTION</b> (<var>void</var>)<var><a name="index-TARGET_005fHAVE_005fCONDITIONAL_005fEXECUTION-4933"></a></var><br>
+&mdash; Target Hook: bool <b>TARGET_HAVE_CONDITIONAL_EXECUTION</b> (<var>void</var>)<var><a name="index-TARGET_005fHAVE_005fCONDITIONAL_005fEXECUTION-4982"></a></var><br>
 <blockquote><p>This target hook returns true if the target supports conditional execution. 
 This target hook is required only when the target has several different
 modes and they have different conditional execution capability, such as ARM. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: unsigned <b>TARGET_LOOP_UNROLL_ADJUST</b> (<var>unsigned nunroll, struct loop *loop</var>)<var><a name="index-TARGET_005fLOOP_005fUNROLL_005fADJUST-4934"></a></var><br>
+&mdash; Target Hook: rtx <b>TARGET_GEN_CCMP_FIRST</b> (<var>rtx *prep_seq, rtx *gen_seq, int code, tree op0, tree op1</var>)<var><a name="index-TARGET_005fGEN_005fCCMP_005fFIRST-4983"></a></var><br>
+<blockquote><p>This function prepares to emit a comparison insn for the first compare in a
+ sequence of conditional comparisions.  It returns a appropriate <code>CC</code>
+ for passing to <code>gen_ccmp_next</code> or <code>cbranch_optab</code>.  The insns to
+ prepare the compare are saved in <var>prep_seq</var> and the compare insns are
+ saved in <var>gen_seq</var>.  They will be emitted when all the compares in the
+ the conditional comparision are generated without error.  <var>code</var> is
+ the <code>rtx_code</code> of the compare for <var>op0</var> and <var>op1</var>. 
+</p></blockquote></div>
+
+<div class="defun">
+&mdash; Target Hook: rtx <b>TARGET_GEN_CCMP_NEXT</b> (<var>rtx *prep_seq, rtx *gen_seq, rtx prev, int cmp_code, tree op0, tree op1, int bit_code</var>)<var><a name="index-TARGET_005fGEN_005fCCMP_005fNEXT-4984"></a></var><br>
+<blockquote><p>This function prepare to emit a conditional comparison within a sequence of
+ conditional comparisons.  It returns a appropriate <code>CC</code> for passing to
+ <code>gen_ccmp_next</code> or <code>cbranch_optab</code>.  The insns to prepare the
+ compare are saved in <var>prep_seq</var> and the compare insns are saved in
+ <var>gen_seq</var>.  They will be emitted when all the compares in the conditional
+ comparision are generated without error.  The <var>prev</var> expression is the
+ result of a prior call to <code>gen_ccmp_first</code> or <code>gen_ccmp_next</code>.  It
+ may return <code>NULL</code> if the combination of <var>prev</var> and this comparison is
+ not supported, otherwise the result must be appropriate for passing to
+ <code>gen_ccmp_next</code> or <code>cbranch_optab</code>.  <var>code</var> is the
+ <code>rtx_code</code> of the compare for <var>op0</var> and <var>op1</var>.  <var>bit_code</var>
+ is <code>AND</code> or <code>IOR</code>, which is the op on the two compares. 
+</p></blockquote></div>
+
+<div class="defun">
+&mdash; Target Hook: unsigned <b>TARGET_LOOP_UNROLL_ADJUST</b> (<var>unsigned nunroll, struct loop *loop</var>)<var><a name="index-TARGET_005fLOOP_005fUNROLL_005fADJUST-4985"></a></var><br>
 <blockquote><p>This target hook returns a new value for the number of times <var>loop</var>
 should be unrolled. The parameter <var>nunroll</var> is the number of times
 the loop is to be unrolled. The parameter <var>loop</var> is a pointer to
@@ -1012,7 +1135,7 @@ number of memory accesses.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>POWI_MAX_MULTS</b><var><a name="index-POWI_005fMAX_005fMULTS-4935"></a></var><br>
+&mdash; Macro: <b>POWI_MAX_MULTS</b><var><a name="index-POWI_005fMAX_005fMULTS-4986"></a></var><br>
 <blockquote><p>If defined, this macro is interpreted as a signed integer C expression
 that specifies the maximum number of floating point multiplications
 that should be emitted when expanding exponentiation by an integer
@@ -1023,7 +1146,7 @@ The default value places no upper bound on the multiplication count.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: void <b>TARGET_EXTRA_INCLUDES</b> (<var>const char *sysroot, const char *iprefix, int stdinc</var>)<var><a name="index-TARGET_005fEXTRA_005fINCLUDES-4936"></a></var><br>
+&mdash; Macro: void <b>TARGET_EXTRA_INCLUDES</b> (<var>const char *sysroot, const char *iprefix, int stdinc</var>)<var><a name="index-TARGET_005fEXTRA_005fINCLUDES-4987"></a></var><br>
 <blockquote><p>This target hook should register any extra include files for the
 target.  The parameter <var>stdinc</var> indicates if normal include files
 are present.  The parameter <var>sysroot</var> is the system root directory. 
@@ -1031,7 +1154,7 @@ The parameter <var>iprefix</var> is the prefix for the gcc directory.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: void <b>TARGET_EXTRA_PRE_INCLUDES</b> (<var>const char *sysroot, const char *iprefix, int stdinc</var>)<var><a name="index-TARGET_005fEXTRA_005fPRE_005fINCLUDES-4937"></a></var><br>
+&mdash; Macro: void <b>TARGET_EXTRA_PRE_INCLUDES</b> (<var>const char *sysroot, const char *iprefix, int stdinc</var>)<var><a name="index-TARGET_005fEXTRA_005fPRE_005fINCLUDES-4988"></a></var><br>
 <blockquote><p>This target hook should register any extra include files for the
 target before any standard headers.  The parameter <var>stdinc</var>
 indicates if normal include files are present.  The parameter
@@ -1040,7 +1163,7 @@ indicates if normal include files are present.  The parameter
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: void <b>TARGET_OPTF</b> (<var>char *path</var>)<var><a name="index-TARGET_005fOPTF-4938"></a></var><br>
+&mdash; Macro: void <b>TARGET_OPTF</b> (<var>char *path</var>)<var><a name="index-TARGET_005fOPTF-4989"></a></var><br>
 <blockquote><p>This target hook should register special include paths for the target. 
 The parameter <var>path</var> is the include to register.  On Darwin
 systems, this is used for Framework includes, which have semantics
@@ -1048,7 +1171,7 @@ that are different from <samp><span class="option">-I</span></samp>.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>bool</b><var> TARGET_USE_LOCAL_THUNK_ALIAS_P </var>(<var>tree fndecl</var>)<var><a name="index-bool-4939"></a></var><br>
+&mdash; Macro: <b>bool</b><var> TARGET_USE_LOCAL_THUNK_ALIAS_P </var>(<var>tree fndecl</var>)<var><a name="index-bool-4990"></a></var><br>
 <blockquote><p>This target macro returns <code>true</code> if it is safe to use a local alias
 for a virtual function <var>fndecl</var> when constructing thunks,
 <code>false</code> otherwise.  By default, the macro returns <code>true</code> for all
@@ -1057,20 +1180,20 @@ functions, if a target supports aliases (i.e. defines
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>TARGET_FORMAT_TYPES</b><var><a name="index-TARGET_005fFORMAT_005fTYPES-4940"></a></var><br>
+&mdash; Macro: <b>TARGET_FORMAT_TYPES</b><var><a name="index-TARGET_005fFORMAT_005fTYPES-4991"></a></var><br>
 <blockquote><p>If defined, this macro is the name of a global variable containing
 target-specific format checking information for the <samp><span class="option">-Wformat</span></samp>
 option.  The default is to have no target-specific format checks. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>TARGET_N_FORMAT_TYPES</b><var><a name="index-TARGET_005fN_005fFORMAT_005fTYPES-4941"></a></var><br>
+&mdash; Macro: <b>TARGET_N_FORMAT_TYPES</b><var><a name="index-TARGET_005fN_005fFORMAT_005fTYPES-4992"></a></var><br>
 <blockquote><p>If defined, this macro is the number of entries in
 <code>TARGET_FORMAT_TYPES</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>TARGET_OVERRIDES_FORMAT_ATTRIBUTES</b><var><a name="index-TARGET_005fOVERRIDES_005fFORMAT_005fATTRIBUTES-4942"></a></var><br>
+&mdash; Macro: <b>TARGET_OVERRIDES_FORMAT_ATTRIBUTES</b><var><a name="index-TARGET_005fOVERRIDES_005fFORMAT_005fATTRIBUTES-4993"></a></var><br>
 <blockquote><p>If defined, this macro is the name of a global variable containing
 target-specific format overrides for the <samp><span class="option">-Wformat</span></samp> option. The
 default is to have no target-specific format overrides. If defined,
@@ -1078,20 +1201,20 @@ default is to have no target-specific format overrides. If defined,
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>TARGET_OVERRIDES_FORMAT_ATTRIBUTES_COUNT</b><var><a name="index-TARGET_005fOVERRIDES_005fFORMAT_005fATTRIBUTES_005fCOUNT-4943"></a></var><br>
+&mdash; Macro: <b>TARGET_OVERRIDES_FORMAT_ATTRIBUTES_COUNT</b><var><a name="index-TARGET_005fOVERRIDES_005fFORMAT_005fATTRIBUTES_005fCOUNT-4994"></a></var><br>
 <blockquote><p>If defined, this macro specifies the number of entries in
 <code>TARGET_OVERRIDES_FORMAT_ATTRIBUTES</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>TARGET_OVERRIDES_FORMAT_INIT</b><var><a name="index-TARGET_005fOVERRIDES_005fFORMAT_005fINIT-4944"></a></var><br>
+&mdash; Macro: <b>TARGET_OVERRIDES_FORMAT_INIT</b><var><a name="index-TARGET_005fOVERRIDES_005fFORMAT_005fINIT-4995"></a></var><br>
 <blockquote><p>If defined, this macro specifies the optional initialization
 routine for target specific customizations of the system printf
 and scanf formatter settings. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: bool <b>TARGET_RELAXED_ORDERING</b><var><a name="index-TARGET_005fRELAXED_005fORDERING-4945"></a></var><br>
+&mdash; Target Hook: bool <b>TARGET_RELAXED_ORDERING</b><var><a name="index-TARGET_005fRELAXED_005fORDERING-4996"></a></var><br>
 <blockquote><p>If set to <code>true</code>, means that the target's memory model does not
 guarantee that loads which do not depend on one another will access
 main memory in the order of the instruction stream; if ordering is
@@ -1102,21 +1225,21 @@ and ia64.  The default is <code>false</code>.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: const char * <b>TARGET_INVALID_ARG_FOR_UNPROTOTYPED_FN</b> (<var>const_tree typelist, const_tree funcdecl, const_tree val</var>)<var><a name="index-TARGET_005fINVALID_005fARG_005fFOR_005fUNPROTOTYPED_005fFN-4946"></a></var><br>
+&mdash; Target Hook: const char * <b>TARGET_INVALID_ARG_FOR_UNPROTOTYPED_FN</b> (<var>const_tree typelist, const_tree funcdecl, const_tree val</var>)<var><a name="index-TARGET_005fINVALID_005fARG_005fFOR_005fUNPROTOTYPED_005fFN-4997"></a></var><br>
 <blockquote><p>If defined, this macro returns the diagnostic message when it is
 illegal to pass argument <var>val</var> to function <var>funcdecl</var>
 with prototype <var>typelist</var>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: const char * <b>TARGET_INVALID_CONVERSION</b> (<var>const_tree fromtype, const_tree totype</var>)<var><a name="index-TARGET_005fINVALID_005fCONVERSION-4947"></a></var><br>
+&mdash; Target Hook: const char * <b>TARGET_INVALID_CONVERSION</b> (<var>const_tree fromtype, const_tree totype</var>)<var><a name="index-TARGET_005fINVALID_005fCONVERSION-4998"></a></var><br>
 <blockquote><p>If defined, this macro returns the diagnostic message when it is
 invalid to convert from <var>fromtype</var> to <var>totype</var>, or <code>NULL</code>
 if validity should be determined by the front end. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: const char * <b>TARGET_INVALID_UNARY_OP</b> (<var>int op, const_tree type</var>)<var><a name="index-TARGET_005fINVALID_005fUNARY_005fOP-4948"></a></var><br>
+&mdash; Target Hook: const char * <b>TARGET_INVALID_UNARY_OP</b> (<var>int op, const_tree type</var>)<var><a name="index-TARGET_005fINVALID_005fUNARY_005fOP-4999"></a></var><br>
 <blockquote><p>If defined, this macro returns the diagnostic message when it is
 invalid to apply operation <var>op</var> (where unary plus is denoted by
 <code>CONVERT_EXPR</code>) to an operand of type <var>type</var>, or <code>NULL</code>
@@ -1124,7 +1247,7 @@ if validity should be determined by the front end.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: const char * <b>TARGET_INVALID_BINARY_OP</b> (<var>int op, const_tree type1, const_tree type2</var>)<var><a name="index-TARGET_005fINVALID_005fBINARY_005fOP-4949"></a></var><br>
+&mdash; Target Hook: const char * <b>TARGET_INVALID_BINARY_OP</b> (<var>int op, const_tree type1, const_tree type2</var>)<var><a name="index-TARGET_005fINVALID_005fBINARY_005fOP-5000"></a></var><br>
 <blockquote><p>If defined, this macro returns the diagnostic message when it is
 invalid to apply operation <var>op</var> to operands of types <var>type1</var>
 and <var>type2</var>, or <code>NULL</code> if validity should be determined by
@@ -1132,7 +1255,7 @@ the front end.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: const char * <b>TARGET_INVALID_PARAMETER_TYPE</b> (<var>const_tree type</var>)<var><a name="index-TARGET_005fINVALID_005fPARAMETER_005fTYPE-4950"></a></var><br>
+&mdash; Target Hook: const char * <b>TARGET_INVALID_PARAMETER_TYPE</b> (<var>const_tree type</var>)<var><a name="index-TARGET_005fINVALID_005fPARAMETER_005fTYPE-5001"></a></var><br>
 <blockquote><p>If defined, this macro returns the diagnostic message when it is
 invalid for functions to include parameters of type <var>type</var>,
 or <code>NULL</code> if validity should be determined by
@@ -1140,7 +1263,7 @@ the front end.  This is currently used only by the C and C++ front ends.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: const char * <b>TARGET_INVALID_RETURN_TYPE</b> (<var>const_tree type</var>)<var><a name="index-TARGET_005fINVALID_005fRETURN_005fTYPE-4951"></a></var><br>
+&mdash; Target Hook: const char * <b>TARGET_INVALID_RETURN_TYPE</b> (<var>const_tree type</var>)<var><a name="index-TARGET_005fINVALID_005fRETURN_005fTYPE-5002"></a></var><br>
 <blockquote><p>If defined, this macro returns the diagnostic message when it is
 invalid for functions to have return type <var>type</var>,
 or <code>NULL</code> if validity should be determined by
@@ -1148,7 +1271,7 @@ the front end.  This is currently used only by the C and C++ front ends.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: tree <b>TARGET_PROMOTED_TYPE</b> (<var>const_tree type</var>)<var><a name="index-TARGET_005fPROMOTED_005fTYPE-4952"></a></var><br>
+&mdash; Target Hook: tree <b>TARGET_PROMOTED_TYPE</b> (<var>const_tree type</var>)<var><a name="index-TARGET_005fPROMOTED_005fTYPE-5003"></a></var><br>
 <blockquote><p>If defined, this target hook returns the type to which values of
 <var>type</var> should be promoted when they appear in expressions,
 analogous to the integer promotions, or <code>NULL_TREE</code> to use the
@@ -1158,7 +1281,7 @@ This is currently used only by the C and C++ front ends.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: tree <b>TARGET_CONVERT_TO_TYPE</b> (<var>tree type, tree expr</var>)<var><a name="index-TARGET_005fCONVERT_005fTO_005fTYPE-4953"></a></var><br>
+&mdash; Target Hook: tree <b>TARGET_CONVERT_TO_TYPE</b> (<var>tree type, tree expr</var>)<var><a name="index-TARGET_005fCONVERT_005fTO_005fTYPE-5004"></a></var><br>
 <blockquote><p>If defined, this hook returns the result of converting <var>expr</var> to
 <var>type</var>.  It should return the converted expression,
 or <code>NULL_TREE</code> to apply the front end's normal conversion rules. 
@@ -1168,20 +1291,20 @@ This is currently used only by the C and C++ front ends.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>TARGET_USE_JCR_SECTION</b><var><a name="index-TARGET_005fUSE_005fJCR_005fSECTION-4954"></a></var><br>
+&mdash; Macro: <b>TARGET_USE_JCR_SECTION</b><var><a name="index-TARGET_005fUSE_005fJCR_005fSECTION-5005"></a></var><br>
 <blockquote><p>This macro determines whether to use the JCR section to register Java
 classes. By default, TARGET_USE_JCR_SECTION is defined to 1 if both
 SUPPORTS_WEAK and TARGET_HAVE_NAMED_SECTIONS are true, else 0. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>OBJC_JBLEN</b><var><a name="index-OBJC_005fJBLEN-4955"></a></var><br>
+&mdash; Macro: <b>OBJC_JBLEN</b><var><a name="index-OBJC_005fJBLEN-5006"></a></var><br>
 <blockquote><p>This macro determines the size of the objective C jump buffer for the
 NeXT runtime. By default, OBJC_JBLEN is defined to an innocuous value. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>LIBGCC2_UNWIND_ATTRIBUTE</b><var><a name="index-LIBGCC2_005fUNWIND_005fATTRIBUTE-4956"></a></var><br>
+&mdash; Macro: <b>LIBGCC2_UNWIND_ATTRIBUTE</b><var><a name="index-LIBGCC2_005fUNWIND_005fATTRIBUTE-5007"></a></var><br>
 <blockquote><p>Define this macro if any target-specific attributes need to be attached
 to the functions in <samp><span class="file">libgcc</span></samp> that provide low-level support for
 call stack unwinding.  It is used in declarations in <samp><span class="file">unwind-generic.h</span></samp>
@@ -1189,13 +1312,13 @@ and the associated definitions of those functions.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: void <b>TARGET_UPDATE_STACK_BOUNDARY</b> (<var>void</var>)<var><a name="index-TARGET_005fUPDATE_005fSTACK_005fBOUNDARY-4957"></a></var><br>
+&mdash; Target Hook: void <b>TARGET_UPDATE_STACK_BOUNDARY</b> (<var>void</var>)<var><a name="index-TARGET_005fUPDATE_005fSTACK_005fBOUNDARY-5008"></a></var><br>
 <blockquote><p>Define this macro to update the current function stack boundary if
 necessary. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: rtx <b>TARGET_GET_DRAP_RTX</b> (<var>void</var>)<var><a name="index-TARGET_005fGET_005fDRAP_005fRTX-4958"></a></var><br>
+&mdash; Target Hook: rtx <b>TARGET_GET_DRAP_RTX</b> (<var>void</var>)<var><a name="index-TARGET_005fGET_005fDRAP_005fRTX-5009"></a></var><br>
 <blockquote><p>This hook should return an rtx for Dynamic Realign Argument Pointer (DRAP) if a
 different argument pointer register is needed to access the function's
 argument list due to stack realignment.  Return <code>NULL</code> if no DRAP
@@ -1203,7 +1326,7 @@ is needed.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: bool <b>TARGET_ALLOCATE_STACK_SLOTS_FOR_ARGS</b> (<var>void</var>)<var><a name="index-TARGET_005fALLOCATE_005fSTACK_005fSLOTS_005fFOR_005fARGS-4959"></a></var><br>
+&mdash; Target Hook: bool <b>TARGET_ALLOCATE_STACK_SLOTS_FOR_ARGS</b> (<var>void</var>)<var><a name="index-TARGET_005fALLOCATE_005fSTACK_005fSLOTS_005fFOR_005fARGS-5010"></a></var><br>
 <blockquote><p>When optimization is disabled, this hook indicates whether or not
 arguments should be allocated to stack slots.  Normally, GCC allocates
 stacks slots for arguments when not optimizing in order to make
@@ -1215,7 +1338,7 @@ false for naked functions.  The default implementation always returns true.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: unsigned HOST_WIDE_INT <b>TARGET_CONST_ANCHOR</b><var><a name="index-TARGET_005fCONST_005fANCHOR-4960"></a></var><br>
+&mdash; Target Hook: unsigned HOST_WIDE_INT <b>TARGET_CONST_ANCHOR</b><var><a name="index-TARGET_005fCONST_005fANCHOR-5011"></a></var><br>
 <blockquote><p>On some architectures it can take multiple instructions to synthesize
 a constant.  If there is another constant already in a register that
 is close enough in value then it is preferable that the new constant
@@ -1234,41 +1357,102 @@ is zero, which disables this optimization.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: unsigned HOST_WIDE_INT <b>TARGET_ASAN_SHADOW_OFFSET</b> (<var>void</var>)<var><a name="index-TARGET_005fASAN_005fSHADOW_005fOFFSET-4961"></a></var><br>
+&mdash; Target Hook: unsigned HOST_WIDE_INT <b>TARGET_ASAN_SHADOW_OFFSET</b> (<var>void</var>)<var><a name="index-TARGET_005fASAN_005fSHADOW_005fOFFSET-5012"></a></var><br>
 <blockquote><p>Return the offset bitwise ored into shifted address to get corresponding
 Address Sanitizer shadow memory address.  NULL if Address Sanitizer is not
 supported by the target. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: unsigned HOST_WIDE_INT <b>TARGET_MEMMODEL_CHECK</b> (<var>unsigned HOST_WIDE_INT val</var>)<var><a name="index-TARGET_005fMEMMODEL_005fCHECK-4962"></a></var><br>
+&mdash; Target Hook: unsigned HOST_WIDE_INT <b>TARGET_MEMMODEL_CHECK</b> (<var>unsigned HOST_WIDE_INT val</var>)<var><a name="index-TARGET_005fMEMMODEL_005fCHECK-5013"></a></var><br>
 <blockquote><p>Validate target specific memory model mask bits. When NULL no target specific
 memory model bits are allowed. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: unsigned char <b>TARGET_ATOMIC_TEST_AND_SET_TRUEVAL</b><var><a name="index-TARGET_005fATOMIC_005fTEST_005fAND_005fSET_005fTRUEVAL-4963"></a></var><br>
+&mdash; Target Hook: unsigned char <b>TARGET_ATOMIC_TEST_AND_SET_TRUEVAL</b><var><a name="index-TARGET_005fATOMIC_005fTEST_005fAND_005fSET_005fTRUEVAL-5014"></a></var><br>
 <blockquote><p>This value should be set if the result written by <code>atomic_test_and_set</code> is not exactly 1, i.e. the <code>bool</code> <code>true</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: bool <b>TARGET_HAS_IFUNC_P</b> (<var>void</var>)<var><a name="index-TARGET_005fHAS_005fIFUNC_005fP-4964"></a></var><br>
+&mdash; Target Hook: bool <b>TARGET_HAS_IFUNC_P</b> (<var>void</var>)<var><a name="index-TARGET_005fHAS_005fIFUNC_005fP-5015"></a></var><br>
 <blockquote><p>It returns true if the target supports GNU indirect functions. 
 The support includes the assembler, linker and dynamic linker. 
 The default value of this hook is based on target's libc. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: unsigned int <b>TARGET_ATOMIC_ALIGN_FOR_MODE</b> (<var>enum machine_mode mode</var>)<var><a name="index-TARGET_005fATOMIC_005fALIGN_005fFOR_005fMODE-4965"></a></var><br>
+&mdash; Target Hook: unsigned int <b>TARGET_ATOMIC_ALIGN_FOR_MODE</b> (<var>machine_mode mode</var>)<var><a name="index-TARGET_005fATOMIC_005fALIGN_005fFOR_005fMODE-5016"></a></var><br>
 <blockquote><p>If defined, this function returns an appropriate alignment in bits for an atomic object of machine_mode <var>mode</var>.  If 0 is returned then the default alignment for the specified mode is used. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: void <b>TARGET_ATOMIC_ASSIGN_EXPAND_FENV</b> (<var>tree *hold, tree *clear, tree *update</var>)<var><a name="index-TARGET_005fATOMIC_005fASSIGN_005fEXPAND_005fFENV-4966"></a></var><br>
+&mdash; Target Hook: void <b>TARGET_ATOMIC_ASSIGN_EXPAND_FENV</b> (<var>tree *hold, tree *clear, tree *update</var>)<var><a name="index-TARGET_005fATOMIC_005fASSIGN_005fEXPAND_005fFENV-5017"></a></var><br>
 <blockquote><p>ISO C11 requires atomic compound assignments that may raise floating-point exceptions to raise exceptions corresponding to the arithmetic operation whose result was successfully stored in a compare-and-exchange sequence.  This requires code equivalent to calls to <code>feholdexcept</code>, <code>feclearexcept</code> and <code>feupdateenv</code> to be generated at appropriate points in the compare-and-exchange sequence.  This hook should set <code>*</code><var>hold</var> to an expression equivalent to the call to <code>feholdexcept</code>, <code>*</code><var>clear</var> to an expression equivalent to the call to <code>feclearexcept</code> and <code>*</code><var>update</var> to an expression equivalent to the call to <code>feupdateenv</code>.  The three expressions are <code>NULL_TREE</code> on entry to the hook and may be left as <code>NULL_TREE</code> if no code is required in a particular place.  The default implementation leaves all three expressions as <code>NULL_TREE</code>.  The <code>__atomic_feraiseexcept</code> function from <code>libatomic</code> may be of use as part of the code generated in <code>*</code><var>update</var>. 
 </p></blockquote></div>
 
-<!-- Copyright (C) 1988-2014 Free Software Foundation, Inc. -->
+<div class="defun">
+&mdash; Target Hook: void <b>TARGET_RECORD_OFFLOAD_SYMBOL</b> (<var>tree</var>)<var><a name="index-TARGET_005fRECORD_005fOFFLOAD_005fSYMBOL-5018"></a></var><br>
+<blockquote><p>Used when offloaded functions are seen in the compilation unit and no named
+sections are available.  It is called once for each symbol that must be
+recorded in the offload function and variable table. 
+</p></blockquote></div>
+
+<div class="defun">
+&mdash; Target Hook: char * <b>TARGET_OFFLOAD_OPTIONS</b> (<var>void</var>)<var><a name="index-TARGET_005fOFFLOAD_005fOPTIONS-5019"></a></var><br>
+<blockquote><p>Used when writing out the list of options into an LTO file.  It should
+translate any relevant target-specific options (such as the ABI in use)
+into one of the <samp><span class="option">-foffload</span></samp> options that exist as a common interface
+to express such options.  It should return a string containing these options,
+separated by spaces, which the caller will free.
+
+      </blockquote></div>
+
+<div class="defun">
+&mdash; Macro: <b>TARGET_SUPPORTS_WIDE_INT</b><var><a name="index-TARGET_005fSUPPORTS_005fWIDE_005fINT-5020"></a></var><br>
+<blockquote>
+<p>On older ports, large integers are stored in <code>CONST_DOUBLE</code> rtl
+objects.  Newer ports define <code>TARGET_SUPPORTS_WIDE_INT</code> to be nonzero
+to indicate that large integers are stored in
+<code>CONST_WIDE_INT</code> rtl objects.  The <code>CONST_WIDE_INT</code> allows
+very large integer constants to be represented.  <code>CONST_DOUBLE</code>
+is limited to twice the size of the host's <code>HOST_WIDE_INT</code>
+representation.
+
+      <p>Converting a port mostly requires looking for the places where
+<code>CONST_DOUBLE</code>s are used with <code>VOIDmode</code> and replacing that
+code with code that accesses <code>CONST_WIDE_INT</code>s.  `<samp><span class="samp">"grep -i
+const_double"</span></samp>' at the port level gets you to 95% of the changes that
+need to be made.  There are a few places that require a deeper look.
+
+          <ul>
+<li>There is no equivalent to <code>hval</code> and <code>lval</code> for
+<code>CONST_WIDE_INT</code>s.  This would be difficult to express in the md
+language since there are a variable number of elements.
+
+          <p>Most ports only check that <code>hval</code> is either 0 or -1 to see if the
+value is small.  As mentioned above, this will no longer be necessary
+since small constants are always <code>CONST_INT</code>.  Of course there
+are still a few exceptions, the alpha's constraint used by the zap
+instruction certainly requires careful examination by C code. 
+However, all the current code does is pass the hval and lval to C
+code, so evolving the c code to look at the <code>CONST_WIDE_INT</code> is
+not really a large change.
+
+          <li>Because there is no standard template that ports use to materialize
+constants, there is likely to be some futzing that is unique to each
+port in this code.
+
+          <li>The rtx costs may have to be adjusted to properly account for larger
+constants that are represented as <code>CONST_WIDE_INT</code>. 
+</ul>
+
+      <p>All and all it does not take long to convert ports that the
+maintainer is familiar with.
+
+      </blockquote></div>
+
+<!-- Copyright (C) 1988-2015 Free Software Foundation, Inc. -->
 <!-- This is part of the GCC manual. -->
 <!-- For copying conditions, see the file gccint.texi. -->
 </body></html>

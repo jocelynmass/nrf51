@@ -10,7 +10,7 @@
 <link rel="next" href="Offsetof.html#Offsetof" title="Offsetof">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -52,11 +52,11 @@ Up:&nbsp;<a rel="up" accesskey="u" href="C-Extensions.html#C-Extensions">C Exten
 <hr>
 </div>
 
-<h3 class="section">6.49 Using Vector Instructions through Built-in Functions</h3>
+<h3 class="section">6.48 Using Vector Instructions through Built-in Functions</h3>
 
 <p>On some targets, the instruction set contains SIMD vector instructions which
 operate on multiple values contained in one large register at the same time. 
-For example, on the i386 the MMX, 3DNow! and SSE extensions can be used
+For example, on the x86 the MMX, 3DNow! and SSE extensions can be used
 this way.
 
  <p>The first step in using these extensions is to provide the necessary data
@@ -171,6 +171,13 @@ vector. If both <code>b</code> and <code>c</code> are scalars and the type of
 <code>true?b:c</code> has the same size as the element type of <code>a</code>, then
 <code>b</code> and <code>c</code> are converted to a vector type whose elements have
 this type and with the same number of elements as <code>a</code>.
+
+ <p>In C++, the logic operators <code>!, &amp;&amp;, ||</code> are available for vectors. 
+<code>!v</code> is equivalent to <code>v == 0</code>, <code>a &amp;&amp; b</code> is equivalent to
+<code>a!=0 &amp; b!=0</code> and <code>a || b</code> is equivalent to <code>a!=0 | b!=0</code>. 
+For mixed operations between a scalar <code>s</code> and a vector <code>v</code>,
+<code>s &amp;&amp; v</code> is equivalent to <code>s?v!=0:0</code> (the evaluation is
+short-circuit) and <code>v &amp;&amp; s</code> is equivalent to <code>v!=0 &amp; (s?-1:0)</code>.
 
  <p>Vector shuffling is available using functions
 <code>__builtin_shuffle (vec, mask)</code> and

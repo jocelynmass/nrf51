@@ -10,7 +10,7 @@
 <link rel="next" href="Example.html#Example" title="Example">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -54,11 +54,12 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Machine-Desc.html#Machine-Desc">Machine
 
 <h3 class="section">16.2 Everything about Instruction Patterns</h3>
 
-<p><a name="index-patterns-3218"></a><a name="index-instruction-patterns-3219"></a>
-<a name="index-define_005finsn-3220"></a>Each instruction pattern contains an incomplete RTL expression, with pieces
-to be filled in later, operand constraints that restrict how the pieces can
-be filled in, and an output pattern or C code to generate the assembler
-output, all wrapped up in a <code>define_insn</code> expression.
+<p><a name="index-patterns-3242"></a><a name="index-instruction-patterns-3243"></a>
+<a name="index-define_005finsn-3244"></a>A <code>define_insn</code> expression is used to define instruction patterns
+to which insns may be matched.  A <code>define_insn</code> expression contains
+an incomplete RTL expression, with pieces to be filled in later, operand
+constraints that restrict how the pieces can be filled in, and an output
+template or C code to generate the assembler output.
 
  <p>A <code>define_insn</code> is an RTL expression containing four or five operands:
 
@@ -79,45 +80,47 @@ effect; they are equivalent to no name at all.
 
      <p>For the purpose of debugging the compiler, you may also specify a
 name beginning with the `<samp><span class="samp">*</span></samp>' character.  Such a name is used only
-for identifying the instruction in RTL dumps; it is entirely equivalent
-to having a nameless pattern for all other purposes.
+for identifying the instruction in RTL dumps; it is equivalent to having
+a nameless pattern for all other purposes.  Names beginning with the
+`<samp><span class="samp">*</span></samp>' character are not required to be unique.
 
-     <li>The <dfn>RTL template</dfn> (see <a href="RTL-Template.html#RTL-Template">RTL Template</a>) is a vector of incomplete
-RTL expressions which show what the instruction should look like.  It is
-incomplete because it may contain <code>match_operand</code>,
+     <li>The <dfn>RTL template</dfn>: This is a vector of incomplete RTL expressions
+which describe the semantics of the instruction (see <a href="RTL-Template.html#RTL-Template">RTL Template</a>). 
+It is incomplete because it may contain <code>match_operand</code>,
 <code>match_operator</code>, and <code>match_dup</code> expressions that stand for
 operands of the instruction.
 
-     <p>If the vector has only one element, that element is the template for the
-instruction pattern.  If the vector has multiple elements, then the
-instruction pattern is a <code>parallel</code> expression containing the
-elements described.
+     <p>If the vector has multiple elements, the RTL template is treated as a
+<code>parallel</code> expression.
 
-     <li><a name="index-pattern-conditions-3221"></a><a name="index-conditions_002c-in-patterns-3222"></a>A condition.  This is a string which contains a C expression that is
-the final test to decide whether an insn body matches this pattern.
+     <li><a name="index-pattern-conditions-3245"></a><a name="index-conditions_002c-in-patterns-3246"></a>The condition: This is a string which contains a C expression.  When the
+compiler attempts to match RTL against a pattern, the condition is
+evaluated.  If the condition evaluates to <code>true</code>, the match is
+permitted.  The condition may be an empty string, which is treated
+as always <code>true</code>.
 
-     <p><a name="index-named-patterns-and-conditions-3223"></a>For a named pattern, the condition (if present) may not depend on
-the data in the insn being matched, but only the target-machine-type
-flags.  The compiler needs to test these conditions during
-initialization in order to learn exactly which named instructions are
-available in a particular run.
+     <p><a name="index-named-patterns-and-conditions-3247"></a>For a named pattern, the condition may not depend on the data in the
+insn being matched, but only the target-machine-type flags.  The compiler
+needs to test these conditions during initialization in order to learn
+exactly which named instructions are available in a particular run.
 
-     <p><a name="index-operands-3224"></a>For nameless patterns, the condition is applied only when matching an
+     <p><a name="index-operands-3248"></a>For nameless patterns, the condition is applied only when matching an
 individual insn, and only after the insn has matched the pattern's
 recognition template.  The insn's operands may be found in the vector
-<code>operands</code>.  For an insn where the condition has once matched, it
-can't be used to control register allocation, for example by excluding
-certain hard registers or hard register combinations.
+<code>operands</code>.
 
-     <li>The <dfn>output template</dfn>: a string that says how to output matching
-insns as assembler code.  `<samp><span class="samp">%</span></samp>' in this string specifies where
-to substitute the value of an operand.  See <a href="Output-Template.html#Output-Template">Output Template</a>.
+     <p>For an insn where the condition has once matched, it
+cannot later be used to control register allocation by excluding
+certain register or value combinations.
+
+     <li>The <dfn>output template</dfn> or <dfn>output statement</dfn>: This is either
+a string, or a fragment of C code which returns a string.
 
      <p>When simple substitution isn't general enough, you can specify a piece
 of C code to compute the output.  See <a href="Output-Statement.html#Output-Statement">Output Statement</a>.
 
-     <li>Optionally, a vector containing the values of attributes for insns matching
-this pattern.  See <a href="Insn-Attributes.html#Insn-Attributes">Insn Attributes</a>.
+     <li>The <dfn>insn attributes</dfn>: This is an optional vector containing the values of
+attributes for insns matching this pattern (see <a href="Insn-Attributes.html#Insn-Attributes">Insn Attributes</a>).
       </ol>
 
  </body></html>

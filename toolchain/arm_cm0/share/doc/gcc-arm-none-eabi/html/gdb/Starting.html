@@ -10,7 +10,7 @@
 <link rel="next" href="Arguments.html#Arguments" title="Arguments">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -48,14 +48,14 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Running.html#Running">Running</a>
 
 <h3 class="section">4.2 Starting your Program</h3>
 
-<p><a name="index-starting-109"></a><a name="index-running-110"></a>
+<p><a name="index-starting-111"></a><a name="index-running-112"></a>
      
-<a name="index-run-111"></a>
-<a name="index-r-_0040r_007b_0028_0040code_007brun_007d_0029_007d-112"></a>
+<a name="index-run-113"></a>
+<a name="index-r-_0040r_007b_0028_0040code_007brun_007d_0029_007d-114"></a>
 <dl><dt><code>run</code><dt><code>r</code><dd>Use the <code>run</code> command to start your program under <span class="sc">gdb</span>. 
-You must first specify the program name (except on VxWorks) with an
-argument to <span class="sc">gdb</span> (see <a href="Invocation.html#Invocation">Getting In and Out of <span class="sc">gdb</span></a>), or by using the <code>file</code> or <code>exec-file</code> command
-(see <a href="Files.html#Files">Commands to Specify Files</a>).
+You must first specify the program name with an argument to
+<span class="sc">gdb</span> (see <a href="Invocation.html#Invocation">Getting In and Out of <span class="sc">gdb</span></a>), or by using the <code>file</code> or <code>exec-file</code>
+command (see <a href="Files.html#Files">Commands to Specify Files</a>).
 
    </dl>
 
@@ -106,7 +106,7 @@ in the <code>run</code> command line, or you can use the <code>tty</code> comman
 set a different device for your program. 
 See <a href="Input_002fOutput.html#Input_002fOutput">Your Program's Input and Output</a>.
 
-     <p><a name="index-pipes-113"></a><em>Warning:</em> While input and output redirection work, you cannot use
+     <p><a name="index-pipes-115"></a><em>Warning:</em> While input and output redirection work, you cannot use
 pipes to pass the output of the program you are debugging to another
 program; if you attempt this, <span class="sc">gdb</span> is likely to wind up debugging the
 wrong program. 
@@ -124,8 +124,8 @@ table, and reads it again.  When it does this, <span class="sc">gdb</span> tries
 your current breakpoints.
 
      
-<a name="index-start-114"></a>
-<dl><dt><code>start</code><dd><a name="index-run-to-main-procedure-115"></a>The name of the main procedure can vary from language to language. 
+<a name="index-start-116"></a>
+<dl><dt><code>start</code><dd><a name="index-run-to-main-procedure-117"></a>The name of the main procedure can vary from language to language. 
 With C or C<tt>++</tt>, the main procedure name is always <code>main</code>, but
 other languages such as Ada do not require a specific name for their
 main procedure.  The debugger provides a convenient way to start the
@@ -136,7 +136,7 @@ procedure, depending on the language used.
 breakpoint at the beginning of the main procedure and then invoking
 the `<samp><span class="samp">run</span></samp>' command.
 
-     <p><a name="index-elaboration-phase-116"></a>Some programs contain an <dfn>elaboration</dfn> phase where some startup code is
+     <p><a name="index-elaboration-phase-118"></a>Some programs contain an <dfn>elaboration</dfn> phase where some startup code is
 executed before the main procedure is called.  This depends on the
 languages used to write your program.  In C<tt>++</tt>, for instance,
 constructors for static and global objects are executed before
@@ -157,7 +157,7 @@ elaboration phase.  Under these circumstances, insert breakpoints in your
 elaboration code before running your program.
 
      <p><a name="set-exec_002dwrapper"></a>
-<a name="index-set-exec_002dwrapper-117"></a><br><dt><code>set exec-wrapper </code><var>wrapper</var><dt><code>show exec-wrapper</code><dt><code>unset exec-wrapper</code><dd>When `<samp><span class="samp">exec-wrapper</span></samp>' is set, the specified wrapper is used to
+<a name="index-set-exec_002dwrapper-119"></a><br><dt><code>set exec-wrapper </code><var>wrapper</var><dt><code>show exec-wrapper</code><dt><code>unset exec-wrapper</code><dd>When `<samp><span class="samp">exec-wrapper</span></samp>' is set, the specified wrapper is used to
 launch programs for debugging.  <span class="sc">gdb</span> starts your program
 with a shell command of the form <kbd>exec </kbd><var>wrapper</var>
 <var>program</var>.  Quoting is added to <var>program</var> and its
@@ -180,7 +180,7 @@ environment:
      <p>This command is available when debugging locally on most targets, excluding
 <span class="sc">djgpp</span>, Cygwin, MS Windows, and QNX Neutrino.
 
-     <p><a name="index-set-startup_002dwith_002dshell-118"></a><br><dt><code>set startup-with-shell</code><dt><code>set startup-with-shell on</code><dt><code>set startup-with-shell off</code><dt><code>show set startup-with-shell</code><dd>On Unix systems, by default, if a shell is available on your target,
+     <p><a name="index-set-startup_002dwith_002dshell-120"></a><br><dt><code>set startup-with-shell</code><dt><code>set startup-with-shell on</code><dt><code>set startup-with-shell off</code><dt><code>show set startup-with-shell</code><dd>On Unix systems, by default, if a shell is available on your target,
 <span class="sc">gdb</span>) uses it to start your program.  Arguments of the
 <code>run</code> command are passed to the shell, which does variable
 substitution, expands wildcard characters and performs redirection of
@@ -200,7 +200,7 @@ $<samp><span class="file">.zshenv</span></samp> for the Z shell, or the file spe
 `<samp><span class="samp">BASH_ENV</span></samp>' environment variable for BASH.
 
      <p><a name="set-auto_002dconnect_002dnative_002dtarget"></a>
-<a name="index-set-auto_002dconnect_002dnative_002dtarget-119"></a><br><dt><code>set auto-connect-native-target</code><dt><code>set auto-connect-native-target on</code><dt><code>set auto-connect-native-target off</code><dt><code>show auto-connect-native-target</code><dd>
+<a name="index-set-auto_002dconnect_002dnative_002dtarget-121"></a><br><dt><code>set auto-connect-native-target</code><dt><code>set auto-connect-native-target on</code><dt><code>set auto-connect-native-target off</code><dt><code>show auto-connect-native-target</code><dd>
 By default, if not connected to any target yet (e.g., with
 <code>target remote</code>), the <code>run</code> command starts your program as a
 native process under <span class="sc">gdb</span>, on your local machine.  If you're
@@ -241,7 +241,7 @@ disconnect.
 <code>auto-connect-native-target</code> setting: <code>attach</code>, <code>info
 proc</code>, <code>info os</code>.
 
-     <p><a name="index-set-disable_002drandomization-120"></a><br><dt><code>set disable-randomization</code><dt><code>set disable-randomization on</code><dd>This option (enabled by default in <span class="sc">gdb</span>) will turn off the native
+     <p><a name="index-set-disable_002drandomization-122"></a><br><dt><code>set disable-randomization</code><dt><code>set disable-randomization on</code><dd>This option (enabled by default in <span class="sc">gdb</span>) will turn off the native
 randomization of the virtual address space of the started program.  This option
 is useful for multiple debugging sessions to make the execution better
 reproducible and memory addresses reusable across debugging sessions.

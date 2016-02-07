@@ -10,7 +10,7 @@
 <link rel="next" href="Typeof.html#Typeof" title="Typeof">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -54,7 +54,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="C-Extensions.html#C-Extensions">C Exten
 
 <h3 class="section">6.5 Constructing Function Calls</h3>
 
-<p><a name="index-constructing-calls-2684"></a><a name="index-forwarding-calls-2685"></a>
+<p><a name="index-constructing-calls-2878"></a><a name="index-forwarding-calls-2879"></a>
 Using the built-in functions described below, you can record
 the arguments a function received, and call another function
 with the same arguments, without knowing the number or types
@@ -71,7 +71,7 @@ is, therefore, not recommended to use them outside very simple
 functions acting as mere forwarders for their arguments.
 
 <div class="defun">
-&mdash; Built-in Function: void * <b>__builtin_apply_args</b> ()<var><a name="index-g_t_005f_005fbuiltin_005fapply_005fargs-2686"></a></var><br>
+&mdash; Built-in Function: void * <b>__builtin_apply_args</b> ()<var><a name="index-g_t_005f_005fbuiltin_005fapply_005fargs-2880"></a></var><br>
 <blockquote><p>This built-in function returns a pointer to data
 describing how to perform a call with the same arguments as are passed
 to the current function.
@@ -83,7 +83,7 @@ address of that block.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Built-in Function: void * <b>__builtin_apply</b> (<var>void </var>(<var>*function</var>)()<var>, void *arguments, size_t size</var>)<var><a name="index-g_t_005f_005fbuiltin_005fapply-2687"></a></var><br>
+&mdash; Built-in Function: void * <b>__builtin_apply</b> (<var>void </var>(<var>*function</var>)()<var>, void *arguments, size_t size</var>)<var><a name="index-g_t_005f_005fbuiltin_005fapply-2881"></a></var><br>
 <blockquote><p>This built-in function invokes <var>function</var>
 with a copy of the parameters described by <var>arguments</var>
 and <var>size</var>.
@@ -103,14 +103,14 @@ area.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Built-in Function: void <b>__builtin_return</b> (<var>void *result</var>)<var><a name="index-g_t_005f_005fbuiltin_005freturn-2688"></a></var><br>
+&mdash; Built-in Function: void <b>__builtin_return</b> (<var>void *result</var>)<var><a name="index-g_t_005f_005fbuiltin_005freturn-2882"></a></var><br>
 <blockquote><p>This built-in function returns the value described by <var>result</var> from
 the containing function.  You should specify, for <var>result</var>, a value
 returned by <code>__builtin_apply</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Built-in Function:  <b>__builtin_va_arg_pack</b> ()<var><a name="index-g_t_005f_005fbuiltin_005fva_005farg_005fpack-2689"></a></var><br>
+&mdash; Built-in Function:  <b>__builtin_va_arg_pack</b> ()<var><a name="index-g_t_005f_005fbuiltin_005fva_005farg_005fpack-2883"></a></var><br>
 <blockquote><p>This built-in function represents all anonymous arguments of an inline
 function.  It can be used only in inline functions that are always
 inlined, never compiled as a separate function, such as those using
@@ -136,7 +136,7 @@ macros is undesirable.  For example:
       </blockquote></div>
 
 <div class="defun">
-&mdash; Built-in Function: size_t <b>__builtin_va_arg_pack_len</b> ()<var><a name="index-g_t_005f_005fbuiltin_005fva_005farg_005fpack_005flen-2690"></a></var><br>
+&mdash; Built-in Function: size_t <b>__builtin_va_arg_pack_len</b> ()<var><a name="index-g_t_005f_005fbuiltin_005fva_005farg_005fpack_005flen-2884"></a></var><br>
 <blockquote><p>This built-in function returns the number of anonymous arguments of
 an inline function.  It can be used only in inline functions that
 are always inlined, never compiled as a separate function, such

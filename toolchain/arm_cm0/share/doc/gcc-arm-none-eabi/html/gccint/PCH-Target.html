@@ -10,7 +10,7 @@
 <link rel="next" href="C_002b_002b-ABI.html#C_002b_002b-ABI" title="C++ ABI">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -52,19 +52,19 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Target-Macros.html#Target-Macros">Targe
 <hr>
 </div>
 
-<h3 class="section">17.28 Parameters for Precompiled Header Validity Checking</h3>
+<h3 class="section">17.27 Parameters for Precompiled Header Validity Checking</h3>
 
-<p><a name="index-parameters_002c-precompiled-headers-4829"></a>
+<p><a name="index-parameters_002c-precompiled-headers-4863"></a>
 
 <div class="defun">
-&mdash; Target Hook: void * <b>TARGET_GET_PCH_VALIDITY</b> (<var>size_t *sz</var>)<var><a name="index-TARGET_005fGET_005fPCH_005fVALIDITY-4830"></a></var><br>
+&mdash; Target Hook: void * <b>TARGET_GET_PCH_VALIDITY</b> (<var>size_t *sz</var>)<var><a name="index-TARGET_005fGET_005fPCH_005fVALIDITY-4864"></a></var><br>
 <blockquote><p>This hook returns a pointer to the data needed by
 <code>TARGET_PCH_VALID_P</code> and sets
 `<samp><span class="samp">*</span><var>sz</var></samp>' to the size of the data in bytes. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: const char * <b>TARGET_PCH_VALID_P</b> (<var>const void *data, size_t sz</var>)<var><a name="index-TARGET_005fPCH_005fVALID_005fP-4831"></a></var><br>
+&mdash; Target Hook: const char * <b>TARGET_PCH_VALID_P</b> (<var>const void *data, size_t sz</var>)<var><a name="index-TARGET_005fPCH_005fVALID_005fP-4865"></a></var><br>
 <blockquote><p>This hook checks whether the options used to create a PCH file are
 compatible with the current settings.  It returns <code>NULL</code>
 if so and a suitable error message if not.  Error messages will
@@ -80,7 +80,7 @@ suitable for most targets.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: const char * <b>TARGET_CHECK_PCH_TARGET_FLAGS</b> (<var>int pch_flags</var>)<var><a name="index-TARGET_005fCHECK_005fPCH_005fTARGET_005fFLAGS-4832"></a></var><br>
+&mdash; Target Hook: const char * <b>TARGET_CHECK_PCH_TARGET_FLAGS</b> (<var>int pch_flags</var>)<var><a name="index-TARGET_005fCHECK_005fPCH_005fTARGET_005fFLAGS-4866"></a></var><br>
 <blockquote><p>If this hook is nonnull, the default implementation of
 <code>TARGET_PCH_VALID_P</code> will use it to check for compatible values
 of <code>target_flags</code>.  <var>pch_flags</var> specifies the value that
@@ -89,7 +89,7 @@ value is the same as for <code>TARGET_PCH_VALID_P</code>.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: void <b>TARGET_PREPARE_PCH_SAVE</b> (<var>void</var>)<var><a name="index-TARGET_005fPREPARE_005fPCH_005fSAVE-4833"></a></var><br>
+&mdash; Target Hook: void <b>TARGET_PREPARE_PCH_SAVE</b> (<var>void</var>)<var><a name="index-TARGET_005fPREPARE_005fPCH_005fSAVE-4867"></a></var><br>
 <blockquote><p>Called before writing out a PCH file.  If the target has some
 garbage-collected data that needs to be in a particular state on PCH loads,
 it can use this hook to enforce that state.  Very few targets need

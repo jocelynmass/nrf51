@@ -10,7 +10,7 @@
 <link rel="next" href="SDB-and-DWARF.html#SDB-and-DWARF" title="SDB and DWARF">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -52,13 +52,13 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Debugging-Info.html#Debugging-Info">Deb
 <hr>
 </div>
 
-<h4 class="subsection">17.22.4 File Names in DBX Format</h4>
+<h4 class="subsection">17.21.4 File Names in DBX Format</h4>
 
 <!-- prevent bad page break with this line -->
 <p>This describes file names in DBX format.
 
 <div class="defun">
-&mdash; Macro: <b>DBX_OUTPUT_MAIN_SOURCE_FILENAME</b> (<var>stream, name</var>)<var><a name="index-DBX_005fOUTPUT_005fMAIN_005fSOURCE_005fFILENAME-4742"></a></var><br>
+&mdash; Macro: <b>DBX_OUTPUT_MAIN_SOURCE_FILENAME</b> (<var>stream, name</var>)<var><a name="index-DBX_005fOUTPUT_005fMAIN_005fSOURCE_005fFILENAME-4776"></a></var><br>
 <blockquote><p>A C statement to output DBX debugging information to the stdio stream
 <var>stream</var>, which indicates that file <var>name</var> is the main source
 file&mdash;the file specified as the input file for compilation. 
@@ -74,14 +74,14 @@ to do so.  If you do this, you must also set the variable
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>NO_DBX_MAIN_SOURCE_DIRECTORY</b><var><a name="index-NO_005fDBX_005fMAIN_005fSOURCE_005fDIRECTORY-4743"></a></var><br>
+&mdash; Macro: <b>NO_DBX_MAIN_SOURCE_DIRECTORY</b><var><a name="index-NO_005fDBX_005fMAIN_005fSOURCE_005fDIRECTORY-4777"></a></var><br>
 <blockquote><p>Define this macro, with value 1, if GCC should not emit an indication
 of the current directory for compilation and current source language at
 the beginning of the file. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>NO_DBX_GCC_MARKER</b><var><a name="index-NO_005fDBX_005fGCC_005fMARKER-4744"></a></var><br>
+&mdash; Macro: <b>NO_DBX_GCC_MARKER</b><var><a name="index-NO_005fDBX_005fGCC_005fMARKER-4778"></a></var><br>
 <blockquote><p>Define this macro, with value 1, if GCC should not emit an indication
 that this object file was compiled by GCC.  The default is to emit
 an <code>N_OPT</code> stab at the beginning of every source file, with
@@ -89,7 +89,7 @@ an <code>N_OPT</code> stab at the beginning of every source file, with
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>DBX_OUTPUT_MAIN_SOURCE_FILE_END</b> (<var>stream, name</var>)<var><a name="index-DBX_005fOUTPUT_005fMAIN_005fSOURCE_005fFILE_005fEND-4745"></a></var><br>
+&mdash; Macro: <b>DBX_OUTPUT_MAIN_SOURCE_FILE_END</b> (<var>stream, name</var>)<var><a name="index-DBX_005fOUTPUT_005fMAIN_005fSOURCE_005fFILE_005fEND-4779"></a></var><br>
 <blockquote><p>A C statement to output DBX debugging information at the end of
 compilation of the main source file <var>name</var>.  Output should be
 written to the stdio stream <var>stream</var>.
@@ -99,7 +99,7 @@ of compilation, which is correct for most machines.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>DBX_OUTPUT_NULL_N_SO_AT_MAIN_SOURCE_FILE_END</b><var><a name="index-DBX_005fOUTPUT_005fNULL_005fN_005fSO_005fAT_005fMAIN_005fSOURCE_005fFILE_005fEND-4746"></a></var><br>
+&mdash; Macro: <b>DBX_OUTPUT_NULL_N_SO_AT_MAIN_SOURCE_FILE_END</b><var><a name="index-DBX_005fOUTPUT_005fNULL_005fN_005fSO_005fAT_005fMAIN_005fSOURCE_005fFILE_005fEND-4780"></a></var><br>
 <blockquote><p>Define this macro <em>instead of</em> defining
 <code>DBX_OUTPUT_MAIN_SOURCE_FILE_END</code>, if what needs to be output at
 the end of compilation is an <code>N_SO</code> stab with an empty string,

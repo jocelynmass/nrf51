@@ -9,7 +9,7 @@
 <!--
 This file documents the GNU Assembler "as".
 
-Copyright (C) 1991-2013 Free Software Foundation, Inc.
+Copyright (C) 1991-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
@@ -141,124 +141,134 @@ section entitled "GNU Free Documentation License".
 <li><a href="Ascii.html#Ascii">7.5 <code>.ascii "</code><var>string</var><code>"</code><small class="dots">...</small></a>
 <li><a href="Asciz.html#Asciz">7.6 <code>.asciz "</code><var>string</var><code>"</code><small class="dots">...</small></a>
 <li><a href="Balign.html#Balign">7.7 <code>.balign[wl] </code><var>abs-expr</var><code>, </code><var>abs-expr</var><code>, </code><var>abs-expr</var></a>
-<li><a href="Bundle-directives.html#Bundle-directives">7.8 <code>.bundle_align_mode </code><var>abs-expr</var></a>
-<li><a href="Bundle-directives.html#Bundle-directives">7.9 <code>.bundle_lock</code> and <code>.bundle_unlock</code></a>
-<li><a href="Byte.html#Byte">7.10 <code>.byte </code><var>expressions</var></a>
-<li><a href="CFI-directives.html#CFI-directives">7.11 <code>.cfi_sections </code><var>section_list</var></a>
-<li><a href="CFI-directives.html#CFI-directives">7.12 <code>.cfi_startproc [simple]</code></a>
-<li><a href="CFI-directives.html#CFI-directives">7.13 <code>.cfi_endproc</code></a>
-<li><a href="CFI-directives.html#CFI-directives">7.14 <code>.cfi_personality </code><var>encoding</var><code> [, </code><var>exp</var><code>]</code></a>
-<li><a href="CFI-directives.html#CFI-directives">7.15 <code>.cfi_lsda </code><var>encoding</var><code> [, </code><var>exp</var><code>]</code></a>
-<li><a href="CFI-directives.html#CFI-directives">7.16 <code>.cfi_def_cfa </code><var>register</var><code>, </code><var>offset</var></a>
-<li><a href="CFI-directives.html#CFI-directives">7.17 <code>.cfi_def_cfa_register </code><var>register</var></a>
-<li><a href="CFI-directives.html#CFI-directives">7.18 <code>.cfi_def_cfa_offset </code><var>offset</var></a>
-<li><a href="CFI-directives.html#CFI-directives">7.19 <code>.cfi_adjust_cfa_offset </code><var>offset</var></a>
-<li><a href="CFI-directives.html#CFI-directives">7.20 <code>.cfi_offset </code><var>register</var><code>, </code><var>offset</var></a>
-<li><a href="CFI-directives.html#CFI-directives">7.21 <code>.cfi_rel_offset </code><var>register</var><code>, </code><var>offset</var></a>
-<li><a href="CFI-directives.html#CFI-directives">7.22 <code>.cfi_register </code><var>register1</var><code>, </code><var>register2</var></a>
-<li><a href="CFI-directives.html#CFI-directives">7.23 <code>.cfi_restore </code><var>register</var></a>
-<li><a href="CFI-directives.html#CFI-directives">7.24 <code>.cfi_undefined </code><var>register</var></a>
-<li><a href="CFI-directives.html#CFI-directives">7.25 <code>.cfi_same_value </code><var>register</var></a>
-<li><a href="CFI-directives.html#CFI-directives">7.26 <code>.cfi_remember_state</code>,</a>
-<li><a href="CFI-directives.html#CFI-directives">7.27 <code>.cfi_return_column </code><var>register</var></a>
-<li><a href="CFI-directives.html#CFI-directives">7.28 <code>.cfi_signal_frame</code></a>
-<li><a href="CFI-directives.html#CFI-directives">7.29 <code>.cfi_window_save</code></a>
-<li><a href="CFI-directives.html#CFI-directives">7.30 <code>.cfi_escape</code> <var>expression</var>[, <small class="dots">...</small>]</a>
-<li><a href="CFI-directives.html#CFI-directives">7.31 <code>.cfi_val_encoded_addr </code><var>register</var><code>, </code><var>encoding</var><code>, </code><var>label</var></a>
-<li><a href="Comm.html#Comm">7.32 <code>.comm </code><var>symbol</var><code> , </code><var>length</var> </a>
-<li><a href="Data.html#Data">7.33 <code>.data </code><var>subsection</var></a>
-<li><a href="Def.html#Def">7.34 <code>.def </code><var>name</var></a>
-<li><a href="Desc.html#Desc">7.35 <code>.desc </code><var>symbol</var><code>, </code><var>abs-expression</var></a>
-<li><a href="Dim.html#Dim">7.36 <code>.dim</code></a>
-<li><a href="Double.html#Double">7.37 <code>.double </code><var>flonums</var></a>
-<li><a href="Eject.html#Eject">7.38 <code>.eject</code></a>
-<li><a href="Else.html#Else">7.39 <code>.else</code></a>
-<li><a href="Elseif.html#Elseif">7.40 <code>.elseif</code></a>
-<li><a href="End.html#End">7.41 <code>.end</code></a>
-<li><a href="Endef.html#Endef">7.42 <code>.endef</code></a>
-<li><a href="Endfunc.html#Endfunc">7.43 <code>.endfunc</code></a>
-<li><a href="Endif.html#Endif">7.44 <code>.endif</code></a>
-<li><a href="Equ.html#Equ">7.45 <code>.equ </code><var>symbol</var><code>, </code><var>expression</var></a>
-<li><a href="Equiv.html#Equiv">7.46 <code>.equiv </code><var>symbol</var><code>, </code><var>expression</var></a>
-<li><a href="Eqv.html#Eqv">7.47 <code>.eqv </code><var>symbol</var><code>, </code><var>expression</var></a>
-<li><a href="Err.html#Err">7.48 <code>.err</code></a>
-<li><a href="Error.html#Error">7.49 <code>.error "</code><var>string</var><code>"</code></a>
-<li><a href="Exitm.html#Exitm">7.50 <code>.exitm</code></a>
-<li><a href="Extern.html#Extern">7.51 <code>.extern</code></a>
-<li><a href="Fail.html#Fail">7.52 <code>.fail </code><var>expression</var></a>
-<li><a href="File.html#File">7.53 <code>.file</code></a>
-<li><a href="Fill.html#Fill">7.54 <code>.fill </code><var>repeat</var><code> , </code><var>size</var><code> , </code><var>value</var></a>
-<li><a href="Float.html#Float">7.55 <code>.float </code><var>flonums</var></a>
-<li><a href="Func.html#Func">7.56 <code>.func </code><var>name</var><code>[,</code><var>label</var><code>]</code></a>
-<li><a href="Global.html#Global">7.57 <code>.global </code><var>symbol</var>, <code>.globl </code><var>symbol</var></a>
-<li><a href="Gnu_005fattribute.html#Gnu_005fattribute">7.58 <code>.gnu_attribute </code><var>tag</var><code>,</code><var>value</var></a>
-<li><a href="Hidden.html#Hidden">7.59 <code>.hidden </code><var>names</var></a>
-<li><a href="hword.html#hword">7.60 <code>.hword </code><var>expressions</var></a>
-<li><a href="Ident.html#Ident">7.61 <code>.ident</code></a>
-<li><a href="If.html#If">7.62 <code>.if </code><var>absolute expression</var></a>
-<li><a href="Incbin.html#Incbin">7.63 <code>.incbin "</code><var>file</var><code>"[,</code><var>skip</var><code>[,</code><var>count</var><code>]]</code></a>
-<li><a href="Include.html#Include">7.64 <code>.include "</code><var>file</var><code>"</code></a>
-<li><a href="Int.html#Int">7.65 <code>.int </code><var>expressions</var></a>
-<li><a href="Internal.html#Internal">7.66 <code>.internal </code><var>names</var></a>
-<li><a href="Irp.html#Irp">7.67 <code>.irp </code><var>symbol</var><code>,</code><var>values</var><small class="dots">...</small></a>
-<li><a href="Irpc.html#Irpc">7.68 <code>.irpc </code><var>symbol</var><code>,</code><var>values</var><small class="dots">...</small></a>
-<li><a href="Lcomm.html#Lcomm">7.69 <code>.lcomm </code><var>symbol</var><code> , </code><var>length</var></a>
-<li><a href="Lflags.html#Lflags">7.70 <code>.lflags</code></a>
-<li><a href="Line.html#Line">7.71 <code>.line </code><var>line-number</var></a>
-<li><a href="Linkonce.html#Linkonce">7.72 <code>.linkonce [</code><var>type</var><code>]</code></a>
-<li><a href="List.html#List">7.73 <code>.list</code></a>
-<li><a href="Ln.html#Ln">7.74 <code>.ln </code><var>line-number</var></a>
-<li><a href="Loc.html#Loc">7.75 <code>.loc </code><var>fileno</var> <var>lineno</var><code> [</code><var>column</var><code>] [</code><var>options</var><code>]</code></a>
-<li><a href="Loc_005fmark_005flabels.html#Loc_005fmark_005flabels">7.76 <code>.loc_mark_labels </code><var>enable</var></a>
-<li><a href="Local.html#Local">7.77 <code>.local </code><var>names</var></a>
-<li><a href="Long.html#Long">7.78 <code>.long </code><var>expressions</var></a>
-<li><a href="Macro.html#Macro">7.79 <code>.macro</code></a>
-<li><a href="MRI.html#MRI">7.80 <code>.mri </code><var>val</var></a>
-<li><a href="Noaltmacro.html#Noaltmacro">7.81 <code>.noaltmacro</code></a>
-<li><a href="Nolist.html#Nolist">7.82 <code>.nolist</code></a>
-<li><a href="Octa.html#Octa">7.83 <code>.octa </code><var>bignums</var></a>
-<li><a href="Offset.html#Offset">7.84 <code>.offset </code><var>loc</var></a>
-<li><a href="Org.html#Org">7.85 <code>.org </code><var>new-lc</var><code> , </code><var>fill</var></a>
-<li><a href="P2align.html#P2align">7.86 <code>.p2align[wl] </code><var>abs-expr</var><code>, </code><var>abs-expr</var><code>, </code><var>abs-expr</var></a>
-<li><a href="PopSection.html#PopSection">7.87 <code>.popsection</code></a>
-<li><a href="Previous.html#Previous">7.88 <code>.previous</code></a>
-<li><a href="Print.html#Print">7.89 <code>.print </code><var>string</var></a>
-<li><a href="Protected.html#Protected">7.90 <code>.protected </code><var>names</var></a>
-<li><a href="Psize.html#Psize">7.91 <code>.psize </code><var>lines</var><code> , </code><var>columns</var></a>
-<li><a href="Purgem.html#Purgem">7.92 <code>.purgem </code><var>name</var></a>
-<li><a href="PushSection.html#PushSection">7.93 <code>.pushsection </code><var>name</var><code> [, </code><var>subsection</var><code>] [, "</code><var>flags</var><code>"[, @</code><var>type</var><code>[,</code><var>arguments</var><code>]]]</code></a>
-<li><a href="Quad.html#Quad">7.94 <code>.quad </code><var>bignums</var></a>
-<li><a href="Reloc.html#Reloc">7.95 <code>.reloc </code><var>offset</var><code>, </code><var>reloc_name</var><code>[, </code><var>expression</var><code>]</code></a>
-<li><a href="Rept.html#Rept">7.96 <code>.rept </code><var>count</var></a>
-<li><a href="Sbttl.html#Sbttl">7.97 <code>.sbttl "</code><var>subheading</var><code>"</code></a>
-<li><a href="Scl.html#Scl">7.98 <code>.scl </code><var>class</var></a>
-<li><a href="Section.html#Section">7.99 <code>.section </code><var>name</var></a>
-<li><a href="Set.html#Set">7.100 <code>.set </code><var>symbol</var><code>, </code><var>expression</var></a>
-<li><a href="Short.html#Short">7.101 <code>.short </code><var>expressions</var></a>
-<li><a href="Single.html#Single">7.102 <code>.single </code><var>flonums</var></a>
-<li><a href="Size.html#Size">7.103 <code>.size</code></a>
-<li><a href="Skip.html#Skip">7.104 <code>.skip </code><var>size</var><code> , </code><var>fill</var></a>
-<li><a href="Sleb128.html#Sleb128">7.105 <code>.sleb128 </code><var>expressions</var></a>
-<li><a href="Space.html#Space">7.106 <code>.space </code><var>size</var><code> , </code><var>fill</var></a>
-<li><a href="Stab.html#Stab">7.107 <code>.stabd, .stabn, .stabs</code></a>
-<li><a href="String.html#String">7.108 <code>.string</code> "<var>str</var>", <code>.string8</code> "<var>str</var>", <code>.string16</code></a>
-<li><a href="Struct.html#Struct">7.109 <code>.struct </code><var>expression</var></a>
-<li><a href="SubSection.html#SubSection">7.110 <code>.subsection </code><var>name</var></a>
-<li><a href="Symver.html#Symver">7.111 <code>.symver</code></a>
-<li><a href="Tag.html#Tag">7.112 <code>.tag </code><var>structname</var></a>
-<li><a href="Text.html#Text">7.113 <code>.text </code><var>subsection</var></a>
-<li><a href="Title.html#Title">7.114 <code>.title "</code><var>heading</var><code>"</code></a>
-<li><a href="Type.html#Type">7.115 <code>.type</code></a>
-<li><a href="Uleb128.html#Uleb128">7.116 <code>.uleb128 </code><var>expressions</var></a>
-<li><a href="Val.html#Val">7.117 <code>.val </code><var>addr</var></a>
-<li><a href="Version.html#Version">7.118 <code>.version "</code><var>string</var><code>"</code></a>
-<li><a href="VTableEntry.html#VTableEntry">7.119 <code>.vtable_entry </code><var>table</var><code>, </code><var>offset</var></a>
-<li><a href="VTableInherit.html#VTableInherit">7.120 <code>.vtable_inherit </code><var>child</var><code>, </code><var>parent</var></a>
-<li><a href="Warning.html#Warning">7.121 <code>.warning "</code><var>string</var><code>"</code></a>
-<li><a href="Weak.html#Weak">7.122 <code>.weak </code><var>names</var></a>
-<li><a href="Weakref.html#Weakref">7.123 <code>.weakref </code><var>alias</var><code>, </code><var>target</var></a>
-<li><a href="Word.html#Word">7.124 <code>.word </code><var>expressions</var></a>
-<li><a href="Deprecated.html#Deprecated">7.125 Deprecated Directives</a>
+<li><a href="Bundle-directives.html#Bundle-directives">7.8 Bundle directives</a>
+<ul>
+<li><a href="Bundle-directives.html#Bundle-directives">7.8.1 <code>.bundle_align_mode </code><var>abs-expr</var></a>
+<li><a href="Bundle-directives.html#Bundle-directives">7.8.2 <code>.bundle_lock</code> and <code>.bundle_unlock</code></a>
+</li></ul>
+<li><a href="Byte.html#Byte">7.9 <code>.byte </code><var>expressions</var></a>
+<li><a href="CFI-directives.html#CFI-directives">7.10 CFI directives</a>
+<ul>
+<li><a href="CFI-directives.html#CFI-directives">7.10.1 <code>.cfi_sections </code><var>section_list</var></a>
+<li><a href="CFI-directives.html#CFI-directives">7.10.2 <code>.cfi_startproc [simple]</code></a>
+<li><a href="CFI-directives.html#CFI-directives">7.10.3 <code>.cfi_endproc</code></a>
+<li><a href="CFI-directives.html#CFI-directives">7.10.4 <code>.cfi_personality </code><var>encoding</var><code> [, </code><var>exp</var><code>]</code></a>
+<li><a href="CFI-directives.html#CFI-directives">7.10.5 <code>.cfi_personality_id </code><var>id</var></a>
+<li><a href="CFI-directives.html#CFI-directives">7.10.6 <code>.cfi_fde_data [</code><var>opcode1</var><code> [, ...]]</code></a>
+<li><a href="CFI-directives.html#CFI-directives">7.10.7 <code>.cfi_lsda </code><var>encoding</var><code> [, </code><var>exp</var><code>]</code></a>
+<li><a href="CFI-directives.html#CFI-directives">7.10.8 <code>.cfi_inline_lsda</code> [<var>align</var>]</a>
+<li><a href="CFI-directives.html#CFI-directives">7.10.9 <code>.cfi_def_cfa </code><var>register</var><code>, </code><var>offset</var></a>
+<li><a href="CFI-directives.html#CFI-directives">7.10.10 <code>.cfi_def_cfa_register </code><var>register</var></a>
+<li><a href="CFI-directives.html#CFI-directives">7.10.11 <code>.cfi_def_cfa_offset </code><var>offset</var></a>
+<li><a href="CFI-directives.html#CFI-directives">7.10.12 <code>.cfi_adjust_cfa_offset </code><var>offset</var></a>
+<li><a href="CFI-directives.html#CFI-directives">7.10.13 <code>.cfi_offset </code><var>register</var><code>, </code><var>offset</var></a>
+<li><a href="CFI-directives.html#CFI-directives">7.10.14 <code>.cfi_rel_offset </code><var>register</var><code>, </code><var>offset</var></a>
+<li><a href="CFI-directives.html#CFI-directives">7.10.15 <code>.cfi_register </code><var>register1</var><code>, </code><var>register2</var></a>
+<li><a href="CFI-directives.html#CFI-directives">7.10.16 <code>.cfi_restore </code><var>register</var></a>
+<li><a href="CFI-directives.html#CFI-directives">7.10.17 <code>.cfi_undefined </code><var>register</var></a>
+<li><a href="CFI-directives.html#CFI-directives">7.10.18 <code>.cfi_same_value </code><var>register</var></a>
+<li><a href="CFI-directives.html#CFI-directives">7.10.19 <code>.cfi_remember_state</code>,</a>
+<li><a href="CFI-directives.html#CFI-directives">7.10.20 <code>.cfi_return_column </code><var>register</var></a>
+<li><a href="CFI-directives.html#CFI-directives">7.10.21 <code>.cfi_signal_frame</code></a>
+<li><a href="CFI-directives.html#CFI-directives">7.10.22 <code>.cfi_window_save</code></a>
+<li><a href="CFI-directives.html#CFI-directives">7.10.23 <code>.cfi_escape</code> <var>expression</var>[, <small class="dots">...</small>]</a>
+<li><a href="CFI-directives.html#CFI-directives">7.10.24 <code>.cfi_val_encoded_addr </code><var>register</var><code>, </code><var>encoding</var><code>, </code><var>label</var></a>
+</li></ul>
+<li><a href="Comm.html#Comm">7.11 <code>.comm </code><var>symbol</var><code> , </code><var>length</var> </a>
+<li><a href="Data.html#Data">7.12 <code>.data </code><var>subsection</var></a>
+<li><a href="Def.html#Def">7.13 <code>.def </code><var>name</var></a>
+<li><a href="Desc.html#Desc">7.14 <code>.desc </code><var>symbol</var><code>, </code><var>abs-expression</var></a>
+<li><a href="Dim.html#Dim">7.15 <code>.dim</code></a>
+<li><a href="Double.html#Double">7.16 <code>.double </code><var>flonums</var></a>
+<li><a href="Eject.html#Eject">7.17 <code>.eject</code></a>
+<li><a href="Else.html#Else">7.18 <code>.else</code></a>
+<li><a href="Elseif.html#Elseif">7.19 <code>.elseif</code></a>
+<li><a href="End.html#End">7.20 <code>.end</code></a>
+<li><a href="Endef.html#Endef">7.21 <code>.endef</code></a>
+<li><a href="Endfunc.html#Endfunc">7.22 <code>.endfunc</code></a>
+<li><a href="Endif.html#Endif">7.23 <code>.endif</code></a>
+<li><a href="Equ.html#Equ">7.24 <code>.equ </code><var>symbol</var><code>, </code><var>expression</var></a>
+<li><a href="Equiv.html#Equiv">7.25 <code>.equiv </code><var>symbol</var><code>, </code><var>expression</var></a>
+<li><a href="Eqv.html#Eqv">7.26 <code>.eqv </code><var>symbol</var><code>, </code><var>expression</var></a>
+<li><a href="Err.html#Err">7.27 <code>.err</code></a>
+<li><a href="Error.html#Error">7.28 <code>.error "</code><var>string</var><code>"</code></a>
+<li><a href="Exitm.html#Exitm">7.29 <code>.exitm</code></a>
+<li><a href="Extern.html#Extern">7.30 <code>.extern</code></a>
+<li><a href="Fail.html#Fail">7.31 <code>.fail </code><var>expression</var></a>
+<li><a href="File.html#File">7.32 <code>.file</code></a>
+<li><a href="Fill.html#Fill">7.33 <code>.fill </code><var>repeat</var><code> , </code><var>size</var><code> , </code><var>value</var></a>
+<li><a href="Float.html#Float">7.34 <code>.float </code><var>flonums</var></a>
+<li><a href="Func.html#Func">7.35 <code>.func </code><var>name</var><code>[,</code><var>label</var><code>]</code></a>
+<li><a href="Global.html#Global">7.36 <code>.global </code><var>symbol</var>, <code>.globl </code><var>symbol</var></a>
+<li><a href="Gnu_005fattribute.html#Gnu_005fattribute">7.37 <code>.gnu_attribute </code><var>tag</var><code>,</code><var>value</var></a>
+<li><a href="Hidden.html#Hidden">7.38 <code>.hidden </code><var>names</var></a>
+<li><a href="hword.html#hword">7.39 <code>.hword </code><var>expressions</var></a>
+<li><a href="Ident.html#Ident">7.40 <code>.ident</code></a>
+<li><a href="If.html#If">7.41 <code>.if </code><var>absolute expression</var></a>
+<li><a href="Incbin.html#Incbin">7.42 <code>.incbin "</code><var>file</var><code>"[,</code><var>skip</var><code>[,</code><var>count</var><code>]]</code></a>
+<li><a href="Include.html#Include">7.43 <code>.include "</code><var>file</var><code>"</code></a>
+<li><a href="Int.html#Int">7.44 <code>.int </code><var>expressions</var></a>
+<li><a href="Internal.html#Internal">7.45 <code>.internal </code><var>names</var></a>
+<li><a href="Irp.html#Irp">7.46 <code>.irp </code><var>symbol</var><code>,</code><var>values</var><small class="dots">...</small></a>
+<li><a href="Irpc.html#Irpc">7.47 <code>.irpc </code><var>symbol</var><code>,</code><var>values</var><small class="dots">...</small></a>
+<li><a href="Lcomm.html#Lcomm">7.48 <code>.lcomm </code><var>symbol</var><code> , </code><var>length</var></a>
+<li><a href="Lflags.html#Lflags">7.49 <code>.lflags</code></a>
+<li><a href="Line.html#Line">7.50 <code>.line </code><var>line-number</var></a>
+<li><a href="Linkonce.html#Linkonce">7.51 <code>.linkonce [</code><var>type</var><code>]</code></a>
+<li><a href="List.html#List">7.52 <code>.list</code></a>
+<li><a href="Ln.html#Ln">7.53 <code>.ln </code><var>line-number</var></a>
+<li><a href="Loc.html#Loc">7.54 <code>.loc </code><var>fileno</var> <var>lineno</var><code> [</code><var>column</var><code>] [</code><var>options</var><code>]</code></a>
+<li><a href="Loc_005fmark_005flabels.html#Loc_005fmark_005flabels">7.55 <code>.loc_mark_labels </code><var>enable</var></a>
+<li><a href="Local.html#Local">7.56 <code>.local </code><var>names</var></a>
+<li><a href="Long.html#Long">7.57 <code>.long </code><var>expressions</var></a>
+<li><a href="Macro.html#Macro">7.58 <code>.macro</code></a>
+<li><a href="MRI.html#MRI">7.59 <code>.mri </code><var>val</var></a>
+<li><a href="Noaltmacro.html#Noaltmacro">7.60 <code>.noaltmacro</code></a>
+<li><a href="Nolist.html#Nolist">7.61 <code>.nolist</code></a>
+<li><a href="Octa.html#Octa">7.62 <code>.octa </code><var>bignums</var></a>
+<li><a href="Offset.html#Offset">7.63 <code>.offset </code><var>loc</var></a>
+<li><a href="Org.html#Org">7.64 <code>.org </code><var>new-lc</var><code> , </code><var>fill</var></a>
+<li><a href="P2align.html#P2align">7.65 <code>.p2align[wl] </code><var>abs-expr</var><code>, </code><var>abs-expr</var><code>, </code><var>abs-expr</var></a>
+<li><a href="PopSection.html#PopSection">7.66 <code>.popsection</code></a>
+<li><a href="Previous.html#Previous">7.67 <code>.previous</code></a>
+<li><a href="Print.html#Print">7.68 <code>.print </code><var>string</var></a>
+<li><a href="Protected.html#Protected">7.69 <code>.protected </code><var>names</var></a>
+<li><a href="Psize.html#Psize">7.70 <code>.psize </code><var>lines</var><code> , </code><var>columns</var></a>
+<li><a href="Purgem.html#Purgem">7.71 <code>.purgem </code><var>name</var></a>
+<li><a href="PushSection.html#PushSection">7.72 <code>.pushsection </code><var>name</var><code> [, </code><var>subsection</var><code>] [, "</code><var>flags</var><code>"[, @</code><var>type</var><code>[,</code><var>arguments</var><code>]]]</code></a>
+<li><a href="Quad.html#Quad">7.73 <code>.quad </code><var>bignums</var></a>
+<li><a href="Reloc.html#Reloc">7.74 <code>.reloc </code><var>offset</var><code>, </code><var>reloc_name</var><code>[, </code><var>expression</var><code>]</code></a>
+<li><a href="Rept.html#Rept">7.75 <code>.rept </code><var>count</var></a>
+<li><a href="Sbttl.html#Sbttl">7.76 <code>.sbttl "</code><var>subheading</var><code>"</code></a>
+<li><a href="Scl.html#Scl">7.77 <code>.scl </code><var>class</var></a>
+<li><a href="Section.html#Section">7.78 <code>.section </code><var>name</var></a>
+<li><a href="Set.html#Set">7.79 <code>.set </code><var>symbol</var><code>, </code><var>expression</var></a>
+<li><a href="Short.html#Short">7.80 <code>.short </code><var>expressions</var></a>
+<li><a href="Single.html#Single">7.81 <code>.single </code><var>flonums</var></a>
+<li><a href="Size.html#Size">7.82 <code>.size</code></a>
+<li><a href="Skip.html#Skip">7.83 <code>.skip </code><var>size</var><code> , </code><var>fill</var></a>
+<li><a href="Sleb128.html#Sleb128">7.84 <code>.sleb128 </code><var>expressions</var></a>
+<li><a href="Space.html#Space">7.85 <code>.space </code><var>size</var><code> , </code><var>fill</var></a>
+<li><a href="Stab.html#Stab">7.86 <code>.stabd, .stabn, .stabs</code></a>
+<li><a href="String.html#String">7.87 <code>.string</code> "<var>str</var>", <code>.string8</code> "<var>str</var>", <code>.string16</code></a>
+<li><a href="Struct.html#Struct">7.88 <code>.struct </code><var>expression</var></a>
+<li><a href="SubSection.html#SubSection">7.89 <code>.subsection </code><var>name</var></a>
+<li><a href="Symver.html#Symver">7.90 <code>.symver</code></a>
+<li><a href="Tag.html#Tag">7.91 <code>.tag </code><var>structname</var></a>
+<li><a href="Text.html#Text">7.92 <code>.text </code><var>subsection</var></a>
+<li><a href="Title.html#Title">7.93 <code>.title "</code><var>heading</var><code>"</code></a>
+<li><a href="Type.html#Type">7.94 <code>.type</code></a>
+<li><a href="Uleb128.html#Uleb128">7.95 <code>.uleb128 </code><var>expressions</var></a>
+<li><a href="Val.html#Val">7.96 <code>.val </code><var>addr</var></a>
+<li><a href="Version.html#Version">7.97 <code>.version "</code><var>string</var><code>"</code></a>
+<li><a href="VTableEntry.html#VTableEntry">7.98 <code>.vtable_entry </code><var>table</var><code>, </code><var>offset</var></a>
+<li><a href="VTableInherit.html#VTableInherit">7.99 <code>.vtable_inherit </code><var>child</var><code>, </code><var>parent</var></a>
+<li><a href="Warning.html#Warning">7.100 <code>.warning "</code><var>string</var><code>"</code></a>
+<li><a href="Weak.html#Weak">7.101 <code>.weak </code><var>names</var></a>
+<li><a href="Weakref.html#Weakref">7.102 <code>.weakref </code><var>alias</var><code>, </code><var>target</var></a>
+<li><a href="Word.html#Word">7.103 <code>.word </code><var>expressions</var></a>
+<li><a href="Zero.html#Zero">7.104 <code>.zero </code><var>size</var></a>
+<li><a href="Deprecated.html#Deprecated">7.105 Deprecated Directives</a>
 </li></ul>
 <li><a name="toc_Object-Attributes" href="Object-Attributes.html#Object-Attributes">8 Object Attributes</a>
 <ul>
@@ -267,6 +277,7 @@ section entitled "GNU Free Documentation License".
 <li><a href="GNU-Object-Attributes.html#GNU-Object-Attributes">8.1.1 Common <span class="sc">gnu</span> attributes</a>
 <li><a href="GNU-Object-Attributes.html#GNU-Object-Attributes">8.1.2 MIPS Attributes</a>
 <li><a href="GNU-Object-Attributes.html#GNU-Object-Attributes">8.1.3 PowerPC Attributes</a>
+<li><a href="GNU-Object-Attributes.html#GNU-Object-Attributes">8.1.4 IBM z Systems Attributes</a>
 </li></ul>
 <li><a href="Defining-New-Object-Attributes.html#Defining-New-Object-Attributes">8.2 Defining New Object Attributes</a>
 </li></ul>
@@ -275,16 +286,17 @@ section entitled "GNU Free Documentation License".
 <li><a href="AArch64_002dDependent.html#AArch64_002dDependent">9.1 AArch64 Dependent Features</a>
 <ul>
 <li><a href="AArch64-Options.html#AArch64-Options">9.1.1 Options</a>
-<li><a href="AArch64-Syntax.html#AArch64-Syntax">9.1.2 Syntax</a>
+<li><a href="AArch64-Extensions.html#AArch64-Extensions">9.1.2 Architecture Extensions</a>
+<li><a href="AArch64-Syntax.html#AArch64-Syntax">9.1.3 Syntax</a>
 <ul>
-<li><a href="AArch64_002dChars.html#AArch64_002dChars">9.1.2.1 Special Characters</a>
-<li><a href="AArch64_002dRegs.html#AArch64_002dRegs">9.1.2.2 Register Names</a>
-<li><a href="AArch64_002dRelocations.html#AArch64_002dRelocations">9.1.2.3 Relocations</a>
+<li><a href="AArch64_002dChars.html#AArch64_002dChars">9.1.3.1 Special Characters</a>
+<li><a href="AArch64_002dRegs.html#AArch64_002dRegs">9.1.3.2 Register Names</a>
+<li><a href="AArch64_002dRelocations.html#AArch64_002dRelocations">9.1.3.3 Relocations</a>
 </li></ul>
-<li><a href="AArch64-Floating-Point.html#AArch64-Floating-Point">9.1.3 Floating Point</a>
-<li><a href="AArch64-Directives.html#AArch64-Directives">9.1.4 AArch64 Machine Directives</a>
-<li><a href="AArch64-Opcodes.html#AArch64-Opcodes">9.1.5 Opcodes</a>
-<li><a href="AArch64-Mapping-Symbols.html#AArch64-Mapping-Symbols">9.1.6 Mapping Symbols</a>
+<li><a href="AArch64-Floating-Point.html#AArch64-Floating-Point">9.1.4 Floating Point</a>
+<li><a href="AArch64-Directives.html#AArch64-Directives">9.1.5 AArch64 Machine Directives</a>
+<li><a href="AArch64-Opcodes.html#AArch64-Opcodes">9.1.6 Opcodes</a>
+<li><a href="AArch64-Mapping-Symbols.html#AArch64-Mapping-Symbols">9.1.7 Mapping Symbols</a>
 </li></ul>
 <li><a href="Alpha_002dDependent.html#Alpha_002dDependent">9.2 Alpha Dependent Features</a>
 <ul>
@@ -308,9 +320,10 @@ section entitled "GNU Free Documentation License".
 <li><a href="ARC_002dChars.html#ARC_002dChars">9.3.2.1 Special Characters</a>
 <li><a href="ARC_002dRegs.html#ARC_002dRegs">9.3.2.2 Register Names</a>
 </li></ul>
-<li><a href="ARC-Floating-Point.html#ARC-Floating-Point">9.3.3 Floating Point</a>
-<li><a href="ARC-Directives.html#ARC-Directives">9.3.4 ARC Machine Directives</a>
-<li><a href="ARC-Opcodes.html#ARC-Opcodes">9.3.5 Opcodes</a>
+<li><a href="ARC-Directives.html#ARC-Directives">9.3.3 ARC Machine Directives</a>
+<li><a href="ARC-Modifiers.html#ARC-Modifiers">9.3.4 ARC Assembler Modifiers</a>
+<li><a href="ARC-Symbols.html#ARC-Symbols">9.3.5 ARC Pre-defined Symbols</a>
+<li><a href="ARC-Opcodes.html#ARC-Opcodes">9.3.6 Opcodes</a>
 </li></ul>
 <li><a href="ARM_002dDependent.html#ARM_002dDependent">9.4 ARM Dependent Features</a>
 <ul>
@@ -445,21 +458,24 @@ section entitled "GNU Free Documentation License".
 <li><a href="i386_002dVariations.html#i386_002dVariations">9.15.3.1 AT&amp;T Syntax versus Intel Syntax</a>
 <li><a href="i386_002dChars.html#i386_002dChars">9.15.3.2 Special Characters</a>
 </li></ul>
-<li><a href="i386_002dMnemonics.html#i386_002dMnemonics">9.15.4 Instruction Naming</a>
-<li><a href="i386_002dMnemonics.html#i386_002dMnemonics">9.15.5 AT&amp;T Mnemonic versus Intel Mnemonic</a>
-<li><a href="i386_002dRegs.html#i386_002dRegs">9.15.6 Register Naming</a>
-<li><a href="i386_002dPrefixes.html#i386_002dPrefixes">9.15.7 Instruction Prefixes</a>
-<li><a href="i386_002dMemory.html#i386_002dMemory">9.15.8 Memory References</a>
-<li><a href="i386_002dJumps.html#i386_002dJumps">9.15.9 Handling of Jump Instructions</a>
-<li><a href="i386_002dFloat.html#i386_002dFloat">9.15.10 Floating Point</a>
-<li><a href="i386_002dSIMD.html#i386_002dSIMD">9.15.11 Intel's MMX and AMD's 3DNow! SIMD Operations</a>
-<li><a href="i386_002dLWP.html#i386_002dLWP">9.15.12 AMD's Lightweight Profiling Instructions</a>
-<li><a href="i386_002dBMI.html#i386_002dBMI">9.15.13 Bit Manipulation Instructions</a>
-<li><a href="i386_002dTBM.html#i386_002dTBM">9.15.14 AMD's Trailing Bit Manipulation Instructions</a>
-<li><a href="i386_002d16bit.html#i386_002d16bit">9.15.15 Writing 16-bit Code</a>
+<li><a href="i386_002dMnemonics.html#i386_002dMnemonics">9.15.4 i386-Mnemonics</a>
+<ul>
+<li><a href="i386_002dMnemonics.html#i386_002dMnemonics">9.15.4.1 Instruction Naming</a>
+<li><a href="i386_002dMnemonics.html#i386_002dMnemonics">9.15.4.2 AT&amp;T Mnemonic versus Intel Mnemonic</a>
+</li></ul>
+<li><a href="i386_002dRegs.html#i386_002dRegs">9.15.5 Register Naming</a>
+<li><a href="i386_002dPrefixes.html#i386_002dPrefixes">9.15.6 Instruction Prefixes</a>
+<li><a href="i386_002dMemory.html#i386_002dMemory">9.15.7 Memory References</a>
+<li><a href="i386_002dJumps.html#i386_002dJumps">9.15.8 Handling of Jump Instructions</a>
+<li><a href="i386_002dFloat.html#i386_002dFloat">9.15.9 Floating Point</a>
+<li><a href="i386_002dSIMD.html#i386_002dSIMD">9.15.10 Intel's MMX and AMD's 3DNow! SIMD Operations</a>
+<li><a href="i386_002dLWP.html#i386_002dLWP">9.15.11 AMD's Lightweight Profiling Instructions</a>
+<li><a href="i386_002dBMI.html#i386_002dBMI">9.15.12 Bit Manipulation Instructions</a>
+<li><a href="i386_002dTBM.html#i386_002dTBM">9.15.13 AMD's Trailing Bit Manipulation Instructions</a>
+<li><a href="i386_002d16bit.html#i386_002d16bit">9.15.14 Writing 16-bit Code</a>
+<li><a href="i386_002dArch.html#i386_002dArch">9.15.15 Specifying CPU Architecture</a>
 <li><a href="i386_002dBugs.html#i386_002dBugs">9.15.16 AT&amp;T Syntax bugs</a>
-<li><a href="i386_002dArch.html#i386_002dArch">9.15.17 Specifying CPU Architecture</a>
-<li><a href="i386_002dNotes.html#i386_002dNotes">9.15.18 Notes</a>
+<li><a href="i386_002dNotes.html#i386_002dNotes">9.15.17 Notes</a>
 </li></ul>
 <li><a href="i860_002dDependent.html#i860_002dDependent">9.16 Intel i860 Dependent Features</a>
 <ul>
@@ -592,13 +608,20 @@ section entitled "GNU Free Documentation License".
 <li><a href="MIPS-assembly-options.html#MIPS-assembly-options">9.27.6 Directives to control code generation</a>
 <li><a href="MIPS-autoextend.html#MIPS-autoextend">9.27.7 Directives for extending MIPS 16 bit instructions</a>
 <li><a href="MIPS-insn.html#MIPS-insn">9.27.8 Directive to mark data as an instruction</a>
-<li><a href="MIPS-NaN-Encodings.html#MIPS-NaN-Encodings">9.27.9 Directives to record which NaN encoding is being used</a>
-<li><a href="MIPS-Option-Stack.html#MIPS-Option-Stack">9.27.10 Directives to save and restore options</a>
-<li><a href="MIPS-ASE-Instruction-Generation-Overrides.html#MIPS-ASE-Instruction-Generation-Overrides">9.27.11 Directives to control generation of MIPS ASE instructions</a>
-<li><a href="MIPS-Floating_002dPoint.html#MIPS-Floating_002dPoint">9.27.12 Directives to override floating-point options</a>
-<li><a href="MIPS-Syntax.html#MIPS-Syntax">9.27.13 Syntactical considerations for the MIPS assembler</a>
+<li><a href="MIPS-FP-ABIs.html#MIPS-FP-ABIs">9.27.9 Directives to control the FP ABI</a>
 <ul>
-<li><a href="MIPS_002dChars.html#MIPS_002dChars">9.27.13.1 Special Characters</a>
+<li><a href="MIPS-FP-ABI-History.html#MIPS-FP-ABI-History">9.27.9.1 History of FP ABIs</a>
+<li><a href="MIPS-FP-ABI-Variants.html#MIPS-FP-ABI-Variants">9.27.9.2 Supported FP ABIs</a>
+<li><a href="MIPS-FP-ABI-Selection.html#MIPS-FP-ABI-Selection">9.27.9.3 Automatic selection of FP ABI</a>
+<li><a href="MIPS-FP-ABI-Compatibility.html#MIPS-FP-ABI-Compatibility">9.27.9.4 Linking different FP ABI variants</a>
+</li></ul>
+<li><a href="MIPS-NaN-Encodings.html#MIPS-NaN-Encodings">9.27.10 Directives to record which NaN encoding is being used</a>
+<li><a href="MIPS-Option-Stack.html#MIPS-Option-Stack">9.27.11 Directives to save and restore options</a>
+<li><a href="MIPS-ASE-Instruction-Generation-Overrides.html#MIPS-ASE-Instruction-Generation-Overrides">9.27.12 Directives to control generation of MIPS ASE instructions</a>
+<li><a href="MIPS-Floating_002dPoint.html#MIPS-Floating_002dPoint">9.27.13 Directives to override floating-point options</a>
+<li><a href="MIPS-Syntax.html#MIPS-Syntax">9.27.14 Syntactical considerations for the MIPS assembler</a>
+<ul>
+<li><a href="MIPS_002dChars.html#MIPS_002dChars">9.27.14.1 Special Characters</a>
 </li></ul>
 </li></ul>
 <li><a href="MMIX_002dDependent.html#MMIX_002dDependent">9.28 MMIX Dependent Features</a>
@@ -629,213 +652,210 @@ section entitled "GNU Free Documentation License".
 <li><a href="MSP430-Opcodes.html#MSP430-Opcodes">9.29.5 Opcodes</a>
 <li><a href="MSP430-Profiling-Capability.html#MSP430-Profiling-Capability">9.29.6 Profiling Capability</a>
 </li></ul>
-<li><a href="NiosII_002dDependent.html#NiosII_002dDependent">9.30 Nios II Dependent Features</a>
+<li><a href="NDS32_002dDependent.html#NDS32_002dDependent">9.30 NDS32 Dependent Features</a>
 <ul>
-<li><a href="Nios-II-Options.html#Nios-II-Options">9.30.1 Options</a>
-<li><a href="Nios-II-Syntax.html#Nios-II-Syntax">9.30.2 Syntax</a>
+<li><a href="NDS32-Options.html#NDS32-Options">9.30.1 NDS32 Options</a>
+<li><a href="NDS32-Syntax.html#NDS32-Syntax">9.30.2 Syntax</a>
 <ul>
-<li><a href="Nios-II-Chars.html#Nios-II-Chars">9.30.2.1 Special Characters</a>
-</li></ul>
-<li><a href="Nios-II-Relocations.html#Nios-II-Relocations">9.30.3 Nios II Machine Relocations</a>
-<li><a href="Nios-II-Directives.html#Nios-II-Directives">9.30.4 Nios II Machine Directives</a>
-<li><a href="Nios-II-Opcodes.html#Nios-II-Opcodes">9.30.5 Opcodes</a>
-</li></ul>
-<li><a href="NS32K_002dDependent.html#NS32K_002dDependent">9.31 NS32K Dependent Features</a>
-<ul>
-<li><a href="NS32K-Syntax.html#NS32K-Syntax">9.31.1 Syntax</a>
-<ul>
-<li><a href="NS32K_002dChars.html#NS32K_002dChars">9.31.1.1 Special Characters</a>
+<li><a href="NDS32_002dChars.html#NDS32_002dChars">9.30.2.1 Special Characters</a>
+<li><a href="NDS32_002dRegs.html#NDS32_002dRegs">9.30.2.2 Register Names</a>
+<li><a href="NDS32_002dOps.html#NDS32_002dOps">9.30.2.3 Pseudo Instructions</a>
 </li></ul>
 </li></ul>
-<li><a href="PDP_002d11_002dDependent.html#PDP_002d11_002dDependent">9.32 PDP-11 Dependent Features</a>
+<li><a href="NiosII_002dDependent.html#NiosII_002dDependent">9.31 Nios II Dependent Features</a>
 <ul>
-<li><a href="PDP_002d11_002dOptions.html#PDP_002d11_002dOptions">9.32.1 Options</a>
+<li><a href="Nios-II-Options.html#Nios-II-Options">9.31.1 Options</a>
+<li><a href="Nios-II-Syntax.html#Nios-II-Syntax">9.31.2 Syntax</a>
 <ul>
-<li><a href="PDP_002d11_002dOptions.html#PDP_002d11_002dOptions">9.32.1.1 Code Generation Options</a>
-<li><a href="PDP_002d11_002dOptions.html#PDP_002d11_002dOptions">9.32.1.2 Instruction Set Extension Options</a>
-<li><a href="PDP_002d11_002dOptions.html#PDP_002d11_002dOptions">9.32.1.3 CPU Model Options</a>
-<li><a href="PDP_002d11_002dOptions.html#PDP_002d11_002dOptions">9.32.1.4 Machine Model Options</a>
+<li><a href="Nios-II-Chars.html#Nios-II-Chars">9.31.2.1 Special Characters</a>
 </li></ul>
-<li><a href="PDP_002d11_002dPseudos.html#PDP_002d11_002dPseudos">9.32.2 Assembler Directives</a>
-<li><a href="PDP_002d11_002dSyntax.html#PDP_002d11_002dSyntax">9.32.3 PDP-11 Assembly Language Syntax</a>
-<li><a href="PDP_002d11_002dMnemonics.html#PDP_002d11_002dMnemonics">9.32.4 Instruction Naming</a>
-<li><a href="PDP_002d11_002dSynthetic.html#PDP_002d11_002dSynthetic">9.32.5 Synthetic Instructions</a>
+<li><a href="Nios-II-Relocations.html#Nios-II-Relocations">9.31.3 Nios II Machine Relocations</a>
+<li><a href="Nios-II-Directives.html#Nios-II-Directives">9.31.4 Nios II Machine Directives</a>
+<li><a href="Nios-II-Opcodes.html#Nios-II-Opcodes">9.31.5 Opcodes</a>
 </li></ul>
-<li><a href="PJ_002dDependent.html#PJ_002dDependent">9.33 picoJava Dependent Features</a>
+<li><a href="NS32K_002dDependent.html#NS32K_002dDependent">9.32 NS32K Dependent Features</a>
 <ul>
-<li><a href="PJ-Options.html#PJ-Options">9.33.1 Options</a>
-<li><a href="PJ-Syntax.html#PJ-Syntax">9.33.2 PJ Syntax</a>
+<li><a href="NS32K-Syntax.html#NS32K-Syntax">9.32.1 Syntax</a>
 <ul>
-<li><a href="PJ_002dChars.html#PJ_002dChars">9.33.2.1 Special Characters</a>
+<li><a href="NS32K_002dChars.html#NS32K_002dChars">9.32.1.1 Special Characters</a>
 </li></ul>
 </li></ul>
-<li><a href="PPC_002dDependent.html#PPC_002dDependent">9.34 PowerPC Dependent Features</a>
+<li><a href="PDP_002d11_002dDependent.html#PDP_002d11_002dDependent">9.33 PDP-11 Dependent Features</a>
 <ul>
-<li><a href="PowerPC_002dOpts.html#PowerPC_002dOpts">9.34.1 Options</a>
-<li><a href="PowerPC_002dPseudo.html#PowerPC_002dPseudo">9.34.2 PowerPC Assembler Directives</a>
-<li><a href="PowerPC_002dSyntax.html#PowerPC_002dSyntax">9.34.3 PowerPC Syntax</a>
+<li><a href="PDP_002d11_002dOptions.html#PDP_002d11_002dOptions">9.33.1 Options</a>
 <ul>
-<li><a href="PowerPC_002dChars.html#PowerPC_002dChars">9.34.3.1 Special Characters</a>
+<li><a href="PDP_002d11_002dOptions.html#PDP_002d11_002dOptions">9.33.1.1 Code Generation Options</a>
+<li><a href="PDP_002d11_002dOptions.html#PDP_002d11_002dOptions">9.33.1.2 Instruction Set Extension Options</a>
+<li><a href="PDP_002d11_002dOptions.html#PDP_002d11_002dOptions">9.33.1.3 CPU Model Options</a>
+<li><a href="PDP_002d11_002dOptions.html#PDP_002d11_002dOptions">9.33.1.4 Machine Model Options</a>
+</li></ul>
+<li><a href="PDP_002d11_002dPseudos.html#PDP_002d11_002dPseudos">9.33.2 Assembler Directives</a>
+<li><a href="PDP_002d11_002dSyntax.html#PDP_002d11_002dSyntax">9.33.3 PDP-11 Assembly Language Syntax</a>
+<li><a href="PDP_002d11_002dMnemonics.html#PDP_002d11_002dMnemonics">9.33.4 Instruction Naming</a>
+<li><a href="PDP_002d11_002dSynthetic.html#PDP_002d11_002dSynthetic">9.33.5 Synthetic Instructions</a>
+</li></ul>
+<li><a href="PJ_002dDependent.html#PJ_002dDependent">9.34 picoJava Dependent Features</a>
+<ul>
+<li><a href="PJ-Options.html#PJ-Options">9.34.1 Options</a>
+<li><a href="PJ-Syntax.html#PJ-Syntax">9.34.2 PJ Syntax</a>
+<ul>
+<li><a href="PJ_002dChars.html#PJ_002dChars">9.34.2.1 Special Characters</a>
 </li></ul>
 </li></ul>
-<li><a href="RL78_002dDependent.html#RL78_002dDependent">9.35 RL78 Dependent Features</a>
+<li><a href="PPC_002dDependent.html#PPC_002dDependent">9.35 PowerPC Dependent Features</a>
 <ul>
-<li><a href="RL78_002dOpts.html#RL78_002dOpts">9.35.1 RL78 Options</a>
-<li><a href="RL78_002dModifiers.html#RL78_002dModifiers">9.35.2 Symbolic Operand Modifiers</a>
-<li><a href="RL78_002dDirectives.html#RL78_002dDirectives">9.35.3 Assembler Directives</a>
-<li><a href="RL78_002dSyntax.html#RL78_002dSyntax">9.35.4 Syntax for the RL78</a>
+<li><a href="PowerPC_002dOpts.html#PowerPC_002dOpts">9.35.1 Options</a>
+<li><a href="PowerPC_002dPseudo.html#PowerPC_002dPseudo">9.35.2 PowerPC Assembler Directives</a>
+<li><a href="PowerPC_002dSyntax.html#PowerPC_002dSyntax">9.35.3 PowerPC Syntax</a>
 <ul>
-<li><a href="RL78_002dChars.html#RL78_002dChars">9.35.4.1 Special Characters</a>
+<li><a href="PowerPC_002dChars.html#PowerPC_002dChars">9.35.3.1 Special Characters</a>
 </li></ul>
 </li></ul>
-<li><a href="RX_002dDependent.html#RX_002dDependent">9.36 RX Dependent Features</a>
+<li><a href="RL78_002dDependent.html#RL78_002dDependent">9.36 RL78 Dependent Features</a>
 <ul>
-<li><a href="RX_002dOpts.html#RX_002dOpts">9.36.1 RX Options</a>
-<li><a href="RX_002dModifiers.html#RX_002dModifiers">9.36.2 Symbolic Operand Modifiers</a>
-<li><a href="RX_002dDirectives.html#RX_002dDirectives">9.36.3 Assembler Directives</a>
-<li><a href="RX_002dFloat.html#RX_002dFloat">9.36.4 Floating Point</a>
-<li><a href="RX_002dSyntax.html#RX_002dSyntax">9.36.5 Syntax for the RX</a>
+<li><a href="RL78_002dOpts.html#RL78_002dOpts">9.36.1 RL78 Options</a>
+<li><a href="RL78_002dModifiers.html#RL78_002dModifiers">9.36.2 Symbolic Operand Modifiers</a>
+<li><a href="RL78_002dDirectives.html#RL78_002dDirectives">9.36.3 Assembler Directives</a>
+<li><a href="RL78_002dSyntax.html#RL78_002dSyntax">9.36.4 Syntax for the RL78</a>
 <ul>
-<li><a href="RX_002dChars.html#RX_002dChars">9.36.5.1 Special Characters</a>
+<li><a href="RL78_002dChars.html#RL78_002dChars">9.36.4.1 Special Characters</a>
 </li></ul>
 </li></ul>
-<li><a href="S_002f390_002dDependent.html#S_002f390_002dDependent">9.37 IBM S/390 Dependent Features</a>
+<li><a href="RX_002dDependent.html#RX_002dDependent">9.37 RX Dependent Features</a>
 <ul>
-<li><a href="s390-Options.html#s390-Options">9.37.1 Options</a>
-<li><a href="s390-Characters.html#s390-Characters">9.37.2 Special Characters</a>
-<li><a href="s390-Syntax.html#s390-Syntax">9.37.3 Instruction syntax</a>
+<li><a href="RX_002dOpts.html#RX_002dOpts">9.37.1 RX Options</a>
+<li><a href="RX_002dModifiers.html#RX_002dModifiers">9.37.2 Symbolic Operand Modifiers</a>
+<li><a href="RX_002dDirectives.html#RX_002dDirectives">9.37.3 Assembler Directives</a>
+<li><a href="RX_002dFloat.html#RX_002dFloat">9.37.4 Floating Point</a>
+<li><a href="RX_002dSyntax.html#RX_002dSyntax">9.37.5 Syntax for the RX</a>
 <ul>
-<li><a href="s390-Register.html#s390-Register">9.37.3.1 Register naming</a>
-<li><a href="s390-Mnemonics.html#s390-Mnemonics">9.37.3.2 Instruction Mnemonics</a>
-<li><a href="s390-Operands.html#s390-Operands">9.37.3.3 Instruction Operands</a>
-<li><a href="s390-Formats.html#s390-Formats">9.37.3.4 Instruction Formats</a>
-<li><a href="s390-Aliases.html#s390-Aliases">9.37.3.5 Instruction Aliases</a>
-<li><a href="s390-Operand-Modifier.html#s390-Operand-Modifier">9.37.3.6 Instruction Operand Modifier</a>
-<li><a href="s390-Instruction-Marker.html#s390-Instruction-Marker">9.37.3.7 Instruction Marker</a>
-<li><a href="s390-Literal-Pool-Entries.html#s390-Literal-Pool-Entries">9.37.3.8 Literal Pool Entries</a>
-</li></ul>
-<li><a href="s390-Directives.html#s390-Directives">9.37.4 Assembler Directives</a>
-<li><a href="s390-Floating-Point.html#s390-Floating-Point">9.37.5 Floating Point</a>
-</li></ul>
-<li><a href="SCORE_002dDependent.html#SCORE_002dDependent">9.38 SCORE Dependent Features</a>
-<ul>
-<li><a href="SCORE_002dOpts.html#SCORE_002dOpts">9.38.1 Options</a>
-<li><a href="SCORE_002dPseudo.html#SCORE_002dPseudo">9.38.2 SCORE Assembler Directives</a>
-<li><a href="SCORE_002dSyntax.html#SCORE_002dSyntax">9.38.3 SCORE Syntax</a>
-<ul>
-<li><a href="SCORE_002dChars.html#SCORE_002dChars">9.38.3.1 Special Characters</a>
+<li><a href="RX_002dChars.html#RX_002dChars">9.37.5.1 Special Characters</a>
 </li></ul>
 </li></ul>
-<li><a href="SH_002dDependent.html#SH_002dDependent">9.39 Renesas / SuperH SH Dependent Features</a>
+<li><a href="S_002f390_002dDependent.html#S_002f390_002dDependent">9.38 IBM S/390 Dependent Features</a>
 <ul>
-<li><a href="SH-Options.html#SH-Options">9.39.1 Options</a>
-<li><a href="SH-Syntax.html#SH-Syntax">9.39.2 Syntax</a>
+<li><a href="s390-Options.html#s390-Options">9.38.1 Options</a>
+<li><a href="s390-Characters.html#s390-Characters">9.38.2 Special Characters</a>
+<li><a href="s390-Syntax.html#s390-Syntax">9.38.3 Instruction syntax</a>
 <ul>
-<li><a href="SH_002dChars.html#SH_002dChars">9.39.2.1 Special Characters</a>
-<li><a href="SH_002dRegs.html#SH_002dRegs">9.39.2.2 Register Names</a>
-<li><a href="SH_002dAddressing.html#SH_002dAddressing">9.39.2.3 Addressing Modes</a>
+<li><a href="s390-Register.html#s390-Register">9.38.3.1 Register naming</a>
+<li><a href="s390-Mnemonics.html#s390-Mnemonics">9.38.3.2 Instruction Mnemonics</a>
+<li><a href="s390-Operands.html#s390-Operands">9.38.3.3 Instruction Operands</a>
+<li><a href="s390-Formats.html#s390-Formats">9.38.3.4 Instruction Formats</a>
+<li><a href="s390-Aliases.html#s390-Aliases">9.38.3.5 Instruction Aliases</a>
+<li><a href="s390-Operand-Modifier.html#s390-Operand-Modifier">9.38.3.6 Instruction Operand Modifier</a>
+<li><a href="s390-Instruction-Marker.html#s390-Instruction-Marker">9.38.3.7 Instruction Marker</a>
+<li><a href="s390-Literal-Pool-Entries.html#s390-Literal-Pool-Entries">9.38.3.8 Literal Pool Entries</a>
 </li></ul>
-<li><a href="SH-Floating-Point.html#SH-Floating-Point">9.39.3 Floating Point</a>
-<li><a href="SH-Directives.html#SH-Directives">9.39.4 SH Machine Directives</a>
-<li><a href="SH-Opcodes.html#SH-Opcodes">9.39.5 Opcodes</a>
+<li><a href="s390-Directives.html#s390-Directives">9.38.4 Assembler Directives</a>
+<li><a href="s390-Floating-Point.html#s390-Floating-Point">9.38.5 Floating Point</a>
 </li></ul>
-<li><a href="SH64_002dDependent.html#SH64_002dDependent">9.40 SuperH SH64 Dependent Features</a>
+<li><a href="SCORE_002dDependent.html#SCORE_002dDependent">9.39 SCORE Dependent Features</a>
 <ul>
-<li><a href="SH64-Options.html#SH64-Options">9.40.1 Options</a>
-<li><a href="SH64-Syntax.html#SH64-Syntax">9.40.2 Syntax</a>
+<li><a href="SCORE_002dOpts.html#SCORE_002dOpts">9.39.1 Options</a>
+<li><a href="SCORE_002dPseudo.html#SCORE_002dPseudo">9.39.2 SCORE Assembler Directives</a>
+<li><a href="SCORE_002dSyntax.html#SCORE_002dSyntax">9.39.3 SCORE Syntax</a>
 <ul>
-<li><a href="SH64_002dChars.html#SH64_002dChars">9.40.2.1 Special Characters</a>
-<li><a href="SH64_002dRegs.html#SH64_002dRegs">9.40.2.2 Register Names</a>
-<li><a href="SH64_002dAddressing.html#SH64_002dAddressing">9.40.2.3 Addressing Modes</a>
-</li></ul>
-<li><a href="SH64-Directives.html#SH64-Directives">9.40.3 SH64 Machine Directives</a>
-<li><a href="SH64-Opcodes.html#SH64-Opcodes">9.40.4 Opcodes</a>
-</li></ul>
-<li><a href="Sparc_002dDependent.html#Sparc_002dDependent">9.41 SPARC Dependent Features</a>
-<ul>
-<li><a href="Sparc_002dOpts.html#Sparc_002dOpts">9.41.1 Options</a>
-<li><a href="Sparc_002dAligned_002dData.html#Sparc_002dAligned_002dData">9.41.2 Enforcing aligned data</a>
-<li><a href="Sparc_002dSyntax.html#Sparc_002dSyntax">9.41.3 Sparc Syntax</a>
-<ul>
-<li><a href="Sparc_002dChars.html#Sparc_002dChars">9.41.3.1 Special Characters</a>
-<li><a href="Sparc_002dRegs.html#Sparc_002dRegs">9.41.3.2 Register Names</a>
-<li><a href="Sparc_002dConstants.html#Sparc_002dConstants">9.41.3.3 Constants</a>
-<li><a href="Sparc_002dRelocs.html#Sparc_002dRelocs">9.41.3.4 Relocations</a>
-<li><a href="Sparc_002dSize_002dTranslations.html#Sparc_002dSize_002dTranslations">9.41.3.5 Size Translations</a>
-</li></ul>
-<li><a href="Sparc_002dFloat.html#Sparc_002dFloat">9.41.4 Floating Point</a>
-<li><a href="Sparc_002dDirectives.html#Sparc_002dDirectives">9.41.5 Sparc Machine Directives</a>
-</li></ul>
-<li><a href="TIC54X_002dDependent.html#TIC54X_002dDependent">9.42 TIC54X Dependent Features</a>
-<ul>
-<li><a href="TIC54X_002dOpts.html#TIC54X_002dOpts">9.42.1 Options</a>
-<li><a href="TIC54X_002dBlock.html#TIC54X_002dBlock">9.42.2 Blocking</a>
-<li><a href="TIC54X_002dEnv.html#TIC54X_002dEnv">9.42.3 Environment Settings</a>
-<li><a href="TIC54X_002dConstants.html#TIC54X_002dConstants">9.42.4 Constants Syntax</a>
-<li><a href="TIC54X_002dSubsyms.html#TIC54X_002dSubsyms">9.42.5 String Substitution</a>
-<li><a href="TIC54X_002dLocals.html#TIC54X_002dLocals">9.42.6 Local Labels</a>
-<li><a href="TIC54X_002dBuiltins.html#TIC54X_002dBuiltins">9.42.7 Math Builtins</a>
-<li><a href="TIC54X_002dExt.html#TIC54X_002dExt">9.42.8 Extended Addressing</a>
-<li><a href="TIC54X_002dDirectives.html#TIC54X_002dDirectives">9.42.9 Directives</a>
-<li><a href="TIC54X_002dMacros.html#TIC54X_002dMacros">9.42.10 Macros</a>
-<li><a href="TIC54X_002dMMRegs.html#TIC54X_002dMMRegs">9.42.11 Memory-mapped Registers</a>
-<li><a href="TIC54X_002dSyntax.html#TIC54X_002dSyntax">9.42.12 TIC54X Syntax</a>
-<ul>
-<li><a href="TIC54X_002dChars.html#TIC54X_002dChars">9.42.12.1 Special Characters</a>
+<li><a href="SCORE_002dChars.html#SCORE_002dChars">9.39.3.1 Special Characters</a>
 </li></ul>
 </li></ul>
-<li><a href="TIC6X_002dDependent.html#TIC6X_002dDependent">9.43 TIC6X Dependent Features</a>
+<li><a href="SH_002dDependent.html#SH_002dDependent">9.40 Renesas / SuperH SH Dependent Features</a>
 <ul>
-<li><a href="TIC6X-Options.html#TIC6X-Options">9.43.1 TIC6X Options</a>
-<li><a href="TIC6X-Syntax.html#TIC6X-Syntax">9.43.2 TIC6X Syntax</a>
-<li><a href="TIC6X-Directives.html#TIC6X-Directives">9.43.3 TIC6X Directives</a>
+<li><a href="SH-Options.html#SH-Options">9.40.1 Options</a>
+<li><a href="SH-Syntax.html#SH-Syntax">9.40.2 Syntax</a>
+<ul>
+<li><a href="SH_002dChars.html#SH_002dChars">9.40.2.1 Special Characters</a>
+<li><a href="SH_002dRegs.html#SH_002dRegs">9.40.2.2 Register Names</a>
+<li><a href="SH_002dAddressing.html#SH_002dAddressing">9.40.2.3 Addressing Modes</a>
 </li></ul>
-<li><a href="TILE_002dGx_002dDependent.html#TILE_002dGx_002dDependent">9.44 TILE-Gx Dependent Features</a>
-<ul>
-<li><a href="TILE_002dGx-Options.html#TILE_002dGx-Options">9.44.1 Options</a>
-<li><a href="TILE_002dGx-Syntax.html#TILE_002dGx-Syntax">9.44.2 Syntax</a>
-<ul>
-<li><a href="TILE_002dGx-Opcodes.html#TILE_002dGx-Opcodes">9.44.2.1 Opcode Names</a>
-<li><a href="TILE_002dGx-Registers.html#TILE_002dGx-Registers">9.44.2.2 Register Names</a>
-<li><a href="TILE_002dGx-Modifiers.html#TILE_002dGx-Modifiers">9.44.2.3 Symbolic Operand Modifiers</a>
+<li><a href="SH-Floating-Point.html#SH-Floating-Point">9.40.3 Floating Point</a>
+<li><a href="SH-Directives.html#SH-Directives">9.40.4 SH Machine Directives</a>
+<li><a href="SH-Opcodes.html#SH-Opcodes">9.40.5 Opcodes</a>
 </li></ul>
-<li><a href="TILE_002dGx-Directives.html#TILE_002dGx-Directives">9.44.3 TILE-Gx Directives</a>
-</li></ul>
-<li><a href="TILEPro_002dDependent.html#TILEPro_002dDependent">9.45 TILEPro Dependent Features</a>
+<li><a href="SH64_002dDependent.html#SH64_002dDependent">9.41 SuperH SH64 Dependent Features</a>
 <ul>
-<li><a href="TILEPro-Options.html#TILEPro-Options">9.45.1 Options</a>
-<li><a href="TILEPro-Syntax.html#TILEPro-Syntax">9.45.2 Syntax</a>
+<li><a href="SH64-Options.html#SH64-Options">9.41.1 Options</a>
+<li><a href="SH64-Syntax.html#SH64-Syntax">9.41.2 Syntax</a>
 <ul>
-<li><a href="TILEPro-Opcodes.html#TILEPro-Opcodes">9.45.2.1 Opcode Names</a>
-<li><a href="TILEPro-Registers.html#TILEPro-Registers">9.45.2.2 Register Names</a>
-<li><a href="TILEPro-Modifiers.html#TILEPro-Modifiers">9.45.2.3 Symbolic Operand Modifiers</a>
+<li><a href="SH64_002dChars.html#SH64_002dChars">9.41.2.1 Special Characters</a>
+<li><a href="SH64_002dRegs.html#SH64_002dRegs">9.41.2.2 Register Names</a>
+<li><a href="SH64_002dAddressing.html#SH64_002dAddressing">9.41.2.3 Addressing Modes</a>
 </li></ul>
-<li><a href="TILEPro-Directives.html#TILEPro-Directives">9.45.3 TILEPro Directives</a>
+<li><a href="SH64-Directives.html#SH64-Directives">9.41.3 SH64 Machine Directives</a>
+<li><a href="SH64-Opcodes.html#SH64-Opcodes">9.41.4 Opcodes</a>
 </li></ul>
-<li><a href="Z80_002dDependent.html#Z80_002dDependent">9.46 Z80 Dependent Features</a>
+<li><a href="Sparc_002dDependent.html#Sparc_002dDependent">9.42 SPARC Dependent Features</a>
 <ul>
-<li><a href="Z80-Options.html#Z80-Options">9.46.1 Options</a>
-<li><a href="Z80-Syntax.html#Z80-Syntax">9.46.2 Syntax</a>
+<li><a href="Sparc_002dOpts.html#Sparc_002dOpts">9.42.1 Options</a>
+<li><a href="Sparc_002dAligned_002dData.html#Sparc_002dAligned_002dData">9.42.2 Enforcing aligned data</a>
+<li><a href="Sparc_002dSyntax.html#Sparc_002dSyntax">9.42.3 Sparc Syntax</a>
 <ul>
-<li><a href="Z80_002dChars.html#Z80_002dChars">9.46.2.1 Special Characters</a>
-<li><a href="Z80_002dRegs.html#Z80_002dRegs">9.46.2.2 Register Names</a>
-<li><a href="Z80_002dCase.html#Z80_002dCase">9.46.2.3 Case Sensitivity</a>
+<li><a href="Sparc_002dChars.html#Sparc_002dChars">9.42.3.1 Special Characters</a>
+<li><a href="Sparc_002dRegs.html#Sparc_002dRegs">9.42.3.2 Register Names</a>
+<li><a href="Sparc_002dConstants.html#Sparc_002dConstants">9.42.3.3 Constants</a>
+<li><a href="Sparc_002dRelocs.html#Sparc_002dRelocs">9.42.3.4 Relocations</a>
+<li><a href="Sparc_002dSize_002dTranslations.html#Sparc_002dSize_002dTranslations">9.42.3.5 Size Translations</a>
 </li></ul>
-<li><a href="Z80-Floating-Point.html#Z80-Floating-Point">9.46.3 Floating Point</a>
-<li><a href="Z80-Directives.html#Z80-Directives">9.46.4 Z80 Assembler Directives</a>
-<li><a href="Z80-Opcodes.html#Z80-Opcodes">9.46.5 Opcodes</a>
+<li><a href="Sparc_002dFloat.html#Sparc_002dFloat">9.42.4 Floating Point</a>
+<li><a href="Sparc_002dDirectives.html#Sparc_002dDirectives">9.42.5 Sparc Machine Directives</a>
 </li></ul>
-<li><a href="Z8000_002dDependent.html#Z8000_002dDependent">9.47 Z8000 Dependent Features</a>
+<li><a href="TIC54X_002dDependent.html#TIC54X_002dDependent">9.43 TIC54X Dependent Features</a>
 <ul>
-<li><a href="Z8000-Options.html#Z8000-Options">9.47.1 Options</a>
-<li><a href="Z8000-Syntax.html#Z8000-Syntax">9.47.2 Syntax</a>
+<li><a href="TIC54X_002dOpts.html#TIC54X_002dOpts">9.43.1 Options</a>
+<li><a href="TIC54X_002dBlock.html#TIC54X_002dBlock">9.43.2 Blocking</a>
+<li><a href="TIC54X_002dEnv.html#TIC54X_002dEnv">9.43.3 Environment Settings</a>
+<li><a href="TIC54X_002dConstants.html#TIC54X_002dConstants">9.43.4 Constants Syntax</a>
+<li><a href="TIC54X_002dSubsyms.html#TIC54X_002dSubsyms">9.43.5 String Substitution</a>
+<li><a href="TIC54X_002dLocals.html#TIC54X_002dLocals">9.43.6 Local Labels</a>
+<li><a href="TIC54X_002dBuiltins.html#TIC54X_002dBuiltins">9.43.7 Math Builtins</a>
+<li><a href="TIC54X_002dExt.html#TIC54X_002dExt">9.43.8 Extended Addressing</a>
+<li><a href="TIC54X_002dDirectives.html#TIC54X_002dDirectives">9.43.9 Directives</a>
+<li><a href="TIC54X_002dMacros.html#TIC54X_002dMacros">9.43.10 Macros</a>
+<li><a href="TIC54X_002dMMRegs.html#TIC54X_002dMMRegs">9.43.11 Memory-mapped Registers</a>
+<li><a href="TIC54X_002dSyntax.html#TIC54X_002dSyntax">9.43.12 TIC54X Syntax</a>
 <ul>
-<li><a href="Z8000_002dChars.html#Z8000_002dChars">9.47.2.1 Special Characters</a>
-<li><a href="Z8000_002dRegs.html#Z8000_002dRegs">9.47.2.2 Register Names</a>
-<li><a href="Z8000_002dAddressing.html#Z8000_002dAddressing">9.47.2.3 Addressing Modes</a>
+<li><a href="TIC54X_002dChars.html#TIC54X_002dChars">9.43.12.1 Special Characters</a>
 </li></ul>
-<li><a href="Z8000-Directives.html#Z8000-Directives">9.47.3 Assembler Directives for the Z8000</a>
-<li><a href="Z8000-Opcodes.html#Z8000-Opcodes">9.47.4 Opcodes</a>
+</li></ul>
+<li><a href="TIC6X_002dDependent.html#TIC6X_002dDependent">9.44 TIC6X Dependent Features</a>
+<ul>
+<li><a href="TIC6X-Options.html#TIC6X-Options">9.44.1 TIC6X Options</a>
+<li><a href="TIC6X-Syntax.html#TIC6X-Syntax">9.44.2 TIC6X Syntax</a>
+<li><a href="TIC6X-Directives.html#TIC6X-Directives">9.44.3 TIC6X Directives</a>
+</li></ul>
+<li><a href="TILE_002dGx_002dDependent.html#TILE_002dGx_002dDependent">9.45 TILE-Gx Dependent Features</a>
+<ul>
+<li><a href="TILE_002dGx-Options.html#TILE_002dGx-Options">9.45.1 Options</a>
+<li><a href="TILE_002dGx-Syntax.html#TILE_002dGx-Syntax">9.45.2 Syntax</a>
+<ul>
+<li><a href="TILE_002dGx-Opcodes.html#TILE_002dGx-Opcodes">9.45.2.1 Opcode Names</a>
+<li><a href="TILE_002dGx-Registers.html#TILE_002dGx-Registers">9.45.2.2 Register Names</a>
+<li><a href="TILE_002dGx-Modifiers.html#TILE_002dGx-Modifiers">9.45.2.3 Symbolic Operand Modifiers</a>
+</li></ul>
+<li><a href="TILE_002dGx-Directives.html#TILE_002dGx-Directives">9.45.3 TILE-Gx Directives</a>
+</li></ul>
+<li><a href="TILEPro_002dDependent.html#TILEPro_002dDependent">9.46 TILEPro Dependent Features</a>
+<ul>
+<li><a href="TILEPro-Options.html#TILEPro-Options">9.46.1 Options</a>
+<li><a href="TILEPro-Syntax.html#TILEPro-Syntax">9.46.2 Syntax</a>
+<ul>
+<li><a href="TILEPro-Opcodes.html#TILEPro-Opcodes">9.46.2.1 Opcode Names</a>
+<li><a href="TILEPro-Registers.html#TILEPro-Registers">9.46.2.2 Register Names</a>
+<li><a href="TILEPro-Modifiers.html#TILEPro-Modifiers">9.46.2.3 Symbolic Operand Modifiers</a>
+</li></ul>
+<li><a href="TILEPro-Directives.html#TILEPro-Directives">9.46.3 TILEPro Directives</a>
+</li></ul>
+<li><a href="V850_002dDependent.html#V850_002dDependent">9.47 v850 Dependent Features</a>
+<ul>
+<li><a href="V850-Options.html#V850-Options">9.47.1 Options</a>
+<li><a href="V850-Syntax.html#V850-Syntax">9.47.2 Syntax</a>
+<ul>
+<li><a href="V850_002dChars.html#V850_002dChars">9.47.2.1 Special Characters</a>
+<li><a href="V850_002dRegs.html#V850_002dRegs">9.47.2.2 Register Names</a>
+</li></ul>
+<li><a href="V850-Floating-Point.html#V850-Floating-Point">9.47.3 Floating Point</a>
+<li><a href="V850-Directives.html#V850-Directives">9.47.4 V850 Machine Directives</a>
+<li><a href="V850-Opcodes.html#V850-Opcodes">9.47.5 Opcodes</a>
 </li></ul>
 <li><a href="Vax_002dDependent.html#Vax_002dDependent">9.48 VAX Dependent Features</a>
 <ul>
@@ -851,17 +871,15 @@ section entitled "GNU Free Documentation License".
 <li><a href="VAX_002dChars.html#VAX_002dChars">9.48.8.1 Special Characters</a>
 </li></ul>
 </li></ul>
-<li><a href="V850_002dDependent.html#V850_002dDependent">9.49 v850 Dependent Features</a>
+<li><a href="Visium_002dDependent.html#Visium_002dDependent">9.49 Visium Dependent Features</a>
 <ul>
-<li><a href="V850-Options.html#V850-Options">9.49.1 Options</a>
-<li><a href="V850-Syntax.html#V850-Syntax">9.49.2 Syntax</a>
+<li><a href="Visium-Options.html#Visium-Options">9.49.1 Options</a>
+<li><a href="Visium-Syntax.html#Visium-Syntax">9.49.2 Syntax</a>
 <ul>
-<li><a href="V850_002dChars.html#V850_002dChars">9.49.2.1 Special Characters</a>
-<li><a href="V850_002dRegs.html#V850_002dRegs">9.49.2.2 Register Names</a>
+<li><a href="Visium-Characters.html#Visium-Characters">9.49.2.1 Special Characters</a>
+<li><a href="Visium-Registers.html#Visium-Registers">9.49.2.2 Register Names</a>
 </li></ul>
-<li><a href="V850-Floating-Point.html#V850-Floating-Point">9.49.3 Floating Point</a>
-<li><a href="V850-Directives.html#V850-Directives">9.49.4 V850 Machine Directives</a>
-<li><a href="V850-Opcodes.html#V850-Opcodes">9.49.5 Opcodes</a>
+<li><a href="Visium-Opcodes.html#Visium-Opcodes">9.49.3 Opcodes</a>
 </li></ul>
 <li><a href="XGATE_002dDependent.html#XGATE_002dDependent">9.50 XGATE Dependent Features</a>
 <ul>
@@ -897,7 +915,8 @@ section entitled "GNU Free Documentation License".
 <ul>
 <li><a href="Xtensa-Branch-Relaxation.html#Xtensa-Branch-Relaxation">9.52.4.1 Conditional Branch Relaxation</a>
 <li><a href="Xtensa-Call-Relaxation.html#Xtensa-Call-Relaxation">9.52.4.2 Function Call Relaxation</a>
-<li><a href="Xtensa-Immediate-Relaxation.html#Xtensa-Immediate-Relaxation">9.52.4.3 Other Immediate Field Relaxation</a>
+<li><a href="Xtensa-Jump-Relaxation.html#Xtensa-Jump-Relaxation">9.52.4.3 Jump Relaxation</a>
+<li><a href="Xtensa-Immediate-Relaxation.html#Xtensa-Immediate-Relaxation">9.52.4.4 Other Immediate Field Relaxation</a>
 </li></ul>
 <li><a href="Xtensa-Directives.html#Xtensa-Directives">9.52.5 Directives</a>
 <ul>
@@ -909,6 +928,31 @@ section entitled "GNU Free Documentation License".
 <li><a href="Literal-Prefix-Directive.html#Literal-Prefix-Directive">9.52.5.6 literal_prefix</a>
 <li><a href="Absolute-Literals-Directive.html#Absolute-Literals-Directive">9.52.5.7 absolute-literals</a>
 </li></ul>
+</li></ul>
+<li><a href="Z80_002dDependent.html#Z80_002dDependent">9.53 Z80 Dependent Features</a>
+<ul>
+<li><a href="Z80-Options.html#Z80-Options">9.53.1 Options</a>
+<li><a href="Z80-Syntax.html#Z80-Syntax">9.53.2 Syntax</a>
+<ul>
+<li><a href="Z80_002dChars.html#Z80_002dChars">9.53.2.1 Special Characters</a>
+<li><a href="Z80_002dRegs.html#Z80_002dRegs">9.53.2.2 Register Names</a>
+<li><a href="Z80_002dCase.html#Z80_002dCase">9.53.2.3 Case Sensitivity</a>
+</li></ul>
+<li><a href="Z80-Floating-Point.html#Z80-Floating-Point">9.53.3 Floating Point</a>
+<li><a href="Z80-Directives.html#Z80-Directives">9.53.4 Z80 Assembler Directives</a>
+<li><a href="Z80-Opcodes.html#Z80-Opcodes">9.53.5 Opcodes</a>
+</li></ul>
+<li><a href="Z8000_002dDependent.html#Z8000_002dDependent">9.54 Z8000 Dependent Features</a>
+<ul>
+<li><a href="Z8000-Options.html#Z8000-Options">9.54.1 Options</a>
+<li><a href="Z8000-Syntax.html#Z8000-Syntax">9.54.2 Syntax</a>
+<ul>
+<li><a href="Z8000_002dChars.html#Z8000_002dChars">9.54.2.1 Special Characters</a>
+<li><a href="Z8000_002dRegs.html#Z8000_002dRegs">9.54.2.2 Register Names</a>
+<li><a href="Z8000_002dAddressing.html#Z8000_002dAddressing">9.54.2.3 Addressing Modes</a>
+</li></ul>
+<li><a href="Z8000-Directives.html#Z8000-Directives">9.54.3 Assembler Directives for the Z8000</a>
+<li><a href="Z8000-Opcodes.html#Z8000-Opcodes">9.54.4 Opcodes</a>
 </li></ul>
 </li></ul>
 <li><a name="toc_Reporting-Bugs" href="Reporting-Bugs.html#Reporting-Bugs">10 Reporting Bugs</a>
@@ -936,7 +980,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="../index.html#dir">(dir)</a>
 
 <p>This file is a user guide to the <span class="sc">gnu</span> assembler <samp><span class="command">as</span></samp>
 (GNU Tools for ARM Embedded Processors)
-version 2.24.0.
+version 2.25.90.
 
    <p>This document is distributed under the terms of the GNU Free
 Documentation License.  A copy of the license is included in the

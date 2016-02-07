@@ -12,7 +12,7 @@
 <!--
 This file documents the GNU Assembler "as".
 
-Copyright (C) 1991-2013 Free Software Foundation, Inc.
+Copyright (C) 1991-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
@@ -45,14 +45,27 @@ Up:&nbsp;<a rel="up" accesskey="u" href="AArch64_002dDependent.html#AArch64_002d
 <hr>
 </div>
 
-<h4 class="subsection">9.1.4 AArch64 Machine Directives</h4>
+<h4 class="subsection">9.1.5 AArch64 Machine Directives</h4>
 
-<p><a name="index-machine-directives_002c-AArch64-537"></a><a name="index-AArch64-machine-directives-538"></a>
+<p><a name="index-machine-directives_002c-AArch64-547"></a><a name="index-AArch64-machine-directives-548"></a>
      <dl>
 <!-- AAAAAAAAAAAAAAAAAAAAAAAAA -->
-<!-- BBBBBBBBBBBBBBBBBBBBBBBBBB -->
 
-     <p><a name="index-g_t_0040code_007b_002ebss_007d-directive_002c-AArch64-539"></a><dt><code>.bss</code><dd>This directive switches to the <code>.bss</code> section.
+     <p><a name="index-g_t_0040code_007b_002earch_007d-directive_002c-AArch64-549"></a><dt><code>.arch </code><var>name</var><dd>Select the target architecture.  Valid values for <var>name</var> are the same as
+for the <samp><span class="option">-march</span></samp> commandline option.
+
+     <p>Specifying <code>.arch</code> clears any previously selected architecture
+extensions.
+
+     <p><a name="index-g_t_0040code_007b_002earch_005fextension_007d-directive_002c-AArch64-550"></a><br><dt><code>.arch_extension </code><var>name</var><dd>Add or remove an architecture extension to the target architecture.  Valid
+values for <var>name</var> are the same as those accepted as architectural
+extensions by the <samp><span class="option">-mcpu</span></samp> commandline option.
+
+     <p><code>.arch_extension</code> may be used multiple times to add or remove extensions
+incrementally to the architecture being compiled for.
+
+     <!-- BBBBBBBBBBBBBBBBBBBBBBBBBB -->
+<p><a name="index-g_t_0040code_007b_002ebss_007d-directive_002c-AArch64-551"></a><br><dt><code>.bss</code><dd>This directive switches to the <code>.bss</code> section.
 
      <!-- CCCCCCCCCCCCCCCCCCCCCCCCCC -->
 <!-- DDDDDDDDDDDDDDDDDDDDDDDDDD -->
@@ -64,15 +77,15 @@ Up:&nbsp;<a rel="up" accesskey="u" href="AArch64_002dDependent.html#AArch64_002d
 <!-- JJJJJJJJJJJJJJJJJJJJJJJJJJ -->
 <!-- KKKKKKKKKKKKKKKKKKKKKKKKKK -->
 <!-- LLLLLLLLLLLLLLLLLLLLLLLLLL -->
-<p><a name="index-g_t_0040code_007b_002eltorg_007d-directive_002c-AArch64-540"></a><br><dt><code>.ltorg</code><dd>This directive causes the current contents of the literal pool to be
+<p><a name="index-g_t_0040code_007b_002eltorg_007d-directive_002c-AArch64-552"></a><br><dt><code>.ltorg</code><dd>This directive causes the current contents of the literal pool to be
 dumped into the current section (which is assumed to be the .text
 section) at the current location (aligned to a word boundary). 
-<code>GAS</code> maintains a separate literal pool for each section and each
+GAS maintains a separate literal pool for each section and each
 sub-section.  The <code>.ltorg</code> directive will only affect the literal
 pool of the current section and sub-section.  At the end of assembly
 all remaining, un-empty literal pools will automatically be dumped.
 
-     <p>Note - older versions of <code>GAS</code> would dump the current literal
+     <p>Note - older versions of GAS would dump the current literal
 pool any time a section change occurred.  This is no longer done, since
 it prevents accurate control of the placement of literal pools.
 
@@ -80,11 +93,11 @@ it prevents accurate control of the placement of literal pools.
 <!-- NNNNNNNNNNNNNNNNNNNNNNNNNN -->
 <!-- OOOOOOOOOOOOOOOOOOOOOOOOOO -->
 <!-- PPPPPPPPPPPPPPPPPPPPPPPPPP -->
-<p><a name="index-g_t_0040code_007b_002epool_007d-directive_002c-AArch64-541"></a><br><dt><code>.pool</code><dd>This is a synonym for .ltorg.
+<p><a name="index-g_t_0040code_007b_002epool_007d-directive_002c-AArch64-553"></a><br><dt><code>.pool</code><dd>This is a synonym for .ltorg.
 
      <!-- QQQQQQQQQQQQQQQQQQQQQQQQQQ -->
 <!-- RRRRRRRRRRRRRRRRRRRRRRRRRR -->
-<p><a name="index-g_t_0040code_007b_002ereq_007d-directive_002c-AArch64-542"></a><br><dt><var>name</var><code> .req </code><var>register name</var><dd>This creates an alias for <var>register name</var> called <var>name</var>.  For
+<p><a name="index-g_t_0040code_007b_002ereq_007d-directive_002c-AArch64-554"></a><br><dt><var>name</var><code> .req </code><var>register name</var><dd>This creates an alias for <var>register name</var> called <var>name</var>.  For
 example:
 
      <pre class="smallexample">                  foo .req w0
@@ -92,7 +105,7 @@ example:
      <!-- SSSSSSSSSSSSSSSSSSSSSSSSSS -->
 <!-- TTTTTTTTTTTTTTTTTTTTTTTTTT -->
 <!-- UUUUUUUUUUUUUUUUUUUUUUUUUU -->
-<p><a name="index-g_t_0040code_007b_002eunreq_007d-directive_002c-AArch64-543"></a><br><dt><code>.unreq </code><var>alias-name</var><dd>This undefines a register alias which was previously defined using the
+<p><a name="index-g_t_0040code_007b_002eunreq_007d-directive_002c-AArch64-555"></a><br><dt><code>.unreq </code><var>alias-name</var><dd>This undefines a register alias which was previously defined using the
 <code>req</code> directive.  For example:
 
      <pre class="smallexample">                  foo .req w0
@@ -107,7 +120,9 @@ should only be done if it is really necessary.
 <!-- XXXXXXXXXXXXXXXXXXXXXXXXXX -->
 <!-- YYYYYYYYYYYYYYYYYYYYYYYYYY -->
 <!-- ZZZZZZZZZZZZZZZZZZZZZZZZZZ -->
-</dl>
+<p><a name="index-g_t_0040code_007b_002exword_007d-directive_002c-AArch64-556"></a><br><dt><code>.xword</code><dd>The <code>.xword</code> directive produces 64 bit values.
+
+   </dl>
 
    </body></html>
 

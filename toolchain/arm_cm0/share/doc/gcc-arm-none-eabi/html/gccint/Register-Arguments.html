@@ -10,7 +10,7 @@
 <link rel="next" href="Scalar-Return.html#Scalar-Return" title="Scalar Return">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -52,15 +52,15 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Stack-and-Calling.html#Stack-and-Callin
 <hr>
 </div>
 
-<h4 class="subsection">17.10.7 Passing Arguments in Registers</h4>
+<h4 class="subsection">17.9.7 Passing Arguments in Registers</h4>
 
-<p><a name="index-arguments-in-registers-4208"></a><a name="index-registers-arguments-4209"></a>
+<p><a name="index-arguments-in-registers-4228"></a><a name="index-registers-arguments-4229"></a>
 This section describes the macros which let you control how various
 types of arguments are passed in registers or how they are arranged in
 the stack.
 
 <div class="defun">
-&mdash; Target Hook: rtx <b>TARGET_FUNCTION_ARG</b> (<var>cumulative_args_t ca, enum machine_mode mode, const_tree type, bool named</var>)<var><a name="index-TARGET_005fFUNCTION_005fARG-4210"></a></var><br>
+&mdash; Target Hook: rtx <b>TARGET_FUNCTION_ARG</b> (<var>cumulative_args_t ca, machine_mode mode, const_tree type, bool named</var>)<var><a name="index-TARGET_005fFUNCTION_005fARG-4230"></a></var><br>
 <blockquote><p>Return an RTX indicating whether a function argument is passed in a
 register and if so, which register.
 
@@ -76,6 +76,12 @@ syntax error has previously occurred.
       <p>The return value is usually either a <code>reg</code> RTX for the hard
 register in which to pass the argument, or zero to pass the argument
 on the stack.
+
+      <p>The return value can be a <code>const_int</code> which means argument is
+passed in a target specific slot with specified number.  Target hooks
+should be used to store or load argument in such case.  See
+<code>TARGET_STORE_BOUNDS_FOR_ARG</code> and <code>TARGET_LOAD_BOUNDS_FOR_ARG</code>
+for more information.
 
       <p>The value of the expression can also be a <code>parallel</code> RTX.  This is
 used when an argument is passed in multiple locations.  The mode of the
@@ -95,13 +101,13 @@ argument is also stored on the stack.
 VOIDmode</code>, and its result is passed to the <code>call</code> or <code>call_value</code>
 pattern as operands 2 and 3 respectively.
 
-      <p><a name="index-g_t_0040file_007bstdarg_002eh_007d-and-register-arguments-4211"></a>The usual way to make the ISO library <samp><span class="file">stdarg.h</span></samp> work on a
+      <p><a name="index-g_t_0040file_007bstdarg_002eh_007d-and-register-arguments-4231"></a>The usual way to make the ISO library <samp><span class="file">stdarg.h</span></samp> work on a
 machine where some arguments are usually passed in registers, is to
 cause nameless arguments to be passed on the stack instead.  This is
 done by making <code>TARGET_FUNCTION_ARG</code> return 0 whenever
 <var>named</var> is <code>false</code>.
 
-      <p><a name="index-g_t_0040code_007bTARGET_005fMUST_005fPASS_005fIN_005fSTACK_007d_002c-and-_0040code_007bTARGET_005fFUNCTION_005fARG_007d-4212"></a><a name="index-g_t_0040code_007bREG_005fPARM_005fSTACK_005fSPACE_007d_002c-and-_0040code_007bTARGET_005fFUNCTION_005fARG_007d-4213"></a>You may use the hook <code>targetm.calls.must_pass_in_stack</code>
+      <p><a name="index-g_t_0040code_007bTARGET_005fMUST_005fPASS_005fIN_005fSTACK_007d_002c-and-_0040code_007bTARGET_005fFUNCTION_005fARG_007d-4232"></a><a name="index-g_t_0040code_007bREG_005fPARM_005fSTACK_005fSPACE_007d_002c-and-_0040code_007bTARGET_005fFUNCTION_005fARG_007d-4233"></a>You may use the hook <code>targetm.calls.must_pass_in_stack</code>
 in the definition of this macro to determine if this argument is of a
 type that must be passed in the stack.  If <code>REG_PARM_STACK_SPACE</code>
 is not defined and <code>TARGET_FUNCTION_ARG</code> returns nonzero for such an
@@ -111,7 +117,7 @@ a register.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: bool <b>TARGET_MUST_PASS_IN_STACK</b> (<var>enum machine_mode mode, const_tree type</var>)<var><a name="index-TARGET_005fMUST_005fPASS_005fIN_005fSTACK-4214"></a></var><br>
+&mdash; Target Hook: bool <b>TARGET_MUST_PASS_IN_STACK</b> (<var>machine_mode mode, const_tree type</var>)<var><a name="index-TARGET_005fMUST_005fPASS_005fIN_005fSTACK-4234"></a></var><br>
 <blockquote><p>This target hook should return <code>true</code> if we should not pass <var>type</var>
 solely in registers.  The file <samp><span class="file">expr.h</span></samp> defines a
 definition that is usually appropriate, refer to <samp><span class="file">expr.h</span></samp> for additional
@@ -119,7 +125,7 @@ documentation.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: rtx <b>TARGET_FUNCTION_INCOMING_ARG</b> (<var>cumulative_args_t ca, enum machine_mode mode, const_tree type, bool named</var>)<var><a name="index-TARGET_005fFUNCTION_005fINCOMING_005fARG-4215"></a></var><br>
+&mdash; Target Hook: rtx <b>TARGET_FUNCTION_INCOMING_ARG</b> (<var>cumulative_args_t ca, machine_mode mode, const_tree type, bool named</var>)<var><a name="index-TARGET_005fFUNCTION_005fINCOMING_005fARG-4235"></a></var><br>
 <blockquote><p>Define this hook if the target machine has &ldquo;register windows&rdquo;, so
 that the register in which a function sees an arguments is not
 necessarily the same as the one in which the caller passed the
@@ -136,7 +142,19 @@ arrive.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: int <b>TARGET_ARG_PARTIAL_BYTES</b> (<var>cumulative_args_t cum, enum machine_mode mode, tree type, bool named</var>)<var><a name="index-TARGET_005fARG_005fPARTIAL_005fBYTES-4216"></a></var><br>
+&mdash; Target Hook: bool <b>TARGET_USE_PSEUDO_PIC_REG</b> (<var>void</var>)<var><a name="index-TARGET_005fUSE_005fPSEUDO_005fPIC_005fREG-4236"></a></var><br>
+<blockquote><p>This hook should return 1 in case pseudo register should be created
+for pic_offset_table_rtx during function expand. 
+</p></blockquote></div>
+
+<div class="defun">
+&mdash; Target Hook: void <b>TARGET_INIT_PIC_REG</b> (<var>void</var>)<var><a name="index-TARGET_005fINIT_005fPIC_005fREG-4237"></a></var><br>
+<blockquote><p>Perform a target dependent initialization of pic_offset_table_rtx. 
+This hook is called at the start of register allocation. 
+</p></blockquote></div>
+
+<div class="defun">
+&mdash; Target Hook: int <b>TARGET_ARG_PARTIAL_BYTES</b> (<var>cumulative_args_t cum, machine_mode mode, tree type, bool named</var>)<var><a name="index-TARGET_005fARG_005fPARTIAL_005fBYTES-4238"></a></var><br>
 <blockquote><p>This target hook returns the number of bytes at the beginning of an
 argument that must be put in registers.  The value must be zero for
 arguments that are passed entirely in registers or that are entirely
@@ -156,7 +174,7 @@ register to be used by the caller for this argument; likewise
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: bool <b>TARGET_PASS_BY_REFERENCE</b> (<var>cumulative_args_t cum, enum machine_mode mode, const_tree type, bool named</var>)<var><a name="index-TARGET_005fPASS_005fBY_005fREFERENCE-4217"></a></var><br>
+&mdash; Target Hook: bool <b>TARGET_PASS_BY_REFERENCE</b> (<var>cumulative_args_t cum, machine_mode mode, const_tree type, bool named</var>)<var><a name="index-TARGET_005fPASS_005fBY_005fREFERENCE-4239"></a></var><br>
 <blockquote><p>This target hook should return <code>true</code> if an argument at the
 position indicated by <var>cum</var> should be passed by reference.  This
 predicate is queried after target independent reasons for being
@@ -169,7 +187,7 @@ to that type.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: bool <b>TARGET_CALLEE_COPIES</b> (<var>cumulative_args_t cum, enum machine_mode mode, const_tree type, bool named</var>)<var><a name="index-TARGET_005fCALLEE_005fCOPIES-4218"></a></var><br>
+&mdash; Target Hook: bool <b>TARGET_CALLEE_COPIES</b> (<var>cumulative_args_t cum, machine_mode mode, const_tree type, bool named</var>)<var><a name="index-TARGET_005fCALLEE_005fCOPIES-4240"></a></var><br>
 <blockquote><p>The function argument described by the parameters to this hook is
 known to be passed by reference.  The hook should return true if the
 function argument should be copied by the callee instead of copied
@@ -183,7 +201,7 @@ not be generated.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>CUMULATIVE_ARGS</b><var><a name="index-CUMULATIVE_005fARGS-4219"></a></var><br>
+&mdash; Macro: <b>CUMULATIVE_ARGS</b><var><a name="index-CUMULATIVE_005fARGS-4241"></a></var><br>
 <blockquote><p>A C type for declaring a variable that is used as the first argument
 of <code>TARGET_FUNCTION_ARG</code> and other related values.  For some
 target machines, the type <code>int</code> suffices and can hold the number
@@ -198,7 +216,7 @@ should not be empty, so use <code>int</code>.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>OVERRIDE_ABI_FORMAT</b> (<var>fndecl</var>)<var><a name="index-OVERRIDE_005fABI_005fFORMAT-4220"></a></var><br>
+&mdash; Macro: <b>OVERRIDE_ABI_FORMAT</b> (<var>fndecl</var>)<var><a name="index-OVERRIDE_005fABI_005fFORMAT-4242"></a></var><br>
 <blockquote><p>If defined, this macro is called before generating any code for a
 function, but after the <var>cfun</var> descriptor for the function has been
 created.  The back end may use this macro to update <var>cfun</var> to
@@ -208,7 +226,7 @@ If the compiler is generating code for a compiler-generated function,
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>INIT_CUMULATIVE_ARGS</b> (<var>cum, fntype, libname, fndecl, n_named_args</var>)<var><a name="index-INIT_005fCUMULATIVE_005fARGS-4221"></a></var><br>
+&mdash; Macro: <b>INIT_CUMULATIVE_ARGS</b> (<var>cum, fntype, libname, fndecl, n_named_args</var>)<var><a name="index-INIT_005fCUMULATIVE_005fARGS-4243"></a></var><br>
 <blockquote><p>A C statement (sans semicolon) for initializing the variable
 <var>cum</var> for the state at the beginning of the argument list.  The
 variable has type <code>CUMULATIVE_ARGS</code>.  The value of <var>fntype</var>
@@ -231,7 +249,7 @@ never both of them at once.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>INIT_CUMULATIVE_LIBCALL_ARGS</b> (<var>cum, mode, libname</var>)<var><a name="index-INIT_005fCUMULATIVE_005fLIBCALL_005fARGS-4222"></a></var><br>
+&mdash; Macro: <b>INIT_CUMULATIVE_LIBCALL_ARGS</b> (<var>cum, mode, libname</var>)<var><a name="index-INIT_005fCUMULATIVE_005fLIBCALL_005fARGS-4244"></a></var><br>
 <blockquote><p>Like <code>INIT_CUMULATIVE_ARGS</code> but only used for outgoing libcalls,
 it gets a <code>MODE</code> argument instead of <var>fntype</var>, that would be
 <code>NULL</code>.  <var>indirect</var> would always be zero, too.  If this macro
@@ -240,7 +258,7 @@ is not defined, <code>INIT_CUMULATIVE_ARGS (cum, NULL_RTX, libname,
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>INIT_CUMULATIVE_INCOMING_ARGS</b> (<var>cum, fntype, libname</var>)<var><a name="index-INIT_005fCUMULATIVE_005fINCOMING_005fARGS-4223"></a></var><br>
+&mdash; Macro: <b>INIT_CUMULATIVE_INCOMING_ARGS</b> (<var>cum, fntype, libname</var>)<var><a name="index-INIT_005fCUMULATIVE_005fINCOMING_005fARGS-4245"></a></var><br>
 <blockquote><p>Like <code>INIT_CUMULATIVE_ARGS</code> but overrides it for the purposes of
 finding the arguments for the function being compiled.  If this macro is
 undefined, <code>INIT_CUMULATIVE_ARGS</code> is used instead.
@@ -254,7 +272,7 @@ argument <var>libname</var> exists for symmetry with
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: void <b>TARGET_FUNCTION_ARG_ADVANCE</b> (<var>cumulative_args_t ca, enum machine_mode mode, const_tree type, bool named</var>)<var><a name="index-TARGET_005fFUNCTION_005fARG_005fADVANCE-4224"></a></var><br>
+&mdash; Target Hook: void <b>TARGET_FUNCTION_ARG_ADVANCE</b> (<var>cumulative_args_t ca, machine_mode mode, const_tree type, bool named</var>)<var><a name="index-TARGET_005fFUNCTION_005fARG_005fADVANCE-4246"></a></var><br>
 <blockquote><p>This hook updates the summarizer variable pointed to by <var>ca</var> to
 advance past an argument in the argument list.  The values <var>mode</var>,
 <var>type</var> and <var>named</var> describe that argument.  Once this is done,
@@ -267,7 +285,7 @@ used for arguments without any special help.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>FUNCTION_ARG_OFFSET</b> (<var>mode, type</var>)<var><a name="index-FUNCTION_005fARG_005fOFFSET-4225"></a></var><br>
+&mdash; Macro: <b>FUNCTION_ARG_OFFSET</b> (<var>mode, type</var>)<var><a name="index-FUNCTION_005fARG_005fOFFSET-4247"></a></var><br>
 <blockquote><p>If defined, a C expression that is the number of bytes to add to the
 offset of the argument passed in memory.  This is needed for the SPU,
 which passes <code>char</code> and <code>short</code> arguments in the preferred
@@ -276,7 +294,7 @@ top.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>FUNCTION_ARG_PADDING</b> (<var>mode, type</var>)<var><a name="index-FUNCTION_005fARG_005fPADDING-4226"></a></var><br>
+&mdash; Macro: <b>FUNCTION_ARG_PADDING</b> (<var>mode, type</var>)<var><a name="index-FUNCTION_005fARG_005fPADDING-4248"></a></var><br>
 <blockquote><p>If defined, a C expression which determines whether, and in which direction,
 to pad out an argument with extra space.  The value should be of type
 <code>enum direction</code>: either <code>upward</code> to pad above the argument,
@@ -293,7 +311,7 @@ constant size shorter than an <code>int</code>, and upward otherwise.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>PAD_VARARGS_DOWN</b><var><a name="index-PAD_005fVARARGS_005fDOWN-4227"></a></var><br>
+&mdash; Macro: <b>PAD_VARARGS_DOWN</b><var><a name="index-PAD_005fVARARGS_005fDOWN-4249"></a></var><br>
 <blockquote><p>If defined, a C expression which determines whether the default
 implementation of va_arg will attempt to pad down before reading the
 next argument, if that argument is smaller than its aligned space as
@@ -302,7 +320,7 @@ arguments are padded down if <code>BYTES_BIG_ENDIAN</code> is true.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>BLOCK_REG_PADDING</b> (<var>mode, type, first</var>)<var><a name="index-BLOCK_005fREG_005fPADDING-4228"></a></var><br>
+&mdash; Macro: <b>BLOCK_REG_PADDING</b> (<var>mode, type, first</var>)<var><a name="index-BLOCK_005fREG_005fPADDING-4250"></a></var><br>
 <blockquote><p>Specify padding for the last element of a block move between registers and
 memory.  <var>first</var> is nonzero if this is the only element.  Defining this
 macro allows better control of register function parameters on big-endian
@@ -314,14 +332,14 @@ required.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: unsigned int <b>TARGET_FUNCTION_ARG_BOUNDARY</b> (<var>enum machine_mode mode, const_tree type</var>)<var><a name="index-TARGET_005fFUNCTION_005fARG_005fBOUNDARY-4229"></a></var><br>
+&mdash; Target Hook: unsigned int <b>TARGET_FUNCTION_ARG_BOUNDARY</b> (<var>machine_mode mode, const_tree type</var>)<var><a name="index-TARGET_005fFUNCTION_005fARG_005fBOUNDARY-4251"></a></var><br>
 <blockquote><p>This hook returns the alignment boundary, in bits, of an argument
 with the specified mode and type.  The default hook returns
 <code>PARM_BOUNDARY</code> for all arguments. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: unsigned int <b>TARGET_FUNCTION_ARG_ROUND_BOUNDARY</b> (<var>enum machine_mode mode, const_tree type</var>)<var><a name="index-TARGET_005fFUNCTION_005fARG_005fROUND_005fBOUNDARY-4230"></a></var><br>
+&mdash; Target Hook: unsigned int <b>TARGET_FUNCTION_ARG_ROUND_BOUNDARY</b> (<var>machine_mode mode, const_tree type</var>)<var><a name="index-TARGET_005fFUNCTION_005fARG_005fROUND_005fBOUNDARY-4252"></a></var><br>
 <blockquote><p>Normally, the size of an argument is rounded up to <code>PARM_BOUNDARY</code>,
 which is the default value for this hook.  You can define this hook to
 return a different value if an argument size must be rounded to a larger
@@ -329,7 +347,7 @@ value.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>FUNCTION_ARG_REGNO_P</b> (<var>regno</var>)<var><a name="index-FUNCTION_005fARG_005fREGNO_005fP-4231"></a></var><br>
+&mdash; Macro: <b>FUNCTION_ARG_REGNO_P</b> (<var>regno</var>)<var><a name="index-FUNCTION_005fARG_005fREGNO_005fP-4253"></a></var><br>
 <blockquote><p>A C expression that is nonzero if <var>regno</var> is the number of a hard
 register in which function arguments are sometimes passed.  This does
 <em>not</em> include implicit arguments such as the static chain and
@@ -339,7 +357,7 @@ stack.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: bool <b>TARGET_SPLIT_COMPLEX_ARG</b> (<var>const_tree type</var>)<var><a name="index-TARGET_005fSPLIT_005fCOMPLEX_005fARG-4232"></a></var><br>
+&mdash; Target Hook: bool <b>TARGET_SPLIT_COMPLEX_ARG</b> (<var>const_tree type</var>)<var><a name="index-TARGET_005fSPLIT_005fCOMPLEX_005fARG-4254"></a></var><br>
 <blockquote><p>This hook should return true if parameter of type <var>type</var> are passed
 as two scalar parameters.  By default, GCC will attempt to pack complex
 arguments into the target's word size.  Some ABIs require complex arguments
@@ -353,13 +371,13 @@ false.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: tree <b>TARGET_BUILD_BUILTIN_VA_LIST</b> (<var>void</var>)<var><a name="index-TARGET_005fBUILD_005fBUILTIN_005fVA_005fLIST-4233"></a></var><br>
+&mdash; Target Hook: tree <b>TARGET_BUILD_BUILTIN_VA_LIST</b> (<var>void</var>)<var><a name="index-TARGET_005fBUILD_005fBUILTIN_005fVA_005fLIST-4255"></a></var><br>
 <blockquote><p>This hook returns a type node for <code>va_list</code> for the target. 
 The default version of the hook returns <code>void*</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: int <b>TARGET_ENUM_VA_LIST_P</b> (<var>int idx, const char **pname, tree *ptree</var>)<var><a name="index-TARGET_005fENUM_005fVA_005fLIST_005fP-4234"></a></var><br>
+&mdash; Target Hook: int <b>TARGET_ENUM_VA_LIST_P</b> (<var>int idx, const char **pname, tree *ptree</var>)<var><a name="index-TARGET_005fENUM_005fVA_005fLIST_005fP-4256"></a></var><br>
 <blockquote><p>This target hook is used in function <code>c_common_nodes_and_builtins</code>
 to iterate through the target specific builtin types for va_list. The
 variable <var>idx</var> is used as iterator. <var>pname</var> has to be a pointer
@@ -374,21 +392,21 @@ macro to iterate through all types.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: tree <b>TARGET_FN_ABI_VA_LIST</b> (<var>tree fndecl</var>)<var><a name="index-TARGET_005fFN_005fABI_005fVA_005fLIST-4235"></a></var><br>
+&mdash; Target Hook: tree <b>TARGET_FN_ABI_VA_LIST</b> (<var>tree fndecl</var>)<var><a name="index-TARGET_005fFN_005fABI_005fVA_005fLIST-4257"></a></var><br>
 <blockquote><p>This hook returns the va_list type of the calling convention specified by
 <var>fndecl</var>. 
 The default version of this hook returns <code>va_list_type_node</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: tree <b>TARGET_CANONICAL_VA_LIST_TYPE</b> (<var>tree type</var>)<var><a name="index-TARGET_005fCANONICAL_005fVA_005fLIST_005fTYPE-4236"></a></var><br>
+&mdash; Target Hook: tree <b>TARGET_CANONICAL_VA_LIST_TYPE</b> (<var>tree type</var>)<var><a name="index-TARGET_005fCANONICAL_005fVA_005fLIST_005fTYPE-4258"></a></var><br>
 <blockquote><p>This hook returns the va_list type of the calling convention specified by the
 type of <var>type</var>. If <var>type</var> is not a valid va_list type, it returns
 <code>NULL_TREE</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: tree <b>TARGET_GIMPLIFY_VA_ARG_EXPR</b> (<var>tree valist, tree type, gimple_seq *pre_p, gimple_seq *post_p</var>)<var><a name="index-TARGET_005fGIMPLIFY_005fVA_005fARG_005fEXPR-4237"></a></var><br>
+&mdash; Target Hook: tree <b>TARGET_GIMPLIFY_VA_ARG_EXPR</b> (<var>tree valist, tree type, gimple_seq *pre_p, gimple_seq *post_p</var>)<var><a name="index-TARGET_005fGIMPLIFY_005fVA_005fARG_005fEXPR-4259"></a></var><br>
 <blockquote><p>This hook performs target-specific gimplification of
 <code>VA_ARG_EXPR</code>.  The first two parameters correspond to the
 arguments to <code>va_arg</code>; the latter two are as in
@@ -396,19 +414,19 @@ arguments to <code>va_arg</code>; the latter two are as in
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: bool <b>TARGET_VALID_POINTER_MODE</b> (<var>enum machine_mode mode</var>)<var><a name="index-TARGET_005fVALID_005fPOINTER_005fMODE-4238"></a></var><br>
+&mdash; Target Hook: bool <b>TARGET_VALID_POINTER_MODE</b> (<var>machine_mode mode</var>)<var><a name="index-TARGET_005fVALID_005fPOINTER_005fMODE-4260"></a></var><br>
 <blockquote><p>Define this to return nonzero if the port can handle pointers
 with machine mode <var>mode</var>.  The default version of this
 hook returns true for both <code>ptr_mode</code> and <code>Pmode</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: bool <b>TARGET_REF_MAY_ALIAS_ERRNO</b> (<var>struct ao_ref *ref</var>)<var><a name="index-TARGET_005fREF_005fMAY_005fALIAS_005fERRNO-4239"></a></var><br>
+&mdash; Target Hook: bool <b>TARGET_REF_MAY_ALIAS_ERRNO</b> (<var>struct ao_ref *ref</var>)<var><a name="index-TARGET_005fREF_005fMAY_005fALIAS_005fERRNO-4261"></a></var><br>
 <blockquote><p>Define this to return nonzero if the memory reference <var>ref</var>  may alias with the system C library errno location.  The default  version of this hook assumes the system C library errno location  is either a declaration of type int or accessed by dereferencing  a pointer to int. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: bool <b>TARGET_SCALAR_MODE_SUPPORTED_P</b> (<var>enum machine_mode mode</var>)<var><a name="index-TARGET_005fSCALAR_005fMODE_005fSUPPORTED_005fP-4240"></a></var><br>
+&mdash; Target Hook: bool <b>TARGET_SCALAR_MODE_SUPPORTED_P</b> (<var>machine_mode mode</var>)<var><a name="index-TARGET_005fSCALAR_005fMODE_005fSUPPORTED_005fP-4262"></a></var><br>
 <blockquote><p>Define this to return nonzero if the port is prepared to handle
 insns involving scalar mode <var>mode</var>.  For a scalar mode to be
 considered supported, all the basic arithmetic and comparisons
@@ -421,14 +439,14 @@ code in <samp><span class="file">optabs.c</span></samp>.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: bool <b>TARGET_VECTOR_MODE_SUPPORTED_P</b> (<var>enum machine_mode mode</var>)<var><a name="index-TARGET_005fVECTOR_005fMODE_005fSUPPORTED_005fP-4241"></a></var><br>
+&mdash; Target Hook: bool <b>TARGET_VECTOR_MODE_SUPPORTED_P</b> (<var>machine_mode mode</var>)<var><a name="index-TARGET_005fVECTOR_005fMODE_005fSUPPORTED_005fP-4263"></a></var><br>
 <blockquote><p>Define this to return nonzero if the port is prepared to handle
 insns involving vector mode <var>mode</var>.  At the very least, it
 must have move patterns for this mode. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: bool <b>TARGET_ARRAY_MODE_SUPPORTED_P</b> (<var>enum machine_mode mode, unsigned HOST_WIDE_INT nelems</var>)<var><a name="index-TARGET_005fARRAY_005fMODE_005fSUPPORTED_005fP-4242"></a></var><br>
+&mdash; Target Hook: bool <b>TARGET_ARRAY_MODE_SUPPORTED_P</b> (<var>machine_mode mode, unsigned HOST_WIDE_INT nelems</var>)<var><a name="index-TARGET_005fARRAY_005fMODE_005fSUPPORTED_005fP-4264"></a></var><br>
 <blockquote><p>Return true if GCC should try to use a scalar mode to store an array
 of <var>nelems</var> elements, given that each element has mode <var>mode</var>. 
 Returning true here overrides the usual <code>MAX_FIXED_MODE</code> limit
@@ -453,7 +471,16 @@ has operations like:
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: bool <b>TARGET_SMALL_REGISTER_CLASSES_FOR_MODE_P</b> (<var>enum machine_mode mode</var>)<var><a name="index-TARGET_005fSMALL_005fREGISTER_005fCLASSES_005fFOR_005fMODE_005fP-4243"></a></var><br>
+&mdash; Target Hook: bool <b>TARGET_LIBGCC_FLOATING_MODE_SUPPORTED_P</b> (<var>machine_mode mode</var>)<var><a name="index-TARGET_005fLIBGCC_005fFLOATING_005fMODE_005fSUPPORTED_005fP-4265"></a></var><br>
+<blockquote><p>Define this to return nonzero if libgcc provides support for the
+floating-point mode <var>mode</var>, which is known to pass
+<code>TARGET_SCALAR_MODE_SUPPORTED_P</code>.  The default version of this
+hook returns true for all of <code>SFmode</code>, <code>DFmode</code>,
+<code>XFmode</code> and <code>TFmode</code>, if such modes exist. 
+</p></blockquote></div>
+
+<div class="defun">
+&mdash; Target Hook: bool <b>TARGET_SMALL_REGISTER_CLASSES_FOR_MODE_P</b> (<var>machine_mode mode</var>)<var><a name="index-TARGET_005fSMALL_005fREGISTER_005fCLASSES_005fFOR_005fMODE_005fP-4266"></a></var><br>
 <blockquote><p>Define this to return nonzero for machine modes for which the port has
 small register classes.  If this target hook returns nonzero for a given
 <var>mode</var>, the compiler will try to minimize the lifetime of registers

@@ -10,7 +10,7 @@
 <link rel="next" href="SSA.html#SSA" title="SSA">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -54,7 +54,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Tree-SSA.html#Tree-SSA">Tree SSA</a>
 
 <h3 class="section">12.2 SSA Operands</h3>
 
-<p><a name="index-operands-2491"></a><a name="index-virtual-operands-2492"></a><a name="index-real-operands-2493"></a><a name="index-update_005fstmt-2494"></a>
+<p><a name="index-operands-2508"></a><a name="index-virtual-operands-2509"></a><a name="index-real-operands-2510"></a><a name="index-update_005fstmt-2511"></a>
 Almost every GIMPLE statement will contain a reference to a variable
 or memory location.  Since statements come in different shapes and
 sizes, their operands are going to be located at various spots inside
@@ -169,7 +169,7 @@ call to <code>update_stmt</code>.
 
 <h4 class="subsection">12.2.1 Operand Iterators And Access Routines</h4>
 
-<p><a name="index-Operand-Iterators-2495"></a><a name="index-Operand-Access-Routines-2496"></a>
+<p><a name="index-Operand-Iterators-2512"></a><a name="index-Operand-Access-Routines-2513"></a>
 Operands are collected by <samp><span class="file">tree-ssa-operands.c</span></samp>.  They are stored
 inside each statement's annotation and can be accessed through either the
 operand iterators or an access routine.
@@ -319,7 +319,7 @@ appropriate but they are not quite as efficient as the individual
 </pre>
  <h4 class="subsection">12.2.2 Immediate Uses</h4>
 
-<p><a name="index-Immediate-Uses-2497"></a>
+<p><a name="index-Immediate-Uses-2514"></a>
 Immediate use information is now always available.  Using the immediate use
 iterators, you may examine every use of any <code>SSA_NAME</code>. For instance,
 to change each use of <code>ssa_var</code> to <code>ssa_var2</code> and call fold_stmt on

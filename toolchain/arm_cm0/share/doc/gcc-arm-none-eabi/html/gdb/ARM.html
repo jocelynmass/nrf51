@@ -9,7 +9,7 @@
 <link rel="next" href="M32R_002fD.html#M32R_002fD" title="M32R/D">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -46,26 +46,26 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Embedded-Processors.html#Embedded-Proce
 
 <h4 class="subsection">21.3.1 ARM</h4>
 
-<p><a name="index-ARM-RDI-1442"></a>
+<p><a name="index-ARM-RDI-1479"></a>
      
-<a name="index-target-rdi-1443"></a>
+<a name="index-target-rdi-1480"></a>
 <dl><dt><code>target rdi </code><var>dev</var><dd>ARM Angel monitor, via RDI library interface to ADP protocol.  You may
 use this target to communicate with both boards running the Angel
 monitor, or with the EmbeddedICE JTAG debug device.
 
-     <p><a name="index-target-rdp-1444"></a><br><dt><code>target rdp </code><var>dev</var><dd>ARM Demon monitor.
+     <p><a name="index-target-rdp-1481"></a><br><dt><code>target rdp </code><var>dev</var><dd>ARM Demon monitor.
 
    </dl>
 
    <p><span class="sc">gdb</span> provides the following ARM-specific commands:
 
      <dl>
-<dt><code>set arm disassembler</code><dd><a name="index-set-arm-1445"></a>This commands selects from a list of disassembly styles.  The
+<dt><code>set arm disassembler</code><dd><a name="index-set-arm-1482"></a>This commands selects from a list of disassembly styles.  The
 <code>"std"</code> style is the standard style.
 
-     <br><dt><code>show arm disassembler</code><dd><a name="index-show-arm-1446"></a>Show the current disassembly style.
+     <br><dt><code>show arm disassembler</code><dd><a name="index-show-arm-1483"></a>Show the current disassembly style.
 
-     <br><dt><code>set arm apcs32</code><dd><a name="index-ARM-32_002dbit-mode-1447"></a>This command toggles ARM operation mode between 32-bit and 26-bit.
+     <br><dt><code>set arm apcs32</code><dd><a name="index-ARM-32_002dbit-mode-1484"></a>This command toggles ARM operation mode between 32-bit and 26-bit.
 
      <br><dt><code>show arm apcs32</code><dd>Display the current usage of the ARM 32-bit mode.
 
@@ -113,29 +113,29 @@ target support subsystem.
 using the RDI interface:
 
      <dl>
-<dt><code>rdilogfile </code><span class="roman">[</span><var>file</var><span class="roman">]</span><dd><a name="index-rdilogfile-1448"></a><a name="index-ADP-_0028Angel-Debugger-Protocol_0029-logging-1449"></a>Set the filename for the ADP (Angel Debugger Protocol) packet log. 
+<dt><code>rdilogfile </code><span class="roman">[</span><var>file</var><span class="roman">]</span><dd><a name="index-rdilogfile-1485"></a><a name="index-ADP-_0028Angel-Debugger-Protocol_0029-logging-1486"></a>Set the filename for the ADP (Angel Debugger Protocol) packet log. 
 With an argument, sets the log file to the specified <var>file</var>.  With
 no argument, show the current log file name.  The default log file is
 <samp><span class="file">rdi.log</span></samp>.
 
-     <br><dt><code>rdilogenable </code><span class="roman">[</span><var>arg</var><span class="roman">]</span><dd><a name="index-rdilogenable-1450"></a>Control logging of ADP packets.  With an argument of 1 or <code>"yes"</code>
+     <br><dt><code>rdilogenable </code><span class="roman">[</span><var>arg</var><span class="roman">]</span><dd><a name="index-rdilogenable-1487"></a>Control logging of ADP packets.  With an argument of 1 or <code>"yes"</code>
 enables logging, with an argument 0 or <code>"no"</code> disables it.  With
 no arguments displays the current setting.  When logging is enabled,
 ADP packets exchanged between <span class="sc">gdb</span> and the RDI target device
 are logged to a file.
 
-     <br><dt><code>set rdiromatzero</code><dd><a name="index-set-rdiromatzero-1451"></a><a name="index-ROM-at-zero-address_002c-RDI-1452"></a>Tell <span class="sc">gdb</span> whether the target has ROM at address 0.  If on,
+     <br><dt><code>set rdiromatzero</code><dd><a name="index-set-rdiromatzero-1488"></a><a name="index-ROM-at-zero-address_002c-RDI-1489"></a>Tell <span class="sc">gdb</span> whether the target has ROM at address 0.  If on,
 vector catching is disabled, so that zero address can be used.  If off
 (the default), vector catching is enabled.  For this command to take
 effect, it needs to be invoked prior to the <code>target rdi</code> command.
 
-     <br><dt><code>show rdiromatzero</code><dd><a name="index-show-rdiromatzero-1453"></a>Show the current setting of ROM at zero address.
+     <br><dt><code>show rdiromatzero</code><dd><a name="index-show-rdiromatzero-1490"></a>Show the current setting of ROM at zero address.
 
-     <br><dt><code>set rdiheartbeat</code><dd><a name="index-set-rdiheartbeat-1454"></a><a name="index-RDI-heartbeat-1455"></a>Enable or disable RDI heartbeat packets.  It is not recommended to
+     <br><dt><code>set rdiheartbeat</code><dd><a name="index-set-rdiheartbeat-1491"></a><a name="index-RDI-heartbeat-1492"></a>Enable or disable RDI heartbeat packets.  It is not recommended to
 turn on this option, since it confuses ARM and EPI JTAG interface, as
 well as the Angel monitor.
 
-     <br><dt><code>show rdiheartbeat</code><dd><a name="index-show-rdiheartbeat-1456"></a>Show the setting of RDI heartbeat packets. 
+     <br><dt><code>show rdiheartbeat</code><dd><a name="index-show-rdiheartbeat-1493"></a>Show the setting of RDI heartbeat packets. 
 </dl>
 
      <dl>

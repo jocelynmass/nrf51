@@ -9,7 +9,7 @@
 <link rel="prev" href="_0040code_007bGIMPLE_005fTRY_007d.html#g_t_0040code_007bGIMPLE_005fTRY_007d" title="@code{GIMPLE_TRY}">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -51,33 +51,33 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Tuple-specific-accessors.html#Tuple-spe
 <hr>
 </div>
 
-<h4 class="subsection">11.7.28 <code>GIMPLE_WITH_CLEANUP_EXPR</code></h4>
+<h4 class="subsection">11.8.29 <code>GIMPLE_WITH_CLEANUP_EXPR</code></h4>
 
-<p><a name="index-g_t_0040code_007bGIMPLE_005fWITH_005fCLEANUP_005fEXPR_007d-2426"></a>
+<p><a name="index-g_t_0040code_007bGIMPLE_005fWITH_005fCLEANUP_005fEXPR_007d-2443"></a>
 
 <div class="defun">
-&mdash; GIMPLE function: gimple <b>gimple_build_wce</b> (<var>gimple_seq cleanup</var>)<var><a name="index-gimple_005fbuild_005fwce-2427"></a></var><br>
+&mdash; GIMPLE function: gimple <b>gimple_build_wce</b> (<var>gimple_seq cleanup</var>)<var><a name="index-gimple_005fbuild_005fwce-2444"></a></var><br>
 <blockquote><p>Build a <code>GIMPLE_WITH_CLEANUP_EXPR</code> statement.  <code>CLEANUP</code> is the
 clean-up expression. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: gimple_seq <b>gimple_wce_cleanup</b> (<var>gimple g</var>)<var><a name="index-gimple_005fwce_005fcleanup-2428"></a></var><br>
+&mdash; GIMPLE function: gimple_seq <b>gimple_wce_cleanup</b> (<var>gimple g</var>)<var><a name="index-gimple_005fwce_005fcleanup-2445"></a></var><br>
 <blockquote><p>Return the cleanup sequence for cleanup statement <code>G</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: void <b>gimple_wce_set_cleanup</b> (<var>gimple g, gimple_seq cleanup</var>)<var><a name="index-gimple_005fwce_005fset_005fcleanup-2429"></a></var><br>
+&mdash; GIMPLE function: void <b>gimple_wce_set_cleanup</b> (<var>gimple g, gimple_seq cleanup</var>)<var><a name="index-gimple_005fwce_005fset_005fcleanup-2446"></a></var><br>
 <blockquote><p>Set <code>CLEANUP</code> to be the cleanup sequence for <code>G</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: bool <b>gimple_wce_cleanup_eh_only</b> (<var>gimple g</var>)<var><a name="index-gimple_005fwce_005fcleanup_005feh_005fonly-2430"></a></var><br>
+&mdash; GIMPLE function: bool <b>gimple_wce_cleanup_eh_only</b> (<var>gimple g</var>)<var><a name="index-gimple_005fwce_005fcleanup_005feh_005fonly-2447"></a></var><br>
 <blockquote><p>Return the <code>CLEANUP_EH_ONLY</code> flag for a <code>WCE</code> tuple. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: void <b>gimple_wce_set_cleanup_eh_only</b> (<var>gimple g, bool eh_only_p</var>)<var><a name="index-gimple_005fwce_005fset_005fcleanup_005feh_005fonly-2431"></a></var><br>
+&mdash; GIMPLE function: void <b>gimple_wce_set_cleanup_eh_only</b> (<var>gimple g, bool eh_only_p</var>)<var><a name="index-gimple_005fwce_005fset_005fcleanup_005feh_005fonly-2448"></a></var><br>
 <blockquote><p>Set the <code>CLEANUP_EH_ONLY</code> flag for a <code>WCE</code> tuple. 
 </p></blockquote></div>
 

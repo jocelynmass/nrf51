@@ -12,7 +12,7 @@
 <!--
 This file documents the GNU Assembler "as".
 
-Copyright (C) 1991-2013 Free Software Foundation, Inc.
+Copyright (C) 1991-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
@@ -45,9 +45,9 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Pseudo-Ops.html#Pseudo-Ops">Pseudo Ops<
 <hr>
 </div>
 
-<h3 class="section">7.79 <code>.macro</code></h3>
+<h3 class="section">7.58 <code>.macro</code></h3>
 
-<p><a name="index-macros-397"></a>The commands <code>.macro</code> and <code>.endm</code> allow you to define macros that
+<p><a name="index-macros-400"></a>The commands <code>.macro</code> and <code>.endm</code> allow you to define macros that
 generate assembly output.  For example, this definition specifies a macro
 <code>sum</code> that puts a sequence of numbers into memory:
 
@@ -68,7 +68,7 @@ generate assembly output.  For example, this definition specifies a macro
              .long   5
 </pre>
      <dl>
-<dt><code>.macro </code><var>macname</var><a name="index-g_t_002emacro-_0040var_007bmacname_007d-398"></a><dt><code>.macro </code><var>macname</var> <var>macargs</var><code> ...</code><a name="index-g_t_002emacro-_0040var_007bmacname_007d-_0040var_007bmacargs_007d-_0040dots_007b_007d-399"></a><dd><a name="index-g_t_0040code_007bmacro_007d-directive-400"></a>Begin the definition of a macro called <var>macname</var>.  If your macro
+<dt><code>.macro </code><var>macname</var><a name="index-g_t_002emacro-_0040var_007bmacname_007d-401"></a><dt><code>.macro </code><var>macname</var> <var>macargs</var><code> ...</code><a name="index-g_t_002emacro-_0040var_007bmacname_007d-_0040var_007bmacargs_007d-_0040dots_007b_007d-402"></a><dd><a name="index-g_t_0040code_007bmacro_007d-directive-403"></a>Begin the definition of a macro called <var>macname</var>.  If your macro
 definition requires arguments, specify their names after the macro name,
 separated by commas or spaces.  You can qualify the macro argument to
 indicate whether all invocations must specify a non-blank value (through
@@ -171,15 +171,15 @@ used as a separator.  eg:
 also applies to the identifiers used in <code>.irp</code> (see <a href="Irp.html#Irp">Irp</a>)
 and <code>.irpc</code> (see <a href="Irpc.html#Irpc">Irpc</a>) as well.
 
-     <br><dt><code>.endm</code><a name="index-g_t_002eendm-401"></a><dd><a name="index-g_t_0040code_007bendm_007d-directive-402"></a>Mark the end of a macro definition.
+     <br><dt><code>.endm</code><a name="index-g_t_002eendm-404"></a><dd><a name="index-g_t_0040code_007bendm_007d-directive-405"></a>Mark the end of a macro definition.
 
-     <br><dt><code>.exitm</code><a name="index-g_t_002eexitm-403"></a><dd><a name="index-g_t_0040code_007bexitm_007d-directive-404"></a>Exit early from the current macro definition.
+     <br><dt><code>.exitm</code><a name="index-g_t_002eexitm-406"></a><dd><a name="index-g_t_0040code_007bexitm_007d-directive-407"></a>Exit early from the current macro definition.
 
-     <p><a name="index-number-of-macros-executed-405"></a><a name="index-macros_002c-count-executed-406"></a><br><dt><code>\@</code><a name="index-g_t_005c_0040_0040-407"></a><dd><samp><span class="command">as</span></samp> maintains a counter of how many macros it has
+     <p><a name="index-number-of-macros-executed-408"></a><a name="index-macros_002c-count-executed-409"></a><br><dt><code>\@</code><a name="index-g_t_005c_0040_0040-410"></a><dd><samp><span class="command">as</span></samp> maintains a counter of how many macros it has
 executed in this pseudo-variable; you can copy that number to your
 output with `<samp><span class="samp">\@</span></samp>', but <em>only within a macro definition</em>.
 
-     <br><dt><code>LOCAL </code><var>name</var><code> [ , ... ]</code><a name="index-LOCAL-_0040var_007bname_007d-_005b-_002c-_0040dots_007b_007d-_005d-408"></a><dd><em>Warning: </em><code>LOCAL</code><em> is only available if you select &ldquo;alternate
+     <br><dt><code>LOCAL </code><var>name</var><code> [ , ... ]</code><a name="index-LOCAL-_0040var_007bname_007d-_005b-_002c-_0040dots_007b_007d-_005d-411"></a><dd><em>Warning: </em><code>LOCAL</code><em> is only available if you select &ldquo;alternate
 macro syntax&rdquo; with `<samp></em><span class="samp">--alternate</span><em></samp>' or </em><code>.altmacro</code><em>.</em>
 See <a href="Altmacro.html#Altmacro"><code>.altmacro</code></a>. 
 </dl>

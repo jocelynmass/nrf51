@@ -34,7 +34,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Stdio.html#Stdio">Stdio</a>
 
 <h3 class="section">4.62 <code>sscanf</code>, <code>fscanf</code>, <code>scanf</code>&mdash;scan and format input</h3>
 
-<p><a name="index-scanf-335"></a><a name="index-g_t_005fscanf_005fr-336"></a><a name="index-fscanf-337"></a><a name="index-g_t_005ffscanf_005fr-338"></a><a name="index-sscanf-339"></a><a name="index-g_t_005fsscanf_005fr-340"></a><strong>Synopsis</strong>
+<p><a name="index-scanf-336"></a><a name="index-g_t_005fscanf_005fr-337"></a><a name="index-fscanf-338"></a><a name="index-g_t_005ffscanf_005fr-339"></a><a name="index-sscanf-340"></a><a name="index-g_t_005fsscanf_005fr-341"></a><strong>Synopsis</strong>
 <pre class="example">     #include &lt;stdio.h&gt;
      
      int scanf(const char *restrict <var>format</var>, ...);
@@ -105,11 +105,15 @@ and have the following form:
 </pre>
    <p>Each format specification begins with the percent character (<code>%</code>). 
 The other fields are:
-     <dl>
-<dt><code>*</code><dd>an optional marker; if present, it suppresses interpretation and
+     <ul>
+<li>*
+
+     <p>an optional marker; if present, it suppresses interpretation and
 assignment of this input field.
 
-     <br><dt><var>width</var><dd>an optional maximum field width: a decimal integer,
+     <li><var>width</var>
+
+     <p>an optional maximum field width: a decimal integer,
 which controls the maximum number of characters that
 will be read before converting the current input field.  If the
 input field has fewer than <var>width</var> characters, <code>scanf</code>
@@ -121,58 +125,101 @@ before <var>width</var> character are read, the characters up
 to that character are read, converted, and stored. 
 Then <code>scanf</code> proceeds to the next format specification.
 
-     <br><dt><code>size</code><dd><code>h</code>, <code>j</code>, <code>l</code>, <code>L</code>, <code>t</code>, and <code>z</code> are optional size
+     <li><var>size</var>
+
+     <p><code>h</code>, <code>j</code>, <code>l</code>, <code>L</code>, <code>t</code>, and <code>z</code> are optional size
 characters which override the default way that <code>scanf</code>
 interprets the data type of the corresponding argument.
 
-     <pre class="smallexample">          Modifier   Type(s)
-             hh      d, i, o, u, x, n  convert input to char,
-                                       store in char object
-          
-             h       d, i, o, u, x, n  convert input to short,
-                                       store in short object
-          
-             h       D, I, O, U, X     no effect
-                     e, f, c, s, p
-          
-             j       d, i, o, u, x, n  convert input to intmax_t,
-                                       store in intmax_t object
-          
-             j       all others        no effect
-          
-             l       d, i, o, u, x, n  convert input to long,
-                                       store in long object
-          
-             l       e, f, g           convert input to double
-                                       store in a double object
-          
-             l       D, I, O, U, X     no effect
-                     c, s, p
-          
-             ll      d, i, o, u, x, n  convert to long long,
-                                       store in long long
-          
-             L       d, i, o, u, x, n  convert to long long,
-                                       store in long long
-          
-             L       e, f, g, E, G     convert to long double,
-                                       store in long double
-          
-             L       all others        no effect
-          
-             t       d, i, o, u, x, n  convert input to ptrdiff_t,
-                                       store in ptrdiff_t object
-          
-             t       all others        no effect
-          
-             z       d, i, o, u, x, n  convert input to size_t,
-                                       store in size_t object
-          
-             z       all others        no effect
-          
-     </pre>
-     <br><dt><var>type</var><dd>
-A character to specify what kind of conversion
+     <p><table summary=""><tr align="left"><th valign="top" width="18%">Modifier
+</th><th valign="top" width="30%">
+Type(s)
+</th><th valign="top" width="52%">
+<br></th></tr><tr align="left"><td valign="top" width="18%">hh
+</td><td valign="top" width="30%">
+d, i, o, u, x, n
+</td><td valign="top" width="52%">
+convert input to char, store in char object
+<br></td></tr><tr align="left"><td valign="top" width="18%">h
+</td><td valign="top" width="30%">
+d, i, o, u, x, n
+</td><td valign="top" width="52%">
+convert input to short, store in short object
+<br></td></tr><tr align="left"><td valign="top" width="18%">h
+</td><td valign="top" width="30%">
+D, I, O, U, X, e, f, c, s, p
+</td><td valign="top" width="52%">
+no effect
+<br></td></tr><tr align="left"><td valign="top" width="18%">j
+</td><td valign="top" width="30%">
+d, i, o, u, x, n
+</td><td valign="top" width="52%">
+convert input to intmax_t, store in intmax_t object
+<br></td></tr><tr align="left"><td valign="top" width="18%">j
+</td><td valign="top" width="30%">
+all others
+</td><td valign="top" width="52%">
+no effect
+<br></td></tr><tr align="left"><td valign="top" width="18%">l
+</td><td valign="top" width="30%">
+d, i, o, u, x, n
+</td><td valign="top" width="52%">
+convert input to long, store in long object
+<br></td></tr><tr align="left"><td valign="top" width="18%">l
+</td><td valign="top" width="30%">
+e, f, g
+</td><td valign="top" width="52%">
+convert input to double, store in a double object
+<br></td></tr><tr align="left"><td valign="top" width="18%">l
+</td><td valign="top" width="30%">
+D, I, O, U, X, c, s, p
+</td><td valign="top" width="52%">
+no effect
+<br></td></tr><tr align="left"><td valign="top" width="18%">ll
+</td><td valign="top" width="30%">
+d, i, o, u, x, n
+</td><td valign="top" width="52%">
+convert to long long, store in long long object
+<br></td></tr><tr align="left"><td valign="top" width="18%">L
+</td><td valign="top" width="30%">
+d, i, o, u, x, n
+</td><td valign="top" width="52%">
+convert to long long, store in long long object
+<br></td></tr><tr align="left"><td valign="top" width="18%">L
+</td><td valign="top" width="30%">
+e, f, g, E, G
+</td><td valign="top" width="52%">
+convert to long double, store in long double object
+<br></td></tr><tr align="left"><td valign="top" width="18%">L
+</td><td valign="top" width="30%">
+all others
+</td><td valign="top" width="52%">
+no effect
+<br></td></tr><tr align="left"><td valign="top" width="18%">t
+</td><td valign="top" width="30%">
+d, i, o, u, x, n
+</td><td valign="top" width="52%">
+convert input to ptrdiff_t, store in ptrdiff_t object
+<br></td></tr><tr align="left"><td valign="top" width="18%">t
+</td><td valign="top" width="30%">
+all others
+</td><td valign="top" width="52%">
+no effect
+<br></td></tr><tr align="left"><td valign="top" width="18%">z
+</td><td valign="top" width="30%">
+d, i, o, u, x, n
+</td><td valign="top" width="52%">
+convert input to size_t, store in size_t object
+<br></td></tr><tr align="left"><td valign="top" width="18%">z
+</td><td valign="top" width="30%">
+all others
+</td><td valign="top" width="52%">
+no effect
+     <br></td></tr></table>
+
+     <li><var>type</var>
+
+     <p>A character to specify what kind of conversion
 <code>scanf</code> performs.  Here is a table of the conversion
 characters:
 
@@ -201,8 +248,9 @@ this table). Corresponding <var>arg</var>: <code>(char *arg)</code>.
           <br><dt><code>O</code><dd>Reads an octal integer into the corresponding <var>arg</var>: <code>(long *arg)</code>.
 
           <br><dt><code>u</code><dd>Reads an unsigned decimal integer into the corresponding
-<var>arg</var>: <code>(unsigned int *arg)</code>. 
-<br><dt><code>U</code><dd>Reads an unsigned decimal integer into the corresponding <var>arg</var>:
+<var>arg</var>: <code>(unsigned int *arg)</code>.
+
+          <br><dt><code>U</code><dd>Reads an unsigned decimal integer into the corresponding <var>arg</var>:
 <code>(unsigned long *arg)</code>.
 
           <br><dt><code>x,X</code><dd>Read a hexadecimal integer into the corresponding <var>arg</var>:
@@ -260,7 +308,7 @@ character after it.
      </pre>
      <p>where objects inclosed in square brackets are optional, and <code>ddd</code>
 represents decimal, octal, or hexadecimal digits. 
-</dl>
+</ul>
 
    <pre class="sp">
 

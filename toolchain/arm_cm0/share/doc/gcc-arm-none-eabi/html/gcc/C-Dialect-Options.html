@@ -10,7 +10,7 @@
 <link rel="next" href="C_002b_002b-Dialect-Options.html#C_002b_002b-Dialect-Options" title="C++ Dialect Options">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -127,28 +127,24 @@ with ISO C90 are disabled). Same as <samp><span class="option">-ansi</span></sam
           <br><dt>`<samp><span class="samp">iso9899:199409</span></samp>'<dd>ISO C90 as modified in amendment 1.
 
           <br><dt>`<samp><span class="samp">c99</span></samp>'<dt>`<samp><span class="samp">c9x</span></samp>'<dt>`<samp><span class="samp">iso9899:1999</span></samp>'<dt>`<samp><span class="samp">iso9899:199x</span></samp>'<dd>ISO C99.  This standard is substantially completely supported, modulo
-bugs, extended identifiers (supported except for corner cases when
-<samp><span class="option">-fextended-identifiers</span></samp> is used) and floating-point issues
+bugs and floating-point issues
 (mainly but not entirely relating to optional C99 features from
 Annexes F and G).  See
 <a href="http://gcc.gnu.org/c99status.html">http://gcc.gnu.org/c99status.html</a><!-- /@w --> for more information.  The
 names `<samp><span class="samp">c9x</span></samp>' and `<samp><span class="samp">iso9899:199x</span></samp>' are deprecated.
 
           <br><dt>`<samp><span class="samp">c11</span></samp>'<dt>`<samp><span class="samp">c1x</span></samp>'<dt>`<samp><span class="samp">iso9899:2011</span></samp>'<dd>ISO C11, the 2011 revision of the ISO C standard.  This standard is
-substantially completely supported, modulo bugs, extended identifiers
-(supported except for corner cases when
-<samp><span class="option">-fextended-identifiers</span></samp> is used), floating-point issues
+substantially completely supported, modulo bugs, floating-point issues
 (mainly but not entirely relating to optional C11 features from
 Annexes F and G) and the optional Annexes K (Bounds-checking
 interfaces) and L (Analyzability).  The name `<samp><span class="samp">c1x</span></samp>' is deprecated.
 
-          <br><dt>`<samp><span class="samp">gnu90</span></samp>'<dt>`<samp><span class="samp">gnu89</span></samp>'<dd>GNU dialect of ISO C90 (including some C99 features). This
-is the default for C code.
+          <br><dt>`<samp><span class="samp">gnu90</span></samp>'<dt>`<samp><span class="samp">gnu89</span></samp>'<dd>GNU dialect of ISO C90 (including some C99 features).
 
           <br><dt>`<samp><span class="samp">gnu99</span></samp>'<dt>`<samp><span class="samp">gnu9x</span></samp>'<dd>GNU dialect of ISO C99.  The name `<samp><span class="samp">gnu9x</span></samp>' is deprecated.
 
-          <br><dt>`<samp><span class="samp">gnu11</span></samp>'<dt>`<samp><span class="samp">gnu1x</span></samp>'<dd>GNU dialect of ISO C11.  This is intended to become the default in a
-future release of GCC.  The name `<samp><span class="samp">gnu1x</span></samp>' is deprecated.
+          <br><dt>`<samp><span class="samp">gnu11</span></samp>'<dt>`<samp><span class="samp">gnu1x</span></samp>'<dd>GNU dialect of ISO C11.  This is the default for C code. 
+The name `<samp><span class="samp">gnu1x</span></samp>' is deprecated.
 
           <br><dt>`<samp><span class="samp">c++98</span></samp>'<dt>`<samp><span class="samp">c++03</span></samp>'<dd>The 1998 ISO C++ standard plus the 2003 technical corrigendum and some
 additional defect reports. Same as <samp><span class="option">-ansi</span></samp> for C++ code.
@@ -162,28 +158,32 @@ The name `<samp><span class="samp">c++0x</span></samp>' is deprecated.
           <br><dt>`<samp><span class="samp">gnu++11</span></samp>'<dt>`<samp><span class="samp">gnu++0x</span></samp>'<dd>GNU dialect of <samp><span class="option">-std=c++11</span></samp>. 
 The name `<samp><span class="samp">gnu++0x</span></samp>' is deprecated.
 
-          <br><dt>`<samp><span class="samp">c++1y</span></samp>'<dd>The next revision of the ISO C++ standard, tentatively planned for
-2014.  Support is highly experimental, and will almost certainly
+          <br><dt>`<samp><span class="samp">c++14</span></samp>'<dt>`<samp><span class="samp">c++1y</span></samp>'<dd>The 2014 ISO C++ standard plus amendments. 
+The name `<samp><span class="samp">c++1y</span></samp>' is deprecated.
+
+          <br><dt>`<samp><span class="samp">gnu++14</span></samp>'<dt>`<samp><span class="samp">gnu++1y</span></samp>'<dd>GNU dialect of <samp><span class="option">-std=c++14</span></samp>. 
+The name `<samp><span class="samp">gnu++1y</span></samp>' is deprecated.
+
+          <br><dt>`<samp><span class="samp">c++1z</span></samp>'<dd>The next revision of the ISO C++ standard, tentatively planned for
+2017.  Support is highly experimental, and will almost certainly
 change in incompatible ways in future releases.
 
-          <br><dt>`<samp><span class="samp">gnu++1y</span></samp>'<dd>GNU dialect of <samp><span class="option">-std=c++1y</span></samp>.  Support is highly experimental,
+          <br><dt>`<samp><span class="samp">gnu++1z</span></samp>'<dd>GNU dialect of <samp><span class="option">-std=c++1z</span></samp>.  Support is highly experimental,
 and will almost certainly change in incompatible ways in future
 releases. 
 </dl>
 
      <br><dt><code>-fgnu89-inline</code><dd><a name="index-fgnu89_002dinline-109"></a>The option <samp><span class="option">-fgnu89-inline</span></samp> tells GCC to use the traditional
 GNU semantics for <code>inline</code> functions when in C99 mode. 
-See <a href="Inline.html#Inline">An Inline Function is As Fast As a Macro</a>.  This option
-is accepted and ignored by GCC versions 4.1.3 up to but not including
-4.3.  In GCC versions 4.3 and later it changes the behavior of GCC in
-C99 mode.  Using this option is roughly equivalent to adding the
+See <a href="Inline.html#Inline">An Inline Function is As Fast As a Macro</a>. 
+Using this option is roughly equivalent to adding the
 <code>gnu_inline</code> function attribute to all inline functions
 (see <a href="Function-Attributes.html#Function-Attributes">Function Attributes</a>).
 
      <p>The option <samp><span class="option">-fno-gnu89-inline</span></samp> explicitly tells GCC to use the
 C99 semantics for <code>inline</code> when in C99 or gnu99 mode (i.e., it
-specifies the default behavior).  This option was first supported in
-GCC 4.3.  This option is not supported in <samp><span class="option">-std=c90</span></samp> or
+specifies the default behavior). 
+This option is not supported in <samp><span class="option">-std=c90</span></samp> or
 <samp><span class="option">-std=gnu90</span></samp> mode.
 
      <p>The preprocessor macros <code>__GNUC_GNU_INLINE__</code> and
@@ -272,7 +272,18 @@ This is equivalent to <samp><span class="option">-fno-hosted</span></samp>.
      <p>See <a href="Standards.html#Standards">Language Standards Supported by GCC</a>, for details of
 freestanding and hosted environments.
 
-     <br><dt><code>-fopenmp</code><dd><a name="index-fopenmp-119"></a><a name="index-OpenMP-parallel-120"></a>Enable handling of OpenMP directives <code>#pragma omp</code> in C/C++ and
+     <br><dt><code>-fopenacc</code><dd><a name="index-fopenacc-119"></a><a name="index-OpenACC-accelerator-programming-120"></a>Enable handling of OpenACC directives <code>#pragma acc</code> in C/C++ and
+<code>!$acc</code> in Fortran.  When <samp><span class="option">-fopenacc</span></samp> is specified, the
+compiler generates accelerated code according to the OpenACC Application
+Programming Interface v2.0 <a href="http://www.openacc.org/">http://www.openacc.org/</a><!-- /@w -->.  This option
+implies <samp><span class="option">-pthread</span></samp>, and thus is only supported on targets that
+have support for <samp><span class="option">-pthread</span></samp>.
+
+     <p>Note that this is an experimental feature, incomplete, and subject to
+change in future versions of GCC.  See
+<a href="https://gcc.gnu.org/wiki/OpenACC">https://gcc.gnu.org/wiki/OpenACC</a><!-- /@w --> for more information.
+
+     <br><dt><code>-fopenmp</code><dd><a name="index-fopenmp-121"></a><a name="index-OpenMP-parallel-122"></a>Enable handling of OpenMP directives <code>#pragma omp</code> in C/C++ and
 <code>!$omp</code> in Fortran.  When <samp><span class="option">-fopenmp</span></samp> is specified, the
 compiler generates parallel code according to the OpenMP Application
 Program Interface v4.0 <a href="http://www.openmp.org/">http://www.openmp.org/</a><!-- /@w -->.  This option
@@ -280,11 +291,11 @@ implies <samp><span class="option">-pthread</span></samp>, and thus is only supp
 have support for <samp><span class="option">-pthread</span></samp>. <samp><span class="option">-fopenmp</span></samp> implies
 <samp><span class="option">-fopenmp-simd</span></samp>.
 
-     <br><dt><code>-fopenmp-simd</code><dd><a name="index-fopenmp_002dsimd-121"></a><a name="index-OpenMP-SIMD-122"></a><a name="index-SIMD-123"></a>Enable handling of OpenMP's SIMD directives with <code>#pragma omp</code>
+     <br><dt><code>-fopenmp-simd</code><dd><a name="index-fopenmp_002dsimd-123"></a><a name="index-OpenMP-SIMD-124"></a><a name="index-SIMD-125"></a>Enable handling of OpenMP's SIMD directives with <code>#pragma omp</code>
 in C/C++ and <code>!$omp</code> in Fortran. Other OpenMP directives
 are ignored.
 
-     <br><dt><code>-fcilkplus</code><dd><a name="index-fcilkplus-124"></a><a name="index-Enable-Cilk-Plus-125"></a>Enable the usage of Cilk Plus language extension features for C/C++. 
+     <br><dt><code>-fcilkplus</code><dd><a name="index-fcilkplus-126"></a><a name="index-Enable-Cilk-Plus-127"></a>Enable the usage of Cilk Plus language extension features for C/C++. 
 When the option <samp><span class="option">-fcilkplus</span></samp> is specified, enable the usage of
 the Cilk Plus Language extension features for C/C++.  The present
 implementation follows ABI version 1.2.  This is an experimental
@@ -293,7 +304,7 @@ change in future versions of GCC as the official specification
 changes.  Currently, all features but <code>_Cilk_for</code> have been
 implemented.
 
-     <br><dt><code>-fgnu-tm</code><dd><a name="index-fgnu_002dtm-126"></a>When the option <samp><span class="option">-fgnu-tm</span></samp> is specified, the compiler
+     <br><dt><code>-fgnu-tm</code><dd><a name="index-fgnu_002dtm-128"></a>When the option <samp><span class="option">-fgnu-tm</span></samp> is specified, the compiler
 generates code for the Linux variant of Intel's current Transactional
 Memory ABI specification document (Revision 1.1, May 6 2009).  This is
 an experimental feature whose interface may change in future versions
@@ -306,7 +317,7 @@ See <a href="../libitm/Enabling-libitm.html#Enabling-libitm">The GNU Transaction
      <p>Note that the transactional memory feature is not supported with
 non-call exceptions (<samp><span class="option">-fnon-call-exceptions</span></samp>).
 
-     <br><dt><code>-fms-extensions</code><dd><a name="index-fms_002dextensions-127"></a>Accept some non-standard constructs used in Microsoft header files.
+     <br><dt><code>-fms-extensions</code><dd><a name="index-fms_002dextensions-129"></a>Accept some non-standard constructs used in Microsoft header files.
 
      <p>In C++ code, this allows member names in structures to be similar
 to previous types declarations.
@@ -319,9 +330,10 @@ to previous types declarations.
      <p>Some cases of unnamed fields in structures and unions are only
 accepted with this option.  See <a href="Unnamed-Fields.html#Unnamed-Fields">Unnamed struct/union fields within structs/unions</a>, for details.
 
-     <p>Note that this option is off for all targets but i?86 and x86_64
-targets using ms-abi. 
-<br><dt><code>-fplan9-extensions</code><dd>Accept some non-standard constructs used in Plan 9 code.
+     <p>Note that this option is off for all targets but x86
+targets using ms-abi.
+
+     <br><dt><code>-fplan9-extensions</code><dd><a name="index-fplan9_002dextensions-130"></a>Accept some non-standard constructs used in Plan 9 code.
 
      <p>This enables <samp><span class="option">-fms-extensions</span></samp>, permits passing pointers to
 structures with anonymous fields to functions that expect pointers to
@@ -329,23 +341,23 @@ elements of the type of the field, and permits referring to anonymous
 fields declared using a typedef.  See <a href="Unnamed-Fields.html#Unnamed-Fields">Unnamed struct/union fields within structs/unions</a>, for details.  This is only
 supported for C, not C++.
 
-     <br><dt><code>-trigraphs</code><dd><a name="index-trigraphs-128"></a>Support ISO C trigraphs.  The <samp><span class="option">-ansi</span></samp> option (and <samp><span class="option">-std</span></samp>
+     <br><dt><code>-trigraphs</code><dd><a name="index-trigraphs-131"></a>Support ISO C trigraphs.  The <samp><span class="option">-ansi</span></samp> option (and <samp><span class="option">-std</span></samp>
 options for strict ISO C conformance) implies <samp><span class="option">-trigraphs</span></samp>.
 
-     <p><a name="index-traditional-C-language-129"></a><a name="index-C-language_002c-traditional-130"></a><br><dt><code>-traditional</code><dt><code>-traditional-cpp</code><dd><a name="index-traditional_002dcpp-131"></a><a name="index-traditional-132"></a>Formerly, these options caused GCC to attempt to emulate a pre-standard
+     <p><a name="index-traditional-C-language-132"></a><a name="index-C-language_002c-traditional-133"></a><br><dt><code>-traditional</code><dt><code>-traditional-cpp</code><dd><a name="index-traditional_002dcpp-134"></a><a name="index-traditional-135"></a>Formerly, these options caused GCC to attempt to emulate a pre-standard
 C compiler.  They are now only supported with the <samp><span class="option">-E</span></samp> switch. 
 The preprocessor continues to support a pre-standard mode.  See the GNU
 CPP manual for details.
 
-     <br><dt><code>-fcond-mismatch</code><dd><a name="index-fcond_002dmismatch-133"></a>Allow conditional expressions with mismatched types in the second and
+     <br><dt><code>-fcond-mismatch</code><dd><a name="index-fcond_002dmismatch-136"></a>Allow conditional expressions with mismatched types in the second and
 third arguments.  The value of such an expression is void.  This option
 is not supported for C++.
 
-     <br><dt><code>-flax-vector-conversions</code><dd><a name="index-flax_002dvector_002dconversions-134"></a>Allow implicit conversions between vectors with differing numbers of
+     <br><dt><code>-flax-vector-conversions</code><dd><a name="index-flax_002dvector_002dconversions-137"></a>Allow implicit conversions between vectors with differing numbers of
 elements and/or incompatible element types.  This option should not be
 used for new code.
 
-     <br><dt><code>-funsigned-char</code><dd><a name="index-funsigned_002dchar-135"></a>Let the type <code>char</code> be unsigned, like <code>unsigned char</code>.
+     <br><dt><code>-funsigned-char</code><dd><a name="index-funsigned_002dchar-138"></a>Let the type <code>char</code> be unsigned, like <code>unsigned char</code>.
 
      <p>Each kind of machine has a default for what <code>char</code> should
 be.  It is either like <code>unsigned char</code> by default or like
@@ -362,13 +374,13 @@ make such a program work with the opposite default.
 <code>signed char</code> or <code>unsigned char</code>, even though its behavior
 is always just like one of those two.
 
-     <br><dt><code>-fsigned-char</code><dd><a name="index-fsigned_002dchar-136"></a>Let the type <code>char</code> be signed, like <code>signed char</code>.
+     <br><dt><code>-fsigned-char</code><dd><a name="index-fsigned_002dchar-139"></a>Let the type <code>char</code> be signed, like <code>signed char</code>.
 
      <p>Note that this is equivalent to <samp><span class="option">-fno-unsigned-char</span></samp>, which is
 the negative form of <samp><span class="option">-funsigned-char</span></samp>.  Likewise, the option
 <samp><span class="option">-fno-signed-char</span></samp> is equivalent to <samp><span class="option">-funsigned-char</span></samp>.
 
-     <br><dt><code>-fsigned-bitfields</code><dt><code>-funsigned-bitfields</code><dt><code>-fno-signed-bitfields</code><dt><code>-fno-unsigned-bitfields</code><dd><a name="index-fsigned_002dbitfields-137"></a><a name="index-funsigned_002dbitfields-138"></a><a name="index-fno_002dsigned_002dbitfields-139"></a><a name="index-fno_002dunsigned_002dbitfields-140"></a>These options control whether a bit-field is signed or unsigned, when the
+     <br><dt><code>-fsigned-bitfields</code><dt><code>-funsigned-bitfields</code><dt><code>-fno-signed-bitfields</code><dt><code>-fno-unsigned-bitfields</code><dd><a name="index-fsigned_002dbitfields-140"></a><a name="index-funsigned_002dbitfields-141"></a><a name="index-fno_002dsigned_002dbitfields-142"></a><a name="index-fno_002dunsigned_002dbitfields-143"></a>These options control whether a bit-field is signed or unsigned, when the
 declaration does not use either <code>signed</code> or <code>unsigned</code>.  By
 default, such a bit-field is signed, because this is consistent: the
 basic integer types such as <code>int</code> are signed types. 

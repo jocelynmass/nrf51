@@ -12,7 +12,7 @@
 <!--
 This file documents the BFD library.
 
-Copyright (C) 1991-2014 Free Software Foundation, Inc.
+Copyright (C) 1991-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -313,12 +313,12 @@ The following functions exist but have not yet been documented.
      
      #define bfd_find_nearest_line(abfd, sec, syms, off, file, func, line) \
             BFD_SEND (abfd, _bfd_find_nearest_line, \
-                      (abfd, sec, syms, off, file, func, line))
+                      (abfd, syms, sec, off, file, func, line, NULL))
      
      #define bfd_find_nearest_line_discriminator(abfd, sec, syms, off, file, func, \
                                                  line, disc) \
-            BFD_SEND (abfd, _bfd_find_nearest_line_discriminator, \
-                      (abfd, sec, syms, off, file, func, line, disc))
+            BFD_SEND (abfd, _bfd_find_nearest_line, \
+                      (abfd, syms, sec, off, file, func, line, disc))
      
      #define bfd_find_line(abfd, syms, sym, file, line) \
             BFD_SEND (abfd, _bfd_find_line, \
@@ -366,9 +366,6 @@ The following functions exist but have not yet been documented.
      
      #define bfd_link_hash_table_create(abfd) \
             BFD_SEND (abfd, _bfd_link_hash_table_create, (abfd))
-     
-     #define bfd_link_hash_table_free(abfd, hash) \
-            BFD_SEND (abfd, _bfd_link_hash_table_free, (hash))
      
      #define bfd_link_add_symbols(abfd, info) \
             BFD_SEND (abfd, _bfd_link_add_symbols, (abfd, info))
@@ -484,9 +481,51 @@ If passed a g++ v3 ABI mangled name, returns a buffer allocated
 with malloc holding the demangled name.  Returns NULL otherwise
 and on memory alloc failure.
 
-   <p><a name="index-struct-bfd_005fiovec-35"></a>
+   <p><a name="index-bfd_005fupdate_005fcompression_005fheader-35"></a>
 
-<h5 class="subsubsection">2.3.1.22 <code>struct bfd_iovec</code></h5>
+<h5 class="subsubsection">2.3.1.22 <code>bfd_update_compression_header</code></h5>
+
+<p><strong>Synopsis</strong>
+<pre class="example">     void bfd_update_compression_header
+        (bfd *abfd, bfd_byte *contents, asection *sec);
+</pre>
+   <p><strong>Description</strong><br>
+Set the compression header at CONTENTS of SEC in ABFD and update
+elf_section_flags for compression.
+
+   <p><a name="index-bfd_005fcheck_005fcompression_005fheader-36"></a>
+
+<h5 class="subsubsection">2.3.1.23 <code>bfd_check_compression_header</code></h5>
+
+<p><strong>Synopsis</strong>
+<pre class="example">     bfd_boolean bfd_check_compression_header
+        (bfd *abfd, bfd_byte *contents, asection *sec,
+         bfd_size_type *uncompressed_size);
+</pre>
+   <p><strong>Description</strong><br>
+Check the compression header at CONTENTS of SEC in ABFD and
+store the uncompressed size in UNCOMPRESSED_SIZE if the
+compression header is valid.
+
+   <p><strong>Returns</strong><br>
+Return TRUE if the compression header is valid.
+
+   <p><a name="index-bfd_005fget_005fcompression_005fheader_005fsize-37"></a>
+
+<h5 class="subsubsection">2.3.1.24 <code>bfd_get_compression_header_size</code></h5>
+
+<p><strong>Synopsis</strong>
+<pre class="example">     int bfd_get_compression_header_size (bfd *abfd, asection *sec);
+</pre>
+   <p><strong>Description</strong><br>
+Return the size of the compression header of SEC in ABFD.
+
+   <p><strong>Returns</strong><br>
+Return the size of the compression header in bytes.
+
+   <p><a name="index-struct-bfd_005fiovec-38"></a>
+
+<h5 class="subsubsection">2.3.1.25 <code>struct bfd_iovec</code></h5>
 
 <p><strong>Description</strong><br>
 The <code>struct bfd_iovec</code> contains the internal file I/O class. 
@@ -525,9 +564,9 @@ all methods listed below).
      };
      extern const struct bfd_iovec _bfd_memory_iovec;
 </pre>
-   <p><a name="index-bfd_005fget_005fmtime-36"></a>
+   <p><a name="index-bfd_005fget_005fmtime-39"></a>
 
-<h5 class="subsubsection">2.3.1.23 <code>bfd_get_mtime</code></h5>
+<h5 class="subsubsection">2.3.1.26 <code>bfd_get_mtime</code></h5>
 
 <p><strong>Synopsis</strong>
 <pre class="example">     long bfd_get_mtime (bfd *abfd);
@@ -536,9 +575,9 @@ all methods listed below).
 Return the file modification time (as read from the file system, or
 from the archive header for archive members).
 
-   <p><a name="index-bfd_005fget_005fsize-37"></a>
+   <p><a name="index-bfd_005fget_005fsize-40"></a>
 
-<h5 class="subsubsection">2.3.1.24 <code>bfd_get_size</code></h5>
+<h5 class="subsubsection">2.3.1.27 <code>bfd_get_size</code></h5>
 
 <p><strong>Synopsis</strong>
 <pre class="example">     file_ptr bfd_get_size (bfd *abfd);
@@ -568,9 +607,9 @@ of space for the 15 bazillon byte table it is about to read.
 This function at least allows us to answer the question, "is the
 size reasonable?".
 
-   <p><a name="index-bfd_005fmmap-38"></a>
+   <p><a name="index-bfd_005fmmap-41"></a>
 
-<h5 class="subsubsection">2.3.1.25 <code>bfd_mmap</code></h5>
+<h5 class="subsubsection">2.3.1.28 <code>bfd_mmap</code></h5>
 
 <p><strong>Synopsis</strong>
 <pre class="example">     void *bfd_mmap (bfd *abfd, void *addr, bfd_size_type len,

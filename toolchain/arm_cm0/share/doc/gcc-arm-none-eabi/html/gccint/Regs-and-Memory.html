@@ -10,7 +10,7 @@
 <link rel="next" href="Arithmetic.html#Arithmetic" title="Arithmetic">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -54,14 +54,14 @@ Up:&nbsp;<a rel="up" accesskey="u" href="RTL.html#RTL">RTL</a>
 
 <h3 class="section">13.8 Registers and Memory</h3>
 
-<p><a name="index-RTL-register-expressions-2820"></a><a name="index-RTL-memory-expressions-2821"></a>
+<p><a name="index-RTL-register-expressions-2844"></a><a name="index-RTL-memory-expressions-2845"></a>
 Here are the RTL expression types for describing access to machine
 registers and to main memory.
 
      
-<a name="index-reg-2822"></a>
-<a name="index-hard-registers-2823"></a>
-<a name="index-pseudo-registers-2824"></a>
+<a name="index-reg-2846"></a>
+<a name="index-hard-registers-2847"></a>
+<a name="index-pseudo-registers-2848"></a>
 <dl><dt><code>(reg:</code><var>m</var> <var>n</var><code>)</code><dd>For small values of the integer <var>n</var> (those that are less than
 <code>FIRST_PSEUDO_REGISTER</code>), this stands for a reference to machine
 register number <var>n</var>: a <dfn>hard register</dfn>.  For larger values of
@@ -103,7 +103,7 @@ with the specified one.
      <p>Each pseudo register number used in a function's RTL code is
 represented by a unique <code>reg</code> expression.
 
-     <p><a name="index-FIRST_005fVIRTUAL_005fREGISTER-2825"></a><a name="index-LAST_005fVIRTUAL_005fREGISTER-2826"></a>Some pseudo register numbers, those within the range of
+     <p><a name="index-FIRST_005fVIRTUAL_005fREGISTER-2849"></a><a name="index-LAST_005fVIRTUAL_005fREGISTER-2850"></a>Some pseudo register numbers, those within the range of
 <code>FIRST_VIRTUAL_REGISTER</code> to <code>LAST_VIRTUAL_REGISTER</code> only
 appear during the RTL generation phase and are eliminated before the
 optimization phases.  These represent locations in the stack frame that
@@ -111,40 +111,40 @@ cannot be determined until RTL generation for the function has been
 completed.  The following virtual register numbers are defined:
 
           
-<a name="index-VIRTUAL_005fINCOMING_005fARGS_005fREGNUM-2827"></a>
+<a name="index-VIRTUAL_005fINCOMING_005fARGS_005fREGNUM-2851"></a>
 <dl><dt><code>VIRTUAL_INCOMING_ARGS_REGNUM</code><dd>This points to the first word of the incoming arguments passed on the
 stack.  Normally these arguments are placed there by the caller, but the
 callee may have pushed some arguments that were previously passed in
 registers.
 
-          <p><a name="index-g_t_0040code_007bFIRST_005fPARM_005fOFFSET_007d-and-virtual-registers-2828"></a><a name="index-g_t_0040code_007bARG_005fPOINTER_005fREGNUM_007d-and-virtual-registers-2829"></a>When RTL generation is complete, this virtual register is replaced
+          <p><a name="index-g_t_0040code_007bFIRST_005fPARM_005fOFFSET_007d-and-virtual-registers-2852"></a><a name="index-g_t_0040code_007bARG_005fPOINTER_005fREGNUM_007d-and-virtual-registers-2853"></a>When RTL generation is complete, this virtual register is replaced
 by the sum of the register given by <code>ARG_POINTER_REGNUM</code> and the
 value of <code>FIRST_PARM_OFFSET</code>.
 
-          <p><a name="index-VIRTUAL_005fSTACK_005fVARS_005fREGNUM-2830"></a><a name="index-g_t_0040code_007bFRAME_005fGROWS_005fDOWNWARD_007d-and-virtual-registers-2831"></a><br><dt><code>VIRTUAL_STACK_VARS_REGNUM</code><dd>If <code>FRAME_GROWS_DOWNWARD</code> is defined to a nonzero value, this points
+          <p><a name="index-VIRTUAL_005fSTACK_005fVARS_005fREGNUM-2854"></a><a name="index-g_t_0040code_007bFRAME_005fGROWS_005fDOWNWARD_007d-and-virtual-registers-2855"></a><br><dt><code>VIRTUAL_STACK_VARS_REGNUM</code><dd>If <code>FRAME_GROWS_DOWNWARD</code> is defined to a nonzero value, this points
 to immediately above the first variable on the stack.  Otherwise, it points
 to the first variable on the stack.
 
-          <p><a name="index-g_t_0040code_007bSTARTING_005fFRAME_005fOFFSET_007d-and-virtual-registers-2832"></a><a name="index-g_t_0040code_007bFRAME_005fPOINTER_005fREGNUM_007d-and-virtual-registers-2833"></a><code>VIRTUAL_STACK_VARS_REGNUM</code> is replaced with the sum of the
+          <p><a name="index-g_t_0040code_007bSTARTING_005fFRAME_005fOFFSET_007d-and-virtual-registers-2856"></a><a name="index-g_t_0040code_007bFRAME_005fPOINTER_005fREGNUM_007d-and-virtual-registers-2857"></a><code>VIRTUAL_STACK_VARS_REGNUM</code> is replaced with the sum of the
 register given by <code>FRAME_POINTER_REGNUM</code> and the value
 <code>STARTING_FRAME_OFFSET</code>.
 
-          <p><a name="index-VIRTUAL_005fSTACK_005fDYNAMIC_005fREGNUM-2834"></a><br><dt><code>VIRTUAL_STACK_DYNAMIC_REGNUM</code><dd>This points to the location of dynamically allocated memory on the stack
+          <p><a name="index-VIRTUAL_005fSTACK_005fDYNAMIC_005fREGNUM-2858"></a><br><dt><code>VIRTUAL_STACK_DYNAMIC_REGNUM</code><dd>This points to the location of dynamically allocated memory on the stack
 immediately after the stack pointer has been adjusted by the amount of
 memory desired.
 
-          <p><a name="index-g_t_0040code_007bSTACK_005fDYNAMIC_005fOFFSET_007d-and-virtual-registers-2835"></a><a name="index-g_t_0040code_007bSTACK_005fPOINTER_005fREGNUM_007d-and-virtual-registers-2836"></a>This virtual register is replaced by the sum of the register given by
+          <p><a name="index-g_t_0040code_007bSTACK_005fDYNAMIC_005fOFFSET_007d-and-virtual-registers-2859"></a><a name="index-g_t_0040code_007bSTACK_005fPOINTER_005fREGNUM_007d-and-virtual-registers-2860"></a>This virtual register is replaced by the sum of the register given by
 <code>STACK_POINTER_REGNUM</code> and the value <code>STACK_DYNAMIC_OFFSET</code>.
 
-          <p><a name="index-VIRTUAL_005fOUTGOING_005fARGS_005fREGNUM-2837"></a><br><dt><code>VIRTUAL_OUTGOING_ARGS_REGNUM</code><dd>This points to the location in the stack at which outgoing arguments
+          <p><a name="index-VIRTUAL_005fOUTGOING_005fARGS_005fREGNUM-2861"></a><br><dt><code>VIRTUAL_OUTGOING_ARGS_REGNUM</code><dd>This points to the location in the stack at which outgoing arguments
 should be written when the stack is pre-pushed (arguments pushed using
 push insns should always use <code>STACK_POINTER_REGNUM</code>).
 
-          <p><a name="index-g_t_0040code_007bSTACK_005fPOINTER_005fOFFSET_007d-and-virtual-registers-2838"></a>This virtual register is replaced by the sum of the register given by
+          <p><a name="index-g_t_0040code_007bSTACK_005fPOINTER_005fOFFSET_007d-and-virtual-registers-2862"></a>This virtual register is replaced by the sum of the register given by
 <code>STACK_POINTER_REGNUM</code> and the value <code>STACK_POINTER_OFFSET</code>. 
 </dl>
 
-     <p><a name="index-subreg-2839"></a><br><dt><code>(subreg:</code><var>m1</var> <var>reg:m2</var> <var>bytenum</var><code>)</code><dd>
+     <p><a name="index-subreg-2863"></a><br><dt><code>(subreg:</code><var>m1</var> <var>reg:m2</var> <var>bytenum</var><code>)</code><dd>
 <code>subreg</code> expressions are used to refer to a register in a machine
 mode other than its natural one, or to refer to one register of
 a multi-part <code>reg</code> that actually refers to several registers.
@@ -265,16 +265,16 @@ laid out in memory order.  The memory order of bytes is defined by
 two target macros, <code>WORDS_BIG_ENDIAN</code> and <code>BYTES_BIG_ENDIAN</code>:
 
                <ul>
-<li><a name="index-g_t_0040code_007bWORDS_005fBIG_005fENDIAN_007d_002c-effect-on-_0040code_007bsubreg_007d-2840"></a><code>WORDS_BIG_ENDIAN</code>, if set to 1, says that byte number zero is
+<li><a name="index-g_t_0040code_007bWORDS_005fBIG_005fENDIAN_007d_002c-effect-on-_0040code_007bsubreg_007d-2864"></a><code>WORDS_BIG_ENDIAN</code>, if set to 1, says that byte number zero is
 part of the most significant word; otherwise, it is part of the least
 significant word.
 
-               <li><a name="index-g_t_0040code_007bBYTES_005fBIG_005fENDIAN_007d_002c-effect-on-_0040code_007bsubreg_007d-2841"></a><code>BYTES_BIG_ENDIAN</code>, if set to 1, says that byte number zero is
+               <li><a name="index-g_t_0040code_007bBYTES_005fBIG_005fENDIAN_007d_002c-effect-on-_0040code_007bsubreg_007d-2865"></a><code>BYTES_BIG_ENDIAN</code>, if set to 1, says that byte number zero is
 the most significant byte within a word; otherwise, it is the least
 significant byte within a word. 
 </ul>
 
-          <p><a name="index-g_t_0040code_007bFLOAT_005fWORDS_005fBIG_005fENDIAN_007d_002c-_0028lack-of_0029-effect-on-_0040code_007bsubreg_007d-2842"></a>On a few targets, <code>FLOAT_WORDS_BIG_ENDIAN</code> disagrees with
+          <p><a name="index-g_t_0040code_007bFLOAT_005fWORDS_005fBIG_005fENDIAN_007d_002c-_0028lack-of_0029-effect-on-_0040code_007bsubreg_007d-2866"></a>On a few targets, <code>FLOAT_WORDS_BIG_ENDIAN</code> disagrees with
 <code>WORDS_BIG_ENDIAN</code>.  However, most parts of the compiler treat
 floating point values as if they had the same endianness as integer
 values.  This works because they handle them solely as a collection of
@@ -327,7 +327,7 @@ has an unknown number of undefined bits, so the assignment:
      <p>does not guarantee that `<samp><span class="samp">(subreg:HI (reg:PSI 0) 0)</span></samp>' has the
 value `<samp><span class="samp">(reg:HI 4)</span></samp>'.
 
-     <p><a name="index-g_t_0040code_007bCANNOT_005fCHANGE_005fMODE_005fCLASS_007d-and-subreg-semantics-2843"></a>The rules above apply to both pseudo <var>reg</var>s and hard <var>reg</var>s. 
+     <p><a name="index-g_t_0040code_007bCANNOT_005fCHANGE_005fMODE_005fCLASS_007d-and-subreg-semantics-2867"></a>The rules above apply to both pseudo <var>reg</var>s and hard <var>reg</var>s. 
 If the semantics are not correct for particular combinations of
 <var>m1</var>, <var>m2</var> and hard <var>reg</var>, the target-specific code
 must ensure that those combinations are never used.  For example:
@@ -336,7 +336,7 @@ must ensure that those combinations are never used.  For example:
      </pre>
      <p>must be true for every class <var>class</var> that includes <var>reg</var>.
 
-     <p><a name="index-SUBREG_005fREG-2844"></a><a name="index-SUBREG_005fBYTE-2845"></a>The first operand of a <code>subreg</code> expression is customarily accessed
+     <p><a name="index-SUBREG_005fREG-2868"></a><a name="index-SUBREG_005fBYTE-2869"></a>The first operand of a <code>subreg</code> expression is customarily accessed
 with the <code>SUBREG_REG</code> macro and the second operand is customarily
 accessed with the <code>SUBREG_BYTE</code> macro.
 
@@ -345,7 +345,7 @@ accessed with the <code>SUBREG_BYTE</code> macro.
 been tested.  Anyone wishing to support such a platform in the future
 may be confronted with code rot.
 
-     <p><a name="index-scratch-2846"></a><a name="index-scratch-operands-2847"></a><br><dt><code>(scratch:</code><var>m</var><code>)</code><dd>This represents a scratch register that will be required for the
+     <p><a name="index-scratch-2870"></a><a name="index-scratch-operands-2871"></a><br><dt><code>(scratch:</code><var>m</var><code>)</code><dd>This represents a scratch register that will be required for the
 execution of a single instruction and not used subsequently.  It is
 converted into a <code>reg</code> by either the local register allocator or
 the reload pass.
@@ -353,7 +353,7 @@ the reload pass.
      <p><code>scratch</code> is usually present inside a <code>clobber</code> operation
 (see <a href="Side-Effects.html#Side-Effects">Side Effects</a>).
 
-     <p><a name="index-cc0-2848"></a><a name="index-condition-code-register-2849"></a><br><dt><code>(cc0)</code><dd>This refers to the machine's condition code register.  It has no
+     <p><a name="index-cc0-2872"></a><a name="index-condition-code-register-2873"></a><br><dt><code>(cc0)</code><dd>This refers to the machine's condition code register.  It has no
 operands and may not have a machine mode.  There are two ways to use it:
 
           <ul>
@@ -375,7 +375,7 @@ instructions) where the source is a comparison operator, and as the
 first operand of <code>if_then_else</code> (in a conditional branch). 
 </ul>
 
-     <p><a name="index-cc0_005frtx-2850"></a>There is only one expression object of code <code>cc0</code>; it is the
+     <p><a name="index-cc0_005frtx-2874"></a>There is only one expression object of code <code>cc0</code>; it is the
 value of the variable <code>cc0_rtx</code>.  Any attempt to create an
 expression of code <code>cc0</code> will return <code>cc0_rtx</code>.
 
@@ -402,18 +402,18 @@ that both performs the arithmetic and sets the condition code register
 (which would not be <code>(cc0)</code> in this case).  For examples, search
 for `<samp><span class="samp">addcc</span></samp>' and `<samp><span class="samp">andcc</span></samp>' in <samp><span class="file">sparc.md</span></samp>.
 
-     <p><a name="index-pc-2851"></a><br><dt><code>(pc)</code><dd><a name="index-program-counter-2852"></a>This represents the machine's program counter.  It has no operands and
+     <p><a name="index-pc-2875"></a><br><dt><code>(pc)</code><dd><a name="index-program-counter-2876"></a>This represents the machine's program counter.  It has no operands and
 may not have a machine mode.  <code>(pc)</code> may be validly used only in
 certain specific contexts in jump instructions.
 
-     <p><a name="index-pc_005frtx-2853"></a>There is only one expression object of code <code>pc</code>; it is the value
+     <p><a name="index-pc_005frtx-2877"></a>There is only one expression object of code <code>pc</code>; it is the value
 of the variable <code>pc_rtx</code>.  Any attempt to create an expression of
 code <code>pc</code> will return <code>pc_rtx</code>.
 
      <p>All instructions that do not jump alter the program counter implicitly
 by incrementing it, but there is no need to mention this in the RTL.
 
-     <p><a name="index-mem-2854"></a><br><dt><code>(mem:</code><var>m</var> <var>addr</var> <var>alias</var><code>)</code><dd>This RTX represents a reference to main memory at an address
+     <p><a name="index-mem-2878"></a><br><dt><code>(mem:</code><var>m</var> <var>addr</var> <var>alias</var><code>)</code><dd>This RTX represents a reference to main memory at an address
 represented by the expression <var>addr</var>.  <var>m</var> specifies how large
 a unit of memory is accessed.  <var>alias</var> specifies an alias set for the
 reference.  In general two items are in different alias sets if they cannot
@@ -423,12 +423,12 @@ reference the same memory address.
 other memories.  Thus it may be used as a memory barrier in epilogue
 stack deallocation patterns.
 
-     <p><a name="index-concat-2855"></a><br><dt><code>(concat</code><var>m</var> <var>rtx</var> <var>rtx</var><code>)</code><dd>This RTX represents the concatenation of two other RTXs.  This is used
+     <p><a name="index-concat-2879"></a><br><dt><code>(concat</code><var>m</var> <var>rtx</var> <var>rtx</var><code>)</code><dd>This RTX represents the concatenation of two other RTXs.  This is used
 for complex values.  It should only appear in the RTL attached to
 declarations and during RTL generation.  It should not appear in the
 ordinary insn chain.
 
-     <p><a name="index-concatn-2856"></a><br><dt><code>(concatn</code><var>m</var><code> [</code><var>rtx</var><code> ...])</code><dd>This RTX represents the concatenation of all the <var>rtx</var> to make a
+     <p><a name="index-concatn-2880"></a><br><dt><code>(concatn</code><var>m</var><code> [</code><var>rtx</var><code> ...])</code><dd>This RTX represents the concatenation of all the <var>rtx</var> to make a
 single value.  Like <code>concat</code>, this should only appear in
 declarations, and not in the insn chain. 
 </dl>

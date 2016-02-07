@@ -10,7 +10,7 @@
 <link rel="next" href="Memory.html#Memory" title="Memory">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -48,7 +48,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Data.html#Data">Data</a>
 
 <h3 class="section">10.5 Output Formats</h3>
 
-<p><a name="index-formatted-output-586"></a><a name="index-output-formats-587"></a>By default, <span class="sc">gdb</span> prints a value according to its data type.  Sometimes
+<p><a name="index-formatted-output-604"></a><a name="index-output-formats-605"></a>By default, <span class="sc">gdb</span> prints a value according to its data type.  Sometimes
 this is not what you want.  For example, you might want to print a number
 in hex, or a pointer in decimal.  Or you might want to view data in memory
 at a certain address as a character string or as an instruction.  To do
@@ -72,7 +72,7 @@ hexadecimal.
      <br><dt><code>t</code><dd>Print as integer in binary.  The letter `<samp><span class="samp">t</span></samp>' stands for &ldquo;two&rdquo;. 
 <a rel="footnote" href="#fn-1" name="fnd-1"><sup>1</sup></a>
 
-     <br><dt><code>a</code><dd><a name="index-unknown-address_002c-locating-588"></a><a name="index-locate-address-589"></a>Print as an address, both absolute in hexadecimal and as an offset from
+     <br><dt><code>a</code><dd><a name="index-unknown-address_002c-locating-606"></a><a name="index-locate-address-607"></a>Print as an address, both absolute in hexadecimal and as an offset from
 the nearest preceding symbol.  You can use this format used to discover
 where (in what function) an unknown address is located:
 
@@ -95,7 +95,7 @@ data.
      <br><dt><code>f</code><dd>Regard the bits of the value as a floating point number and print
 using typical floating point syntax.
 
-     <br><dt><code>s</code><dd><a name="index-printing-strings-590"></a><a name="index-printing-byte-arrays-591"></a>Regard as a string, if possible.  With this format, pointers to single-byte
+     <br><dt><code>s</code><dd><a name="index-printing-strings-608"></a><a name="index-printing-byte-arrays-609"></a>Regard as a string, if possible.  With this format, pointers to single-byte
 data are displayed as null-terminated strings and arrays of single-byte data
 are displayed as fixed-length strings.  Other values are displayed in their
 natural types.
@@ -109,7 +109,7 @@ array.
 printed as hexadecimal, but leading zeros are printed to pad the value
 to the size of the integer type.
 
-     <br><dt><code>r</code><dd><a name="index-raw-printing-592"></a>Print using the `<samp><span class="samp">raw</span></samp>' formatting.  By default, <span class="sc">gdb</span> will
+     <br><dt><code>r</code><dd><a name="index-raw-printing-610"></a>Print using the `<samp><span class="samp">raw</span></samp>' formatting.  By default, <span class="sc">gdb</span> will
 use a Python-based pretty-printer, if one is available (see <a href="Pretty-Printing.html#Pretty-Printing">Pretty Printing</a>).  This typically results in a higher-level display of the
 value's contents.  The `<samp><span class="samp">r</span></samp>' format bypasses any Python
 pretty-printer which might exist. 

@@ -10,7 +10,7 @@
 <link rel="next" href="Define-Subst.html#Define-Subst" title="Define Subst">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -54,7 +54,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Machine-Desc.html#Machine-Desc">Machine
 
 <h3 class="section">16.20 Conditional Execution</h3>
 
-<p><a name="index-conditional-execution-3779"></a><a name="index-predication-3780"></a>
+<p><a name="index-conditional-execution-3819"></a><a name="index-predication-3820"></a>
 A number of architectures provide for some form of conditional
 execution, or predication.  The hallmark of this feature is the
 ability to nullify most of the instructions in the instruction set. 
@@ -62,7 +62,7 @@ When the instruction set is large and not entirely symmetric, it
 can be quite tedious to describe these forms directly in the
 <samp><span class="file">.md</span></samp> file.  An alternative is the <code>define_cond_exec</code> template.
 
- <p><a name="index-define_005fcond_005fexec-3781"></a>
+ <p><a name="index-define_005fcond_005fexec-3821"></a>
 <pre class="smallexample">     (define_cond_exec
        [<var>predicate-pattern</var>]
        "<var>condition</var>"
@@ -78,7 +78,7 @@ alternative.
  <p><var>condition</var> is a C expression that must be true for the generated
 pattern to match.
 
- <p><a name="index-current_005finsn_005fpredicate-3782"></a><var>output-template</var> is a string similar to the <code>define_insn</code>
+ <p><a name="index-current_005finsn_005fpredicate-3822"></a><var>output-template</var> is a string similar to the <code>define_insn</code>
 output template (see <a href="Output-Template.html#Output-Template">Output Template</a>), except that the `<samp><span class="samp">*</span></samp>'
 and `<samp><span class="samp">@</span></samp>' special cases do not apply.  This is only useful if the
 assembly text for the predicate is a simple prefix to the main insn. 

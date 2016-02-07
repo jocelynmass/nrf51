@@ -10,7 +10,7 @@
 <link rel="next" href="PA.html#PA" title="PA">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -48,7 +48,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Embedded-Processors.html#Embedded-Proce
 
 <h4 class="subsection">21.3.6 PowerPC Embedded</h4>
 
-<p><a name="index-DVC-register-1509"></a><span class="sc">gdb</span> supports using the DVC (Data Value Compare) register to
+<p><a name="index-DVC-register-1546"></a><span class="sc">gdb</span> supports using the DVC (Data Value Compare) register to
 implement in hardware simple hardware watchpoint conditions of the form:
 
 <pre class="smallexample">     (gdb) watch <var>ADDRESS|VARIABLE</var> \
@@ -75,7 +75,7 @@ region using one of the following commands (see <a href="Expressions.html#Expres
    <p>PowerPC embedded processors support masked watchpoints.  See the discussion
 about the <code>mask</code> argument in <a href="Set-Watchpoints.html#Set-Watchpoints">Set Watchpoints</a>.
 
-   <p><a name="index-ranged-breakpoint-1510"></a>PowerPC embedded processors support hardware accelerated
+   <p><a name="index-ranged-breakpoint-1547"></a>PowerPC embedded processors support hardware accelerated
 <dfn>ranged breakpoints</dfn>.  A ranged breakpoint stops execution of
 the inferior whenever it executes an instruction at any address within
 the range it specifies.  To set a ranged breakpoint in <span class="sc">gdb</span>,
@@ -84,7 +84,7 @@ use the <code>break-range</code> command.
    <p><span class="sc">gdb</span> provides the following PowerPC-specific commands:
 
      
-<a name="index-break_002drange-1511"></a>
+<a name="index-break_002drange-1548"></a>
 <dl><dt><code>break-range </code><var>start-location</var><code>, </code><var>end-location</var><dd>Set a breakpoint for an address range given by
 <var>start-location</var> and <var>end-location</var>, which can specify a function name,
 a line number, an offset of lines from the current line or from the start
@@ -94,7 +94,7 @@ The breakpoint will stop execution of the inferior whenever it
 executes an instruction at any address within the specified range,
 (including <var>start-location</var> and <var>end-location</var>.)
 
-     <p><a name="index-set-powerpc-1512"></a><br><dt><code>set powerpc soft-float</code><dt><code>show powerpc soft-float</code><dd>Force <span class="sc">gdb</span> to use (or not use) a software floating point calling
+     <p><a name="index-set-powerpc-1549"></a><br><dt><code>set powerpc soft-float</code><dt><code>show powerpc soft-float</code><dd>Force <span class="sc">gdb</span> to use (or not use) a software floating point calling
 convention.  By default, <span class="sc">gdb</span> selects the calling convention based
 on the selected architecture and the provided executable file.
 
@@ -109,23 +109,23 @@ based on the selected architecture and the provided executable file.
 of scalar type, thus assuming that the variable is accessed through the
 address of its first byte.
 
-     <p><a name="index-target-dink32-1513"></a><br><dt><code>target dink32 </code><var>dev</var><dd>DINK32 ROM monitor.
+     <p><a name="index-target-dink32-1550"></a><br><dt><code>target dink32 </code><var>dev</var><dd>DINK32 ROM monitor.
 
-     <p><a name="index-target-ppcbug-1514"></a><br><dt><code>target ppcbug </code><var>dev</var><dd><a name="index-target-ppcbug1-1515"></a><br><dt><code>target ppcbug1 </code><var>dev</var><dd>PPCBUG ROM monitor for PowerPC.
+     <p><a name="index-target-ppcbug-1551"></a><br><dt><code>target ppcbug </code><var>dev</var><dd><a name="index-target-ppcbug1-1552"></a><br><dt><code>target ppcbug1 </code><var>dev</var><dd>PPCBUG ROM monitor for PowerPC.
 
-     <p><a name="index-target-sds-1516"></a><br><dt><code>target sds </code><var>dev</var><dd>SDS monitor, running on a PowerPC board (such as Motorola's ADS). 
+     <p><a name="index-target-sds-1553"></a><br><dt><code>target sds </code><var>dev</var><dd>SDS monitor, running on a PowerPC board (such as Motorola's ADS). 
 </dl>
 
-   <p><a name="index-SDS-protocol-1517"></a>The following commands specific to the SDS protocol are supported
+   <p><a name="index-SDS-protocol-1554"></a>The following commands specific to the SDS protocol are supported
 by <span class="sc">gdb</span>:
 
      <dl>
-<dt><code>set sdstimeout </code><var>nsec</var><dd><a name="index-set-sdstimeout-1518"></a>Set the timeout for SDS protocol reads to be <var>nsec</var> seconds.  The
+<dt><code>set sdstimeout </code><var>nsec</var><dd><a name="index-set-sdstimeout-1555"></a>Set the timeout for SDS protocol reads to be <var>nsec</var> seconds.  The
 default is 2 seconds.
 
-     <br><dt><code>show sdstimeout</code><dd><a name="index-show-sdstimeout-1519"></a>Show the current value of the SDS timeout.
+     <br><dt><code>show sdstimeout</code><dd><a name="index-show-sdstimeout-1556"></a>Show the current value of the SDS timeout.
 
-     <br><dt><code>sds </code><var>command</var><dd><a name="index-sds_0040r_007b_002c-a-command_007d-1520"></a>Send the specified <var>command</var> string to the SDS monitor. 
+     <br><dt><code>sds </code><var>command</var><dd><a name="index-sds_0040r_007b_002c-a-command_007d-1557"></a>Send the specified <var>command</var> string to the SDS monitor. 
 </dl>
 
    </body></html>

@@ -9,7 +9,7 @@
 <link rel="prev" href="Unary-and-Binary-Expressions.html#Unary-and-Binary-Expressions" title="Unary and Binary Expressions">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -52,7 +52,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Expression-trees.html#Expression-trees"
 
 <h4 class="subsection">10.6.4 Vectors</h4>
 
-<p><a name="index-VEC_005fLSHIFT_005fEXPR-1919"></a><a name="index-VEC_005fRSHIFT_005fEXPR-1920"></a><a name="index-VEC_005fWIDEN_005fMULT_005fHI_005fEXPR-1921"></a><a name="index-VEC_005fWIDEN_005fMULT_005fLO_005fEXPR-1922"></a><a name="index-VEC_005fUNPACK_005fHI_005fEXPR-1923"></a><a name="index-VEC_005fUNPACK_005fLO_005fEXPR-1924"></a><a name="index-VEC_005fUNPACK_005fFLOAT_005fHI_005fEXPR-1925"></a><a name="index-VEC_005fUNPACK_005fFLOAT_005fLO_005fEXPR-1926"></a><a name="index-VEC_005fPACK_005fTRUNC_005fEXPR-1927"></a><a name="index-VEC_005fPACK_005fSAT_005fEXPR-1928"></a><a name="index-VEC_005fPACK_005fFIX_005fTRUNC_005fEXPR-1929"></a>
+<p><a name="index-VEC_005fLSHIFT_005fEXPR-1924"></a><a name="index-VEC_005fRSHIFT_005fEXPR-1925"></a><a name="index-VEC_005fWIDEN_005fMULT_005fHI_005fEXPR-1926"></a><a name="index-VEC_005fWIDEN_005fMULT_005fLO_005fEXPR-1927"></a><a name="index-VEC_005fUNPACK_005fHI_005fEXPR-1928"></a><a name="index-VEC_005fUNPACK_005fLO_005fEXPR-1929"></a><a name="index-VEC_005fUNPACK_005fFLOAT_005fHI_005fEXPR-1930"></a><a name="index-VEC_005fUNPACK_005fFLOAT_005fLO_005fEXPR-1931"></a><a name="index-VEC_005fPACK_005fTRUNC_005fEXPR-1932"></a><a name="index-VEC_005fPACK_005fSAT_005fEXPR-1933"></a><a name="index-VEC_005fPACK_005fFIX_005fTRUNC_005fEXPR-1934"></a><a name="index-SAD_005fEXPR-1935"></a>
      <dl>
 <dt><code>VEC_LSHIFT_EXPR</code><dt><code>VEC_RSHIFT_EXPR</code><dd>These nodes represent whole vector left and right shifts, respectively. 
 The first operand is the vector to shift; it will always be of vector type. 
@@ -119,8 +119,16 @@ result is taken from the third operand. If it evaluates to a minus one
 value, it is taken from the second operand. It should never evaluate to
 any other value currently, but optimizations should not rely on that
 property. In contrast with a <code>COND_EXPR</code>, all operands are always
-evaluated. 
-</dl>
+evaluated.
+
+     <br><dt><code>SAD_EXPR</code><dd>This node represents the Sum of Absolute Differences operation.  The three
+operands must be vectors of integral types.  The first and second operand
+must have the same type.  The size of the vector element of the third
+operand must be at lease twice of the size of the vector element of the
+first and second one.  The SAD is calculated between the first and second
+operands, added to the third operand, and returned.
+
+ </dl>
 
 <!--  -->
 <!-- Statements -->

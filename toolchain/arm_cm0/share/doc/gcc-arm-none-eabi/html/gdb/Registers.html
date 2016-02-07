@@ -10,7 +10,7 @@
 <link rel="next" href="Floating-Point-Hardware.html#Floating-Point-Hardware" title="Floating Point Hardware">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -48,17 +48,17 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Data.html#Data">Data</a>
 
 <h3 class="section">10.13 Registers</h3>
 
-<p><a name="index-registers-680"></a>You can refer to machine register contents, in expressions, as variables
+<p><a name="index-registers-703"></a>You can refer to machine register contents, in expressions, as variables
 with names starting with `<samp><span class="samp">$</span></samp>'.  The names of registers are different
 for each machine; use <code>info registers</code> to see the names used on
 your machine.
 
      
-<a name="index-info-registers-681"></a>
+<a name="index-info-registers-704"></a>
 <dl><dt><code>info registers</code><dd>Print the names and values of all registers except floating-point
 and vector registers (in the selected stack frame).
 
-     <p><a name="index-info-all_002dregisters-682"></a><a name="index-floating-point-registers-683"></a><br><dt><code>info all-registers</code><dd>Print the names and values of all registers, including floating-point
+     <p><a name="index-info-all_002dregisters-705"></a><a name="index-floating-point-registers-706"></a><br><dt><code>info all-registers</code><dd>Print the names and values of all registers, including floating-point
 and vector registers (in the selected stack frame).
 
      <br><dt><code>info registers </code><var>regname</var><code> ...</code><dd>Print the <dfn>relativized</dfn> value of each specified register <var>regname</var>. 
@@ -67,7 +67,8 @@ the selected stack frame.  The <var>regname</var> may be any register name valid
 the machine you are using, with or without the initial `<samp><span class="samp">$</span></samp>'. 
 </dl>
 
-   <p><a name="index-stack-pointer-register-684"></a><a name="index-program-counter-register-685"></a><a name="index-process-status-register-686"></a><a name="index-frame-pointer-register-687"></a><a name="index-standard-registers-688"></a><span class="sc">gdb</span> has four &ldquo;standard&rdquo; register names that are available (in
+   <p><a name="standard-registers"></a>
+<a name="index-stack-pointer-register-707"></a><a name="index-program-counter-register-708"></a><a name="index-process-status-register-709"></a><a name="index-frame-pointer-register-710"></a><a name="index-standard-registers-711"></a><span class="sc">gdb</span> has four &ldquo;standard&rdquo; register names that are available (in
 expressions) on most machines&mdash;whenever they do not conflict with an
 architecture's canonical mnemonics for registers.  The register names
 <code>$pc</code> and <code>$sp</code> are used for the program counter register and
@@ -112,7 +113,7 @@ cases, <span class="sc">gdb</span> normally works with the virtual format only (
 that makes sense for your program), but the <code>info registers</code> command
 prints the data in both formats.
 
-   <p><a name="index-SSE-registers-_0028x86_0029-689"></a><a name="index-MMX-registers-_0028x86_0029-690"></a>Some machines have special registers whose contents can be interpreted
+   <p><a name="index-SSE-registers-_0028x86_0029-712"></a><a name="index-MMX-registers-_0028x86_0029-713"></a>Some machines have special registers whose contents can be interpreted
 in several different ways.  For example, modern x86-based machines
 have SSE and MMX registers that can hold several values packed
 together in several different formats.  <span class="sc">gdb</span> refers to such
@@ -142,7 +143,7 @@ were exited and their saved registers restored.  In order to see the
 true contents of hardware registers, you must select the innermost
 frame (with `<samp><span class="samp">frame 0</span></samp>').
 
-   <p><a name="index-caller_002dsaved-registers-691"></a><a name="index-call_002dclobbered-registers-692"></a><a name="index-volatile-registers-693"></a><a name="index-g_t_003cnot-saved_003e-values-694"></a>Usually ABIs reserve some registers as not needed to be saved by the
+   <p><a name="index-caller_002dsaved-registers-714"></a><a name="index-call_002dclobbered-registers-715"></a><a name="index-volatile-registers-716"></a><a name="index-g_t_003cnot-saved_003e-values-717"></a>Usually ABIs reserve some registers as not needed to be saved by the
 callee (a.k.a.: &ldquo;caller-saved&rdquo;, &ldquo;call-clobbered&rdquo; or &ldquo;volatile&rdquo;
 registers).  It may therefore not be possible for <span class="sc">gdb</span> to know
 the value a register had before the call (in other words, in the outer

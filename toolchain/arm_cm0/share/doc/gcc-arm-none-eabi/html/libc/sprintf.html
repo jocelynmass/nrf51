@@ -34,7 +34,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Stdio.html#Stdio">Stdio</a>
 
 <h3 class="section">4.61 <code>sprintf</code>, <code>fprintf</code>, <code>printf</code>, <code>snprintf</code>, <code>asprintf</code>, <code>asnprintf</code>&mdash;format output</h3>
 
-<p><a name="index-fprintf-323"></a><a name="index-g_t_005ffprintf_005fr-324"></a><a name="index-printf-325"></a><a name="index-g_t_005fprintf_005fr-326"></a><a name="index-asprintf-327"></a><a name="index-g_t_005fasprintf_005fr-328"></a><a name="index-sprintf-329"></a><a name="index-g_t_005fsprintf_005fr-330"></a><a name="index-snprintf-331"></a><a name="index-g_t_005fsnprintf_005fr-332"></a><a name="index-asnprintf-333"></a><a name="index-g_t_005fasnprintf_005fr-334"></a><strong>Synopsis</strong>
+<p><a name="index-fprintf-324"></a><a name="index-g_t_005ffprintf_005fr-325"></a><a name="index-printf-326"></a><a name="index-g_t_005fprintf_005fr-327"></a><a name="index-asprintf-328"></a><a name="index-g_t_005fasprintf_005fr-329"></a><a name="index-sprintf-330"></a><a name="index-g_t_005fsprintf_005fr-331"></a><a name="index-snprintf-332"></a><a name="index-g_t_005fsnprintf_005fr-333"></a><a name="index-asnprintf-334"></a><a name="index-g_t_005fasnprintf_005fr-335"></a><strong>Synopsis</strong>
 <pre class="example">     #include &lt;stdio.h&gt;
      
      int printf(const char *restrict <var>format</var>, ...);
@@ -184,32 +184,34 @@ as the beginning of a field width.
 
           <br><dt><code>#</code><dd>The result is to be converted to an
 alternative form, according to the <var>type</var>
+character. 
+</dl>
+
+     <p>The alternative form output with the # flag depends on the <var>type</var>
 character:
 
-               <dl>
+          <dl>
 <dt><code>o</code><dd>Increases precision to force the first
 digit of the result to be a zero.
 
-               <br><dt><code>x</code><dd>A non-zero result will have a <code>0x</code>
+          <br><dt><code>x</code><dd>A non-zero result will have a <code>0x</code>
 prefix.
 
-               <br><dt><code>X</code><dd>A non-zero result will have a <code>0X</code>
+          <br><dt><code>X</code><dd>A non-zero result will have a <code>0X</code>
 prefix.
 
-               <br><dt><code>a, A, e, E, f, or F</code><dd>The result will always contain a
+          <br><dt><code>a, A, e, E, f, or F</code><dd>The result will always contain a
 decimal point even if no digits follow
 the point.  (Normally, a decimal point
 appears only if a digit follows it.) 
 Trailing zeros are removed.
 
-               <br><dt><code>g or G</code><dd>The result will always contain a
+          <br><dt><code>g or G</code><dd>The result will always contain a
 decimal point even if no digits follow
 the point.  Trailing zeros are not
 removed.
 
-               <br><dt><code>all others</code><dd>Undefined.
-
-          </dl>
+          <br><dt><code>all others</code><dd>Undefined.
 
      </dl>
 

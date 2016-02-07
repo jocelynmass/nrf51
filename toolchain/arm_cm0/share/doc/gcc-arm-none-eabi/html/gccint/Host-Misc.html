@@ -9,7 +9,7 @@
 <link rel="prev" href="Filesystem.html#Filesystem" title="Filesystem">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -52,20 +52,20 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Host-Config.html#Host-Config">Host Conf
 
 <h3 class="section">18.3 Host Misc</h3>
 
-<p><a name="index-configuration-file-4988"></a><a name="index-g_t_0040file_007bxm_002d_0040var_007bmachine_007d_002eh_007d-4989"></a>
+<p><a name="index-configuration-file-5042"></a><a name="index-g_t_0040file_007bxm_002d_0040var_007bmachine_007d_002eh_007d-5043"></a>
      <dl>
-<dt><code>FATAL_EXIT_CODE</code><a name="index-FATAL_005fEXIT_005fCODE-4990"></a><dd>A C expression for the status code to be returned when the compiler
+<dt><code>FATAL_EXIT_CODE</code><a name="index-FATAL_005fEXIT_005fCODE-5044"></a><dd>A C expression for the status code to be returned when the compiler
 exits after serious errors.  The default is the system-provided macro
 `<samp><span class="samp">EXIT_FAILURE</span></samp>', or `<samp><span class="samp">1</span></samp>' if the system doesn't define that
 macro.  Define this macro only if these defaults are incorrect.
 
-     <br><dt><code>SUCCESS_EXIT_CODE</code><a name="index-SUCCESS_005fEXIT_005fCODE-4991"></a><dd>A C expression for the status code to be returned when the compiler
+     <br><dt><code>SUCCESS_EXIT_CODE</code><a name="index-SUCCESS_005fEXIT_005fCODE-5045"></a><dd>A C expression for the status code to be returned when the compiler
 exits without serious errors.  (Warnings are not serious errors.)  The
 default is the system-provided macro `<samp><span class="samp">EXIT_SUCCESS</span></samp>', or `<samp><span class="samp">0</span></samp>' if
 the system doesn't define that macro.  Define this macro only if these
 defaults are incorrect.
 
-     <br><dt><code>USE_C_ALLOCA</code><a name="index-USE_005fC_005fALLOCA-4992"></a><dd>Define this macro if GCC should use the C implementation of <code>alloca</code>
+     <br><dt><code>USE_C_ALLOCA</code><a name="index-USE_005fC_005fALLOCA-5046"></a><dd>Define this macro if GCC should use the C implementation of <code>alloca</code>
 provided by <samp><span class="file">libiberty.a</span></samp>.  This only affects how some parts of the
 compiler itself allocate memory.  It does not change code generation.
 
@@ -76,20 +76,20 @@ stack-based <code>alloca</code> can possibly work.  For instance, if a system
 has a small limit on the size of the stack, GCC's builtin <code>alloca</code>
 will not work reliably.
 
-     <br><dt><code>COLLECT2_HOST_INITIALIZATION</code><a name="index-COLLECT2_005fHOST_005fINITIALIZATION-4993"></a><dd>If defined, a C statement (sans semicolon) that performs host-dependent
+     <br><dt><code>COLLECT2_HOST_INITIALIZATION</code><a name="index-COLLECT2_005fHOST_005fINITIALIZATION-5047"></a><dd>If defined, a C statement (sans semicolon) that performs host-dependent
 initialization when <code>collect2</code> is being initialized.
 
-     <br><dt><code>GCC_DRIVER_HOST_INITIALIZATION</code><a name="index-GCC_005fDRIVER_005fHOST_005fINITIALIZATION-4994"></a><dd>If defined, a C statement (sans semicolon) that performs host-dependent
+     <br><dt><code>GCC_DRIVER_HOST_INITIALIZATION</code><a name="index-GCC_005fDRIVER_005fHOST_005fINITIALIZATION-5048"></a><dd>If defined, a C statement (sans semicolon) that performs host-dependent
 initialization when a compilation driver is being initialized.
 
-     <br><dt><code>HOST_LONG_LONG_FORMAT</code><a name="index-HOST_005fLONG_005fLONG_005fFORMAT-4995"></a><dd>If defined, the string used to indicate an argument of type <code>long
+     <br><dt><code>HOST_LONG_LONG_FORMAT</code><a name="index-HOST_005fLONG_005fLONG_005fFORMAT-5049"></a><dd>If defined, the string used to indicate an argument of type <code>long
 long</code> to functions like <code>printf</code>.  The default value is
 <code>"ll"</code>.
 
-     <br><dt><code>HOST_LONG_FORMAT</code><a name="index-HOST_005fLONG_005fFORMAT-4996"></a><dd>If defined, the string used to indicate an argument of type <code>long</code>
+     <br><dt><code>HOST_LONG_FORMAT</code><a name="index-HOST_005fLONG_005fFORMAT-5050"></a><dd>If defined, the string used to indicate an argument of type <code>long</code>
 to functions like <code>printf</code>.  The default value is <code>"l"</code>.
 
-     <br><dt><code>HOST_PTR_PRINTF</code><a name="index-HOST_005fPTR_005fPRINTF-4997"></a><dd>If defined, the string used to indicate an argument of type <code>void *</code>
+     <br><dt><code>HOST_PTR_PRINTF</code><a name="index-HOST_005fPTR_005fPRINTF-5051"></a><dd>If defined, the string used to indicate an argument of type <code>void *</code>
 to functions like <code>printf</code>.  The default value is <code>"%p"</code>. 
 </dl>
 
@@ -98,7 +98,7 @@ any of the macros in <samp><span class="file">auto-host.h</span></samp>, you can
 definition in a host configuration header.  If you need to do this,
 first see if it is possible to fix <samp><span class="command">configure</span></samp>.
 
-<!-- Copyright (C) 1988-2014 Free Software Foundation, Inc. -->
+<!-- Copyright (C) 1988-2015 Free Software Foundation, Inc. -->
 <!-- This is part of the GCC manual. -->
 <!-- For copying conditions, see the file gcc.texi. -->
 </body></html>

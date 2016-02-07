@@ -9,7 +9,7 @@
 <link rel="next" href="Environment-Variables.html#Environment-Variables" title="Environment Variables">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1987-2014 Free Software Foundation, Inc.
+Copyright (C) 1987-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -66,7 +66,7 @@ file.
    <p><em>Note:</em> Whether you use the preprocessor by way of <samp><span class="command">gcc</span></samp>
 or <samp><span class="command">cpp</span></samp>, the <dfn>compiler driver</dfn> is run first.  This
 program's purpose is to translate your command into invocations of the
-programs that do the actual work.  Their command line interfaces are
+programs that do the actual work.  Their command-line interfaces are
 similar but not identical to the documented interface, and may change
 without notice.
 
@@ -92,7 +92,7 @@ options may <em>not</em> be grouped: <samp><span class="option">-dM</span></samp
 
    <p><a name="index-options-124"></a>
 
-<!-- Copyright (C) 1999-2014 Free Software Foundation, Inc. -->
+<!-- Copyright (C) 1999-2015 Free Software Foundation, Inc. -->
 <!-- This is part of the CPP and GCC manuals. -->
 <!-- For copying conditions, see the file gcc.texi. -->
 <!--  -->
@@ -231,7 +231,7 @@ suitable for <samp><span class="command">make</span></samp> describing the depen
 source file.  The preprocessor outputs one <samp><span class="command">make</span></samp> rule containing
 the object file name for that source file, a colon, and the names of all
 the included files, including those coming from <samp><span class="option">-include</span></samp> or
-<samp><span class="option">-imacros</span></samp> command line options.
+<samp><span class="option">-imacros</span></samp> command-line options.
 
      <p>Unless specified explicitly (with <samp><span class="option">-MT</span></samp> or <samp><span class="option">-MQ</span></samp>), the
 object file name consists of the name of the source file with any
@@ -477,8 +477,7 @@ Accept `<samp><span class="samp">$</span></samp>' in identifiers.
 See <a href="Identifier-characters.html#Identifier-characters">Identifier characters</a>.
 
      <br><dt><code>-fextended-identifiers</code><dd><a name="index-fextended_002didentifiers-172"></a>Accept universal character names in identifiers.  This option is
-experimental; in a future version of GCC, it will be enabled by
-default for C99 and C++.
+enabled by default for C99 (and later C standard versions) and C++.
 
      <br><dt><code>-fno-canonical-system-headers</code><dd><a name="index-fno_002dcanonical_002dsystem_002dheaders-173"></a>When preprocessing, do not shorten system header paths with canonicalization.
 
@@ -525,7 +524,7 @@ tokens locations completely. This value is the most memory hungry.
 When this option is given no argument, the default parameter value is
 `<samp><span class="samp">2</span></samp>'.
 
-     <p>Note that -ftrack-macro-expansion=2 is activated by default.
+     <p>Note that <code>-ftrack-macro-expansion=2</code> is activated by default.
 
      <br><dt><code>-fexec-charset=</code><var>charset</var><dd><a name="index-fexec_002dcharset-178"></a><a name="index-character-set_002c-execution-179"></a>Set the execution character set, used for string and character
 constants.  The default is UTF-8.  <var>charset</var> can be any encoding
@@ -542,7 +541,7 @@ problems with encodings that do not fit exactly in <code>wchar_t</code>.
 set of the input file to the source character set used by GCC.  If the
 locale does not specify, or GCC cannot get this information from the
 locale, the default is UTF-8.  This can be overridden by either the locale
-or this command line option.  Currently the command line option takes
+or this command-line option.  Currently the command-line option takes
 precedence if there's a conflict.  <var>charset</var> can be any encoding
 supported by the system's <code>iconv</code> library routine.
 
@@ -648,7 +647,7 @@ See <a href="Initial-processing.html#Initial-processing">Initial processing</a>.
      <br><dt><code>-remap</code><dd><a name="index-remap-197"></a>Enable special code to work around file systems which only permit very
 short file names, such as MS-DOS.
 
-     <br><dt><code>--help</code><dt><code>--target-help</code><dd><a name="index-help-198"></a><a name="index-target_002dhelp-199"></a>Print text describing all the command line options instead of
+     <br><dt><code>--help</code><dt><code>--target-help</code><dd><a name="index-help-198"></a><a name="index-target_002dhelp-199"></a>Print text describing all the command-line options instead of
 preprocessing anything.
 
      <br><dt><code>-v</code><dd><a name="index-v-200"></a>Verbose mode.  Print out GNU CPP's version number at the beginning of

@@ -9,7 +9,7 @@
 <link rel="prev" href="Option-file-format.html#Option-file-format" title="Option file format">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -287,12 +287,14 @@ combined option.  For example, some front ends use this to prevent
 value of <samp><span class="option">-fmath-errno</span></samp> for languages that do not use
 <code>errno</code>.
 
-     <br><dt><code>EnabledBy(</code><var>opt</var><code>)</code><dt><code>EnabledBy(</code><var>opt</var><code> &amp;&amp; </code><var>opt2</var><code>)</code><dd>If not explicitly set, the option is set to the value of
-<samp><span class="option">-</span><var>opt</var></samp>.  The second form specifies that the option is
+     <br><dt><code>EnabledBy(</code><var>opt</var><code>)</code><dt><code>EnabledBy(</code><var>opt</var><code> || </code><var>opt2</var><code>)</code><dt><code>EnabledBy(</code><var>opt</var><code> &amp;&amp; </code><var>opt2</var><code>)</code><dd>If not explicitly set, the option is set to the value of
+<samp><span class="option">-</span><var>opt</var></samp>; multiple options can be given, separated by
+<code>||</code>.  The third form using <code>&amp;&amp;</code> specifies that the option is
 only set if both <var>opt</var> and <var>opt2</var> are set.
 
      <br><dt><code>LangEnabledBy(</code><var>language</var><code>, </code><var>opt</var><code>)</code><dt><code>LangEnabledBy(</code><var>language</var><code>, </code><var>opt</var><code>, </code><var>posarg</var><code>, </code><var>negarg</var><code>)</code><dd>When compiling for the given language, the option is set to the value
-of <samp><span class="option">-</span><var>opt</var></samp>, if not explicitly set. In the second form, if
+of <samp><span class="option">-</span><var>opt</var></samp>, if not explicitly set. <var>opt</var> can be also a list
+of <code>||</code> separated options. In the second form, if
 <var>opt</var> is used in the positive form then <var>posarg</var> is considered
 to be passed to the option, and if <var>opt</var> is used in the negative
 form then <var>negarg</var> is considered to be passed to the option.  It
@@ -304,11 +306,20 @@ record.  See <a href="Option-file-format.html#Option-file-format">Option file fo
 <samp><span class="option">-grecord-gcc-switches</span></samp>.
 
      <br><dt><code>PchIgnore</code><dd>Even if this is a target option, this option will not be recorded / compared
-to determine if a precompiled header file matches. 
-</dl>
+to determine if a precompiled header file matches.
+
+     <br><dt><code>CPP(</code><var>var</var><code>)</code><dd>The state of this option should be kept in sync with the preprocessor
+option <var>var</var>.  If this property is set, then properties <code>Var</code>
+and <code>Init</code> must be set as well.
+
+     <br><dt><code>CppReason(</code><var>CPP_W_Enum</var><code>)</code><dd>This warning option corresponds to <code>cpplib.h</code> warning reason code
+<var>CPP_W_Enum</var>.  This should only be used for warning options of the
+C-family front-ends.
+
+ </dl>
 
 <!-- markers: BUG TODO -->
-<!-- Copyright (C) 1988-2014 Free Software Foundation, Inc. -->
+<!-- Copyright (C) 1988-2015 Free Software Foundation, Inc. -->
 <!-- This is part of the GCC manual. -->
 <!-- For copying conditions, see the file gcc.texi. -->
 </body></html>

@@ -10,7 +10,7 @@
 <link rel="next" href="Stack-Arguments.html#Stack-Arguments" title="Stack Arguments">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -52,13 +52,13 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Stack-and-Calling.html#Stack-and-Callin
 <hr>
 </div>
 
-<h4 class="subsection">17.10.5 Eliminating Frame Pointer and Arg Pointer</h4>
+<h4 class="subsection">17.9.5 Eliminating Frame Pointer and Arg Pointer</h4>
 
 <!-- prevent bad page break with this line -->
 <p>This is about eliminating the frame pointer and arg pointer.
 
 <div class="defun">
-&mdash; Target Hook: bool <b>TARGET_FRAME_POINTER_REQUIRED</b> (<var>void</var>)<var><a name="index-TARGET_005fFRAME_005fPOINTER_005fREQUIRED-4187"></a></var><br>
+&mdash; Target Hook: bool <b>TARGET_FRAME_POINTER_REQUIRED</b> (<var>void</var>)<var><a name="index-TARGET_005fFRAME_005fPOINTER_005fREQUIRED-4207"></a></var><br>
 <blockquote><p>This target hook should return <code>true</code> if a function must have and use
 a frame pointer.  This target hook is called in the reload pass.  If its return
 value is <code>true</code> the function will have a frame pointer.
@@ -83,10 +83,10 @@ fixed register.  See <code>FIXED_REGISTERS</code> for more information.
       <p>Default return value is <code>false</code>. 
 </p></blockquote></div>
 
- <p><a name="index-get_005fframe_005fsize-4188"></a>
+ <p><a name="index-get_005fframe_005fsize-4208"></a>
 
 <div class="defun">
-&mdash; Macro: <b>INITIAL_FRAME_POINTER_OFFSET</b> (<var>depth-var</var>)<var><a name="index-INITIAL_005fFRAME_005fPOINTER_005fOFFSET-4189"></a></var><br>
+&mdash; Macro: <b>INITIAL_FRAME_POINTER_OFFSET</b> (<var>depth-var</var>)<var><a name="index-INITIAL_005fFRAME_005fPOINTER_005fOFFSET-4209"></a></var><br>
 <blockquote><p>A C statement to store in the variable <var>depth-var</var> the difference
 between the frame pointer and the stack pointer values immediately after
 the function prologue.  The value would be computed from information
@@ -100,7 +100,7 @@ case, you may set <var>depth-var</var> to anything.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>ELIMINABLE_REGS</b><var><a name="index-ELIMINABLE_005fREGS-4190"></a></var><br>
+&mdash; Macro: <b>ELIMINABLE_REGS</b><var><a name="index-ELIMINABLE_005fREGS-4210"></a></var><br>
 <blockquote><p>If defined, this macro specifies a table of register pairs used to
 eliminate unneeded registers that point into the stack frame.  If it is not
 defined, the only elimination attempted by the compiler is to replace
@@ -126,7 +126,7 @@ specified first since that is the preferred elimination.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: bool <b>TARGET_CAN_ELIMINATE</b> (<var>const int from_reg, const int to_reg</var>)<var><a name="index-TARGET_005fCAN_005fELIMINATE-4191"></a></var><br>
+&mdash; Target Hook: bool <b>TARGET_CAN_ELIMINATE</b> (<var>const int from_reg, const int to_reg</var>)<var><a name="index-TARGET_005fCAN_005fELIMINATE-4211"></a></var><br>
 <blockquote><p>This target hook should returns <code>true</code> if the compiler is allowed to
 try to replace register number <var>from_reg</var> with register number
 <var>to_reg</var>.  This target hook need only be defined if <code>ELIMINABLE_REGS</code>
@@ -138,7 +138,7 @@ knows about.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>INITIAL_ELIMINATION_OFFSET</b> (<var>from-reg, to-reg, offset-var</var>)<var><a name="index-INITIAL_005fELIMINATION_005fOFFSET-4192"></a></var><br>
+&mdash; Macro: <b>INITIAL_ELIMINATION_OFFSET</b> (<var>from-reg, to-reg, offset-var</var>)<var><a name="index-INITIAL_005fELIMINATION_005fOFFSET-4212"></a></var><br>
 <blockquote><p>This macro is similar to <code>INITIAL_FRAME_POINTER_OFFSET</code>.  It
 specifies the initial difference between the specified pair of
 registers.  This macro must be defined if <code>ELIMINABLE_REGS</code> is

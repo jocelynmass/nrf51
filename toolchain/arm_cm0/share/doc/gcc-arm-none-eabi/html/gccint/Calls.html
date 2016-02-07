@@ -10,7 +10,7 @@
 <link rel="next" href="Sharing.html#Sharing" title="Sharing">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -54,12 +54,12 @@ Up:&nbsp;<a rel="up" accesskey="u" href="RTL.html#RTL">RTL</a>
 
 <h3 class="section">13.20 RTL Representation of Function-Call Insns</h3>
 
-<p><a name="index-calling-functions-in-RTL-3107"></a><a name="index-RTL-function_002dcall-insns-3108"></a><a name="index-function_002dcall-insns-3109"></a>
+<p><a name="index-calling-functions-in-RTL-3131"></a><a name="index-RTL-function_002dcall-insns-3132"></a><a name="index-function_002dcall-insns-3133"></a>
 Insns that call subroutines have the RTL expression code <code>call_insn</code>. 
 These insns must satisfy special rules, and their bodies must use a special
 RTL expression code, <code>call</code>.
 
- <p><a name="index-g_t_0040code_007bcall_007d-usage-3110"></a>A <code>call</code> expression has two operands, as follows:
+ <p><a name="index-g_t_0040code_007bcall_007d-usage-3134"></a>A <code>call</code> expression has two operands, as follows:
 
 <pre class="smallexample">     (call (mem:<var>fm</var> <var>addr</var>) <var>nbytes</var>)
 </pre>
@@ -73,7 +73,7 @@ subroutine.
 shown above is the entire body of the insn, except that the insn might
 also contain <code>use</code> or <code>clobber</code> expressions.
 
- <p><a name="index-g_t_0040code_007bBLKmode_007d_002c-and-function-return-values-3111"></a>For a subroutine that returns a value whose mode is not <code>BLKmode</code>,
+ <p><a name="index-g_t_0040code_007bBLKmode_007d_002c-and-function-return-values-3135"></a>For a subroutine that returns a value whose mode is not <code>BLKmode</code>,
 the value is returned in a hard register.  If this register's number is
 <var>r</var>, then the body of the call insn looks like this:
 

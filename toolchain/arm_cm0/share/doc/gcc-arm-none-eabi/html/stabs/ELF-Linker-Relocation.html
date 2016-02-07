@@ -9,7 +9,7 @@
 <link rel="prev" href="Stab-Section-Basics.html#Stab-Section-Basics" title="Stab Section Basics">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1992-2014 Free Software Foundation, Inc.
+Copyright (C) 1992-2015 Free Software Foundation, Inc.
 Contributed by Cygnus Support.  Written by Julia Menapace, Jim Kingdon,
 and David MacKenzie.
 
@@ -44,7 +44,8 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Stab-Sections.html#Stab-Sections">Stab 
 <h3 class="appendixsec">F.2 Having the Linker Relocate Stabs in ELF</h3>
 
 <p>This section describes some Sun hacks for Stabs in ELF; it does not
-apply to COFF or SOM.
+apply to COFF or SOM.  While <span class="sc">gdb</span> no longer supports this hack
+for Sun Stabs in ELF, this section is kept to document the issue.
 
    <p>To keep linking fast, you don't want the linker to have to relocate very
 many stabs.  Making sure this is done for <code>N_SLINE</code>,
@@ -82,8 +83,8 @@ the address from the ELF symbols.
    <p>Finding the correct <code>Bbss.bss</code>, etc., symbol is difficult, because
 the linker simply concatenates the <code>.stab</code> sections from each
 <samp><span class="file">.o</span></samp> file without including any information about which part of a
-<code>.stab</code> section comes from which <samp><span class="file">.o</span></samp> file.  The way GDB does
-this is to look for an ELF <code>STT_FILE</code> symbol which has the same
+<code>.stab</code> section comes from which <samp><span class="file">.o</span></samp> file.  The way GDB use to
+do this is to look for an ELF <code>STT_FILE</code> symbol which has the same
 name as the last component of the file name from the <code>N_SO</code> symbol
 in the stabs (for example, if the file name is <samp><span class="file">../../gdb/main.c</span></samp>,
 it looks for an ELF <code>STT_FILE</code> symbol named <code>main.c</code>).  This

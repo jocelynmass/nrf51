@@ -10,7 +10,7 @@
 <link rel="next" href="MiniDebugInfo.html#MiniDebugInfo" title="MiniDebugInfo">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -48,7 +48,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="GDB-Files.html#GDB-Files">GDB Files</a>
 
 <h3 class="section">18.2 Debugging Information in Separate Files</h3>
 
-<p><a name="index-separate-debugging-information-files-1154"></a><a name="index-debugging-information-in-separate-files-1155"></a><a name="index-g_t_0040file_007b_002edebug_007d-subdirectories-1156"></a><a name="index-debugging-information-directory_002c-global-1157"></a><a name="index-global-debugging-information-directories-1158"></a><a name="index-build-ID_002c-and-separate-debugging-files-1159"></a><a name="index-g_t_0040file_007b_002ebuild_002did_007d-directory-1160"></a>
+<p><a name="index-separate-debugging-information-files-1199"></a><a name="index-debugging-information-in-separate-files-1200"></a><a name="index-g_t_0040file_007b_002edebug_007d-subdirectories-1201"></a><a name="index-debugging-information-directory_002c-global-1202"></a><a name="index-global-debugging-information-directories-1203"></a><a name="index-build-ID_002c-and-separate-debugging-files-1204"></a><a name="index-g_t_0040file_007b_002ebuild_002did_007d-directory-1205"></a>
 <span class="sc">gdb</span> allows you to put a program's debugging information in a
 file separate from the executable itself, in a way that allows
 <span class="sc">gdb</span> to find and load the debugging information automatically. 
@@ -72,7 +72,7 @@ the executable and the debug file came from the same build.
 
      <li>The executable contains a <dfn>build ID</dfn>, a unique bit string that is
 also present in the corresponding debug info file.  (This is supported
-only on some operating systems, notably those which use the ELF format
+only on some operating systems, when using the ELF or PE file formats
 for binary files and the <span class="sc">gnu</span> Binutils.)  For more details about
 this feature, see the description of the <samp><span class="option">--build-id</span></samp>
 command-line option in <a href="../ld/Options.html#Options">Command Line Options</a>.  The debug info file's name is not specified
@@ -119,17 +119,17 @@ you can also set the global debugging info directories, and view the list
 <span class="sc">gdb</span> is currently using.
 
      
-<a name="index-set-debug_002dfile_002ddirectory-1161"></a>
+<a name="index-set-debug_002dfile_002ddirectory-1206"></a>
 <dl><dt><code>set debug-file-directory </code><var>directories</var><dd>Set the directories which <span class="sc">gdb</span> searches for separate debugging
 information files to <var>directory</var>.  Multiple path components can be set
 concatenating them by a path separator.
 
-     <p><a name="index-show-debug_002dfile_002ddirectory-1162"></a><br><dt><code>show debug-file-directory</code><dd>Show the directories <span class="sc">gdb</span> searches for separate debugging
+     <p><a name="index-show-debug_002dfile_002ddirectory-1207"></a><br><dt><code>show debug-file-directory</code><dd>Show the directories <span class="sc">gdb</span> searches for separate debugging
 information files.
 
    </dl>
 
-   <p><a name="index-g_t_0040code_007b_002egnu_005fdebuglink_007d-sections-1163"></a><a name="index-debug-link-sections-1164"></a>A debug link is a special section of the executable file named
+   <p><a name="index-g_t_0040code_007b_002egnu_005fdebuglink_007d-sections-1208"></a><a name="index-debug-link-sections-1209"></a>A debug link is a special section of the executable file named
 <code>.gnu_debuglink</code>.  The section must contain:
 
      <ul>
@@ -147,7 +147,7 @@ zero as the <var>crc</var> argument.
 contain a section named <code>.gnu_debuglink</code> with the contents
 described above.
 
-   <p><a name="index-g_t_0040code_007b_002enote_002egnu_002ebuild_002did_007d-sections-1165"></a><a name="index-build-ID-sections-1166"></a>The build ID is a special section in the executable file (and in other
+   <p><a name="index-g_t_0040code_007b_002enote_002egnu_002ebuild_002did_007d-sections-1210"></a><a name="index-build-ID-sections-1211"></a>The build ID is a special section in the executable file (and in other
 ELF binary files that <span class="sc">gdb</span> may consider).  This section is
 often named <code>.note.gnu.build-id</code>, but that name is not mandatory. 
 It contains unique identification for the built files&mdash;the ID remains
@@ -194,7 +194,7 @@ compatibility fixes for debug files separation are present in <span class="sc">g
 utilities (Binutils) package since version 2.18. 
 </ul>
 
-<p class="noindent"><a name="index-CRC-algorithm-definition-1167"></a>The CRC used in <code>.gnu_debuglink</code> is the CRC-32 defined in
+<p class="noindent"><a name="index-CRC-algorithm-definition-1212"></a>The CRC used in <code>.gnu_debuglink</code> is the CRC-32 defined in
 IEEE 802.3 using the polynomial:
 
 <!-- TexInfo requires naked braces for multi-digit exponents for Tex -->
@@ -222,7 +222,7 @@ initially supplied <code>crc</code> argument means that an initial call to
 this function passing in zero will start computing the CRC using
 <code>0xffffffff</code>.
 
-   <p><a name="index-gnu_005fdebuglink_005fcrc32-1168"></a>
+   <p><a name="index-gnu_005fdebuglink_005fcrc32-1213"></a>
 <pre class="smallexample">     unsigned long
      gnu_debuglink_crc32 (unsigned long crc,
                           unsigned char *buf, size_t len)

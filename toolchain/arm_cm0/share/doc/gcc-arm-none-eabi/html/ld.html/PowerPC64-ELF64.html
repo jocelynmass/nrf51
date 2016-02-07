@@ -12,9 +12,9 @@
 <!--
 This file documents the GNU linker LD
 (GNU Tools for ARM Embedded Processors)
-version 2.24.0.
+version 2.25.90.
 
-Copyright (C) 1991-2013 Free Software Foundation, Inc.
+Copyright (C) 1991-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
@@ -45,12 +45,12 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Machine-Dependent.html#Machine-Dependen
 <hr>
 </div>
 
-<h3 class="section">4.11 <samp><span class="command">ld</span></samp> and PowerPC64 64-bit ELF Support</h3>
+<h3 class="section">4.13 <samp><span class="command">ld</span></samp> and PowerPC64 64-bit ELF Support</h3>
 
-<p><a name="index-PowerPC64-ELF64-options-649"></a>
+<p><a name="index-PowerPC64-ELF64-options-675"></a>
      
-<a name="index-PowerPC64-stub-grouping-650"></a>
-<a name="index-g_t_002d_002dstub_002dgroup_002dsize-651"></a>
+<a name="index-PowerPC64-stub-grouping-676"></a>
+<a name="index-g_t_002d_002dstub_002dgroup_002dsize-677"></a>
 <dl><dt><samp><span class="option">--stub-group-size</span></samp><dd>Long branch stubs, PLT call stubs  and TOC adjusting stubs are placed
 by <samp><span class="command">ld</span></samp> in stub sections located between groups of input sections. 
 `<samp><span class="samp">--stub-group-size</span></samp>' specifies the maximum size of a group of input
@@ -71,10 +71,10 @@ single input section larger than the group size specified will of course
 create a larger group (of one section).  If input sections are too
 large, it may not be possible for a branch to reach its stub.
 
-     <p><a name="index-PowerPC64-stub-symbols-652"></a><a name="index-g_t_002d_002demit_002dstub_002dsyms-653"></a><br><dt><samp><span class="option">--emit-stub-syms</span></samp><dd>This option causes <samp><span class="command">ld</span></samp> to label linker stubs with a local
+     <p><a name="index-PowerPC64-stub-symbols-678"></a><a name="index-g_t_002d_002demit_002dstub_002dsyms-679"></a><br><dt><samp><span class="option">--emit-stub-syms</span></samp><dd>This option causes <samp><span class="command">ld</span></samp> to label linker stubs with a local
 symbol that encodes the stub type and destination.
 
-     <p><a name="index-PowerPC64-dot-symbols-654"></a><a name="index-g_t_002d_002ddotsyms-655"></a><a name="index-g_t_002d_002dno_002ddotsyms-656"></a><br><dt><samp><span class="option">--dotsyms, --no-dotsyms</span></samp><dd>These two options control how <samp><span class="command">ld</span></samp> interprets version patterns
+     <p><a name="index-PowerPC64-dot-symbols-680"></a><a name="index-g_t_002d_002ddotsyms-681"></a><a name="index-g_t_002d_002dno_002ddotsyms-682"></a><br><dt><samp><span class="option">--dotsyms</span></samp><dt><samp><span class="option">--no-dotsyms</span></samp><dd>These two options control how <samp><span class="command">ld</span></samp> interprets version patterns
 in a version script.  Older PowerPC64 compilers emitted both a
 function descriptor symbol with the same name as the function, and a
 code entry symbol with the name prefixed by a dot (`<samp><span class="samp">.</span></samp>').  To
@@ -84,21 +84,38 @@ to control both `<samp><span class="samp">foo</span></samp>' and `<samp><span cl
 dot-prefixed patterns.  Use `<samp><span class="samp">--no-dotsyms</span></samp>' to disable this
 feature.
 
-     <p><a name="index-PowerPC64-TLS-optimization-657"></a><a name="index-g_t_002d_002dno_002dtls_002doptimize-658"></a><br><dt><samp><span class="option">--no-tls-optimize</span></samp><dd>PowerPC64 <samp><span class="command">ld</span></samp> normally performs some optimization of code
+     <p><a name="index-PowerPC64-register-save_002frestore-functions-683"></a><a name="index-g_t_002d_002dsave_002drestore_002dfuncs-684"></a><a name="index-g_t_002d_002dno_002dsave_002drestore_002dfuncs-685"></a><br><dt><samp><span class="option">--save-restore-funcs</span></samp><dt><samp><span class="option">--no-save-restore-funcs</span></samp><dd>These two options control whether PowerPC64 <samp><span class="command">ld</span></samp> automatically
+provides out-of-line register save and restore functions used by
+`<samp><span class="samp">-Os</span></samp>' code.  The default is to provide any such referenced
+function for a normal final link, and to not do so for a relocatable
+link.
+
+     <p><a name="index-PowerPC64-TLS-optimization-686"></a><a name="index-g_t_002d_002dno_002dtls_002doptimize-687"></a><br><dt><samp><span class="option">--no-tls-optimize</span></samp><dd>PowerPC64 <samp><span class="command">ld</span></samp> normally performs some optimization of code
 sequences used to access Thread-Local Storage.  Use this option to
 disable the optimization.
 
-     <p><a name="index-PowerPC64-OPD-optimization-659"></a><a name="index-g_t_002d_002dno_002dopd_002doptimize-660"></a><br><dt><samp><span class="option">--no-opd-optimize</span></samp><dd>PowerPC64 <samp><span class="command">ld</span></samp> normally removes <code>.opd</code> section entries
+     <p><a name="index-PowerPC64-_005f_005ftls_005fget_005faddr-optimization-688"></a><a name="index-g_t_002d_002dtls_002dget_002daddr_002doptimize-689"></a><a name="index-g_t_002d_002dno_002dtls_002dget_002daddr_002doptimize-690"></a><br><dt><samp><span class="option">--tls-get-addr-optimize</span></samp><dt><samp><span class="option">--no-tls-get-addr-optimize</span></samp><dd>These options control whether PowerPC64 <samp><span class="command">ld</span></samp> uses a special
+stub to call __tls_get_addr.  PowerPC64 glibc 2.22 and later support
+an optimization that allows the second and subsequent calls to
+<code>__tls_get_addr</code> for a given symbol to be resolved by the special
+stub without calling in to glibc.  By default the linker enables this
+option when glibc advertises the availability of __tls_get_addr_opt. 
+Forcing this option on when using an older glibc won't do much besides
+slow down your applications, but may be useful if linking an
+application against an older glibc with the expectation that it will
+normally be used on systems having a newer glibc.
+
+     <p><a name="index-PowerPC64-OPD-optimization-691"></a><a name="index-g_t_002d_002dno_002dopd_002doptimize-692"></a><br><dt><samp><span class="option">--no-opd-optimize</span></samp><dd>PowerPC64 <samp><span class="command">ld</span></samp> normally removes <code>.opd</code> section entries
 corresponding to deleted link-once functions, or functions removed by
 the action of `<samp><span class="samp">--gc-sections</span></samp>' or linker script <code>/DISCARD/</code>. 
 Use this option to disable <code>.opd</code> optimization.
 
-     <p><a name="index-PowerPC64-OPD-spacing-661"></a><a name="index-g_t_002d_002dnon_002doverlapping_002dopd-662"></a><br><dt><samp><span class="option">--non-overlapping-opd</span></samp><dd>Some PowerPC64 compilers have an option to generate compressed
+     <p><a name="index-PowerPC64-OPD-spacing-693"></a><a name="index-g_t_002d_002dnon_002doverlapping_002dopd-694"></a><br><dt><samp><span class="option">--non-overlapping-opd</span></samp><dd>Some PowerPC64 compilers have an option to generate compressed
 <code>.opd</code> entries spaced 16 bytes apart, overlapping the third word,
 the static chain pointer (unused in C) with the first word of the next
 entry.  This option expands such entries to the full 24 bytes.
 
-     <p><a name="index-PowerPC64-TOC-optimization-663"></a><a name="index-g_t_002d_002dno_002dtoc_002doptimize-664"></a><br><dt><samp><span class="option">--no-toc-optimize</span></samp><dd>PowerPC64 <samp><span class="command">ld</span></samp> normally removes unused <code>.toc</code> section
+     <p><a name="index-PowerPC64-TOC-optimization-695"></a><a name="index-g_t_002d_002dno_002dtoc_002doptimize-696"></a><br><dt><samp><span class="option">--no-toc-optimize</span></samp><dd>PowerPC64 <samp><span class="command">ld</span></samp> normally removes unused <code>.toc</code> section
 entries.  Such entries are detected by examining relocations that
 reference the TOC in code sections.  A reloc in a deleted code section
 marks a TOC word as unneeded, while a reloc in a kept code section
@@ -111,7 +128,7 @@ reliably for compiler generated code, but may be incorrect if assembly
 code is used to insert TOC entries.  Use this option to disable the
 optimization.
 
-     <p><a name="index-PowerPC64-multi_002dTOC-665"></a><a name="index-g_t_002d_002dno_002dmulti_002dtoc-666"></a><br><dt><samp><span class="option">--no-multi-toc</span></samp><dd>If given any toc option besides <code>-mcmodel=medium</code> or
+     <p><a name="index-PowerPC64-multi_002dTOC-697"></a><a name="index-g_t_002d_002dno_002dmulti_002dtoc-698"></a><br><dt><samp><span class="option">--no-multi-toc</span></samp><dd>If given any toc option besides <code>-mcmodel=medium</code> or
 <code>-mcmodel=large</code>, PowerPC64 GCC generates code for a TOC model
 where TOC
 entries are accessed with a 16-bit offset from r2.  This limits the
@@ -123,7 +140,7 @@ help if a single input file has a <code>.toc</code> section that exceeds
 64K, most likely from linking multiple files with <samp><span class="command">ld -r</span></samp>. 
 Use this option to turn off this feature.
 
-     <p><a name="index-PowerPC64-TOC-sorting-667"></a><a name="index-g_t_002d_002dno_002dtoc_002dsort-668"></a><br><dt><samp><span class="option">--no-toc-sort</span></samp><dd>By default, <samp><span class="command">ld</span></samp> sorts TOC sections so that those whose file
+     <p><a name="index-PowerPC64-TOC-sorting-699"></a><a name="index-g_t_002d_002dno_002dtoc_002dsort-700"></a><br><dt><samp><span class="option">--no-toc-sort</span></samp><dd>By default, <samp><span class="command">ld</span></samp> sorts TOC sections so that those whose file
 happens to have a section called <code>.init</code> or <code>.fini</code> are
 placed first, followed by TOC sections referenced by code generated
 with PowerPC64 gcc's <code>-mcmodel=small</code>, and lastly TOC sections
@@ -132,16 +149,17 @@ referenced only by code generated with PowerPC64 gcc's
 results in better TOC grouping for multi-TOC.  Use this option to turn
 off this feature.
 
-     <p><a name="index-PowerPC64-PLT-stub-alignment-669"></a><a name="index-g_t_002d_002dplt_002dalign-670"></a><a name="index-g_t_002d_002dno_002dplt_002dalign-671"></a><br><dt><samp><span class="option">--plt-align</span></samp><dt><samp><span class="option">--no-plt-align</span></samp><dd>Use these options to control whether individual PLT call stubs are
-aligned to a 32-byte boundary, or to the specified power of two
-boundary when using <code>--plt-align=</code>.  By default PLT call stubs
-are packed tightly.
+     <p><a name="index-PowerPC64-PLT-stub-alignment-701"></a><a name="index-g_t_002d_002dplt_002dalign-702"></a><a name="index-g_t_002d_002dno_002dplt_002dalign-703"></a><br><dt><samp><span class="option">--plt-align</span></samp><dt><samp><span class="option">--no-plt-align</span></samp><dd>Use these options to control whether individual PLT call stubs are
+padded so that they don't cross a 32-byte boundary, or to the
+specified power of two boundary when using <code>--plt-align=</code>.  Note
+that this isn't alignment in the usual sense.  By default PLT call
+stubs are packed tightly.
 
-     <p><a name="index-PowerPC64-PLT-call-stub-static-chain-672"></a><a name="index-g_t_002d_002dplt_002dstatic_002dchain-673"></a><a name="index-g_t_002d_002dno_002dplt_002dstatic_002dchain-674"></a><br><dt><samp><span class="option">--plt-static-chain</span></samp><dt><samp><span class="option">--no-plt-static-chain</span></samp><dd>Use these options to control whether PLT call stubs load the static
+     <p><a name="index-PowerPC64-PLT-call-stub-static-chain-704"></a><a name="index-g_t_002d_002dplt_002dstatic_002dchain-705"></a><a name="index-g_t_002d_002dno_002dplt_002dstatic_002dchain-706"></a><br><dt><samp><span class="option">--plt-static-chain</span></samp><dt><samp><span class="option">--no-plt-static-chain</span></samp><dd>Use these options to control whether PLT call stubs load the static
 chain pointer (r11).  <code>ld</code> defaults to not loading the static
 chain since there is never any need to do so on a PLT call.
 
-     <p><a name="index-PowerPC64-PLT-call-stub-thread-safety-675"></a><a name="index-g_t_002d_002dplt_002dthread_002dsafe-676"></a><a name="index-g_t_002d_002dno_002dplt_002dthread_002dsafe-677"></a><br><dt><samp><span class="option">--plt-thread-safe</span></samp><dt><samp><span class="option">--no-thread-safe</span></samp><dd>With power7's weakly ordered memory model, it is possible when using
+     <p><a name="index-PowerPC64-PLT-call-stub-thread-safety-707"></a><a name="index-g_t_002d_002dplt_002dthread_002dsafe-708"></a><a name="index-g_t_002d_002dno_002dplt_002dthread_002dsafe-709"></a><br><dt><samp><span class="option">--plt-thread-safe</span></samp><dt><samp><span class="option">--no-thread-safe</span></samp><dd>With power7's weakly ordered memory model, it is possible when using
 lazy binding for ld.so to update a plt entry in one thread and have
 another thread see the individual plt entry words update in the wrong
 order, despite ld.so carefully writing in the correct order and using

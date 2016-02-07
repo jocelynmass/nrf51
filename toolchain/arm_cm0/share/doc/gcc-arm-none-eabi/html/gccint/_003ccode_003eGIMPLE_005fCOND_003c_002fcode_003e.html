@@ -10,7 +10,7 @@
 <link rel="next" href="_0040code_007bGIMPLE_005fDEBUG_007d.html#g_t_0040code_007bGIMPLE_005fDEBUG_007d" title="@code{GIMPLE_DEBUG}">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -53,12 +53,12 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Tuple-specific-accessors.html#Tuple-spe
 <hr>
 </div>
 
-<h4 class="subsection">11.7.6 <code>GIMPLE_COND</code></h4>
+<h4 class="subsection">11.8.6 <code>GIMPLE_COND</code></h4>
 
-<p><a name="index-g_t_0040code_007bGIMPLE_005fCOND_007d-2262"></a>
+<p><a name="index-g_t_0040code_007bGIMPLE_005fCOND_007d-2278"></a>
 
 <div class="defun">
-&mdash; GIMPLE function: gimple <b>gimple_build_cond</b> (<var>enum tree_code pred_code, tree lhs, tree rhs, tree t_label, tree f_label</var>)<var><a name="index-gimple_005fbuild_005fcond-2263"></a></var><br>
+&mdash; GIMPLE function: gcond <b>*gimple_build_cond</b> (<var> enum tree_code pred_code, tree lhs, tree rhs, tree t_label, tree f_label</var>)<var><a name="index-g_t_002agimple_005fbuild_005fcond-2279"></a></var><br>
 <blockquote><p>Build a <code>GIMPLE_COND</code> statement.  <code>A</code> <code>GIMPLE_COND</code> statement compares
 <code>LHS</code> and <code>RHS</code> and if the condition in <code>PRED_CODE</code> is true, jump to
 the label in <code>t_label</code>, otherwise jump to the label in <code>f_label</code>. 
@@ -67,78 +67,78 @@ the label in <code>t_label</code>, otherwise jump to the label in <code>f_label<
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: gimple <b>gimple_build_cond_from_tree</b> (<var>tree cond, tree t_label, tree f_label</var>)<var><a name="index-gimple_005fbuild_005fcond_005ffrom_005ftree-2264"></a></var><br>
+&mdash; GIMPLE function: gcond <b>*gimple_build_cond_from_tree</b> (<var>tree cond, tree t_label, tree f_label</var>)<var><a name="index-g_t_002agimple_005fbuild_005fcond_005ffrom_005ftree-2280"></a></var><br>
 <blockquote><p>Build a <code>GIMPLE_COND</code> statement from the conditional expression
 tree <code>COND</code>.  <code>T_LABEL</code> and <code>F_LABEL</code> are as in <code>gimple_build_cond</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: enum tree_code <b>gimple_cond_code</b> (<var>gimple g</var>)<var><a name="index-gimple_005fcond_005fcode-2265"></a></var><br>
+&mdash; GIMPLE function: enum tree_code <b>gimple_cond_code</b> (<var>gimple g</var>)<var><a name="index-gimple_005fcond_005fcode-2281"></a></var><br>
 <blockquote><p>Return the code of the predicate computed by conditional
 statement <code>G</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: void <b>gimple_cond_set_code</b> (<var>gimple g, enum tree_code code</var>)<var><a name="index-gimple_005fcond_005fset_005fcode-2266"></a></var><br>
+&mdash; GIMPLE function: void <b>gimple_cond_set_code</b> (<var>gcond *g, enum tree_code code</var>)<var><a name="index-gimple_005fcond_005fset_005fcode-2282"></a></var><br>
 <blockquote><p>Set <code>CODE</code> to be the predicate code for the conditional statement
 <code>G</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: tree <b>gimple_cond_lhs</b> (<var>gimple g</var>)<var><a name="index-gimple_005fcond_005flhs-2267"></a></var><br>
+&mdash; GIMPLE function: tree <b>gimple_cond_lhs</b> (<var>gimple g</var>)<var><a name="index-gimple_005fcond_005flhs-2283"></a></var><br>
 <blockquote><p>Return the <code>LHS</code> of the predicate computed by conditional statement
 <code>G</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: void <b>gimple_cond_set_lhs</b> (<var>gimple g, tree lhs</var>)<var><a name="index-gimple_005fcond_005fset_005flhs-2268"></a></var><br>
+&mdash; GIMPLE function: void <b>gimple_cond_set_lhs</b> (<var>gcond *g, tree lhs</var>)<var><a name="index-gimple_005fcond_005fset_005flhs-2284"></a></var><br>
 <blockquote><p>Set <code>LHS</code> to be the <code>LHS</code> operand of the predicate computed by
 conditional statement <code>G</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: tree <b>gimple_cond_rhs</b> (<var>gimple g</var>)<var><a name="index-gimple_005fcond_005frhs-2269"></a></var><br>
+&mdash; GIMPLE function: tree <b>gimple_cond_rhs</b> (<var>gimple g</var>)<var><a name="index-gimple_005fcond_005frhs-2285"></a></var><br>
 <blockquote><p>Return the <code>RHS</code> operand of the predicate computed by conditional
 <code>G</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: void <b>gimple_cond_set_rhs</b> (<var>gimple g, tree rhs</var>)<var><a name="index-gimple_005fcond_005fset_005frhs-2270"></a></var><br>
+&mdash; GIMPLE function: void <b>gimple_cond_set_rhs</b> (<var>gcond *g, tree rhs</var>)<var><a name="index-gimple_005fcond_005fset_005frhs-2286"></a></var><br>
 <blockquote><p>Set <code>RHS</code> to be the <code>RHS</code> operand of the predicate computed by
 conditional statement <code>G</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: tree <b>gimple_cond_true_label</b> (<var>gimple g</var>)<var><a name="index-gimple_005fcond_005ftrue_005flabel-2271"></a></var><br>
+&mdash; GIMPLE function: tree <b>gimple_cond_true_label</b> (<var>const gcond *g</var>)<var><a name="index-gimple_005fcond_005ftrue_005flabel-2287"></a></var><br>
 <blockquote><p>Return the label used by conditional statement <code>G</code> when its
 predicate evaluates to true. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: void <b>gimple_cond_set_true_label</b> (<var>gimple g, tree label</var>)<var><a name="index-gimple_005fcond_005fset_005ftrue_005flabel-2272"></a></var><br>
+&mdash; GIMPLE function: void <b>gimple_cond_set_true_label</b> (<var>gcond *g, tree label</var>)<var><a name="index-gimple_005fcond_005fset_005ftrue_005flabel-2288"></a></var><br>
 <blockquote><p>Set <code>LABEL</code> to be the label used by conditional statement <code>G</code> when
 its predicate evaluates to true. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: void <b>gimple_cond_set_false_label</b> (<var>gimple g, tree label</var>)<var><a name="index-gimple_005fcond_005fset_005ffalse_005flabel-2273"></a></var><br>
+&mdash; GIMPLE function: void <b>gimple_cond_set_false_label</b> (<var>gcond *g, tree label</var>)<var><a name="index-gimple_005fcond_005fset_005ffalse_005flabel-2289"></a></var><br>
 <blockquote><p>Set <code>LABEL</code> to be the label used by conditional statement <code>G</code> when
 its predicate evaluates to false. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: tree <b>gimple_cond_false_label</b> (<var>gimple g</var>)<var><a name="index-gimple_005fcond_005ffalse_005flabel-2274"></a></var><br>
+&mdash; GIMPLE function: tree <b>gimple_cond_false_label</b> (<var>const gcond *g</var>)<var><a name="index-gimple_005fcond_005ffalse_005flabel-2290"></a></var><br>
 <blockquote><p>Return the label used by conditional statement <code>G</code> when its
 predicate evaluates to false. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: void <b>gimple_cond_make_false</b> (<var>gimple g</var>)<var><a name="index-gimple_005fcond_005fmake_005ffalse-2275"></a></var><br>
+&mdash; GIMPLE function: void <b>gimple_cond_make_false</b> (<var>gcond *g</var>)<var><a name="index-gimple_005fcond_005fmake_005ffalse-2291"></a></var><br>
 <blockquote><p>Set the conditional <code>COND_STMT</code> to be of the form 'if (1 == 0)'. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: void <b>gimple_cond_make_true</b> (<var>gimple g</var>)<var><a name="index-gimple_005fcond_005fmake_005ftrue-2276"></a></var><br>
+&mdash; GIMPLE function: void <b>gimple_cond_make_true</b> (<var>gcond *g</var>)<var><a name="index-gimple_005fcond_005fmake_005ftrue-2292"></a></var><br>
 <blockquote><p>Set the conditional <code>COND_STMT</code> to be of the form 'if (1 == 1)'. 
 </p></blockquote></div>
 

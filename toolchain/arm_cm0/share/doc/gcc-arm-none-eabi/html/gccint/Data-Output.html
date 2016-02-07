@@ -10,7 +10,7 @@
 <link rel="next" href="Uninitialized-Data.html#Uninitialized-Data" title="Uninitialized Data">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -52,18 +52,18 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Assembler-Format.html#Assembler-Format"
 <hr>
 </div>
 
-<h4 class="subsection">17.21.2 Output of Data</h4>
+<h4 class="subsection">17.20.2 Output of Data</h4>
 
 <div class="defun">
-&mdash; Target Hook: const char * <b>TARGET_ASM_BYTE_OP</b><var><a name="index-TARGET_005fASM_005fBYTE_005fOP-4550"></a></var><br>
-&mdash; Target Hook: const char * <b>TARGET_ASM_ALIGNED_HI_OP</b><var><a name="index-TARGET_005fASM_005fALIGNED_005fHI_005fOP-4551"></a></var><br>
-&mdash; Target Hook: const char * <b>TARGET_ASM_ALIGNED_SI_OP</b><var><a name="index-TARGET_005fASM_005fALIGNED_005fSI_005fOP-4552"></a></var><br>
-&mdash; Target Hook: const char * <b>TARGET_ASM_ALIGNED_DI_OP</b><var><a name="index-TARGET_005fASM_005fALIGNED_005fDI_005fOP-4553"></a></var><br>
-&mdash; Target Hook: const char * <b>TARGET_ASM_ALIGNED_TI_OP</b><var><a name="index-TARGET_005fASM_005fALIGNED_005fTI_005fOP-4554"></a></var><br>
-&mdash; Target Hook: const char * <b>TARGET_ASM_UNALIGNED_HI_OP</b><var><a name="index-TARGET_005fASM_005fUNALIGNED_005fHI_005fOP-4555"></a></var><br>
-&mdash; Target Hook: const char * <b>TARGET_ASM_UNALIGNED_SI_OP</b><var><a name="index-TARGET_005fASM_005fUNALIGNED_005fSI_005fOP-4556"></a></var><br>
-&mdash; Target Hook: const char * <b>TARGET_ASM_UNALIGNED_DI_OP</b><var><a name="index-TARGET_005fASM_005fUNALIGNED_005fDI_005fOP-4557"></a></var><br>
-&mdash; Target Hook: const char * <b>TARGET_ASM_UNALIGNED_TI_OP</b><var><a name="index-TARGET_005fASM_005fUNALIGNED_005fTI_005fOP-4558"></a></var><br>
+&mdash; Target Hook: const char * <b>TARGET_ASM_BYTE_OP</b><var><a name="index-TARGET_005fASM_005fBYTE_005fOP-4581"></a></var><br>
+&mdash; Target Hook: const char * <b>TARGET_ASM_ALIGNED_HI_OP</b><var><a name="index-TARGET_005fASM_005fALIGNED_005fHI_005fOP-4582"></a></var><br>
+&mdash; Target Hook: const char * <b>TARGET_ASM_ALIGNED_SI_OP</b><var><a name="index-TARGET_005fASM_005fALIGNED_005fSI_005fOP-4583"></a></var><br>
+&mdash; Target Hook: const char * <b>TARGET_ASM_ALIGNED_DI_OP</b><var><a name="index-TARGET_005fASM_005fALIGNED_005fDI_005fOP-4584"></a></var><br>
+&mdash; Target Hook: const char * <b>TARGET_ASM_ALIGNED_TI_OP</b><var><a name="index-TARGET_005fASM_005fALIGNED_005fTI_005fOP-4585"></a></var><br>
+&mdash; Target Hook: const char * <b>TARGET_ASM_UNALIGNED_HI_OP</b><var><a name="index-TARGET_005fASM_005fUNALIGNED_005fHI_005fOP-4586"></a></var><br>
+&mdash; Target Hook: const char * <b>TARGET_ASM_UNALIGNED_SI_OP</b><var><a name="index-TARGET_005fASM_005fUNALIGNED_005fSI_005fOP-4587"></a></var><br>
+&mdash; Target Hook: const char * <b>TARGET_ASM_UNALIGNED_DI_OP</b><var><a name="index-TARGET_005fASM_005fUNALIGNED_005fDI_005fOP-4588"></a></var><br>
+&mdash; Target Hook: const char * <b>TARGET_ASM_UNALIGNED_TI_OP</b><var><a name="index-TARGET_005fASM_005fUNALIGNED_005fTI_005fOP-4589"></a></var><br>
 <blockquote><p>These hooks specify assembly directives for creating certain kinds
 of integer object.  The <code>TARGET_ASM_BYTE_OP</code> directive creates a
 byte-sized object, the <code>TARGET_ASM_ALIGNED_HI_OP</code> one creates an
@@ -76,7 +76,7 @@ the string should contain a tab, a pseudo-op, and then another tab.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: bool <b>TARGET_ASM_INTEGER</b> (<var>rtx x, unsigned int size, int aligned_p</var>)<var><a name="index-TARGET_005fASM_005fINTEGER-4559"></a></var><br>
+&mdash; Target Hook: bool <b>TARGET_ASM_INTEGER</b> (<var>rtx x, unsigned int size, int aligned_p</var>)<var><a name="index-TARGET_005fASM_005fINTEGER-4590"></a></var><br>
 <blockquote><p>The <code>assemble_integer</code> function uses this hook to output an
 integer object.  <var>x</var> is the object's value, <var>size</var> is its size
 in bytes and <var>aligned_p</var> indicates whether it is aligned.  The
@@ -90,7 +90,13 @@ when the relevant string is <code>NULL</code>.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: bool <b>TARGET_ASM_OUTPUT_ADDR_CONST_EXTRA</b> (<var>FILE *file, rtx x</var>)<var><a name="index-TARGET_005fASM_005fOUTPUT_005fADDR_005fCONST_005fEXTRA-4560"></a></var><br>
+&mdash; Target Hook: void <b>TARGET_ASM_DECL_END</b> (<var>void</var>)<var><a name="index-TARGET_005fASM_005fDECL_005fEND-4591"></a></var><br>
+<blockquote><p>Define this hook if the target assembler requires a special marker to
+terminate an initialized variable declaration. 
+</p></blockquote></div>
+
+<div class="defun">
+&mdash; Target Hook: bool <b>TARGET_ASM_OUTPUT_ADDR_CONST_EXTRA</b> (<var>FILE *file, rtx x</var>)<var><a name="index-TARGET_005fASM_005fOUTPUT_005fADDR_005fCONST_005fEXTRA-4592"></a></var><br>
 <blockquote><p>A target hook to recognize <var>rtx</var> patterns that <code>output_addr_const</code>
 can't deal with, and output assembly code to <var>file</var> corresponding to
 the pattern <var>x</var>.  This may be used to allow machine-dependent
@@ -103,7 +109,7 @@ return <code>true</code>.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>ASM_OUTPUT_ASCII</b> (<var>stream, ptr, len</var>)<var><a name="index-ASM_005fOUTPUT_005fASCII-4561"></a></var><br>
+&mdash; Macro: <b>ASM_OUTPUT_ASCII</b> (<var>stream, ptr, len</var>)<var><a name="index-ASM_005fOUTPUT_005fASCII-4593"></a></var><br>
 <blockquote><p>A C statement to output to the stdio stream <var>stream</var> an assembler
 instruction to assemble a string constant containing the <var>len</var>
 bytes at <var>ptr</var>.  <var>ptr</var> will be a C expression of type
@@ -115,14 +121,14 @@ Berkeley Unix assembler, do not define the macro
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>ASM_OUTPUT_FDESC</b> (<var>stream, decl, n</var>)<var><a name="index-ASM_005fOUTPUT_005fFDESC-4562"></a></var><br>
+&mdash; Macro: <b>ASM_OUTPUT_FDESC</b> (<var>stream, decl, n</var>)<var><a name="index-ASM_005fOUTPUT_005fFDESC-4594"></a></var><br>
 <blockquote><p>A C statement to output word <var>n</var> of a function descriptor for
 <var>decl</var>.  This must be defined if <code>TARGET_VTABLE_USES_DESCRIPTORS</code>
 is defined, and is otherwise unused. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>CONSTANT_POOL_BEFORE_FUNCTION</b><var><a name="index-CONSTANT_005fPOOL_005fBEFORE_005fFUNCTION-4563"></a></var><br>
+&mdash; Macro: <b>CONSTANT_POOL_BEFORE_FUNCTION</b><var><a name="index-CONSTANT_005fPOOL_005fBEFORE_005fFUNCTION-4595"></a></var><br>
 <blockquote><p>You may define this macro as a C expression.  You should define the
 expression to have a nonzero value if GCC should output the constant
 pool for a function before the code for the function, or a zero value if
@@ -132,7 +138,7 @@ pool before the function.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>ASM_OUTPUT_POOL_PROLOGUE</b> (<var>file, funname, fundecl, size</var>)<var><a name="index-ASM_005fOUTPUT_005fPOOL_005fPROLOGUE-4564"></a></var><br>
+&mdash; Macro: <b>ASM_OUTPUT_POOL_PROLOGUE</b> (<var>file, funname, fundecl, size</var>)<var><a name="index-ASM_005fOUTPUT_005fPOOL_005fPROLOGUE-4596"></a></var><br>
 <blockquote><p>A C statement to output assembler commands to define the start of the
 constant pool for a function.  <var>funname</var> is a string giving
 the name of the function.  Should the return type of the function
@@ -145,7 +151,7 @@ not be defined.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>ASM_OUTPUT_SPECIAL_POOL_ENTRY</b> (<var>file, x, mode, align, labelno, jumpto</var>)<var><a name="index-ASM_005fOUTPUT_005fSPECIAL_005fPOOL_005fENTRY-4565"></a></var><br>
+&mdash; Macro: <b>ASM_OUTPUT_SPECIAL_POOL_ENTRY</b> (<var>file, x, mode, align, labelno, jumpto</var>)<var><a name="index-ASM_005fOUTPUT_005fSPECIAL_005fPOOL_005fENTRY-4597"></a></var><br>
 <blockquote><p>A C statement (with or without semicolon) to output a constant in the
 constant pool, if it needs special treatment.  (This macro need not do
 anything for RTL expressions that can be output normally.)
@@ -172,7 +178,7 @@ entry from being output a second time in the usual manner.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>ASM_OUTPUT_POOL_EPILOGUE</b> (<var>file funname fundecl size</var>)<var><a name="index-ASM_005fOUTPUT_005fPOOL_005fEPILOGUE-4566"></a></var><br>
+&mdash; Macro: <b>ASM_OUTPUT_POOL_EPILOGUE</b> (<var>file funname fundecl size</var>)<var><a name="index-ASM_005fOUTPUT_005fPOOL_005fEPILOGUE-4598"></a></var><br>
 <blockquote><p>A C statement to output assembler commands to at the end of the constant
 pool for a function.  <var>funname</var> is a string giving the name of the
 function.  Should the return type of the function be required, you can
@@ -184,7 +190,7 @@ define this macro.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>IS_ASM_LOGICAL_LINE_SEPARATOR</b> (<var>C, STR</var>)<var><a name="index-IS_005fASM_005fLOGICAL_005fLINE_005fSEPARATOR-4567"></a></var><br>
+&mdash; Macro: <b>IS_ASM_LOGICAL_LINE_SEPARATOR</b> (<var>C, STR</var>)<var><a name="index-IS_005fASM_005fLOGICAL_005fLINE_005fSEPARATOR-4599"></a></var><br>
 <blockquote><p>Define this macro as a C expression which is nonzero if <var>C</var> is
 used as a logical line separator by the assembler.  <var>STR</var> points
 to the position in the string where <var>C</var> was found; this can be used if
@@ -195,8 +201,8 @@ the character `<samp><span class="samp">;</span></samp>' is treated as a logical
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: const char * <b>TARGET_ASM_OPEN_PAREN</b><var><a name="index-TARGET_005fASM_005fOPEN_005fPAREN-4568"></a></var><br>
-&mdash; Target Hook: const char * <b>TARGET_ASM_CLOSE_PAREN</b><var><a name="index-TARGET_005fASM_005fCLOSE_005fPAREN-4569"></a></var><br>
+&mdash; Target Hook: const char * <b>TARGET_ASM_OPEN_PAREN</b><var><a name="index-TARGET_005fASM_005fOPEN_005fPAREN-4600"></a></var><br>
+&mdash; Target Hook: const char * <b>TARGET_ASM_CLOSE_PAREN</b><var><a name="index-TARGET_005fASM_005fCLOSE_005fPAREN-4601"></a></var><br>
 <blockquote><p>These target hooks are C string constants, describing the syntax in the
 assembler for grouping arithmetic expressions.  If not overridden, they
 default to normal parentheses, which is correct for most assemblers. 
@@ -206,12 +212,12 @@ default to normal parentheses, which is correct for most assemblers.
 of <code>ASM_OUTPUT_DOUBLE</code> and the like:
 
 <div class="defun">
-&mdash; Macro: <b>REAL_VALUE_TO_TARGET_SINGLE</b> (<var>x, l</var>)<var><a name="index-REAL_005fVALUE_005fTO_005fTARGET_005fSINGLE-4570"></a></var><br>
-&mdash; Macro: <b>REAL_VALUE_TO_TARGET_DOUBLE</b> (<var>x, l</var>)<var><a name="index-REAL_005fVALUE_005fTO_005fTARGET_005fDOUBLE-4571"></a></var><br>
-&mdash; Macro: <b>REAL_VALUE_TO_TARGET_LONG_DOUBLE</b> (<var>x, l</var>)<var><a name="index-REAL_005fVALUE_005fTO_005fTARGET_005fLONG_005fDOUBLE-4572"></a></var><br>
-&mdash; Macro: <b>REAL_VALUE_TO_TARGET_DECIMAL32</b> (<var>x, l</var>)<var><a name="index-REAL_005fVALUE_005fTO_005fTARGET_005fDECIMAL32-4573"></a></var><br>
-&mdash; Macro: <b>REAL_VALUE_TO_TARGET_DECIMAL64</b> (<var>x, l</var>)<var><a name="index-REAL_005fVALUE_005fTO_005fTARGET_005fDECIMAL64-4574"></a></var><br>
-&mdash; Macro: <b>REAL_VALUE_TO_TARGET_DECIMAL128</b> (<var>x, l</var>)<var><a name="index-REAL_005fVALUE_005fTO_005fTARGET_005fDECIMAL128-4575"></a></var><br>
+&mdash; Macro: <b>REAL_VALUE_TO_TARGET_SINGLE</b> (<var>x, l</var>)<var><a name="index-REAL_005fVALUE_005fTO_005fTARGET_005fSINGLE-4602"></a></var><br>
+&mdash; Macro: <b>REAL_VALUE_TO_TARGET_DOUBLE</b> (<var>x, l</var>)<var><a name="index-REAL_005fVALUE_005fTO_005fTARGET_005fDOUBLE-4603"></a></var><br>
+&mdash; Macro: <b>REAL_VALUE_TO_TARGET_LONG_DOUBLE</b> (<var>x, l</var>)<var><a name="index-REAL_005fVALUE_005fTO_005fTARGET_005fLONG_005fDOUBLE-4604"></a></var><br>
+&mdash; Macro: <b>REAL_VALUE_TO_TARGET_DECIMAL32</b> (<var>x, l</var>)<var><a name="index-REAL_005fVALUE_005fTO_005fTARGET_005fDECIMAL32-4605"></a></var><br>
+&mdash; Macro: <b>REAL_VALUE_TO_TARGET_DECIMAL64</b> (<var>x, l</var>)<var><a name="index-REAL_005fVALUE_005fTO_005fTARGET_005fDECIMAL64-4606"></a></var><br>
+&mdash; Macro: <b>REAL_VALUE_TO_TARGET_DECIMAL128</b> (<var>x, l</var>)<var><a name="index-REAL_005fVALUE_005fTO_005fTARGET_005fDECIMAL128-4607"></a></var><br>
 <blockquote><p>These translate <var>x</var>, of type <code>REAL_VALUE_TYPE</code>, to the
 target's floating point representation, and store its bit pattern in
 the variable <var>l</var>.  For <code>REAL_VALUE_TO_TARGET_SINGLE</code> and

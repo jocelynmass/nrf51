@@ -11,7 +11,7 @@
 <!--
 This file documents the GNU Assembler "as".
 
-Copyright (C) 1991-2013 Free Software Foundation, Inc.
+Copyright (C) 1991-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
@@ -46,23 +46,23 @@ Up:&nbsp;<a rel="up" accesskey="u" href="MMIX_002dDependent.html#MMIX_002dDepend
 
 <h4 class="subsection">9.28.1 Command-line Options</h4>
 
-<p><a name="index-options_002c-MMIX-1460"></a><a name="index-MMIX-options-1461"></a>The MMIX version of <code>as</code> has some machine-dependent options.
+<p><a name="index-options_002c-MMIX-1559"></a><a name="index-MMIX-options-1560"></a>The MMIX version of <code>as</code> has some machine-dependent options.
 
-   <p><a name="index-g_t_0040samp_007b_002d_002dfixed_002dspecial_002dregister_002dnames_007d-command-line-option_002c-MMIX-1462"></a>When `<samp><span class="samp">--fixed-special-register-names</span></samp>' is specified, only the register
+   <p><a name="index-g_t_0040samp_007b_002d_002dfixed_002dspecial_002dregister_002dnames_007d-command-line-option_002c-MMIX-1561"></a>When `<samp><span class="samp">--fixed-special-register-names</span></samp>' is specified, only the register
 names specified in <a href="MMIX_002dRegs.html#MMIX_002dRegs">MMIX-Regs</a> are recognized in the instructions
 <code>PUT</code> and <code>GET</code>.
 
-   <p><a name="index-g_t_0040samp_007b_002d_002dglobalize_002dsymbols_007d-command-line-option_002c-MMIX-1463"></a>You can use the `<samp><span class="samp">--globalize-symbols</span></samp>' to make all symbols global. 
+   <p><a name="index-g_t_0040samp_007b_002d_002dglobalize_002dsymbols_007d-command-line-option_002c-MMIX-1562"></a>You can use the `<samp><span class="samp">--globalize-symbols</span></samp>' to make all symbols global. 
 This option is useful when splitting up a <code>mmixal</code> program into
 several files.
 
-   <p><a name="index-g_t_0040samp_007b_002d_002dgnu_002dsyntax_007d-command-line-option_002c-MMIX-1464"></a>The `<samp><span class="samp">--gnu-syntax</span></samp>' turns off most syntax compatibility with
+   <p><a name="index-g_t_0040samp_007b_002d_002dgnu_002dsyntax_007d-command-line-option_002c-MMIX-1563"></a>The `<samp><span class="samp">--gnu-syntax</span></samp>' turns off most syntax compatibility with
 <code>mmixal</code>.  Its usability is currently doubtful.
 
-   <p><a name="index-g_t_0040samp_007b_002d_002drelax_007d-command-line-option_002c-MMIX-1465"></a>The `<samp><span class="samp">--relax</span></samp>' option is not fully supported, but will eventually make
+   <p><a name="index-g_t_0040samp_007b_002d_002drelax_007d-command-line-option_002c-MMIX-1564"></a>The `<samp><span class="samp">--relax</span></samp>' option is not fully supported, but will eventually make
 the object file prepared for linker relaxation.
 
-   <p><a name="index-g_t_0040samp_007b_002d_002dno_002dpredefined_002dsyms_007d-command-line-option_002c-MMIX-1466"></a>If you want to avoid inadvertently calling a predefined symbol and would
+   <p><a name="index-g_t_0040samp_007b_002d_002dno_002dpredefined_002dsyms_007d-command-line-option_002c-MMIX-1565"></a>If you want to avoid inadvertently calling a predefined symbol and would
 rather get an error, for example when using <code>as</code> with a
 compiler or other machine-generated code, specify
 `<samp><span class="samp">--no-predefined-syms</span></samp>'.  This turns off built-in predefined
@@ -71,12 +71,12 @@ symbols, `<samp><span class="samp">BIT</span></samp>' symbols, and <code>TRAP</c
 &ldquo;system calls&rdquo;.  It also turns off predefined special-register names,
 except when used in <code>PUT</code> and <code>GET</code> instructions.
 
-   <p><a name="index-g_t_0040samp_007b_002d_002dno_002dexpand_007d-command-line-option_002c-MMIX-1467"></a>By default, some instructions are expanded to fit the size of the operand
+   <p><a name="index-g_t_0040samp_007b_002d_002dno_002dexpand_007d-command-line-option_002c-MMIX-1566"></a>By default, some instructions are expanded to fit the size of the operand
 or an external symbol (see <a href="MMIX_002dExpand.html#MMIX_002dExpand">MMIX-Expand</a>).  By passing
 `<samp><span class="samp">--no-expand</span></samp>', no such expansion will be done, instead causing errors
 at link time if the operand does not fit.
 
-   <p><a name="index-g_t_0040samp_007b_002d_002dno_002dmerge_002dgregs_007d-command-line-option_002c-MMIX-1468"></a>The <code>mmixal</code> documentation (see <a href="mmixsite.html#mmixsite">mmixsite</a>) specifies that global
+   <p><a name="index-g_t_0040samp_007b_002d_002dno_002dmerge_002dgregs_007d-command-line-option_002c-MMIX-1567"></a>The <code>mmixal</code> documentation (see <a href="mmixsite.html#mmixsite">mmixsite</a>) specifies that global
 registers allocated with the `<samp><span class="samp">GREG</span></samp>' directive (see <a href="MMIX_002dgreg.html#MMIX_002dgreg">MMIX-greg</a>) and
 initialized to the same non-zero value, will refer to the same global
 register.  This isn't strictly enforceable in <code>as</code> since the
@@ -84,7 +84,7 @@ final addresses aren't known until link-time, but it will do an effort
 unless the `<samp><span class="samp">--no-merge-gregs</span></samp>' option is specified.  (Register merging
 isn't yet implemented in <code>ld</code>.)
 
-   <p><a name="index-g_t_0040samp_007b_002dx_007d-command-line-option_002c-MMIX-1469"></a><code>as</code> will warn every time it expands an instruction to fit an
+   <p><a name="index-g_t_0040samp_007b_002dx_007d-command-line-option_002c-MMIX-1568"></a><code>as</code> will warn every time it expands an instruction to fit an
 operand unless the option `<samp><span class="samp">-x</span></samp>' is specified.  It is believed that
 this behaviour is more useful than just mimicking <code>mmixal</code>'s
 behaviour, in which instructions are only expanded if the `<samp><span class="samp">-x</span></samp>' option
@@ -95,7 +95,7 @@ that at link stage can be contracted.  (Though linker relaxation isn't yet
 implemented in <code>ld</code>.)  The option `<samp><span class="samp">-x</span></samp>' also imples
 `<samp><span class="samp">--linker-allocated-gregs</span></samp>'.
 
-   <p><a name="index-g_t_0040samp_007b_002d_002dno_002dpushj_002dstubs_007d-command-line-option_002c-MMIX-1470"></a><a name="index-g_t_0040samp_007b_002d_002dno_002dstubs_007d-command-line-option_002c-MMIX-1471"></a>If instruction expansion is enabled, <code>as</code> can expand a
+   <p><a name="index-g_t_0040samp_007b_002d_002dno_002dpushj_002dstubs_007d-command-line-option_002c-MMIX-1569"></a><a name="index-g_t_0040samp_007b_002d_002dno_002dstubs_007d-command-line-option_002c-MMIX-1570"></a>If instruction expansion is enabled, <code>as</code> can expand a
 `<samp><span class="samp">PUSHJ</span></samp>' instruction into a series of instructions.  The shortest
 expansion is to not expand it, but just mark the call as redirectable to a
 stub, which <code>ld</code> creates at link-time, but only if the
@@ -108,7 +108,7 @@ then created at assembly-time.  The option `<samp><span class="samp">--no-stubs<
 intended for compatibility with future releases, where generation of stubs
 for other instructions may be implemented.
 
-   <p><a name="index-g_t_0040samp_007b_002d_002dlinker_002dallocated_002dgregs_007d-command-line-option_002c-MMIX-1472"></a>Usually a two-operand-expression (see <a href="GREG_002dbase.html#GREG_002dbase">GREG-base</a>) without a matching
+   <p><a name="index-g_t_0040samp_007b_002d_002dlinker_002dallocated_002dgregs_007d-command-line-option_002c-MMIX-1571"></a>Usually a two-operand-expression (see <a href="GREG_002dbase.html#GREG_002dbase">GREG-base</a>) without a matching
 `<samp><span class="samp">GREG</span></samp>' directive is treated as an error by <code>as</code>.  When
 the option `<samp><span class="samp">--linker-allocated-gregs</span></samp>' is in effect, they are instead
 passed through to the linker, which will allocate as many global registers

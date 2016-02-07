@@ -7,7 +7,7 @@
 <link title="Top" rel="start" href="#Top">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -39,10 +39,10 @@ This file documents the <span class="sc">gnu</span> debugger <span class="sc">gd
    <p>This is the Tenth Edition, of <cite>Debugging with
 </cite><span class="sc">gdb</span><cite>: the </cite><span class="sc">gnu</span><cite> Source-Level Debugger</cite> for <span class="sc">gdb</span>
 (GNU Tools for ARM Embedded Processors)
-Version 7.8.0.20150604-cvs.
+Version 7.10.1.20151217-cvs.
 
 <!-- man begin COPYRIGHT -->
-<p>Copyright &copy; 1988-2014 Free Software Foundation, Inc.
+<p>Copyright &copy; 1988-2015 Free Software Foundation, Inc.
 
    <p>Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -71,9 +71,9 @@ Up:&nbsp;<a rel="up" accesskey="u" href="../index.html#dir">(dir)</a>
 
    <p>This is the Tenth Edition, for <span class="sc">gdb</span>
 (GNU Tools for ARM Embedded Processors)
-Version 7.8.0.20150604-cvs.
+Version 7.10.1.20151217-cvs.
 
-   <p>Copyright (C) 1988-2014 Free Software Foundation, Inc.
+   <p>Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
    <p>This edition of the GDB manual is dedicated to the memory of Fred
 Fish.  Fred was a long-standing contributor to GDB and to Free
@@ -398,6 +398,12 @@ software in general.  We will miss him.
 <li><a href="Returning.html#Returning">17.4 Returning from a Function</a>
 <li><a href="Calling.html#Calling">17.5 Calling Program Functions</a>
 <li><a href="Patching.html#Patching">17.6 Patching Programs</a>
+<li><a href="Compiling-and-Injecting-Code.html#Compiling-and-Injecting-Code">17.7 Compiling and injecting code in <span class="sc">gdb</span></a>
+<ul>
+<li><a href="Compiling-and-Injecting-Code.html#Compiling-and-Injecting-Code">17.7.1 Compilation options for the <code>compile</code> command</a>
+<li><a href="Compiling-and-Injecting-Code.html#Compiling-and-Injecting-Code">17.7.2 Caveats when using the <code>compile</code> command</a>
+<li><a href="Compiling-and-Injecting-Code.html#Compiling-and-Injecting-Code">17.7.3 Compiler search for the <code>compile</code> command</a>
+</li></ul>
 </li></ul>
 <li><a name="toc_GDB-Files" href="GDB-Files.html#GDB-Files">18 <span class="sc">gdb</span> Files</a>
 <ul>
@@ -457,14 +463,6 @@ software in general.  We will miss him.
 <li><a href="Darwin.html#Darwin">21.1.7 Darwin</a>
 </li></ul>
 <li><a href="Embedded-OS.html#Embedded-OS">21.2 Embedded Operating Systems</a>
-<ul>
-<li><a href="VxWorks.html#VxWorks">21.2.1 Using <span class="sc">gdb</span> with VxWorks</a>
-<ul>
-<li><a href="VxWorks-Connection.html#VxWorks-Connection">21.2.1.1 Connecting to VxWorks</a>
-<li><a href="VxWorks-Download.html#VxWorks-Download">21.2.1.2 VxWorks Download</a>
-<li><a href="VxWorks-Attach.html#VxWorks-Attach">21.2.1.3 Running Tasks</a>
-</li></ul>
-</li></ul>
 <li><a href="Embedded-Processors.html#Embedded-Processors">21.3 Embedded Processors</a>
 <ul>
 <li><a href="ARM.html#ARM">21.3.1 ARM</a>
@@ -547,26 +545,27 @@ software in general.  We will miss him.
 <li><a href="Frame-Filter-API.html#Frame-Filter-API">23.2.2.9 Filtering Frames.</a>
 <li><a href="Frame-Decorator-API.html#Frame-Decorator-API">23.2.2.10 Decorating Frames.</a>
 <li><a href="Writing-a-Frame-Filter.html#Writing-a-Frame-Filter">23.2.2.11 Writing a Frame Filter</a>
-<li><a href="Xmethods-In-Python.html#Xmethods-In-Python">23.2.2.12 Xmethods In Python</a>
-<li><a href="Xmethod-API.html#Xmethod-API">23.2.2.13 Xmethod API</a>
-<li><a href="Writing-an-Xmethod.html#Writing-an-Xmethod">23.2.2.14 Writing an Xmethod</a>
-<li><a href="Inferiors-In-Python.html#Inferiors-In-Python">23.2.2.15 Inferiors In Python</a>
-<li><a href="Events-In-Python.html#Events-In-Python">23.2.2.16 Events In Python</a>
-<li><a href="Threads-In-Python.html#Threads-In-Python">23.2.2.17 Threads In Python</a>
-<li><a href="Commands-In-Python.html#Commands-In-Python">23.2.2.18 Commands In Python</a>
-<li><a href="Parameters-In-Python.html#Parameters-In-Python">23.2.2.19 Parameters In Python</a>
-<li><a href="Functions-In-Python.html#Functions-In-Python">23.2.2.20 Writing new convenience functions</a>
-<li><a href="Progspaces-In-Python.html#Progspaces-In-Python">23.2.2.21 Program Spaces In Python</a>
-<li><a href="Objfiles-In-Python.html#Objfiles-In-Python">23.2.2.22 Objfiles In Python</a>
-<li><a href="Frames-In-Python.html#Frames-In-Python">23.2.2.23 Accessing inferior stack frames from Python.</a>
-<li><a href="Blocks-In-Python.html#Blocks-In-Python">23.2.2.24 Accessing blocks from Python.</a>
-<li><a href="Symbols-In-Python.html#Symbols-In-Python">23.2.2.25 Python representation of Symbols.</a>
-<li><a href="Symbol-Tables-In-Python.html#Symbol-Tables-In-Python">23.2.2.26 Symbol table representation in Python.</a>
-<li><a href="Line-Tables-In-Python.html#Line-Tables-In-Python">23.2.2.27 Manipulating line tables using Python</a>
-<li><a href="Breakpoints-In-Python.html#Breakpoints-In-Python">23.2.2.28 Manipulating breakpoints using Python</a>
-<li><a href="Finish-Breakpoints-in-Python.html#Finish-Breakpoints-in-Python">23.2.2.29 Finish Breakpoints</a>
-<li><a href="Lazy-Strings-In-Python.html#Lazy-Strings-In-Python">23.2.2.30 Python representation of lazy strings.</a>
-<li><a href="Architectures-In-Python.html#Architectures-In-Python">23.2.2.31 Python representation of architectures</a>
+<li><a href="Unwinding-Frames-in-Python.html#Unwinding-Frames-in-Python">23.2.2.12 Unwinding Frames in Python</a>
+<li><a href="Xmethods-In-Python.html#Xmethods-In-Python">23.2.2.13 Xmethods In Python</a>
+<li><a href="Xmethod-API.html#Xmethod-API">23.2.2.14 Xmethod API</a>
+<li><a href="Writing-an-Xmethod.html#Writing-an-Xmethod">23.2.2.15 Writing an Xmethod</a>
+<li><a href="Inferiors-In-Python.html#Inferiors-In-Python">23.2.2.16 Inferiors In Python</a>
+<li><a href="Events-In-Python.html#Events-In-Python">23.2.2.17 Events In Python</a>
+<li><a href="Threads-In-Python.html#Threads-In-Python">23.2.2.18 Threads In Python</a>
+<li><a href="Commands-In-Python.html#Commands-In-Python">23.2.2.19 Commands In Python</a>
+<li><a href="Parameters-In-Python.html#Parameters-In-Python">23.2.2.20 Parameters In Python</a>
+<li><a href="Functions-In-Python.html#Functions-In-Python">23.2.2.21 Writing new convenience functions</a>
+<li><a href="Progspaces-In-Python.html#Progspaces-In-Python">23.2.2.22 Program Spaces In Python</a>
+<li><a href="Objfiles-In-Python.html#Objfiles-In-Python">23.2.2.23 Objfiles In Python</a>
+<li><a href="Frames-In-Python.html#Frames-In-Python">23.2.2.24 Accessing inferior stack frames from Python.</a>
+<li><a href="Blocks-In-Python.html#Blocks-In-Python">23.2.2.25 Accessing blocks from Python.</a>
+<li><a href="Symbols-In-Python.html#Symbols-In-Python">23.2.2.26 Python representation of Symbols.</a>
+<li><a href="Symbol-Tables-In-Python.html#Symbol-Tables-In-Python">23.2.2.27 Symbol table representation in Python.</a>
+<li><a href="Line-Tables-In-Python.html#Line-Tables-In-Python">23.2.2.28 Manipulating line tables using Python</a>
+<li><a href="Breakpoints-In-Python.html#Breakpoints-In-Python">23.2.2.29 Manipulating breakpoints using Python</a>
+<li><a href="Finish-Breakpoints-in-Python.html#Finish-Breakpoints-in-Python">23.2.2.30 Finish Breakpoints</a>
+<li><a href="Lazy-Strings-In-Python.html#Lazy-Strings-In-Python">23.2.2.31 Python representation of lazy strings.</a>
+<li><a href="Architectures-In-Python.html#Architectures-In-Python">23.2.2.32 Python representation of architectures</a>
 </li></ul>
 <li><a href="Python-Auto_002dloading.html#Python-Auto_002dloading">23.2.3 Python Auto-loading</a>
 <li><a href="Python-modules.html#Python-modules">23.2.4 Python modules</a>
@@ -619,6 +618,10 @@ software in general.  We will miss him.
 <ul>
 <li><a href="objfile_002dgdbdotext-file.html#objfile_002dgdbdotext-file">23.4.1 The <samp><var>objfile</var><span class="file">-gdb.</span><var>ext</var></samp> file</a>
 <li><a href="dotdebug_005fgdb_005fscripts-section.html#dotdebug_005fgdb_005fscripts-section">23.4.2 The <code>.debug_gdb_scripts</code> section</a>
+<ul>
+<li><a href="dotdebug_005fgdb_005fscripts-section.html#dotdebug_005fgdb_005fscripts-section">23.4.2.1 Script File Entries</a>
+<li><a href="dotdebug_005fgdb_005fscripts-section.html#dotdebug_005fgdb_005fscripts-section">23.4.2.2 Script Text Entries</a>
+</li></ul>
 <li><a href="Which-flavor-to-choose_003f.html#Which-flavor-to-choose_003f">23.4.3 Which flavor to choose?</a>
 </li></ul>
 <li><a href="Multiple-Extension-Languages.html#Multiple-Extension-Languages">23.5 Multiple Extension Languages</a>
@@ -854,6 +857,7 @@ software in general.  We will miss him.
 <li><a href="Thread-List-Format.html#Thread-List-Format">E.17 Thread List Format</a>
 <li><a href="Traceframe-Info-Format.html#Traceframe-Info-Format">E.18 Traceframe Info Format</a>
 <li><a href="Branch-Trace-Format.html#Branch-Trace-Format">E.19 Branch Trace Format</a>
+<li><a href="Branch-Trace-Configuration-Format.html#Branch-Trace-Configuration-Format">E.20 Branch Trace Configuration Format</a>
 </li></ul>
 <li><a name="toc_Agent-Expressions" href="Agent-Expressions.html#Agent-Expressions">Appendix F The GDB Agent Expression Mechanism</a>
 <ul>
@@ -882,12 +886,13 @@ software in general.  We will miss him.
 <li><a href="AArch64-Features.html#AArch64-Features">G.4.1 AArch64 Features</a>
 <li><a href="ARM-Features.html#ARM-Features">G.4.2 ARM Features</a>
 <li><a href="i386-Features.html#i386-Features">G.4.3 i386 Features</a>
-<li><a href="MIPS-Features.html#MIPS-Features">G.4.4 <acronym>MIPS</acronym> Features</a>
-<li><a href="M68K-Features.html#M68K-Features">G.4.5 M68K Features</a>
-<li><a href="Nios-II-Features.html#Nios-II-Features">G.4.6 Nios II Features</a>
-<li><a href="PowerPC-Features.html#PowerPC-Features">G.4.7 PowerPC Features</a>
-<li><a href="S_002f390-and-System-z-Features.html#S_002f390-and-System-z-Features">G.4.8 S/390 and System z Features</a>
-<li><a href="TIC6x-Features.html#TIC6x-Features">G.4.9 TMS320C6x Features</a>
+<li><a href="MicroBlaze-Features.html#MicroBlaze-Features">G.4.4 MicroBlaze Features</a>
+<li><a href="MIPS-Features.html#MIPS-Features">G.4.5 <acronym>MIPS</acronym> Features</a>
+<li><a href="M68K-Features.html#M68K-Features">G.4.6 M68K Features</a>
+<li><a href="Nios-II-Features.html#Nios-II-Features">G.4.7 Nios II Features</a>
+<li><a href="PowerPC-Features.html#PowerPC-Features">G.4.8 PowerPC Features</a>
+<li><a href="S_002f390-and-System-z-Features.html#S_002f390-and-System-z-Features">G.4.9 S/390 and System z Features</a>
+<li><a href="TIC6x-Features.html#TIC6x-Features">G.4.10 TMS320C6x Features</a>
 </li></ul>
 </li></ul>
 <li><a name="toc_Operating-System-Information" href="Operating-System-Information.html#Operating-System-Information">Appendix H Operating System Information</a>

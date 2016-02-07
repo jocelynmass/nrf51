@@ -10,7 +10,7 @@
 <link rel="next" href="RTL-Declarations.html#RTL-Declarations" title="RTL Declarations">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -54,7 +54,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="RTL.html#RTL">RTL</a>
 
 <h3 class="section">13.13 Conversions</h3>
 
-<p><a name="index-conversions-2986"></a><a name="index-machine-mode-conversions-2987"></a>
+<p><a name="index-conversions-3010"></a><a name="index-machine-mode-conversions-3011"></a>
 All conversions between machine modes must be represented by
 explicit conversion operations.  For example, an expression
 which is the sum of a byte and a full word cannot be written as
@@ -76,44 +76,44 @@ The conversion must either be done at compile-time or <var>x</var>
 must be placed into a register.
 
      
-<a name="index-sign_005fextend-2988"></a>
+<a name="index-sign_005fextend-3012"></a>
 <dl><dt><code>(sign_extend:</code><var>m</var> <var>x</var><code>)</code><dd>Represents the result of sign-extending the value <var>x</var>
 to machine mode <var>m</var>.  <var>m</var> must be a fixed-point mode
 and <var>x</var> a fixed-point value of a mode narrower than <var>m</var>.
 
-     <p><a name="index-zero_005fextend-2989"></a><br><dt><code>(zero_extend:</code><var>m</var> <var>x</var><code>)</code><dd>Represents the result of zero-extending the value <var>x</var>
+     <p><a name="index-zero_005fextend-3013"></a><br><dt><code>(zero_extend:</code><var>m</var> <var>x</var><code>)</code><dd>Represents the result of zero-extending the value <var>x</var>
 to machine mode <var>m</var>.  <var>m</var> must be a fixed-point mode
 and <var>x</var> a fixed-point value of a mode narrower than <var>m</var>.
 
-     <p><a name="index-float_005fextend-2990"></a><br><dt><code>(float_extend:</code><var>m</var> <var>x</var><code>)</code><dd>Represents the result of extending the value <var>x</var>
+     <p><a name="index-float_005fextend-3014"></a><br><dt><code>(float_extend:</code><var>m</var> <var>x</var><code>)</code><dd>Represents the result of extending the value <var>x</var>
 to machine mode <var>m</var>.  <var>m</var> must be a floating point mode
 and <var>x</var> a floating point value of a mode narrower than <var>m</var>.
 
-     <p><a name="index-truncate-2991"></a><br><dt><code>(truncate:</code><var>m</var> <var>x</var><code>)</code><dd>Represents the result of truncating the value <var>x</var>
+     <p><a name="index-truncate-3015"></a><br><dt><code>(truncate:</code><var>m</var> <var>x</var><code>)</code><dd>Represents the result of truncating the value <var>x</var>
 to machine mode <var>m</var>.  <var>m</var> must be a fixed-point mode
 and <var>x</var> a fixed-point value of a mode wider than <var>m</var>.
 
-     <p><a name="index-ss_005ftruncate-2992"></a><br><dt><code>(ss_truncate:</code><var>m</var> <var>x</var><code>)</code><dd>Represents the result of truncating the value <var>x</var>
+     <p><a name="index-ss_005ftruncate-3016"></a><br><dt><code>(ss_truncate:</code><var>m</var> <var>x</var><code>)</code><dd>Represents the result of truncating the value <var>x</var>
 to machine mode <var>m</var>, using signed saturation in the case of
 overflow.  Both <var>m</var> and the mode of <var>x</var> must be fixed-point
 modes.
 
-     <p><a name="index-us_005ftruncate-2993"></a><br><dt><code>(us_truncate:</code><var>m</var> <var>x</var><code>)</code><dd>Represents the result of truncating the value <var>x</var>
+     <p><a name="index-us_005ftruncate-3017"></a><br><dt><code>(us_truncate:</code><var>m</var> <var>x</var><code>)</code><dd>Represents the result of truncating the value <var>x</var>
 to machine mode <var>m</var>, using unsigned saturation in the case of
 overflow.  Both <var>m</var> and the mode of <var>x</var> must be fixed-point
 modes.
 
-     <p><a name="index-float_005ftruncate-2994"></a><br><dt><code>(float_truncate:</code><var>m</var> <var>x</var><code>)</code><dd>Represents the result of truncating the value <var>x</var>
+     <p><a name="index-float_005ftruncate-3018"></a><br><dt><code>(float_truncate:</code><var>m</var> <var>x</var><code>)</code><dd>Represents the result of truncating the value <var>x</var>
 to machine mode <var>m</var>.  <var>m</var> must be a floating point mode
 and <var>x</var> a floating point value of a mode wider than <var>m</var>.
 
-     <p><a name="index-float-2995"></a><br><dt><code>(float:</code><var>m</var> <var>x</var><code>)</code><dd>Represents the result of converting fixed point value <var>x</var>,
+     <p><a name="index-float-3019"></a><br><dt><code>(float:</code><var>m</var> <var>x</var><code>)</code><dd>Represents the result of converting fixed point value <var>x</var>,
 regarded as signed, to floating point mode <var>m</var>.
 
-     <p><a name="index-unsigned_005ffloat-2996"></a><br><dt><code>(unsigned_float:</code><var>m</var> <var>x</var><code>)</code><dd>Represents the result of converting fixed point value <var>x</var>,
+     <p><a name="index-unsigned_005ffloat-3020"></a><br><dt><code>(unsigned_float:</code><var>m</var> <var>x</var><code>)</code><dd>Represents the result of converting fixed point value <var>x</var>,
 regarded as unsigned, to floating point mode <var>m</var>.
 
-     <p><a name="index-fix-2997"></a><br><dt><code>(fix:</code><var>m</var> <var>x</var><code>)</code><dd>When <var>m</var> is a floating-point mode, represents the result of
+     <p><a name="index-fix-3021"></a><br><dt><code>(fix:</code><var>m</var> <var>x</var><code>)</code><dd>When <var>m</var> is a floating-point mode, represents the result of
 converting floating point value <var>x</var> (valid for mode <var>m</var>) to an
 integer, still represented in floating point mode <var>m</var>, by rounding
 towards zero.
@@ -123,30 +123,30 @@ converting floating point value <var>x</var> to mode <var>m</var>, regarded as
 signed.  How rounding is done is not specified, so this operation may
 be used validly in compiling C code only for integer-valued operands.
 
-     <p><a name="index-unsigned_005ffix-2998"></a><br><dt><code>(unsigned_fix:</code><var>m</var> <var>x</var><code>)</code><dd>Represents the result of converting floating point value <var>x</var> to
+     <p><a name="index-unsigned_005ffix-3022"></a><br><dt><code>(unsigned_fix:</code><var>m</var> <var>x</var><code>)</code><dd>Represents the result of converting floating point value <var>x</var> to
 fixed point mode <var>m</var>, regarded as unsigned.  How rounding is done
 is not specified.
 
-     <p><a name="index-fract_005fconvert-2999"></a><br><dt><code>(fract_convert:</code><var>m</var> <var>x</var><code>)</code><dd>Represents the result of converting fixed-point value <var>x</var> to
+     <p><a name="index-fract_005fconvert-3023"></a><br><dt><code>(fract_convert:</code><var>m</var> <var>x</var><code>)</code><dd>Represents the result of converting fixed-point value <var>x</var> to
 fixed-point mode <var>m</var>, signed integer value <var>x</var> to
 fixed-point mode <var>m</var>, floating-point value <var>x</var> to
 fixed-point mode <var>m</var>, fixed-point value <var>x</var> to integer mode <var>m</var>
 regarded as signed, or fixed-point value <var>x</var> to floating-point mode <var>m</var>. 
 When overflows or underflows happen, the results are undefined.
 
-     <p><a name="index-sat_005ffract-3000"></a><br><dt><code>(sat_fract:</code><var>m</var> <var>x</var><code>)</code><dd>Represents the result of converting fixed-point value <var>x</var> to
+     <p><a name="index-sat_005ffract-3024"></a><br><dt><code>(sat_fract:</code><var>m</var> <var>x</var><code>)</code><dd>Represents the result of converting fixed-point value <var>x</var> to
 fixed-point mode <var>m</var>, signed integer value <var>x</var> to
 fixed-point mode <var>m</var>, or floating-point value <var>x</var> to
 fixed-point mode <var>m</var>. 
 When overflows or underflows happen, the results are saturated to the
 maximum or the minimum.
 
-     <p><a name="index-unsigned_005ffract_005fconvert-3001"></a><br><dt><code>(unsigned_fract_convert:</code><var>m</var> <var>x</var><code>)</code><dd>Represents the result of converting fixed-point value <var>x</var> to
+     <p><a name="index-unsigned_005ffract_005fconvert-3025"></a><br><dt><code>(unsigned_fract_convert:</code><var>m</var> <var>x</var><code>)</code><dd>Represents the result of converting fixed-point value <var>x</var> to
 integer mode <var>m</var> regarded as unsigned, or unsigned integer value <var>x</var> to
 fixed-point mode <var>m</var>. 
 When overflows or underflows happen, the results are undefined.
 
-     <p><a name="index-unsigned_005fsat_005ffract-3002"></a><br><dt><code>(unsigned_sat_fract:</code><var>m</var> <var>x</var><code>)</code><dd>Represents the result of converting unsigned integer value <var>x</var> to
+     <p><a name="index-unsigned_005fsat_005ffract-3026"></a><br><dt><code>(unsigned_sat_fract:</code><var>m</var> <var>x</var><code>)</code><dd>Represents the result of converting unsigned integer value <var>x</var> to
 fixed-point mode <var>m</var>. 
 When overflows or underflows happen, the results are saturated to the
 maximum or the minimum. 

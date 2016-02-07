@@ -10,7 +10,7 @@
 <link rel="next" href="Symbol-Tables-In-Guile.html#Symbol-Tables-In-Guile" title="Symbol Tables In Guile">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -48,7 +48,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Guile-API.html#Guile-API">Guile API</a>
 
 <h5 class="subsubsection">23.3.3.17 Guile representation of Symbols.</h5>
 
-<p><a name="index-symbols-in-guile-2534"></a><a name="index-g_t_003cgdb_003asymbol_003e-2535"></a>
+<p><a name="index-symbols-in-guile-2607"></a><a name="index-g_t_003cgdb_003asymbol_003e-2608"></a>
 <span class="sc">gdb</span> represents every variable, function and type as an
 entry in a symbol table.  See <a href="Symbols.html#Symbols">Examining the Symbol Table</a>. 
 Guile represents these symbols in <span class="sc">gdb</span> with the
@@ -58,13 +58,13 @@ Guile represents these symbols in <span class="sc">gdb</span> with the
 <code>(gdb)</code> module:
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>symbol?</b><var> object<a name="index-symbol_003f-2536"></a></var><br>
+&mdash; Scheme Procedure: <b>symbol?</b><var> object<a name="index-symbol_003f-2609"></a></var><br>
 <blockquote><p>Return <code>#t</code> if <var>object</var> is an object of type <code>&lt;gdb:symbol&gt;</code>. 
 Otherwise return <code>#f</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>symbol-valid?</b><var> symbol<a name="index-symbol_002dvalid_003f-2537"></a></var><br>
+&mdash; Scheme Procedure: <b>symbol-valid?</b><var> symbol<a name="index-symbol_002dvalid_003f-2610"></a></var><br>
 <blockquote><p>Return <code>#t</code> if the <code>&lt;gdb:symbol&gt;</code> object is valid,
 <code>#f</code> if not.  A <code>&lt;gdb:symbol&gt;</code> object can become invalid if
 the symbol it refers to does not exist in <span class="sc">gdb</span> any longer. 
@@ -73,82 +73,82 @@ invalid at the time the procedure is called.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>symbol-type</b><var> symbol<a name="index-symbol_002dtype-2538"></a></var><br>
+&mdash; Scheme Procedure: <b>symbol-type</b><var> symbol<a name="index-symbol_002dtype-2611"></a></var><br>
 <blockquote><p>Return the type of <var>symbol</var> or <code>#f</code> if no type is recorded. 
 The result is an object of type <code>&lt;gdb:type&gt;</code>. 
 See <a href="Types-In-Guile.html#Types-In-Guile">Types In Guile</a>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>symbol-symtab</b><var> symbol<a name="index-symbol_002dsymtab-2539"></a></var><br>
+&mdash; Scheme Procedure: <b>symbol-symtab</b><var> symbol<a name="index-symbol_002dsymtab-2612"></a></var><br>
 <blockquote><p>Return the symbol table in which <var>symbol</var> appears. 
 The result is an object of type <code>&lt;gdb:symtab&gt;</code>. 
 See <a href="Symbol-Tables-In-Guile.html#Symbol-Tables-In-Guile">Symbol Tables In Guile</a>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>symbol-line</b><var> symbol<a name="index-symbol_002dline-2540"></a></var><br>
+&mdash; Scheme Procedure: <b>symbol-line</b><var> symbol<a name="index-symbol_002dline-2613"></a></var><br>
 <blockquote><p>Return the line number in the source code at which <var>symbol</var> was defined. 
 This is an integer. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>symbol-name</b><var> symbol<a name="index-symbol_002dname-2541"></a></var><br>
+&mdash; Scheme Procedure: <b>symbol-name</b><var> symbol<a name="index-symbol_002dname-2614"></a></var><br>
 <blockquote><p>Return the name of <var>symbol</var> as a string. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>symbol-linkage-name</b><var> symbol<a name="index-symbol_002dlinkage_002dname-2542"></a></var><br>
+&mdash; Scheme Procedure: <b>symbol-linkage-name</b><var> symbol<a name="index-symbol_002dlinkage_002dname-2615"></a></var><br>
 <blockquote><p>Return the name of <var>symbol</var>, as used by the linker (i.e., may be mangled). 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>symbol-print-name</b><var> symbol<a name="index-symbol_002dprint_002dname-2543"></a></var><br>
+&mdash; Scheme Procedure: <b>symbol-print-name</b><var> symbol<a name="index-symbol_002dprint_002dname-2616"></a></var><br>
 <blockquote><p>Return the name of <var>symbol</var> in a form suitable for output.  This is either
 <code>name</code> or <code>linkage_name</code>, depending on whether the user
 asked <span class="sc">gdb</span> to display demangled or mangled names. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>symbol-addr-class</b><var> symbol<a name="index-symbol_002daddr_002dclass-2544"></a></var><br>
+&mdash; Scheme Procedure: <b>symbol-addr-class</b><var> symbol<a name="index-symbol_002daddr_002dclass-2617"></a></var><br>
 <blockquote><p>Return the address class of the symbol.  This classifies how to find the value
 of a symbol.  Each address class is a constant defined in the
 <code>(gdb)</code> module and described later in this chapter. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>symbol-needs-frame?</b><var> symbol<a name="index-symbol_002dneeds_002dframe_003f-2545"></a></var><br>
+&mdash; Scheme Procedure: <b>symbol-needs-frame?</b><var> symbol<a name="index-symbol_002dneeds_002dframe_003f-2618"></a></var><br>
 <blockquote><p>Return <code>#t</code> if evaluating <var>symbol</var>'s value requires a frame
 (see <a href="Frames-In-Guile.html#Frames-In-Guile">Frames In Guile</a>) and <code>#f</code> otherwise.  Typically,
 local variables will require a frame, but other symbols will not. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>symbol-argument?</b><var> symbol<a name="index-symbol_002dargument_003f-2546"></a></var><br>
+&mdash; Scheme Procedure: <b>symbol-argument?</b><var> symbol<a name="index-symbol_002dargument_003f-2619"></a></var><br>
 <blockquote><p>Return <code>#t</code> if <var>symbol</var> is an argument of a function. 
 Otherwise return <code>#f</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>symbol-constant?</b><var> symbol<a name="index-symbol_002dconstant_003f-2547"></a></var><br>
+&mdash; Scheme Procedure: <b>symbol-constant?</b><var> symbol<a name="index-symbol_002dconstant_003f-2620"></a></var><br>
 <blockquote><p>Return <code>#t</code> if <var>symbol</var> is a constant. 
 Otherwise return <code>#f</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>symbol-function?</b><var> symbol<a name="index-symbol_002dfunction_003f-2548"></a></var><br>
+&mdash; Scheme Procedure: <b>symbol-function?</b><var> symbol<a name="index-symbol_002dfunction_003f-2621"></a></var><br>
 <blockquote><p>Return <code>#t</code> if <var>symbol</var> is a function or a method. 
 Otherwise return <code>#f</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>symbol-variable?</b><var> symbol<a name="index-symbol_002dvariable_003f-2549"></a></var><br>
+&mdash; Scheme Procedure: <b>symbol-variable?</b><var> symbol<a name="index-symbol_002dvariable_003f-2622"></a></var><br>
 <blockquote><p>Return <code>#t</code> if <var>symbol</var> is a variable. 
 Otherwise return <code>#f</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>symbol-value</b><var> symbol </var><span class="roman">[</span><var>#:frame frame</var><span class="roman">]</span><var><a name="index-symbol_002dvalue-2550"></a></var><br>
+&mdash; Scheme Procedure: <b>symbol-value</b><var> symbol </var><span class="roman">[</span><var>#:frame frame</var><span class="roman">]</span><var><a name="index-symbol_002dvalue-2623"></a></var><br>
 <blockquote><p>Compute the value of <var>symbol</var>, as a <code>&lt;gdb:value&gt;</code>.  For
 functions, this computes the address of the function, cast to the
 appropriate type.  If the symbol requires a frame in order to compute
@@ -158,7 +158,7 @@ given, or if <var>frame</var> is invalid, then an exception is thrown.
 
 <!-- TODO: line length -->
 <div class="defun">
-&mdash; Scheme Procedure: <b>lookup-symbol</b><var> name </var><span class="roman">[</span><var>#:block block</var><span class="roman">]</span> <span class="roman">[</span><var>#:domain domain</var><span class="roman">]</span><var><a name="index-lookup_002dsymbol-2551"></a></var><br>
+&mdash; Scheme Procedure: <b>lookup-symbol</b><var> name </var><span class="roman">[</span><var>#:block block</var><span class="roman">]</span> <span class="roman">[</span><var>#:domain domain</var><span class="roman">]</span><var><a name="index-lookup_002dsymbol-2624"></a></var><br>
 <blockquote><p>This function searches for a symbol by name.  The search scope can be
 restricted to the parameters defined in the optional domain and block
 arguments.
@@ -182,7 +182,7 @@ If the symbol is not found, the second element is <code>#f</code>.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>lookup-global-symbol</b><var> name </var><span class="roman">[</span><var>#:domain domain</var><span class="roman">]</span><var><a name="index-lookup_002dglobal_002dsymbol-2552"></a></var><br>
+&mdash; Scheme Procedure: <b>lookup-global-symbol</b><var> name </var><span class="roman">[</span><var>#:domain domain</var><span class="roman">]</span><var><a name="index-lookup_002dglobal_002dsymbol-2625"></a></var><br>
 <blockquote><p>This function searches for a global symbol by name. 
 The search scope can be restricted by the domain argument.
 
@@ -199,65 +199,65 @@ is not found.
 as constants in the <code>(gdb)</code> module:
 
      <dl>
-<dt><code>SYMBOL_UNDEF_DOMAIN</code><a name="index-SYMBOL_005fUNDEF_005fDOMAIN-2553"></a><dd>This is used when a domain has not been discovered or none of the
+<dt><code>SYMBOL_UNDEF_DOMAIN</code><a name="index-SYMBOL_005fUNDEF_005fDOMAIN-2626"></a><dd>This is used when a domain has not been discovered or none of the
 following domains apply.  This usually indicates an error either
 in the symbol information or in <span class="sc">gdb</span>'s handling of symbols.
 
-     <br><dt><code>SYMBOL_VAR_DOMAIN</code><a name="index-SYMBOL_005fVAR_005fDOMAIN-2554"></a><dd>This domain contains variables, function names, typedef names and enum
+     <br><dt><code>SYMBOL_VAR_DOMAIN</code><a name="index-SYMBOL_005fVAR_005fDOMAIN-2627"></a><dd>This domain contains variables, function names, typedef names and enum
 type values.
 
-     <br><dt><code>SYMBOL_STRUCT_DOMAIN</code><a name="index-SYMBOL_005fSTRUCT_005fDOMAIN-2555"></a><dd>This domain holds struct, union and enum type names.
+     <br><dt><code>SYMBOL_STRUCT_DOMAIN</code><a name="index-SYMBOL_005fSTRUCT_005fDOMAIN-2628"></a><dd>This domain holds struct, union and enum type names.
 
-     <br><dt><code>SYMBOL_LABEL_DOMAIN</code><a name="index-SYMBOL_005fLABEL_005fDOMAIN-2556"></a><dd>This domain contains names of labels (for gotos).
+     <br><dt><code>SYMBOL_LABEL_DOMAIN</code><a name="index-SYMBOL_005fLABEL_005fDOMAIN-2629"></a><dd>This domain contains names of labels (for gotos).
 
-     <br><dt><code>SYMBOL_VARIABLES_DOMAIN</code><a name="index-SYMBOL_005fVARIABLES_005fDOMAIN-2557"></a><dd>This domain holds a subset of the <code>SYMBOLS_VAR_DOMAIN</code>; it
+     <br><dt><code>SYMBOL_VARIABLES_DOMAIN</code><a name="index-SYMBOL_005fVARIABLES_005fDOMAIN-2630"></a><dd>This domain holds a subset of the <code>SYMBOLS_VAR_DOMAIN</code>; it
 contains everything minus functions and types.
 
-     <br><dt><code>SYMBOL_FUNCTION_DOMAIN</code><a name="index-SYMBOL_005fFUNCTION_005fDOMAIN-2558"></a><dd>This domain contains all functions.
+     <br><dt><code>SYMBOL_FUNCTION_DOMAIN</code><a name="index-SYMBOL_005fFUNCTION_005fDOMAIN-2631"></a><dd>This domain contains all functions.
 
-     <br><dt><code>SYMBOL_TYPES_DOMAIN</code><a name="index-SYMBOL_005fTYPES_005fDOMAIN-2559"></a><dd>This domain contains all types. 
+     <br><dt><code>SYMBOL_TYPES_DOMAIN</code><a name="index-SYMBOL_005fTYPES_005fDOMAIN-2632"></a><dd>This domain contains all types. 
 </dl>
 
    <p>The available address class categories in <code>&lt;gdb:symbol&gt;</code> are represented
 as constants in the <code>gdb</code> module:
 
      <dl>
-<dt><code>SYMBOL_LOC_UNDEF</code><a name="index-SYMBOL_005fLOC_005fUNDEF-2560"></a><dd>If this is returned by address class, it indicates an error either in
+<dt><code>SYMBOL_LOC_UNDEF</code><a name="index-SYMBOL_005fLOC_005fUNDEF-2633"></a><dd>If this is returned by address class, it indicates an error either in
 the symbol information or in <span class="sc">gdb</span>'s handling of symbols.
 
-     <br><dt><code>SYMBOL_LOC_CONST</code><a name="index-SYMBOL_005fLOC_005fCONST-2561"></a><dd>Value is constant int.
+     <br><dt><code>SYMBOL_LOC_CONST</code><a name="index-SYMBOL_005fLOC_005fCONST-2634"></a><dd>Value is constant int.
 
-     <br><dt><code>SYMBOL_LOC_STATIC</code><a name="index-SYMBOL_005fLOC_005fSTATIC-2562"></a><dd>Value is at a fixed address.
+     <br><dt><code>SYMBOL_LOC_STATIC</code><a name="index-SYMBOL_005fLOC_005fSTATIC-2635"></a><dd>Value is at a fixed address.
 
-     <br><dt><code>SYMBOL_LOC_REGISTER</code><a name="index-SYMBOL_005fLOC_005fREGISTER-2563"></a><dd>Value is in a register.
+     <br><dt><code>SYMBOL_LOC_REGISTER</code><a name="index-SYMBOL_005fLOC_005fREGISTER-2636"></a><dd>Value is in a register.
 
-     <br><dt><code>SYMBOL_LOC_ARG</code><a name="index-SYMBOL_005fLOC_005fARG-2564"></a><dd>Value is an argument.  This value is at the offset stored within the
+     <br><dt><code>SYMBOL_LOC_ARG</code><a name="index-SYMBOL_005fLOC_005fARG-2637"></a><dd>Value is an argument.  This value is at the offset stored within the
 symbol inside the frame's argument list.
 
-     <br><dt><code>SYMBOL_LOC_REF_ARG</code><a name="index-SYMBOL_005fLOC_005fREF_005fARG-2565"></a><dd>Value address is stored in the frame's argument list.  Just like
+     <br><dt><code>SYMBOL_LOC_REF_ARG</code><a name="index-SYMBOL_005fLOC_005fREF_005fARG-2638"></a><dd>Value address is stored in the frame's argument list.  Just like
 <code>LOC_ARG</code> except that the value's address is stored at the
 offset, not the value itself.
 
-     <br><dt><code>SYMBOL_LOC_REGPARM_ADDR</code><a name="index-SYMBOL_005fLOC_005fREGPARM_005fADDR-2566"></a><dd>Value is a specified register.  Just like <code>LOC_REGISTER</code> except
+     <br><dt><code>SYMBOL_LOC_REGPARM_ADDR</code><a name="index-SYMBOL_005fLOC_005fREGPARM_005fADDR-2639"></a><dd>Value is a specified register.  Just like <code>LOC_REGISTER</code> except
 the register holds the address of the argument instead of the argument
 itself.
 
-     <br><dt><code>SYMBOL_LOC_LOCAL</code><a name="index-SYMBOL_005fLOC_005fLOCAL-2567"></a><dd>Value is a local variable.
+     <br><dt><code>SYMBOL_LOC_LOCAL</code><a name="index-SYMBOL_005fLOC_005fLOCAL-2640"></a><dd>Value is a local variable.
 
-     <br><dt><code>SYMBOL_LOC_TYPEDEF</code><a name="index-SYMBOL_005fLOC_005fTYPEDEF-2568"></a><dd>Value not used.  Symbols in the domain <code>SYMBOL_STRUCT_DOMAIN</code> all
+     <br><dt><code>SYMBOL_LOC_TYPEDEF</code><a name="index-SYMBOL_005fLOC_005fTYPEDEF-2641"></a><dd>Value not used.  Symbols in the domain <code>SYMBOL_STRUCT_DOMAIN</code> all
 have this class.
 
-     <br><dt><code>SYMBOL_LOC_BLOCK</code><a name="index-SYMBOL_005fLOC_005fBLOCK-2569"></a><dd>Value is a block.
+     <br><dt><code>SYMBOL_LOC_BLOCK</code><a name="index-SYMBOL_005fLOC_005fBLOCK-2642"></a><dd>Value is a block.
 
-     <br><dt><code>SYMBOL_LOC_CONST_BYTES</code><a name="index-SYMBOL_005fLOC_005fCONST_005fBYTES-2570"></a><dd>Value is a byte-sequence.
+     <br><dt><code>SYMBOL_LOC_CONST_BYTES</code><a name="index-SYMBOL_005fLOC_005fCONST_005fBYTES-2643"></a><dd>Value is a byte-sequence.
 
-     <br><dt><code>SYMBOL_LOC_UNRESOLVED</code><a name="index-SYMBOL_005fLOC_005fUNRESOLVED-2571"></a><dd>Value is at a fixed address, but the address of the variable has to be
+     <br><dt><code>SYMBOL_LOC_UNRESOLVED</code><a name="index-SYMBOL_005fLOC_005fUNRESOLVED-2644"></a><dd>Value is at a fixed address, but the address of the variable has to be
 determined from the minimal symbol table whenever the variable is
 referenced.
 
-     <br><dt><code>SYMBOL_LOC_OPTIMIZED_OUT</code><a name="index-SYMBOL_005fLOC_005fOPTIMIZED_005fOUT-2572"></a><dd>The value does not actually exist in the program.
+     <br><dt><code>SYMBOL_LOC_OPTIMIZED_OUT</code><a name="index-SYMBOL_005fLOC_005fOPTIMIZED_005fOUT-2645"></a><dd>The value does not actually exist in the program.
 
-     <br><dt><code>SYMBOL_LOC_COMPUTED</code><a name="index-SYMBOL_005fLOC_005fCOMPUTED-2573"></a><dd>The value's address is a computed location. 
+     <br><dt><code>SYMBOL_LOC_COMPUTED</code><a name="index-SYMBOL_005fLOC_005fCOMPUTED-2646"></a><dd>The value's address is a computed location. 
 </dl>
 
    </body></html>

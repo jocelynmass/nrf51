@@ -10,7 +10,7 @@
 <link rel="next" href="Objfiles-In-Guile.html#Objfiles-In-Guile" title="Objfiles In Guile">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -48,7 +48,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Guile-API.html#Guile-API">Guile API</a>
 
 <h5 class="subsubsection">23.3.3.13 Program Spaces In Guile</h5>
 
-<p><a name="index-progspaces-in-guile-2481"></a><a name="index-g_t_003cgdb_003aprogspace_003e-2482"></a>A program space, or <dfn>progspace</dfn>, represents a symbolic view
+<p><a name="index-progspaces-in-guile-2552"></a><a name="index-g_t_003cgdb_003aprogspace_003e-2553"></a>A program space, or <dfn>progspace</dfn>, represents a symbolic view
 of an address space. 
 It consists of all of the objfiles of the program. 
 See <a href="Objfiles-In-Guile.html#Objfiles-In-Guile">Objfiles In Guile</a>. 
@@ -62,32 +62,32 @@ smob.  See <a href="GDB-Scheme-Data-Types.html#GDB-Scheme-Data-Types">GDB Scheme
 <code>(gdb)</code> module:
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>progspace?</b><var> object<a name="index-progspace_003f-2483"></a></var><br>
+&mdash; Scheme Procedure: <b>progspace?</b><var> object<a name="index-progspace_003f-2554"></a></var><br>
 <blockquote><p>Return <code>#t</code> if <var>object</var> is a <code>&lt;gdb:progspace&gt;</code> object. 
 Otherwise return <code>#f</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>progspace-valid?</b><var> progspace<a name="index-progspace_002dvalid_003f-2484"></a></var><br>
+&mdash; Scheme Procedure: <b>progspace-valid?</b><var> progspace<a name="index-progspace_002dvalid_003f-2555"></a></var><br>
 <blockquote><p>Return <code>#t</code> if <var>progspace</var> is valid, <code>#f</code> if not. 
 A <code>&lt;gdb:progspace&gt;</code> object can become invalid
 if the program it refers to is not loaded in <span class="sc">gdb</span> any longer. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>current-progspace</b><var><a name="index-current_002dprogspace-2485"></a></var><br>
+&mdash; Scheme Procedure: <b>current-progspace</b><var><a name="index-current_002dprogspace-2556"></a></var><br>
 <blockquote><p>This function returns the program space of the currently selected inferior. 
 There is always a current progspace, this never returns <code>#f</code>. 
 See <a href="Inferiors-and-Programs.html#Inferiors-and-Programs">Inferiors and Programs</a>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>progspaces</b><var><a name="index-progspaces-2486"></a></var><br>
+&mdash; Scheme Procedure: <b>progspaces</b><var><a name="index-progspaces-2557"></a></var><br>
 <blockquote><p>Return a list of all the progspaces currently known to <span class="sc">gdb</span>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>progspace-filename</b><var> progspace<a name="index-progspace_002dfilename-2487"></a></var><br>
+&mdash; Scheme Procedure: <b>progspace-filename</b><var> progspace<a name="index-progspace_002dfilename-2558"></a></var><br>
 <blockquote><p>Return the absolute file name of <var>progspace</var> as a string. 
 This is the name of the file passed as the argument to the <code>file</code>
 or <code>symbol-file</code> commands. 
@@ -100,7 +100,7 @@ is invalid.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>progspace-objfiles</b><var> progspace<a name="index-progspace_002dobjfiles-2488"></a></var><br>
+&mdash; Scheme Procedure: <b>progspace-objfiles</b><var> progspace<a name="index-progspace_002dobjfiles-2559"></a></var><br>
 <blockquote><p>Return the list of objfiles of <var>progspace</var>. 
 The order of objfiles in the result is arbitrary. 
 Each element is an object of type <code>&lt;gdb:objfile&gt;</code>. 
@@ -111,14 +111,14 @@ is invalid.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>progspace-pretty-printers</b><var> progspace<a name="index-progspace_002dpretty_002dprinters-2489"></a></var><br>
+&mdash; Scheme Procedure: <b>progspace-pretty-printers</b><var> progspace<a name="index-progspace_002dpretty_002dprinters-2560"></a></var><br>
 <blockquote><p>Return the list of pretty-printers of <var>progspace</var>. 
 Each element is an object of type <code>&lt;gdb:pretty-printer&gt;</code>. 
 See <a href="Guile-Pretty-Printing-API.html#Guile-Pretty-Printing-API">Guile Pretty Printing API</a>, for more information. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>set-progspace-pretty-printers!</b><var> progspace printer-list<a name="index-set_002dprogspace_002dpretty_002dprinters_0021-2490"></a></var><br>
+&mdash; Scheme Procedure: <b>set-progspace-pretty-printers!</b><var> progspace printer-list<a name="index-set_002dprogspace_002dpretty_002dprinters_0021-2561"></a></var><br>
 <blockquote><p>Set the list of registered <code>&lt;gdb:pretty-printer&gt;</code> objects for
 <var>progspace</var> to <var>printer-list</var>. 
 See <a href="Guile-Pretty-Printing-API.html#Guile-Pretty-Printing-API">Guile Pretty Printing API</a>, for more information. 

@@ -34,7 +34,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Stdio.html#Stdio">Stdio</a>
 
 <h3 class="section">4.64 <code>swprintf</code>, <code>fwprintf</code>, <code>wprintf</code>&mdash;wide character format output</h3>
 
-<p><a name="index-fwprintf-348"></a><a name="index-g_t_005ffwprintf_005fr-349"></a><a name="index-wprintf-350"></a><a name="index-g_t_005fwprintf_005fr-351"></a><a name="index-swprintf-352"></a><a name="index-g_t_005fswprintf_005fr-353"></a><strong>Synopsis</strong>
+<p><a name="index-fwprintf-349"></a><a name="index-g_t_005ffwprintf_005fr-350"></a><a name="index-wprintf-351"></a><a name="index-g_t_005fwprintf_005fr-352"></a><a name="index-swprintf-353"></a><a name="index-g_t_005fswprintf_005fr-354"></a><strong>Synopsis</strong>
 <pre class="example">     #include &lt;wchar.h&gt;
      
      int wprintf(const wchar_t *<var>format</var>, ...);
@@ -164,32 +164,34 @@ as the beginning of a field width.
 
           <br><dt><code>#</code><dd>The result is to be converted to an
 alternative form, according to the <var>type</var>
+character. 
+</dl>
+
+     <p>The alternative form output with the # flag depends on the <var>type</var>
 character:
 
-               <dl>
+          <dl>
 <dt><code>o</code><dd>Increases precision to force the first
 digit of the result to be a zero.
 
-               <br><dt><code>x</code><dd>A non-zero result will have a <code>0x</code>
+          <br><dt><code>x</code><dd>A non-zero result will have a <code>0x</code>
 prefix.
 
-               <br><dt><code>X</code><dd>A non-zero result will have a <code>0X</code>
+          <br><dt><code>X</code><dd>A non-zero result will have a <code>0X</code>
 prefix.
 
-               <br><dt><code>a, A, e, E, f, or F</code><dd>The result will always contain a
+          <br><dt><code>a, A, e, E, f, or F</code><dd>The result will always contain a
 decimal point even if no digits follow
 the point.  (Normally, a decimal point
 appears only if a digit follows it.) 
 Trailing zeros are removed.
 
-               <br><dt><code>g or G</code><dd>The result will always contain a
+          <br><dt><code>g or G</code><dd>The result will always contain a
 decimal point even if no digits follow
 the point.  Trailing zeros are not
 removed.
 
-               <br><dt><code>all others</code><dd>Undefined.
-
-          </dl>
+          <br><dt><code>all others</code><dd>Undefined.
 
      </dl>
 

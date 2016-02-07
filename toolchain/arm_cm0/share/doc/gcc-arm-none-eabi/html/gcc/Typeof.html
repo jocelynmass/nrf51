@@ -10,7 +10,7 @@
 <link rel="next" href="Conditionals.html#Conditionals" title="Conditionals">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -54,7 +54,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="C-Extensions.html#C-Extensions">C Exten
 
 <h3 class="section">6.6 Referring to a Type with <code>typeof</code></h3>
 
-<p><a name="index-typeof-2691"></a><a name="index-sizeof-2692"></a><a name="index-macros_002c-types-of-arguments-2693"></a>
+<p><a name="index-typeof-2885"></a><a name="index-sizeof-2886"></a><a name="index-macros_002c-types-of-arguments-2887"></a>
 Another way to refer to the type of an expression is with <code>typeof</code>. 
 The syntax of using of this keyword looks like <code>sizeof</code>, but the
 construct acts semantically like a type name defined with <code>typedef</code>.
@@ -96,7 +96,7 @@ arithmetic type and evaluates each of its arguments exactly once:
            typeof (b) _b = (b); \
          _a &gt; _b ? _a : _b; })
 </pre>
- <p><a name="index-underscores-in-variables-in-macros-2694"></a><a name="index-g_t_0040samp_007b_005f_007d-in-variables-in-macros-2695"></a><a name="index-local-variables-in-macros-2696"></a><a name="index-variables_002c-local_002c-in-macros-2697"></a><a name="index-macros_002c-local-variables-in-2698"></a>
+ <p><a name="index-underscores-in-variables-in-macros-2888"></a><a name="index-g_t_0040samp_007b_005f_007d-in-variables-in-macros-2889"></a><a name="index-local-variables-in-macros-2890"></a><a name="index-variables_002c-local_002c-in-macros-2891"></a><a name="index-macros_002c-local-variables-in-2892"></a>
 The reason for using names that start with underscores for the local
 variables is to avoid conflicts with variable names that occur within the
 expressions that are substituted for <code>a</code> and <code>b</code>.  Eventually we
@@ -163,20 +163,6 @@ such macros.
 evaluated only once when using <code>__auto_type</code>, but twice if
 <code>typeof</code> is used. 
 </ul>
-
- <p><em>Compatibility Note:</em> In addition to <code>typeof</code>, GCC 2 supported
-a more limited extension that permitted one to write
-
-<pre class="smallexample">     typedef <var>T</var> = <var>expr</var>;
-</pre>
- <p class="noindent">with the effect of declaring <var>T</var> to have the type of the expression
-<var>expr</var>.  This extension does not work with GCC 3 (versions between
-3.0 and 3.2 crash; 3.2.1 and later give an error).  Code that
-relies on it should be rewritten to use <code>typeof</code>:
-
-<pre class="smallexample">     typedef typeof(<var>expr</var>) <var>T</var>;
-</pre>
- <p class="noindent">This works with all versions of GCC.
 
  </body></html>
 

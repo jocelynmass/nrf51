@@ -9,7 +9,7 @@
 <link rel="next" href="Filesystem.html#Filesystem" title="Filesystem">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -52,20 +52,20 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Host-Config.html#Host-Config">Host Conf
 
 <h3 class="section">18.1 Host Common</h3>
 
-<p><a name="index-host-hooks-4968"></a><a name="index-host-functions-4969"></a>
+<p><a name="index-host-hooks-5022"></a><a name="index-host-functions-5023"></a>
 Some things are just not portable, even between similar operating systems,
 and are too difficult for autoconf to detect.  They get implemented using
 hook functions in the file specified by the <var>host_hook_obj</var>
 variable in <samp><span class="file">config.gcc</span></samp>.
 
 <div class="defun">
-&mdash; Host Hook: void <b>HOST_HOOKS_EXTRA_SIGNALS</b> (<var>void</var>)<var><a name="index-HOST_005fHOOKS_005fEXTRA_005fSIGNALS-4970"></a></var><br>
+&mdash; Host Hook: void <b>HOST_HOOKS_EXTRA_SIGNALS</b> (<var>void</var>)<var><a name="index-HOST_005fHOOKS_005fEXTRA_005fSIGNALS-5024"></a></var><br>
 <blockquote><p>This host hook is used to set up handling for extra signals.  The most
 common thing to do in this hook is to detect stack overflow. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Host Hook: void * <b>HOST_HOOKS_GT_PCH_GET_ADDRESS</b> (<var>size_t size, int fd</var>)<var><a name="index-HOST_005fHOOKS_005fGT_005fPCH_005fGET_005fADDRESS-4971"></a></var><br>
+&mdash; Host Hook: void * <b>HOST_HOOKS_GT_PCH_GET_ADDRESS</b> (<var>size_t size, int fd</var>)<var><a name="index-HOST_005fHOOKS_005fGT_005fPCH_005fGET_005fADDRESS-5025"></a></var><br>
 <blockquote><p>This host hook returns the address of some space that is likely to be
 free in some subsequent invocation of the compiler.  We intend to load
 the PCH data at this address such that the data need not be relocated. 
@@ -75,7 +75,7 @@ probing.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Host Hook: int <b>HOST_HOOKS_GT_PCH_USE_ADDRESS</b> (<var>void * address, size_t size, int fd, size_t offset</var>)<var><a name="index-HOST_005fHOOKS_005fGT_005fPCH_005fUSE_005fADDRESS-4972"></a></var><br>
+&mdash; Host Hook: int <b>HOST_HOOKS_GT_PCH_USE_ADDRESS</b> (<var>void * address, size_t size, int fd, size_t offset</var>)<var><a name="index-HOST_005fHOOKS_005fGT_005fPCH_005fUSE_005fADDRESS-5026"></a></var><br>
 <blockquote><p>This host hook is called when a PCH file is about to be loaded. 
 We want to load <var>size</var> bytes from <var>fd</var> at <var>offset</var>
 into memory at <var>address</var>.  The given address will be the result of
@@ -96,7 +96,7 @@ and such a PCH file won't work.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Host Hook: size_t <b>HOST_HOOKS_GT_PCH_ALLOC_GRANULARITY</b> (<var>void</var>)<var>;<a name="index-HOST_005fHOOKS_005fGT_005fPCH_005fALLOC_005fGRANULARITY-4973"></a></var><br>
+&mdash; Host Hook: size_t <b>HOST_HOOKS_GT_PCH_ALLOC_GRANULARITY</b> (<var>void</var>)<var>;<a name="index-HOST_005fHOOKS_005fGT_005fPCH_005fALLOC_005fGRANULARITY-5027"></a></var><br>
 <blockquote><p>This host hook returns the alignment required for allocating virtual
 memory.  Usually this is the same as getpagesize, but on some hosts the
 alignment for reserving memory differs from the pagesize for committing

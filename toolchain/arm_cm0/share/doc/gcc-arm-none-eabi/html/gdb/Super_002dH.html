@@ -9,7 +9,7 @@
 <link rel="prev" href="CRIS.html#CRIS" title="CRIS">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -47,12 +47,12 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Embedded-Processors.html#Embedded-Proce
 
 <h4 class="subsection">21.3.13 Renesas Super-H</h4>
 
-<p><a name="index-Super_002dH-1542"></a>
+<p><a name="index-Super_002dH-1579"></a>
 For the Renesas Super-H processor, <span class="sc">gdb</span> provides these
 commands:
 
      <dl>
-<dt><code>set sh calling-convention </code><var>convention</var><dd><a name="index-set-sh-calling_002dconvention-1543"></a>Set the calling-convention used when calling functions from <span class="sc">gdb</span>. 
+<dt><code>set sh calling-convention </code><var>convention</var><dd><a name="index-set-sh-calling_002dconvention-1580"></a>Set the calling-convention used when calling functions from <span class="sc">gdb</span>. 
 Allowed values are `<samp><span class="samp">gcc</span></samp>', which is the default setting, and `<samp><span class="samp">renesas</span></samp>'. 
 With the `<samp><span class="samp">gcc</span></samp>' setting, functions are called using the <span class="sc">gcc</span> calling
 convention.  If the DWARF-2 information of the called function specifies
@@ -63,7 +63,7 @@ regardless of the DWARF-2 information.  This can be used to override the
 default of `<samp><span class="samp">gcc</span></samp>' if debug information is missing, or the compiler
 does not emit the DWARF-2 calling convention entry for a function.
 
-     <br><dt><code>show sh calling-convention</code><dd><a name="index-show-sh-calling_002dconvention-1544"></a>Show the current calling convention setting.
+     <br><dt><code>show sh calling-convention</code><dd><a name="index-show-sh-calling_002dconvention-1581"></a>Show the current calling convention setting.
 
    </dl>
 

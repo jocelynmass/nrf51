@@ -10,7 +10,7 @@
 <link rel="next" href="_0040code_007bGIMPLE_005fSWITCH_007d.html#g_t_0040code_007bGIMPLE_005fSWITCH_007d" title="@code{GIMPLE_SWITCH}">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -53,22 +53,22 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Tuple-specific-accessors.html#Tuple-spe
 <hr>
 </div>
 
-<h4 class="subsection">11.7.25 <code>GIMPLE_RETURN</code></h4>
+<h4 class="subsection">11.8.26 <code>GIMPLE_RETURN</code></h4>
 
-<p><a name="index-g_t_0040code_007bGIMPLE_005fRETURN_007d-2403"></a>
+<p><a name="index-g_t_0040code_007bGIMPLE_005fRETURN_007d-2420"></a>
 
 <div class="defun">
-&mdash; GIMPLE function: gimple <b>gimple_build_return</b> (<var>tree retval</var>)<var><a name="index-gimple_005fbuild_005freturn-2404"></a></var><br>
+&mdash; GIMPLE function: greturn <b>*gimple_build_return</b> (<var>tree retval</var>)<var><a name="index-g_t_002agimple_005fbuild_005freturn-2421"></a></var><br>
 <blockquote><p>Build a <code>GIMPLE_RETURN</code> statement whose return value is retval. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: tree <b>gimple_return_retval</b> (<var>gimple g</var>)<var><a name="index-gimple_005freturn_005fretval-2405"></a></var><br>
+&mdash; GIMPLE function: tree <b>gimple_return_retval</b> (<var>const greturn *g</var>)<var><a name="index-gimple_005freturn_005fretval-2422"></a></var><br>
 <blockquote><p>Return the return value for <code>GIMPLE_RETURN</code> <code>G</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: void <b>gimple_return_set_retval</b> (<var>gimple g, tree retval</var>)<var><a name="index-gimple_005freturn_005fset_005fretval-2406"></a></var><br>
+&mdash; GIMPLE function: void <b>gimple_return_set_retval</b> (<var>greturn *g, tree retval</var>)<var><a name="index-gimple_005freturn_005fset_005fretval-2423"></a></var><br>
 <blockquote><p>Set <code>RETVAL</code> to be the return value for <code>GIMPLE_RETURN</code> <code>G</code>. 
 </p></blockquote></div>
 

@@ -12,7 +12,7 @@
 <!--
 This file documents the GNU Assembler "as".
 
-Copyright (C) 1991-2013 Free Software Foundation, Inc.
+Copyright (C) 1991-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
@@ -45,51 +45,51 @@ Up:&nbsp;<a rel="up" accesskey="u" href="NiosII_002dDependent.html#NiosII_002dDe
 <hr>
 </div>
 
-<h4 class="subsection">9.30.4 Nios II Machine Directives</h4>
+<h4 class="subsection">9.31.4 Nios II Machine Directives</h4>
 
-<p><a name="index-machine-directives_002c-Nios-II-1588"></a><a name="index-Nios-II-machine-directives-1589"></a>
+<p><a name="index-machine-directives_002c-Nios-II-1696"></a><a name="index-Nios-II-machine-directives-1697"></a>
      
-<a name="index-g_t_0040code_007balign_007d-directive_002c-Nios-II-1590"></a>
+<a name="index-g_t_0040code_007balign_007d-directive_002c-Nios-II-1698"></a>
 <dl><dt><code>.align </code><var>expression</var><code> [, </code><var>expression</var><code>]</code><dd>This is the generic <code>.align</code> directive, however
 this aligns to a power of two.
 
-     <p><a name="index-g_t_0040code_007bhalf_007d-directive_002c-Nios-II-1591"></a><br><dt><code>.half </code><var>expression</var><dd>Create an aligned constant 2 bytes in size.
+     <p><a name="index-g_t_0040code_007bhalf_007d-directive_002c-Nios-II-1699"></a><br><dt><code>.half </code><var>expression</var><dd>Create an aligned constant 2 bytes in size.
 
-     <p><a name="index-g_t_0040code_007bword_007d-directive_002c-Nios-II-1592"></a><br><dt><code>.word </code><var>expression</var><dd>Create an aligned constant 4 bytes in size.
+     <p><a name="index-g_t_0040code_007bword_007d-directive_002c-Nios-II-1700"></a><br><dt><code>.word </code><var>expression</var><dd>Create an aligned constant 4 bytes in size.
 
-     <p><a name="index-g_t_0040code_007bdword_007d-directive_002c-Nios-II-1593"></a><br><dt><code>.dword </code><var>expression</var><dd>Create an aligned constant 8 bytes in size.
+     <p><a name="index-g_t_0040code_007bdword_007d-directive_002c-Nios-II-1701"></a><br><dt><code>.dword </code><var>expression</var><dd>Create an aligned constant 8 bytes in size.
 
-     <p><a name="index-g_t_0040code_007b2byte_007d-directive_002c-Nios-II-1594"></a><br><dt><code>.2byte </code><var>expression</var><dd>Create an unaligned constant 2 bytes in size.
+     <p><a name="index-g_t_0040code_007b2byte_007d-directive_002c-Nios-II-1702"></a><br><dt><code>.2byte </code><var>expression</var><dd>Create an unaligned constant 2 bytes in size.
 
-     <p><a name="index-g_t_0040code_007b4byte_007d-directive_002c-Nios-II-1595"></a><br><dt><code>.4byte </code><var>expression</var><dd>Create an unaligned constant 4 bytes in size.
+     <p><a name="index-g_t_0040code_007b4byte_007d-directive_002c-Nios-II-1703"></a><br><dt><code>.4byte </code><var>expression</var><dd>Create an unaligned constant 4 bytes in size.
 
-     <p><a name="index-g_t_0040code_007b8byte_007d-directive_002c-Nios-II-1596"></a><br><dt><code>.8byte </code><var>expression</var><dd>Create an unaligned constant 8 bytes in size.
+     <p><a name="index-g_t_0040code_007b8byte_007d-directive_002c-Nios-II-1704"></a><br><dt><code>.8byte </code><var>expression</var><dd>Create an unaligned constant 8 bytes in size.
 
-     <p><a name="index-g_t_0040code_007b16byte_007d-directive_002c-Nios-II-1597"></a><br><dt><code>.16byte </code><var>expression</var><dd>Create an unaligned constant 16 bytes in size.
+     <p><a name="index-g_t_0040code_007b16byte_007d-directive_002c-Nios-II-1705"></a><br><dt><code>.16byte </code><var>expression</var><dd>Create an unaligned constant 16 bytes in size.
 
-     <p><a name="index-g_t_0040code_007bset-noat_007d-directive_002c-Nios-II-1598"></a><br><dt><code>.set noat</code><dd>Allows assembly code to use <code>at</code> register without
+     <p><a name="index-g_t_0040code_007bset-noat_007d-directive_002c-Nios-II-1706"></a><br><dt><code>.set noat</code><dd>Allows assembly code to use <code>at</code> register without
 warning.  Macro or relaxation expansions
 generate warnings.
 
-     <p><a name="index-g_t_0040code_007bset-at_007d-directive_002c-Nios-II-1599"></a><br><dt><code>.set at</code><dd>Assembly code using <code>at</code> register generates
+     <p><a name="index-g_t_0040code_007bset-at_007d-directive_002c-Nios-II-1707"></a><br><dt><code>.set at</code><dd>Assembly code using <code>at</code> register generates
 warnings, and macro expansion and relaxation are
 enabled.
 
-     <p><a name="index-g_t_0040code_007bset-nobreak_007d-directive_002c-Nios-II-1600"></a><br><dt><code>.set nobreak</code><dd>Allows assembly code to use <code>ba</code> and <code>bt</code>
+     <p><a name="index-g_t_0040code_007bset-nobreak_007d-directive_002c-Nios-II-1708"></a><br><dt><code>.set nobreak</code><dd>Allows assembly code to use <code>ba</code> and <code>bt</code>
 registers without warning.
 
-     <p><a name="index-g_t_0040code_007bset-break_007d-directive_002c-Nios-II-1601"></a><br><dt><code>.set break</code><dd>Turns warnings back on for using <code>ba</code> and <code>bt</code>
+     <p><a name="index-g_t_0040code_007bset-break_007d-directive_002c-Nios-II-1709"></a><br><dt><code>.set break</code><dd>Turns warnings back on for using <code>ba</code> and <code>bt</code>
 registers.
 
-     <p><a name="index-g_t_0040code_007bset-norelax_007d-directive_002c-Nios-II-1602"></a><br><dt><code>.set norelax</code><dd>Do not replace any branches or calls.
+     <p><a name="index-g_t_0040code_007bset-norelax_007d-directive_002c-Nios-II-1710"></a><br><dt><code>.set norelax</code><dd>Do not replace any branches or calls.
 
-     <p><a name="index-g_t_0040code_007bset-relaxsection_007d-directive_002c-Nios-II-1603"></a><br><dt><code>.set relaxsection</code><dd>Replace identified out-of-range branches with
+     <p><a name="index-g_t_0040code_007bset-relaxsection_007d-directive_002c-Nios-II-1711"></a><br><dt><code>.set relaxsection</code><dd>Replace identified out-of-range branches with
 <code>jmp</code> sequences (default).
 
-     <p><a name="index-g_t_0040code_007bset-relaxall_007d-directive_002c-Nios-II-1604"></a><br><dt><code>.set relaxsection</code><dd>Replace all branch and call instructions with
+     <p><a name="index-g_t_0040code_007bset-relaxall_007d-directive_002c-Nios-II-1712"></a><br><dt><code>.set relaxsection</code><dd>Replace all branch and call instructions with
 <code>jmp</code> and <code>callr</code> sequences.
 
-     <p><a name="index-g_t_0040code_007bset_007d-directive_002c-Nios-II-1605"></a><br><dt><code>.set ...</code><dd>All other <code>.set</code> are the normal use.
+     <p><a name="index-g_t_0040code_007bset_007d-directive_002c-Nios-II-1713"></a><br><dt><code>.set ...</code><dd>All other <code>.set</code> are the normal use.
 
    </dl>
 

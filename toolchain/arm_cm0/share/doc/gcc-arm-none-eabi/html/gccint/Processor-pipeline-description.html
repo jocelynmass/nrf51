@@ -9,7 +9,7 @@
 <link rel="prev" href="Delay-Slots.html#Delay-Slots" title="Delay Slots">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -52,7 +52,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Insn-Attributes.html#Insn-Attributes">I
 
 <h4 class="subsection">16.19.9 Specifying processor pipeline description</h4>
 
-<p><a name="index-processor-pipeline-description-3740"></a><a name="index-processor-functional-units-3741"></a><a name="index-instruction-latency-time-3742"></a><a name="index-interlock-delays-3743"></a><a name="index-data-dependence-delays-3744"></a><a name="index-reservation-delays-3745"></a><a name="index-pipeline-hazard-recognizer-3746"></a><a name="index-automaton-based-pipeline-description-3747"></a><a name="index-regular-expressions-3748"></a><a name="index-deterministic-finite-state-automaton-3749"></a><a name="index-automaton-based-scheduler-3750"></a><a name="index-RISC-3751"></a><a name="index-VLIW-3752"></a>
+<p><a name="index-processor-pipeline-description-3780"></a><a name="index-processor-functional-units-3781"></a><a name="index-instruction-latency-time-3782"></a><a name="index-interlock-delays-3783"></a><a name="index-data-dependence-delays-3784"></a><a name="index-reservation-delays-3785"></a><a name="index-pipeline-hazard-recognizer-3786"></a><a name="index-automaton-based-pipeline-description-3787"></a><a name="index-regular-expressions-3788"></a><a name="index-deterministic-finite-state-automaton-3789"></a><a name="index-automaton-based-scheduler-3790"></a><a name="index-RISC-3791"></a><a name="index-VLIW-3792"></a>
 To achieve better performance, most modern processors
 (super-pipelined, superscalar <acronym>RISC</acronym>, and <acronym>VLIW</acronym>
 processors) have many <dfn>functional units</dfn> on which several
@@ -99,12 +99,12 @@ automaton state to another one.  This algorithm is very fast, and
 furthermore, its speed is not dependent on processor
 complexity<a rel="footnote" href="#fn-1" name="fnd-1"><sup>1</sup></a>.
 
- <p><a name="index-automaton-based-pipeline-description-3753"></a>The rest of this section describes the directives that constitute
+ <p><a name="index-automaton-based-pipeline-description-3793"></a>The rest of this section describes the directives that constitute
 an automaton-based processor pipeline description.  The order of
 these constructions within the machine description file is not
 important.
 
- <p><a name="index-define_005fautomaton-3754"></a><a name="index-pipeline-hazard-recognizer-3755"></a>The following optional construction describes names of automata
+ <p><a name="index-define_005fautomaton-3794"></a><a name="index-pipeline-hazard-recognizer-3795"></a>The following optional construction describes names of automata
 generated and used for the pipeline hazards recognition.  Sometimes
 the generated finite state automaton used by the pipeline hazard
 recognizer is large.  If we use more than one automaton and bind functional
@@ -119,7 +119,7 @@ names are separated by commas.  All the automata should have unique names.
 The automaton name is used in the constructions <code>define_cpu_unit</code> and
 <code>define_query_cpu_unit</code>.
 
- <p><a name="index-define_005fcpu_005funit-3756"></a><a name="index-processor-functional-units-3757"></a>Each processor functional unit used in the description of instruction
+ <p><a name="index-define_005fcpu_005funit-3796"></a><a name="index-processor-functional-units-3797"></a>Each processor functional unit used in the description of instruction
 reservations should be described by the following construction.
 
 <pre class="smallexample">     (define_cpu_unit <var>unit-names</var> [<var>automaton-name</var>])
@@ -141,7 +141,7 @@ be present on the same cycle for the other alternatives of the insn
 reservation.  The rest of the constraints are mentioned in the
 description of the subsequent constructions.
 
- <p><a name="index-define_005fquery_005fcpu_005funit-3758"></a><a name="index-querying-function-unit-reservations-3759"></a>The following construction describes CPU functional units analogously
+ <p><a name="index-define_005fquery_005fcpu_005funit-3798"></a><a name="index-querying-function-unit-reservations-3799"></a>The following construction describes CPU functional units analogously
 to <code>define_cpu_unit</code>.  The reservation of such units can be
 queried for an automaton state.  The instruction scheduler never
 queries reservation of functional units for given automaton state.  So
@@ -157,7 +157,7 @@ separated by commas.
  <p><var>automaton-name</var> is a string giving the name of the automaton with
 which the unit is bound.
 
- <p><a name="index-define_005finsn_005freservation-3760"></a><a name="index-instruction-latency-time-3761"></a><a name="index-regular-expressions-3762"></a><a name="index-data-bypass-3763"></a>The following construction is the major one to describe pipeline
+ <p><a name="index-define_005finsn_005freservation-3800"></a><a name="index-instruction-latency-time-3801"></a><a name="index-regular-expressions-3802"></a><a name="index-data-bypass-3803"></a>The following construction is the major one to describe pipeline
 characteristics of an instruction.
 
 <pre class="smallexample">     (define_insn_reservation <var>insn-name</var> <var>default_latency</var>
@@ -240,7 +240,7 @@ functional unit.
      <li>`<samp><span class="samp">nothing</span></samp>' denotes no unit reservations. 
 </ul>
 
- <p><a name="index-define_005freservation-3764"></a>Sometimes unit reservations for different insns contain common parts. 
+ <p><a name="index-define_005freservation-3804"></a>Sometimes unit reservations for different insns contain common parts. 
 In such case, you can simplify the pipeline description by describing
 the common part by the following construction
 
@@ -251,7 +251,7 @@ Functional unit names and reservation names are in the same name
 space.  So the reservation names should be different from the
 functional unit names and can not be the reserved name `<samp><span class="samp">nothing</span></samp>'.
 
- <p><a name="index-define_005fbypass-3765"></a><a name="index-instruction-latency-time-3766"></a><a name="index-data-bypass-3767"></a>The following construction is used to describe exceptions in the
+ <p><a name="index-define_005fbypass-3805"></a><a name="index-instruction-latency-time-3806"></a><a name="index-data-bypass-3807"></a>The following construction is used to describe exceptions in the
 latency time for given instruction pair.  This is so called bypasses.
 
 <pre class="smallexample">     (define_bypass <var>number</var> <var>out_insn_names</var> <var>in_insn_names</var>
@@ -281,7 +281,7 @@ chosen bypass is the first bypass with a guard in description whose
 guard function returns nonzero.  If there is no such bypass, then
 bypass without the guard function is chosen.
 
- <p><a name="index-exclusion_005fset-3768"></a><a name="index-presence_005fset-3769"></a><a name="index-final_005fpresence_005fset-3770"></a><a name="index-absence_005fset-3771"></a><a name="index-final_005fabsence_005fset-3772"></a><a name="index-VLIW-3773"></a><a name="index-RISC-3774"></a>The following five constructions are usually used to describe
+ <p><a name="index-exclusion_005fset-3808"></a><a name="index-presence_005fset-3809"></a><a name="index-final_005fpresence_005fset-3810"></a><a name="index-absence_005fset-3811"></a><a name="index-final_005fabsence_005fset-3812"></a><a name="index-VLIW-3813"></a><a name="index-RISC-3814"></a>The following five constructions are usually used to describe
 <acronym>VLIW</acronym> processors, or more precisely, to describe a placement
 of small instructions into <acronym>VLIW</acronym> instruction slots.  They
 can be used for <acronym>RISC</acronym> processors, too.
@@ -366,7 +366,7 @@ automaton.
 `<samp><span class="samp">absence_set</span></samp>' but checking is done on the result (state)
 reservation.  See comments for `<samp><span class="samp">final_presence_set</span></samp>'.
 
- <p><a name="index-automata_005foption-3775"></a><a name="index-deterministic-finite-state-automaton-3776"></a><a name="index-nondeterministic-finite-state-automaton-3777"></a><a name="index-finite-state-automaton-minimization-3778"></a>You can control the generator of the pipeline hazard recognizer with
+ <p><a name="index-automata_005foption-3815"></a><a name="index-deterministic-finite-state-automaton-3816"></a><a name="index-nondeterministic-finite-state-automaton-3817"></a><a name="index-finite-state-automaton-minimization-3818"></a>You can control the generator of the pipeline hazard recognizer with
 the following construction.
 
 <pre class="smallexample">     (automata_option <var>options</var>)

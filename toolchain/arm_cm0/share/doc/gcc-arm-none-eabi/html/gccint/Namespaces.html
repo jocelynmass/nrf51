@@ -10,7 +10,7 @@
 <link rel="next" href="Classes.html#Classes" title="Classes">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -54,7 +54,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="C-and-C_002b_002b-Trees.html#C-and-C_00
 
 <h4 class="subsection">10.10.2 Namespaces</h4>
 
-<p><a name="index-namespace_002c-scope-2016"></a><a name="index-NAMESPACE_005fDECL-2017"></a>
+<p><a name="index-namespace_002c-scope-2032"></a><a name="index-NAMESPACE_005fDECL-2033"></a>
 The root of the entire intermediate representation is the variable
 <code>global_namespace</code>.  This is the namespace specified with <code>::</code>
 in C++ source code.  All other namespaces, types, variables, functions,
@@ -70,7 +70,7 @@ rather than the global namespace in particular.
  <p>The following macros and functions can be used on a <code>NAMESPACE_DECL</code>:
 
      <dl>
-<dt><code>DECL_NAME</code><a name="index-DECL_005fNAME-2018"></a><dd>This macro is used to obtain the <code>IDENTIFIER_NODE</code> corresponding to
+<dt><code>DECL_NAME</code><a name="index-DECL_005fNAME-2034"></a><dd>This macro is used to obtain the <code>IDENTIFIER_NODE</code> corresponding to
 the unqualified name of the name of the namespace (see <a href="Identifiers.html#Identifiers">Identifiers</a>). 
 The name of the global namespace is `<samp><span class="samp">::</span></samp>', even though in C++ the
 global namespace is unnamed.  However, you should use comparison with
@@ -80,10 +80,10 @@ will have a <code>DECL_NAME</code> equal to <code>anonymous_namespace_name</code
 Within a single translation unit, all unnamed namespaces will have the
 same name.
 
-     <br><dt><code>DECL_CONTEXT</code><a name="index-DECL_005fCONTEXT-2019"></a><dd>This macro returns the enclosing namespace.  The <code>DECL_CONTEXT</code> for
+     <br><dt><code>DECL_CONTEXT</code><a name="index-DECL_005fCONTEXT-2035"></a><dd>This macro returns the enclosing namespace.  The <code>DECL_CONTEXT</code> for
 the <code>global_namespace</code> is <code>NULL_TREE</code>.
 
-     <br><dt><code>DECL_NAMESPACE_ALIAS</code><a name="index-DECL_005fNAMESPACE_005fALIAS-2020"></a><dd>If this declaration is for a namespace alias, then
+     <br><dt><code>DECL_NAMESPACE_ALIAS</code><a name="index-DECL_005fNAMESPACE_005fALIAS-2036"></a><dd>If this declaration is for a namespace alias, then
 <code>DECL_NAMESPACE_ALIAS</code> is the namespace for which this one is an
 alias.
 
@@ -92,10 +92,10 @@ an alias.  Instead, follow <code>DECL_NAMESPACE_ALIAS</code> links until you
 reach an ordinary, non-alias, namespace, and call
 <code>cp_namespace_decls</code> there.
 
-     <br><dt><code>DECL_NAMESPACE_STD_P</code><a name="index-DECL_005fNAMESPACE_005fSTD_005fP-2021"></a><dd>This predicate holds if the namespace is the special <code>::std</code>
+     <br><dt><code>DECL_NAMESPACE_STD_P</code><a name="index-DECL_005fNAMESPACE_005fSTD_005fP-2037"></a><dd>This predicate holds if the namespace is the special <code>::std</code>
 namespace.
 
-     <br><dt><code>cp_namespace_decls</code><a name="index-cp_005fnamespace_005fdecls-2022"></a><dd>This function will return the declarations contained in the namespace,
+     <br><dt><code>cp_namespace_decls</code><a name="index-cp_005fnamespace_005fdecls-2038"></a><dd>This function will return the declarations contained in the namespace,
 including types, overloaded functions, other namespaces, and so forth. 
 If there are no declarations, this function will return
 <code>NULL_TREE</code>.  The declarations are connected through their

@@ -10,7 +10,7 @@
 <link rel="next" href="Registers.html#Registers" title="Registers">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -60,13 +60,13 @@ the previous section, these apply to specific features of C and related
 languages, rather than to fundamental aspects of storage layout.
 
 <div class="defun">
-&mdash; Macro: <b>INT_TYPE_SIZE</b><var><a name="index-INT_005fTYPE_005fSIZE-3943"></a></var><br>
+&mdash; Macro: <b>INT_TYPE_SIZE</b><var><a name="index-INT_005fTYPE_005fSIZE-3982"></a></var><br>
 <blockquote><p>A C expression for the size in bits of the type <code>int</code> on the
 target machine.  If you don't define this, the default is one word. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>SHORT_TYPE_SIZE</b><var><a name="index-SHORT_005fTYPE_005fSIZE-3944"></a></var><br>
+&mdash; Macro: <b>SHORT_TYPE_SIZE</b><var><a name="index-SHORT_005fTYPE_005fSIZE-3983"></a></var><br>
 <blockquote><p>A C expression for the size in bits of the type <code>short</code> on the
 target machine.  If you don't define this, the default is half a word. 
 (If this would be less than one storage unit, it is rounded up to one
@@ -74,13 +74,13 @@ unit.)
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>LONG_TYPE_SIZE</b><var><a name="index-LONG_005fTYPE_005fSIZE-3945"></a></var><br>
+&mdash; Macro: <b>LONG_TYPE_SIZE</b><var><a name="index-LONG_005fTYPE_005fSIZE-3984"></a></var><br>
 <blockquote><p>A C expression for the size in bits of the type <code>long</code> on the
 target machine.  If you don't define this, the default is one word. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>ADA_LONG_TYPE_SIZE</b><var><a name="index-ADA_005fLONG_005fTYPE_005fSIZE-3946"></a></var><br>
+&mdash; Macro: <b>ADA_LONG_TYPE_SIZE</b><var><a name="index-ADA_005fLONG_005fTYPE_005fSIZE-3985"></a></var><br>
 <blockquote><p>On some machines, the size used for the Ada equivalent of the type
 <code>long</code> by a native Ada compiler differs from that used by C.  In
 that situation, define this macro to be a C expression to be used for
@@ -89,7 +89,7 @@ value of <code>LONG_TYPE_SIZE</code>.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>LONG_LONG_TYPE_SIZE</b><var><a name="index-LONG_005fLONG_005fTYPE_005fSIZE-3947"></a></var><br>
+&mdash; Macro: <b>LONG_LONG_TYPE_SIZE</b><var><a name="index-LONG_005fLONG_005fTYPE_005fSIZE-3986"></a></var><br>
 <blockquote><p>A C expression for the size in bits of the type <code>long long</code> on the
 target machine.  If you don't define this, the default is two
 words.  If you want to support GNU Ada on your machine, the value of this
@@ -97,131 +97,97 @@ macro must be at least 64.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>CHAR_TYPE_SIZE</b><var><a name="index-CHAR_005fTYPE_005fSIZE-3948"></a></var><br>
+&mdash; Macro: <b>CHAR_TYPE_SIZE</b><var><a name="index-CHAR_005fTYPE_005fSIZE-3987"></a></var><br>
 <blockquote><p>A C expression for the size in bits of the type <code>char</code> on the
 target machine.  If you don't define this, the default is
 <code>BITS_PER_UNIT</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>BOOL_TYPE_SIZE</b><var><a name="index-BOOL_005fTYPE_005fSIZE-3949"></a></var><br>
+&mdash; Macro: <b>BOOL_TYPE_SIZE</b><var><a name="index-BOOL_005fTYPE_005fSIZE-3988"></a></var><br>
 <blockquote><p>A C expression for the size in bits of the C++ type <code>bool</code> and
 C99 type <code>_Bool</code> on the target machine.  If you don't define
 this, and you probably shouldn't, the default is <code>CHAR_TYPE_SIZE</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>FLOAT_TYPE_SIZE</b><var><a name="index-FLOAT_005fTYPE_005fSIZE-3950"></a></var><br>
+&mdash; Macro: <b>FLOAT_TYPE_SIZE</b><var><a name="index-FLOAT_005fTYPE_005fSIZE-3989"></a></var><br>
 <blockquote><p>A C expression for the size in bits of the type <code>float</code> on the
 target machine.  If you don't define this, the default is one word. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>DOUBLE_TYPE_SIZE</b><var><a name="index-DOUBLE_005fTYPE_005fSIZE-3951"></a></var><br>
+&mdash; Macro: <b>DOUBLE_TYPE_SIZE</b><var><a name="index-DOUBLE_005fTYPE_005fSIZE-3990"></a></var><br>
 <blockquote><p>A C expression for the size in bits of the type <code>double</code> on the
 target machine.  If you don't define this, the default is two
 words. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>LONG_DOUBLE_TYPE_SIZE</b><var><a name="index-LONG_005fDOUBLE_005fTYPE_005fSIZE-3952"></a></var><br>
+&mdash; Macro: <b>LONG_DOUBLE_TYPE_SIZE</b><var><a name="index-LONG_005fDOUBLE_005fTYPE_005fSIZE-3991"></a></var><br>
 <blockquote><p>A C expression for the size in bits of the type <code>long double</code> on
 the target machine.  If you don't define this, the default is two
 words. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>SHORT_FRACT_TYPE_SIZE</b><var><a name="index-SHORT_005fFRACT_005fTYPE_005fSIZE-3953"></a></var><br>
+&mdash; Macro: <b>SHORT_FRACT_TYPE_SIZE</b><var><a name="index-SHORT_005fFRACT_005fTYPE_005fSIZE-3992"></a></var><br>
 <blockquote><p>A C expression for the size in bits of the type <code>short _Fract</code> on
 the target machine.  If you don't define this, the default is
 <code>BITS_PER_UNIT</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>FRACT_TYPE_SIZE</b><var><a name="index-FRACT_005fTYPE_005fSIZE-3954"></a></var><br>
+&mdash; Macro: <b>FRACT_TYPE_SIZE</b><var><a name="index-FRACT_005fTYPE_005fSIZE-3993"></a></var><br>
 <blockquote><p>A C expression for the size in bits of the type <code>_Fract</code> on
 the target machine.  If you don't define this, the default is
 <code>BITS_PER_UNIT * 2</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>LONG_FRACT_TYPE_SIZE</b><var><a name="index-LONG_005fFRACT_005fTYPE_005fSIZE-3955"></a></var><br>
+&mdash; Macro: <b>LONG_FRACT_TYPE_SIZE</b><var><a name="index-LONG_005fFRACT_005fTYPE_005fSIZE-3994"></a></var><br>
 <blockquote><p>A C expression for the size in bits of the type <code>long _Fract</code> on
 the target machine.  If you don't define this, the default is
 <code>BITS_PER_UNIT * 4</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>LONG_LONG_FRACT_TYPE_SIZE</b><var><a name="index-LONG_005fLONG_005fFRACT_005fTYPE_005fSIZE-3956"></a></var><br>
+&mdash; Macro: <b>LONG_LONG_FRACT_TYPE_SIZE</b><var><a name="index-LONG_005fLONG_005fFRACT_005fTYPE_005fSIZE-3995"></a></var><br>
 <blockquote><p>A C expression for the size in bits of the type <code>long long _Fract</code> on
 the target machine.  If you don't define this, the default is
 <code>BITS_PER_UNIT * 8</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>SHORT_ACCUM_TYPE_SIZE</b><var><a name="index-SHORT_005fACCUM_005fTYPE_005fSIZE-3957"></a></var><br>
+&mdash; Macro: <b>SHORT_ACCUM_TYPE_SIZE</b><var><a name="index-SHORT_005fACCUM_005fTYPE_005fSIZE-3996"></a></var><br>
 <blockquote><p>A C expression for the size in bits of the type <code>short _Accum</code> on
 the target machine.  If you don't define this, the default is
 <code>BITS_PER_UNIT * 2</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>ACCUM_TYPE_SIZE</b><var><a name="index-ACCUM_005fTYPE_005fSIZE-3958"></a></var><br>
+&mdash; Macro: <b>ACCUM_TYPE_SIZE</b><var><a name="index-ACCUM_005fTYPE_005fSIZE-3997"></a></var><br>
 <blockquote><p>A C expression for the size in bits of the type <code>_Accum</code> on
 the target machine.  If you don't define this, the default is
 <code>BITS_PER_UNIT * 4</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>LONG_ACCUM_TYPE_SIZE</b><var><a name="index-LONG_005fACCUM_005fTYPE_005fSIZE-3959"></a></var><br>
+&mdash; Macro: <b>LONG_ACCUM_TYPE_SIZE</b><var><a name="index-LONG_005fACCUM_005fTYPE_005fSIZE-3998"></a></var><br>
 <blockquote><p>A C expression for the size in bits of the type <code>long _Accum</code> on
 the target machine.  If you don't define this, the default is
 <code>BITS_PER_UNIT * 8</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>LONG_LONG_ACCUM_TYPE_SIZE</b><var><a name="index-LONG_005fLONG_005fACCUM_005fTYPE_005fSIZE-3960"></a></var><br>
+&mdash; Macro: <b>LONG_LONG_ACCUM_TYPE_SIZE</b><var><a name="index-LONG_005fLONG_005fACCUM_005fTYPE_005fSIZE-3999"></a></var><br>
 <blockquote><p>A C expression for the size in bits of the type <code>long long _Accum</code> on
 the target machine.  If you don't define this, the default is
 <code>BITS_PER_UNIT * 16</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>LIBGCC2_LONG_DOUBLE_TYPE_SIZE</b><var><a name="index-LIBGCC2_005fLONG_005fDOUBLE_005fTYPE_005fSIZE-3961"></a></var><br>
-<blockquote><p>Define this macro if <code>LONG_DOUBLE_TYPE_SIZE</code> is not constant or
-if you want routines in <samp><span class="file">libgcc2.a</span></samp> for a size other than
-<code>LONG_DOUBLE_TYPE_SIZE</code>.  If you don't define this, the
-default is <code>LONG_DOUBLE_TYPE_SIZE</code>. 
-</p></blockquote></div>
-
-<div class="defun">
-&mdash; Macro: <b>LIBGCC2_HAS_DF_MODE</b><var><a name="index-LIBGCC2_005fHAS_005fDF_005fMODE-3962"></a></var><br>
-<blockquote><p>Define this macro if neither <code>DOUBLE_TYPE_SIZE</code> nor
-<code>LIBGCC2_LONG_DOUBLE_TYPE_SIZE</code> is
-<code>DFmode</code> but you want <code>DFmode</code> routines in <samp><span class="file">libgcc2.a</span></samp>
-anyway.  If you don't define this and either <code>DOUBLE_TYPE_SIZE</code>
-or <code>LIBGCC2_LONG_DOUBLE_TYPE_SIZE</code> is 64 then the default is 1,
-otherwise it is 0. 
-</p></blockquote></div>
-
-<div class="defun">
-&mdash; Macro: <b>LIBGCC2_HAS_XF_MODE</b><var><a name="index-LIBGCC2_005fHAS_005fXF_005fMODE-3963"></a></var><br>
-<blockquote><p>Define this macro if <code>LIBGCC2_LONG_DOUBLE_TYPE_SIZE</code> is not
-<code>XFmode</code> but you want <code>XFmode</code> routines in <samp><span class="file">libgcc2.a</span></samp>
-anyway.  If you don't define this and <code>LIBGCC2_LONG_DOUBLE_TYPE_SIZE</code>
-is 80 then the default is 1, otherwise it is 0. 
-</p></blockquote></div>
-
-<div class="defun">
-&mdash; Macro: <b>LIBGCC2_HAS_TF_MODE</b><var><a name="index-LIBGCC2_005fHAS_005fTF_005fMODE-3964"></a></var><br>
-<blockquote><p>Define this macro if <code>LIBGCC2_LONG_DOUBLE_TYPE_SIZE</code> is not
-<code>TFmode</code> but you want <code>TFmode</code> routines in <samp><span class="file">libgcc2.a</span></samp>
-anyway.  If you don't define this and <code>LIBGCC2_LONG_DOUBLE_TYPE_SIZE</code>
-is 128 then the default is 1, otherwise it is 0. 
-</p></blockquote></div>
-
-<div class="defun">
-&mdash; Macro: <b>LIBGCC2_GNU_PREFIX</b><var><a name="index-LIBGCC2_005fGNU_005fPREFIX-3965"></a></var><br>
+&mdash; Macro: <b>LIBGCC2_GNU_PREFIX</b><var><a name="index-LIBGCC2_005fGNU_005fPREFIX-4000"></a></var><br>
 <blockquote><p>This macro corresponds to the <code>TARGET_LIBFUNC_GNU_PREFIX</code> target
 hook and should be defined if that hook is overriden to be true.  It
 causes function names in libgcc to be changed to use a <code>__gnu_</code>
@@ -231,22 +197,7 @@ the libgcc <samp><span class="file">config.host</span></samp>.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>SF_SIZE</b><var><a name="index-SF_005fSIZE-3966"></a></var><br>
-&mdash; Macro: <b>DF_SIZE</b><var><a name="index-DF_005fSIZE-3967"></a></var><br>
-&mdash; Macro: <b>XF_SIZE</b><var><a name="index-XF_005fSIZE-3968"></a></var><br>
-&mdash; Macro: <b>TF_SIZE</b><var><a name="index-TF_005fSIZE-3969"></a></var><br>
-<blockquote><p>Define these macros to be the size in bits of the mantissa of
-<code>SFmode</code>, <code>DFmode</code>, <code>XFmode</code> and <code>TFmode</code> values,
-if the defaults in <samp><span class="file">libgcc2.h</span></samp> are inappropriate.  By default,
-<code>FLT_MANT_DIG</code> is used for <code>SF_SIZE</code>, <code>LDBL_MANT_DIG</code>
-for <code>XF_SIZE</code> and <code>TF_SIZE</code>, and <code>DBL_MANT_DIG</code> or
-<code>LDBL_MANT_DIG</code> for <code>DF_SIZE</code> according to whether
-<code>DOUBLE_TYPE_SIZE</code> or
-<code>LIBGCC2_LONG_DOUBLE_TYPE_SIZE</code> is 64. 
-</p></blockquote></div>
-
-<div class="defun">
-&mdash; Macro: <b>TARGET_FLT_EVAL_METHOD</b><var><a name="index-TARGET_005fFLT_005fEVAL_005fMETHOD-3970"></a></var><br>
+&mdash; Macro: <b>TARGET_FLT_EVAL_METHOD</b><var><a name="index-TARGET_005fFLT_005fEVAL_005fMETHOD-4001"></a></var><br>
 <blockquote><p>A C expression for the value for <code>FLT_EVAL_METHOD</code> in <samp><span class="file">float.h</span></samp>,
 assuming, if applicable, that the floating-point control word is in its
 default state.  If you do not define this macro the value of
@@ -254,7 +205,7 @@ default state.  If you do not define this macro the value of
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>WIDEST_HARDWARE_FP_SIZE</b><var><a name="index-WIDEST_005fHARDWARE_005fFP_005fSIZE-3971"></a></var><br>
+&mdash; Macro: <b>WIDEST_HARDWARE_FP_SIZE</b><var><a name="index-WIDEST_005fHARDWARE_005fFP_005fSIZE-4002"></a></var><br>
 <blockquote><p>A C expression for the size in bits of the widest floating-point format
 supported by the hardware.  If you define this macro, you must specify a
 value less than or equal to the value of <code>LONG_DOUBLE_TYPE_SIZE</code>. 
@@ -263,7 +214,7 @@ is the default.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>DEFAULT_SIGNED_CHAR</b><var><a name="index-DEFAULT_005fSIGNED_005fCHAR-3972"></a></var><br>
+&mdash; Macro: <b>DEFAULT_SIGNED_CHAR</b><var><a name="index-DEFAULT_005fSIGNED_005fCHAR-4003"></a></var><br>
 <blockquote><p>An expression whose value is 1 or 0, according to whether the type
 <code>char</code> should be signed or unsigned by default.  The user can
 always override this default with the options <samp><span class="option">-fsigned-char</span></samp>
@@ -271,7 +222,7 @@ and <samp><span class="option">-funsigned-char</span></samp>.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: bool <b>TARGET_DEFAULT_SHORT_ENUMS</b> (<var>void</var>)<var><a name="index-TARGET_005fDEFAULT_005fSHORT_005fENUMS-3973"></a></var><br>
+&mdash; Target Hook: bool <b>TARGET_DEFAULT_SHORT_ENUMS</b> (<var>void</var>)<var><a name="index-TARGET_005fDEFAULT_005fSHORT_005fENUMS-4004"></a></var><br>
 <blockquote><p>This target hook should return true if the compiler should give an
 <code>enum</code> type only as many bytes as it takes to represent the range
 of possible values of that type.  It should return false if all
@@ -281,7 +232,7 @@ of possible values of that type.  It should return false if all
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>SIZE_TYPE</b><var><a name="index-SIZE_005fTYPE-3974"></a></var><br>
+&mdash; Macro: <b>SIZE_TYPE</b><var><a name="index-SIZE_005fTYPE-4005"></a></var><br>
 <blockquote><p>A C expression for a string describing the name of the data type to use
 for size values.  The typedef name <code>size_t</code> is defined using the
 contents of the string.
@@ -299,7 +250,7 @@ int"</code>.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>SIZETYPE</b><var><a name="index-SIZETYPE-3975"></a></var><br>
+&mdash; Macro: <b>SIZETYPE</b><var><a name="index-SIZETYPE-4006"></a></var><br>
 <blockquote><p>GCC defines internal types (<code>sizetype</code>, <code>ssizetype</code>,
 <code>bitsizetype</code> and <code>sbitsizetype</code>) for expressions
 dealing with size.  This macro is a C expression for a string describing
@@ -312,7 +263,7 @@ is extracted.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>PTRDIFF_TYPE</b><var><a name="index-PTRDIFF_005fTYPE-3976"></a></var><br>
+&mdash; Macro: <b>PTRDIFF_TYPE</b><var><a name="index-PTRDIFF_005fTYPE-4007"></a></var><br>
 <blockquote><p>A C expression for a string describing the name of the data type to use
 for the result of subtracting two pointers.  The typedef name
 <code>ptrdiff_t</code> is defined using the contents of the string.  See
@@ -322,7 +273,7 @@ for the result of subtracting two pointers.  The typedef name
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>WCHAR_TYPE</b><var><a name="index-WCHAR_005fTYPE-3977"></a></var><br>
+&mdash; Macro: <b>WCHAR_TYPE</b><var><a name="index-WCHAR_005fTYPE-4008"></a></var><br>
 <blockquote><p>A C expression for a string describing the name of the data type to use
 for wide characters.  The typedef name <code>wchar_t</code> is defined using
 the contents of the string.  See <code>SIZE_TYPE</code> above for more
@@ -332,14 +283,14 @@ information.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>WCHAR_TYPE_SIZE</b><var><a name="index-WCHAR_005fTYPE_005fSIZE-3978"></a></var><br>
+&mdash; Macro: <b>WCHAR_TYPE_SIZE</b><var><a name="index-WCHAR_005fTYPE_005fSIZE-4009"></a></var><br>
 <blockquote><p>A C expression for the size in bits of the data type for wide
 characters.  This is used in <code>cpp</code>, which cannot make use of
 <code>WCHAR_TYPE</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>WINT_TYPE</b><var><a name="index-WINT_005fTYPE-3979"></a></var><br>
+&mdash; Macro: <b>WINT_TYPE</b><var><a name="index-WINT_005fTYPE-4010"></a></var><br>
 <blockquote><p>A C expression for a string describing the name of the data type to
 use for wide characters passed to <code>printf</code> and returned from
 <code>getwc</code>.  The typedef name <code>wint_t</code> is defined using the
@@ -350,7 +301,7 @@ information.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>INTMAX_TYPE</b><var><a name="index-INTMAX_005fTYPE-3980"></a></var><br>
+&mdash; Macro: <b>INTMAX_TYPE</b><var><a name="index-INTMAX_005fTYPE-4011"></a></var><br>
 <blockquote><p>A C expression for a string describing the name of the data type that
 can represent any value of any standard or extended signed integer type. 
 The typedef name <code>intmax_t</code> is defined using the contents of the
@@ -362,7 +313,7 @@ much precision as <code>long long int</code>.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>UINTMAX_TYPE</b><var><a name="index-UINTMAX_005fTYPE-3981"></a></var><br>
+&mdash; Macro: <b>UINTMAX_TYPE</b><var><a name="index-UINTMAX_005fTYPE-4012"></a></var><br>
 <blockquote><p>A C expression for a string describing the name of the data type that
 can represent any value of any standard or extended unsigned integer
 type.  The typedef name <code>uintmax_t</code> is defined using the contents
@@ -375,33 +326,33 @@ int</code>.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>SIG_ATOMIC_TYPE</b><var><a name="index-SIG_005fATOMIC_005fTYPE-3982"></a></var><br>
-&mdash; Macro: <b>INT8_TYPE</b><var><a name="index-INT8_005fTYPE-3983"></a></var><br>
-&mdash; Macro: <b>INT16_TYPE</b><var><a name="index-INT16_005fTYPE-3984"></a></var><br>
-&mdash; Macro: <b>INT32_TYPE</b><var><a name="index-INT32_005fTYPE-3985"></a></var><br>
-&mdash; Macro: <b>INT64_TYPE</b><var><a name="index-INT64_005fTYPE-3986"></a></var><br>
-&mdash; Macro: <b>UINT8_TYPE</b><var><a name="index-UINT8_005fTYPE-3987"></a></var><br>
-&mdash; Macro: <b>UINT16_TYPE</b><var><a name="index-UINT16_005fTYPE-3988"></a></var><br>
-&mdash; Macro: <b>UINT32_TYPE</b><var><a name="index-UINT32_005fTYPE-3989"></a></var><br>
-&mdash; Macro: <b>UINT64_TYPE</b><var><a name="index-UINT64_005fTYPE-3990"></a></var><br>
-&mdash; Macro: <b>INT_LEAST8_TYPE</b><var><a name="index-INT_005fLEAST8_005fTYPE-3991"></a></var><br>
-&mdash; Macro: <b>INT_LEAST16_TYPE</b><var><a name="index-INT_005fLEAST16_005fTYPE-3992"></a></var><br>
-&mdash; Macro: <b>INT_LEAST32_TYPE</b><var><a name="index-INT_005fLEAST32_005fTYPE-3993"></a></var><br>
-&mdash; Macro: <b>INT_LEAST64_TYPE</b><var><a name="index-INT_005fLEAST64_005fTYPE-3994"></a></var><br>
-&mdash; Macro: <b>UINT_LEAST8_TYPE</b><var><a name="index-UINT_005fLEAST8_005fTYPE-3995"></a></var><br>
-&mdash; Macro: <b>UINT_LEAST16_TYPE</b><var><a name="index-UINT_005fLEAST16_005fTYPE-3996"></a></var><br>
-&mdash; Macro: <b>UINT_LEAST32_TYPE</b><var><a name="index-UINT_005fLEAST32_005fTYPE-3997"></a></var><br>
-&mdash; Macro: <b>UINT_LEAST64_TYPE</b><var><a name="index-UINT_005fLEAST64_005fTYPE-3998"></a></var><br>
-&mdash; Macro: <b>INT_FAST8_TYPE</b><var><a name="index-INT_005fFAST8_005fTYPE-3999"></a></var><br>
-&mdash; Macro: <b>INT_FAST16_TYPE</b><var><a name="index-INT_005fFAST16_005fTYPE-4000"></a></var><br>
-&mdash; Macro: <b>INT_FAST32_TYPE</b><var><a name="index-INT_005fFAST32_005fTYPE-4001"></a></var><br>
-&mdash; Macro: <b>INT_FAST64_TYPE</b><var><a name="index-INT_005fFAST64_005fTYPE-4002"></a></var><br>
-&mdash; Macro: <b>UINT_FAST8_TYPE</b><var><a name="index-UINT_005fFAST8_005fTYPE-4003"></a></var><br>
-&mdash; Macro: <b>UINT_FAST16_TYPE</b><var><a name="index-UINT_005fFAST16_005fTYPE-4004"></a></var><br>
-&mdash; Macro: <b>UINT_FAST32_TYPE</b><var><a name="index-UINT_005fFAST32_005fTYPE-4005"></a></var><br>
-&mdash; Macro: <b>UINT_FAST64_TYPE</b><var><a name="index-UINT_005fFAST64_005fTYPE-4006"></a></var><br>
-&mdash; Macro: <b>INTPTR_TYPE</b><var><a name="index-INTPTR_005fTYPE-4007"></a></var><br>
-&mdash; Macro: <b>UINTPTR_TYPE</b><var><a name="index-UINTPTR_005fTYPE-4008"></a></var><br>
+&mdash; Macro: <b>SIG_ATOMIC_TYPE</b><var><a name="index-SIG_005fATOMIC_005fTYPE-4013"></a></var><br>
+&mdash; Macro: <b>INT8_TYPE</b><var><a name="index-INT8_005fTYPE-4014"></a></var><br>
+&mdash; Macro: <b>INT16_TYPE</b><var><a name="index-INT16_005fTYPE-4015"></a></var><br>
+&mdash; Macro: <b>INT32_TYPE</b><var><a name="index-INT32_005fTYPE-4016"></a></var><br>
+&mdash; Macro: <b>INT64_TYPE</b><var><a name="index-INT64_005fTYPE-4017"></a></var><br>
+&mdash; Macro: <b>UINT8_TYPE</b><var><a name="index-UINT8_005fTYPE-4018"></a></var><br>
+&mdash; Macro: <b>UINT16_TYPE</b><var><a name="index-UINT16_005fTYPE-4019"></a></var><br>
+&mdash; Macro: <b>UINT32_TYPE</b><var><a name="index-UINT32_005fTYPE-4020"></a></var><br>
+&mdash; Macro: <b>UINT64_TYPE</b><var><a name="index-UINT64_005fTYPE-4021"></a></var><br>
+&mdash; Macro: <b>INT_LEAST8_TYPE</b><var><a name="index-INT_005fLEAST8_005fTYPE-4022"></a></var><br>
+&mdash; Macro: <b>INT_LEAST16_TYPE</b><var><a name="index-INT_005fLEAST16_005fTYPE-4023"></a></var><br>
+&mdash; Macro: <b>INT_LEAST32_TYPE</b><var><a name="index-INT_005fLEAST32_005fTYPE-4024"></a></var><br>
+&mdash; Macro: <b>INT_LEAST64_TYPE</b><var><a name="index-INT_005fLEAST64_005fTYPE-4025"></a></var><br>
+&mdash; Macro: <b>UINT_LEAST8_TYPE</b><var><a name="index-UINT_005fLEAST8_005fTYPE-4026"></a></var><br>
+&mdash; Macro: <b>UINT_LEAST16_TYPE</b><var><a name="index-UINT_005fLEAST16_005fTYPE-4027"></a></var><br>
+&mdash; Macro: <b>UINT_LEAST32_TYPE</b><var><a name="index-UINT_005fLEAST32_005fTYPE-4028"></a></var><br>
+&mdash; Macro: <b>UINT_LEAST64_TYPE</b><var><a name="index-UINT_005fLEAST64_005fTYPE-4029"></a></var><br>
+&mdash; Macro: <b>INT_FAST8_TYPE</b><var><a name="index-INT_005fFAST8_005fTYPE-4030"></a></var><br>
+&mdash; Macro: <b>INT_FAST16_TYPE</b><var><a name="index-INT_005fFAST16_005fTYPE-4031"></a></var><br>
+&mdash; Macro: <b>INT_FAST32_TYPE</b><var><a name="index-INT_005fFAST32_005fTYPE-4032"></a></var><br>
+&mdash; Macro: <b>INT_FAST64_TYPE</b><var><a name="index-INT_005fFAST64_005fTYPE-4033"></a></var><br>
+&mdash; Macro: <b>UINT_FAST8_TYPE</b><var><a name="index-UINT_005fFAST8_005fTYPE-4034"></a></var><br>
+&mdash; Macro: <b>UINT_FAST16_TYPE</b><var><a name="index-UINT_005fFAST16_005fTYPE-4035"></a></var><br>
+&mdash; Macro: <b>UINT_FAST32_TYPE</b><var><a name="index-UINT_005fFAST32_005fTYPE-4036"></a></var><br>
+&mdash; Macro: <b>UINT_FAST64_TYPE</b><var><a name="index-UINT_005fFAST64_005fTYPE-4037"></a></var><br>
+&mdash; Macro: <b>INTPTR_TYPE</b><var><a name="index-INTPTR_005fTYPE-4038"></a></var><br>
+&mdash; Macro: <b>UINTPTR_TYPE</b><var><a name="index-UINTPTR_005fTYPE-4039"></a></var><br>
 <blockquote><p>C expressions for the standard types <code>sig_atomic_t</code>,
 <code>int8_t</code>, <code>int16_t</code>, <code>int32_t</code>, <code>int64_t</code>,
 <code>uint8_t</code>, <code>uint16_t</code>, <code>uint32_t</code>, <code>uint64_t</code>,
@@ -421,7 +372,7 @@ these macros are null pointers.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>TARGET_PTRMEMFUNC_VBIT_LOCATION</b><var><a name="index-TARGET_005fPTRMEMFUNC_005fVBIT_005fLOCATION-4009"></a></var><br>
+&mdash; Macro: <b>TARGET_PTRMEMFUNC_VBIT_LOCATION</b><var><a name="index-TARGET_005fPTRMEMFUNC_005fVBIT_005fLOCATION-4040"></a></var><br>
 <blockquote><p>The C++ compiler represents a pointer-to-member-function with a struct
 that looks like:
 
@@ -458,7 +409,7 @@ in which function addresses are always even, according to
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>TARGET_VTABLE_USES_DESCRIPTORS</b><var><a name="index-TARGET_005fVTABLE_005fUSES_005fDESCRIPTORS-4010"></a></var><br>
+&mdash; Macro: <b>TARGET_VTABLE_USES_DESCRIPTORS</b><var><a name="index-TARGET_005fVTABLE_005fUSES_005fDESCRIPTORS-4041"></a></var><br>
 <blockquote><p>Normally, the C++ compiler uses function pointers in vtables.  This
 macro allows the target to change to use &ldquo;function descriptors&rdquo;
 instead.  Function descriptors are found on targets for whom a
@@ -471,7 +422,7 @@ of words that the function descriptor occupies.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>TARGET_VTABLE_ENTRY_ALIGN</b><var><a name="index-TARGET_005fVTABLE_005fENTRY_005fALIGN-4011"></a></var><br>
+&mdash; Macro: <b>TARGET_VTABLE_ENTRY_ALIGN</b><var><a name="index-TARGET_005fVTABLE_005fENTRY_005fALIGN-4042"></a></var><br>
 <blockquote><p>By default, the vtable entries are void pointers, the so the alignment
 is the same as pointer alignment.  The value of this macro specifies
 the alignment of the vtable entry in bits.  It should be defined only
@@ -479,7 +430,7 @@ when special alignment is necessary. */
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>TARGET_VTABLE_DATA_ENTRY_DISTANCE</b><var><a name="index-TARGET_005fVTABLE_005fDATA_005fENTRY_005fDISTANCE-4012"></a></var><br>
+&mdash; Macro: <b>TARGET_VTABLE_DATA_ENTRY_DISTANCE</b><var><a name="index-TARGET_005fVTABLE_005fDATA_005fENTRY_005fDISTANCE-4043"></a></var><br>
 <blockquote><p>There are a few non-descriptor entries in the vtable at offsets below
 zero.  If these entries must be padded (say, to preserve the alignment
 specified by <code>TARGET_VTABLE_ENTRY_ALIGN</code>), set this to the number

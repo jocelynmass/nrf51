@@ -9,7 +9,7 @@
 <link rel="prev" href="Adding-a-new-GIMPLE-statement-code.html#Adding-a-new-GIMPLE-statement-code" title="Adding a new GIMPLE statement code">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -50,16 +50,16 @@ Up:&nbsp;<a rel="up" accesskey="u" href="GIMPLE.html#GIMPLE">GIMPLE</a>
 <hr>
 </div>
 
-<h3 class="section">11.11 Statement and operand traversals</h3>
+<h3 class="section">11.12 Statement and operand traversals</h3>
 
-<p><a name="index-Statement-and-operand-traversals-2484"></a>
+<p><a name="index-Statement-and-operand-traversals-2501"></a>
 There are two functions available for walking statements and
 sequences: <code>walk_gimple_stmt</code> and <code>walk_gimple_seq</code>,
 accordingly, and a third function for walking the operands in a
 statement: <code>walk_gimple_op</code>.
 
 <div class="defun">
-&mdash; GIMPLE function: tree <b>walk_gimple_stmt</b> (<var>gimple_stmt_iterator *gsi, walk_stmt_fn callback_stmt, walk_tree_fn callback_op, struct walk_stmt_info *wi</var>)<var><a name="index-walk_005fgimple_005fstmt-2485"></a></var><br>
+&mdash; GIMPLE function: tree <b>walk_gimple_stmt</b> (<var>gimple_stmt_iterator *gsi, walk_stmt_fn callback_stmt, walk_tree_fn callback_op, struct walk_stmt_info *wi</var>)<var><a name="index-walk_005fgimple_005fstmt-2502"></a></var><br>
 <blockquote><p>This function is used to walk the current statement in <code>GSI</code>,
 optionally using traversal state stored in <code>WI</code>.  If <code>WI</code> is <code>NULL</code>, no
 state is kept during the traversal.
@@ -79,7 +79,7 @@ operands are not scanned.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: tree <b>walk_gimple_op</b> (<var>gimple stmt, walk_tree_fn callback_op, struct walk_stmt_info *wi</var>)<var><a name="index-walk_005fgimple_005fop-2486"></a></var><br>
+&mdash; GIMPLE function: tree <b>walk_gimple_op</b> (<var>gimple stmt, walk_tree_fn callback_op, struct walk_stmt_info *wi</var>)<var><a name="index-walk_005fgimple_005fop-2503"></a></var><br>
 <blockquote><p>Use this function to walk the operands of statement <code>STMT</code>.  Every
 operand is walked via <code>walk_tree</code> with optional state information
 in <code>WI</code>.
@@ -97,7 +97,7 @@ specified.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: tree <b>walk_gimple_seq</b> (<var>gimple_seq seq, walk_stmt_fn callback_stmt, walk_tree_fn callback_op, struct walk_stmt_info *wi</var>)<var><a name="index-walk_005fgimple_005fseq-2487"></a></var><br>
+&mdash; GIMPLE function: tree <b>walk_gimple_seq</b> (<var>gimple_seq seq, walk_stmt_fn callback_stmt, walk_tree_fn callback_op, struct walk_stmt_info *wi</var>)<var><a name="index-walk_005fgimple_005fseq-2504"></a></var><br>
 <blockquote><p>This function walks all the statements in the sequence <code>SEQ</code>
 calling <code>walk_gimple_stmt</code> on each one.  <code>WI</code> is as in
 <code>walk_gimple_stmt</code>.  If <code>walk_gimple_stmt</code> returns non-<code>NULL</code>, the walk
@@ -105,7 +105,7 @@ is stopped and the value returned.  Otherwise, all the statements
 are walked and <code>NULL_TREE</code> returned. 
 </p></blockquote></div>
 
-<!-- Copyright (C) 2004-2014 Free Software Foundation, Inc. -->
+<!-- Copyright (C) 2004-2015 Free Software Foundation, Inc. -->
 <!-- This is part of the GCC manual. -->
 <!-- For copying conditions, see the file gcc.texi. -->
 <!--  -->

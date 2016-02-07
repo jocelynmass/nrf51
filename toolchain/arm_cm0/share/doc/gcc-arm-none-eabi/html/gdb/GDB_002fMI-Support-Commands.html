@@ -10,7 +10,7 @@
 <link rel="next" href="GDB_002fMI-Miscellaneous-Commands.html#GDB_002fMI-Miscellaneous-Commands" title="GDB/MI Miscellaneous Commands">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -56,7 +56,7 @@ to query <span class="sc">gdb</span> about target support of certain features.
 
 <h4 class="subheading">The <code>-info-gdb-mi-command</code> Command</h4>
 
-<p><a name="index-g_t_0040code_007b_002dinfo_002dgdb_002dmi_002dcommand_007d-2894"></a><a name="index-g_t_002dinfo_002dgdb_002dmi_002dcommand-2895"></a>
+<p><a name="index-g_t_0040code_007b_002dinfo_002dgdb_002dmi_002dcommand_007d-2970"></a><a name="index-g_t_002dinfo_002dgdb_002dmi_002dcommand-2971"></a>
 
 <h5 class="subsubheading">Synopsis</h5>
 
@@ -98,7 +98,7 @@ to the debugger:
 </pre>
    <h4 class="subheading">The <code>-list-features</code> Command</h4>
 
-<p><a name="index-g_t_002dlist_002dfeatures-2896"></a><a name="index-supported-_0040sc_007bgdb_002fmi_007d-features_002c-list-2897"></a>
+<p><a name="index-g_t_002dlist_002dfeatures-2972"></a><a name="index-supported-_0040sc_007bgdb_002fmi_007d-features_002c-list-2973"></a>
 Returns a list of particular features of the MI protocol that
 this version of gdb implements.  A feature can be a command,
 or a new field in an output of some command, or even an
@@ -119,33 +119,33 @@ is given below.
    <p>The current list of features is:
 
      <dl>
-<dt>`<samp><span class="samp">frozen-varobjs</span></samp>'<a name="index-frozen_002dvarobjs-2898"></a><dd>Indicates support for the <code>-var-set-frozen</code> command, as well
+<dt>`<samp><span class="samp">frozen-varobjs</span></samp>'<a name="index-frozen_002dvarobjs-2974"></a><dd>Indicates support for the <code>-var-set-frozen</code> command, as well
 as possible presense of the <code>frozen</code> field in the output
 of <code>-varobj-create</code>. 
-<br><dt>`<samp><span class="samp">pending-breakpoints</span></samp>'<a name="index-pending_002dbreakpoints-2899"></a><dd>Indicates support for the <samp><span class="option">-f</span></samp> option to the <code>-break-insert</code>
+<br><dt>`<samp><span class="samp">pending-breakpoints</span></samp>'<a name="index-pending_002dbreakpoints-2975"></a><dd>Indicates support for the <samp><span class="option">-f</span></samp> option to the <code>-break-insert</code>
 command. 
-<br><dt>`<samp><span class="samp">python</span></samp>'<a name="index-python-2900"></a><dd>Indicates Python scripting support, Python-based
+<br><dt>`<samp><span class="samp">python</span></samp>'<a name="index-python-2976"></a><dd>Indicates Python scripting support, Python-based
 pretty-printing commands, and possible presence of the
 `<samp><span class="samp">display_hint</span></samp>' field in the output of <code>-var-list-children</code>
-<br><dt>`<samp><span class="samp">thread-info</span></samp>'<a name="index-thread_002dinfo-2901"></a><dd>Indicates support for the <code>-thread-info</code> command. 
-<br><dt>`<samp><span class="samp">data-read-memory-bytes</span></samp>'<a name="index-data_002dread_002dmemory_002dbytes-2902"></a><dd>Indicates support for the <code>-data-read-memory-bytes</code> and the
+<br><dt>`<samp><span class="samp">thread-info</span></samp>'<a name="index-thread_002dinfo-2977"></a><dd>Indicates support for the <code>-thread-info</code> command. 
+<br><dt>`<samp><span class="samp">data-read-memory-bytes</span></samp>'<a name="index-data_002dread_002dmemory_002dbytes-2978"></a><dd>Indicates support for the <code>-data-read-memory-bytes</code> and the
 <code>-data-write-memory-bytes</code> commands. 
-<br><dt>`<samp><span class="samp">breakpoint-notifications</span></samp>'<a name="index-breakpoint_002dnotifications-2903"></a><dd>Indicates that changes to breakpoints and breakpoints created via the
+<br><dt>`<samp><span class="samp">breakpoint-notifications</span></samp>'<a name="index-breakpoint_002dnotifications-2979"></a><dd>Indicates that changes to breakpoints and breakpoints created via the
 CLI will be announced via async records. 
-<br><dt>`<samp><span class="samp">ada-task-info</span></samp>'<a name="index-ada_002dtask_002dinfo-2904"></a><dd>Indicates support for the <code>-ada-task-info</code> command. 
-<br><dt>`<samp><span class="samp">language-option</span></samp>'<a name="index-language_002doption-2905"></a><dd>Indicates that all <span class="sc">gdb/mi</span> commands accept the <samp><span class="option">--language</span></samp>
+<br><dt>`<samp><span class="samp">ada-task-info</span></samp>'<a name="index-ada_002dtask_002dinfo-2980"></a><dd>Indicates support for the <code>-ada-task-info</code> command. 
+<br><dt>`<samp><span class="samp">language-option</span></samp>'<a name="index-language_002doption-2981"></a><dd>Indicates that all <span class="sc">gdb/mi</span> commands accept the <samp><span class="option">--language</span></samp>
 option (see <a href="Context-management.html#Context-management">Context management</a>). 
-<br><dt>`<samp><span class="samp">info-gdb-mi-command</span></samp>'<a name="index-info_002dgdb_002dmi_002dcommand-2906"></a><dd>Indicates support for the <code>-info-gdb-mi-command</code> command. 
-<br><dt>`<samp><span class="samp">undefined-command-error-code</span></samp>'<a name="index-undefined_002dcommand_002derror_002dcode-2907"></a><dd>Indicates support for the "undefined-command" error code in error result
+<br><dt>`<samp><span class="samp">info-gdb-mi-command</span></samp>'<a name="index-info_002dgdb_002dmi_002dcommand-2982"></a><dd>Indicates support for the <code>-info-gdb-mi-command</code> command. 
+<br><dt>`<samp><span class="samp">undefined-command-error-code</span></samp>'<a name="index-undefined_002dcommand_002derror_002dcode-2983"></a><dd>Indicates support for the "undefined-command" error code in error result
 records, produced when trying to execute an undefined <span class="sc">gdb/mi</span> command
 (see <a href="GDB_002fMI-Result-Records.html#GDB_002fMI-Result-Records">GDB/MI Result Records</a>). 
-<br><dt>`<samp><span class="samp">exec-run-start-option</span></samp>'<a name="index-exec_002drun_002dstart_002doption-2908"></a><dd>Indicates that the <code>-exec-run</code> command supports the <samp><span class="option">--start</span></samp>
+<br><dt>`<samp><span class="samp">exec-run-start-option</span></samp>'<a name="index-exec_002drun_002dstart_002doption-2984"></a><dd>Indicates that the <code>-exec-run</code> command supports the <samp><span class="option">--start</span></samp>
 option (see <a href="GDB_002fMI-Program-Execution.html#GDB_002fMI-Program-Execution">GDB/MI Program Execution</a>). 
 </dl>
 
 <h4 class="subheading">The <code>-list-target-features</code> Command</h4>
 
-<p><a name="index-g_t_002dlist_002dtarget_002dfeatures-2909"></a>
+<p><a name="index-g_t_002dlist_002dtarget_002dfeatures-2985"></a>
 Returns a list of particular features that are supported by the
 target.  Those features affect the permitted MI commands, but
 unlike the features reported by the <code>-list-features</code> command, the

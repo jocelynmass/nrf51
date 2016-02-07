@@ -10,7 +10,7 @@
 <link rel="next" href="Tagging-Insns.html#Tagging-Insns" title="Tagging Insns">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -54,13 +54,13 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Insn-Attributes.html#Insn-Attributes">I
 
 <h4 class="subsection">16.19.2 Attribute Expressions</h4>
 
-<p><a name="index-attribute-expressions-3686"></a>
+<p><a name="index-attribute-expressions-3726"></a>
 RTL expressions used to define attributes use the codes described above
 plus a few specific to attribute definitions, to be discussed below. 
 Attribute value expressions must have one of the following forms:
 
      
-<a name="index-g_t_0040code_007bconst_005fint_007d-and-attributes-3687"></a>
+<a name="index-g_t_0040code_007bconst_005fint_007d-and-attributes-3727"></a>
 <dl><dt><code>(const_int </code><var>i</var><code>)</code><dd>The integer <var>i</var> specifies the value of a numeric attribute.  <var>i</var>
 must be non-negative.
 
@@ -70,7 +70,7 @@ must be non-negative.
 <code>symbol_ref</code>, simple arithmetic expressions, and <code>set_attr</code>
 overrides on specific instructions (see <a href="Tagging-Insns.html#Tagging-Insns">Tagging Insns</a>).
 
-     <p><a name="index-g_t_0040code_007bconst_005fstring_007d-and-attributes-3688"></a><br><dt><code>(const_string </code><var>value</var><code>)</code><dd>The string <var>value</var> specifies a constant attribute value. 
+     <p><a name="index-g_t_0040code_007bconst_005fstring_007d-and-attributes-3728"></a><br><dt><code>(const_string </code><var>value</var><code>)</code><dd>The string <var>value</var> specifies a constant attribute value. 
 If <var>value</var> is specified as `<samp><span class="samp">"*"</span></samp>', it means that the default value of
 the attribute is to be used for the insn containing this expression. 
 `<samp><span class="samp">"*"</span></samp>' obviously cannot be used in the <var>default</var> expression
@@ -81,11 +81,11 @@ must be a string containing a non-negative integer (normally
 <code>const_int</code> would be used in this case).  Otherwise, it must
 contain one of the valid values for the attribute.
 
-     <p><a name="index-g_t_0040code_007bif_005fthen_005felse_007d-and-attributes-3689"></a><br><dt><code>(if_then_else </code><var>test</var> <var>true-value</var> <var>false-value</var><code>)</code><dd><var>test</var> specifies an attribute test, whose format is defined below. 
+     <p><a name="index-g_t_0040code_007bif_005fthen_005felse_007d-and-attributes-3729"></a><br><dt><code>(if_then_else </code><var>test</var> <var>true-value</var> <var>false-value</var><code>)</code><dd><var>test</var> specifies an attribute test, whose format is defined below. 
 The value of this expression is <var>true-value</var> if <var>test</var> is true,
 otherwise it is <var>false-value</var>.
 
-     <p><a name="index-g_t_0040code_007bcond_007d-and-attributes-3690"></a><br><dt><code>(cond [</code><var>test1</var> <var>value1</var><code> ...] </code><var>default</var><code>)</code><dd>The first operand of this expression is a vector containing an even
+     <p><a name="index-g_t_0040code_007bcond_007d-and-attributes-3730"></a><br><dt><code>(cond [</code><var>test1</var> <var>value1</var><code> ...] </code><var>default</var><code>)</code><dd>The first operand of this expression is a vector containing an even
 number of expressions and consisting of pairs of <var>test</var> and <var>value</var>
 expressions.  The value of the <code>cond</code> expression is that of the
 <var>value</var> corresponding to the first true <var>test</var> expression.  If
@@ -96,12 +96,12 @@ expression is that of the <var>default</var> expression.
  <p><var>test</var> expressions can have one of the following forms:
 
      
-<a name="index-g_t_0040code_007bconst_005fint_007d-and-attribute-tests-3691"></a>
+<a name="index-g_t_0040code_007bconst_005fint_007d-and-attribute-tests-3731"></a>
 <dl><dt><code>(const_int </code><var>i</var><code>)</code><dd>This test is true if <var>i</var> is nonzero and false otherwise.
 
-     <p><a name="index-g_t_0040code_007bnot_007d-and-attributes-3692"></a><a name="index-g_t_0040code_007bior_007d-and-attributes-3693"></a><a name="index-g_t_0040code_007band_007d-and-attributes-3694"></a><br><dt><code>(not </code><var>test</var><code>)</code><dt><code>(ior </code><var>test1</var> <var>test2</var><code>)</code><dt><code>(and </code><var>test1</var> <var>test2</var><code>)</code><dd>These tests are true if the indicated logical function is true.
+     <p><a name="index-g_t_0040code_007bnot_007d-and-attributes-3732"></a><a name="index-g_t_0040code_007bior_007d-and-attributes-3733"></a><a name="index-g_t_0040code_007band_007d-and-attributes-3734"></a><br><dt><code>(not </code><var>test</var><code>)</code><dt><code>(ior </code><var>test1</var> <var>test2</var><code>)</code><dt><code>(and </code><var>test1</var> <var>test2</var><code>)</code><dd>These tests are true if the indicated logical function is true.
 
-     <p><a name="index-g_t_0040code_007bmatch_005foperand_007d-and-attributes-3695"></a><br><dt><code>(match_operand:</code><var>m</var> <var>n</var> <var>pred</var> <var>constraints</var><code>)</code><dd>This test is true if operand <var>n</var> of the insn whose attribute value
+     <p><a name="index-g_t_0040code_007bmatch_005foperand_007d-and-attributes-3735"></a><br><dt><code>(match_operand:</code><var>m</var> <var>n</var> <var>pred</var> <var>constraints</var><code>)</code><dd>This test is true if operand <var>n</var> of the insn whose attribute value
 is being determined has mode <var>m</var> (this part of the test is ignored
 if <var>m</var> is <code>VOIDmode</code>) and the function specified by the string
 <var>pred</var> returns a nonzero value when passed operand <var>n</var> and mode
@@ -110,7 +110,7 @@ string).
 
      <p>The <var>constraints</var> operand is ignored and should be the null string.
 
-     <p><a name="index-g_t_0040code_007bmatch_005ftest_007d-and-attributes-3696"></a><br><dt><code>(match_test </code><var>c-expr</var><code>)</code><dd>The test is true if C expression <var>c-expr</var> is true.  In non-constant
+     <p><a name="index-g_t_0040code_007bmatch_005ftest_007d-and-attributes-3736"></a><br><dt><code>(match_test </code><var>c-expr</var><code>)</code><dd>The test is true if C expression <var>c-expr</var> is true.  In non-constant
 attributes, <var>c-expr</var> has access to the following variables:
 
           <dl>
@@ -127,18 +127,18 @@ so there is no need to explicitly convert the expression into a boolean
      <pre class="smallexample">          (match_test "x &amp; 2")
           (match_test "(x &amp; 2) != 0")
      </pre>
-     <p><a name="index-g_t_0040code_007ble_007d-and-attributes-3697"></a><a name="index-g_t_0040code_007bleu_007d-and-attributes-3698"></a><a name="index-g_t_0040code_007blt_007d-and-attributes-3699"></a><a name="index-g_t_0040code_007bgt_007d-and-attributes-3700"></a><a name="index-g_t_0040code_007bgtu_007d-and-attributes-3701"></a><a name="index-g_t_0040code_007bge_007d-and-attributes-3702"></a><a name="index-g_t_0040code_007bgeu_007d-and-attributes-3703"></a><a name="index-g_t_0040code_007bne_007d-and-attributes-3704"></a><a name="index-g_t_0040code_007beq_007d-and-attributes-3705"></a><a name="index-g_t_0040code_007bplus_007d-and-attributes-3706"></a><a name="index-g_t_0040code_007bminus_007d-and-attributes-3707"></a><a name="index-g_t_0040code_007bmult_007d-and-attributes-3708"></a><a name="index-g_t_0040code_007bdiv_007d-and-attributes-3709"></a><a name="index-g_t_0040code_007bmod_007d-and-attributes-3710"></a><a name="index-g_t_0040code_007babs_007d-and-attributes-3711"></a><a name="index-g_t_0040code_007bneg_007d-and-attributes-3712"></a><a name="index-g_t_0040code_007bashift_007d-and-attributes-3713"></a><a name="index-g_t_0040code_007blshiftrt_007d-and-attributes-3714"></a><a name="index-g_t_0040code_007bashiftrt_007d-and-attributes-3715"></a><br><dt><code>(le </code><var>arith1</var> <var>arith2</var><code>)</code><dt><code>(leu </code><var>arith1</var> <var>arith2</var><code>)</code><dt><code>(lt </code><var>arith1</var> <var>arith2</var><code>)</code><dt><code>(ltu </code><var>arith1</var> <var>arith2</var><code>)</code><dt><code>(gt </code><var>arith1</var> <var>arith2</var><code>)</code><dt><code>(gtu </code><var>arith1</var> <var>arith2</var><code>)</code><dt><code>(ge </code><var>arith1</var> <var>arith2</var><code>)</code><dt><code>(geu </code><var>arith1</var> <var>arith2</var><code>)</code><dt><code>(ne </code><var>arith1</var> <var>arith2</var><code>)</code><dt><code>(eq </code><var>arith1</var> <var>arith2</var><code>)</code><dd>These tests are true if the indicated comparison of the two arithmetic
+     <p><a name="index-g_t_0040code_007ble_007d-and-attributes-3737"></a><a name="index-g_t_0040code_007bleu_007d-and-attributes-3738"></a><a name="index-g_t_0040code_007blt_007d-and-attributes-3739"></a><a name="index-g_t_0040code_007bgt_007d-and-attributes-3740"></a><a name="index-g_t_0040code_007bgtu_007d-and-attributes-3741"></a><a name="index-g_t_0040code_007bge_007d-and-attributes-3742"></a><a name="index-g_t_0040code_007bgeu_007d-and-attributes-3743"></a><a name="index-g_t_0040code_007bne_007d-and-attributes-3744"></a><a name="index-g_t_0040code_007beq_007d-and-attributes-3745"></a><a name="index-g_t_0040code_007bplus_007d-and-attributes-3746"></a><a name="index-g_t_0040code_007bminus_007d-and-attributes-3747"></a><a name="index-g_t_0040code_007bmult_007d-and-attributes-3748"></a><a name="index-g_t_0040code_007bdiv_007d-and-attributes-3749"></a><a name="index-g_t_0040code_007bmod_007d-and-attributes-3750"></a><a name="index-g_t_0040code_007babs_007d-and-attributes-3751"></a><a name="index-g_t_0040code_007bneg_007d-and-attributes-3752"></a><a name="index-g_t_0040code_007bashift_007d-and-attributes-3753"></a><a name="index-g_t_0040code_007blshiftrt_007d-and-attributes-3754"></a><a name="index-g_t_0040code_007bashiftrt_007d-and-attributes-3755"></a><br><dt><code>(le </code><var>arith1</var> <var>arith2</var><code>)</code><dt><code>(leu </code><var>arith1</var> <var>arith2</var><code>)</code><dt><code>(lt </code><var>arith1</var> <var>arith2</var><code>)</code><dt><code>(ltu </code><var>arith1</var> <var>arith2</var><code>)</code><dt><code>(gt </code><var>arith1</var> <var>arith2</var><code>)</code><dt><code>(gtu </code><var>arith1</var> <var>arith2</var><code>)</code><dt><code>(ge </code><var>arith1</var> <var>arith2</var><code>)</code><dt><code>(geu </code><var>arith1</var> <var>arith2</var><code>)</code><dt><code>(ne </code><var>arith1</var> <var>arith2</var><code>)</code><dt><code>(eq </code><var>arith1</var> <var>arith2</var><code>)</code><dd>These tests are true if the indicated comparison of the two arithmetic
 expressions is true.  Arithmetic expressions are formed with
 <code>plus</code>, <code>minus</code>, <code>mult</code>, <code>div</code>, <code>mod</code>,
 <code>abs</code>, <code>neg</code>, <code>and</code>, <code>ior</code>, <code>xor</code>, <code>not</code>,
 <code>ashift</code>, <code>lshiftrt</code>, and <code>ashiftrt</code> expressions.
 
-     <p><a name="index-get_005fattr-3716"></a><code>const_int</code> and <code>symbol_ref</code> are always valid terms (see <a href="Insn-Lengths.html#Insn-Lengths">Insn Lengths</a>,for additional forms).  <code>symbol_ref</code> is a string
+     <p><a name="index-get_005fattr-3756"></a><code>const_int</code> and <code>symbol_ref</code> are always valid terms (see <a href="Insn-Lengths.html#Insn-Lengths">Insn Lengths</a>,for additional forms).  <code>symbol_ref</code> is a string
 denoting a C expression that yields an <code>int</code> when evaluated by the
 `<samp><span class="samp">get_attr_...</span></samp>' routine.  It should normally be a global
 variable.
 
-     <p><a name="index-eq_005fattr-3717"></a><br><dt><code>(eq_attr </code><var>name</var> <var>value</var><code>)</code><dd><var>name</var> is a string specifying the name of an attribute.
+     <p><a name="index-eq_005fattr-3757"></a><br><dt><code>(eq_attr </code><var>name</var> <var>value</var><code>)</code><dd><var>name</var> is a string specifying the name of an attribute.
 
      <p><var>value</var> is a string that is either a valid value for attribute
 <var>name</var>, a comma-separated list of values, or `<samp><span class="samp">!</span></samp>' followed by a
@@ -172,7 +172,7 @@ example,
 where the value of the attribute being tested is known for all insns matching
 a particular pattern.  This is by far the most common case.
 
-     <p><a name="index-attr_005fflag-3718"></a><br><dt><code>(attr_flag </code><var>name</var><code>)</code><dd>The value of an <code>attr_flag</code> expression is true if the flag
+     <p><a name="index-attr_005fflag-3758"></a><br><dt><code>(attr_flag </code><var>name</var><code>)</code><dd>The value of an <code>attr_flag</code> expression is true if the flag
 specified by <var>name</var> is true for the <code>insn</code> currently being
 scheduled.
 
@@ -197,7 +197,7 @@ for backward branches which are not taken (annul-false).
      <p><code>attr_flag</code> is only used during delay slot scheduling and has no
 meaning to other passes of the compiler.
 
-     <p><a name="index-attr-3719"></a><br><dt><code>(attr </code><var>name</var><code>)</code><dd>The value of another attribute is returned.  This is most useful
+     <p><a name="index-attr-3759"></a><br><dt><code>(attr </code><var>name</var><code>)</code><dd>The value of another attribute is returned.  This is most useful
 for numeric attributes, as <code>eq_attr</code> and <code>attr_flag</code>
 produce more efficient code for non-numeric attributes. 
 </dl>

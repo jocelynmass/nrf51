@@ -10,7 +10,7 @@
 <link rel="next" href="Modifiers.html#Modifiers" title="Modifiers">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -53,9 +53,9 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Constraints.html#Constraints">Constrain
 <hr>
 </div>
 
-<h4 class="subsection">6.42.2 Multiple Alternative Constraints</h4>
+<h5 class="subsubsection">6.43.3.2 Multiple Alternative Constraints</h5>
 
-<p><a name="index-multiple-alternative-constraints-3140"></a>
+<p><a name="index-multiple-alternative-constraints-3463"></a>
 Sometimes a single instruction has multiple alternative sets of possible
 operands.  For example, on the 68000, a logical-or instruction can combine
 register or an immediate value into memory, or it can combine any kind of
@@ -77,16 +77,22 @@ need the same amount of copying, the one that comes first is chosen.
 These choices can be altered with the `<samp><span class="samp">?</span></samp>' and `<samp><span class="samp">!</span></samp>' characters:
 
      
-<a name="index-g_t_0040samp_007b_003f_007d-in-constraint-3141"></a>
-<a name="index-question-mark-3142"></a>
+<a name="index-g_t_0040samp_007b_003f_007d-in-constraint-3464"></a>
+<a name="index-question-mark-3465"></a>
 <dl><dt><code>?</code><dd>Disparage slightly the alternative that the `<samp><span class="samp">?</span></samp>' appears in,
 as a choice when no alternative applies exactly.  The compiler regards
 this alternative as one unit more costly for each `<samp><span class="samp">?</span></samp>' that appears
 in it.
 
-     <p><a name="index-g_t_0040samp_007b_0021_007d-in-constraint-3143"></a><a name="index-exclamation-point-3144"></a><br><dt><code>!</code><dd>Disparage severely the alternative that the `<samp><span class="samp">!</span></samp>' appears in. 
+     <p><a name="index-g_t_0040samp_007b_0021_007d-in-constraint-3466"></a><a name="index-exclamation-point-3467"></a><br><dt><code>!</code><dd>Disparage severely the alternative that the `<samp><span class="samp">!</span></samp>' appears in. 
 This alternative can still be used if it fits without reloading,
-but if reloading is needed, some other alternative will be used. 
+but if reloading is needed, some other alternative will be used.
+
+     <p><a name="index-g_t_0040samp_007b_005e_007d-in-constraint-3468"></a><a name="index-caret-3469"></a><br><dt><code>^</code><dd>This constraint is analogous to `<samp><span class="samp">?</span></samp>' but it disparages slightly
+the alternative only if the operand with the `<samp><span class="samp">^</span></samp>' needs a reload.
+
+     <p><a name="index-g_t_0040samp_007b_0024_007d-in-constraint-3470"></a><a name="index-dollar-sign-3471"></a><br><dt><code>$</code><dd>This constraint is analogous to `<samp><span class="samp">!</span></samp>' but it disparages severely
+the alternative only if the operand with the `<samp><span class="samp">$</span></samp>' needs a reload. 
 </dl>
 
  </body></html>

@@ -9,7 +9,7 @@
 <link rel="next" href="Storage-References.html#Storage-References" title="Storage References">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -52,7 +52,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Expression-trees.html#Expression-trees"
 
 <h4 class="subsection">10.6.1 Constant expressions</h4>
 
-<p><a name="index-INTEGER_005fCST-1824"></a><a name="index-TREE_005fINT_005fCST_005fHIGH-1825"></a><a name="index-TREE_005fINT_005fCST_005fLOW-1826"></a><a name="index-tree_005fint_005fcst_005flt-1827"></a><a name="index-tree_005fint_005fcst_005fequal-1828"></a><a name="index-REAL_005fCST-1829"></a><a name="index-FIXED_005fCST-1830"></a><a name="index-COMPLEX_005fCST-1831"></a><a name="index-VECTOR_005fCST-1832"></a><a name="index-STRING_005fCST-1833"></a><a name="index-TREE_005fSTRING_005fLENGTH-1834"></a><a name="index-TREE_005fSTRING_005fPOINTER-1835"></a>
+<p><a name="index-INTEGER_005fCST-1824"></a><a name="index-tree_005fint_005fcst_005flt-1825"></a><a name="index-tree_005fint_005fcst_005fequal-1826"></a><a name="index-tree_005ffits_005fuhwi_005fp-1827"></a><a name="index-tree_005ffits_005fshwi_005fp-1828"></a><a name="index-tree_005fto_005fuhwi-1829"></a><a name="index-tree_005fto_005fshwi-1830"></a><a name="index-TREE_005fINT_005fCST_005fNUNITS-1831"></a><a name="index-TREE_005fINT_005fCST_005fELT-1832"></a><a name="index-TREE_005fINT_005fCST_005fLOW-1833"></a><a name="index-REAL_005fCST-1834"></a><a name="index-FIXED_005fCST-1835"></a><a name="index-COMPLEX_005fCST-1836"></a><a name="index-VECTOR_005fCST-1837"></a><a name="index-STRING_005fCST-1838"></a><a name="index-TREE_005fSTRING_005fLENGTH-1839"></a><a name="index-TREE_005fSTRING_005fPOINTER-1840"></a>
 The table below begins with constants, moves on to unary expressions,
 then proceeds to binary expressions, and concludes with various other
 kinds of expressions:
@@ -62,34 +62,18 @@ kinds of expressions:
 constants is obtained with <code>TREE_TYPE</code>; they are not always of type
 <code>int</code>.  In particular, <code>char</code> constants are represented with
 <code>INTEGER_CST</code> nodes.  The value of the integer constant <code>e</code> is
-given by
-     <pre class="smallexample">          ((TREE_INT_CST_HIGH (e) &lt;&lt; HOST_BITS_PER_WIDE_INT)
-          + TREE_INST_CST_LOW (e))
-     </pre>
-     <p class="noindent">HOST_BITS_PER_WIDE_INT is at least thirty-two on all platforms.  Both
-<code>TREE_INT_CST_HIGH</code> and <code>TREE_INT_CST_LOW</code> return a
-<code>HOST_WIDE_INT</code>.  The value of an <code>INTEGER_CST</code> is interpreted
-as a signed or unsigned quantity depending on the type of the constant. 
-In general, the expression given above will overflow, so it should not
-be used to calculate the value of the constant.
+represented in an array of HOST_WIDE_INT.   There are enough elements
+in the array to represent the value without taking extra elements for
+redundant 0s or -1.  The number of elements used to represent <code>e</code>
+is available via <code>TREE_INT_CST_NUNITS</code>. Element <code>i</code> can be
+extracted by using <code>TREE_INT_CST_ELT (e, i)</code>. 
+<code>TREE_INT_CST_LOW</code> is a shorthand for <code>TREE_INT_CST_ELT (e, 0)</code>.
 
-     <p>The variable <code>integer_zero_node</code> is an integer constant with value
-zero.  Similarly, <code>integer_one_node</code> is an integer constant with
-value one.  The <code>size_zero_node</code> and <code>size_one_node</code> variables
-are analogous, but have type <code>size_t</code> rather than <code>int</code>.
-
-     <p>The function <code>tree_int_cst_lt</code> is a predicate which holds if its
-first argument is less than its second.  Both constants are assumed to
-have the same signedness (i.e., either both should be signed or both
-should be unsigned.)  The full width of the constant is used when doing
-the comparison; the usual rules about promotions and conversions are
-ignored.  Similarly, <code>tree_int_cst_equal</code> holds if the two
-constants are equal.  The <code>tree_int_cst_sgn</code> function returns the
-sign of a constant.  The value is <code>1</code>, <code>0</code>, or <code>-1</code>
-according on whether the constant is greater than, equal to, or less
-than zero.  Again, the signedness of the constant's type is taken into
-account; an unsigned constant is never less than zero, no matter what
-its bit-pattern.
+     <p>The functions <code>tree_fits_shwi_p</code> and <code>tree_fits_uhwi_p</code>
+can be used to tell if the value is small enough to fit in a
+signed HOST_WIDE_INT or an unsigned HOST_WIDE_INT respectively. 
+The value can then be extracted using <code>tree_to_shwi</code> and
+<code>tree_to_uhwi</code>.
 
      <br><dt><code>REAL_CST</code><dd>
 FIXME: Talk about how to obtain representations of this constant, do

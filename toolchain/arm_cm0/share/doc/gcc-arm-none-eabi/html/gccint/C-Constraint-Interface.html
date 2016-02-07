@@ -9,7 +9,7 @@
 <link rel="prev" href="Define-Constraints.html#Define-Constraints" title="Define Constraints">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -52,20 +52,12 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Constraints.html#Constraints">Constrain
 
 <h4 class="subsection">16.8.8 Testing constraints from C</h4>
 
-<p><a name="index-testing-constraints-3343"></a><a name="index-constraints_002c-testing-3344"></a>
+<p><a name="index-testing-constraints-3371"></a><a name="index-constraints_002c-testing-3372"></a>
 It is occasionally useful to test a constraint from C code rather than
 implicitly via the constraint string in a <code>match_operand</code>.  The
 generated file <samp><span class="file">tm_p.h</span></samp> declares a few interfaces for working
-with machine-specific constraints.  None of these interfaces work with
-the generic constraints described in <a href="Simple-Constraints.html#Simple-Constraints">Simple Constraints</a>.  This
-may change in the future.
-
- <p><strong>Warning:</strong> <samp><span class="file">tm_p.h</span></samp> may declare other functions that
-operate on constraints, besides the ones documented here.  Do not use
-those functions from machine-dependent code.  They exist to implement
-the old constraint interface that machine-independent components of
-the compiler still expect.  They will change or disappear in the
-future.
+with constraints.  At present these are defined for all constraints
+except <code>g</code> (which is equivalent to <code>general_operand</code>).
 
  <p>Some valid constraint names are not valid C identifiers, so there is a
 mangling scheme for referring to them from C.  Constraint names that
@@ -84,26 +76,23 @@ the variable <var>m</var> is a mangled constraint name (usually as part of
 a larger identifier).
 
 <div class="defun">
-&mdash; Enum: <b>constraint_num</b><var><a name="index-constraint_005fnum-3345"></a></var><br>
-<blockquote><p>For each machine-specific constraint, there is a corresponding
+&mdash; Enum: <b>constraint_num</b><var><a name="index-constraint_005fnum-3373"></a></var><br>
+<blockquote><p>For each constraint except <code>g</code>, there is a corresponding
 enumeration constant: `<samp><span class="samp">CONSTRAINT_</span></samp>' plus the mangled name of the
 constraint.  Functions that take an <code>enum constraint_num</code> as an
-argument expect one of these constants.
-
-      <p>Machine-independent constraints do not have associated constants. 
-This may change in the future. 
+argument expect one of these constants. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Function: inline bool <b>satisfies_constraint_</b><var>m </var>(<var>rtx exp</var>)<var><a name="index-satisfies_005fconstraint_005f-3346"></a></var><br>
-<blockquote><p>For each machine-specific, non-register constraint <var>m</var>, there is
+&mdash; Function: inline bool <b>satisfies_constraint_</b><var>m </var>(<var>rtx exp</var>)<var><a name="index-satisfies_005fconstraint_005f-3374"></a></var><br>
+<blockquote><p>For each non-register constraint <var>m</var> except <code>g</code>, there is
 one of these functions; it returns <code>true</code> if <var>exp</var> satisfies the
 constraint.  These functions are only visible if <samp><span class="file">rtl.h</span></samp> was included
 before <samp><span class="file">tm_p.h</span></samp>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Function: bool <b>constraint_satisfied_p</b> (<var>rtx exp, enum constraint_num c</var>)<var><a name="index-constraint_005fsatisfied_005fp-3347"></a></var><br>
+&mdash; Function: bool <b>constraint_satisfied_p</b> (<var>rtx exp, enum constraint_num c</var>)<var><a name="index-constraint_005fsatisfied_005fp-3375"></a></var><br>
 <blockquote><p>Like the <code>satisfies_constraint_</code><var>m</var> functions, but the
 constraint to test is given as an argument, <var>c</var>.  If <var>c</var>
 specifies a register constraint, this function will always return
@@ -111,7 +100,7 @@ specifies a register constraint, this function will always return
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Function: enum reg_class <b>regclass_for_constraint</b> (<var>enum constraint_num c</var>)<var><a name="index-regclass_005ffor_005fconstraint-3348"></a></var><br>
+&mdash; Function: enum reg_class <b>reg_class_for_constraint</b> (<var>enum constraint_num c</var>)<var><a name="index-reg_005fclass_005ffor_005fconstraint-3376"></a></var><br>
 <blockquote><p>Returns the register class associated with <var>c</var>.  If <var>c</var> is not
 a register constraint, or those registers are not available for the
 currently selected subtarget, returns <code>NO_REGS</code>. 

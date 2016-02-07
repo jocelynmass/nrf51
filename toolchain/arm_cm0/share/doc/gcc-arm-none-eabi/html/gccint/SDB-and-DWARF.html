@@ -10,7 +10,7 @@
 <link rel="next" href="VMS-Debug.html#VMS-Debug" title="VMS Debug">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -52,24 +52,24 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Debugging-Info.html#Debugging-Info">Deb
 <hr>
 </div>
 
-<h4 class="subsection">17.22.5 Macros for SDB and DWARF Output</h4>
+<h4 class="subsection">17.21.5 Macros for SDB and DWARF Output</h4>
 
 <!-- prevent bad page break with this line -->
 <p>Here are macros for SDB and DWARF output.
 
 <div class="defun">
-&mdash; Macro: <b>SDB_DEBUGGING_INFO</b><var><a name="index-SDB_005fDEBUGGING_005fINFO-4747"></a></var><br>
+&mdash; Macro: <b>SDB_DEBUGGING_INFO</b><var><a name="index-SDB_005fDEBUGGING_005fINFO-4781"></a></var><br>
 <blockquote><p>Define this macro if GCC should produce COFF-style debugging output
 for SDB in response to the <samp><span class="option">-g</span></samp> option. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>DWARF2_DEBUGGING_INFO</b><var><a name="index-DWARF2_005fDEBUGGING_005fINFO-4748"></a></var><br>
+&mdash; Macro: <b>DWARF2_DEBUGGING_INFO</b><var><a name="index-DWARF2_005fDEBUGGING_005fINFO-4782"></a></var><br>
 <blockquote><p>Define this macro if GCC should produce dwarf version 2 format
 debugging output in response to the <samp><span class="option">-g</span></samp> option.
 
      <div class="defun">
-&mdash; Target Hook: int <b>TARGET_DWARF_CALLING_CONVENTION</b> (<var>const_tree function</var>)<var><a name="index-TARGET_005fDWARF_005fCALLING_005fCONVENTION-4749"></a></var><br>
+&mdash; Target Hook: int <b>TARGET_DWARF_CALLING_CONVENTION</b> (<var>const_tree function</var>)<var><a name="index-TARGET_005fDWARF_005fCALLING_005fCONVENTION-4783"></a></var><br>
 <blockquote><p>Define this to enable the dwarf attribute <code>DW_AT_calling_convention</code> to
 be emitted for each function.  Instead of an integer return the enum
 value for the <code>DW_CC_</code> tag. 
@@ -83,7 +83,7 @@ as appropriate from <code>TARGET_ASM_FUNCTION_PROLOGUE</code> if you don't.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>DWARF2_FRAME_INFO</b><var><a name="index-DWARF2_005fFRAME_005fINFO-4750"></a></var><br>
+&mdash; Macro: <b>DWARF2_FRAME_INFO</b><var><a name="index-DWARF2_005fFRAME_005fINFO-4784"></a></var><br>
 <blockquote><p>Define this macro to a nonzero value if GCC should always output
 Dwarf 2 frame information.  If <code>TARGET_EXCEPT_UNWIND_INFO</code>
 (see <a href="Exception-Region-Output.html#Exception-Region-Output">Exception Region Output</a>) returns <code>UI_DWARF2</code>, and
@@ -92,7 +92,7 @@ how you define <code>DWARF2_FRAME_INFO</code>.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: enum unwind_info_type <b>TARGET_DEBUG_UNWIND_INFO</b> (<var>void</var>)<var><a name="index-TARGET_005fDEBUG_005fUNWIND_005fINFO-4751"></a></var><br>
+&mdash; Target Hook: enum unwind_info_type <b>TARGET_DEBUG_UNWIND_INFO</b> (<var>void</var>)<var><a name="index-TARGET_005fDEBUG_005fUNWIND_005fINFO-4785"></a></var><br>
 <blockquote><p>This hook defines the mechanism that will be used for describing frame
 unwind information to the debugger.  Normally the hook will return
 <code>UI_DWARF2</code> if DWARF 2 debug information is enabled, and
@@ -106,60 +106,69 @@ This will suppress generation of the normal debug frame unwind information.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>DWARF2_ASM_LINE_DEBUG_INFO</b><var><a name="index-DWARF2_005fASM_005fLINE_005fDEBUG_005fINFO-4752"></a></var><br>
+&mdash; Macro: <b>DWARF2_ASM_LINE_DEBUG_INFO</b><var><a name="index-DWARF2_005fASM_005fLINE_005fDEBUG_005fINFO-4786"></a></var><br>
 <blockquote><p>Define this macro to be a nonzero value if the assembler can generate Dwarf 2
 line debug info sections.  This will result in much more compact line number
 tables, and hence is desirable if it works. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: bool <b>TARGET_WANT_DEBUG_PUB_SECTIONS</b><var><a name="index-TARGET_005fWANT_005fDEBUG_005fPUB_005fSECTIONS-4753"></a></var><br>
+&mdash; Target Hook: bool <b>TARGET_WANT_DEBUG_PUB_SECTIONS</b><var><a name="index-TARGET_005fWANT_005fDEBUG_005fPUB_005fSECTIONS-4787"></a></var><br>
 <blockquote><p>True if the <code>.debug_pubtypes</code> and <code>.debug_pubnames</code> sections should be emitted.  These sections are not used on most platforms, and in particular GDB does not use them. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: bool <b>TARGET_FORCE_AT_COMP_DIR</b><var><a name="index-TARGET_005fFORCE_005fAT_005fCOMP_005fDIR-4754"></a></var><br>
+&mdash; Target Hook: bool <b>TARGET_FORCE_AT_COMP_DIR</b><var><a name="index-TARGET_005fFORCE_005fAT_005fCOMP_005fDIR-4788"></a></var><br>
 <blockquote><p>True if the <code>DW_AT_comp_dir</code> attribute should be emitted for each  compilation unit.  This attribute is required for the darwin linker  to emit debug information. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: bool <b>TARGET_DELAY_SCHED2</b><var><a name="index-TARGET_005fDELAY_005fSCHED2-4755"></a></var><br>
-<blockquote><p>True if sched2 is not to be run at its normal place.  This usually means it will be run as part of machine-specific reorg. 
+&mdash; Target Hook: bool <b>TARGET_DELAY_SCHED2</b><var><a name="index-TARGET_005fDELAY_005fSCHED2-4789"></a></var><br>
+<blockquote><p>True if sched2 is not to be run at its normal place. 
+This usually means it will be run as part of machine-specific reorg. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: bool <b>TARGET_DELAY_VARTRACK</b><var><a name="index-TARGET_005fDELAY_005fVARTRACK-4756"></a></var><br>
-<blockquote><p>True if vartrack is not to be run at its normal place.  This usually means it will be run as part of machine-specific reorg. 
+&mdash; Target Hook: bool <b>TARGET_DELAY_VARTRACK</b><var><a name="index-TARGET_005fDELAY_005fVARTRACK-4790"></a></var><br>
+<blockquote><p>True if vartrack is not to be run at its normal place. 
+This usually means it will be run as part of machine-specific reorg. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>ASM_OUTPUT_DWARF_DELTA</b> (<var>stream, size, label1, label2</var>)<var><a name="index-ASM_005fOUTPUT_005fDWARF_005fDELTA-4757"></a></var><br>
+&mdash; Target Hook: bool <b>TARGET_NO_REGISTER_ALLOCATION</b><var><a name="index-TARGET_005fNO_005fREGISTER_005fALLOCATION-4791"></a></var><br>
+<blockquote><p>True if register allocation and the passes
+following it should not be run.  Usually true only for virtual assembler
+targets. 
+</p></blockquote></div>
+
+<div class="defun">
+&mdash; Macro: <b>ASM_OUTPUT_DWARF_DELTA</b> (<var>stream, size, label1, label2</var>)<var><a name="index-ASM_005fOUTPUT_005fDWARF_005fDELTA-4792"></a></var><br>
 <blockquote><p>A C statement to issue assembly directives that create a difference
 <var>lab1</var> minus <var>lab2</var>, using an integer of the given <var>size</var>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>ASM_OUTPUT_DWARF_VMS_DELTA</b> (<var>stream, size, label1, label2</var>)<var><a name="index-ASM_005fOUTPUT_005fDWARF_005fVMS_005fDELTA-4758"></a></var><br>
+&mdash; Macro: <b>ASM_OUTPUT_DWARF_VMS_DELTA</b> (<var>stream, size, label1, label2</var>)<var><a name="index-ASM_005fOUTPUT_005fDWARF_005fVMS_005fDELTA-4793"></a></var><br>
 <blockquote><p>A C statement to issue assembly directives that create a difference
 between the two given labels in system defined units, e.g. instruction
 slots on IA64 VMS, using an integer of the given size. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>ASM_OUTPUT_DWARF_OFFSET</b> (<var>stream, size, label, section</var>)<var><a name="index-ASM_005fOUTPUT_005fDWARF_005fOFFSET-4759"></a></var><br>
+&mdash; Macro: <b>ASM_OUTPUT_DWARF_OFFSET</b> (<var>stream, size, label, section</var>)<var><a name="index-ASM_005fOUTPUT_005fDWARF_005fOFFSET-4794"></a></var><br>
 <blockquote><p>A C statement to issue assembly directives that create a
 section-relative reference to the given <var>label</var>, using an integer of the
 given <var>size</var>.  The label is known to be defined in the given <var>section</var>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>ASM_OUTPUT_DWARF_PCREL</b> (<var>stream, size, label</var>)<var><a name="index-ASM_005fOUTPUT_005fDWARF_005fPCREL-4760"></a></var><br>
+&mdash; Macro: <b>ASM_OUTPUT_DWARF_PCREL</b> (<var>stream, size, label</var>)<var><a name="index-ASM_005fOUTPUT_005fDWARF_005fPCREL-4795"></a></var><br>
 <blockquote><p>A C statement to issue assembly directives that create a self-relative
 reference to the given <var>label</var>, using an integer of the given <var>size</var>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>ASM_OUTPUT_DWARF_TABLE_REF</b> (<var>label</var>)<var><a name="index-ASM_005fOUTPUT_005fDWARF_005fTABLE_005fREF-4761"></a></var><br>
+&mdash; Macro: <b>ASM_OUTPUT_DWARF_TABLE_REF</b> (<var>label</var>)<var><a name="index-ASM_005fOUTPUT_005fDWARF_005fTABLE_005fREF-4796"></a></var><br>
 <blockquote><p>A C statement to issue assembly directives that create a reference to
 the DWARF table identifier <var>label</var> from the current section.  This
 is used on some systems to avoid garbage collecting a DWARF table which
@@ -167,13 +176,13 @@ is referenced by a function.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: void <b>TARGET_ASM_OUTPUT_DWARF_DTPREL</b> (<var>FILE *file, int size, rtx x</var>)<var><a name="index-TARGET_005fASM_005fOUTPUT_005fDWARF_005fDTPREL-4762"></a></var><br>
+&mdash; Target Hook: void <b>TARGET_ASM_OUTPUT_DWARF_DTPREL</b> (<var>FILE *file, int size, rtx x</var>)<var><a name="index-TARGET_005fASM_005fOUTPUT_005fDWARF_005fDTPREL-4797"></a></var><br>
 <blockquote><p>If defined, this target hook is a function which outputs a DTP-relative
 reference to the given TLS symbol of the specified size. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>PUT_SDB_</b><var><small class="dots">...</small><a name="index-PUT_005fSDB_005f-4763"></a></var><br>
+&mdash; Macro: <b>PUT_SDB_</b><var><small class="dots">...</small><a name="index-PUT_005fSDB_005f-4798"></a></var><br>
 <blockquote><p>Define these macros to override the assembler syntax for the special
 SDB assembler directives.  See <samp><span class="file">sdbout.c</span></samp> for a list of these
 macros and their arguments.  If the standard syntax is used, you need
@@ -181,7 +190,7 @@ not define them yourself.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>SDB_DELIM</b><var><a name="index-SDB_005fDELIM-4764"></a></var><br>
+&mdash; Macro: <b>SDB_DELIM</b><var><a name="index-SDB_005fDELIM-4799"></a></var><br>
 <blockquote><p>Some assemblers do not support a semicolon as a delimiter, even between
 SDB assembler directives.  In that case, define this macro to be the
 delimiter to use (usually `<samp><span class="samp">\n</span></samp>').  It is not necessary to define
@@ -190,7 +199,7 @@ required.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>SDB_ALLOW_UNKNOWN_REFERENCES</b><var><a name="index-SDB_005fALLOW_005fUNKNOWN_005fREFERENCES-4765"></a></var><br>
+&mdash; Macro: <b>SDB_ALLOW_UNKNOWN_REFERENCES</b><var><a name="index-SDB_005fALLOW_005fUNKNOWN_005fREFERENCES-4800"></a></var><br>
 <blockquote><p>Define this macro to allow references to unknown structure,
 union, or enumeration tags to be emitted.  Standard COFF does not
 allow handling of unknown references, MIPS ECOFF has support for
@@ -198,14 +207,14 @@ it.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>SDB_ALLOW_FORWARD_REFERENCES</b><var><a name="index-SDB_005fALLOW_005fFORWARD_005fREFERENCES-4766"></a></var><br>
+&mdash; Macro: <b>SDB_ALLOW_FORWARD_REFERENCES</b><var><a name="index-SDB_005fALLOW_005fFORWARD_005fREFERENCES-4801"></a></var><br>
 <blockquote><p>Define this macro to allow references to structure, union, or
 enumeration tags that have not yet been seen to be handled.  Some
 assemblers choke if forward tags are used, while some require it. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>SDB_OUTPUT_SOURCE_LINE</b> (<var>stream, line</var>)<var><a name="index-SDB_005fOUTPUT_005fSOURCE_005fLINE-4767"></a></var><br>
+&mdash; Macro: <b>SDB_OUTPUT_SOURCE_LINE</b> (<var>stream, line</var>)<var><a name="index-SDB_005fOUTPUT_005fSOURCE_005fLINE-4802"></a></var><br>
 <blockquote><p>A C statement to output SDB debugging information before code for line
 number <var>line</var> of the current source file to the stdio stream
 <var>stream</var>.  The default is to emit an <code>.ln</code> directive. 

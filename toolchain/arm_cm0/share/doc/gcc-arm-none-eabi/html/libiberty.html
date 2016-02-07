@@ -1250,9 +1250,20 @@ is deprecated in favor of <code>memset</code>.
 
         </blockquote></div>
 
-<!-- choose-temp.c:46 -->
+<!-- filename_cmp.c:201 -->
 <div class="defun">
-&mdash; Extension: char* <b>choose_temp_base</b> (<var>void</var>)<var><a name="index-choose_005ftemp_005fbase-65"></a></var><br>
+&mdash; Extension: int <b>canonical_filename_eq</b> (<var>const char *a, const char *b</var>)<var><a name="index-canonical_005ffilename_005feq-65"></a></var><br>
+<blockquote>
+<p>Return non-zero if file names <var>a</var> and <var>b</var> are equivalent. 
+This function compares the canonical versions of the filenames as returned by
+<code>lrealpath()</code>, so that so that different file names pointing to the same
+underlying file are treated as being identical.
+
+        </blockquote></div>
+
+<!-- choose-temp.c:45 -->
+<div class="defun">
+&mdash; Extension: char* <b>choose_temp_base</b> (<var>void</var>)<var><a name="index-choose_005ftemp_005fbase-66"></a></var><br>
 <blockquote>
 <p>Return a prefix for temporary file names or <code>NULL</code> if unable to
 find one.  The current directory is chosen if all else fails so the
@@ -1266,7 +1277,7 @@ not recommended.
 
 <!-- make-temp-file.c:96 -->
 <div class="defun">
-&mdash; Replacement: char* <b>choose_tmpdir</b> ()<var><a name="index-choose_005ftmpdir-66"></a></var><br>
+&mdash; Replacement: const <b>char*</b><var> choose_tmpdir </var>()<var><a name="index-char_002a-67"></a></var><br>
 <blockquote>
 <p>Returns a pointer to a directory path suitable for creating temporary
 files in.
@@ -1275,7 +1286,7 @@ files in.
 
 <!-- clock.c:27 -->
 <div class="defun">
-&mdash; Supplemental: long <b>clock</b> (<var>void</var>)<var><a name="index-clock-67"></a></var><br>
+&mdash; Supplemental: long <b>clock</b> (<var>void</var>)<var><a name="index-clock-68"></a></var><br>
 <blockquote>
 <p>Returns an approximation of the CPU time used by the process as a
 <code>clock_t</code>; divide this number by `<samp><span class="samp">CLOCKS_PER_SEC</span></samp>' to get the
@@ -1285,18 +1296,17 @@ number of seconds used.
 
 <!-- concat.c:24 -->
 <div class="defun">
-&mdash; Extension: char* <b>concat</b> (<var>const char *s1, const char *s2, <small class="dots">...</small>, </var><code>NULL</code>)<var><a name="index-concat-68"></a></var><br>
+&mdash; Extension: char* <b>concat</b> (<var>const char *s1, const char *s2, <small class="dots">...</small>, </var><code>NULL</code>)<var><a name="index-concat-69"></a></var><br>
 <blockquote>
 <p>Concatenate zero or more of strings and return the result in freshly
-<code>xmalloc</code>ed memory.  Returns <code>NULL</code> if insufficient memory is
-available.  The argument list is terminated by the first <code>NULL</code>
-pointer encountered.  Pointers to empty strings are ignored.
+<code>xmalloc</code>ed memory.  The argument list is terminated by the first
+<code>NULL</code> pointer encountered.  Pointers to empty strings are ignored.
 
         </blockquote></div>
 
 <!-- argv.c:470 -->
 <div class="defun">
-&mdash; Extension: int <b>countargv</b> (<var>char **argv</var>)<var><a name="index-countargv-69"></a></var><br>
+&mdash; Extension: int <b>countargv</b> (<var>char **argv</var>)<var><a name="index-countargv-70"></a></var><br>
 <blockquote>
 <p>Return the number of elements in <var>argv</var>. 
 Returns zero if <var>argv</var> is NULL.
@@ -1305,7 +1315,7 @@ Returns zero if <var>argv</var> is NULL.
 
 <!-- crc32.c:141 -->
 <div class="defun">
-&mdash; Extension: unsigned int <b>crc32</b> (<var>const unsigned char *buf, int len, unsigned int init</var>)<var><a name="index-crc32-70"></a></var><br>
+&mdash; Extension: unsigned int <b>crc32</b> (<var>const unsigned char *buf, int len, unsigned int init</var>)<var><a name="index-crc32-71"></a></var><br>
 <blockquote>
 <p>Compute the 32-bit CRC of <var>buf</var> which has length <var>len</var>.  The
 starting value is <var>init</var>; this may be used to compute the CRC of
@@ -1334,7 +1344,7 @@ make it easy to compose the values of multiple blocks.
 
 <!-- argv.c:52 -->
 <div class="defun">
-&mdash; Extension: char** <b>dupargv</b> (<var>char **vector</var>)<var><a name="index-dupargv-71"></a></var><br>
+&mdash; Extension: char** <b>dupargv</b> (<var>char **vector</var>)<var><a name="index-dupargv-72"></a></var><br>
 <blockquote>
 <p>Duplicate an argument vector.  Simply scans through <var>vector</var>,
 duplicating each argument until the terminating <code>NULL</code> is found. 
@@ -1346,7 +1356,7 @@ argument vector.
 
 <!-- strerror.c:567 -->
 <div class="defun">
-&mdash; Extension: int <b>errno_max</b> (<var>void</var>)<var><a name="index-errno_005fmax-72"></a></var><br>
+&mdash; Extension: int <b>errno_max</b> (<var>void</var>)<var><a name="index-errno_005fmax-73"></a></var><br>
 <blockquote>
 <p>Returns the maximum <code>errno</code> value for which a corresponding
 symbolic name or message is available.  Note that in the case where we
@@ -1365,7 +1375,7 @@ symbolic name or message.
 
 <!-- argv.c:341 -->
 <div class="defun">
-&mdash; Extension: void <b>expandargv</b> (<var>int *argcp, char ***argvp</var>)<var><a name="index-expandargv-73"></a></var><br>
+&mdash; Extension: void <b>expandargv</b> (<var>int *argcp, char ***argvp</var>)<var><a name="index-expandargv-74"></a></var><br>
 <blockquote>
 <p>The <var>argcp</var> and <code>argvp</code> arguments are pointers to the usual
 <code>argc</code> and <code>argv</code> arguments to <code>main</code>.  This function
@@ -1386,7 +1396,7 @@ operating system to free the memory when the program exits.
 
 <!-- fdmatch.c:23 -->
 <div class="defun">
-&mdash; Extension: int <b>fdmatch</b> (<var>int fd1, int fd2</var>)<var><a name="index-fdmatch-74"></a></var><br>
+&mdash; Extension: int <b>fdmatch</b> (<var>int fd1, int fd2</var>)<var><a name="index-fdmatch-75"></a></var><br>
 <blockquote>
 <p>Check to see if two open file descriptors refer to the same file. 
 This is useful, for example, when we have an open file descriptor for
@@ -1402,7 +1412,7 @@ and inode numbers.
 
 <!-- fopen_unlocked.c:49 -->
 <div class="defun">
-&mdash; Extension: FILE * <b>fdopen_unlocked</b> (<var>int fildes, const char * mode</var>)<var><a name="index-fdopen_005funlocked-75"></a></var><br>
+&mdash; Extension: FILE * <b>fdopen_unlocked</b> (<var>int fildes, const char * mode</var>)<var><a name="index-fdopen_005funlocked-76"></a></var><br>
 <blockquote>
 <p>Opens and returns a <code>FILE</code> pointer via <code>fdopen</code>.  If the
 operating system supports it, ensure that the stream is setup to avoid
@@ -1413,7 +1423,7 @@ unchanged.
 
 <!-- ffs.c:3 -->
 <div class="defun">
-&mdash; Supplemental: int <b>ffs</b> (<var>int valu</var>)<var><a name="index-ffs-76"></a></var><br>
+&mdash; Supplemental: int <b>ffs</b> (<var>int valu</var>)<var><a name="index-ffs-77"></a></var><br>
 <blockquote>
 <p>Find the first (least significant) bit set in <var>valu</var>.  Bits are
 numbered from right to left, starting with bit 1 (corresponding to the
@@ -1421,9 +1431,9 @@ value 1).  If <var>valu</var> is zero, zero is returned.
 
         </blockquote></div>
 
-<!-- filename_cmp.c:32 -->
+<!-- filename_cmp.c:37 -->
 <div class="defun">
-&mdash; Extension: int <b>filename_cmp</b> (<var>const char *s1, const char *s2</var>)<var><a name="index-filename_005fcmp-77"></a></var><br>
+&mdash; Extension: int <b>filename_cmp</b> (<var>const char *s1, const char *s2</var>)<var><a name="index-filename_005fcmp-78"></a></var><br>
 <blockquote>
 <p>Return zero if the two file names <var>s1</var> and <var>s2</var> are equivalent. 
 If not equivalent, the returned value is similar to what <code>strcmp</code>
@@ -1439,18 +1449,18 @@ and backward slashes are equal.
 
         </blockquote></div>
 
-<!-- filename_cmp.c:178 -->
+<!-- filename_cmp.c:183 -->
 <div class="defun">
-&mdash; Extension: int <b>filename_eq</b> (<var>const void *s1, const void *s2</var>)<var><a name="index-filename_005feq-78"></a></var><br>
+&mdash; Extension: int <b>filename_eq</b> (<var>const void *s1, const void *s2</var>)<var><a name="index-filename_005feq-79"></a></var><br>
 <blockquote>
 <p>Return non-zero if file names <var>s1</var> and <var>s2</var> are equivalent. 
 This function is for use with hashtab.c hash tables.
 
         </blockquote></div>
 
-<!-- filename_cmp.c:147 -->
+<!-- filename_cmp.c:152 -->
 <div class="defun">
-&mdash; Extension: hashval_t <b>filename_hash</b> (<var>const void *s</var>)<var><a name="index-filename_005fhash-79"></a></var><br>
+&mdash; Extension: hashval_t <b>filename_hash</b> (<var>const void *s</var>)<var><a name="index-filename_005fhash-80"></a></var><br>
 <blockquote>
 <p>Return the hash value for file name <var>s</var> that will be compared
 using filename_cmp. 
@@ -1458,9 +1468,9 @@ This function is for use with hashtab.c hash tables.
 
         </blockquote></div>
 
-<!-- filename_cmp.c:89 -->
+<!-- filename_cmp.c:94 -->
 <div class="defun">
-&mdash; Extension: int <b>filename_ncmp</b> (<var>const char *s1, const char *s2, size_t n</var>)<var><a name="index-filename_005fncmp-80"></a></var><br>
+&mdash; Extension: int <b>filename_ncmp</b> (<var>const char *s1, const char *s2, size_t n</var>)<var><a name="index-filename_005fncmp-81"></a></var><br>
 <blockquote>
 <p>Return zero if the two file names <var>s1</var> and <var>s2</var> are equivalent
 in range <var>n</var>. 
@@ -1479,7 +1489,7 @@ and backward slashes are equal.
 
 <!-- fnmatch.txh:1 -->
 <div class="defun">
-&mdash; Replacement: int <b>fnmatch</b> (<var>const char *pattern, const char *string, int flags</var>)<var><a name="index-fnmatch-81"></a></var><br>
+&mdash; Replacement: int <b>fnmatch</b> (<var>const char *pattern, const char *string, int flags</var>)<var><a name="index-fnmatch-82"></a></var><br>
 <blockquote>
 <p>Matches <var>string</var> against <var>pattern</var>, returning zero if it
 matches, <code>FNM_NOMATCH</code> if not.  <var>pattern</var> may contain the
@@ -1523,7 +1533,7 @@ or `<samp><span class="samp">foobar/grill</span></samp>'.
 
 <!-- fopen_unlocked.c:39 -->
 <div class="defun">
-&mdash; Extension: FILE * <b>fopen_unlocked</b> (<var>const char *path, const char * mode</var>)<var><a name="index-fopen_005funlocked-82"></a></var><br>
+&mdash; Extension: FILE * <b>fopen_unlocked</b> (<var>const char *path, const char * mode</var>)<var><a name="index-fopen_005funlocked-83"></a></var><br>
 <blockquote>
 <p>Opens and returns a <code>FILE</code> pointer via <code>fopen</code>.  If the
 operating system supports it, ensure that the stream is setup to avoid
@@ -1534,7 +1544,7 @@ unchanged.
 
 <!-- argv.c:90 -->
 <div class="defun">
-&mdash; Extension: void <b>freeargv</b> (<var>char **vector</var>)<var><a name="index-freeargv-83"></a></var><br>
+&mdash; Extension: void <b>freeargv</b> (<var>char **vector</var>)<var><a name="index-freeargv-84"></a></var><br>
 <blockquote>
 <p>Free an argument vector that was built using <code>buildargv</code>.  Simply
 scans through <var>vector</var>, freeing the memory for each argument until
@@ -1545,7 +1555,7 @@ itself.
 
 <!-- fopen_unlocked.c:59 -->
 <div class="defun">
-&mdash; Extension: FILE * <b>freopen_unlocked</b> (<var>const char * path, const char * mode, FILE * stream</var>)<var><a name="index-freopen_005funlocked-84"></a></var><br>
+&mdash; Extension: FILE * <b>freopen_unlocked</b> (<var>const char * path, const char * mode, FILE * stream</var>)<var><a name="index-freopen_005funlocked-85"></a></var><br>
 <blockquote>
 <p>Opens and returns a <code>FILE</code> pointer via <code>freopen</code>.  If the
 operating system supports it, ensure that the stream is setup to avoid
@@ -1556,7 +1566,7 @@ unchanged.
 
 <!-- getruntime.c:82 -->
 <div class="defun">
-&mdash; Replacement: long <b>get_run_time</b> (<var>void</var>)<var><a name="index-get_005frun_005ftime-85"></a></var><br>
+&mdash; Replacement: long <b>get_run_time</b> (<var>void</var>)<var><a name="index-get_005frun_005ftime-86"></a></var><br>
 <blockquote>
 <p>Returns the time used so far, in microseconds.  If possible, this is
 the time used by this process, else it is the elapsed time since the
@@ -1566,7 +1576,7 @@ process started.
 
 <!-- getcwd.c:6 -->
 <div class="defun">
-&mdash; Supplemental: char* <b>getcwd</b> (<var>char *pathname, int len</var>)<var><a name="index-getcwd-86"></a></var><br>
+&mdash; Supplemental: char* <b>getcwd</b> (<var>char *pathname, int len</var>)<var><a name="index-getcwd-87"></a></var><br>
 <blockquote>
 <p>Copy the absolute pathname for the current working directory into
 <var>pathname</var>, which is assumed to point to a buffer of at least
@@ -1580,7 +1590,7 @@ directory's path doesn't fit in <var>len</var> characters, the result is
 
 <!-- getpagesize.c:5 -->
 <div class="defun">
-&mdash; Supplemental: int <b>getpagesize</b> (<var>void</var>)<var><a name="index-getpagesize-87"></a></var><br>
+&mdash; Supplemental: int <b>getpagesize</b> (<var>void</var>)<var><a name="index-getpagesize-88"></a></var><br>
 <blockquote>
 <p>Returns the number of bytes in a page of memory.  This is the
 granularity of many of the system memory management routines.  No
@@ -1591,7 +1601,7 @@ memory management hardware page size.
 
 <!-- getpwd.c:5 -->
 <div class="defun">
-&mdash; Supplemental: char* <b>getpwd</b> (<var>void</var>)<var><a name="index-getpwd-88"></a></var><br>
+&mdash; Supplemental: char* <b>getpwd</b> (<var>void</var>)<var><a name="index-getpwd-89"></a></var><br>
 <blockquote>
 <p>Returns the current working directory.  This implementation caches the
 result on the assumption that the process will not call <code>chdir</code>
@@ -1601,7 +1611,7 @@ between calls to <code>getpwd</code>.
 
 <!-- gettimeofday.c:12 -->
 <div class="defun">
-&mdash; Supplemental: int <b>gettimeofday</b> (<var>struct timeval *tp, void *tz</var>)<var><a name="index-gettimeofday-89"></a></var><br>
+&mdash; Supplemental: int <b>gettimeofday</b> (<var>struct timeval *tp, void *tz</var>)<var><a name="index-gettimeofday-90"></a></var><br>
 <blockquote>
 <p>Writes the current time to <var>tp</var>.  This implementation requires
 that <var>tz</var> be NULL.  Returns 0 on success, -1 on failure.
@@ -1610,7 +1620,7 @@ that <var>tz</var> be NULL.  Returns 0 on success, -1 on failure.
 
 <!-- hex.c:33 -->
 <div class="defun">
-&mdash; Extension: void <b>hex_init</b> (<var>void</var>)<var><a name="index-hex_005finit-90"></a></var><br>
+&mdash; Extension: void <b>hex_init</b> (<var>void</var>)<var><a name="index-hex_005finit-91"></a></var><br>
 <blockquote>
 <p>Initializes the array mapping the current character set to
 corresponding hex values.  This function must be called before any
@@ -1621,7 +1631,7 @@ default ASCII-based table will normally be used on ASCII systems.
 
 <!-- hex.c:42 -->
 <div class="defun">
-&mdash; Extension: int <b>hex_p</b> (<var>int c</var>)<var><a name="index-hex_005fp-91"></a></var><br>
+&mdash; Extension: int <b>hex_p</b> (<var>int c</var>)<var><a name="index-hex_005fp-92"></a></var><br>
 <blockquote>
 <p>Evaluates to non-zero if the given character is a valid hex character,
 or zero if it is not.  Note that the value you pass will be cast to
@@ -1631,7 +1641,7 @@ or zero if it is not.  Note that the value you pass will be cast to
 
 <!-- hex.c:50 -->
 <div class="defun">
-&mdash; Extension: unsigned int <b>hex_value</b> (<var>int c</var>)<var><a name="index-hex_005fvalue-92"></a></var><br>
+&mdash; Extension: unsigned int <b>hex_value</b> (<var>int c</var>)<var><a name="index-hex_005fvalue-93"></a></var><br>
 <blockquote>
 <p>Returns the numeric equivalent of the given character when interpreted
 as a hexadecimal digit.  The result is undefined if you pass an
@@ -1648,7 +1658,7 @@ systems.
 
 <!-- safe-ctype.c:25 -->
 <div class="defun">
-&mdash; Extension: <b>HOST_CHARSET</b><var><a name="index-HOST_005fCHARSET-93"></a></var><br>
+&mdash; Extension: <b>HOST_CHARSET</b><var><a name="index-HOST_005fCHARSET-94"></a></var><br>
 <blockquote><p>This macro indicates the basic character set and encoding used by the
 host: more precisely, the encoding used for character constants in
 preprocessor `<samp><span class="samp">#if</span></samp>' statements (the C "execution character set"). 
@@ -1656,19 +1666,19 @@ It is defined by <samp><span class="file">safe-ctype.h</span></samp>, and will b
 with one of the following values:
 
           <dl>
-<dt><code>HOST_CHARSET_UNKNOWN</code><a name="index-HOST_005fCHARSET_005fUNKNOWN-94"></a><dd>The host character set is unknown - that is, not one of the next two
+<dt><code>HOST_CHARSET_UNKNOWN</code><a name="index-HOST_005fCHARSET_005fUNKNOWN-95"></a><dd>The host character set is unknown - that is, not one of the next two
 possibilities.
 
-          <br><dt><code>HOST_CHARSET_ASCII</code><a name="index-HOST_005fCHARSET_005fASCII-95"></a><dd>The host character set is ASCII.
+          <br><dt><code>HOST_CHARSET_ASCII</code><a name="index-HOST_005fCHARSET_005fASCII-96"></a><dd>The host character set is ASCII.
 
-          <br><dt><code>HOST_CHARSET_EBCDIC</code><a name="index-HOST_005fCHARSET_005fEBCDIC-96"></a><dd>The host character set is some variant of EBCDIC.  (Only one of the
+          <br><dt><code>HOST_CHARSET_EBCDIC</code><a name="index-HOST_005fCHARSET_005fEBCDIC-97"></a><dd>The host character set is some variant of EBCDIC.  (Only one of the
 nineteen EBCDIC varying characters is tested; exercise caution.) 
 </dl>
         </p></blockquote></div>
 
-<!-- hashtab.c:336 -->
+<!-- hashtab.c:328 -->
 <div class="defun">
-&mdash; Supplemental: htab_t <b>htab_create_typed_alloc</b> (<var>size_t size, htab_hash hash_f, htab_eq eq_f, htab_del del_f, htab_alloc alloc_tab_f, htab_alloc alloc_f, htab_free free_f</var>)<var><a name="index-htab_005fcreate_005ftyped_005falloc-97"></a></var><br>
+&mdash; Supplemental: htab_t <b>htab_create_typed_alloc</b> (<var>size_t size, htab_hash hash_f, htab_eq eq_f, htab_del del_f, htab_alloc alloc_tab_f, htab_alloc alloc_f, htab_free free_f</var>)<var><a name="index-htab_005fcreate_005ftyped_005falloc-98"></a></var><br>
 <blockquote>
 <p>This function creates a hash table that uses two different allocators
 <var>alloc_tab_f</var> and <var>alloc_f</var> to use for allocating the table itself
@@ -1684,7 +1694,7 @@ allocation fails.
 
 <!-- index.c:5 -->
 <div class="defun">
-&mdash; Supplemental: char* <b>index</b> (<var>char *s, int c</var>)<var><a name="index-index-98"></a></var><br>
+&mdash; Supplemental: char* <b>index</b> (<var>char *s, int c</var>)<var><a name="index-index-99"></a></var><br>
 <blockquote>
 <p>Returns a pointer to the first occurrence of the character <var>c</var> in
 the string <var>s</var>, or <code>NULL</code> if not found.  The use of <code>index</code> is
@@ -1694,8 +1704,8 @@ deprecated in new programs in favor of <code>strchr</code>.
 
 <!-- insque.c:6 -->
 <div class="defun">
-&mdash; Supplemental: void <b>insque</b> (<var>struct qelem *elem, struct qelem *pred</var>)<var><a name="index-insque-99"></a></var><br>
-&mdash; Supplemental: void <b>remque</b> (<var>struct qelem *elem</var>)<var><a name="index-remque-100"></a></var><br>
+&mdash; Supplemental: void <b>insque</b> (<var>struct qelem *elem, struct qelem *pred</var>)<var><a name="index-insque-100"></a></var><br>
+&mdash; Supplemental: void <b>remque</b> (<var>struct qelem *elem</var>)<var><a name="index-remque-101"></a></var><br>
 <blockquote>
 <p>Routines to manipulate queues built from doubly linked lists.  The
 <code>insque</code> routine inserts <var>elem</var> in the queue immediately
@@ -1714,18 +1724,18 @@ back pointer, like this prototype (although no prototype is provided):
 
 <!-- safe-ctype.c:46 -->
 <div class="defun">
-&mdash; Extension: <b>ISALPHA</b> (<var>c</var>)<var><a name="index-ISALPHA-101"></a></var><br>
-&mdash; Extension: <b>ISALNUM</b> (<var>c</var>)<var><a name="index-ISALNUM-102"></a></var><br>
-&mdash; Extension: <b>ISBLANK</b> (<var>c</var>)<var><a name="index-ISBLANK-103"></a></var><br>
-&mdash; Extension: <b>ISCNTRL</b> (<var>c</var>)<var><a name="index-ISCNTRL-104"></a></var><br>
-&mdash; Extension: <b>ISDIGIT</b> (<var>c</var>)<var><a name="index-ISDIGIT-105"></a></var><br>
-&mdash; Extension: <b>ISGRAPH</b> (<var>c</var>)<var><a name="index-ISGRAPH-106"></a></var><br>
-&mdash; Extension: <b>ISLOWER</b> (<var>c</var>)<var><a name="index-ISLOWER-107"></a></var><br>
-&mdash; Extension: <b>ISPRINT</b> (<var>c</var>)<var><a name="index-ISPRINT-108"></a></var><br>
-&mdash; Extension: <b>ISPUNCT</b> (<var>c</var>)<var><a name="index-ISPUNCT-109"></a></var><br>
-&mdash; Extension: <b>ISSPACE</b> (<var>c</var>)<var><a name="index-ISSPACE-110"></a></var><br>
-&mdash; Extension: <b>ISUPPER</b> (<var>c</var>)<var><a name="index-ISUPPER-111"></a></var><br>
-&mdash; Extension: <b>ISXDIGIT</b> (<var>c</var>)<var><a name="index-ISXDIGIT-112"></a></var><br>
+&mdash; Extension: <b>ISALPHA</b> (<var>c</var>)<var><a name="index-ISALPHA-102"></a></var><br>
+&mdash; Extension: <b>ISALNUM</b> (<var>c</var>)<var><a name="index-ISALNUM-103"></a></var><br>
+&mdash; Extension: <b>ISBLANK</b> (<var>c</var>)<var><a name="index-ISBLANK-104"></a></var><br>
+&mdash; Extension: <b>ISCNTRL</b> (<var>c</var>)<var><a name="index-ISCNTRL-105"></a></var><br>
+&mdash; Extension: <b>ISDIGIT</b> (<var>c</var>)<var><a name="index-ISDIGIT-106"></a></var><br>
+&mdash; Extension: <b>ISGRAPH</b> (<var>c</var>)<var><a name="index-ISGRAPH-107"></a></var><br>
+&mdash; Extension: <b>ISLOWER</b> (<var>c</var>)<var><a name="index-ISLOWER-108"></a></var><br>
+&mdash; Extension: <b>ISPRINT</b> (<var>c</var>)<var><a name="index-ISPRINT-109"></a></var><br>
+&mdash; Extension: <b>ISPUNCT</b> (<var>c</var>)<var><a name="index-ISPUNCT-110"></a></var><br>
+&mdash; Extension: <b>ISSPACE</b> (<var>c</var>)<var><a name="index-ISSPACE-111"></a></var><br>
+&mdash; Extension: <b>ISUPPER</b> (<var>c</var>)<var><a name="index-ISUPPER-112"></a></var><br>
+&mdash; Extension: <b>ISXDIGIT</b> (<var>c</var>)<var><a name="index-ISXDIGIT-113"></a></var><br>
 <blockquote>
 <p>These twelve macros are defined by <samp><span class="file">safe-ctype.h</span></samp>.  Each has the
 same meaning as the corresponding macro (with name in lowercase)
@@ -1764,12 +1774,12 @@ false for characters with numeric values from 128 to 255.
 
 <!-- safe-ctype.c:95 -->
 <div class="defun">
-&mdash; Extension: <b>ISIDNUM</b> (<var>c</var>)<var><a name="index-ISIDNUM-113"></a></var><br>
-&mdash; Extension: <b>ISIDST</b> (<var>c</var>)<var><a name="index-ISIDST-114"></a></var><br>
-&mdash; Extension: <b>IS_VSPACE</b> (<var>c</var>)<var><a name="index-IS_005fVSPACE-115"></a></var><br>
-&mdash; Extension: <b>IS_NVSPACE</b> (<var>c</var>)<var><a name="index-IS_005fNVSPACE-116"></a></var><br>
-&mdash; Extension: <b>IS_SPACE_OR_NUL</b> (<var>c</var>)<var><a name="index-IS_005fSPACE_005fOR_005fNUL-117"></a></var><br>
-&mdash; Extension: <b>IS_ISOBASIC</b> (<var>c</var>)<var><a name="index-IS_005fISOBASIC-118"></a></var><br>
+&mdash; Extension: <b>ISIDNUM</b> (<var>c</var>)<var><a name="index-ISIDNUM-114"></a></var><br>
+&mdash; Extension: <b>ISIDST</b> (<var>c</var>)<var><a name="index-ISIDST-115"></a></var><br>
+&mdash; Extension: <b>IS_VSPACE</b> (<var>c</var>)<var><a name="index-IS_005fVSPACE-116"></a></var><br>
+&mdash; Extension: <b>IS_NVSPACE</b> (<var>c</var>)<var><a name="index-IS_005fNVSPACE-117"></a></var><br>
+&mdash; Extension: <b>IS_SPACE_OR_NUL</b> (<var>c</var>)<var><a name="index-IS_005fSPACE_005fOR_005fNUL-118"></a></var><br>
+&mdash; Extension: <b>IS_ISOBASIC</b> (<var>c</var>)<var><a name="index-IS_005fISOBASIC-119"></a></var><br>
 <blockquote><p>These six macros are defined by <samp><span class="file">safe-ctype.h</span></samp> and provide
 additional character classes which are useful when doing lexical
 analysis of C or similar languages.  They are true for the following
@@ -1786,7 +1796,7 @@ sets of characters:
 
 <!-- lbasename.c:23 -->
 <div class="defun">
-&mdash; Replacement: const char* <b>lbasename</b> (<var>const char *name</var>)<var><a name="index-lbasename-119"></a></var><br>
+&mdash; Replacement: const char* <b>lbasename</b> (<var>const char *name</var>)<var><a name="index-lbasename-120"></a></var><br>
 <blockquote>
 <p>Given a pointer to a string containing a typical pathname
 (`<samp><span class="samp">/usr/src/cmd/ls/ls.c</span></samp>' for example), returns a pointer to the
@@ -1803,7 +1813,7 @@ and a path ending in <code>/</code> returns the empty string after it.
 
 <!-- lrealpath.c:25 -->
 <div class="defun">
-&mdash; Replacement: const char* <b>lrealpath</b> (<var>const char *name</var>)<var><a name="index-lrealpath-120"></a></var><br>
+&mdash; Replacement: const char* <b>lrealpath</b> (<var>const char *name</var>)<var><a name="index-lrealpath-121"></a></var><br>
 <blockquote>
 <p>Given a pointer to a string containing a pathname, returns a canonical
 version of the filename.  Symlinks will be resolved, and &ldquo;.&rdquo; and &ldquo;..&rdquo;
@@ -1814,7 +1824,7 @@ components will be simplified.  The returned value will be allocated using
 
 <!-- make-relative-prefix.c:24 -->
 <div class="defun">
-&mdash; Extension: const char* <b>make_relative_prefix</b> (<var>const char *progname, const char *bin_prefix, const char *prefix</var>)<var><a name="index-make_005frelative_005fprefix-121"></a></var><br>
+&mdash; Extension: const char* <b>make_relative_prefix</b> (<var>const char *progname, const char *bin_prefix, const char *prefix</var>)<var><a name="index-make_005frelative_005fprefix-122"></a></var><br>
 <blockquote>
 <p>Given three paths <var>progname</var>, <var>bin_prefix</var>, <var>prefix</var>,
 return the path that is in the same position relative to
@@ -1840,7 +1850,7 @@ relative prefix can be found, return <code>NULL</code>.
 
 <!-- make-temp-file.c:174 -->
 <div class="defun">
-&mdash; Replacement: char* <b>make_temp_file</b> (<var>const char *suffix</var>)<var><a name="index-make_005ftemp_005ffile-122"></a></var><br>
+&mdash; Replacement: char* <b>make_temp_file</b> (<var>const char *suffix</var>)<var><a name="index-make_005ftemp_005ffile-123"></a></var><br>
 <blockquote>
 <p>Return a temporary file name (as a string) or <code>NULL</code> if unable to
 create one.  <var>suffix</var> is a suffix to append to the file name.  The
@@ -1850,7 +1860,7 @@ string is <code>malloc</code>ed, and the temporary file has been created.
 
 <!-- memchr.c:3 -->
 <div class="defun">
-&mdash; Supplemental: void* <b>memchr</b> (<var>const void *s, int c, size_t n</var>)<var><a name="index-memchr-123"></a></var><br>
+&mdash; Supplemental: void* <b>memchr</b> (<var>const void *s, int c, size_t n</var>)<var><a name="index-memchr-124"></a></var><br>
 <blockquote>
 <p>This function searches memory starting at <code>*</code><var>s</var> for the
 character <var>c</var>.  The search only ends with the first occurrence of
@@ -1864,7 +1874,7 @@ returned.
 
 <!-- memcmp.c:6 -->
 <div class="defun">
-&mdash; Supplemental: int <b>memcmp</b> (<var>const void *x, const void *y, size_t count</var>)<var><a name="index-memcmp-124"></a></var><br>
+&mdash; Supplemental: int <b>memcmp</b> (<var>const void *x, const void *y, size_t count</var>)<var><a name="index-memcmp-125"></a></var><br>
 <blockquote>
 <p>Compares the first <var>count</var> bytes of two areas of memory.  Returns
 zero if they are the same, a value less than zero if <var>x</var> is
@@ -1876,7 +1886,7 @@ as if comparing unsigned char arrays.
 
 <!-- memcpy.c:6 -->
 <div class="defun">
-&mdash; Supplemental: void* <b>memcpy</b> (<var>void *out, const void *in, size_t length</var>)<var><a name="index-memcpy-125"></a></var><br>
+&mdash; Supplemental: void* <b>memcpy</b> (<var>void *out, const void *in, size_t length</var>)<var><a name="index-memcpy-126"></a></var><br>
 <blockquote>
 <p>Copies <var>length</var> bytes from memory region <var>in</var> to region
 <var>out</var>.  Returns a pointer to <var>out</var>.
@@ -1885,7 +1895,7 @@ as if comparing unsigned char arrays.
 
 <!-- memmem.c:20 -->
 <div class="defun">
-&mdash; Supplemental: void* <b>memmem</b> (<var>const void *haystack, size_t haystack_len const void *needle, size_t needle_len</var>)<var><a name="index-memmem-126"></a></var><br>
+&mdash; Supplemental: void* <b>memmem</b> (<var>const void *haystack, size_t haystack_len const void *needle, size_t needle_len</var>)<var><a name="index-memmem-127"></a></var><br>
 <blockquote>
 <p>Returns a pointer to the first occurrence of <var>needle</var> (length
 <var>needle_len</var>) in <var>haystack</var> (length <var>haystack_len</var>). 
@@ -1895,7 +1905,7 @@ Returns <code>NULL</code> if not found.
 
 <!-- memmove.c:6 -->
 <div class="defun">
-&mdash; Supplemental: void* <b>memmove</b> (<var>void *from, const void *to, size_t count</var>)<var><a name="index-memmove-127"></a></var><br>
+&mdash; Supplemental: void* <b>memmove</b> (<var>void *from, const void *to, size_t count</var>)<var><a name="index-memmove-128"></a></var><br>
 <blockquote>
 <p>Copies <var>count</var> bytes from memory area <var>from</var> to memory area
 <var>to</var>, returning a pointer to <var>to</var>.
@@ -1904,7 +1914,7 @@ Returns <code>NULL</code> if not found.
 
 <!-- mempcpy.c:23 -->
 <div class="defun">
-&mdash; Supplemental: void* <b>mempcpy</b> (<var>void *out, const void *in, size_t length</var>)<var><a name="index-mempcpy-128"></a></var><br>
+&mdash; Supplemental: void* <b>mempcpy</b> (<var>void *out, const void *in, size_t length</var>)<var><a name="index-mempcpy-129"></a></var><br>
 <blockquote>
 <p>Copies <var>length</var> bytes from memory region <var>in</var> to region
 <var>out</var>.  Returns a pointer to <var>out</var> + <var>length</var>.
@@ -1913,7 +1923,7 @@ Returns <code>NULL</code> if not found.
 
 <!-- memset.c:6 -->
 <div class="defun">
-&mdash; Supplemental: void* <b>memset</b> (<var>void *s, int c, size_t count</var>)<var><a name="index-memset-129"></a></var><br>
+&mdash; Supplemental: void* <b>memset</b> (<var>void *s, int c, size_t count</var>)<var><a name="index-memset-130"></a></var><br>
 <blockquote>
 <p>Sets the first <var>count</var> bytes of <var>s</var> to the constant byte
 <var>c</var>, returning a pointer to <var>s</var>.
@@ -1922,7 +1932,7 @@ Returns <code>NULL</code> if not found.
 
 <!-- mkstemps.c:58 -->
 <div class="defun">
-&mdash; Replacement: int <b>mkstemps</b> (<var>char *pattern, int suffix_len</var>)<var><a name="index-mkstemps-130"></a></var><br>
+&mdash; Replacement: int <b>mkstemps</b> (<var>char *pattern, int suffix_len</var>)<var><a name="index-mkstemps-131"></a></var><br>
 <blockquote>
 <p>Generate a unique temporary file name from <var>pattern</var>. 
 <var>pattern</var> has the form:
@@ -1939,7 +1949,7 @@ reading and writing.
 
 <!-- pexecute.txh:278 -->
 <div class="defun">
-&mdash; Extension: void <b>pex_free</b> (<var>struct pex_obj obj</var>)<var><a name="index-pex_005ffree-131"></a></var><br>
+&mdash; Extension: void <b>pex_free</b> (<var>struct pex_obj obj</var>)<var><a name="index-pex_005ffree-132"></a></var><br>
 <blockquote>
 <p>Clean up and free all data associated with <var>obj</var>.  If you have not
 yet called <code>pex_get_times</code> or <code>pex_get_status</code>, this will
@@ -1949,7 +1959,7 @@ try to kill the subprocesses.
 
 <!-- pexecute.txh:251 -->
 <div class="defun">
-&mdash; Extension: int <b>pex_get_status</b> (<var>struct pex_obj *obj, int count, int *vector</var>)<var><a name="index-pex_005fget_005fstatus-132"></a></var><br>
+&mdash; Extension: int <b>pex_get_status</b> (<var>struct pex_obj *obj, int count, int *vector</var>)<var><a name="index-pex_005fget_005fstatus-133"></a></var><br>
 <blockquote>
 <p>Returns the exit status of all programs run using <var>obj</var>. 
 <var>count</var> is the number of results expected.  The results will be
@@ -1960,7 +1970,7 @@ to <code>pex_run</code>.  Returns 0 on error, 1 on success.
 
 <!-- pexecute.txh:261 -->
 <div class="defun">
-&mdash; Extension: int <b>pex_get_times</b> (<var>struct pex_obj *obj, int count, struct pex_time *vector</var>)<var><a name="index-pex_005fget_005ftimes-133"></a></var><br>
+&mdash; Extension: int <b>pex_get_times</b> (<var>struct pex_obj *obj, int count, struct pex_time *vector</var>)<var><a name="index-pex_005fget_005ftimes-134"></a></var><br>
 <blockquote>
 <p>Returns the process execution times of all programs run using
 <var>obj</var>.  <var>count</var> is the number of results expected.  The
@@ -1978,7 +1988,7 @@ process times, all the fields will be set to <code>0</code>.
 
 <!-- pexecute.txh:2 -->
 <div class="defun">
-&mdash; Extension: struct pex_obj * <b>pex_init</b> (<var>int flags, const char *pname, const char *tempbase</var>)<var><a name="index-pex_005finit-134"></a></var><br>
+&mdash; Extension: struct pex_obj * <b>pex_init</b> (<var>int flags, const char *pname, const char *tempbase</var>)<var><a name="index-pex_005finit-135"></a></var><br>
 <blockquote>
 <p>Prepare to execute one or more programs, with standard output of each
 program fed to standard input of the next.  This is a system
@@ -1987,12 +1997,12 @@ independent interface to execute a pipeline.
         <p><var>flags</var> is a bitwise combination of the following:
 
           
-<a name="index-PEX_005fRECORD_005fTIMES-135"></a>
+<a name="index-PEX_005fRECORD_005fTIMES-136"></a>
 <dl><dt><code>PEX_RECORD_TIMES</code><dd>Record subprocess times if possible.
 
-          <p><a name="index-PEX_005fUSE_005fPIPES-136"></a><br><dt><code>PEX_USE_PIPES</code><dd>Use pipes for communication between processes, if possible.
+          <p><a name="index-PEX_005fUSE_005fPIPES-137"></a><br><dt><code>PEX_USE_PIPES</code><dd>Use pipes for communication between processes, if possible.
 
-          <p><a name="index-PEX_005fSAVE_005fTEMPS-137"></a><br><dt><code>PEX_SAVE_TEMPS</code><dd>Don't delete temporary files used for communication between
+          <p><a name="index-PEX_005fSAVE_005fTEMPS-138"></a><br><dt><code>PEX_SAVE_TEMPS</code><dd>Don't delete temporary files used for communication between
 processes.
 
         </dl>
@@ -2005,7 +2015,7 @@ temporary files; it may be <code>NULL</code> to use a randomly chosen name.
 
 <!-- pexecute.txh:161 -->
 <div class="defun">
-&mdash; Extension: FILE * <b>pex_input_file</b> (<var>struct pex_obj *obj, int flags, const char *in_name</var>)<var><a name="index-pex_005finput_005ffile-138"></a></var><br>
+&mdash; Extension: FILE * <b>pex_input_file</b> (<var>struct pex_obj *obj, int flags, const char *in_name</var>)<var><a name="index-pex_005finput_005ffile-139"></a></var><br>
 <blockquote>
 <p>Return a stream for a temporary file to pass to the first program in
 the pipeline as input.
@@ -2024,7 +2034,7 @@ binary mode; otherwise, open it in the default mode.  Including
 
 <!-- pexecute.txh:179 -->
 <div class="defun">
-&mdash; Extension: FILE * <b>pex_input_pipe</b> (<var>struct pex_obj *obj, int binary</var>)<var><a name="index-pex_005finput_005fpipe-139"></a></var><br>
+&mdash; Extension: FILE * <b>pex_input_pipe</b> (<var>struct pex_obj *obj, int binary</var>)<var><a name="index-pex_005finput_005fpipe-140"></a></var><br>
 <blockquote>
 <p>Return a stream <var>fp</var> for a pipe connected to the standard input of
 the first program in the pipeline; <var>fp</var> is opened for writing. 
@@ -2068,7 +2078,7 @@ the output pipe is you, but you are blocked on the input pipe.
 
 <!-- pexecute.txh:286 -->
 <div class="defun">
-&mdash; Extension: const char * <b>pex_one</b> (<var>int flags, const char *executable, char * const *argv, const char *pname, const char *outname, const char *errname, int *status, int *err</var>)<var><a name="index-pex_005fone-140"></a></var><br>
+&mdash; Extension: const char * <b>pex_one</b> (<var>int flags, const char *executable, char * const *argv, const char *pname, const char *outname, const char *errname, int *status, int *err</var>)<var><a name="index-pex_005fone-141"></a></var><br>
 <blockquote>
 <p>An interface to permit the easy execution of a
 single program.  The return value and most of the parameters are as
@@ -2082,7 +2092,7 @@ be set to the exit status of the program.
 
 <!-- pexecute.txh:237 -->
 <div class="defun">
-&mdash; Extension: FILE * <b>pex_read_err</b> (<var>struct pex_obj *obj, int binary</var>)<var><a name="index-pex_005fread_005ferr-141"></a></var><br>
+&mdash; Extension: FILE * <b>pex_read_err</b> (<var>struct pex_obj *obj, int binary</var>)<var><a name="index-pex_005fread_005ferr-142"></a></var><br>
 <blockquote>
 <p>Returns a <code>FILE</code> pointer which may be used to read the standard
 error of the last program in the pipeline.  When this is used,
@@ -2096,7 +2106,7 @@ it will be closed by <code>pex_free</code>.
 
 <!-- pexecute.txh:224 -->
 <div class="defun">
-&mdash; Extension: FILE * <b>pex_read_output</b> (<var>struct pex_obj *obj, int binary</var>)<var><a name="index-pex_005fread_005foutput-142"></a></var><br>
+&mdash; Extension: FILE * <b>pex_read_output</b> (<var>struct pex_obj *obj, int binary</var>)<var><a name="index-pex_005fread_005foutput-143"></a></var><br>
 <blockquote>
 <p>Returns a <code>FILE</code> pointer which may be used to read the standard
 output of the last program in the pipeline.  When this is used,
@@ -2110,7 +2120,7 @@ it will be closed by <code>pex_free</code>.
 
 <!-- pexecute.txh:34 -->
 <div class="defun">
-&mdash; Extension: const char * <b>pex_run</b> (<var>struct pex_obj *obj, int flags, const char *executable, char * const *argv, const char *outname, const char *errname, int *err</var>)<var><a name="index-pex_005frun-143"></a></var><br>
+&mdash; Extension: const char * <b>pex_run</b> (<var>struct pex_obj *obj, int flags, const char *executable, char * const *argv, const char *outname, const char *errname, int *err</var>)<var><a name="index-pex_005frun-144"></a></var><br>
 <blockquote>
 <p>Execute one program in a pipeline.  On success this returns
 <code>NULL</code>.  On failure it returns an error message, a statically
@@ -2121,7 +2131,7 @@ allocated string.
         <p><var>flags</var> is a bitwise combination of the following:
 
           
-<a name="index-PEX_005fLAST-144"></a>
+<a name="index-PEX_005fLAST-145"></a>
 <dl><dt><code>PEX_LAST</code><dd>This must be set on the last program in the pipeline.  In particular,
 it should be set when executing a single program.  The standard output
 of the program will be sent to <var>outname</var>, or, if <var>outname</var> is
@@ -2130,21 +2140,21 @@ set this bit if you want to call <code>pex_read_output</code>
 (described below).  After a call to <code>pex_run</code> with this bit set,
 <var>pex_run</var> may no longer be called with the same <var>obj</var>.
 
-          <p><a name="index-PEX_005fSEARCH-145"></a><br><dt><code>PEX_SEARCH</code><dd>Search for the program using the user's executable search path.
+          <p><a name="index-PEX_005fSEARCH-146"></a><br><dt><code>PEX_SEARCH</code><dd>Search for the program using the user's executable search path.
 
-          <p><a name="index-PEX_005fSUFFIX-146"></a><br><dt><code>PEX_SUFFIX</code><dd><var>outname</var> is a suffix.  See the description of <var>outname</var>,
+          <p><a name="index-PEX_005fSUFFIX-147"></a><br><dt><code>PEX_SUFFIX</code><dd><var>outname</var> is a suffix.  See the description of <var>outname</var>,
 below.
 
-          <p><a name="index-PEX_005fSTDERR_005fTO_005fSTDOUT-147"></a><br><dt><code>PEX_STDERR_TO_STDOUT</code><dd>Send the program's standard error to standard output, if possible.
+          <p><a name="index-PEX_005fSTDERR_005fTO_005fSTDOUT-148"></a><br><dt><code>PEX_STDERR_TO_STDOUT</code><dd>Send the program's standard error to standard output, if possible.
 
-          <p><a name="index-PEX_005fBINARY_005fINPUT-148"></a><a name="index-PEX_005fBINARY_005fOUTPUT-149"></a><a name="index-PEX_005fBINARY_005fERROR-150"></a><br><dt><code>PEX_BINARY_INPUT</code><dt><code>PEX_BINARY_OUTPUT</code><dt><code>PEX_BINARY_ERROR</code><dd>The standard input (output or error) of the program should be read (written) in
+          <p><a name="index-PEX_005fBINARY_005fINPUT-149"></a><a name="index-PEX_005fBINARY_005fOUTPUT-150"></a><a name="index-PEX_005fBINARY_005fERROR-151"></a><br><dt><code>PEX_BINARY_INPUT</code><dt><code>PEX_BINARY_OUTPUT</code><dt><code>PEX_BINARY_ERROR</code><dd>The standard input (output or error) of the program should be read (written) in
 binary mode rather than text mode.  These flags are ignored on systems
 which do not distinguish binary mode and text mode, such as Unix.  For
 proper behavior these flags should match appropriately&mdash;a call to
 <code>pex_run</code> using <code>PEX_BINARY_OUTPUT</code> should be followed by a
 call using <code>PEX_BINARY_INPUT</code>.
 
-          <p><a name="index-PEX_005fSTDERR_005fTO_005fPIPE-151"></a><br><dt><code>PEX_STDERR_TO_PIPE</code><dd>Send the program's standard error to a pipe, if possible.  This flag
+          <p><a name="index-PEX_005fSTDERR_005fTO_005fPIPE-152"></a><br><dt><code>PEX_STDERR_TO_PIPE</code><dd>Send the program's standard error to a pipe, if possible.  This flag
 cannot be specified together with <code>PEX_STDERR_TO_STDOUT</code>.  This
 flag can be specified only on the last program in pipeline.
 
@@ -2200,7 +2210,7 @@ value, or to 0 if there is no relevant <code>errno</code>.
 
 <!-- pexecute.txh:145 -->
 <div class="defun">
-&mdash; Extension: const char * <b>pex_run_in_environment</b> (<var>struct pex_obj *obj, int flags, const char *executable, char * const *argv, char * const *env, int env_size, const char *outname, const char *errname, int *err</var>)<var><a name="index-pex_005frun_005fin_005fenvironment-152"></a></var><br>
+&mdash; Extension: const char * <b>pex_run_in_environment</b> (<var>struct pex_obj *obj, int flags, const char *executable, char * const *argv, char * const *env, int env_size, const char *outname, const char *errname, int *err</var>)<var><a name="index-pex_005frun_005fin_005fenvironment-153"></a></var><br>
 <blockquote>
 <p>Execute one program in a pipeline, permitting the environment for the
 program to be specified.  Behaviour and parameters not listed below are
@@ -2215,7 +2225,7 @@ form <code>VAR=VALUE</code>, with the exception of the last element that must be
 
 <!-- pexecute.txh:301 -->
 <div class="defun">
-&mdash; Extension: int <b>pexecute</b> (<var>const char *program, char * const *argv, const char *this_pname, const char *temp_base, char **errmsg_fmt, char **errmsg_arg, int flags</var>)<var><a name="index-pexecute-153"></a></var><br>
+&mdash; Extension: int <b>pexecute</b> (<var>const char *program, char * const *argv, const char *this_pname, const char *temp_base, char **errmsg_fmt, char **errmsg_arg, int flags</var>)<var><a name="index-pexecute-154"></a></var><br>
 <blockquote>
 <p>This is the old interface to execute one or more programs.  It is
 still supported for compatibility purposes, but is no longer
@@ -2225,7 +2235,7 @@ documented.
 
 <!-- strsignal.c:541 -->
 <div class="defun">
-&mdash; Supplemental: void <b>psignal</b> (<var>int signo, char *message</var>)<var><a name="index-psignal-154"></a></var><br>
+&mdash; Supplemental: void <b>psignal</b> (<var>int signo, char *message</var>)<var><a name="index-psignal-155"></a></var><br>
 <blockquote>
 <p>Print <var>message</var> to the standard error, followed by a colon,
 followed by the description of the signal specified by <var>signo</var>,
@@ -2235,7 +2245,7 @@ followed by a newline.
 
 <!-- putenv.c:21 -->
 <div class="defun">
-&mdash; Supplemental: int <b>putenv</b> (<var>const char *string</var>)<var><a name="index-putenv-155"></a></var><br>
+&mdash; Supplemental: int <b>putenv</b> (<var>const char *string</var>)<var><a name="index-putenv-156"></a></var><br>
 <blockquote>
 <p>Uses <code>setenv</code> or <code>unsetenv</code> to put <var>string</var> into
 the environment or remove it.  If <var>string</var> is of the form
@@ -2246,7 +2256,7 @@ name is unset/removed.
 
 <!-- pexecute.txh:312 -->
 <div class="defun">
-&mdash; Extension: int <b>pwait</b> (<var>int pid, int *status, int flags</var>)<var><a name="index-pwait-156"></a></var><br>
+&mdash; Extension: int <b>pwait</b> (<var>int pid, int *status, int flags</var>)<var><a name="index-pwait-157"></a></var><br>
 <blockquote>
 <p>Another part of the old execution interface.
 
@@ -2254,10 +2264,10 @@ name is unset/removed.
 
 <!-- random.c:39 -->
 <div class="defun">
-&mdash; Supplement: long int <b>random</b> (<var>void</var>)<var><a name="index-random-157"></a></var><br>
-&mdash; Supplement: void <b>srandom</b> (<var>unsigned int seed</var>)<var><a name="index-srandom-158"></a></var><br>
-&mdash; Supplement: void* <b>initstate</b> (<var>unsigned int seed, void *arg_state, unsigned long n</var>)<var><a name="index-initstate-159"></a></var><br>
-&mdash; Supplement: void* <b>setstate</b> (<var>void *arg_state</var>)<var><a name="index-setstate-160"></a></var><br>
+&mdash; Supplement: long int <b>random</b> (<var>void</var>)<var><a name="index-random-158"></a></var><br>
+&mdash; Supplement: void <b>srandom</b> (<var>unsigned int seed</var>)<var><a name="index-srandom-159"></a></var><br>
+&mdash; Supplement: void* <b>initstate</b> (<var>unsigned int seed, void *arg_state, unsigned long n</var>)<var><a name="index-initstate-160"></a></var><br>
+&mdash; Supplement: void* <b>setstate</b> (<var>void *arg_state</var>)<var><a name="index-setstate-161"></a></var><br>
 <blockquote>
 <p>Random number functions.  <code>random</code> returns a random number in the
 range 0 to <code>LONG_MAX</code>.  <code>srandom</code> initializes the random
@@ -2268,9 +2278,9 @@ control over the state of the random number generator.
 
         </blockquote></div>
 
-<!-- concat.c:174 -->
+<!-- concat.c:160 -->
 <div class="defun">
-&mdash; Extension: char* <b>reconcat</b> (<var>char *optr, const char *s1, <small class="dots">...</small>, </var><code>NULL</code>)<var><a name="index-reconcat-161"></a></var><br>
+&mdash; Extension: char* <b>reconcat</b> (<var>char *optr, const char *s1, <small class="dots">...</small>, </var><code>NULL</code>)<var><a name="index-reconcat-162"></a></var><br>
 <blockquote>
 <p>Same as <code>concat</code>, except that if <var>optr</var> is not <code>NULL</code> it
 is freed after the string is created.  This is intended to be useful
@@ -2283,7 +2293,7 @@ loop:
 
 <!-- rename.c:6 -->
 <div class="defun">
-&mdash; Supplemental: int <b>rename</b> (<var>const char *old, const char *new</var>)<var><a name="index-rename-162"></a></var><br>
+&mdash; Supplemental: int <b>rename</b> (<var>const char *old, const char *new</var>)<var><a name="index-rename-163"></a></var><br>
 <blockquote>
 <p>Renames a file from <var>old</var> to <var>new</var>.  If <var>new</var> already
 exists, it is removed.
@@ -2292,7 +2302,7 @@ exists, it is removed.
 
 <!-- rindex.c:5 -->
 <div class="defun">
-&mdash; Supplemental: char* <b>rindex</b> (<var>const char *s, int c</var>)<var><a name="index-rindex-163"></a></var><br>
+&mdash; Supplemental: char* <b>rindex</b> (<var>const char *s, int c</var>)<var><a name="index-rindex-164"></a></var><br>
 <blockquote>
 <p>Returns a pointer to the last occurrence of the character <var>c</var> in
 the string <var>s</var>, or <code>NULL</code> if not found.  The use of <code>rindex</code> is
@@ -2302,8 +2312,8 @@ deprecated in new programs in favor of <code>strrchr</code>.
 
 <!-- setenv.c:23 -->
 <div class="defun">
-&mdash; Supplemental: int <b>setenv</b> (<var>const char *name, const char *value, int overwrite</var>)<var><a name="index-setenv-164"></a></var><br>
-&mdash; Supplemental: void <b>unsetenv</b> (<var>const char *name</var>)<var><a name="index-unsetenv-165"></a></var><br>
+&mdash; Supplemental: int <b>setenv</b> (<var>const char *name, const char *value, int overwrite</var>)<var><a name="index-setenv-165"></a></var><br>
+&mdash; Supplemental: void <b>unsetenv</b> (<var>const char *name</var>)<var><a name="index-unsetenv-166"></a></var><br>
 <blockquote>
 <p><code>setenv</code> adds <var>name</var> to the environment with value
 <var>value</var>.  If the name was already present in the environment,
@@ -2315,7 +2325,7 @@ environment.  This implementation is not safe for multithreaded code.
 
 <!-- setproctitle.c:31 -->
 <div class="defun">
-&mdash; Supplemental: void <b>setproctitle</b> (<var>const char *fmt, ...</var>)<var><a name="index-setproctitle-166"></a></var><br>
+&mdash; Supplemental: void <b>setproctitle</b> (<var>const char *fmt, ...</var>)<var><a name="index-setproctitle-167"></a></var><br>
 <blockquote>
 <p>Set the title of a process to <var>fmt</var>. va args not supported for now,
 but defined for compatibility with BSD.
@@ -2324,7 +2334,7 @@ but defined for compatibility with BSD.
 
 <!-- strsignal.c:348 -->
 <div class="defun">
-&mdash; Extension: int <b>signo_max</b> (<var>void</var>)<var><a name="index-signo_005fmax-167"></a></var><br>
+&mdash; Extension: int <b>signo_max</b> (<var>void</var>)<var><a name="index-signo_005fmax-168"></a></var><br>
 <blockquote>
 <p>Returns the maximum signal value for which a corresponding symbolic
 name or message is available.  Note that in the case where we use the
@@ -2343,7 +2353,7 @@ symbolic name or message.
 
 <!-- sigsetmask.c:8 -->
 <div class="defun">
-&mdash; Supplemental: int <b>sigsetmask</b> (<var>int set</var>)<var><a name="index-sigsetmask-168"></a></var><br>
+&mdash; Supplemental: int <b>sigsetmask</b> (<var>int set</var>)<var><a name="index-sigsetmask-169"></a></var><br>
 <blockquote>
 <p>Sets the signal mask to the one provided in <var>set</var> and returns
 the old mask (which, for libiberty's implementation, will always
@@ -2353,7 +2363,7 @@ be the value <code>1</code>).
 
 <!-- simple-object.txh:96 -->
 <div class="defun">
-&mdash; Extension: const char * <b>simple_object_attributes_compare</b> (<var>simple_object_attributes *attrs1, simple_object_attributes *attrs2, int *err</var>)<var><a name="index-simple_005fobject_005fattributes_005fcompare-169"></a></var><br>
+&mdash; Extension: const char * <b>simple_object_attributes_compare</b> (<var>simple_object_attributes *attrs1, simple_object_attributes *attrs2, int *err</var>)<var><a name="index-simple_005fobject_005fattributes_005fcompare-170"></a></var><br>
 <blockquote>
 <p>Compare <var>attrs1</var> and <var>attrs2</var>.  If they could be linked
 together without error, return <code>NULL</code>.  Otherwise, return an
@@ -2364,7 +2374,7 @@ if there is no relevant errno.
 
 <!-- simple-object.txh:81 -->
 <div class="defun">
-&mdash; Extension: simple_object_attributes * <b>simple_object_fetch_attributes</b> (<var>simple_object_read *simple_object, const char **errmsg, int *err</var>)<var><a name="index-simple_005fobject_005ffetch_005fattributes-170"></a></var><br>
+&mdash; Extension: simple_object_attributes * <b>simple_object_fetch_attributes</b> (<var>simple_object_read *simple_object, const char **errmsg, int *err</var>)<var><a name="index-simple_005fobject_005ffetch_005fattributes-171"></a></var><br>
 <blockquote>
 <p>Fetch the attributes of <var>simple_object</var>.  The attributes are
 internal information such as the format of the object file, or the
@@ -2380,7 +2390,7 @@ error message, and sets <code>*</code><var>err</var> to an errno value or
 
 <!-- simple-object.txh:49 -->
 <div class="defun">
-&mdash; Extension: int <b>simple_object_find_section</b> (<var>simple_object_read *simple_object off_t *offset, off_t *length, const char **errmsg, int *err</var>)<var><a name="index-simple_005fobject_005ffind_005fsection-171"></a></var><br>
+&mdash; Extension: int <b>simple_object_find_section</b> (<var>simple_object_read *simple_object off_t *offset, off_t *length, const char **errmsg, int *err</var>)<var><a name="index-simple_005fobject_005ffind_005fsection-172"></a></var><br>
 <blockquote>
 <p>Look for the section <var>name</var> in <var>simple_object</var>.  This returns
 information for the first section with that name.
@@ -2404,7 +2414,7 @@ relevant errno.
 
 <!-- simple-object.txh:27 -->
 <div class="defun">
-&mdash; Extension: const char * <b>simple_object_find_sections</b> (<var>simple_object_read *simple_object, int </var>(<var>*pfn</var>) (<var>void *data, const char *name, off_t offset, off_t length</var>)<var>, void *data, int *err</var>)<var><a name="index-simple_005fobject_005ffind_005fsections-172"></a></var><br>
+&mdash; Extension: const char * <b>simple_object_find_sections</b> (<var>simple_object_read *simple_object, int </var>(<var>*pfn</var>) (<var>void *data, const char *name, off_t offset, off_t length</var>)<var>, void *data, int *err</var>)<var><a name="index-simple_005fobject_005ffind_005fsections-173"></a></var><br>
 <blockquote>
 <p>This function calls <var>pfn</var> for each section in <var>simple_object</var>. 
 It calls <var>pfn</var> with the section name, the offset within the file
@@ -2425,7 +2435,7 @@ or <code>0</code> if there is no relevant errno.
 
 <!-- simple-object.txh:2 -->
 <div class="defun">
-&mdash; Extension: simple_object_read * <b>simple_object_open_read</b> (<var>int descriptor, off_t offset, const char *segment_name, const char **errmsg, int *err</var>)<var><a name="index-simple_005fobject_005fopen_005fread-173"></a></var><br>
+&mdash; Extension: simple_object_read * <b>simple_object_open_read</b> (<var>int descriptor, off_t offset, const char *segment_name, const char **errmsg, int *err</var>)<var><a name="index-simple_005fobject_005fopen_005fread-174"></a></var><br>
 <blockquote>
 <p>Opens an object file for reading.  Creates and returns an
 <code>simple_object_read</code> pointer which may be passed to other
@@ -2450,7 +2460,7 @@ an errno value or <code>0</code> if there is no relevant errno.
 
 <!-- simple-object.txh:107 -->
 <div class="defun">
-&mdash; Extension: void <b>simple_object_release_attributes</b> (<var>simple_object_attributes *attrs</var>)<var><a name="index-simple_005fobject_005frelease_005fattributes-174"></a></var><br>
+&mdash; Extension: void <b>simple_object_release_attributes</b> (<var>simple_object_attributes *attrs</var>)<var><a name="index-simple_005fobject_005frelease_005fattributes-175"></a></var><br>
 <blockquote>
 <p>Release all resources associated with <var>attrs</var>.
 
@@ -2458,7 +2468,7 @@ an errno value or <code>0</code> if there is no relevant errno.
 
 <!-- simple-object.txh:73 -->
 <div class="defun">
-&mdash; Extension: void <b>simple_object_release_read</b> (<var>simple_object_read *simple_object</var>)<var><a name="index-simple_005fobject_005frelease_005fread-175"></a></var><br>
+&mdash; Extension: void <b>simple_object_release_read</b> (<var>simple_object_read *simple_object</var>)<var><a name="index-simple_005fobject_005frelease_005fread-176"></a></var><br>
 <blockquote>
 <p>Release all resources associated with <var>simple_object</var>.  This does
 not close the file descriptor.
@@ -2467,7 +2477,7 @@ not close the file descriptor.
 
 <!-- simple-object.txh:184 -->
 <div class="defun">
-&mdash; Extension: void <b>simple_object_release_write</b> (<var>simple_object_write *simple_object</var>)<var><a name="index-simple_005fobject_005frelease_005fwrite-176"></a></var><br>
+&mdash; Extension: void <b>simple_object_release_write</b> (<var>simple_object_write *simple_object</var>)<var><a name="index-simple_005fobject_005frelease_005fwrite-177"></a></var><br>
 <blockquote>
 <p>Release all resources associated with <var>simple_object</var>.
 
@@ -2475,7 +2485,7 @@ not close the file descriptor.
 
 <!-- simple-object.txh:114 -->
 <div class="defun">
-&mdash; Extension: simple_object_write * <b>simple_object_start_write</b> (<var>simple_object_attributes attrs, const char *segment_name, const char **errmsg, int *err</var>)<var><a name="index-simple_005fobject_005fstart_005fwrite-177"></a></var><br>
+&mdash; Extension: simple_object_write * <b>simple_object_start_write</b> (<var>simple_object_attributes attrs, const char *segment_name, const char **errmsg, int *err</var>)<var><a name="index-simple_005fobject_005fstart_005fwrite-178"></a></var><br>
 <blockquote>
 <p>Start creating a new object file using the object file format
 described in <var>attrs</var>.  You must fetch attribute information from
@@ -2495,7 +2505,7 @@ to an errno value or <code>0</code> if there is no relevant errno.
 
 <!-- simple-object.txh:153 -->
 <div class="defun">
-&mdash; Extension: const char * <b>simple_object_write_add_data</b> (<var>simple_object_write *simple_object, simple_object_write_section *section, const void *buffer, size_t size, int copy, int *err</var>)<var><a name="index-simple_005fobject_005fwrite_005fadd_005fdata-178"></a></var><br>
+&mdash; Extension: const char * <b>simple_object_write_add_data</b> (<var>simple_object_write *simple_object, simple_object_write_section *section, const void *buffer, size_t size, int copy, int *err</var>)<var><a name="index-simple_005fobject_005fwrite_005fadd_005fdata-179"></a></var><br>
 <blockquote>
 <p>Add data <var>buffer</var>/<var>size</var> to <var>section</var> in
 <var>simple_object</var>.  If <var>copy</var> is non-zero, the data will be
@@ -2511,7 +2521,7 @@ no relevant erro.
 
 <!-- simple-object.txh:134 -->
 <div class="defun">
-&mdash; Extension: simple_object_write_section * <b>simple_object_write_create_section</b> (<var>simple_object_write *simple_object, const char *name, unsigned int align, const char **errmsg, int *err</var>)<var><a name="index-simple_005fobject_005fwrite_005fcreate_005fsection-179"></a></var><br>
+&mdash; Extension: simple_object_write_section * <b>simple_object_write_create_section</b> (<var>simple_object_write *simple_object, const char *name, unsigned int align, const char **errmsg, int *err</var>)<var><a name="index-simple_005fobject_005fwrite_005fcreate_005fsection-180"></a></var><br>
 <blockquote>
 <p>Add a section to <var>simple_object</var>.  <var>name</var> is the name of the
 new section.  <var>align</var> is the required alignment expressed as the
@@ -2530,7 +2540,7 @@ error message, and sets <code>*</code><var>err</var> to an errno value or
 
 <!-- simple-object.txh:170 -->
 <div class="defun">
-&mdash; Extension: const char * <b>simple_object_write_to_file</b> (<var>simple_object_write *simple_object, int descriptor, int *err</var>)<var><a name="index-simple_005fobject_005fwrite_005fto_005ffile-180"></a></var><br>
+&mdash; Extension: const char * <b>simple_object_write_to_file</b> (<var>simple_object_write *simple_object, int descriptor, int *err</var>)<var><a name="index-simple_005fobject_005fwrite_005fto_005ffile-181"></a></var><br>
 <blockquote>
 <p>Write the complete object file to <var>descriptor</var>, an open file
 descriptor.  This writes out all the data accumulated by calls to
@@ -2545,7 +2555,7 @@ there is no relevant errno.
 
 <!-- snprintf.c:28 -->
 <div class="defun">
-&mdash; Supplemental: int <b>snprintf</b> (<var>char *buf, size_t n, const char *format, ...</var>)<var><a name="index-snprintf-181"></a></var><br>
+&mdash; Supplemental: int <b>snprintf</b> (<var>char *buf, size_t n, const char *format, ...</var>)<var><a name="index-snprintf-182"></a></var><br>
 <blockquote>
 <p>This function is similar to <code>sprintf</code>, but it will write to
 <var>buf</var> at most <var>n</var><code>-1</code> bytes of text, followed by a
@@ -2561,7 +2571,7 @@ the system version of this function is used.
 
 <!-- spaces.c:22 -->
 <div class="defun">
-&mdash; Extension: char* <b>spaces</b> (<var>int count</var>)<var><a name="index-spaces-182"></a></var><br>
+&mdash; Extension: char* <b>spaces</b> (<var>int count</var>)<var><a name="index-spaces-183"></a></var><br>
 <blockquote>
 <p>Returns a pointer to a memory region filled with the specified
 number of spaces and null terminated.  The returned pointer is
@@ -2571,7 +2581,7 @@ valid until at least the next call.
 
 <!-- splay-tree.c:303 -->
 <div class="defun">
-&mdash; Supplemental: splay_tree <b>splay_tree_new_with_typed_alloc</b> (<var>splay_tree_compare_fn compare_fn, splay_tree_delete_key_fn delete_key_fn, splay_tree_delete_value_fn delete_value_fn, splay_tree_allocate_fn tree_allocate_fn, splay_tree_allocate_fn node_allocate_fn, splay_tree_deallocate_fn deallocate_fn, void * allocate_data</var>)<var><a name="index-splay_005ftree_005fnew_005fwith_005ftyped_005falloc-183"></a></var><br>
+&mdash; Supplemental: splay_tree <b>splay_tree_new_with_typed_alloc</b> (<var>splay_tree_compare_fn compare_fn, splay_tree_delete_key_fn delete_key_fn, splay_tree_delete_value_fn delete_value_fn, splay_tree_allocate_fn tree_allocate_fn, splay_tree_allocate_fn node_allocate_fn, splay_tree_deallocate_fn deallocate_fn, void * allocate_data</var>)<var><a name="index-splay_005ftree_005fnew_005fwith_005ftyped_005falloc-184"></a></var><br>
 <blockquote>
 <p>This function creates a splay tree that uses two different allocators
 <var>tree_allocate_fn</var> and <var>node_allocate_fn</var> to use for allocating the
@@ -2586,7 +2596,7 @@ deallocate values.
 
 <!-- stack-limit.c:28 -->
 <div class="defun">
-&mdash; Extension: void <b>stack_limit_increase</b> (<var>unsigned long pref</var>)<var><a name="index-stack_005flimit_005fincrease-184"></a></var><br>
+&mdash; Extension: void <b>stack_limit_increase</b> (<var>unsigned long pref</var>)<var><a name="index-stack_005flimit_005fincrease-185"></a></var><br>
 <blockquote>
 <p>Attempt to increase stack size limit to <var>pref</var> bytes if possible.
 
@@ -2594,7 +2604,7 @@ deallocate values.
 
 <!-- stpcpy.c:23 -->
 <div class="defun">
-&mdash; Supplemental: char* <b>stpcpy</b> (<var>char *dst, const char *src</var>)<var><a name="index-stpcpy-185"></a></var><br>
+&mdash; Supplemental: char* <b>stpcpy</b> (<var>char *dst, const char *src</var>)<var><a name="index-stpcpy-186"></a></var><br>
 <blockquote>
 <p>Copies the string <var>src</var> into <var>dst</var>.  Returns a pointer to
 <var>dst</var> + strlen(<var>src</var>).
@@ -2603,7 +2613,7 @@ deallocate values.
 
 <!-- stpncpy.c:23 -->
 <div class="defun">
-&mdash; Supplemental: char* <b>stpncpy</b> (<var>char *dst, const char *src, size_t len</var>)<var><a name="index-stpncpy-186"></a></var><br>
+&mdash; Supplemental: char* <b>stpncpy</b> (<var>char *dst, const char *src, size_t len</var>)<var><a name="index-stpncpy-187"></a></var><br>
 <blockquote>
 <p>Copies the string <var>src</var> into <var>dst</var>, copying exactly <var>len</var>
 and padding with zeros if necessary.  If <var>len</var> &lt; strlen(<var>src</var>)
@@ -2614,7 +2624,7 @@ strlen(<var>src</var>).
 
 <!-- strcasecmp.c:15 -->
 <div class="defun">
-&mdash; Supplemental: int <b>strcasecmp</b> (<var>const char *s1, const char *s2</var>)<var><a name="index-strcasecmp-187"></a></var><br>
+&mdash; Supplemental: int <b>strcasecmp</b> (<var>const char *s1, const char *s2</var>)<var><a name="index-strcasecmp-188"></a></var><br>
 <blockquote>
 <p>A case-insensitive <code>strcmp</code>.
 
@@ -2622,7 +2632,7 @@ strlen(<var>src</var>).
 
 <!-- strchr.c:6 -->
 <div class="defun">
-&mdash; Supplemental: char* <b>strchr</b> (<var>const char *s, int c</var>)<var><a name="index-strchr-188"></a></var><br>
+&mdash; Supplemental: char* <b>strchr</b> (<var>const char *s, int c</var>)<var><a name="index-strchr-189"></a></var><br>
 <blockquote>
 <p>Returns a pointer to the first occurrence of the character <var>c</var> in
 the string <var>s</var>, or <code>NULL</code> if not found.  If <var>c</var> is itself the
@@ -2632,7 +2642,7 @@ null character, the results are undefined.
 
 <!-- strdup.c:3 -->
 <div class="defun">
-&mdash; Supplemental: char* <b>strdup</b> (<var>const char *s</var>)<var><a name="index-strdup-189"></a></var><br>
+&mdash; Supplemental: char* <b>strdup</b> (<var>const char *s</var>)<var><a name="index-strdup-190"></a></var><br>
 <blockquote>
 <p>Returns a pointer to a copy of <var>s</var> in memory obtained from
 <code>malloc</code>, or <code>NULL</code> if insufficient memory was available.
@@ -2641,7 +2651,7 @@ null character, the results are undefined.
 
 <!-- strerror.c:670 -->
 <div class="defun">
-&mdash; Replacement: const char* <b>strerrno</b> (<var>int errnum</var>)<var><a name="index-strerrno-190"></a></var><br>
+&mdash; Replacement: const char* <b>strerrno</b> (<var>int errnum</var>)<var><a name="index-strerrno-191"></a></var><br>
 <blockquote>
 <p>Given an error number returned from a system call (typically returned
 in <code>errno</code>), returns a pointer to a string containing the
@@ -2662,7 +2672,7 @@ valid until the next call to <code>strerrno</code>.
 
 <!-- strerror.c:603 -->
 <div class="defun">
-&mdash; Supplemental: char* <b>strerror</b> (<var>int errnoval</var>)<var><a name="index-strerror-191"></a></var><br>
+&mdash; Supplemental: char* <b>strerror</b> (<var>int errnoval</var>)<var><a name="index-strerror-192"></a></var><br>
 <blockquote>
 <p>Maps an <code>errno</code> number to an error message string, the contents
 of which are implementation defined.  On systems which have the
@@ -2684,7 +2694,7 @@ next call to <code>strerror</code>.
 
 <!-- strncasecmp.c:15 -->
 <div class="defun">
-&mdash; Supplemental: int <b>strncasecmp</b> (<var>const char *s1, const char *s2</var>)<var><a name="index-strncasecmp-192"></a></var><br>
+&mdash; Supplemental: int <b>strncasecmp</b> (<var>const char *s1, const char *s2</var>)<var><a name="index-strncasecmp-193"></a></var><br>
 <blockquote>
 <p>A case-insensitive <code>strncmp</code>.
 
@@ -2692,7 +2702,7 @@ next call to <code>strerror</code>.
 
 <!-- strncmp.c:6 -->
 <div class="defun">
-&mdash; Supplemental: int <b>strncmp</b> (<var>const char *s1, const char *s2, size_t n</var>)<var><a name="index-strncmp-193"></a></var><br>
+&mdash; Supplemental: int <b>strncmp</b> (<var>const char *s1, const char *s2, size_t n</var>)<var><a name="index-strncmp-194"></a></var><br>
 <blockquote>
 <p>Compares the first <var>n</var> bytes of two strings, returning a value as
 <code>strcmp</code>.
@@ -2701,7 +2711,7 @@ next call to <code>strerror</code>.
 
 <!-- strndup.c:23 -->
 <div class="defun">
-&mdash; Extension: char* <b>strndup</b> (<var>const char *s, size_t n</var>)<var><a name="index-strndup-194"></a></var><br>
+&mdash; Extension: char* <b>strndup</b> (<var>const char *s, size_t n</var>)<var><a name="index-strndup-195"></a></var><br>
 <blockquote>
 <p>Returns a pointer to a copy of <var>s</var> with at most <var>n</var> characters
 in memory obtained from <code>malloc</code>, or <code>NULL</code> if insufficient
@@ -2711,7 +2721,7 @@ memory was available.  The result is always NUL terminated.
 
 <!-- strnlen.c:6 -->
 <div class="defun">
-&mdash; Supplemental: size_t <b>strnlen</b> (<var>const char *s, size_t maxlen</var>)<var><a name="index-strnlen-195"></a></var><br>
+&mdash; Supplemental: size_t <b>strnlen</b> (<var>const char *s, size_t maxlen</var>)<var><a name="index-strnlen-196"></a></var><br>
 <blockquote>
 <p>Returns the length of <var>s</var>, as with <code>strlen</code>, but never looks
 past the first <var>maxlen</var> characters in the string.  If there is no
@@ -2722,7 +2732,7 @@ past the first <var>maxlen</var> characters in the string.  If there is no
 
 <!-- strrchr.c:6 -->
 <div class="defun">
-&mdash; Supplemental: char* <b>strrchr</b> (<var>const char *s, int c</var>)<var><a name="index-strrchr-196"></a></var><br>
+&mdash; Supplemental: char* <b>strrchr</b> (<var>const char *s, int c</var>)<var><a name="index-strrchr-197"></a></var><br>
 <blockquote>
 <p>Returns a pointer to the last occurrence of the character <var>c</var> in
 the string <var>s</var>, or <code>NULL</code> if not found.  If <var>c</var> is itself the
@@ -2732,7 +2742,7 @@ null character, the results are undefined.
 
 <!-- strsignal.c:383 -->
 <div class="defun">
-&mdash; Supplemental: const char * <b>strsignal</b> (<var>int signo</var>)<var><a name="index-strsignal-197"></a></var><br>
+&mdash; Supplemental: const char * <b>strsignal</b> (<var>int signo</var>)<var><a name="index-strsignal-198"></a></var><br>
 <blockquote>
 <p>Maps an signal number to an signal message string, the contents of
 which are implementation defined.  On systems which have the external
@@ -2754,7 +2764,7 @@ call to <code>strsignal</code>.
 
 <!-- strsignal.c:448 -->
 <div class="defun">
-&mdash; Extension: const char* <b>strsigno</b> (<var>int signo</var>)<var><a name="index-strsigno-198"></a></var><br>
+&mdash; Extension: const char* <b>strsigno</b> (<var>int signo</var>)<var><a name="index-strsigno-199"></a></var><br>
 <blockquote>
 <p>Given an signal number, returns a pointer to a string containing the
 symbolic name of that signal number, as found in <code>&lt;signal.h&gt;</code>.
@@ -2774,7 +2784,7 @@ valid until the next call to <code>strsigno</code>.
 
 <!-- strstr.c:6 -->
 <div class="defun">
-&mdash; Supplemental: char* <b>strstr</b> (<var>const char *string, const char *sub</var>)<var><a name="index-strstr-199"></a></var><br>
+&mdash; Supplemental: char* <b>strstr</b> (<var>const char *string, const char *sub</var>)<var><a name="index-strstr-200"></a></var><br>
 <blockquote>
 <p>This function searches for the substring <var>sub</var> in the string
 <var>string</var>, not including the terminating null characters.  A pointer
@@ -2786,7 +2796,7 @@ length, the function returns <var>string</var>.
 
 <!-- strtod.c:27 -->
 <div class="defun">
-&mdash; Supplemental: double <b>strtod</b> (<var>const char *string, char **endptr</var>)<var><a name="index-strtod-200"></a></var><br>
+&mdash; Supplemental: double <b>strtod</b> (<var>const char *string, char **endptr</var>)<var><a name="index-strtod-201"></a></var><br>
 <blockquote>
 <p>This ISO C function converts the initial portion of <var>string</var> to a
 <code>double</code>.  If <var>endptr</var> is not <code>NULL</code>, a pointer to the
@@ -2799,7 +2809,7 @@ the location referenced by <var>endptr</var>.
 
 <!-- strerror.c:729 -->
 <div class="defun">
-&mdash; Extension: int <b>strtoerrno</b> (<var>const char *name</var>)<var><a name="index-strtoerrno-201"></a></var><br>
+&mdash; Extension: int <b>strtoerrno</b> (<var>const char *name</var>)<var><a name="index-strtoerrno-202"></a></var><br>
 <blockquote>
 <p>Given the symbolic name of a error number (e.g., <code>EACCES</code>), map it
 to an errno value.  If no translation is found, returns 0.
@@ -2808,8 +2818,8 @@ to an errno value.  If no translation is found, returns 0.
 
 <!-- strtol.c:33 -->
 <div class="defun">
-&mdash; Supplemental: long int <b>strtol</b> (<var>const char *string, char **endptr, int base</var>)<var><a name="index-strtol-202"></a></var><br>
-&mdash; Supplemental: unsigned long int <b>strtoul</b> (<var>const char *string, char **endptr, int base</var>)<var><a name="index-strtoul-203"></a></var><br>
+&mdash; Supplemental: long int <b>strtol</b> (<var>const char *string, char **endptr, int base</var>)<var><a name="index-strtol-203"></a></var><br>
+&mdash; Supplemental: unsigned long int <b>strtoul</b> (<var>const char *string, char **endptr, int base</var>)<var><a name="index-strtoul-204"></a></var><br>
 <blockquote>
 <p>The <code>strtol</code> function converts the string in <var>string</var> to a
 long integer value according to the given <var>base</var>, which must be
@@ -2823,9 +2833,26 @@ that the converted value is unsigned.
 
         </blockquote></div>
 
+<!-- strtoll.c:33 -->
+<div class="defun">
+&mdash; Supplemental: long long int <b>strtoll</b> (<var>const char *string, char **endptr, int base</var>)<var><a name="index-strtoll-205"></a></var><br>
+&mdash; Supplemental: unsigned long long int <b>strtoul</b> (<var> const char *string, char **endptr, int base</var>)<var><a name="index-strtoul-206"></a></var><br>
+<blockquote>
+<p>The <code>strtoll</code> function converts the string in <var>string</var> to a
+long long integer value according to the given <var>base</var>, which must be
+between 2 and 36 inclusive, or be the special value 0.  If <var>base</var>
+is 0, <code>strtoll</code> will look for the prefixes <code>0</code> and <code>0x</code>
+to indicate bases 8 and 16, respectively, else default to base 10. 
+When the base is 16 (either explicitly or implicitly), a prefix of
+<code>0x</code> is allowed.  The handling of <var>endptr</var> is as that of
+<code>strtod</code> above.  The <code>strtoull</code> function is the same, except
+that the converted value is unsigned.
+
+        </blockquote></div>
+
 <!-- strsignal.c:502 -->
 <div class="defun">
-&mdash; Extension: int <b>strtosigno</b> (<var>const char *name</var>)<var><a name="index-strtosigno-204"></a></var><br>
+&mdash; Extension: int <b>strtosigno</b> (<var>const char *name</var>)<var><a name="index-strtosigno-207"></a></var><br>
 <blockquote>
 <p>Given the symbolic name of a signal, map it to a signal number.  If no
 translation is found, returns 0.
@@ -2834,7 +2861,7 @@ translation is found, returns 0.
 
 <!-- strverscmp.c:25 -->
 <div class="defun">
-&mdash; Function: int <b>strverscmp</b> (<var>const char *s1, const char *s2</var>)<var><a name="index-strverscmp-205"></a></var><br>
+&mdash; Function: int <b>strverscmp</b> (<var>const char *s1, const char *s2</var>)<var><a name="index-strverscmp-208"></a></var><br>
 <blockquote><p>The <code>strverscmp</code> function compares the string <var>s1</var> against
 <var>s2</var>, considering them as holding indices/version numbers.  Return
 value follows the same conventions as found in the <code>strverscmp</code>
@@ -2877,7 +2904,7 @@ because filenames frequently hold indices/version numbers.
 
 <!-- timeval-utils.c:43 -->
 <div class="defun">
-&mdash; Extension: void <b>timeval_add</b> (<var>struct timeval *a, struct timeval *b, struct timeval *result</var>)<var><a name="index-timeval_005fadd-206"></a></var><br>
+&mdash; Extension: void <b>timeval_add</b> (<var>struct timeval *a, struct timeval *b, struct timeval *result</var>)<var><a name="index-timeval_005fadd-209"></a></var><br>
 <blockquote>
 <p>Adds <var>a</var> to <var>b</var> and stores the result in <var>result</var>.
 
@@ -2885,7 +2912,7 @@ because filenames frequently hold indices/version numbers.
 
 <!-- timeval-utils.c:67 -->
 <div class="defun">
-&mdash; Extension: void <b>timeval_sub</b> (<var>struct timeval *a, struct timeval *b, struct timeval *result</var>)<var><a name="index-timeval_005fsub-207"></a></var><br>
+&mdash; Extension: void <b>timeval_sub</b> (<var>struct timeval *a, struct timeval *b, struct timeval *result</var>)<var><a name="index-timeval_005fsub-210"></a></var><br>
 <blockquote>
 <p>Subtracts <var>b</var> from <var>a</var> and stores the result in <var>result</var>.
 
@@ -2893,7 +2920,7 @@ because filenames frequently hold indices/version numbers.
 
 <!-- tmpnam.c:3 -->
 <div class="defun">
-&mdash; Supplemental: char* <b>tmpnam</b> (<var>char *s</var>)<var><a name="index-tmpnam-208"></a></var><br>
+&mdash; Supplemental: char* <b>tmpnam</b> (<var>char *s</var>)<var><a name="index-tmpnam-211"></a></var><br>
 <blockquote>
 <p>This function attempts to create a name for a temporary file, which
 will be a valid file name yet not exist when <code>tmpnam</code> checks for
@@ -2905,7 +2932,7 @@ not be used in new projects.  Use <code>mkstemp</code> instead.
 
 <!-- unlink-if-ordinary.c:27 -->
 <div class="defun">
-&mdash; Supplemental: int <b>unlink_if_ordinary</b> (<var>const char*</var>)<var><a name="index-unlink_005fif_005fordinary-209"></a></var><br>
+&mdash; Supplemental: int <b>unlink_if_ordinary</b> (<var>const char*</var>)<var><a name="index-unlink_005fif_005fordinary-212"></a></var><br>
 <blockquote>
 <p>Unlinks the named file, unless it is special (e.g. a device file). 
 Returns 0 when the file was unlinked, a negative value (and errno set) when
@@ -2916,7 +2943,7 @@ was made to unlink the file because it is special.
 
 <!-- fopen_unlocked.c:31 -->
 <div class="defun">
-&mdash; Extension: void <b>unlock_std_streams</b> (<var>void</var>)<var><a name="index-unlock_005fstd_005fstreams-210"></a></var><br>
+&mdash; Extension: void <b>unlock_std_streams</b> (<var>void</var>)<var><a name="index-unlock_005fstd_005fstreams-213"></a></var><br>
 <blockquote>
 <p>If the OS supports it, ensure that the standard I/O streams,
 <code>stdin</code>, <code>stdout</code> and <code>stderr</code> are setup to avoid any
@@ -2926,7 +2953,7 @@ multi-threaded locking.  Otherwise do nothing.
 
 <!-- fopen_unlocked.c:23 -->
 <div class="defun">
-&mdash; Extension: void <b>unlock_stream</b> (<var>FILE * stream</var>)<var><a name="index-unlock_005fstream-211"></a></var><br>
+&mdash; Extension: void <b>unlock_stream</b> (<var>FILE * stream</var>)<var><a name="index-unlock_005fstream-214"></a></var><br>
 <blockquote>
 <p>If the OS supports it, ensure that the supplied stream is setup to
 avoid any multi-threaded locking.  Otherwise leave the <code>FILE</code>
@@ -2936,7 +2963,7 @@ pointer unchanged.  If the <var>stream</var> is <code>NULL</code> do nothing.
 
 <!-- vasprintf.c:47 -->
 <div class="defun">
-&mdash; Extension: int <b>vasprintf</b> (<var>char **resptr, const char *format, va_list args</var>)<var><a name="index-vasprintf-212"></a></var><br>
+&mdash; Extension: int <b>vasprintf</b> (<var>char **resptr, const char *format, va_list args</var>)<var><a name="index-vasprintf-215"></a></var><br>
 <blockquote>
 <p>Like <code>vsprintf</code>, but instead of passing a pointer to a buffer,
 you pass a pointer to a pointer.  This function will compute the size
@@ -2950,7 +2977,7 @@ not be allocated, minus one is returned and <code>NULL</code> is stored in
 
 <!-- vfork.c:6 -->
 <div class="defun">
-&mdash; Supplemental: int <b>vfork</b> (<var>void</var>)<var><a name="index-vfork-213"></a></var><br>
+&mdash; Supplemental: int <b>vfork</b> (<var>void</var>)<var><a name="index-vfork-216"></a></var><br>
 <blockquote>
 <p>Emulates <code>vfork</code> by calling <code>fork</code> and returning its value.
 
@@ -2958,9 +2985,9 @@ not be allocated, minus one is returned and <code>NULL</code> is stored in
 
 <!-- vprintf.c:3 -->
 <div class="defun">
-&mdash; Supplemental: int <b>vprintf</b> (<var>const char *format, va_list ap</var>)<var><a name="index-vprintf-214"></a></var><br>
-&mdash; Supplemental: int <b>vfprintf</b> (<var>FILE *stream, const char *format, va_list ap</var>)<var><a name="index-vfprintf-215"></a></var><br>
-&mdash; Supplemental: int <b>vsprintf</b> (<var>char *str, const char *format, va_list ap</var>)<var><a name="index-vsprintf-216"></a></var><br>
+&mdash; Supplemental: int <b>vprintf</b> (<var>const char *format, va_list ap</var>)<var><a name="index-vprintf-217"></a></var><br>
+&mdash; Supplemental: int <b>vfprintf</b> (<var>FILE *stream, const char *format, va_list ap</var>)<var><a name="index-vfprintf-218"></a></var><br>
+&mdash; Supplemental: int <b>vsprintf</b> (<var>char *str, const char *format, va_list ap</var>)<var><a name="index-vsprintf-219"></a></var><br>
 <blockquote>
 <p>These functions are the same as <code>printf</code>, <code>fprintf</code>, and
 <code>sprintf</code>, respectively, except that they are called with a
@@ -2973,7 +3000,7 @@ nonstandard but common function <code>_doprnt</code>.
 
 <!-- vsnprintf.c:28 -->
 <div class="defun">
-&mdash; Supplemental: int <b>vsnprintf</b> (<var>char *buf, size_t n, const char *format, va_list ap</var>)<var><a name="index-vsnprintf-217"></a></var><br>
+&mdash; Supplemental: int <b>vsnprintf</b> (<var>char *buf, size_t n, const char *format, va_list ap</var>)<var><a name="index-vsnprintf-220"></a></var><br>
 <blockquote>
 <p>This function is similar to <code>vsprintf</code>, but it will write to
 <var>buf</var> at most <var>n</var><code>-1</code> bytes of text, followed by a
@@ -2989,7 +3016,7 @@ used.
 
 <!-- waitpid.c:3 -->
 <div class="defun">
-&mdash; Supplemental: int <b>waitpid</b> (<var>int pid, int *status, int</var>)<var><a name="index-waitpid-218"></a></var><br>
+&mdash; Supplemental: int <b>waitpid</b> (<var>int pid, int *status, int</var>)<var><a name="index-waitpid-221"></a></var><br>
 <blockquote>
 <p>This is a wrapper around the <code>wait</code> function.  Any &ldquo;special&rdquo;
 values of <var>pid</var> depend on your implementation of <code>wait</code>, as
@@ -2999,7 +3026,7 @@ does the return value.  The third argument is unused in <code>libiberty</code>.
 
 <!-- argv.c:286 -->
 <div class="defun">
-&mdash; Extension: int <b>writeargv</b> (<var>const char **argv, FILE *file</var>)<var><a name="index-writeargv-219"></a></var><br>
+&mdash; Extension: int <b>writeargv</b> (<var>const char **argv, FILE *file</var>)<var><a name="index-writeargv-222"></a></var><br>
 <blockquote>
 <p>Write each member of ARGV, handling all necessary quoting, to the file
 named by FILE, separated by whitespace.  Return 0 on success, non-zero
@@ -3007,9 +3034,19 @@ if an error occurred while writing to FILE.
 
         </blockquote></div>
 
+<!-- xasprintf.c:31 -->
+<div class="defun">
+&mdash; Replacement: char* <b>xasprintf</b> (<var>const char *format, ...</var>)<var><a name="index-xasprintf-223"></a></var><br>
+<blockquote>
+<p>Print to allocated string without fail.  If <code>xasprintf</code> fails,
+this will print a message to <code>stderr</code> (using the name set by
+<code>xmalloc_set_program_name</code>, if any) and then call <code>xexit</code>.
+
+        </blockquote></div>
+
 <!-- xatexit.c:11 -->
 <div class="defun">
-&mdash; Function: int <b>xatexit</b> (<var>void </var>(<var>*fn</var>) (<var>void</var>))<var><a name="index-xatexit-220"></a></var><br>
+&mdash; Function: int <b>xatexit</b> (<var>void </var>(<var>*fn</var>) (<var>void</var>))<var><a name="index-xatexit-224"></a></var><br>
 <blockquote>
 <p>Behaves as the standard <code>atexit</code> function, but with no limit on
 the number of registered functions.  Returns 0 on success, or &minus;1 on
@@ -3020,7 +3057,7 @@ failure.  If you use <code>xatexit</code> to register functions, you must use
 
 <!-- xmalloc.c:38 -->
 <div class="defun">
-&mdash; Replacement: void* <b>xcalloc</b> (<var>size_t nelem, size_t elsize</var>)<var><a name="index-xcalloc-221"></a></var><br>
+&mdash; Replacement: void* <b>xcalloc</b> (<var>size_t nelem, size_t elsize</var>)<var><a name="index-xcalloc-225"></a></var><br>
 <blockquote>
 <p>Allocate memory without fail, and set it to zero.  This routine functions
 like <code>calloc</code>, but will behave the same as <code>xmalloc</code> if memory
@@ -3030,7 +3067,7 @@ cannot be found.
 
 <!-- xexit.c:22 -->
 <div class="defun">
-&mdash; Replacement: void <b>xexit</b> (<var>int code</var>)<var><a name="index-xexit-222"></a></var><br>
+&mdash; Replacement: void <b>xexit</b> (<var>int code</var>)<var><a name="index-xexit-226"></a></var><br>
 <blockquote>
 <p>Terminates the program.  If any functions have been registered with
 the <code>xatexit</code> replacement function, they will be called first. 
@@ -3040,7 +3077,7 @@ Termination is handled via the system's normal <code>exit</code> call.
 
 <!-- xmalloc.c:22 -->
 <div class="defun">
-&mdash; Replacement: void* <b>xmalloc</b> (<var>size_t</var>)<var><a name="index-xmalloc-223"></a></var><br>
+&mdash; Replacement: void* <b>xmalloc</b> (<var>size_t</var>)<var><a name="index-xmalloc-227"></a></var><br>
 <blockquote>
 <p>Allocate memory without fail.  If <code>malloc</code> fails, this will print
 a message to <code>stderr</code> (using the name set by
@@ -3052,7 +3089,7 @@ a program to contain <code>#define malloc xmalloc</code> in its source.
 
 <!-- xmalloc.c:53 -->
 <div class="defun">
-&mdash; Replacement: void <b>xmalloc_failed</b> (<var>size_t</var>)<var><a name="index-xmalloc_005ffailed-224"></a></var><br>
+&mdash; Replacement: void <b>xmalloc_failed</b> (<var>size_t</var>)<var><a name="index-xmalloc_005ffailed-228"></a></var><br>
 <blockquote>
 <p>This function is not meant to be called by client code, and is listed
 here for completeness only.  If any of the allocation routines fail, this
@@ -3062,7 +3099,7 @@ function will be called to print an error message and terminate execution.
 
 <!-- xmalloc.c:46 -->
 <div class="defun">
-&mdash; Replacement: void <b>xmalloc_set_program_name</b> (<var>const char *name</var>)<var><a name="index-xmalloc_005fset_005fprogram_005fname-225"></a></var><br>
+&mdash; Replacement: void <b>xmalloc_set_program_name</b> (<var>const char *name</var>)<var><a name="index-xmalloc_005fset_005fprogram_005fname-229"></a></var><br>
 <blockquote>
 <p>You can use this to set the name of the program used by
 <code>xmalloc_failed</code> when printing a failure message.
@@ -3071,7 +3108,7 @@ function will be called to print an error message and terminate execution.
 
 <!-- xmemdup.c:7 -->
 <div class="defun">
-&mdash; Replacement: void* <b>xmemdup</b> (<var>void *input, size_t copy_size, size_t alloc_size</var>)<var><a name="index-xmemdup-226"></a></var><br>
+&mdash; Replacement: void* <b>xmemdup</b> (<var>void *input, size_t copy_size, size_t alloc_size</var>)<var><a name="index-xmemdup-230"></a></var><br>
 <blockquote>
 <p>Duplicates a region of memory without fail.  First, <var>alloc_size</var> bytes
 are allocated, then <var>copy_size</var> bytes from <var>input</var> are copied into
@@ -3082,7 +3119,7 @@ allocated, the remaining memory is zeroed.
 
 <!-- xmalloc.c:32 -->
 <div class="defun">
-&mdash; Replacement: void* <b>xrealloc</b> (<var>void *ptr, size_t size</var>)<var><a name="index-xrealloc-227"></a></var><br>
+&mdash; Replacement: void* <b>xrealloc</b> (<var>void *ptr, size_t size</var>)<var><a name="index-xrealloc-231"></a></var><br>
 <blockquote><p>Reallocate memory without fail.  This routine functions like <code>realloc</code>,
 but will behave the same as <code>xmalloc</code> if memory cannot be found.
 
@@ -3090,7 +3127,7 @@ but will behave the same as <code>xmalloc</code> if memory cannot be found.
 
 <!-- xstrdup.c:7 -->
 <div class="defun">
-&mdash; Replacement: char* <b>xstrdup</b> (<var>const char *s</var>)<var><a name="index-xstrdup-228"></a></var><br>
+&mdash; Replacement: char* <b>xstrdup</b> (<var>const char *s</var>)<var><a name="index-xstrdup-232"></a></var><br>
 <blockquote>
 <p>Duplicates a character string without fail, using <code>xmalloc</code> to
 obtain memory.
@@ -3099,7 +3136,7 @@ obtain memory.
 
 <!-- xstrerror.c:7 -->
 <div class="defun">
-&mdash; Replacement: char* <b>xstrerror</b> (<var>int errnum</var>)<var><a name="index-xstrerror-229"></a></var><br>
+&mdash; Replacement: char* <b>xstrerror</b> (<var>int errnum</var>)<var><a name="index-xstrerror-233"></a></var><br>
 <blockquote>
 <p>Behaves exactly like the standard <code>strerror</code> function, but
 will never return a <code>NULL</code> pointer.
@@ -3108,11 +3145,21 @@ will never return a <code>NULL</code> pointer.
 
 <!-- xstrndup.c:23 -->
 <div class="defun">
-&mdash; Replacement: char* <b>xstrndup</b> (<var>const char *s, size_t n</var>)<var><a name="index-xstrndup-230"></a></var><br>
+&mdash; Replacement: char* <b>xstrndup</b> (<var>const char *s, size_t n</var>)<var><a name="index-xstrndup-234"></a></var><br>
 <blockquote>
 <p>Returns a pointer to a copy of <var>s</var> with at most <var>n</var> characters
 without fail, using <code>xmalloc</code> to obtain memory.  The result is
 always NUL terminated.
+
+        </blockquote></div>
+
+<!-- xvasprintf.c:38 -->
+<div class="defun">
+&mdash; Replacement: char* <b>xvasprintf</b> (<var>const char *format, va_list args</var>)<var><a name="index-xvasprintf-235"></a></var><br>
+<blockquote>
+<p>Print to allocated string without fail.  If <code>xvasprintf</code> fails,
+this will print a message to <code>stderr</code> (using the name set by
+<code>xmalloc_set_program_name</code>, if any) and then call <code>xexit</code>.
 
         </blockquote></div>
 
@@ -3145,7 +3192,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Licenses">Licenses</a>
 
 <h3 class="appendixsec">A.1 GNU LESSER GENERAL PUBLIC LICENSE</h3>
 
-<p><a name="index-LGPL_002c-Lesser-General-Public-License-231"></a><div align="center">Version 2.1, February 1999</div>
+<p><a name="index-LGPL_002c-Lesser-General-Public-License-236"></a><div align="center">Version 2.1, February 1999</div>
 
 <pre class="display">     Copyright &copy; 1991, 1999 Free Software Foundation, Inc.
      51 Franklin Street - Fifth Floor, Boston, MA 02110-1301, USA
@@ -3721,90 +3768,91 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 <li><a href="#index-buildargv-62"><code>buildargv</code></a>: <a href="#Functions">Functions</a></li>
 <li><a href="#index-bzero-63"><code>bzero</code></a>: <a href="#Functions">Functions</a></li>
 <li><a href="#index-calloc-64"><code>calloc</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-canonical_005ffilename_005feq-65"><code>canonical_filename_eq</code></a>: <a href="#Functions">Functions</a></li>
 <li><a href="#index-changing-the-size-of-a-block-_0028obstacks_0029-29">changing the size of a block (obstacks)</a>: <a href="#Growing-Objects">Growing Objects</a></li>
-<li><a href="#index-choose_005ftemp_005fbase-65"><code>choose_temp_base</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-choose_005ftmpdir-66"><code>choose_tmpdir</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-char_002a-67"><code>char*</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-choose_005ftemp_005fbase-66"><code>choose_temp_base</code></a>: <a href="#Functions">Functions</a></li>
 <li><a href="#index-chunks-53">chunks</a>: <a href="#Obstack-Chunks">Obstack Chunks</a></li>
-<li><a href="#index-clock-67"><code>clock</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-concat-68"><code>concat</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-countargv-69"><code>countargv</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-crc32-70"><code>crc32</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-dupargv-71"><code>dupargv</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-clock-68"><code>clock</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-concat-69"><code>concat</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-countargv-70"><code>countargv</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-crc32-71"><code>crc32</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-dupargv-72"><code>dupargv</code></a>: <a href="#Functions">Functions</a></li>
 <li><a href="#index-efficiency-and-obstacks-39">efficiency and obstacks</a>: <a href="#Extra-Fast-Growing">Extra Fast Growing</a></li>
 <li><a href="#index-efficiency-of-chunks-52">efficiency of chunks</a>: <a href="#Obstack-Chunks">Obstack Chunks</a></li>
-<li><a href="#index-errno_005fmax-72"><code>errno_max</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-errno_005fmax-73"><code>errno_max</code></a>: <a href="#Functions">Functions</a></li>
 <li><a href="#index-error-reporting-11">error reporting</a>: <a href="#Error-Reporting">Error Reporting</a></li>
 <li><a href="#index-exit-handlers-10">exit handlers</a>: <a href="#Exit-Handlers">Exit Handlers</a></li>
-<li><a href="#index-expandargv-73"><code>expandargv</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-expandargv-74"><code>expandargv</code></a>: <a href="#Functions">Functions</a></li>
 <li><a href="#index-extensions-12">extensions</a>: <a href="#Extensions">Extensions</a></li>
-<li><a href="#index-fdmatch-74"><code>fdmatch</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-fdopen_005funlocked-75"><code>fdopen_unlocked</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-ffs-76"><code>ffs</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-filename_005fcmp-77"><code>filename_cmp</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-filename_005feq-78"><code>filename_eq</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-filename_005fhash-79"><code>filename_hash</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-filename_005fncmp-80"><code>filename_ncmp</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-fnmatch-81"><code>fnmatch</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-fopen_005funlocked-82"><code>fopen_unlocked</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-freeargv-83"><code>freeargv</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-fdmatch-75"><code>fdmatch</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-fdopen_005funlocked-76"><code>fdopen_unlocked</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-ffs-77"><code>ffs</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-filename_005fcmp-78"><code>filename_cmp</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-filename_005feq-79"><code>filename_eq</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-filename_005fhash-80"><code>filename_hash</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-filename_005fncmp-81"><code>filename_ncmp</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-fnmatch-82"><code>fnmatch</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-fopen_005funlocked-83"><code>fopen_unlocked</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-freeargv-84"><code>freeargv</code></a>: <a href="#Functions">Functions</a></li>
 <li><a href="#index-freeing-_0028obstacks_0029-25">freeing (obstacks)</a>: <a href="#Freeing-Obstack-Objects">Freeing Obstack Objects</a></li>
-<li><a href="#index-freopen_005funlocked-84"><code>freopen_unlocked</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-freopen_005funlocked-85"><code>freopen_unlocked</code></a>: <a href="#Functions">Functions</a></li>
 <li><a href="#index-functions_002c-extension-13">functions, extension</a>: <a href="#Extensions">Extensions</a></li>
 <li><a href="#index-functions_002c-missing-6">functions, missing</a>: <a href="#Supplemental-Functions">Supplemental Functions</a></li>
 <li><a href="#index-functions_002c-replacement-8">functions, replacement</a>: <a href="#Replacement-Functions">Replacement Functions</a></li>
 <li><a href="#index-functions_002c-supplemental-5">functions, supplemental</a>: <a href="#Supplemental-Functions">Supplemental Functions</a></li>
-<li><a href="#index-get_005frun_005ftime-85"><code>get_run_time</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-getcwd-86"><code>getcwd</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-getpagesize-87"><code>getpagesize</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-getpwd-88"><code>getpwd</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-gettimeofday-89"><code>gettimeofday</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-get_005frun_005ftime-86"><code>get_run_time</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-getcwd-87"><code>getcwd</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-getpagesize-88"><code>getpagesize</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-getpwd-89"><code>getpwd</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-gettimeofday-90"><code>gettimeofday</code></a>: <a href="#Functions">Functions</a></li>
 <li><a href="#index-growing-objects-_0028in-obstacks_0029-28">growing objects (in obstacks)</a>: <a href="#Growing-Objects">Growing Objects</a></li>
-<li><a href="#index-hex_005finit-90"><code>hex_init</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-hex_005fp-91"><code>hex_p</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-hex_005fvalue-92"><code>hex_value</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-HOST_005fCHARSET-93"><code>HOST_CHARSET</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-HOST_005fCHARSET_005fASCII-95"><code>HOST_CHARSET_ASCII</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-HOST_005fCHARSET_005fEBCDIC-96"><code>HOST_CHARSET_EBCDIC</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-HOST_005fCHARSET_005fUNKNOWN-94"><code>HOST_CHARSET_UNKNOWN</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-hex_005finit-91"><code>hex_init</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-hex_005fp-92"><code>hex_p</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-hex_005fvalue-93"><code>hex_value</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-HOST_005fCHARSET-94"><code>HOST_CHARSET</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-HOST_005fCHARSET_005fASCII-96"><code>HOST_CHARSET_ASCII</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-HOST_005fCHARSET_005fEBCDIC-97"><code>HOST_CHARSET_EBCDIC</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-HOST_005fCHARSET_005fUNKNOWN-95"><code>HOST_CHARSET_UNKNOWN</code></a>: <a href="#Functions">Functions</a></li>
 <li><a href="#index-how-to-use-3">how to use</a>: <a href="#Using">Using</a></li>
-<li><a href="#index-htab_005fcreate_005ftyped_005falloc-97"><code>htab_create_typed_alloc</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-index-98"><code>index</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-initstate-159"><code>initstate</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-insque-99"><code>insque</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-IS_005fISOBASIC-118"><code>IS_ISOBASIC</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-IS_005fNVSPACE-116"><code>IS_NVSPACE</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-IS_005fSPACE_005fOR_005fNUL-117"><code>IS_SPACE_OR_NUL</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-IS_005fVSPACE-115"><code>IS_VSPACE</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-ISALNUM-102"><code>ISALNUM</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-ISALPHA-101"><code>ISALPHA</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-ISBLANK-103"><code>ISBLANK</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-ISCNTRL-104"><code>ISCNTRL</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-ISDIGIT-105"><code>ISDIGIT</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-ISGRAPH-106"><code>ISGRAPH</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-ISIDNUM-113"><code>ISIDNUM</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-ISIDST-114"><code>ISIDST</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-ISLOWER-107"><code>ISLOWER</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-ISPRINT-108"><code>ISPRINT</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-ISPUNCT-109"><code>ISPUNCT</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-ISSPACE-110"><code>ISSPACE</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-ISUPPER-111"><code>ISUPPER</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-ISXDIGIT-112"><code>ISXDIGIT</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-lbasename-119"><code>lbasename</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-LGPL_002c-Lesser-General-Public-License-231">LGPL, Lesser General Public License</a>: <a href="#Library-Copying">Library Copying</a></li>
+<li><a href="#index-htab_005fcreate_005ftyped_005falloc-98"><code>htab_create_typed_alloc</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-index-99"><code>index</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-initstate-160"><code>initstate</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-insque-100"><code>insque</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-IS_005fISOBASIC-119"><code>IS_ISOBASIC</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-IS_005fNVSPACE-117"><code>IS_NVSPACE</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-IS_005fSPACE_005fOR_005fNUL-118"><code>IS_SPACE_OR_NUL</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-IS_005fVSPACE-116"><code>IS_VSPACE</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-ISALNUM-103"><code>ISALNUM</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-ISALPHA-102"><code>ISALPHA</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-ISBLANK-104"><code>ISBLANK</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-ISCNTRL-105"><code>ISCNTRL</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-ISDIGIT-106"><code>ISDIGIT</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-ISGRAPH-107"><code>ISGRAPH</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-ISIDNUM-114"><code>ISIDNUM</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-ISIDST-115"><code>ISIDST</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-ISLOWER-108"><code>ISLOWER</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-ISPRINT-109"><code>ISPRINT</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-ISPUNCT-110"><code>ISPUNCT</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-ISSPACE-111"><code>ISSPACE</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-ISUPPER-112"><code>ISUPPER</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-ISXDIGIT-113"><code>ISXDIGIT</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-lbasename-120"><code>lbasename</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-LGPL_002c-Lesser-General-Public-License-236">LGPL, Lesser General Public License</a>: <a href="#Library-Copying">Library Copying</a></li>
 <li><a href="#index-libiberty-usage-2">libiberty usage</a>: <a href="#Using">Using</a></li>
-<li><a href="#index-lrealpath-120"><code>lrealpath</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-lrealpath-121"><code>lrealpath</code></a>: <a href="#Functions">Functions</a></li>
 <li><a href="#index-macros-27">macros</a>: <a href="#Obstack-Functions">Obstack Functions</a></li>
-<li><a href="#index-make_005frelative_005fprefix-121"><code>make_relative_prefix</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-make_005ftemp_005ffile-122"><code>make_temp_file</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-memchr-123"><code>memchr</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-memcmp-124"><code>memcmp</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-memcpy-125"><code>memcpy</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-memmem-126"><code>memmem</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-memmove-127"><code>memmove</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-make_005frelative_005fprefix-122"><code>make_relative_prefix</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-make_005ftemp_005ffile-123"><code>make_temp_file</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-memchr-124"><code>memchr</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-memcmp-125"><code>memcmp</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-memcpy-126"><code>memcpy</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-memmem-127"><code>memmem</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-memmove-128"><code>memmove</code></a>: <a href="#Functions">Functions</a></li>
 <li><a href="#index-memory-allocation-9">memory allocation</a>: <a href="#Memory-Allocation">Memory Allocation</a></li>
-<li><a href="#index-mempcpy-128"><code>mempcpy</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-memset-129"><code>memset</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-mkstemps-130"><code>mkstemps</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-mempcpy-129"><code>mempcpy</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-memset-130"><code>memset</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-mkstemps-131"><code>mkstemps</code></a>: <a href="#Functions">Functions</a></li>
 <li><a href="#index-obstack-status-45">obstack status</a>: <a href="#Status-of-an-Obstack">Status of an Obstack</a></li>
 <li><a href="#index-obstack_002eh-15"><code>obstack.h</code></a>: <a href="#Creating-Obstacks">Creating Obstacks</a></li>
 <li><a href="#index-obstack_005f1grow-33"><code>obstack_1grow</code></a>: <a href="#Growing-Objects">Growing Objects</a></li>
@@ -3834,110 +3882,113 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 <li><a href="#index-obstack_005fptr_005fgrow_005ffast-42"><code>obstack_ptr_grow_fast</code></a>: <a href="#Extra-Fast-Growing">Extra Fast Growing</a></li>
 <li><a href="#index-obstack_005froom-40"><code>obstack_room</code></a>: <a href="#Extra-Fast-Growing">Extra Fast Growing</a></li>
 <li><a href="#index-obstacks-14">obstacks</a>: <a href="#Obstacks">Obstacks</a></li>
-<li><a href="#index-PEX_005fBINARY_005fERROR-150"><code>PEX_BINARY_ERROR</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-PEX_005fBINARY_005fINPUT-148"><code>PEX_BINARY_INPUT</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-PEX_005fBINARY_005fOUTPUT-149"><code>PEX_BINARY_OUTPUT</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-pex_005ffree-131"><code>pex_free</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-pex_005fget_005fstatus-132"><code>pex_get_status</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-pex_005fget_005ftimes-133"><code>pex_get_times</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-pex_005finit-134"><code>pex_init</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-pex_005finput_005ffile-138"><code>pex_input_file</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-pex_005finput_005fpipe-139"><code>pex_input_pipe</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-PEX_005fLAST-144"><code>PEX_LAST</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-pex_005fone-140"><code>pex_one</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-pex_005fread_005ferr-141"><code>pex_read_err</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-pex_005fread_005foutput-142"><code>pex_read_output</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-PEX_005fRECORD_005fTIMES-135"><code>PEX_RECORD_TIMES</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-pex_005frun-143"><code>pex_run</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-pex_005frun_005fin_005fenvironment-152"><code>pex_run_in_environment</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-PEX_005fSAVE_005fTEMPS-137"><code>PEX_SAVE_TEMPS</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-PEX_005fSEARCH-145"><code>PEX_SEARCH</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-PEX_005fSTDERR_005fTO_005fPIPE-151"><code>PEX_STDERR_TO_PIPE</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-PEX_005fSTDERR_005fTO_005fSTDOUT-147"><code>PEX_STDERR_TO_STDOUT</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-PEX_005fSUFFIX-146"><code>PEX_SUFFIX</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-PEX_005fUSE_005fPIPES-136"><code>PEX_USE_PIPES</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-pexecute-153"><code>pexecute</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-psignal-154"><code>psignal</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-putenv-155"><code>putenv</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-pwait-156"><code>pwait</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-random-157"><code>random</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-reconcat-161"><code>reconcat</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-remque-100"><code>remque</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-rename-162"><code>rename</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-PEX_005fBINARY_005fERROR-151"><code>PEX_BINARY_ERROR</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-PEX_005fBINARY_005fINPUT-149"><code>PEX_BINARY_INPUT</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-PEX_005fBINARY_005fOUTPUT-150"><code>PEX_BINARY_OUTPUT</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-pex_005ffree-132"><code>pex_free</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-pex_005fget_005fstatus-133"><code>pex_get_status</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-pex_005fget_005ftimes-134"><code>pex_get_times</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-pex_005finit-135"><code>pex_init</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-pex_005finput_005ffile-139"><code>pex_input_file</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-pex_005finput_005fpipe-140"><code>pex_input_pipe</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-PEX_005fLAST-145"><code>PEX_LAST</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-pex_005fone-141"><code>pex_one</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-pex_005fread_005ferr-142"><code>pex_read_err</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-pex_005fread_005foutput-143"><code>pex_read_output</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-PEX_005fRECORD_005fTIMES-136"><code>PEX_RECORD_TIMES</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-pex_005frun-144"><code>pex_run</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-pex_005frun_005fin_005fenvironment-153"><code>pex_run_in_environment</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-PEX_005fSAVE_005fTEMPS-138"><code>PEX_SAVE_TEMPS</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-PEX_005fSEARCH-146"><code>PEX_SEARCH</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-PEX_005fSTDERR_005fTO_005fPIPE-152"><code>PEX_STDERR_TO_PIPE</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-PEX_005fSTDERR_005fTO_005fSTDOUT-148"><code>PEX_STDERR_TO_STDOUT</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-PEX_005fSUFFIX-147"><code>PEX_SUFFIX</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-PEX_005fUSE_005fPIPES-137"><code>PEX_USE_PIPES</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-pexecute-154"><code>pexecute</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-psignal-155"><code>psignal</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-putenv-156"><code>putenv</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-pwait-157"><code>pwait</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-random-158"><code>random</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-reconcat-162"><code>reconcat</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-remque-101"><code>remque</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-rename-163"><code>rename</code></a>: <a href="#Functions">Functions</a></li>
 <li><a href="#index-replacement-functions-7">replacement functions</a>: <a href="#Replacement-Functions">Replacement Functions</a></li>
-<li><a href="#index-rindex-163"><code>rindex</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-setenv-164"><code>setenv</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-setproctitle-166"><code>setproctitle</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-setstate-160"><code>setstate</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-rindex-164"><code>rindex</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-setenv-165"><code>setenv</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-setproctitle-167"><code>setproctitle</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-setstate-161"><code>setstate</code></a>: <a href="#Functions">Functions</a></li>
 <li><a href="#index-shrinking-objects-38">shrinking objects</a>: <a href="#Growing-Objects">Growing Objects</a></li>
-<li><a href="#index-signo_005fmax-167"><code>signo_max</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-sigsetmask-168"><code>sigsetmask</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-simple_005fobject_005fattributes_005fcompare-169"><code>simple_object_attributes_compare</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-simple_005fobject_005ffetch_005fattributes-170"><code>simple_object_fetch_attributes</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-simple_005fobject_005ffind_005fsection-171"><code>simple_object_find_section</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-simple_005fobject_005ffind_005fsections-172"><code>simple_object_find_sections</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-simple_005fobject_005fopen_005fread-173"><code>simple_object_open_read</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-simple_005fobject_005frelease_005fattributes-174"><code>simple_object_release_attributes</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-simple_005fobject_005frelease_005fread-175"><code>simple_object_release_read</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-simple_005fobject_005frelease_005fwrite-176"><code>simple_object_release_write</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-simple_005fobject_005fstart_005fwrite-177"><code>simple_object_start_write</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-simple_005fobject_005fwrite_005fadd_005fdata-178"><code>simple_object_write_add_data</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-simple_005fobject_005fwrite_005fcreate_005fsection-179"><code>simple_object_write_create_section</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-simple_005fobject_005fwrite_005fto_005ffile-180"><code>simple_object_write_to_file</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-snprintf-181"><code>snprintf</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-spaces-182"><code>spaces</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-splay_005ftree_005fnew_005fwith_005ftyped_005falloc-183"><code>splay_tree_new_with_typed_alloc</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-srandom-158"><code>srandom</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-stack_005flimit_005fincrease-184"><code>stack_limit_increase</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-signo_005fmax-168"><code>signo_max</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-sigsetmask-169"><code>sigsetmask</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-simple_005fobject_005fattributes_005fcompare-170"><code>simple_object_attributes_compare</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-simple_005fobject_005ffetch_005fattributes-171"><code>simple_object_fetch_attributes</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-simple_005fobject_005ffind_005fsection-172"><code>simple_object_find_section</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-simple_005fobject_005ffind_005fsections-173"><code>simple_object_find_sections</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-simple_005fobject_005fopen_005fread-174"><code>simple_object_open_read</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-simple_005fobject_005frelease_005fattributes-175"><code>simple_object_release_attributes</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-simple_005fobject_005frelease_005fread-176"><code>simple_object_release_read</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-simple_005fobject_005frelease_005fwrite-177"><code>simple_object_release_write</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-simple_005fobject_005fstart_005fwrite-178"><code>simple_object_start_write</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-simple_005fobject_005fwrite_005fadd_005fdata-179"><code>simple_object_write_add_data</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-simple_005fobject_005fwrite_005fcreate_005fsection-180"><code>simple_object_write_create_section</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-simple_005fobject_005fwrite_005fto_005ffile-181"><code>simple_object_write_to_file</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-snprintf-182"><code>snprintf</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-spaces-183"><code>spaces</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-splay_005ftree_005fnew_005fwith_005ftyped_005falloc-184"><code>splay_tree_new_with_typed_alloc</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-srandom-159"><code>srandom</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-stack_005flimit_005fincrease-185"><code>stack_limit_increase</code></a>: <a href="#Functions">Functions</a></li>
 <li><a href="#index-status-of-obstack-46">status of obstack</a>: <a href="#Status-of-an-Obstack">Status of an Obstack</a></li>
-<li><a href="#index-stpcpy-185"><code>stpcpy</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-stpncpy-186"><code>stpncpy</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-strcasecmp-187"><code>strcasecmp</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-strchr-188"><code>strchr</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-strdup-189"><code>strdup</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-strerrno-190"><code>strerrno</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-strerror-191"><code>strerror</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-strncasecmp-192"><code>strncasecmp</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-strncmp-193"><code>strncmp</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-strndup-194"><code>strndup</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-strnlen-195"><code>strnlen</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-strrchr-196"><code>strrchr</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-strsignal-197"><code>strsignal</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-strsigno-198"><code>strsigno</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-strstr-199"><code>strstr</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-strtod-200"><code>strtod</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-strtoerrno-201"><code>strtoerrno</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-strtol-202"><code>strtol</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-strtosigno-204"><code>strtosigno</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-strtoul-203"><code>strtoul</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-strverscmp-205"><code>strverscmp</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-stpcpy-186"><code>stpcpy</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-stpncpy-187"><code>stpncpy</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-strcasecmp-188"><code>strcasecmp</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-strchr-189"><code>strchr</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-strdup-190"><code>strdup</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-strerrno-191"><code>strerrno</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-strerror-192"><code>strerror</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-strncasecmp-193"><code>strncasecmp</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-strncmp-194"><code>strncmp</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-strndup-195"><code>strndup</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-strnlen-196"><code>strnlen</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-strrchr-197"><code>strrchr</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-strsignal-198"><code>strsignal</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-strsigno-199"><code>strsigno</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-strstr-200"><code>strstr</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-strtod-201"><code>strtod</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-strtoerrno-202"><code>strtoerrno</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-strtol-203"><code>strtol</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-strtoll-205"><code>strtoll</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-strtosigno-207"><code>strtosigno</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-strtoul-206"><code>strtoul</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-strverscmp-208"><code>strverscmp</code></a>: <a href="#Functions">Functions</a></li>
 <li><a href="#index-supplemental-functions-4">supplemental functions</a>: <a href="#Supplemental-Functions">Supplemental Functions</a></li>
-<li><a href="#index-timeval_005fadd-206"><code>timeval_add</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-timeval_005fsub-207"><code>timeval_sub</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-tmpnam-208"><code>tmpnam</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-unlink_005fif_005fordinary-209"><code>unlink_if_ordinary</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-unlock_005fstd_005fstreams-210"><code>unlock_std_streams</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-unlock_005fstream-211"><code>unlock_stream</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-unsetenv-165"><code>unsetenv</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-timeval_005fadd-209"><code>timeval_add</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-timeval_005fsub-210"><code>timeval_sub</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-tmpnam-211"><code>tmpnam</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-unlink_005fif_005fordinary-212"><code>unlink_if_ordinary</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-unlock_005fstd_005fstreams-213"><code>unlock_std_streams</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-unlock_005fstream-214"><code>unlock_stream</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-unsetenv-166"><code>unsetenv</code></a>: <a href="#Functions">Functions</a></li>
 <li><a href="#index-using-libiberty-1">using libiberty</a>: <a href="#Using">Using</a></li>
-<li><a href="#index-vasprintf-212"><code>vasprintf</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-vfork-213"><code>vfork</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-vfprintf-215"><code>vfprintf</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-vprintf-214"><code>vprintf</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-vsnprintf-217"><code>vsnprintf</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-vsprintf-216"><code>vsprintf</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-waitpid-218"><code>waitpid</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-writeargv-219"><code>writeargv</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-xatexit-220"><code>xatexit</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-xcalloc-221"><code>xcalloc</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-xexit-222"><code>xexit</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-xmalloc-223"><code>xmalloc</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-xmalloc_005ffailed-224"><code>xmalloc_failed</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-xmalloc_005fset_005fprogram_005fname-225"><code>xmalloc_set_program_name</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-xmemdup-226"><code>xmemdup</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-xrealloc-227"><code>xrealloc</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-xstrdup-228"><code>xstrdup</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-xstrerror-229"><code>xstrerror</code></a>: <a href="#Functions">Functions</a></li>
-<li><a href="#index-xstrndup-230"><code>xstrndup</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-vasprintf-215"><code>vasprintf</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-vfork-216"><code>vfork</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-vfprintf-218"><code>vfprintf</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-vprintf-217"><code>vprintf</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-vsnprintf-220"><code>vsnprintf</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-vsprintf-219"><code>vsprintf</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-waitpid-221"><code>waitpid</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-writeargv-222"><code>writeargv</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-xasprintf-223"><code>xasprintf</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-xatexit-224"><code>xatexit</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-xcalloc-225"><code>xcalloc</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-xexit-226"><code>xexit</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-xmalloc-227"><code>xmalloc</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-xmalloc_005ffailed-228"><code>xmalloc_failed</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-xmalloc_005fset_005fprogram_005fname-229"><code>xmalloc_set_program_name</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-xmemdup-230"><code>xmemdup</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-xrealloc-231"><code>xrealloc</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-xstrdup-232"><code>xstrdup</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-xstrerror-233"><code>xstrerror</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-xstrndup-234"><code>xstrndup</code></a>: <a href="#Functions">Functions</a></li>
+<li><a href="#index-xvasprintf-235"><code>xvasprintf</code></a>: <a href="#Functions">Functions</a></li>
    </ul></body></html>
 

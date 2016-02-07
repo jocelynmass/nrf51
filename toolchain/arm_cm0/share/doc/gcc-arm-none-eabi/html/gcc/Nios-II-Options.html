@@ -7,10 +7,10 @@
 <link title="Top" rel="start" href="index.html#Top">
 <link rel="up" href="Submodel-Options.html#Submodel-Options" title="Submodel Options">
 <link rel="prev" href="NDS32-Options.html#NDS32-Options" title="NDS32 Options">
-<link rel="next" href="PDP_002d11-Options.html#PDP_002d11-Options" title="PDP-11 Options">
+<link rel="next" href="Nvidia-PTX-Options.html#Nvidia-PTX-Options" title="Nvidia PTX Options">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -46,27 +46,59 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
 <div class="node">
 <p>
 <a name="Nios-II-Options"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="PDP_002d11-Options.html#PDP_002d11-Options">PDP-11 Options</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="Nvidia-PTX-Options.html#Nvidia-PTX-Options">Nvidia PTX Options</a>,
 Previous:&nbsp;<a rel="previous" accesskey="p" href="NDS32-Options.html#NDS32-Options">NDS32 Options</a>,
 Up:&nbsp;<a rel="up" accesskey="u" href="Submodel-Options.html#Submodel-Options">Submodel Options</a>
 <hr>
 </div>
 
-<h4 class="subsection">3.17.33 Nios II Options</h4>
+<h4 class="subsection">3.17.31 Nios II Options</h4>
 
-<p><a name="index-Nios-II-options-2078"></a><a name="index-Altera-Nios-II-options-2079"></a>
+<p><a name="index-Nios-II-options-2131"></a><a name="index-Altera-Nios-II-options-2132"></a>
 These are the options defined for the Altera Nios II processor.
 
      <dl>
-<dt><code>-G </code><var>num</var><dd><a name="index-G-2080"></a><a name="index-smaller-data-references-2081"></a>Put global and static objects less than or equal to <var>num</var> bytes
+<dt><code>-G </code><var>num</var><dd><a name="index-G-2133"></a><a name="index-smaller-data-references-2134"></a>Put global and static objects less than or equal to <var>num</var> bytes
 into the small data or BSS sections instead of the normal data or BSS
 sections.  The default value of <var>num</var> is 8.
 
-     <br><dt><code>-mgpopt</code><dt><code>-mno-gpopt</code><dd><a name="index-mgpopt-2082"></a><a name="index-mno_002dgpopt-2083"></a>Generate (do not generate) GP-relative accesses for objects in the
-small data or BSS sections.  The default is <samp><span class="option">-mgpopt</span></samp> except
-when <samp><span class="option">-fpic</span></samp> or <samp><span class="option">-fPIC</span></samp> is specified to generate
-position-independent code.  Note that the Nios II ABI does not permit
-GP-relative accesses from shared libraries.
+     <br><dt><code>-mgpopt=</code><var>option</var><br><dt><code>-mgpopt</code><dt><code>-mno-gpopt</code><dd><a name="index-mgpopt-2135"></a><a name="index-mno_002dgpopt-2136"></a>Generate (do not generate) GP-relative accesses.  The following
+<var>option</var> names are recognized:
+
+          <dl>
+<dt>`<samp><span class="samp">none</span></samp>'<dd>Do not generate GP-relative accesses.
+
+          <br><dt>`<samp><span class="samp">local</span></samp>'<dd>Generate GP-relative accesses for small data objects that are not
+external or weak.  Also use GP-relative addressing for objects that
+have been explicitly placed in a small data section via a <code>section</code>
+attribute.
+
+          <br><dt>`<samp><span class="samp">global</span></samp>'<dd>As for `<samp><span class="samp">local</span></samp>', but also generate GP-relative accesses for
+small data objects that are external or weak.  If you use this option,
+you must ensure that all parts of your program (including libraries) are
+compiled with the same <samp><span class="option">-G</span></samp> setting.
+
+          <br><dt>`<samp><span class="samp">data</span></samp>'<dd>Generate GP-relative accesses for all data objects in the program.  If you
+use this option, the entire data and BSS segments
+of your program must fit in 64K of memory and you must use an appropriate
+linker script to allocate them within the addressible range of the
+global pointer.
+
+          <br><dt>`<samp><span class="samp">all</span></samp>'<dd>Generate GP-relative addresses for function pointers as well as data
+pointers.  If you use this option, the entire text, data, and BSS segments
+of your program must fit in 64K of memory and you must use an appropriate
+linker script to allocate them within the addressible range of the
+global pointer.
+
+     </dl>
+
+     <p><samp><span class="option">-mgpopt</span></samp> is equivalent to <samp><span class="option">-mgpopt=local</span></samp>, and
+<samp><span class="option">-mno-gpopt</span></samp> is equivalent to <samp><span class="option">-mgpopt=none</span></samp>.
+
+     <p>The default is <samp><span class="option">-mgpopt</span></samp> except when <samp><span class="option">-fpic</span></samp> or
+<samp><span class="option">-fPIC</span></samp> is specified to generate position-independent code. 
+Note that the Nios II ABI does not permit GP-relative accesses from
+shared libraries.
 
      <p>You may need to specify <samp><span class="option">-mno-gpopt</span></samp> explicitly when building
 programs that include large amounts of small data, including large
@@ -74,26 +106,26 @@ GOT data sections.  In this case, the 16-bit offset for GP-relative
 addressing may not be large enough to allow access to the entire
 small data section.
 
-     <br><dt><code>-mel</code><dt><code>-meb</code><dd><a name="index-mel-2084"></a><a name="index-meb-2085"></a>Generate little-endian (default) or big-endian (experimental) code,
+     <br><dt><code>-mel</code><dt><code>-meb</code><dd><a name="index-mel-2137"></a><a name="index-meb-2138"></a>Generate little-endian (default) or big-endian (experimental) code,
 respectively.
 
-     <br><dt><code>-mbypass-cache</code><dt><code>-mno-bypass-cache</code><dd><a name="index-mno_002dbypass_002dcache-2086"></a><a name="index-mbypass_002dcache-2087"></a>Force all load and store instructions to always bypass cache by
+     <br><dt><code>-mbypass-cache</code><dt><code>-mno-bypass-cache</code><dd><a name="index-mno_002dbypass_002dcache-2139"></a><a name="index-mbypass_002dcache-2140"></a>Force all load and store instructions to always bypass cache by
 using I/O variants of the instructions. The default is not to
 bypass the cache.
 
-     <br><dt><code>-mno-cache-volatile</code><dt><code>-mcache-volatile</code><dd><a name="index-mcache_002dvolatile-2088"></a><a name="index-mno_002dcache_002dvolatile-2089"></a>Volatile memory access bypass the cache using the I/O variants of
+     <br><dt><code>-mno-cache-volatile</code><dt><code>-mcache-volatile</code><dd><a name="index-mcache_002dvolatile-2141"></a><a name="index-mno_002dcache_002dvolatile-2142"></a>Volatile memory access bypass the cache using the I/O variants of
 the load and store instructions. The default is not to bypass the cache.
 
-     <br><dt><code>-mno-fast-sw-div</code><dt><code>-mfast-sw-div</code><dd><a name="index-mno_002dfast_002dsw_002ddiv-2090"></a><a name="index-mfast_002dsw_002ddiv-2091"></a>Do not use table-based fast divide for small numbers. The default
+     <br><dt><code>-mno-fast-sw-div</code><dt><code>-mfast-sw-div</code><dd><a name="index-mno_002dfast_002dsw_002ddiv-2143"></a><a name="index-mfast_002dsw_002ddiv-2144"></a>Do not use table-based fast divide for small numbers. The default
 is to use the fast divide at <samp><span class="option">-O3</span></samp> and above.
 
-     <br><dt><code>-mno-hw-mul</code><dt><code>-mhw-mul</code><dt><code>-mno-hw-mulx</code><dt><code>-mhw-mulx</code><dt><code>-mno-hw-div</code><dt><code>-mhw-div</code><dd><a name="index-mno_002dhw_002dmul-2092"></a><a name="index-mhw_002dmul-2093"></a><a name="index-mno_002dhw_002dmulx-2094"></a><a name="index-mhw_002dmulx-2095"></a><a name="index-mno_002dhw_002ddiv-2096"></a><a name="index-mhw_002ddiv-2097"></a>Enable or disable emitting <code>mul</code>, <code>mulx</code> and <code>div</code> family of
+     <br><dt><code>-mno-hw-mul</code><dt><code>-mhw-mul</code><dt><code>-mno-hw-mulx</code><dt><code>-mhw-mulx</code><dt><code>-mno-hw-div</code><dt><code>-mhw-div</code><dd><a name="index-mno_002dhw_002dmul-2145"></a><a name="index-mhw_002dmul-2146"></a><a name="index-mno_002dhw_002dmulx-2147"></a><a name="index-mhw_002dmulx-2148"></a><a name="index-mno_002dhw_002ddiv-2149"></a><a name="index-mhw_002ddiv-2150"></a>Enable or disable emitting <code>mul</code>, <code>mulx</code> and <code>div</code> family of
 instructions by the compiler. The default is to emit <code>mul</code>
 and not emit <code>div</code> and <code>mulx</code>.
 
-     <br><dt><code>-mcustom-</code><var>insn</var><code>=</code><var>N</var><dt><code>-mno-custom-</code><var>insn</var><dd><a name="index-mcustom_002d_0040var_007binsn_007d-2098"></a><a name="index-mno_002dcustom_002d_0040var_007binsn_007d-2099"></a>Each <samp><span class="option">-mcustom-</span><var>insn</var><span class="option">=</span><var>N</var></samp> option enables use of a
+     <br><dt><code>-mcustom-</code><var>insn</var><code>=</code><var>N</var><dt><code>-mno-custom-</code><var>insn</var><dd><a name="index-mcustom_002d_0040var_007binsn_007d-2151"></a><a name="index-mno_002dcustom_002d_0040var_007binsn_007d-2152"></a>Each <samp><span class="option">-mcustom-</span><var>insn</var><span class="option">=</span><var>N</var></samp> option enables use of a
 custom instruction with encoding <var>N</var> when generating code that uses
-<var>insn</var>.  For example, <code>-mcustom-fadds=253</code> generates custom
+<var>insn</var>.  For example, <samp><span class="option">-mcustom-fadds=253</span></samp> generates custom
 instruction 253 for single-precision floating-point add operations instead
 of the default behavior of using a library call.
 
@@ -151,6 +183,11 @@ are only generated if <samp><span class="option">-funsafe-math-optimizations</sp
           <br><dt>`<samp><span class="samp">fixsi</span></samp>', `<samp><span class="samp">fixsu</span></samp>', `<samp><span class="samp">fixdi</span></samp>', `<samp><span class="samp">fixdu</span></samp>'<dd>Conversion from floating point to signed or unsigned integer types, with
 truncation towards zero.
 
+          <br><dt>`<samp><span class="samp">round</span></samp>'<dd>Conversion from single-precision floating point to signed integer,
+rounding to the nearest integer and ties away from zero. 
+This corresponds to the <code>__builtin_lroundf</code> function when
+<samp><span class="option">-fno-math-errno</span></samp> is used.
+
           <br><dt>`<samp><span class="samp">floatis</span></samp>', `<samp><span class="samp">floatus</span></samp>', `<samp><span class="samp">floatid</span></samp>', `<samp><span class="samp">floatud</span></samp>'<dd>Conversion from signed or unsigned integer types to floating-point types.
 
      </dl>
@@ -187,7 +224,7 @@ and <code>target("no-custom-</code><var>insn</var><code>")</code> function attri
 (see <a href="Function-Attributes.html#Function-Attributes">Function Attributes</a>)
 or pragmas (see <a href="Function-Specific-Option-Pragmas.html#Function-Specific-Option-Pragmas">Function Specific Option Pragmas</a>).
 
-     <br><dt><code>-mcustom-fpu-cfg=</code><var>name</var><dd><a name="index-mcustom_002dfpu_002dcfg-2100"></a>
+     <br><dt><code>-mcustom-fpu-cfg=</code><var>name</var><dd><a name="index-mcustom_002dfpu_002dcfg-2153"></a>
 This option enables a predefined, named set of custom instruction encodings
 (see <samp><span class="option">-mcustom-</span><var>insn</var></samp> above). 
 Currently, the following sets are defined:
@@ -235,18 +272,18 @@ or pragma (see <a href="Function-Specific-Option-Pragmas.html#Function-Specific-
 ELF (bare-metal) target:
 
      <dl>
-<dt><code>-mhal</code><dd><a name="index-mhal-2101"></a>Link with HAL BSP.  This suppresses linking with the GCC-provided C runtime
+<dt><code>-mhal</code><dd><a name="index-mhal-2154"></a>Link with HAL BSP.  This suppresses linking with the GCC-provided C runtime
 startup and termination code, and is typically used in conjunction with
 <samp><span class="option">-msys-crt0=</span></samp> to specify the location of the alternate startup code
 provided by the HAL BSP.
 
-     <br><dt><code>-msmallc</code><dd><a name="index-msmallc-2102"></a>Link with a limited version of the C library, <samp><span class="option">-lsmallc</span></samp>, rather than
+     <br><dt><code>-msmallc</code><dd><a name="index-msmallc-2155"></a>Link with a limited version of the C library, <samp><span class="option">-lsmallc</span></samp>, rather than
 Newlib.
 
-     <br><dt><code>-msys-crt0=</code><var>startfile</var><dd><a name="index-msys_002dcrt0-2103"></a><var>startfile</var> is the file name of the startfile (crt0) to use
+     <br><dt><code>-msys-crt0=</code><var>startfile</var><dd><a name="index-msys_002dcrt0-2156"></a><var>startfile</var> is the file name of the startfile (crt0) to use
 when linking.  This option is only useful in conjunction with <samp><span class="option">-mhal</span></samp>.
 
-     <br><dt><code>-msys-lib=</code><var>systemlib</var><dd><a name="index-msys_002dlib-2104"></a><var>systemlib</var> is the library name of the library that provides
+     <br><dt><code>-msys-lib=</code><var>systemlib</var><dd><a name="index-msys_002dlib-2157"></a><var>systemlib</var> is the library name of the library that provides
 low-level system calls required by the C library,
 e.g. <code>read</code> and <code>write</code>. 
 This option is typically used to link with a library provided by a HAL BSP.

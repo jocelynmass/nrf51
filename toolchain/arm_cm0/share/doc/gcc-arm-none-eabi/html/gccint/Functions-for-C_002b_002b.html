@@ -10,7 +10,7 @@
 <link rel="next" href="Statements-for-C_002b_002b.html#Statements-for-C_002b_002b" title="Statements for C++">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -55,7 +55,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="C-and-C_002b_002b-Trees.html#C-and-C_00
 
 <h4 class="subsection">10.10.4 Functions for C++</h4>
 
-<p><a name="index-function-2043"></a><a name="index-FUNCTION_005fDECL-2044"></a><a name="index-OVERLOAD-2045"></a><a name="index-OVL_005fCURRENT-2046"></a><a name="index-OVL_005fNEXT-2047"></a>
+<p><a name="index-function-2059"></a><a name="index-FUNCTION_005fDECL-2060"></a><a name="index-OVERLOAD-2061"></a><a name="index-OVL_005fCURRENT-2062"></a><a name="index-OVL_005fNEXT-2063"></a>
 A function is represented by a <code>FUNCTION_DECL</code> node.  A set of
 overloaded functions is sometimes represented by an <code>OVERLOAD</code> node.
 
@@ -90,19 +90,19 @@ which it was defined.  For example, in
 
  <p>The following macros and functions can be used on a <code>FUNCTION_DECL</code>:
      <dl>
-<dt><code>DECL_MAIN_P</code><a name="index-DECL_005fMAIN_005fP-2048"></a><dd>This predicate holds for a function that is the program entry point
+<dt><code>DECL_MAIN_P</code><a name="index-DECL_005fMAIN_005fP-2064"></a><dd>This predicate holds for a function that is the program entry point
 <code>::code</code>.
 
-     <br><dt><code>DECL_LOCAL_FUNCTION_P</code><a name="index-DECL_005fLOCAL_005fFUNCTION_005fP-2049"></a><dd>This predicate holds if the function was declared at block scope, even
+     <br><dt><code>DECL_LOCAL_FUNCTION_P</code><a name="index-DECL_005fLOCAL_005fFUNCTION_005fP-2065"></a><dd>This predicate holds if the function was declared at block scope, even
 though it has a global scope.
 
-     <br><dt><code>DECL_ANTICIPATED</code><a name="index-DECL_005fANTICIPATED-2050"></a><dd>This predicate holds if the function is a built-in function but its
+     <br><dt><code>DECL_ANTICIPATED</code><a name="index-DECL_005fANTICIPATED-2066"></a><dd>This predicate holds if the function is a built-in function but its
 prototype is not yet explicitly declared.
 
-     <br><dt><code>DECL_EXTERN_C_FUNCTION_P</code><a name="index-DECL_005fEXTERN_005fC_005fFUNCTION_005fP-2051"></a><dd>This predicate holds if the function is declared as an
+     <br><dt><code>DECL_EXTERN_C_FUNCTION_P</code><a name="index-DECL_005fEXTERN_005fC_005fFUNCTION_005fP-2067"></a><dd>This predicate holds if the function is declared as an
 `<code>extern "C"</code>' function.
 
-     <br><dt><code>DECL_LINKONCE_P</code><a name="index-DECL_005fLINKONCE_005fP-2052"></a><dd>This macro holds if multiple copies of this function may be emitted in
+     <br><dt><code>DECL_LINKONCE_P</code><a name="index-DECL_005fLINKONCE_005fP-2068"></a><dd>This macro holds if multiple copies of this function may be emitted in
 various translation units.  It is the responsibility of the linker to
 merge the various copies.  Template instantiations are the most common
 example of functions for which <code>DECL_LINKONCE_P</code> holds; G++
@@ -111,45 +111,45 @@ and then relies on the linker to remove duplicate instantiations.
 
      <p>FIXME: This macro is not yet implemented.
 
-     <br><dt><code>DECL_FUNCTION_MEMBER_P</code><a name="index-DECL_005fFUNCTION_005fMEMBER_005fP-2053"></a><dd>This macro holds if the function is a member of a class, rather than a
+     <br><dt><code>DECL_FUNCTION_MEMBER_P</code><a name="index-DECL_005fFUNCTION_005fMEMBER_005fP-2069"></a><dd>This macro holds if the function is a member of a class, rather than a
 member of a namespace.
 
-     <br><dt><code>DECL_STATIC_FUNCTION_P</code><a name="index-DECL_005fSTATIC_005fFUNCTION_005fP-2054"></a><dd>This predicate holds if the function a static member function.
+     <br><dt><code>DECL_STATIC_FUNCTION_P</code><a name="index-DECL_005fSTATIC_005fFUNCTION_005fP-2070"></a><dd>This predicate holds if the function a static member function.
 
-     <br><dt><code>DECL_NONSTATIC_MEMBER_FUNCTION_P</code><a name="index-DECL_005fNONSTATIC_005fMEMBER_005fFUNCTION_005fP-2055"></a><dd>This macro holds for a non-static member function.
+     <br><dt><code>DECL_NONSTATIC_MEMBER_FUNCTION_P</code><a name="index-DECL_005fNONSTATIC_005fMEMBER_005fFUNCTION_005fP-2071"></a><dd>This macro holds for a non-static member function.
 
-     <br><dt><code>DECL_CONST_MEMFUNC_P</code><a name="index-DECL_005fCONST_005fMEMFUNC_005fP-2056"></a><dd>This predicate holds for a <code>const</code>-member function.
+     <br><dt><code>DECL_CONST_MEMFUNC_P</code><a name="index-DECL_005fCONST_005fMEMFUNC_005fP-2072"></a><dd>This predicate holds for a <code>const</code>-member function.
 
-     <br><dt><code>DECL_VOLATILE_MEMFUNC_P</code><a name="index-DECL_005fVOLATILE_005fMEMFUNC_005fP-2057"></a><dd>This predicate holds for a <code>volatile</code>-member function.
+     <br><dt><code>DECL_VOLATILE_MEMFUNC_P</code><a name="index-DECL_005fVOLATILE_005fMEMFUNC_005fP-2073"></a><dd>This predicate holds for a <code>volatile</code>-member function.
 
-     <br><dt><code>DECL_CONSTRUCTOR_P</code><a name="index-DECL_005fCONSTRUCTOR_005fP-2058"></a><dd>This macro holds if the function is a constructor.
+     <br><dt><code>DECL_CONSTRUCTOR_P</code><a name="index-DECL_005fCONSTRUCTOR_005fP-2074"></a><dd>This macro holds if the function is a constructor.
 
-     <br><dt><code>DECL_NONCONVERTING_P</code><a name="index-DECL_005fNONCONVERTING_005fP-2059"></a><dd>This predicate holds if the constructor is a non-converting constructor.
+     <br><dt><code>DECL_NONCONVERTING_P</code><a name="index-DECL_005fNONCONVERTING_005fP-2075"></a><dd>This predicate holds if the constructor is a non-converting constructor.
 
-     <br><dt><code>DECL_COMPLETE_CONSTRUCTOR_P</code><a name="index-DECL_005fCOMPLETE_005fCONSTRUCTOR_005fP-2060"></a><dd>This predicate holds for a function which is a constructor for an object
+     <br><dt><code>DECL_COMPLETE_CONSTRUCTOR_P</code><a name="index-DECL_005fCOMPLETE_005fCONSTRUCTOR_005fP-2076"></a><dd>This predicate holds for a function which is a constructor for an object
 of a complete type.
 
-     <br><dt><code>DECL_BASE_CONSTRUCTOR_P</code><a name="index-DECL_005fBASE_005fCONSTRUCTOR_005fP-2061"></a><dd>This predicate holds for a function which is a constructor for a base
+     <br><dt><code>DECL_BASE_CONSTRUCTOR_P</code><a name="index-DECL_005fBASE_005fCONSTRUCTOR_005fP-2077"></a><dd>This predicate holds for a function which is a constructor for a base
 class sub-object.
 
-     <br><dt><code>DECL_COPY_CONSTRUCTOR_P</code><a name="index-DECL_005fCOPY_005fCONSTRUCTOR_005fP-2062"></a><dd>This predicate holds for a function which is a copy-constructor.
+     <br><dt><code>DECL_COPY_CONSTRUCTOR_P</code><a name="index-DECL_005fCOPY_005fCONSTRUCTOR_005fP-2078"></a><dd>This predicate holds for a function which is a copy-constructor.
 
-     <br><dt><code>DECL_DESTRUCTOR_P</code><a name="index-DECL_005fDESTRUCTOR_005fP-2063"></a><dd>This macro holds if the function is a destructor.
+     <br><dt><code>DECL_DESTRUCTOR_P</code><a name="index-DECL_005fDESTRUCTOR_005fP-2079"></a><dd>This macro holds if the function is a destructor.
 
-     <br><dt><code>DECL_COMPLETE_DESTRUCTOR_P</code><a name="index-DECL_005fCOMPLETE_005fDESTRUCTOR_005fP-2064"></a><dd>This predicate holds if the function is the destructor for an object a
+     <br><dt><code>DECL_COMPLETE_DESTRUCTOR_P</code><a name="index-DECL_005fCOMPLETE_005fDESTRUCTOR_005fP-2080"></a><dd>This predicate holds if the function is the destructor for an object a
 complete type.
 
-     <br><dt><code>DECL_OVERLOADED_OPERATOR_P</code><a name="index-DECL_005fOVERLOADED_005fOPERATOR_005fP-2065"></a><dd>This macro holds if the function is an overloaded operator.
+     <br><dt><code>DECL_OVERLOADED_OPERATOR_P</code><a name="index-DECL_005fOVERLOADED_005fOPERATOR_005fP-2081"></a><dd>This macro holds if the function is an overloaded operator.
 
-     <br><dt><code>DECL_CONV_FN_P</code><a name="index-DECL_005fCONV_005fFN_005fP-2066"></a><dd>This macro holds if the function is a type-conversion operator.
+     <br><dt><code>DECL_CONV_FN_P</code><a name="index-DECL_005fCONV_005fFN_005fP-2082"></a><dd>This macro holds if the function is a type-conversion operator.
 
-     <br><dt><code>DECL_GLOBAL_CTOR_P</code><a name="index-DECL_005fGLOBAL_005fCTOR_005fP-2067"></a><dd>This predicate holds if the function is a file-scope initialization
+     <br><dt><code>DECL_GLOBAL_CTOR_P</code><a name="index-DECL_005fGLOBAL_005fCTOR_005fP-2083"></a><dd>This predicate holds if the function is a file-scope initialization
 function.
 
-     <br><dt><code>DECL_GLOBAL_DTOR_P</code><a name="index-DECL_005fGLOBAL_005fDTOR_005fP-2068"></a><dd>This predicate holds if the function is a file-scope finalization
+     <br><dt><code>DECL_GLOBAL_DTOR_P</code><a name="index-DECL_005fGLOBAL_005fDTOR_005fP-2084"></a><dd>This predicate holds if the function is a file-scope finalization
 function.
 
-     <br><dt><code>DECL_THUNK_P</code><a name="index-DECL_005fTHUNK_005fP-2069"></a><dd>This predicate holds if the function is a thunk.
+     <br><dt><code>DECL_THUNK_P</code><a name="index-DECL_005fTHUNK_005fP-2085"></a><dd>This predicate holds if the function is a thunk.
 
      <p>These functions represent stub code that adjusts the <code>this</code> pointer
 and then jumps to another function.  When the jumped-to function
@@ -171,23 +171,23 @@ calculation is given by the following pseudo-code:
 by <code>DECL_INITIAL</code>; this will always be an expression for the
 address of a function.
 
-     <br><dt><code>DECL_NON_THUNK_FUNCTION_P</code><a name="index-DECL_005fNON_005fTHUNK_005fFUNCTION_005fP-2070"></a><dd>This predicate holds if the function is <em>not</em> a thunk function.
+     <br><dt><code>DECL_NON_THUNK_FUNCTION_P</code><a name="index-DECL_005fNON_005fTHUNK_005fFUNCTION_005fP-2086"></a><dd>This predicate holds if the function is <em>not</em> a thunk function.
 
-     <br><dt><code>GLOBAL_INIT_PRIORITY</code><a name="index-GLOBAL_005fINIT_005fPRIORITY-2071"></a><dd>If either <code>DECL_GLOBAL_CTOR_P</code> or <code>DECL_GLOBAL_DTOR_P</code> holds,
+     <br><dt><code>GLOBAL_INIT_PRIORITY</code><a name="index-GLOBAL_005fINIT_005fPRIORITY-2087"></a><dd>If either <code>DECL_GLOBAL_CTOR_P</code> or <code>DECL_GLOBAL_DTOR_P</code> holds,
 then this gives the initialization priority for the function.  The
 linker will arrange that all functions for which
 <code>DECL_GLOBAL_CTOR_P</code> holds are run in increasing order of priority
 before <code>main</code> is called.  When the program exits, all functions for
 which <code>DECL_GLOBAL_DTOR_P</code> holds are run in the reverse order.
 
-     <br><dt><code>TYPE_RAISES_EXCEPTIONS</code><a name="index-TYPE_005fRAISES_005fEXCEPTIONS-2072"></a><dd>This macro returns the list of exceptions that a (member-)function can
+     <br><dt><code>TYPE_RAISES_EXCEPTIONS</code><a name="index-TYPE_005fRAISES_005fEXCEPTIONS-2088"></a><dd>This macro returns the list of exceptions that a (member-)function can
 raise.  The returned list, if non <code>NULL</code>, is comprised of nodes
 whose <code>TREE_VALUE</code> represents a type.
 
-     <br><dt><code>TYPE_NOTHROW_P</code><a name="index-TYPE_005fNOTHROW_005fP-2073"></a><dd>This predicate holds when the exception-specification of its arguments
+     <br><dt><code>TYPE_NOTHROW_P</code><a name="index-TYPE_005fNOTHROW_005fP-2089"></a><dd>This predicate holds when the exception-specification of its arguments
 is of the form `<code>()</code>'.
 
-     <br><dt><code>DECL_ARRAY_DELETE_OPERATOR_P</code><a name="index-DECL_005fARRAY_005fDELETE_005fOPERATOR_005fP-2074"></a><dd>This predicate holds if the function an overloaded
+     <br><dt><code>DECL_ARRAY_DELETE_OPERATOR_P</code><a name="index-DECL_005fARRAY_005fDELETE_005fOPERATOR_005fP-2090"></a><dd>This predicate holds if the function an overloaded
 <code>operator delete[]</code>.
 
  </dl>

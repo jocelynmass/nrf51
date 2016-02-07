@@ -6,11 +6,11 @@
 <meta name="generator" content="makeinfo 4.8">
 <link title="Top" rel="start" href="index.html#Top">
 <link rel="up" href="C-Extensions.html#C-Extensions" title="C Extensions">
-<link rel="prev" href="Function-Attributes.html#Function-Attributes" title="Function Attributes">
+<link rel="prev" href="Label-Attributes.html#Label-Attributes" title="Label Attributes">
 <link rel="next" href="Function-Prototypes.html#Function-Prototypes" title="Function Prototypes">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -47,14 +47,14 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
 <p>
 <a name="Attribute-Syntax"></a>
 Next:&nbsp;<a rel="next" accesskey="n" href="Function-Prototypes.html#Function-Prototypes">Function Prototypes</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="Function-Attributes.html#Function-Attributes">Function Attributes</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Label-Attributes.html#Label-Attributes">Label Attributes</a>,
 Up:&nbsp;<a rel="up" accesskey="u" href="C-Extensions.html#C-Extensions">C Extensions</a>
 <hr>
 </div>
 
-<h3 class="section">6.31 Attribute Syntax</h3>
+<h3 class="section">6.33 Attribute Syntax</h3>
 
-<p><a name="index-attribute-syntax-3040"></a>
+<p><a name="index-attribute-syntax-3308"></a>
 This section describes the syntax with which <code>__attribute__</code> may be
 used, and the constructs to which attribute specifiers bind, for the C
 language.  Some details may vary for C++ and Objective-C.  Because of
@@ -73,7 +73,9 @@ declarations only, but not on nested declarators.
 applying to functions.  See <a href="Variable-Attributes.html#Variable-Attributes">Variable Attributes</a>, for details of the
 semantics of attributes applying to variables.  See <a href="Type-Attributes.html#Type-Attributes">Type Attributes</a>,
 for details of the semantics of attributes applying to structure, union
-and enumerated types.
+and enumerated types. 
+See <a href="Label-Attributes.html#Label-Attributes">Label Attributes</a>, for details of the semantics of attributes
+applying to labels.
 
  <p>An <dfn>attribute specifier</dfn> is of the form
 <code>__attribute__ ((</code><var>attribute-list</var><code>))</code>.  An <dfn>attribute list</dfn>
@@ -105,14 +107,10 @@ with the list being a single string constant.
  <p>An <dfn>attribute specifier list</dfn> is a sequence of one or more attribute
 specifiers, not separated by any other tokens.
 
- <p>In GNU C, an attribute specifier list may appear after the colon following a
-label, other than a <code>case</code> or <code>default</code> label.  The only
-attribute it makes sense to use after a label is <code>unused</code>.  This
-feature is intended for program-generated code that may contain unused labels,
-but which is compiled with <samp><span class="option">-Wall</span></samp>.  It is
-not normally appropriate to use in it human-written code, though it
-could be useful in cases where the code that jumps to the label is
-contained within an <code>#ifdef</code> conditional.  GNU C++ only permits
+<h5 class="subsubheading">Label Attributes</h5>
+
+<p>In GNU C, an attribute specifier list may appear after the colon following a
+label, other than a <code>case</code> or <code>default</code> label.  GNU C++ only permits
 attributes on labels if the attribute specifier is immediately
 followed by a semicolon (i.e., the label applies to an empty
 statement).  If the semicolon is missing, C++ label attributes are
@@ -120,7 +118,9 @@ ambiguous, as it is permissible for a declaration, which could begin
 with an attribute list, to be labelled in C++.  Declarations cannot be
 labelled in C90 or C99, so the ambiguity does not arise there.
 
- <p>An attribute specifier list may appear as part of a <code>struct</code>,
+<h5 class="subsubheading">Type Attributes</h5>
+
+<p>An attribute specifier list may appear as part of a <code>struct</code>,
 <code>union</code> or <code>enum</code> specifier.  It may go either immediately
 after the <code>struct</code>, <code>union</code> or <code>enum</code> keyword, or after
 the closing brace.  The former syntax is preferred. 
@@ -134,7 +134,9 @@ defined is not complete until after the attribute specifiers.
 <!-- attributes could use sizeof for the structure, but the size could be -->
 <!-- changed later by "packed" attributes. -->
 
- <p>Otherwise, an attribute specifier appears as part of a declaration,
+<h5 class="subsubheading">All other attributes</h5>
+
+<p>Otherwise, an attribute specifier appears as part of a declaration,
 counting declarations of unnamed parameters and type names, and relates
 to that declaration (which may be nested in another declaration, for
 example in the case of a parameter declaration), or to a particular declarator
@@ -179,7 +181,7 @@ example, in
 
 <pre class="smallexample">     __attribute__((noreturn)) void d0 (void),
          __attribute__((format(printf, 1, 2))) d1 (const char *, ...),
-          d2 (void)
+          d2 (void);
 </pre>
  <p class="noindent">the <code>noreturn</code> attribute applies to all the functions
 declared; the <code>format</code> attribute only applies to <code>d1</code>.

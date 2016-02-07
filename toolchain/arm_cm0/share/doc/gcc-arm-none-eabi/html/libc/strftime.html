@@ -34,7 +34,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Timefns.html#Timefns">Timefns</a>
 
 <h3 class="section">8.8 <code>strftime</code>&mdash;convert date and time to a formatted string</h3>
 
-<p><a name="index-strftime-487"></a><strong>Synopsis</strong>
+<p><a name="index-strftime-488"></a><strong>Synopsis</strong>
 <pre class="example">     #include &lt;time.h&gt;
      size_t strftime(char *restrict <var>s</var>, size_t <var>maxsize</var>,
          const char *restrict <var>format</var>,
@@ -78,7 +78,8 @@ In the default "C" locale, one of `<code>January</code>', `<code>February</code>
 4-digit years, the result is zero-padded and exactly two characters;
 but for other years, there may a negative sign or more digits.  In
 this way, `<code>%C%y</code>' is equivalent to `<code>%Y</code>'. [tm_year]
-<br><dt><code>%d</code><dd>The day of the month, formatted with two digits (from `<code>01</code>' to
+
+     <br><dt><code>%d</code><dd>The day of the month, formatted with two digits (from `<code>01</code>' to
 `<code>31</code>'). [tm_mday]
 
      <br><dt><code>%D</code><dd>A string representing the date, in the form `<code>"%m/%d/%y"</code>'. 
@@ -142,6 +143,9 @@ is equivalent to "%I:%M:%S %p".  In locales which don't define a.m./p.m.
 notations, the result is an empty string. [tm_sec, tm_min, tm_hour]
 
      <br><dt><code>%R</code><dd>The 24-hour time, to the minute.  Equivalent to "%H:%M". [tm_min, tm_hour]
+
+     <br><dt><code>%s</code><dd>The time elapsed, in seconds, since the start of the Unix epoch at
+1970-01-01 00:00:00 UTC.
 
      <br><dt><code>%S</code><dd>The second, formatted with two digits (from `<code>00</code>' to `<code>60</code>').  The
 value 60 accounts for the occasional leap second. [tm_sec]

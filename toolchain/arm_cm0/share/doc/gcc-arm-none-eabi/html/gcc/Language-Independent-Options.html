@@ -10,7 +10,7 @@
 <link rel="next" href="Warning-Options.html#Warning-Options" title="Warning Options">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -54,7 +54,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Invoking-GCC.html#Invoking-GCC">Invokin
 
 <h3 class="section">3.7 Options to Control Diagnostic Messages Formatting</h3>
 
-<p><a name="index-options-to-control-diagnostics-formatting-247"></a><a name="index-diagnostic-messages-248"></a><a name="index-message-formatting-249"></a>
+<p><a name="index-options-to-control-diagnostics-formatting-257"></a><a name="index-diagnostic-messages-258"></a><a name="index-message-formatting-259"></a>
 Traditionally, diagnostic messages have been formatted irrespective of
 the output device's aspect (e.g. its width, <small class="dots">...</small>).  You can use the
 options described below
@@ -64,13 +64,12 @@ information should be reported.  Note that some language front ends may not
 honor these options.
 
      <dl>
-<dt><code>-fmessage-length=</code><var>n</var><dd><a name="index-fmessage_002dlength-250"></a>Try to format error messages so that they fit on lines of about <var>n</var>
-characters.  The default is 72 characters for <samp><span class="command">g++</span></samp> and 0 for the rest of
-the front ends supported by GCC.  If <var>n</var> is zero, then no
-line-wrapping is done; each error message appears on a single
-line.
+<dt><code>-fmessage-length=</code><var>n</var><dd><a name="index-fmessage_002dlength-260"></a>Try to format error messages so that they fit on lines of about
+<var>n</var> characters.  If <var>n</var> is zero, then no line-wrapping is
+done; each error message appears on a single line.  This is the
+default for all front ends.
 
-     <br><dt><code>-fdiagnostics-show-location=once</code><dd><a name="index-fdiagnostics_002dshow_002dlocation-251"></a>Only meaningful in line-wrapping mode.  Instructs the diagnostic messages
+     <br><dt><code>-fdiagnostics-show-location=once</code><dd><a name="index-fdiagnostics_002dshow_002dlocation-261"></a>Only meaningful in line-wrapping mode.  Instructs the diagnostic messages
 reporter to emit source location information <em>once</em>; that is, in
 case the message is too long to fit on a single physical line and has to
 be wrapped, the source location won't be emitted (as prefix) again,
@@ -82,9 +81,11 @@ messages reporter to emit the same source location information (as
 prefix) for physical lines that result from the process of breaking
 a message which is too long to fit on a single line.
 
-     <br><dt><code>-fdiagnostics-color[=</code><var>WHEN</var><code>]</code><dt><code>-fno-diagnostics-color</code><dd><a name="index-fdiagnostics_002dcolor-252"></a><a name="index-highlight_002c-color_002c-colour-253"></a><a name="index-GCC_005fCOLORS-_0040r_007benvironment-variable_007d-254"></a>Use color in diagnostics.  <var>WHEN</var> is `<samp><span class="samp">never</span></samp>', `<samp><span class="samp">always</span></samp>',
-or `<samp><span class="samp">auto</span></samp>'.  The default is `<samp><span class="samp">never</span></samp>' if <samp><span class="env">GCC_COLORS</span></samp> environment
-variable isn't present in the environment, and `<samp><span class="samp">auto</span></samp>' otherwise. 
+     <br><dt><code>-fdiagnostics-color[=</code><var>WHEN</var><code>]</code><dt><code>-fno-diagnostics-color</code><dd><a name="index-fdiagnostics_002dcolor-262"></a><a name="index-highlight_002c-color_002c-colour-263"></a><a name="index-GCC_005fCOLORS-_0040r_007benvironment-variable_007d-264"></a>Use color in diagnostics.  <var>WHEN</var> is `<samp><span class="samp">never</span></samp>', `<samp><span class="samp">always</span></samp>',
+or `<samp><span class="samp">auto</span></samp>'.  The default depends on how the compiler has been configured,
+it can be any of the above <var>WHEN</var> options or also `<samp><span class="samp">never</span></samp>'
+if <samp><span class="env">GCC_COLORS</span></samp> environment variable isn't present in the environment,
+and `<samp><span class="samp">auto</span></samp>' otherwise. 
 `<samp><span class="samp">auto</span></samp>' means to use color only when the standard error is a terminal. 
 The forms <samp><span class="option">-fdiagnostics-color</span></samp> and <samp><span class="option">-fno-diagnostics-color</span></samp> are
 aliases for <samp><span class="option">-fdiagnostics-color=always</span></samp> and
@@ -114,36 +115,40 @@ and `<samp><span class="samp">48;5;0</span></samp>' to `<samp><span class="samp"
 for 88-color and 256-color modes background colors.
 
      <p>The default <samp><span class="env">GCC_COLORS</span></samp> is
-`<samp><span class="samp">error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01</span></samp>'
-where `<samp><span class="samp">01;31</span></samp>' is bold red, `<samp><span class="samp">01;35</span></samp>' is bold magenta,
+     <pre class="smallexample">          error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01
+     </pre>
+     <p class="noindent">where `<samp><span class="samp">01;31</span></samp>' is bold red, `<samp><span class="samp">01;35</span></samp>' is bold magenta,
 `<samp><span class="samp">01;36</span></samp>' is bold cyan, `<samp><span class="samp">01;32</span></samp>' is bold green and
 `<samp><span class="samp">01</span></samp>' is bold. Setting <samp><span class="env">GCC_COLORS</span></samp> to the empty
 string disables colors. 
 Supported capabilities are as follows.
 
           <dl>
-<dt><code>error=</code><dd><a name="index-error-GCC_005fCOLORS-_0040r_007bcapability_007d-255"></a>SGR substring for error: markers.
+<dt><code>error=</code><dd><a name="index-error-GCC_005fCOLORS-_0040r_007bcapability_007d-265"></a>SGR substring for error: markers.
 
-          <br><dt><code>warning=</code><dd><a name="index-warning-GCC_005fCOLORS-_0040r_007bcapability_007d-256"></a>SGR substring for warning: markers.
+          <br><dt><code>warning=</code><dd><a name="index-warning-GCC_005fCOLORS-_0040r_007bcapability_007d-266"></a>SGR substring for warning: markers.
 
-          <br><dt><code>note=</code><dd><a name="index-note-GCC_005fCOLORS-_0040r_007bcapability_007d-257"></a>SGR substring for note: markers.
+          <br><dt><code>note=</code><dd><a name="index-note-GCC_005fCOLORS-_0040r_007bcapability_007d-267"></a>SGR substring for note: markers.
 
-          <br><dt><code>caret=</code><dd><a name="index-caret-GCC_005fCOLORS-_0040r_007bcapability_007d-258"></a>SGR substring for caret line.
+          <br><dt><code>caret=</code><dd><a name="index-caret-GCC_005fCOLORS-_0040r_007bcapability_007d-268"></a>SGR substring for caret line.
 
-          <br><dt><code>locus=</code><dd><a name="index-locus-GCC_005fCOLORS-_0040r_007bcapability_007d-259"></a>SGR substring for location information, `<samp><span class="samp">file:line</span></samp>' or
+          <br><dt><code>locus=</code><dd><a name="index-locus-GCC_005fCOLORS-_0040r_007bcapability_007d-269"></a>SGR substring for location information, `<samp><span class="samp">file:line</span></samp>' or
 `<samp><span class="samp">file:line:column</span></samp>' etc.
 
-          <br><dt><code>quote=</code><dd><a name="index-quote-GCC_005fCOLORS-_0040r_007bcapability_007d-260"></a>SGR substring for information printed within quotes. 
+          <br><dt><code>quote=</code><dd><a name="index-quote-GCC_005fCOLORS-_0040r_007bcapability_007d-270"></a>SGR substring for information printed within quotes. 
 </dl>
 
-     <br><dt><code>-fno-diagnostics-show-option</code><dd><a name="index-fno_002ddiagnostics_002dshow_002doption-261"></a><a name="index-fdiagnostics_002dshow_002doption-262"></a>By default, each diagnostic emitted includes text indicating the
+     <br><dt><code>-fno-diagnostics-show-option</code><dd><a name="index-fno_002ddiagnostics_002dshow_002doption-271"></a><a name="index-fdiagnostics_002dshow_002doption-272"></a>By default, each diagnostic emitted includes text indicating the
 command-line option that directly controls the diagnostic (if such an
 option is known to the diagnostic machinery).  Specifying the
 <samp><span class="option">-fno-diagnostics-show-option</span></samp> flag suppresses that behavior.
 
-     <br><dt><code>-fno-diagnostics-show-caret</code><dd><a name="index-fno_002ddiagnostics_002dshow_002dcaret-263"></a><a name="index-fdiagnostics_002dshow_002dcaret-264"></a>By default, each diagnostic emitted includes the original source line
+     <br><dt><code>-fno-diagnostics-show-caret</code><dd><a name="index-fno_002ddiagnostics_002dshow_002dcaret-273"></a><a name="index-fdiagnostics_002dshow_002dcaret-274"></a>By default, each diagnostic emitted includes the original source line
 and a caret '^' indicating the column.  This option suppresses this
-information.
+information.  The source line is truncated to <var>n</var> characters, if
+the <samp><span class="option">-fmessage-length=n</span></samp> option is given.  When the output is done
+to the terminal, the width is limited to the width given by the
+<samp><span class="env">COLUMNS</span></samp> environment variable or, if not set, to the terminal width.
 
  </dl>
 

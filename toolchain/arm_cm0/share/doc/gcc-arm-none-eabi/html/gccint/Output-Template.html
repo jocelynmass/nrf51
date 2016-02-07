@@ -10,7 +10,7 @@
 <link rel="next" href="Output-Statement.html#Output-Statement" title="Output Statement">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -54,8 +54,8 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Machine-Desc.html#Machine-Desc">Machine
 
 <h3 class="section">16.5 Output Templates and Operand Substitution</h3>
 
-<p><a name="index-output-templates-3238"></a><a name="index-operand-substitution-3239"></a>
-<a name="index-g_t_0040samp_007b_0025_007d-in-template-3240"></a><a name="index-percent-sign-3241"></a>The <dfn>output template</dfn> is a string which specifies how to output the
+<p><a name="index-output-templates-3262"></a><a name="index-operand-substitution-3263"></a>
+<a name="index-g_t_0040samp_007b_0025_007d-in-template-3264"></a><a name="index-percent-sign-3265"></a>The <dfn>output template</dfn> is a string which specifies how to output the
 assembler code for an instruction pattern.  Most of the template is a
 fixed string which is output literally.  The character `<samp><span class="samp">%</span></samp>' is used
 to specify where to substitute an operand; it can also be used to
@@ -98,10 +98,10 @@ defined in the <code>PRINT_OPERAND</code> macro.  You must also define
 which punctuation characters are valid with the
 <code>PRINT_OPERAND_PUNCT_VALID_P</code> macro.
 
- <p><a name="index-g_t_005c-3242"></a><a name="index-backslash-3243"></a>The template may generate multiple assembler instructions.  Write the text
+ <p><a name="index-g_t_005c-3266"></a><a name="index-backslash-3267"></a>The template may generate multiple assembler instructions.  Write the text
 for the instructions, with `<samp><span class="samp">\;</span></samp>' between them.
 
- <p><a name="index-matching-operands-3244"></a>When the RTL contains two operands which are required by constraint to match
+ <p><a name="index-matching-operands-3268"></a>When the RTL contains two operands which are required by constraint to match
 each other, the output template must refer only to the lower-numbered operand. 
 Matching operands are not always identical, and the rest of the compiler
 arranges to put the proper RTL expression for printing into the lower-numbered
@@ -118,7 +118,7 @@ syntax wants a period.  The <code>PRINT_OPERAND</code> macro for Motorola syntax
 defines the sequence to output a period; the macro for MIT syntax defines
 it to do nothing.
 
- <p><a name="index-g_t_0040code_007b_0023_007d-in-template-3245"></a>As a special case, a template consisting of the single character <code>#</code>
+ <p><a name="index-g_t_0040code_007b_0023_007d-in-template-3269"></a>As a special case, a template consisting of the single character <code>#</code>
 instructs the compiler to first split the insn, and then output the
 resulting instructions separately.  This helps eliminate redundancy in the
 output templates.   If you have a <code>define_insn</code> that needs to emit

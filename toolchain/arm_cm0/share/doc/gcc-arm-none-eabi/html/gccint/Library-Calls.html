@@ -10,7 +10,7 @@
 <link rel="next" href="Addressing-Modes.html#Addressing-Modes" title="Addressing Modes">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -52,24 +52,24 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Target-Macros.html#Target-Macros">Targe
 <hr>
 </div>
 
-<h3 class="section">17.13 Implicit Calls to Library Routines</h3>
+<h3 class="section">17.12 Implicit Calls to Library Routines</h3>
 
-<p><a name="index-library-subroutine-names-4319"></a><a name="index-g_t_0040file_007blibgcc_002ea_007d-4320"></a>
+<p><a name="index-library-subroutine-names-4353"></a><a name="index-g_t_0040file_007blibgcc_002ea_007d-4354"></a>
 <!-- prevent bad page break with this line -->
 Here is an explanation of implicit calls to library routines.
 
 <div class="defun">
-&mdash; Macro: <b>DECLARE_LIBRARY_RENAMES</b><var><a name="index-DECLARE_005fLIBRARY_005fRENAMES-4321"></a></var><br>
+&mdash; Macro: <b>DECLARE_LIBRARY_RENAMES</b><var><a name="index-DECLARE_005fLIBRARY_005fRENAMES-4355"></a></var><br>
 <blockquote><p>This macro, if defined, should expand to a piece of C code that will get
 expanded when compiling functions for libgcc.a.  It can be used to
 provide alternate names for GCC's internal library functions if there
 are ABI-mandated names that the compiler should provide. 
 </p></blockquote></div>
 
- <p><a name="index-set_005foptab_005flibfunc-4322"></a><a name="index-init_005fone_005flibfunc-4323"></a>
+ <p><a name="index-set_005foptab_005flibfunc-4356"></a><a name="index-init_005fone_005flibfunc-4357"></a>
 
 <div class="defun">
-&mdash; Target Hook: void <b>TARGET_INIT_LIBFUNCS</b> (<var>void</var>)<var><a name="index-TARGET_005fINIT_005fLIBFUNCS-4324"></a></var><br>
+&mdash; Target Hook: void <b>TARGET_INIT_LIBFUNCS</b> (<var>void</var>)<var><a name="index-TARGET_005fINIT_005fLIBFUNCS-4358"></a></var><br>
 <blockquote><p>This hook should declare additional library routines or rename
 existing ones, using the functions <code>set_optab_libfunc</code> and
 <code>init_one_libfunc</code> defined in <samp><span class="file">optabs.c</span></samp>. 
@@ -80,7 +80,7 @@ library routines.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: bool <b>TARGET_LIBFUNC_GNU_PREFIX</b><var><a name="index-TARGET_005fLIBFUNC_005fGNU_005fPREFIX-4325"></a></var><br>
+&mdash; Target Hook: bool <b>TARGET_LIBFUNC_GNU_PREFIX</b><var><a name="index-TARGET_005fLIBFUNC_005fGNU_005fPREFIX-4359"></a></var><br>
 <blockquote><p>If false (the default), internal library routines start with two
 underscores.  If set to true, these routines start with <code>__gnu_</code>
 instead.  E.g., <code>__muldi3</code> changes to <code>__gnu_muldi3</code>.  This
@@ -90,7 +90,7 @@ is set to true, the <samp><span class="file">tm.h</span></samp> file must also
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>FLOAT_LIB_COMPARE_RETURNS_BOOL</b> (<var>mode, comparison</var>)<var><a name="index-FLOAT_005fLIB_005fCOMPARE_005fRETURNS_005fBOOL-4326"></a></var><br>
+&mdash; Macro: <b>FLOAT_LIB_COMPARE_RETURNS_BOOL</b> (<var>mode, comparison</var>)<var><a name="index-FLOAT_005fLIB_005fCOMPARE_005fRETURNS_005fBOOL-4360"></a></var><br>
 <blockquote><p>This macro should return <code>true</code> if the library routine that
 implements the floating point comparison operator <var>comparison</var> in
 mode <var>mode</var> will return a boolean, and <var>false</var> if it will
@@ -102,7 +102,7 @@ don't need to define this macro.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>TARGET_LIB_INT_CMP_BIASED</b><var><a name="index-TARGET_005fLIB_005fINT_005fCMP_005fBIASED-4327"></a></var><br>
+&mdash; Macro: <b>TARGET_LIB_INT_CMP_BIASED</b><var><a name="index-TARGET_005fLIB_005fINT_005fCMP_005fBIASED-4361"></a></var><br>
 <blockquote><p>This macro should evaluate to <code>true</code> if the integer comparison
 functions (like <code>__cmpdi2</code>) return 0 to indicate that the first
 operand is smaller than the second, 1 to indicate that they are equal,
@@ -113,7 +113,7 @@ in <samp><span class="file">libgcc.a</span></samp>, you do not need to define th
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>TARGET_HAS_NO_HW_DIVIDE</b><var><a name="index-TARGET_005fHAS_005fNO_005fHW_005fDIVIDE-4328"></a></var><br>
+&mdash; Macro: <b>TARGET_HAS_NO_HW_DIVIDE</b><var><a name="index-TARGET_005fHAS_005fNO_005fHW_005fDIVIDE-4362"></a></var><br>
 <blockquote><p>This macro should be defined if the target has no hardware divide
 instructions.  If this macro is defined, GCC will use an algorithm which
 make use of simple logical and arithmetic operations for 64-bit
@@ -121,10 +121,10 @@ division.  If the macro is not defined, GCC will use an algorithm which
 make use of a 64-bit by 32-bit divide primitive. 
 </p></blockquote></div>
 
- <p><a name="index-g_t_0040code_007bEDOM_007d_002c-implicit-usage-4329"></a><a name="index-matherr-4330"></a>
+ <p><a name="index-g_t_0040code_007bEDOM_007d_002c-implicit-usage-4363"></a><a name="index-matherr-4364"></a>
 
 <div class="defun">
-&mdash; Macro: <b>TARGET_EDOM</b><var><a name="index-TARGET_005fEDOM-4331"></a></var><br>
+&mdash; Macro: <b>TARGET_EDOM</b><var><a name="index-TARGET_005fEDOM-4365"></a></var><br>
 <blockquote><p>The value of <code>EDOM</code> on the target machine, as a C integer constant
 expression.  If you don't define this macro, GCC does not attempt to
 deposit the value of <code>EDOM</code> into <code>errno</code> directly.  Look in
@@ -138,10 +138,10 @@ there is an error, then you should leave <code>TARGET_EDOM</code> undefined so
 that <code>matherr</code> is used normally. 
 </p></blockquote></div>
 
- <p><a name="index-g_t_0040code_007berrno_007d_002c-implicit-usage-4332"></a>
+ <p><a name="index-g_t_0040code_007berrno_007d_002c-implicit-usage-4366"></a>
 
 <div class="defun">
-&mdash; Macro: <b>GEN_ERRNO_RTX</b><var><a name="index-GEN_005fERRNO_005fRTX-4333"></a></var><br>
+&mdash; Macro: <b>GEN_ERRNO_RTX</b><var><a name="index-GEN_005fERRNO_005fRTX-4367"></a></var><br>
 <blockquote><p>Define this macro as a C expression to create an rtl expression that
 refers to the global &ldquo;variable&rdquo; <code>errno</code>.  (On certain systems,
 <code>errno</code> may not actually be a variable.)  If you don't define this
@@ -149,13 +149,13 @@ macro, a reasonable default is used.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: bool <b>TARGET_LIBC_HAS_FUNCTION</b> (<var>enum function_class fn_class</var>)<var><a name="index-TARGET_005fLIBC_005fHAS_005fFUNCTION-4334"></a></var><br>
+&mdash; Target Hook: bool <b>TARGET_LIBC_HAS_FUNCTION</b> (<var>enum function_class fn_class</var>)<var><a name="index-TARGET_005fLIBC_005fHAS_005fFUNCTION-4368"></a></var><br>
 <blockquote><p>This hook determines whether a function from a class of functions
 <var>fn_class</var> is present at the runtime. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>NEXT_OBJC_RUNTIME</b><var><a name="index-NEXT_005fOBJC_005fRUNTIME-4335"></a></var><br>
+&mdash; Macro: <b>NEXT_OBJC_RUNTIME</b><var><a name="index-NEXT_005fOBJC_005fRUNTIME-4369"></a></var><br>
 <blockquote><p>Set this macro to 1 to use the "NeXT" Objective-C message sending conventions
 by default.  This calling convention involves passing the object, the selector
 and the method arguments all at once to the method-lookup library function. 

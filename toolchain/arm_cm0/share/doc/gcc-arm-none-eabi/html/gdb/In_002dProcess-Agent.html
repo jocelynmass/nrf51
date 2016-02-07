@@ -9,7 +9,7 @@
 <link rel="next" href="GDB-Bugs.html#GDB-Bugs" title="GDB Bugs">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -48,7 +48,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
 
 <h2 class="chapter">30 In-Process Agent</h2>
 
-<p><a name="index-debugging-agent-2973"></a>The traditional debugging model is conceptually low-speed, but works fine,
+<p><a name="index-debugging-agent-3049"></a>The traditional debugging model is conceptually low-speed, but works fine,
 because most bugs can be reproduced in debugging-mode execution.  However,
 as multi-core or many-core processors are becoming mainstream, and
 multi-threaded programs become more and more popular, there should be more
@@ -82,7 +82,7 @@ You can control whether the in-process agent is used as an aid for
 debugging with the following commands:
 
      
-<a name="index-set-agent-on-2974"></a>
+<a name="index-set-agent-on-3050"></a>
 <dl><dt><code>set agent on</code><dd>Causes the in-process agent to perform some operations on behalf of the
 debugger.  Just which operations requested by the user will be done
 by the in-process agent depends on the its capabilities.  For example,
@@ -90,10 +90,10 @@ if you request to evaluate breakpoint conditions in the in-process agent,
 and the in-process agent has such capability as well, then breakpoint
 conditions will be evaluated in the in-process agent.
 
-     <p><a name="index-set-agent-off-2975"></a><br><dt><code>set agent off</code><dd>Disables execution of debugging operations by the in-process agent.  All
+     <p><a name="index-set-agent-off-3051"></a><br><dt><code>set agent off</code><dd>Disables execution of debugging operations by the in-process agent.  All
 of the operations will be performed by <span class="sc">gdb</span>.
 
-     <p><a name="index-show-agent-2976"></a><br><dt><code>show agent</code><dd>Display the current setting of execution of debugging operations by
+     <p><a name="index-show-agent-3052"></a><br><dt><code>show agent</code><dd>Display the current setting of execution of debugging operations by
 the in-process agent. 
 </dl>
 

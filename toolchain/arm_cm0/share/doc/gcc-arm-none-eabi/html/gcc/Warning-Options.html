@@ -10,7 +10,7 @@
 <link rel="next" href="Debugging-Options.html#Debugging-Options" title="Debugging Options">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -54,7 +54,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Invoking-GCC.html#Invoking-GCC">Invokin
 
 <h3 class="section">3.8 Options to Request or Suppress Warnings</h3>
 
-<p><a name="index-options-to-control-warnings-265"></a><a name="index-warning-messages-266"></a><a name="index-messages_002c-warning-267"></a><a name="index-suppressing-warnings-268"></a>
+<p><a name="index-options-to-control-warnings-275"></a><a name="index-warning-messages-276"></a><a name="index-messages_002c-warning-277"></a><a name="index-suppressing-warnings-278"></a>
 Warnings are diagnostic messages that report constructions that
 are not inherently erroneous but that are risky or suggest there
 may have been an error.
@@ -63,21 +63,21 @@ may have been an error.
 warnings but control the kinds of diagnostics produced by GCC.
 
      
-<a name="index-syntax-checking-269"></a>
-<dl><dt><code>-fsyntax-only</code><dd><a name="index-fsyntax_002donly-270"></a>Check the code for syntax errors, but don't do anything beyond that.
+<a name="index-syntax-checking-279"></a>
+<dl><dt><code>-fsyntax-only</code><dd><a name="index-fsyntax_002donly-280"></a>Check the code for syntax errors, but don't do anything beyond that.
 
-     <br><dt><code>-fmax-errors=</code><var>n</var><dd><a name="index-fmax_002derrors-271"></a>Limits the maximum number of error messages to <var>n</var>, at which point
+     <br><dt><code>-fmax-errors=</code><var>n</var><dd><a name="index-fmax_002derrors-281"></a>Limits the maximum number of error messages to <var>n</var>, at which point
 GCC bails out rather than attempting to continue processing the source
 code.  If <var>n</var> is 0 (the default), there is no limit on the number
 of error messages produced.  If <samp><span class="option">-Wfatal-errors</span></samp> is also
 specified, then <samp><span class="option">-Wfatal-errors</span></samp> takes precedence over this
 option.
 
-     <br><dt><code>-w</code><dd><a name="index-w-272"></a>Inhibit all warning messages.
+     <br><dt><code>-w</code><dd><a name="index-w-282"></a>Inhibit all warning messages.
 
-     <br><dt><code>-Werror</code><dd><a name="index-Werror-273"></a><a name="index-Wno_002derror-274"></a>Make all warnings into errors.
+     <br><dt><code>-Werror</code><dd><a name="index-Werror-283"></a><a name="index-Wno_002derror-284"></a>Make all warnings into errors.
 
-     <br><dt><code>-Werror=</code><dd><a name="index-Werror_003d-275"></a><a name="index-Wno_002derror_003d-276"></a>Make the specified warning into an error.  The specifier for a warning
+     <br><dt><code>-Werror=</code><dd><a name="index-Werror_003d-285"></a><a name="index-Wno_002derror_003d-286"></a>Make the specified warning into an error.  The specifier for a warning
 is appended; for example <samp><span class="option">-Werror=switch</span></samp> turns the warnings
 controlled by <samp><span class="option">-Wswitch</span></samp> into errors.  This switch takes a
 negative form, to be used to negate <samp><span class="option">-Werror</span></samp> for specific
@@ -95,7 +95,7 @@ option that controls the warning.  That option can then be used with
 <samp><span class="option">-W</span></samp><var>foo</var>.  However, <samp><span class="option">-Wno-error=</span></samp><var>foo</var> does not
 imply anything.
 
-     <br><dt><code>-Wfatal-errors</code><dd><a name="index-Wfatal_002derrors-277"></a><a name="index-Wno_002dfatal_002derrors-278"></a>This option causes the compiler to abort compilation on the first error
+     <br><dt><code>-Wfatal-errors</code><dd><a name="index-Wfatal_002derrors-287"></a><a name="index-Wno_002dfatal_002derrors-288"></a>This option causes the compiler to abort compilation on the first error
 occurred rather than trying to keep going and printing further error
 messages.
 
@@ -110,6 +110,15 @@ two forms, whichever is not the default.  For further
 language-specific options also refer to <a href="C_002b_002b-Dialect-Options.html#C_002b_002b-Dialect-Options">C++ Dialect Options</a> and
 <a href="Objective_002dC-and-Objective_002dC_002b_002b-Dialect-Options.html#Objective_002dC-and-Objective_002dC_002b_002b-Dialect-Options">Objective-C and Objective-C++ Dialect Options</a>.
 
+ <p>Some options, such as <samp><span class="option">-Wall</span></samp> and <samp><span class="option">-Wextra</span></samp>, turn on other
+options, such as <samp><span class="option">-Wunused</span></samp>, which may turn on further options,
+such as <samp><span class="option">-Wunused-value</span></samp>. The combined effect of positive and
+negative forms is that more specific options have priority over less
+specific ones, independently of their position in the command-line. For
+options of the same specificity, the last one takes effect. Options
+enabled or disabled via pragmas (see <a href="Diagnostic-Pragmas.html#Diagnostic-Pragmas">Diagnostic Pragmas</a>) take effect
+as if they appeared at the end of the command-line.
+
  <p>When an unrecognized warning option is requested (e.g.,
 <samp><span class="option">-Wunknown-warning</span></samp>), GCC emits a diagnostic stating
 that the option is not recognized.  However, if the <samp><span class="option">-Wno-</span></samp> form
@@ -120,7 +129,7 @@ with old compilers, but if something goes wrong, the compiler
 warns that an unrecognized option is present.
 
      <dl>
-<dt><code>-Wpedantic</code><dt><code>-pedantic</code><dd><a name="index-pedantic-279"></a><a name="index-Wpedantic-280"></a>Issue all the warnings demanded by strict ISO C and ISO C++;
+<dt><code>-Wpedantic</code><dt><code>-pedantic</code><dd><a name="index-pedantic-289"></a><a name="index-Wpedantic-290"></a>Issue all the warnings demanded by strict ISO C and ISO C++;
 reject all programs that use forbidden extensions, and some other
 programs that do not follow ISO C and ISO C++.  For ISO C, follows the
 version of the ISO C standard specified by any <samp><span class="option">-std</span></samp> option used.
@@ -159,10 +168,14 @@ C dialect, since by definition the GNU dialects of C include all
 features the compiler supports with the given option, and there would be
 nothing to warn about.)
 
-     <br><dt><code>-pedantic-errors</code><dd><a name="index-pedantic_002derrors-281"></a>Like <samp><span class="option">-Wpedantic</span></samp>, except that errors are produced rather than
-warnings.
+     <br><dt><code>-pedantic-errors</code><dd><a name="index-pedantic_002derrors-291"></a>Give an error whenever the <dfn>base standard</dfn> (see <samp><span class="option">-Wpedantic</span></samp>)
+requires a diagnostic, in some cases where there is undefined behavior
+at compile-time and in some other cases that do not prevent compilation
+of programs that are valid according to the standard. This is not
+equivalent to <samp><span class="option">-Werror=pedantic</span></samp>, since there are errors enabled
+by this option and not enabled by the latter and vice versa.
 
-     <br><dt><code>-Wall</code><dd><a name="index-Wall-282"></a><a name="index-Wno_002dall-283"></a>This enables all the warnings about constructions that some users
+     <br><dt><code>-Wall</code><dd><a name="index-Wall-292"></a><a name="index-Wno_002dall-293"></a>This enables all the warnings about constructions that some users
 consider questionable, and that are easy to avoid (or modify to
 prevent the warning), even in conjunction with macros.  This also
 enables some language-specific warnings described in <a href="C_002b_002b-Dialect-Options.html#C_002b_002b-Dialect-Options">C++ Dialect Options</a> and <a href="Objective_002dC-and-Objective_002dC_002b_002b-Dialect-Options.html#Objective_002dC-and-Objective_002dC_002b_002b-Dialect-Options">Objective-C and Objective-C++ Dialect Options</a>.
@@ -170,8 +183,8 @@ enables some language-specific warnings described in <a href="C_002b_002b-Dialec
      <p><samp><span class="option">-Wall</span></samp> turns on the following warning flags:
 
      <pre class="smallexample">          -Waddress   
-          -Warray-bounds <span class="roman">(only with</span> <samp><span class="option">-O2</span></samp><span class="roman">)</span>  
-          -Wc++11-compat  
+          -Warray-bounds=1 <span class="roman">(only with</span> <samp><span class="option">-O2</span></samp><span class="roman">)</span>  
+          -Wc++11-compat  -Wc++14-compat
           -Wchar-subscripts  
           -Wenum-compare <span class="roman">(in C/ObjC; this is on by default in C++)</span> 
           -Wimplicit-int <span class="roman">(C and Objective-C only)</span> 
@@ -210,7 +223,7 @@ some cases, and there is no simple way to modify the code to suppress
 the warning. Some of them are enabled by <samp><span class="option">-Wextra</span></samp> but many of
 them must be enabled individually.
 
-     <br><dt><code>-Wextra</code><dd><a name="index-W-284"></a><a name="index-Wextra-285"></a><a name="index-Wno_002dextra-286"></a>This enables some extra warning flags that are not enabled by
+     <br><dt><code>-Wextra</code><dd><a name="index-W-294"></a><a name="index-Wextra-295"></a><a name="index-Wno_002dextra-296"></a>This enables some extra warning flags that are not enabled by
 <samp><span class="option">-Wall</span></samp>. (This option used to be called <samp><span class="option">-W</span></samp>.  The older
 name is still supported, but the newer name is more descriptive.)
 
@@ -232,34 +245,34 @@ name is still supported, but the newer name is more descriptive.)
 following cases:
 
           <ul>
-<li>A pointer is compared against integer zero with `<samp><span class="samp">&lt;</span></samp>', `<samp><span class="samp">&lt;=</span></samp>',
-`<samp><span class="samp">&gt;</span></samp>', or `<samp><span class="samp">&gt;=</span></samp>'.
+<li>A pointer is compared against integer zero with <code>&lt;</code>, <code>&lt;=</code>,
+<code>&gt;</code>, or <code>&gt;=</code>.
 
           <li>(C++ only) An enumerator and a non-enumerator both appear in a
 conditional expression.
 
           <li>(C++ only) Ambiguous virtual bases.
 
-          <li>(C++ only) Subscripting an array that has been declared `<samp><span class="samp">register</span></samp>'.
+          <li>(C++ only) Subscripting an array that has been declared <code>register</code>.
 
           <li>(C++ only) Taking the address of a variable that has been declared
-`<samp><span class="samp">register</span></samp>'.
+<code>register</code>.
 
           <li>(C++ only) A base class is not initialized in a derived class's copy
 constructor.
 
      </ul>
 
-     <br><dt><code>-Wchar-subscripts</code><dd><a name="index-Wchar_002dsubscripts-287"></a><a name="index-Wno_002dchar_002dsubscripts-288"></a>Warn if an array subscript has type <code>char</code>.  This is a common cause
+     <br><dt><code>-Wchar-subscripts</code><dd><a name="index-Wchar_002dsubscripts-297"></a><a name="index-Wno_002dchar_002dsubscripts-298"></a>Warn if an array subscript has type <code>char</code>.  This is a common cause
 of error, as programmers often forget that this type is signed on some
 machines. 
 This warning is enabled by <samp><span class="option">-Wall</span></samp>.
 
-     <br><dt><code>-Wcomment</code><dd><a name="index-Wcomment-289"></a><a name="index-Wno_002dcomment-290"></a>Warn whenever a comment-start sequence `<samp><span class="samp">/*</span></samp>' appears in a `<samp><span class="samp">/*</span></samp>'
+     <br><dt><code>-Wcomment</code><dd><a name="index-Wcomment-299"></a><a name="index-Wno_002dcomment-300"></a>Warn whenever a comment-start sequence `<samp><span class="samp">/*</span></samp>' appears in a `<samp><span class="samp">/*</span></samp>'
 comment, or whenever a Backslash-Newline appears in a `<samp><span class="samp">//</span></samp>' comment. 
 This warning is enabled by <samp><span class="option">-Wall</span></samp>.
 
-     <br><dt><code>-Wno-coverage-mismatch</code><dd><a name="index-Wno_002dcoverage_002dmismatch-291"></a>Warn if feedback profiles do not match when using the
+     <br><dt><code>-Wno-coverage-mismatch</code><dd><a name="index-Wno_002dcoverage_002dmismatch-301"></a>Warn if feedback profiles do not match when using the
 <samp><span class="option">-fprofile-use</span></samp> option. 
 If a source file is changed between compiling with <samp><span class="option">-fprofile-gen</span></samp> and
 with <samp><span class="option">-fprofile-use</span></samp>, the files with the profile feedback can fail
@@ -276,7 +289,7 @@ Completely disabling the warning is not recommended.
 
      <p>Suppress warning messages emitted by <code>#warning</code> directives.
 
-     <br><dt><code>-Wdouble-promotion </code><span class="roman">(C, C++, Objective-C and Objective-C++ only)</span><dd><a name="index-Wdouble_002dpromotion-292"></a><a name="index-Wno_002ddouble_002dpromotion-293"></a>Give a warning when a value of type <code>float</code> is implicitly
+     <br><dt><code>-Wdouble-promotion </code><span class="roman">(C, C++, Objective-C and Objective-C++ only)</span><dd><a name="index-Wdouble_002dpromotion-302"></a><a name="index-Wno_002ddouble_002dpromotion-303"></a>Give a warning when a value of type <code>float</code> is implicitly
 promoted to <code>double</code>.  CPUs with a 32-bit &ldquo;single-precision&rdquo;
 floating-point unit implement <code>float</code> in hardware, but emulate
 <code>double</code> in software.  On such a machine, doing computations
@@ -294,7 +307,7 @@ example, in:
      <p>the compiler performs the entire computation with <code>double</code>
 because the floating-point literal is a <code>double</code>.
 
-     <br><dt><code>-Wformat</code><dt><code>-Wformat=</code><var>n</var><dd><a name="index-Wformat-294"></a><a name="index-Wno_002dformat-295"></a><a name="index-ffreestanding-296"></a><a name="index-fno_002dbuiltin-297"></a><a name="index-Wformat_003d-298"></a>Check calls to <code>printf</code> and <code>scanf</code>, etc., to make sure that
+     <br><dt><code>-Wformat</code><dt><code>-Wformat=</code><var>n</var><dd><a name="index-Wformat-304"></a><a name="index-Wno_002dformat-305"></a><a name="index-ffreestanding-306"></a><a name="index-fno_002dbuiltin-307"></a><a name="index-Wformat_003d-308"></a>Check calls to <code>printf</code> and <code>scanf</code>, etc., to make sure that
 the arguments supplied have types appropriate to the format string
 specified, and that the conversions specified in the format string make
 sense.  This includes standard functions, and others specified by format
@@ -317,7 +330,7 @@ in the selected standard version (but not for <code>strfmon</code> formats,
 since those are not in any version of the C standard).  See <a href="C-Dialect-Options.html#C-Dialect-Options">Options Controlling C Dialect</a>.
 
           <dl>
-<dt><code>-Wformat=1</code><dt><code>-Wformat</code><dd><a name="index-Wformat-299"></a><a name="index-Wformat_003d1-300"></a>Option <samp><span class="option">-Wformat</span></samp> is equivalent to <samp><span class="option">-Wformat=1</span></samp>, and
+<dt><code>-Wformat=1</code><dt><code>-Wformat</code><dd><a name="index-Wformat-309"></a><a name="index-Wformat_003d1-310"></a>Option <samp><span class="option">-Wformat</span></samp> is equivalent to <samp><span class="option">-Wformat=1</span></samp>, and
 <samp><span class="option">-Wno-format</span></samp> is equivalent to <samp><span class="option">-Wformat=0</span></samp>.  Since
 <samp><span class="option">-Wformat</span></samp> also checks for null format arguments for several
 functions, <samp><span class="option">-Wformat</span></samp> also implies <samp><span class="option">-Wnonnull</span></samp>.  Some
@@ -326,10 +339,10 @@ options: <samp><span class="option">-Wno-format-contains-nul</span></samp>,
 <samp><span class="option">-Wno-format-extra-args</span></samp>, and <samp><span class="option">-Wno-format-zero-length</span></samp>. 
 <samp><span class="option">-Wformat</span></samp> is enabled by <samp><span class="option">-Wall</span></samp>.
 
-          <br><dt><code>-Wno-format-contains-nul</code><dd><a name="index-Wno_002dformat_002dcontains_002dnul-301"></a><a name="index-Wformat_002dcontains_002dnul-302"></a>If <samp><span class="option">-Wformat</span></samp> is specified, do not warn about format strings that
+          <br><dt><code>-Wno-format-contains-nul</code><dd><a name="index-Wno_002dformat_002dcontains_002dnul-311"></a><a name="index-Wformat_002dcontains_002dnul-312"></a>If <samp><span class="option">-Wformat</span></samp> is specified, do not warn about format strings that
 contain NUL bytes.
 
-          <br><dt><code>-Wno-format-extra-args</code><dd><a name="index-Wno_002dformat_002dextra_002dargs-303"></a><a name="index-Wformat_002dextra_002dargs-304"></a>If <samp><span class="option">-Wformat</span></samp> is specified, do not warn about excess arguments to a
+          <br><dt><code>-Wno-format-extra-args</code><dd><a name="index-Wno_002dformat_002dextra_002dargs-313"></a><a name="index-Wformat_002dextra_002dargs-314"></a>If <samp><span class="option">-Wformat</span></samp> is specified, do not warn about excess arguments to a
 <code>printf</code> or <code>scanf</code> format function.  The C standard specifies
 that such arguments are ignored.
 
@@ -341,18 +354,18 @@ in the case of <code>scanf</code> formats, this option suppresses the
 warning if the unused arguments are all pointers, since the Single
 Unix Specification says that such unused arguments are allowed.
 
-          <br><dt><code>-Wno-format-zero-length</code><dd><a name="index-Wno_002dformat_002dzero_002dlength-305"></a><a name="index-Wformat_002dzero_002dlength-306"></a>If <samp><span class="option">-Wformat</span></samp> is specified, do not warn about zero-length formats. 
+          <br><dt><code>-Wno-format-zero-length</code><dd><a name="index-Wno_002dformat_002dzero_002dlength-315"></a><a name="index-Wformat_002dzero_002dlength-316"></a>If <samp><span class="option">-Wformat</span></samp> is specified, do not warn about zero-length formats. 
 The C standard specifies that zero-length formats are allowed.
 
-          <br><dt><code>-Wformat=2</code><dd><a name="index-Wformat_003d2-307"></a>Enable <samp><span class="option">-Wformat</span></samp> plus additional format checks.  Currently
+          <br><dt><code>-Wformat=2</code><dd><a name="index-Wformat_003d2-317"></a>Enable <samp><span class="option">-Wformat</span></samp> plus additional format checks.  Currently
 equivalent to <samp><span class="option">-Wformat -Wformat-nonliteral -Wformat-security
 -Wformat-y2k</span></samp>.
 
-          <br><dt><code>-Wformat-nonliteral</code><dd><a name="index-Wformat_002dnonliteral-308"></a><a name="index-Wno_002dformat_002dnonliteral-309"></a>If <samp><span class="option">-Wformat</span></samp> is specified, also warn if the format string is not a
+          <br><dt><code>-Wformat-nonliteral</code><dd><a name="index-Wformat_002dnonliteral-318"></a><a name="index-Wno_002dformat_002dnonliteral-319"></a>If <samp><span class="option">-Wformat</span></samp> is specified, also warn if the format string is not a
 string literal and so cannot be checked, unless the format function
 takes its format arguments as a <code>va_list</code>.
 
-          <br><dt><code>-Wformat-security</code><dd><a name="index-Wformat_002dsecurity-310"></a><a name="index-Wno_002dformat_002dsecurity-311"></a>If <samp><span class="option">-Wformat</span></samp> is specified, also warn about uses of format
+          <br><dt><code>-Wformat-security</code><dd><a name="index-Wformat_002dsecurity-320"></a><a name="index-Wno_002dformat_002dsecurity-321"></a>If <samp><span class="option">-Wformat</span></samp> is specified, also warn about uses of format
 functions that represent possible security problems.  At present, this
 warns about calls to <code>printf</code> and <code>scanf</code> functions where the
 format string is not a string literal and there are no format arguments,
@@ -362,17 +375,20 @@ currently a subset of what <samp><span class="option">-Wformat-nonliteral</span>
 in future warnings may be added to <samp><span class="option">-Wformat-security</span></samp> that are not
 included in <samp><span class="option">-Wformat-nonliteral</span></samp>.)
 
-          <br><dt><code>-Wformat-y2k</code><dd><a name="index-Wformat_002dy2k-312"></a><a name="index-Wno_002dformat_002dy2k-313"></a>If <samp><span class="option">-Wformat</span></samp> is specified, also warn about <code>strftime</code>
+          <br><dt><code>-Wformat-signedness</code><dd><a name="index-Wformat_002dsignedness-322"></a><a name="index-Wno_002dformat_002dsignedness-323"></a>If <samp><span class="option">-Wformat</span></samp> is specified, also warn if the format string
+requires an unsigned argument and the argument is signed and vice versa.
+
+          <br><dt><code>-Wformat-y2k</code><dd><a name="index-Wformat_002dy2k-324"></a><a name="index-Wno_002dformat_002dy2k-325"></a>If <samp><span class="option">-Wformat</span></samp> is specified, also warn about <code>strftime</code>
 formats that may yield only a two-digit year. 
 </dl>
 
-     <br><dt><code>-Wnonnull</code><dd><a name="index-Wnonnull-314"></a><a name="index-Wno_002dnonnull-315"></a>Warn about passing a null pointer for arguments marked as
+     <br><dt><code>-Wnonnull</code><dd><a name="index-Wnonnull-326"></a><a name="index-Wno_002dnonnull-327"></a>Warn about passing a null pointer for arguments marked as
 requiring a non-null value by the <code>nonnull</code> function attribute.
 
      <p><samp><span class="option">-Wnonnull</span></samp> is included in <samp><span class="option">-Wall</span></samp> and <samp><span class="option">-Wformat</span></samp>.  It
 can be disabled with the <samp><span class="option">-Wno-nonnull</span></samp> option.
 
-     <br><dt><code>-Winit-self </code><span class="roman">(C, C++, Objective-C and Objective-C++ only)</span><dd><a name="index-Winit_002dself-316"></a><a name="index-Wno_002dinit_002dself-317"></a>Warn about uninitialized variables that are initialized with themselves. 
+     <br><dt><code>-Winit-self </code><span class="roman">(C, C++, Objective-C and Objective-C++ only)</span><dd><a name="index-Winit_002dself-328"></a><a name="index-Wno_002dinit_002dself-329"></a>Warn about uninitialized variables that are initialized with themselves. 
 Note this option can only be used with the <samp><span class="option">-Wuninitialized</span></samp> option.
 
      <p>For example, GCC warns about <code>i</code> being uninitialized in the
@@ -385,19 +401,19 @@ following snippet only when <samp><span class="option">-Winit-self</span></samp>
      </pre>
      <p>This warning is enabled by <samp><span class="option">-Wall</span></samp> in C++.
 
-     <br><dt><code>-Wimplicit-int </code><span class="roman">(C and Objective-C only)</span><dd><a name="index-Wimplicit_002dint-318"></a><a name="index-Wno_002dimplicit_002dint-319"></a>Warn when a declaration does not specify a type. 
+     <br><dt><code>-Wimplicit-int </code><span class="roman">(C and Objective-C only)</span><dd><a name="index-Wimplicit_002dint-330"></a><a name="index-Wno_002dimplicit_002dint-331"></a>Warn when a declaration does not specify a type. 
 This warning is enabled by <samp><span class="option">-Wall</span></samp>.
 
-     <br><dt><code>-Wimplicit-function-declaration </code><span class="roman">(C and Objective-C only)</span><dd><a name="index-Wimplicit_002dfunction_002ddeclaration-320"></a><a name="index-Wno_002dimplicit_002dfunction_002ddeclaration-321"></a>Give a warning whenever a function is used before being declared. In
+     <br><dt><code>-Wimplicit-function-declaration </code><span class="roman">(C and Objective-C only)</span><dd><a name="index-Wimplicit_002dfunction_002ddeclaration-332"></a><a name="index-Wno_002dimplicit_002dfunction_002ddeclaration-333"></a>Give a warning whenever a function is used before being declared. In
 C99 mode (<samp><span class="option">-std=c99</span></samp> or <samp><span class="option">-std=gnu99</span></samp>), this warning is
 enabled by default and it is made into an error by
 <samp><span class="option">-pedantic-errors</span></samp>. This warning is also enabled by
 <samp><span class="option">-Wall</span></samp>.
 
-     <br><dt><code>-Wimplicit </code><span class="roman">(C and Objective-C only)</span><dd><a name="index-Wimplicit-322"></a><a name="index-Wno_002dimplicit-323"></a>Same as <samp><span class="option">-Wimplicit-int</span></samp> and <samp><span class="option">-Wimplicit-function-declaration</span></samp>. 
+     <br><dt><code>-Wimplicit </code><span class="roman">(C and Objective-C only)</span><dd><a name="index-Wimplicit-334"></a><a name="index-Wno_002dimplicit-335"></a>Same as <samp><span class="option">-Wimplicit-int</span></samp> and <samp><span class="option">-Wimplicit-function-declaration</span></samp>. 
 This warning is enabled by <samp><span class="option">-Wall</span></samp>.
 
-     <br><dt><code>-Wignored-qualifiers </code><span class="roman">(C and C++ only)</span><dd><a name="index-Wignored_002dqualifiers-324"></a><a name="index-Wno_002dignored_002dqualifiers-325"></a>Warn if the return type of a function has a type qualifier
+     <br><dt><code>-Wignored-qualifiers </code><span class="roman">(C and C++ only)</span><dd><a name="index-Wignored_002dqualifiers-336"></a><a name="index-Wno_002dignored_002dqualifiers-337"></a>Warn if the return type of a function has a type qualifier
 such as <code>const</code>.  For ISO C such a type qualifier has no effect,
 since the value returned by a function is not an lvalue. 
 For C++, the warning is only emitted for scalar types or <code>void</code>. 
@@ -407,15 +423,15 @@ even without this option.
 
      <p>This warning is also enabled by <samp><span class="option">-Wextra</span></samp>.
 
-     <br><dt><code>-Wmain</code><dd><a name="index-Wmain-326"></a><a name="index-Wno_002dmain-327"></a>Warn if the type of `<samp><span class="samp">main</span></samp>' is suspicious.  `<samp><span class="samp">main</span></samp>' should be
+     <br><dt><code>-Wmain</code><dd><a name="index-Wmain-338"></a><a name="index-Wno_002dmain-339"></a>Warn if the type of <code>main</code> is suspicious.  <code>main</code> should be
 a function with external linkage, returning int, taking either zero
 arguments, two, or three arguments of appropriate types.  This warning
 is enabled by default in C++ and is enabled by either <samp><span class="option">-Wall</span></samp>
 or <samp><span class="option">-Wpedantic</span></samp>.
 
-     <br><dt><code>-Wmissing-braces</code><dd><a name="index-Wmissing_002dbraces-328"></a><a name="index-Wno_002dmissing_002dbraces-329"></a>Warn if an aggregate or union initializer is not fully bracketed.  In
-the following example, the initializer for `<samp><span class="samp">a</span></samp>' is not fully
-bracketed, but that for `<samp><span class="samp">b</span></samp>' is fully bracketed.  This warning is
+     <br><dt><code>-Wmissing-braces</code><dd><a name="index-Wmissing_002dbraces-340"></a><a name="index-Wno_002dmissing_002dbraces-341"></a>Warn if an aggregate or union initializer is not fully bracketed.  In
+the following example, the initializer for <code>a</code> is not fully
+bracketed, but that for <code>b</code> is fully bracketed.  This warning is
 enabled by <samp><span class="option">-Wall</span></samp> in C.
 
      <pre class="smallexample">          int a[2][2] = { 0, 1, 2, 3 };
@@ -423,15 +439,15 @@ enabled by <samp><span class="option">-Wall</span></samp> in C.
      </pre>
      <p>This warning is enabled by <samp><span class="option">-Wall</span></samp>.
 
-     <br><dt><code>-Wmissing-include-dirs </code><span class="roman">(C, C++, Objective-C and Objective-C++ only)</span><dd><a name="index-Wmissing_002dinclude_002ddirs-330"></a><a name="index-Wno_002dmissing_002dinclude_002ddirs-331"></a>Warn if a user-supplied include directory does not exist.
+     <br><dt><code>-Wmissing-include-dirs </code><span class="roman">(C, C++, Objective-C and Objective-C++ only)</span><dd><a name="index-Wmissing_002dinclude_002ddirs-342"></a><a name="index-Wno_002dmissing_002dinclude_002ddirs-343"></a>Warn if a user-supplied include directory does not exist.
 
-     <br><dt><code>-Wparentheses</code><dd><a name="index-Wparentheses-332"></a><a name="index-Wno_002dparentheses-333"></a>Warn if parentheses are omitted in certain contexts, such
+     <br><dt><code>-Wparentheses</code><dd><a name="index-Wparentheses-344"></a><a name="index-Wno_002dparentheses-345"></a>Warn if parentheses are omitted in certain contexts, such
 as when there is an assignment in a context where a truth value
 is expected, or when operators are nested whose precedence people
 often get confused about.
 
-     <p>Also warn if a comparison like `<samp><span class="samp">x&lt;=y&lt;=z</span></samp>' appears; this is
-equivalent to `<samp><span class="samp">(x&lt;=y ? 1 : 0) &lt;= z</span></samp>', which is a different
+     <p>Also warn if a comparison like <code>x&lt;=y&lt;=z</code> appears; this is
+equivalent to <code>(x&lt;=y ? 1 : 0) &lt;= z</code>, which is a different
 interpretation from that of ordinary mathematical notation.
 
      <p>Also warn about constructions where there may be confusion to which
@@ -474,7 +490,7 @@ inside the conditional expression instead.
 
      <p>This warning is enabled by <samp><span class="option">-Wall</span></samp>.
 
-     <br><dt><code>-Wsequence-point</code><dd><a name="index-Wsequence_002dpoint-334"></a><a name="index-Wno_002dsequence_002dpoint-335"></a>Warn about code that may have undefined semantics because of violations
+     <br><dt><code>-Wsequence-point</code><dd><a name="index-Wsequence_002dpoint-346"></a><a name="index-Wno_002dsequence_002dpoint-347"></a>Warn about code that may have undefined semantics because of violations
 of sequence point rules in the C and C++ standards.
 
      <p>The C and C++ standards define the order in which expressions in a C/C++
@@ -517,10 +533,10 @@ definitions, may be found on the GCC readings page, at
 
      <p>This warning is enabled by <samp><span class="option">-Wall</span></samp> for C and C++.
 
-     <br><dt><code>-Wno-return-local-addr</code><dd><a name="index-Wno_002dreturn_002dlocal_002daddr-336"></a><a name="index-Wreturn_002dlocal_002daddr-337"></a>Do not warn about returning a pointer (or in C++, a reference) to a
+     <br><dt><code>-Wno-return-local-addr</code><dd><a name="index-Wno_002dreturn_002dlocal_002daddr-348"></a><a name="index-Wreturn_002dlocal_002daddr-349"></a>Do not warn about returning a pointer (or in C++, a reference) to a
 variable that goes out of scope after the function returns.
 
-     <br><dt><code>-Wreturn-type</code><dd><a name="index-Wreturn_002dtype-338"></a><a name="index-Wno_002dreturn_002dtype-339"></a>Warn whenever a function is defined with a return type that defaults
+     <br><dt><code>-Wreturn-type</code><dd><a name="index-Wreturn_002dtype-350"></a><a name="index-Wno_002dreturn_002dtype-351"></a>Warn whenever a function is defined with a return type that defaults
 to <code>int</code>.  Also warn about any <code>return</code> statement with no
 return value in a function whose return type is not <code>void</code>
 (falling off the end of the function body is considered returning
@@ -529,11 +545,15 @@ expression in a function whose return type is <code>void</code>.
 
      <p>For C++, a function without return type always produces a diagnostic
 message, even when <samp><span class="option">-Wno-return-type</span></samp> is specified.  The only
-exceptions are `<samp><span class="samp">main</span></samp>' and functions defined in system headers.
+exceptions are <code>main</code> and functions defined in system headers.
 
      <p>This warning is enabled by <samp><span class="option">-Wall</span></samp>.
 
-     <br><dt><code>-Wswitch</code><dd><a name="index-Wswitch-340"></a><a name="index-Wno_002dswitch-341"></a>Warn whenever a <code>switch</code> statement has an index of enumerated type
+     <br><dt><code>-Wshift-count-negative</code><dd><a name="index-Wshift_002dcount_002dnegative-352"></a><a name="index-Wno_002dshift_002dcount_002dnegative-353"></a>Warn if shift count is negative. This warning is enabled by default.
+
+     <br><dt><code>-Wshift-count-overflow</code><dd><a name="index-Wshift_002dcount_002doverflow-354"></a><a name="index-Wno_002dshift_002dcount_002doverflow-355"></a>Warn if shift count &gt;= width of type. This warning is enabled by default.
+
+     <br><dt><code>-Wswitch</code><dd><a name="index-Wswitch-356"></a><a name="index-Wno_002dswitch-357"></a>Warn whenever a <code>switch</code> statement has an index of enumerated type
 and lacks a <code>case</code> for one or more of the named codes of that
 enumeration.  (The presence of a <code>default</code> label prevents this
 warning.)  <code>case</code> labels outside the enumeration range also
@@ -541,10 +561,10 @@ provoke warnings when this option is used (even if there is a
 <code>default</code> label). 
 This warning is enabled by <samp><span class="option">-Wall</span></samp>.
 
-     <br><dt><code>-Wswitch-default</code><dd><a name="index-Wswitch_002ddefault-342"></a><a name="index-Wno_002dswitch_002ddefault-343"></a>Warn whenever a <code>switch</code> statement does not have a <code>default</code>
+     <br><dt><code>-Wswitch-default</code><dd><a name="index-Wswitch_002ddefault-358"></a><a name="index-Wno_002dswitch_002ddefault-359"></a>Warn whenever a <code>switch</code> statement does not have a <code>default</code>
 case.
 
-     <br><dt><code>-Wswitch-enum</code><dd><a name="index-Wswitch_002denum-344"></a><a name="index-Wno_002dswitch_002denum-345"></a>Warn whenever a <code>switch</code> statement has an index of enumerated type
+     <br><dt><code>-Wswitch-enum</code><dd><a name="index-Wswitch_002denum-360"></a><a name="index-Wno_002dswitch_002denum-361"></a>Warn whenever a <code>switch</code> statement has an index of enumerated type
 and lacks a <code>case</code> for one or more of the named codes of that
 enumeration.  <code>case</code> labels outside the enumeration range also
 provoke warnings when this option is used.  The only difference
@@ -552,79 +572,89 @@ between <samp><span class="option">-Wswitch</span></samp> and this option is tha
 warning about an omitted enumeration code even if there is a
 <code>default</code> label.
 
-     <br><dt><code>-Wsync-nand </code><span class="roman">(C and C++ only)</span><dd><a name="index-Wsync_002dnand-346"></a><a name="index-Wno_002dsync_002dnand-347"></a>Warn when <code>__sync_fetch_and_nand</code> and <code>__sync_nand_and_fetch</code>
+     <br><dt><code>-Wswitch-bool</code><dd><a name="index-Wswitch_002dbool-362"></a><a name="index-Wno_002dswitch_002dbool-363"></a>Warn whenever a <code>switch</code> statement has an index of boolean type. 
+It is possible to suppress this warning by casting the controlling
+expression to a type other than <code>bool</code>.  For example:
+     <pre class="smallexample">          switch ((int) (a == 4))
+            {
+            ...
+            }
+     </pre>
+     <p>This warning is enabled by default for C and C++ programs.
+
+     <br><dt><code>-Wsync-nand </code><span class="roman">(C and C++ only)</span><dd><a name="index-Wsync_002dnand-364"></a><a name="index-Wno_002dsync_002dnand-365"></a>Warn when <code>__sync_fetch_and_nand</code> and <code>__sync_nand_and_fetch</code>
 built-in functions are used.  These functions changed semantics in GCC 4.4.
 
-     <br><dt><code>-Wtrigraphs</code><dd><a name="index-Wtrigraphs-348"></a><a name="index-Wno_002dtrigraphs-349"></a>Warn if any trigraphs are encountered that might change the meaning of
+     <br><dt><code>-Wtrigraphs</code><dd><a name="index-Wtrigraphs-366"></a><a name="index-Wno_002dtrigraphs-367"></a>Warn if any trigraphs are encountered that might change the meaning of
 the program (trigraphs within comments are not warned about). 
 This warning is enabled by <samp><span class="option">-Wall</span></samp>.
 
-     <br><dt><code>-Wunused-but-set-parameter</code><dd><a name="index-Wunused_002dbut_002dset_002dparameter-350"></a><a name="index-Wno_002dunused_002dbut_002dset_002dparameter-351"></a>Warn whenever a function parameter is assigned to, but otherwise unused
+     <br><dt><code>-Wunused-but-set-parameter</code><dd><a name="index-Wunused_002dbut_002dset_002dparameter-368"></a><a name="index-Wno_002dunused_002dbut_002dset_002dparameter-369"></a>Warn whenever a function parameter is assigned to, but otherwise unused
 (aside from its declaration).
 
-     <p>To suppress this warning use the `<samp><span class="samp">unused</span></samp>' attribute
+     <p>To suppress this warning use the <code>unused</code> attribute
 (see <a href="Variable-Attributes.html#Variable-Attributes">Variable Attributes</a>).
 
      <p>This warning is also enabled by <samp><span class="option">-Wunused</span></samp> together with
 <samp><span class="option">-Wextra</span></samp>.
 
-     <br><dt><code>-Wunused-but-set-variable</code><dd><a name="index-Wunused_002dbut_002dset_002dvariable-352"></a><a name="index-Wno_002dunused_002dbut_002dset_002dvariable-353"></a>Warn whenever a local variable is assigned to, but otherwise unused
+     <br><dt><code>-Wunused-but-set-variable</code><dd><a name="index-Wunused_002dbut_002dset_002dvariable-370"></a><a name="index-Wno_002dunused_002dbut_002dset_002dvariable-371"></a>Warn whenever a local variable is assigned to, but otherwise unused
 (aside from its declaration). 
 This warning is enabled by <samp><span class="option">-Wall</span></samp>.
 
-     <p>To suppress this warning use the `<samp><span class="samp">unused</span></samp>' attribute
+     <p>To suppress this warning use the <code>unused</code> attribute
 (see <a href="Variable-Attributes.html#Variable-Attributes">Variable Attributes</a>).
 
      <p>This warning is also enabled by <samp><span class="option">-Wunused</span></samp>, which is enabled
 by <samp><span class="option">-Wall</span></samp>.
 
-     <br><dt><code>-Wunused-function</code><dd><a name="index-Wunused_002dfunction-354"></a><a name="index-Wno_002dunused_002dfunction-355"></a>Warn whenever a static function is declared but not defined or a
+     <br><dt><code>-Wunused-function</code><dd><a name="index-Wunused_002dfunction-372"></a><a name="index-Wno_002dunused_002dfunction-373"></a>Warn whenever a static function is declared but not defined or a
 non-inline static function is unused. 
 This warning is enabled by <samp><span class="option">-Wall</span></samp>.
 
-     <br><dt><code>-Wunused-label</code><dd><a name="index-Wunused_002dlabel-356"></a><a name="index-Wno_002dunused_002dlabel-357"></a>Warn whenever a label is declared but not used. 
+     <br><dt><code>-Wunused-label</code><dd><a name="index-Wunused_002dlabel-374"></a><a name="index-Wno_002dunused_002dlabel-375"></a>Warn whenever a label is declared but not used. 
 This warning is enabled by <samp><span class="option">-Wall</span></samp>.
 
-     <p>To suppress this warning use the `<samp><span class="samp">unused</span></samp>' attribute
+     <p>To suppress this warning use the <code>unused</code> attribute
 (see <a href="Variable-Attributes.html#Variable-Attributes">Variable Attributes</a>).
 
-     <br><dt><code>-Wunused-local-typedefs </code><span class="roman">(C, Objective-C, C++ and Objective-C++ only)</span><dd><a name="index-Wunused_002dlocal_002dtypedefs-358"></a>Warn when a typedef locally defined in a function is not used. 
+     <br><dt><code>-Wunused-local-typedefs </code><span class="roman">(C, Objective-C, C++ and Objective-C++ only)</span><dd><a name="index-Wunused_002dlocal_002dtypedefs-376"></a>Warn when a typedef locally defined in a function is not used. 
 This warning is enabled by <samp><span class="option">-Wall</span></samp>.
 
-     <br><dt><code>-Wunused-parameter</code><dd><a name="index-Wunused_002dparameter-359"></a><a name="index-Wno_002dunused_002dparameter-360"></a>Warn whenever a function parameter is unused aside from its declaration.
+     <br><dt><code>-Wunused-parameter</code><dd><a name="index-Wunused_002dparameter-377"></a><a name="index-Wno_002dunused_002dparameter-378"></a>Warn whenever a function parameter is unused aside from its declaration.
 
-     <p>To suppress this warning use the `<samp><span class="samp">unused</span></samp>' attribute
+     <p>To suppress this warning use the <code>unused</code> attribute
 (see <a href="Variable-Attributes.html#Variable-Attributes">Variable Attributes</a>).
 
-     <br><dt><code>-Wno-unused-result</code><dd><a name="index-Wunused_002dresult-361"></a><a name="index-Wno_002dunused_002dresult-362"></a>Do not warn if a caller of a function marked with attribute
+     <br><dt><code>-Wno-unused-result</code><dd><a name="index-Wunused_002dresult-379"></a><a name="index-Wno_002dunused_002dresult-380"></a>Do not warn if a caller of a function marked with attribute
 <code>warn_unused_result</code> (see <a href="Function-Attributes.html#Function-Attributes">Function Attributes</a>) does not use
 its return value. The default is <samp><span class="option">-Wunused-result</span></samp>.
 
-     <br><dt><code>-Wunused-variable</code><dd><a name="index-Wunused_002dvariable-363"></a><a name="index-Wno_002dunused_002dvariable-364"></a>Warn whenever a local variable or non-constant static variable is unused
+     <br><dt><code>-Wunused-variable</code><dd><a name="index-Wunused_002dvariable-381"></a><a name="index-Wno_002dunused_002dvariable-382"></a>Warn whenever a local variable or non-constant static variable is unused
 aside from its declaration. 
 This warning is enabled by <samp><span class="option">-Wall</span></samp>.
 
-     <p>To suppress this warning use the `<samp><span class="samp">unused</span></samp>' attribute
+     <p>To suppress this warning use the <code>unused</code> attribute
 (see <a href="Variable-Attributes.html#Variable-Attributes">Variable Attributes</a>).
 
-     <br><dt><code>-Wunused-value</code><dd><a name="index-Wunused_002dvalue-365"></a><a name="index-Wno_002dunused_002dvalue-366"></a>Warn whenever a statement computes a result that is explicitly not
+     <br><dt><code>-Wunused-value</code><dd><a name="index-Wunused_002dvalue-383"></a><a name="index-Wno_002dunused_002dvalue-384"></a>Warn whenever a statement computes a result that is explicitly not
 used. To suppress this warning cast the unused expression to
-`<samp><span class="samp">void</span></samp>'. This includes an expression-statement or the left-hand
+<code>void</code>. This includes an expression-statement or the left-hand
 side of a comma expression that contains no side effects. For example,
-an expression such as `<samp><span class="samp">x[i,j]</span></samp>' causes a warning, while
-`<samp><span class="samp">x[(void)i,j]</span></samp>' does not.
+an expression such as <code>x[i,j]</code> causes a warning, while
+<code>x[(void)i,j]</code> does not.
 
      <p>This warning is enabled by <samp><span class="option">-Wall</span></samp>.
 
-     <br><dt><code>-Wunused</code><dd><a name="index-Wunused-367"></a><a name="index-Wno_002dunused-368"></a>All the above <samp><span class="option">-Wunused</span></samp> options combined.
+     <br><dt><code>-Wunused</code><dd><a name="index-Wunused-385"></a><a name="index-Wno_002dunused-386"></a>All the above <samp><span class="option">-Wunused</span></samp> options combined.
 
      <p>In order to get a warning about an unused function parameter, you must
 either specify <samp><span class="option">-Wextra -Wunused</span></samp> (note that <samp><span class="option">-Wall</span></samp> implies
 <samp><span class="option">-Wunused</span></samp>), or separately specify <samp><span class="option">-Wunused-parameter</span></samp>.
 
-     <br><dt><code>-Wuninitialized</code><dd><a name="index-Wuninitialized-369"></a><a name="index-Wno_002duninitialized-370"></a>Warn if an automatic variable is used without first being initialized
+     <br><dt><code>-Wuninitialized</code><dd><a name="index-Wuninitialized-387"></a><a name="index-Wno_002duninitialized-388"></a>Warn if an automatic variable is used without first being initialized
 or if a variable may be clobbered by a <code>setjmp</code> call. In C++,
-warn if a non-static reference or non-static `<samp><span class="samp">const</span></samp>' member
+warn if a non-static reference or non-static <code>const</code> member
 appears in a class without constructors.
 
      <p>If you want to warn about code that uses the uninitialized value of the
@@ -643,7 +673,7 @@ to compute a value that itself is never used, because such
 computations may be deleted by data flow analysis before the warnings
 are printed.
 
-     <br><dt><code>-Wmaybe-uninitialized</code><dd><a name="index-Wmaybe_002duninitialized-371"></a><a name="index-Wno_002dmaybe_002duninitialized-372"></a>For an automatic variable, if there exists a path from the function
+     <br><dt><code>-Wmaybe-uninitialized</code><dd><a name="index-Wmaybe_002duninitialized-389"></a><a name="index-Wno_002dmaybe_002duninitialized-390"></a>For an automatic variable, if there exists a path from the function
 entry to a use of the variable that is initialized, but there exist
 some other paths for which the variable is not initialized, the compiler
 emits a warning if it cannot prove the uninitialized paths are not
@@ -670,7 +700,7 @@ always initialized, but GCC doesn't know this. To suppress the
 warning, you need to provide a default case with assert(0) or
 similar code.
 
-     <p><a name="index-g_t_0040code_007blongjmp_007d-warnings-373"></a>This option also warns when a non-volatile automatic variable might be
+     <p><a name="index-g_t_0040code_007blongjmp_007d-warnings-391"></a>This option also warns when a non-volatile automatic variable might be
 changed by a call to <code>longjmp</code>.  These warnings as well are possible
 only in optimizing compilation.
 
@@ -685,23 +715,23 @@ you use that never return as <code>noreturn</code>.  See <a href="Function-Attri
 
      <p>This warning is enabled by <samp><span class="option">-Wall</span></samp> or <samp><span class="option">-Wextra</span></samp>.
 
-     <br><dt><code>-Wunknown-pragmas</code><dd><a name="index-Wunknown_002dpragmas-374"></a><a name="index-Wno_002dunknown_002dpragmas-375"></a><a name="index-warning-for-unknown-pragmas-376"></a><a name="index-unknown-pragmas_002c-warning-377"></a><a name="index-pragmas_002c-warning-of-unknown-378"></a>Warn when a <code>#pragma</code> directive is encountered that is not understood by
+     <br><dt><code>-Wunknown-pragmas</code><dd><a name="index-Wunknown_002dpragmas-392"></a><a name="index-Wno_002dunknown_002dpragmas-393"></a><a name="index-warning-for-unknown-pragmas-394"></a><a name="index-unknown-pragmas_002c-warning-395"></a><a name="index-pragmas_002c-warning-of-unknown-396"></a>Warn when a <code>#pragma</code> directive is encountered that is not understood by
 GCC.  If this command-line option is used, warnings are even issued
 for unknown pragmas in system header files.  This is not the case if
 the warnings are only enabled by the <samp><span class="option">-Wall</span></samp> command-line option.
 
-     <br><dt><code>-Wno-pragmas</code><dd><a name="index-Wno_002dpragmas-379"></a><a name="index-Wpragmas-380"></a>Do not warn about misuses of pragmas, such as incorrect parameters,
+     <br><dt><code>-Wno-pragmas</code><dd><a name="index-Wno_002dpragmas-397"></a><a name="index-Wpragmas-398"></a>Do not warn about misuses of pragmas, such as incorrect parameters,
 invalid syntax, or conflicts between pragmas.  See also
 <samp><span class="option">-Wunknown-pragmas</span></samp>.
 
-     <br><dt><code>-Wstrict-aliasing</code><dd><a name="index-Wstrict_002daliasing-381"></a><a name="index-Wno_002dstrict_002daliasing-382"></a>This option is only active when <samp><span class="option">-fstrict-aliasing</span></samp> is active. 
+     <br><dt><code>-Wstrict-aliasing</code><dd><a name="index-Wstrict_002daliasing-399"></a><a name="index-Wno_002dstrict_002daliasing-400"></a>This option is only active when <samp><span class="option">-fstrict-aliasing</span></samp> is active. 
 It warns about code that might break the strict aliasing rules that the
 compiler is using for optimization.  The warning does not catch all
 cases, but does attempt to catch the more common pitfalls.  It is
 included in <samp><span class="option">-Wall</span></samp>. 
 It is equivalent to <samp><span class="option">-Wstrict-aliasing=3</span></samp>
 
-     <br><dt><code>-Wstrict-aliasing=n</code><dd><a name="index-Wstrict_002daliasing_003dn-383"></a>This option is only active when <samp><span class="option">-fstrict-aliasing</span></samp> is active. 
+     <br><dt><code>-Wstrict-aliasing=n</code><dd><a name="index-Wstrict_002daliasing_003dn-401"></a>This option is only active when <samp><span class="option">-fstrict-aliasing</span></samp> is active. 
 It warns about code that might break the strict aliasing rules that the
 compiler is using for optimization. 
 Higher levels correspond to higher accuracy (fewer false positives). 
@@ -732,7 +762,7 @@ with multiple statement cases using flow-sensitive points-to information.
 Only warns when the converted pointer is dereferenced. 
 Does not warn about incomplete types.
 
-     <br><dt><code>-Wstrict-overflow</code><dt><code>-Wstrict-overflow=</code><var>n</var><dd><a name="index-Wstrict_002doverflow-384"></a><a name="index-Wno_002dstrict_002doverflow-385"></a>This option is only active when <samp><span class="option">-fstrict-overflow</span></samp> is active. 
+     <br><dt><code>-Wstrict-overflow</code><dt><code>-Wstrict-overflow=</code><var>n</var><dd><a name="index-Wstrict_002doverflow-402"></a><a name="index-Wno_002dstrict_002doverflow-403"></a>This option is only active when <samp><span class="option">-fstrict-overflow</span></samp> is active. 
 It warns about cases where the compiler optimizes based on the
 assumption that signed overflow does not occur.  Note that it does not
 warn about all cases where the code might overflow: it only warns
@@ -777,21 +807,21 @@ comparisons, so this warning level gives a very large number of
 false positives. 
 </dl>
 
-     <br><dt><code>-Wsuggest-attribute=</code><span class="roman">[</span><code>pure</code><span class="roman">|</span><code>const</code><span class="roman">|</span><code>noreturn</code><span class="roman">|</span><code>format</code><span class="roman">]</span><dd><a name="index-Wsuggest_002dattribute_003d-386"></a><a name="index-Wno_002dsuggest_002dattribute_003d-387"></a>Warn for cases where adding an attribute may be beneficial. The
+     <br><dt><code>-Wsuggest-attribute=</code><span class="roman">[</span><code>pure</code><span class="roman">|</span><code>const</code><span class="roman">|</span><code>noreturn</code><span class="roman">|</span><code>format</code><span class="roman">]</span><dd><a name="index-Wsuggest_002dattribute_003d-404"></a><a name="index-Wno_002dsuggest_002dattribute_003d-405"></a>Warn for cases where adding an attribute may be beneficial. The
 attributes currently supported are listed below.
 
           <dl>
-<dt><code>-Wsuggest-attribute=pure</code><dt><code>-Wsuggest-attribute=const</code><dt><code>-Wsuggest-attribute=noreturn</code><dd><a name="index-Wsuggest_002dattribute_003dpure-388"></a><a name="index-Wno_002dsuggest_002dattribute_003dpure-389"></a><a name="index-Wsuggest_002dattribute_003dconst-390"></a><a name="index-Wno_002dsuggest_002dattribute_003dconst-391"></a><a name="index-Wsuggest_002dattribute_003dnoreturn-392"></a><a name="index-Wno_002dsuggest_002dattribute_003dnoreturn-393"></a>
+<dt><code>-Wsuggest-attribute=pure</code><dt><code>-Wsuggest-attribute=const</code><dt><code>-Wsuggest-attribute=noreturn</code><dd><a name="index-Wsuggest_002dattribute_003dpure-406"></a><a name="index-Wno_002dsuggest_002dattribute_003dpure-407"></a><a name="index-Wsuggest_002dattribute_003dconst-408"></a><a name="index-Wno_002dsuggest_002dattribute_003dconst-409"></a><a name="index-Wsuggest_002dattribute_003dnoreturn-410"></a><a name="index-Wno_002dsuggest_002dattribute_003dnoreturn-411"></a>
 Warn about functions that might be candidates for attributes
 <code>pure</code>, <code>const</code> or <code>noreturn</code>.  The compiler only warns for
 functions visible in other compilation units or (in the case of <code>pure</code> and
 <code>const</code>) if it cannot prove that the function returns normally. A function
 returns normally if it doesn't contain an infinite loop or return abnormally
-by throwing, calling <code>abort()</code> or trapping.  This analysis requires option
+by throwing, calling <code>abort</code> or trapping.  This analysis requires option
 <samp><span class="option">-fipa-pure-const</span></samp>, which is enabled by default at <samp><span class="option">-O</span></samp> and
 higher.  Higher optimization levels improve the accuracy of the analysis.
 
-          <br><dt><code>-Wsuggest-attribute=format</code><dt><code>-Wmissing-format-attribute</code><dd><a name="index-Wsuggest_002dattribute_003dformat-394"></a><a name="index-Wmissing_002dformat_002dattribute-395"></a><a name="index-Wno_002dsuggest_002dattribute_003dformat-396"></a><a name="index-Wno_002dmissing_002dformat_002dattribute-397"></a><a name="index-Wformat-398"></a><a name="index-Wno_002dformat-399"></a>
+          <br><dt><code>-Wsuggest-attribute=format</code><dt><code>-Wmissing-format-attribute</code><dd><a name="index-Wsuggest_002dattribute_003dformat-412"></a><a name="index-Wmissing_002dformat_002dattribute-413"></a><a name="index-Wno_002dsuggest_002dattribute_003dformat-414"></a><a name="index-Wno_002dmissing_002dformat_002dattribute-415"></a><a name="index-Wformat-416"></a><a name="index-Wno_002dformat-417"></a>
 Warn about function pointers that might be candidates for <code>format</code>
 attributes.  Note these are only possible candidates, not absolute ones. 
 GCC guesses that function pointers with <code>format</code> attributes that
@@ -811,15 +841,76 @@ case, and some functions for which <code>format</code> attributes are
 appropriate may not be detected. 
 </dl>
 
-     <br><dt><code>-Warray-bounds</code><dd><a name="index-Wno_002darray_002dbounds-400"></a><a name="index-Warray_002dbounds-401"></a>This option is only active when <samp><span class="option">-ftree-vrp</span></samp> is active
+     <br><dt><code>-Wsuggest-final-types</code><dd><a name="index-Wno_002dsuggest_002dfinal_002dtypes-418"></a><a name="index-Wsuggest_002dfinal_002dtypes-419"></a>Warn about types with virtual methods where code quality would be improved
+if the type were declared with the C++11 <code>final</code> specifier,
+or, if possible,
+declared in an anonymous namespace. This allows GCC to more aggressively
+devirtualize the polymorphic calls. This warning is more effective with link
+time optimization, where the information about the class hierarchy graph is
+more complete.
+
+     <br><dt><code>-Wsuggest-final-methods</code><dd><a name="index-Wno_002dsuggest_002dfinal_002dmethods-420"></a><a name="index-Wsuggest_002dfinal_002dmethods-421"></a>Warn about virtual methods where code quality would be improved if the method
+were declared with the C++11 <code>final</code> specifier,
+or, if possible, its type were
+declared in an anonymous namespace or with the <code>final</code> specifier. 
+This warning is
+more effective with link time optimization, where the information about the
+class hierarchy graph is more complete. It is recommended to first consider
+suggestions of <samp><span class="option">-Wsuggest-final-types</span></samp> and then rebuild with new
+annotations.
+
+     <br><dt><code>-Wsuggest-override</code><dd>Warn about overriding virtual functions that are not marked with the override
+keyword.
+
+     <br><dt><code>-Warray-bounds</code><dt><code>-Warray-bounds=</code><var>n</var><dd><a name="index-Wno_002darray_002dbounds-422"></a><a name="index-Warray_002dbounds-423"></a>This option is only active when <samp><span class="option">-ftree-vrp</span></samp> is active
 (default for <samp><span class="option">-O2</span></samp> and above). It warns about subscripts to arrays
 that are always out of bounds. This warning is enabled by <samp><span class="option">-Wall</span></samp>.
 
-     <br><dt><code>-Wno-div-by-zero</code><dd><a name="index-Wno_002ddiv_002dby_002dzero-402"></a><a name="index-Wdiv_002dby_002dzero-403"></a>Do not warn about compile-time integer division by zero.  Floating-point
+          <dl>
+<dt><code>-Warray-bounds=1</code><dd>This is the warning level of <samp><span class="option">-Warray-bounds</span></samp> and is enabled
+by <samp><span class="option">-Wall</span></samp>; higher levels are not, and must be explicitly requested.
+
+          <br><dt><code>-Warray-bounds=2</code><dd>This warning level also warns about out of bounds access for
+arrays at the end of a struct and for arrays accessed through
+pointers. This warning level may give a larger number of
+false positives and is deactivated by default. 
+</dl>
+
+     <br><dt><code>-Wbool-compare</code><dd><a name="index-Wno_002dbool_002dcompare-424"></a><a name="index-Wbool_002dcompare-425"></a>Warn about boolean expression compared with an integer value different from
+<code>true</code>/<code>false</code>.  For instance, the following comparison is
+always false:
+     <pre class="smallexample">          int n = 5;
+          ...
+          if ((n &gt; 1) == 2) { ... }
+     </pre>
+     <p>This warning is enabled by <samp><span class="option">-Wall</span></samp>.
+
+     <br><dt><code>-Wno-discarded-qualifiers </code><span class="roman">(C and Objective-C only)</span><dd><a name="index-Wno_002ddiscarded_002dqualifiers-426"></a><a name="index-Wdiscarded_002dqualifiers-427"></a>Do not warn if type qualifiers on pointers are being discarded. 
+Typically, the compiler warns if a <code>const char *</code> variable is
+passed to a function that takes a <code>char *</code> parameter.  This option
+can be used to suppress such a warning.
+
+     <br><dt><code>-Wno-discarded-array-qualifiers </code><span class="roman">(C and Objective-C only)</span><dd><a name="index-Wno_002ddiscarded_002darray_002dqualifiers-428"></a><a name="index-Wdiscarded_002darray_002dqualifiers-429"></a>Do not warn if type qualifiers on arrays which are pointer targets
+are being discarded. Typically, the compiler warns if a
+<code>const int (*)[]</code> variable is passed to a function that
+takes a <code>int (*)[]</code> parameter.  This option can be used to
+suppress such a warning.
+
+     <br><dt><code>-Wno-incompatible-pointer-types </code><span class="roman">(C and Objective-C only)</span><dd><a name="index-Wno_002dincompatible_002dpointer_002dtypes-430"></a><a name="index-Wincompatible_002dpointer_002dtypes-431"></a>Do not warn when there is a conversion between pointers that have incompatible
+types.  This warning is for cases not covered by <samp><span class="option">-Wno-pointer-sign</span></samp>,
+which warns for pointer argument passing or assignment with different
+signedness.
+
+     <br><dt><code>-Wno-int-conversion </code><span class="roman">(C and Objective-C only)</span><dd><a name="index-Wno_002dint_002dconversion-432"></a><a name="index-Wint_002dconversion-433"></a>Do not warn about incompatible integer to pointer and pointer to integer
+conversions.  This warning is about implicit conversions; for explicit
+conversions the warnings <samp><span class="option">-Wno-int-to-pointer-cast</span></samp> and
+<samp><span class="option">-Wno-pointer-to-int-cast</span></samp> may be used.
+
+     <br><dt><code>-Wno-div-by-zero</code><dd><a name="index-Wno_002ddiv_002dby_002dzero-434"></a><a name="index-Wdiv_002dby_002dzero-435"></a>Do not warn about compile-time integer division by zero.  Floating-point
 division by zero is not warned about, as it can be a legitimate way of
 obtaining infinities and NaNs.
 
-     <br><dt><code>-Wsystem-headers</code><dd><a name="index-Wsystem_002dheaders-404"></a><a name="index-Wno_002dsystem_002dheaders-405"></a><a name="index-warnings-from-system-headers-406"></a><a name="index-system-headers_002c-warnings-from-407"></a>Print warning messages for constructs found in system header files. 
+     <br><dt><code>-Wsystem-headers</code><dd><a name="index-Wsystem_002dheaders-436"></a><a name="index-Wno_002dsystem_002dheaders-437"></a><a name="index-warnings-from-system-headers-438"></a><a name="index-system-headers_002c-warnings-from-439"></a>Print warning messages for constructs found in system header files. 
 Warnings from system headers are normally suppressed, on the assumption
 that they usually do not indicate real problems and would only make the
 compiler output harder to read.  Using this command-line option tells
@@ -828,16 +919,15 @@ code.  However, note that using <samp><span class="option">-Wall</span></samp> i
 option does <em>not</em> warn about unknown pragmas in system
 headers&mdash;for that, <samp><span class="option">-Wunknown-pragmas</span></samp> must also be used.
 
-     <br><dt><code>-Wtrampolines</code><dd><a name="index-Wtrampolines-408"></a><a name="index-Wno_002dtrampolines-409"></a> Warn about trampolines generated for pointers to nested functions.
+     <br><dt><code>-Wtrampolines</code><dd><a name="index-Wtrampolines-440"></a><a name="index-Wno_002dtrampolines-441"></a>Warn about trampolines generated for pointers to nested functions. 
+A trampoline is a small piece of data or code that is created at run
+time on the stack when the address of a nested function is taken, and is
+used to call the nested function indirectly.  For some targets, it is
+made up of data only and thus requires no special treatment.  But, for
+most targets, it is made up of code and thus requires the stack to be
+made executable in order for the program to work properly.
 
-     <p>A trampoline is a small piece of data or code that is created at run
- time on the stack when the address of a nested function is taken, and
- is used to call the nested function indirectly.  For some targets, it
- is made up of data only and thus requires no special treatment.  But,
- for most targets, it is made up of code and thus requires the stack
- to be made executable in order for the program to work properly.
-
-     <br><dt><code>-Wfloat-equal</code><dd><a name="index-Wfloat_002dequal-410"></a><a name="index-Wno_002dfloat_002dequal-411"></a>Warn if floating-point values are used in equality comparisons.
+     <br><dt><code>-Wfloat-equal</code><dd><a name="index-Wfloat_002dequal-442"></a><a name="index-Wno_002dfloat_002dequal-443"></a>Warn if floating-point values are used in equality comparisons.
 
      <p>The idea behind this is that sometimes it is convenient (for the
 programmer) to consider floating-point values as approximations to
@@ -850,7 +940,7 @@ should check to see whether the two values have ranges that overlap; and
 this is done with the relational operators, so equality comparisons are
 probably mistaken.
 
-     <br><dt><code>-Wtraditional </code><span class="roman">(C and Objective-C only)</span><dd><a name="index-Wtraditional-412"></a><a name="index-Wno_002dtraditional-413"></a>Warn about certain constructs that behave differently in traditional and
+     <br><dt><code>-Wtraditional </code><span class="roman">(C and Objective-C only)</span><dd><a name="index-Wtraditional-444"></a><a name="index-Wno_002dtraditional-445"></a>Warn about certain constructs that behave differently in traditional and
 ISO C.  Also warn about ISO C constructs that have no traditional C
 equivalent, and/or problematic constructs that should be avoided.
 
@@ -865,8 +955,8 @@ if the `<samp><span class="samp">#</span></samp>' appeared in column 1 on the li
 <samp><span class="option">-Wtraditional</span></samp> warns about directives that traditional C
 understands but ignores because the `<samp><span class="samp">#</span></samp>' does not appear as the
 first character on the line.  It also suggests you hide directives like
-`<samp><span class="samp">#pragma</span></samp>' not understood by traditional C by indenting them.  Some
-traditional implementations do not recognize `<samp><span class="samp">#elif</span></samp>', so this option
+<code>#pragma</code> not understood by traditional C by indenting them.  Some
+traditional implementations do not recognize <code>#elif</code>, so this option
 suggests avoiding it altogether.
 
           <li>A function-like macro that appears without arguments.
@@ -921,29 +1011,32 @@ because that feature is already a GCC extension and thus not relevant to
 traditional C compatibility. 
 </ul>
 
-     <br><dt><code>-Wtraditional-conversion </code><span class="roman">(C and Objective-C only)</span><dd><a name="index-Wtraditional_002dconversion-414"></a><a name="index-Wno_002dtraditional_002dconversion-415"></a>Warn if a prototype causes a type conversion that is different from what
+     <br><dt><code>-Wtraditional-conversion </code><span class="roman">(C and Objective-C only)</span><dd><a name="index-Wtraditional_002dconversion-446"></a><a name="index-Wno_002dtraditional_002dconversion-447"></a>Warn if a prototype causes a type conversion that is different from what
 would happen to the same argument in the absence of a prototype.  This
 includes conversions of fixed point to floating and vice versa, and
 conversions changing the width or signedness of a fixed-point argument
 except when the same as the default promotion.
 
-     <br><dt><code>-Wdeclaration-after-statement </code><span class="roman">(C and Objective-C only)</span><dd><a name="index-Wdeclaration_002dafter_002dstatement-416"></a><a name="index-Wno_002ddeclaration_002dafter_002dstatement-417"></a>Warn when a declaration is found after a statement in a block.  This
+     <br><dt><code>-Wdeclaration-after-statement </code><span class="roman">(C and Objective-C only)</span><dd><a name="index-Wdeclaration_002dafter_002dstatement-448"></a><a name="index-Wno_002ddeclaration_002dafter_002dstatement-449"></a>Warn when a declaration is found after a statement in a block.  This
 construct, known from C++, was introduced with ISO C99 and is by default
-allowed in GCC.  It is not supported by ISO C90 and was not supported by
-GCC versions before GCC 3.0.  See <a href="Mixed-Declarations.html#Mixed-Declarations">Mixed Declarations</a>.
+allowed in GCC.  It is not supported by ISO C90.  See <a href="Mixed-Declarations.html#Mixed-Declarations">Mixed Declarations</a>.
 
-     <br><dt><code>-Wundef</code><dd><a name="index-Wundef-418"></a><a name="index-Wno_002dundef-419"></a>Warn if an undefined identifier is evaluated in an `<samp><span class="samp">#if</span></samp>' directive.
+     <br><dt><code>-Wundef</code><dd><a name="index-Wundef-450"></a><a name="index-Wno_002dundef-451"></a>Warn if an undefined identifier is evaluated in an <code>#if</code> directive.
 
-     <br><dt><code>-Wno-endif-labels</code><dd><a name="index-Wno_002dendif_002dlabels-420"></a><a name="index-Wendif_002dlabels-421"></a>Do not warn whenever an `<samp><span class="samp">#else</span></samp>' or an `<samp><span class="samp">#endif</span></samp>' are followed by text.
+     <br><dt><code>-Wno-endif-labels</code><dd><a name="index-Wno_002dendif_002dlabels-452"></a><a name="index-Wendif_002dlabels-453"></a>Do not warn whenever an <code>#else</code> or an <code>#endif</code> are followed by text.
 
-     <br><dt><code>-Wshadow</code><dd><a name="index-Wshadow-422"></a><a name="index-Wno_002dshadow-423"></a>Warn whenever a local variable or type declaration shadows another variable,
-parameter, type, or class member (in C++), or whenever a built-in function
-is shadowed. Note that in C++, the compiler warns if a local variable
-shadows an explicit typedef, but not if it shadows a struct/class/enum.
+     <br><dt><code>-Wshadow</code><dd><a name="index-Wshadow-454"></a><a name="index-Wno_002dshadow-455"></a>Warn whenever a local variable or type declaration shadows another
+variable, parameter, type, class member (in C++), or instance variable
+(in Objective-C) or whenever a built-in function is shadowed. Note
+that in C++, the compiler warns if a local variable shadows an
+explicit typedef, but not if it shadows a struct/class/enum.
 
-     <br><dt><code>-Wlarger-than=</code><var>len</var><dd><a name="index-Wlarger_002dthan_003d_0040var_007blen_007d-424"></a><a name="index-Wlarger_002dthan_002d_0040var_007blen_007d-425"></a>Warn whenever an object of larger than <var>len</var> bytes is defined.
+     <br><dt><code>-Wno-shadow-ivar </code><span class="roman">(Objective-C only)</span><dd><a name="index-Wno_002dshadow_002divar-456"></a><a name="index-Wshadow_002divar-457"></a>Do not warn whenever a local variable shadows an instance variable in an
+Objective-C method.
 
-     <br><dt><code>-Wframe-larger-than=</code><var>len</var><dd><a name="index-Wframe_002dlarger_002dthan-426"></a>Warn if the size of a function frame is larger than <var>len</var> bytes. 
+     <br><dt><code>-Wlarger-than=</code><var>len</var><dd><a name="index-Wlarger_002dthan_003d_0040var_007blen_007d-458"></a><a name="index-Wlarger_002dthan_002d_0040var_007blen_007d-459"></a>Warn whenever an object of larger than <var>len</var> bytes is defined.
+
+     <br><dt><code>-Wframe-larger-than=</code><var>len</var><dd><a name="index-Wframe_002dlarger_002dthan-460"></a>Warn if the size of a function frame is larger than <var>len</var> bytes. 
 The computation done to determine the stack frame size is approximate
 and not conservative. 
 The actual requirements may be somewhat greater than <var>len</var>
@@ -952,10 +1045,10 @@ via <code>alloca</code>, variable-length arrays, or related constructs
 is not included by the compiler when determining
 whether or not to issue a warning.
 
-     <br><dt><code>-Wno-free-nonheap-object</code><dd><a name="index-Wno_002dfree_002dnonheap_002dobject-427"></a><a name="index-Wfree_002dnonheap_002dobject-428"></a>Do not warn when attempting to free an object that was not allocated
+     <br><dt><code>-Wno-free-nonheap-object</code><dd><a name="index-Wno_002dfree_002dnonheap_002dobject-461"></a><a name="index-Wfree_002dnonheap_002dobject-462"></a>Do not warn when attempting to free an object that was not allocated
 on the heap.
 
-     <br><dt><code>-Wstack-usage=</code><var>len</var><dd><a name="index-Wstack_002dusage-429"></a>Warn if the stack usage of a function might be larger than <var>len</var> bytes. 
+     <br><dt><code>-Wstack-usage=</code><var>len</var><dd><a name="index-Wstack_002dusage-463"></a>Warn if the stack usage of a function might be larger than <var>len</var> bytes. 
 The computation done to determine the stack usage is conservative. 
 Any space allocated via <code>alloca</code>, variable-length arrays, or related
 constructs is included by the compiler when determining whether or not to
@@ -978,42 +1071,59 @@ issue a warning.
           </pre>
           </ul>
 
-     <br><dt><code>-Wunsafe-loop-optimizations</code><dd><a name="index-Wunsafe_002dloop_002doptimizations-430"></a><a name="index-Wno_002dunsafe_002dloop_002doptimizations-431"></a>Warn if the loop cannot be optimized because the compiler cannot
+     <br><dt><code>-Wunsafe-loop-optimizations</code><dd><a name="index-Wunsafe_002dloop_002doptimizations-464"></a><a name="index-Wno_002dunsafe_002dloop_002doptimizations-465"></a>Warn if the loop cannot be optimized because the compiler cannot
 assume anything on the bounds of the loop indices.  With
 <samp><span class="option">-funsafe-loop-optimizations</span></samp> warn if the compiler makes
 such assumptions.
 
-     <br><dt><code>-Wno-pedantic-ms-format </code><span class="roman">(MinGW targets only)</span><dd><a name="index-Wno_002dpedantic_002dms_002dformat-432"></a><a name="index-Wpedantic_002dms_002dformat-433"></a>When used in combination with <samp><span class="option">-Wformat</span></samp>
+     <br><dt><code>-Wno-pedantic-ms-format </code><span class="roman">(MinGW targets only)</span><dd><a name="index-Wno_002dpedantic_002dms_002dformat-466"></a><a name="index-Wpedantic_002dms_002dformat-467"></a>When used in combination with <samp><span class="option">-Wformat</span></samp>
 and <samp><span class="option">-pedantic</span></samp> without GNU extensions, this option
 disables the warnings about non-ISO <code>printf</code> / <code>scanf</code> format
 width specifiers <code>I32</code>, <code>I64</code>, and <code>I</code> used on Windows targets,
 which depend on the MS runtime.
 
-     <br><dt><code>-Wpointer-arith</code><dd><a name="index-Wpointer_002darith-434"></a><a name="index-Wno_002dpointer_002darith-435"></a>Warn about anything that depends on the &ldquo;size of&rdquo; a function type or
+     <br><dt><code>-Wpointer-arith</code><dd><a name="index-Wpointer_002darith-468"></a><a name="index-Wno_002dpointer_002darith-469"></a>Warn about anything that depends on the &ldquo;size of&rdquo; a function type or
 of <code>void</code>.  GNU C assigns these types a size of 1, for
 convenience in calculations with <code>void *</code> pointers and pointers
 to functions.  In C++, warn also when an arithmetic operation involves
 <code>NULL</code>.  This warning is also enabled by <samp><span class="option">-Wpedantic</span></samp>.
 
-     <br><dt><code>-Wtype-limits</code><dd><a name="index-Wtype_002dlimits-436"></a><a name="index-Wno_002dtype_002dlimits-437"></a>Warn if a comparison is always true or always false due to the limited
+     <br><dt><code>-Wtype-limits</code><dd><a name="index-Wtype_002dlimits-470"></a><a name="index-Wno_002dtype_002dlimits-471"></a>Warn if a comparison is always true or always false due to the limited
 range of the data type, but do not warn for constant expressions.  For
 example, warn if an unsigned variable is compared against zero with
-`<samp><span class="samp">&lt;</span></samp>' or `<samp><span class="samp">&gt;=</span></samp>'.  This warning is also enabled by
+<code>&lt;</code> or <code>&gt;=</code>.  This warning is also enabled by
 <samp><span class="option">-Wextra</span></samp>.
 
-     <br><dt><code>-Wbad-function-cast </code><span class="roman">(C and Objective-C only)</span><dd><a name="index-Wbad_002dfunction_002dcast-438"></a><a name="index-Wno_002dbad_002dfunction_002dcast-439"></a>Warn whenever a function call is cast to a non-matching type. 
-For example, warn if <code>int malloc()</code> is cast to <code>anything *</code>.
+     <br><dt><code>-Wbad-function-cast </code><span class="roman">(C and Objective-C only)</span><dd><a name="index-Wbad_002dfunction_002dcast-472"></a><a name="index-Wno_002dbad_002dfunction_002dcast-473"></a>Warn when a function call is cast to a non-matching type. 
+For example, warn if a call to a function returning an integer type
+is cast to a pointer type.
 
-     <br><dt><code>-Wc++-compat </code><span class="roman">(C and Objective-C only)</span><dd>Warn about ISO C constructs that are outside of the common subset of
+     <br><dt><code>-Wc90-c99-compat </code><span class="roman">(C and Objective-C only)</span><dd><a name="index-Wc90_002dc99_002dcompat-474"></a><a name="index-Wno_002dc90_002dc99_002dcompat-475"></a>Warn about features not present in ISO C90, but present in ISO C99. 
+For instance, warn about use of variable length arrays, <code>long long</code>
+type, <code>bool</code> type, compound literals, designated initializers, and so
+on.  This option is independent of the standards mode.  Warnings are disabled
+in the expression that follows <code>__extension__</code>.
+
+     <br><dt><code>-Wc99-c11-compat </code><span class="roman">(C and Objective-C only)</span><dd><a name="index-Wc99_002dc11_002dcompat-476"></a><a name="index-Wno_002dc99_002dc11_002dcompat-477"></a>Warn about features not present in ISO C99, but present in ISO C11. 
+For instance, warn about use of anonymous structures and unions,
+<code>_Atomic</code> type qualifier, <code>_Thread_local</code> storage-class specifier,
+<code>_Alignas</code> specifier, <code>Alignof</code> operator, <code>_Generic</code> keyword,
+and so on.  This option is independent of the standards mode.  Warnings are
+disabled in the expression that follows <code>__extension__</code>.
+
+     <br><dt><code>-Wc++-compat </code><span class="roman">(C and Objective-C only)</span><dd><a name="index-Wc_002b_002b_002dcompat-478"></a>Warn about ISO C constructs that are outside of the common subset of
 ISO C and ISO C++, e.g. request for implicit conversion from
 <code>void *</code> to a pointer to non-<code>void</code> type.
 
-     <br><dt><code>-Wc++11-compat </code><span class="roman">(C++ and Objective-C++ only)</span><dd>Warn about C++ constructs whose meaning differs between ISO C++ 1998
+     <br><dt><code>-Wc++11-compat </code><span class="roman">(C++ and Objective-C++ only)</span><dd><a name="index-Wc_002b_002b11_002dcompat-479"></a>Warn about C++ constructs whose meaning differs between ISO C++ 1998
 and ISO C++ 2011, e.g., identifiers in ISO C++ 1998 that are keywords
 in ISO C++ 2011.  This warning turns on <samp><span class="option">-Wnarrowing</span></samp> and is
 enabled by <samp><span class="option">-Wall</span></samp>.
 
-     <br><dt><code>-Wcast-qual</code><dd><a name="index-Wcast_002dqual-440"></a><a name="index-Wno_002dcast_002dqual-441"></a>Warn whenever a pointer is cast so as to remove a type qualifier from
+     <br><dt><code>-Wc++14-compat </code><span class="roman">(C++ and Objective-C++ only)</span><dd><a name="index-Wc_002b_002b14_002dcompat-480"></a>Warn about C++ constructs whose meaning differs between ISO C++ 2011
+and ISO C++ 2014.  This warning is enabled by <samp><span class="option">-Wall</span></samp>.
+
+     <br><dt><code>-Wcast-qual</code><dd><a name="index-Wcast_002dqual-481"></a><a name="index-Wno_002dcast_002dqual-482"></a>Warn whenever a pointer is cast so as to remove a type qualifier from
 the target type.  For example, warn if a <code>const char *</code> is cast
 to an ordinary <code>char *</code>.
 
@@ -1028,12 +1138,12 @@ is unsafe, as in this example:
             /* Now char** pointer points to read-only memory.  */
             **p = 'b';
      </pre>
-     <br><dt><code>-Wcast-align</code><dd><a name="index-Wcast_002dalign-442"></a><a name="index-Wno_002dcast_002dalign-443"></a>Warn whenever a pointer is cast such that the required alignment of the
+     <br><dt><code>-Wcast-align</code><dd><a name="index-Wcast_002dalign-483"></a><a name="index-Wno_002dcast_002dalign-484"></a>Warn whenever a pointer is cast such that the required alignment of the
 target is increased.  For example, warn if a <code>char *</code> is cast to
 an <code>int *</code> on machines where integers can only be accessed at
 two- or four-byte boundaries.
 
-     <br><dt><code>-Wwrite-strings</code><dd><a name="index-Wwrite_002dstrings-444"></a><a name="index-Wno_002dwrite_002dstrings-445"></a>When compiling C, give string constants the type <code>const
+     <br><dt><code>-Wwrite-strings</code><dd><a name="index-Wwrite_002dstrings-485"></a><a name="index-Wno_002dwrite_002dstrings-486"></a>When compiling C, give string constants the type <code>const
 char[</code><var>length</var><code>]</code> so that copying the address of one into a
 non-<code>const</code> <code>char *</code> pointer produces a warning.  These
 warnings help you find at compile time code that can try to write
@@ -1046,12 +1156,12 @@ these warnings.
 literals to <code>char *</code>.  This warning is enabled by default for C++
 programs.
 
-     <br><dt><code>-Wclobbered</code><dd><a name="index-Wclobbered-446"></a><a name="index-Wno_002dclobbered-447"></a>Warn for variables that might be changed by `<samp><span class="samp">longjmp</span></samp>' or
-`<samp><span class="samp">vfork</span></samp>'.  This warning is also enabled by <samp><span class="option">-Wextra</span></samp>.
+     <br><dt><code>-Wclobbered</code><dd><a name="index-Wclobbered-487"></a><a name="index-Wno_002dclobbered-488"></a>Warn for variables that might be changed by <code>longjmp</code> or
+<code>vfork</code>.  This warning is also enabled by <samp><span class="option">-Wextra</span></samp>.
 
-     <br><dt><code>-Wconditionally-supported </code><span class="roman">(C++ and Objective-C++ only)</span><dd><a name="index-Wconditionally_002dsupported-448"></a><a name="index-Wno_002dconditionally_002dsupported-449"></a>Warn for conditionally-supported (C++11 [intro.defs]) constructs.
+     <br><dt><code>-Wconditionally-supported </code><span class="roman">(C++ and Objective-C++ only)</span><dd><a name="index-Wconditionally_002dsupported-489"></a><a name="index-Wno_002dconditionally_002dsupported-490"></a>Warn for conditionally-supported (C++11 [intro.defs]) constructs.
 
-     <br><dt><code>-Wconversion</code><dd><a name="index-Wconversion-450"></a><a name="index-Wno_002dconversion-451"></a>Warn for implicit conversions that may alter a value. This includes
+     <br><dt><code>-Wconversion</code><dd><a name="index-Wconversion-491"></a><a name="index-Wno_002dconversion-492"></a>Warn for implicit conversions that may alter a value. This includes
 conversions between real and integer, like <code>abs (x)</code> when
 <code>x</code> is <code>double</code>; conversions between signed and unsigned,
 like <code>unsigned ui = -1</code>; and conversions to smaller types, like
@@ -1068,30 +1178,30 @@ reference to them. Warnings about conversions between signed and
 unsigned integers are disabled by default in C++ unless
 <samp><span class="option">-Wsign-conversion</span></samp> is explicitly enabled.
 
-     <br><dt><code>-Wno-conversion-null </code><span class="roman">(C++ and Objective-C++ only)</span><dd><a name="index-Wconversion_002dnull-452"></a><a name="index-Wno_002dconversion_002dnull-453"></a>Do not warn for conversions between <code>NULL</code> and non-pointer
+     <br><dt><code>-Wno-conversion-null </code><span class="roman">(C++ and Objective-C++ only)</span><dd><a name="index-Wconversion_002dnull-493"></a><a name="index-Wno_002dconversion_002dnull-494"></a>Do not warn for conversions between <code>NULL</code> and non-pointer
 types. <samp><span class="option">-Wconversion-null</span></samp> is enabled by default.
 
-     <br><dt><code>-Wzero-as-null-pointer-constant </code><span class="roman">(C++ and Objective-C++ only)</span><dd><a name="index-Wzero_002das_002dnull_002dpointer_002dconstant-454"></a><a name="index-Wno_002dzero_002das_002dnull_002dpointer_002dconstant-455"></a>Warn when a literal '0' is used as null pointer constant.  This can
+     <br><dt><code>-Wzero-as-null-pointer-constant </code><span class="roman">(C++ and Objective-C++ only)</span><dd><a name="index-Wzero_002das_002dnull_002dpointer_002dconstant-495"></a><a name="index-Wno_002dzero_002das_002dnull_002dpointer_002dconstant-496"></a>Warn when a literal '0' is used as null pointer constant.  This can
 be useful to facilitate the conversion to <code>nullptr</code> in C++11.
 
-     <br><dt><code>-Wdate-time</code><dd><a name="index-Wdate_002dtime-456"></a><a name="index-Wno_002ddate_002dtime-457"></a>Warn when macros <code>__TIME__</code>, <code>__DATE__</code> or <code>__TIMESTAMP__</code>
+     <br><dt><code>-Wdate-time</code><dd><a name="index-Wdate_002dtime-497"></a><a name="index-Wno_002ddate_002dtime-498"></a>Warn when macros <code>__TIME__</code>, <code>__DATE__</code> or <code>__TIMESTAMP__</code>
 are encountered as they might prevent bit-wise-identical reproducible
 compilations.
 
-     <br><dt><code>-Wdelete-incomplete </code><span class="roman">(C++ and Objective-C++ only)</span><dd><a name="index-Wdelete_002dincomplete-458"></a><a name="index-Wno_002ddelete_002dincomplete-459"></a>Warn when deleting a pointer to incomplete type, which may cause
+     <br><dt><code>-Wdelete-incomplete </code><span class="roman">(C++ and Objective-C++ only)</span><dd><a name="index-Wdelete_002dincomplete-499"></a><a name="index-Wno_002ddelete_002dincomplete-500"></a>Warn when deleting a pointer to incomplete type, which may cause
 undefined behavior at runtime.  This warning is enabled by default.
 
-     <br><dt><code>-Wuseless-cast </code><span class="roman">(C++ and Objective-C++ only)</span><dd><a name="index-Wuseless_002dcast-460"></a><a name="index-Wno_002duseless_002dcast-461"></a>Warn when an expression is casted to its own type.
+     <br><dt><code>-Wuseless-cast </code><span class="roman">(C++ and Objective-C++ only)</span><dd><a name="index-Wuseless_002dcast-501"></a><a name="index-Wno_002duseless_002dcast-502"></a>Warn when an expression is casted to its own type.
 
-     <br><dt><code>-Wempty-body</code><dd><a name="index-Wempty_002dbody-462"></a><a name="index-Wno_002dempty_002dbody-463"></a>Warn if an empty body occurs in an `<samp><span class="samp">if</span></samp>', `<samp><span class="samp">else</span></samp>' or `<samp><span class="samp">do
-while</span></samp>' statement.  This warning is also enabled by <samp><span class="option">-Wextra</span></samp>.
+     <br><dt><code>-Wempty-body</code><dd><a name="index-Wempty_002dbody-503"></a><a name="index-Wno_002dempty_002dbody-504"></a>Warn if an empty body occurs in an <code>if</code>, <code>else</code> or <code>do
+while</code> statement.  This warning is also enabled by <samp><span class="option">-Wextra</span></samp>.
 
-     <br><dt><code>-Wenum-compare</code><dd><a name="index-Wenum_002dcompare-464"></a><a name="index-Wno_002denum_002dcompare-465"></a>Warn about a comparison between values of different enumerated types. 
+     <br><dt><code>-Wenum-compare</code><dd><a name="index-Wenum_002dcompare-505"></a><a name="index-Wno_002denum_002dcompare-506"></a>Warn about a comparison between values of different enumerated types. 
 In C++ enumeral mismatches in conditional expressions are also
 diagnosed and the warning is enabled by default.  In C this warning is
 enabled by <samp><span class="option">-Wall</span></samp>.
 
-     <br><dt><code>-Wjump-misses-init </code><span class="roman">(C, Objective-C only)</span><dd><a name="index-Wjump_002dmisses_002dinit-466"></a><a name="index-Wno_002djump_002dmisses_002dinit-467"></a>Warn if a <code>goto</code> statement or a <code>switch</code> statement jumps
+     <br><dt><code>-Wjump-misses-init </code><span class="roman">(C, Objective-C only)</span><dd><a name="index-Wjump_002dmisses_002dinit-507"></a><a name="index-Wno_002djump_002dmisses_002dinit-508"></a>Warn if a <code>goto</code> statement or a <code>switch</code> statement jumps
 forward across the initialization of a variable, or jumps backward to a
 label after the variable has been initialized.  This only warns about
 variables that are initialized when they are declared.  This warning is
@@ -1101,29 +1211,52 @@ error in any case.
      <p><samp><span class="option">-Wjump-misses-init</span></samp> is included in <samp><span class="option">-Wc++-compat</span></samp>.  It
 can be disabled with the <samp><span class="option">-Wno-jump-misses-init</span></samp> option.
 
-     <br><dt><code>-Wsign-compare</code><dd><a name="index-Wsign_002dcompare-468"></a><a name="index-Wno_002dsign_002dcompare-469"></a><a name="index-warning-for-comparison-of-signed-and-unsigned-values-470"></a><a name="index-comparison-of-signed-and-unsigned-values_002c-warning-471"></a><a name="index-signed-and-unsigned-values_002c-comparison-warning-472"></a>Warn when a comparison between signed and unsigned values could produce
+     <br><dt><code>-Wsign-compare</code><dd><a name="index-Wsign_002dcompare-509"></a><a name="index-Wno_002dsign_002dcompare-510"></a><a name="index-warning-for-comparison-of-signed-and-unsigned-values-511"></a><a name="index-comparison-of-signed-and-unsigned-values_002c-warning-512"></a><a name="index-signed-and-unsigned-values_002c-comparison-warning-513"></a>Warn when a comparison between signed and unsigned values could produce
 an incorrect result when the signed value is converted to unsigned. 
 This warning is also enabled by <samp><span class="option">-Wextra</span></samp>; to get the other warnings
 of <samp><span class="option">-Wextra</span></samp> without this warning, use <samp><span class="option">-Wextra -Wno-sign-compare</span></samp>.
 
-     <br><dt><code>-Wsign-conversion</code><dd><a name="index-Wsign_002dconversion-473"></a><a name="index-Wno_002dsign_002dconversion-474"></a>Warn for implicit conversions that may change the sign of an integer
+     <br><dt><code>-Wsign-conversion</code><dd><a name="index-Wsign_002dconversion-514"></a><a name="index-Wno_002dsign_002dconversion-515"></a>Warn for implicit conversions that may change the sign of an integer
 value, like assigning a signed integer expression to an unsigned
 integer variable. An explicit cast silences the warning. In C, this
 option is enabled also by <samp><span class="option">-Wconversion</span></samp>.
 
-     <br><dt><code>-Wfloat-conversion</code><dd><a name="index-Wfloat_002dconversion-475"></a><a name="index-Wno_002dfloat_002dconversion-476"></a>Warn for implicit conversions that reduce the precision of a real value. 
+     <br><dt><code>-Wfloat-conversion</code><dd><a name="index-Wfloat_002dconversion-516"></a><a name="index-Wno_002dfloat_002dconversion-517"></a>Warn for implicit conversions that reduce the precision of a real value. 
 This includes conversions from real to integer, and from higher precision
 real to lower precision real values.  This option is also enabled by
 <samp><span class="option">-Wconversion</span></samp>.
 
-     <br><dt><code>-Wsizeof-pointer-memaccess</code><dd><a name="index-Wsizeof_002dpointer_002dmemaccess-477"></a><a name="index-Wno_002dsizeof_002dpointer_002dmemaccess-478"></a>Warn for suspicious length parameters to certain string and memory built-in
+     <br><dt><code>-Wsized-deallocation </code><span class="roman">(C++ and Objective-C++ only)</span><dd><a name="index-Wsized_002ddeallocation-518"></a><a name="index-Wno_002dsized_002ddeallocation-519"></a>Warn about a definition of an unsized deallocation function
+     <pre class="smallexample">          void operator delete (void *) noexcept;
+          void operator delete[] (void *) noexcept;
+     </pre>
+     <p>without a definition of the corresponding sized deallocation function
+     <pre class="smallexample">          void operator delete (void *, std::size_t) noexcept;
+          void operator delete[] (void *, std::size_t) noexcept;
+     </pre>
+     <p>or vice versa.  Enabled by <samp><span class="option">-Wextra</span></samp> along with
+<samp><span class="option">-fsized-deallocation</span></samp>.
+
+     <br><dt><code>-Wsizeof-pointer-memaccess</code><dd><a name="index-Wsizeof_002dpointer_002dmemaccess-520"></a><a name="index-Wno_002dsizeof_002dpointer_002dmemaccess-521"></a>Warn for suspicious length parameters to certain string and memory built-in
 functions if the argument uses <code>sizeof</code>.  This warning warns e.g. 
 about <code>memset (ptr, 0, sizeof (ptr));</code> if <code>ptr</code> is not an array,
 but a pointer, and suggests a possible fix, or about
 <code>memcpy (&amp;foo, ptr, sizeof (&amp;foo));</code>.  This warning is enabled by
 <samp><span class="option">-Wall</span></samp>.
 
-     <br><dt><code>-Waddress</code><dd><a name="index-Waddress-479"></a><a name="index-Wno_002daddress-480"></a>Warn about suspicious uses of memory addresses. These include using
+     <br><dt><code>-Wsizeof-array-argument</code><dd><a name="index-Wsizeof_002darray_002dargument-522"></a><a name="index-Wno_002dsizeof_002darray_002dargument-523"></a>Warn when the <code>sizeof</code> operator is applied to a parameter that is
+declared as an array in a function definition.  This warning is enabled by
+default for C and C++ programs.
+
+     <br><dt><code>-Wmemset-transposed-args</code><dd><a name="index-Wmemset_002dtransposed_002dargs-524"></a><a name="index-Wno_002dmemset_002dtransposed_002dargs-525"></a>Warn for suspicious calls to the <code>memset</code> built-in function, if the
+second argument is not zero and the third argument is zero.  This warns e.g. about <code>memset (buf, sizeof buf, 0)</code> where most probably
+<code>memset (buf, 0, sizeof buf)</code> was meant instead.  The diagnostics
+is only emitted if the third argument is literal zero.  If it is some
+expression that is folded to zero, a cast of zero to some type, etc.,
+it is far less likely that the user has mistakenly exchanged the arguments
+and no warning is emitted.  This warning is enabled by <samp><span class="option">-Wall</span></samp>.
+
+     <br><dt><code>-Waddress</code><dd><a name="index-Waddress-526"></a><a name="index-Wno_002daddress-527"></a>Warn about suspicious uses of memory addresses. These include using
 the address of a function in a conditional expression, such as
 <code>void func(void); if (func)</code>, and comparisons against the memory
 address of a string literal, such as <code>if (x == "abc")</code>.  Such
@@ -1135,64 +1268,77 @@ behavior and are not portable in C, so they usually indicate that the
 programmer intended to use <code>strcmp</code>.  This warning is enabled by
 <samp><span class="option">-Wall</span></samp>.
 
-     <br><dt><code>-Wlogical-op</code><dd><a name="index-Wlogical_002dop-481"></a><a name="index-Wno_002dlogical_002dop-482"></a>Warn about suspicious uses of logical operators in expressions. 
+     <br><dt><code>-Wlogical-op</code><dd><a name="index-Wlogical_002dop-528"></a><a name="index-Wno_002dlogical_002dop-529"></a>Warn about suspicious uses of logical operators in expressions. 
 This includes using logical operators in contexts where a
 bit-wise operator is likely to be expected.
 
-     <br><dt><code>-Waggregate-return</code><dd><a name="index-Waggregate_002dreturn-483"></a><a name="index-Wno_002daggregate_002dreturn-484"></a>Warn if any functions that return structures or unions are defined or
+     <br><dt><code>-Wlogical-not-parentheses</code><dd><a name="index-Wlogical_002dnot_002dparentheses-530"></a><a name="index-Wno_002dlogical_002dnot_002dparentheses-531"></a>Warn about logical not used on the left hand side operand of a comparison. 
+This option does not warn if the RHS operand is of a boolean type.  Its
+purpose is to detect suspicious code like the following:
+     <pre class="smallexample">          int a;
+          ...
+          if (!a &gt; 1) { ... }
+     </pre>
+     <p>It is possible to suppress the warning by wrapping the LHS into
+parentheses:
+     <pre class="smallexample">          if ((!a) &gt; 1) { ... }
+     </pre>
+     <p>This warning is enabled by <samp><span class="option">-Wall</span></samp>.
+
+     <br><dt><code>-Waggregate-return</code><dd><a name="index-Waggregate_002dreturn-532"></a><a name="index-Wno_002daggregate_002dreturn-533"></a>Warn if any functions that return structures or unions are defined or
 called.  (In languages where you can return an array, this also elicits
 a warning.)
 
-     <br><dt><code>-Wno-aggressive-loop-optimizations</code><dd><a name="index-Wno_002daggressive_002dloop_002doptimizations-485"></a><a name="index-Waggressive_002dloop_002doptimizations-486"></a>Warn if in a loop with constant number of iterations the compiler detects
+     <br><dt><code>-Wno-aggressive-loop-optimizations</code><dd><a name="index-Wno_002daggressive_002dloop_002doptimizations-534"></a><a name="index-Waggressive_002dloop_002doptimizations-535"></a>Warn if in a loop with constant number of iterations the compiler detects
 undefined behavior in some statement during one or more of the iterations.
 
-     <br><dt><code>-Wno-attributes</code><dd><a name="index-Wno_002dattributes-487"></a><a name="index-Wattributes-488"></a>Do not warn if an unexpected <code>__attribute__</code> is used, such as
+     <br><dt><code>-Wno-attributes</code><dd><a name="index-Wno_002dattributes-536"></a><a name="index-Wattributes-537"></a>Do not warn if an unexpected <code>__attribute__</code> is used, such as
 unrecognized attributes, function attributes applied to variables,
 etc.  This does not stop errors for incorrect use of supported
 attributes.
 
-     <br><dt><code>-Wno-builtin-macro-redefined</code><dd><a name="index-Wno_002dbuiltin_002dmacro_002dredefined-489"></a><a name="index-Wbuiltin_002dmacro_002dredefined-490"></a>Do not warn if certain built-in macros are redefined.  This suppresses
+     <br><dt><code>-Wno-builtin-macro-redefined</code><dd><a name="index-Wno_002dbuiltin_002dmacro_002dredefined-538"></a><a name="index-Wbuiltin_002dmacro_002dredefined-539"></a>Do not warn if certain built-in macros are redefined.  This suppresses
 warnings for redefinition of <code>__TIMESTAMP__</code>, <code>__TIME__</code>,
 <code>__DATE__</code>, <code>__FILE__</code>, and <code>__BASE_FILE__</code>.
 
-     <br><dt><code>-Wstrict-prototypes </code><span class="roman">(C and Objective-C only)</span><dd><a name="index-Wstrict_002dprototypes-491"></a><a name="index-Wno_002dstrict_002dprototypes-492"></a>Warn if a function is declared or defined without specifying the
+     <br><dt><code>-Wstrict-prototypes </code><span class="roman">(C and Objective-C only)</span><dd><a name="index-Wstrict_002dprototypes-540"></a><a name="index-Wno_002dstrict_002dprototypes-541"></a>Warn if a function is declared or defined without specifying the
 argument types.  (An old-style function definition is permitted without
 a warning if preceded by a declaration that specifies the argument
 types.)
 
-     <br><dt><code>-Wold-style-declaration </code><span class="roman">(C and Objective-C only)</span><dd><a name="index-Wold_002dstyle_002ddeclaration-493"></a><a name="index-Wno_002dold_002dstyle_002ddeclaration-494"></a>Warn for obsolescent usages, according to the C Standard, in a
+     <br><dt><code>-Wold-style-declaration </code><span class="roman">(C and Objective-C only)</span><dd><a name="index-Wold_002dstyle_002ddeclaration-542"></a><a name="index-Wno_002dold_002dstyle_002ddeclaration-543"></a>Warn for obsolescent usages, according to the C Standard, in a
 declaration. For example, warn if storage-class specifiers like
 <code>static</code> are not the first things in a declaration.  This warning
 is also enabled by <samp><span class="option">-Wextra</span></samp>.
 
-     <br><dt><code>-Wold-style-definition </code><span class="roman">(C and Objective-C only)</span><dd><a name="index-Wold_002dstyle_002ddefinition-495"></a><a name="index-Wno_002dold_002dstyle_002ddefinition-496"></a>Warn if an old-style function definition is used.  A warning is given
+     <br><dt><code>-Wold-style-definition </code><span class="roman">(C and Objective-C only)</span><dd><a name="index-Wold_002dstyle_002ddefinition-544"></a><a name="index-Wno_002dold_002dstyle_002ddefinition-545"></a>Warn if an old-style function definition is used.  A warning is given
 even if there is a previous prototype.
 
-     <br><dt><code>-Wmissing-parameter-type </code><span class="roman">(C and Objective-C only)</span><dd><a name="index-Wmissing_002dparameter_002dtype-497"></a><a name="index-Wno_002dmissing_002dparameter_002dtype-498"></a>A function parameter is declared without a type specifier in K&amp;R-style
+     <br><dt><code>-Wmissing-parameter-type </code><span class="roman">(C and Objective-C only)</span><dd><a name="index-Wmissing_002dparameter_002dtype-546"></a><a name="index-Wno_002dmissing_002dparameter_002dtype-547"></a>A function parameter is declared without a type specifier in K&amp;R-style
 functions:
 
      <pre class="smallexample">          void foo(bar) { }
      </pre>
      <p>This warning is also enabled by <samp><span class="option">-Wextra</span></samp>.
 
-     <br><dt><code>-Wmissing-prototypes </code><span class="roman">(C and Objective-C only)</span><dd><a name="index-Wmissing_002dprototypes-499"></a><a name="index-Wno_002dmissing_002dprototypes-500"></a>Warn if a global function is defined without a previous prototype
+     <br><dt><code>-Wmissing-prototypes </code><span class="roman">(C and Objective-C only)</span><dd><a name="index-Wmissing_002dprototypes-548"></a><a name="index-Wno_002dmissing_002dprototypes-549"></a>Warn if a global function is defined without a previous prototype
 declaration.  This warning is issued even if the definition itself
 provides a prototype.  Use this option to detect global functions
 that do not have a matching prototype declaration in a header file. 
 This option is not valid for C++ because all function declarations
-provide prototypes and a non-matching declaration will declare an
+provide prototypes and a non-matching declaration declares an
 overload rather than conflict with an earlier declaration. 
 Use <samp><span class="option">-Wmissing-declarations</span></samp> to detect missing declarations in C++.
 
-     <br><dt><code>-Wmissing-declarations</code><dd><a name="index-Wmissing_002ddeclarations-501"></a><a name="index-Wno_002dmissing_002ddeclarations-502"></a>Warn if a global function is defined without a previous declaration. 
+     <br><dt><code>-Wmissing-declarations</code><dd><a name="index-Wmissing_002ddeclarations-550"></a><a name="index-Wno_002dmissing_002ddeclarations-551"></a>Warn if a global function is defined without a previous declaration. 
 Do so even if the definition itself provides a prototype. 
 Use this option to detect global functions that are not declared in
 header files.  In C, no warnings are issued for functions with previous
-non-prototype declarations; use <samp><span class="option">-Wmissing-prototype</span></samp> to detect
+non-prototype declarations; use <samp><span class="option">-Wmissing-prototypes</span></samp> to detect
 missing prototypes.  In C++, no warnings are issued for function templates,
 or for inline functions, or for functions in anonymous namespaces.
 
-     <br><dt><code>-Wmissing-field-initializers</code><dd><a name="index-Wmissing_002dfield_002dinitializers-503"></a><a name="index-Wno_002dmissing_002dfield_002dinitializers-504"></a><a name="index-W-505"></a><a name="index-Wextra-506"></a><a name="index-Wno_002dextra-507"></a>Warn if a structure's initializer has some fields missing.  For
+     <br><dt><code>-Wmissing-field-initializers</code><dd><a name="index-Wmissing_002dfield_002dinitializers-552"></a><a name="index-Wno_002dmissing_002dfield_002dinitializers-553"></a><a name="index-W-554"></a><a name="index-Wextra-555"></a><a name="index-Wno_002dextra-556"></a>Warn if a structure's initializer has some fields missing.  For
 example, the following code causes such a warning, because
 <code>x.h</code> is implicitly zero:
 
@@ -1205,14 +1351,20 @@ modification does not trigger a warning:
      <pre class="smallexample">          struct s { int f, g, h; };
           struct s x = { .f = 3, .g = 4 };
      </pre>
+     <p>In C++ this option does not warn either about the empty { }
+initializer, for example:
+
+     <pre class="smallexample">          struct s { int f, g, h; };
+          s x = { };
+     </pre>
      <p>This warning is included in <samp><span class="option">-Wextra</span></samp>.  To get other <samp><span class="option">-Wextra</span></samp>
 warnings without this one, use <samp><span class="option">-Wextra -Wno-missing-field-initializers</span></samp>.
 
-     <br><dt><code>-Wno-multichar</code><dd><a name="index-Wno_002dmultichar-508"></a><a name="index-Wmultichar-509"></a>Do not warn if a multicharacter constant (`<samp><span class="samp">'FOOF'</span></samp>') is used. 
+     <br><dt><code>-Wno-multichar</code><dd><a name="index-Wno_002dmultichar-557"></a><a name="index-Wmultichar-558"></a>Do not warn if a multicharacter constant (`<samp><span class="samp">'FOOF'</span></samp>') is used. 
 Usually they indicate a typo in the user's code, as they have
 implementation-defined values, and should not be used in portable code.
 
-     <br><dt><code>-Wnormalized=&lt;none|id|nfc|nfkc&gt;</code><dd><a name="index-Wnormalized_003d-510"></a><a name="index-NFC-511"></a><a name="index-NFKC-512"></a><a name="index-character-set_002c-input-normalization-513"></a>In ISO C and ISO C++, two identifiers are different if they are
+     <br><dt><code>-Wnormalized</code><span class="roman">[</span><code>=</code><span class="roman">&lt;</span><code>none</code><span class="roman">|</span><code>id</code><span class="roman">|</span><code>nfc</code><span class="roman">|</span><code>nfkc</code><span class="roman">&gt;]</span><dd><a name="index-Wnormalized_003d-559"></a><a name="index-Wnormalized-560"></a><a name="index-Wno_002dnormalized-561"></a><a name="index-NFC-562"></a><a name="index-NFKC-563"></a><a name="index-character-set_002c-input-normalization-564"></a>In ISO C and ISO C++, two identifiers are different if they are
 different sequences of characters.  However, sometimes when characters
 outside the basic ASCII character set are used, you can have two
 different character sequences that look the same.  To avoid confusion,
@@ -1224,7 +1376,8 @@ have not been normalized; this option controls that warning.
      <p>There are four levels of warning supported by GCC.  The default is
 <samp><span class="option">-Wnormalized=nfc</span></samp>, which warns about any identifier that is
 not in the ISO 10646 &ldquo;C&rdquo; normalized form, <dfn>NFC</dfn>.  NFC is the
-recommended form for most uses.
+recommended form for most uses.  It is equivalent to
+<samp><span class="option">-Wnormalized</span></samp>.
 
      <p>Unfortunately, there are some characters allowed in identifiers by
 ISO C and ISO C++ that, when turned into NFC, are not allowed in
@@ -1235,9 +1388,10 @@ It is hoped that future versions of the standards involved will correct
 this, which is why this option is not the default.
 
      <p>You can switch the warning off for all characters by writing
-<samp><span class="option">-Wnormalized=none</span></samp>.  You should only do this if you
-are using some other normalization scheme (like &ldquo;D&rdquo;), because
-otherwise you can easily create bugs that are literally impossible to see.
+<samp><span class="option">-Wnormalized=none</span></samp> or <samp><span class="option">-Wno-normalized</span></samp>.  You should
+only do this if you are using some other normalization scheme (like
+&ldquo;D&rdquo;), because otherwise you can easily create bugs that are
+literally impossible to see.
 
      <p>Some characters in ISO 10646 have distinct meanings but look identical
 in some fonts or display methodologies, especially once formatting has
@@ -1252,26 +1406,29 @@ confused with the digit 0, and so is not the default, but may be
 useful as a local coding convention if the programming environment
 cannot be fixed to display these characters distinctly.
 
-     <br><dt><code>-Wno-deprecated</code><dd><a name="index-Wno_002ddeprecated-514"></a><a name="index-Wdeprecated-515"></a>Do not warn about usage of deprecated features.  See <a href="Deprecated-Features.html#Deprecated-Features">Deprecated Features</a>.
+     <br><dt><code>-Wno-deprecated</code><dd><a name="index-Wno_002ddeprecated-565"></a><a name="index-Wdeprecated-566"></a>Do not warn about usage of deprecated features.  See <a href="Deprecated-Features.html#Deprecated-Features">Deprecated Features</a>.
 
-     <br><dt><code>-Wno-deprecated-declarations</code><dd><a name="index-Wno_002ddeprecated_002ddeclarations-516"></a><a name="index-Wdeprecated_002ddeclarations-517"></a>Do not warn about uses of functions (see <a href="Function-Attributes.html#Function-Attributes">Function Attributes</a>),
+     <br><dt><code>-Wno-deprecated-declarations</code><dd><a name="index-Wno_002ddeprecated_002ddeclarations-567"></a><a name="index-Wdeprecated_002ddeclarations-568"></a>Do not warn about uses of functions (see <a href="Function-Attributes.html#Function-Attributes">Function Attributes</a>),
 variables (see <a href="Variable-Attributes.html#Variable-Attributes">Variable Attributes</a>), and types (see <a href="Type-Attributes.html#Type-Attributes">Type Attributes</a>) marked as deprecated by using the <code>deprecated</code>
 attribute.
 
-     <br><dt><code>-Wno-overflow</code><dd><a name="index-Wno_002doverflow-518"></a><a name="index-Woverflow-519"></a>Do not warn about compile-time overflow in constant expressions.
+     <br><dt><code>-Wno-overflow</code><dd><a name="index-Wno_002doverflow-569"></a><a name="index-Woverflow-570"></a>Do not warn about compile-time overflow in constant expressions.
 
-     <br><dt><code>-Wopenmp-simd</code><dd><a name="index-Wopenm_002dsimd-520"></a>Warn if the vectorizer cost model overrides the OpenMP or the Cilk Plus
-simd directive set by user.  The <samp><span class="option">-fsimd-cost-model=unlimited</span></samp> can
-be used to relax the cost model.
+     <br><dt><code>-Wno-odr</code><dd><a name="index-Wno_002dodr-571"></a><a name="index-Wodr-572"></a>Warn about One Definition Rule violations during link-time optimization. 
+Requires <samp><span class="option">-flto-odr-type-merging</span></samp> to be enabled.  Enabled by default.
 
-     <br><dt><code>-Woverride-init </code><span class="roman">(C and Objective-C only)</span><dd><a name="index-Woverride_002dinit-521"></a><a name="index-Wno_002doverride_002dinit-522"></a><a name="index-W-523"></a><a name="index-Wextra-524"></a><a name="index-Wno_002dextra-525"></a>Warn if an initialized field without side effects is overridden when
+     <br><dt><code>-Wopenmp-simd</code><dd><a name="index-Wopenm_002dsimd-573"></a>Warn if the vectorizer cost model overrides the OpenMP or the Cilk Plus
+simd directive set by user.  The <samp><span class="option">-fsimd-cost-model=unlimited</span></samp>
+option can be used to relax the cost model.
+
+     <br><dt><code>-Woverride-init </code><span class="roman">(C and Objective-C only)</span><dd><a name="index-Woverride_002dinit-574"></a><a name="index-Wno_002doverride_002dinit-575"></a><a name="index-W-576"></a><a name="index-Wextra-577"></a><a name="index-Wno_002dextra-578"></a>Warn if an initialized field without side effects is overridden when
 using designated initializers (see <a href="Designated-Inits.html#Designated-Inits">Designated Initializers</a>).
 
      <p>This warning is included in <samp><span class="option">-Wextra</span></samp>.  To get other
 <samp><span class="option">-Wextra</span></samp> warnings without this one, use <samp><span class="option">-Wextra
 -Wno-override-init</span></samp>.
 
-     <br><dt><code>-Wpacked</code><dd><a name="index-Wpacked-526"></a><a name="index-Wno_002dpacked-527"></a>Warn if a structure is given the packed attribute, but the packed
+     <br><dt><code>-Wpacked</code><dd><a name="index-Wpacked-579"></a><a name="index-Wno_002dpacked-580"></a>Warn if a structure is given the packed attribute, but the packed
 attribute has no effect on the layout or size of the structure. 
 Such structures may be mis-aligned for little benefit.  For
 instance, in this code, the variable <code>f.x</code> in <code>struct bar</code>
@@ -1287,7 +1444,7 @@ have the packed attribute:
             struct foo f;
           };
      </pre>
-     <br><dt><code>-Wpacked-bitfield-compat</code><dd><a name="index-Wpacked_002dbitfield_002dcompat-528"></a><a name="index-Wno_002dpacked_002dbitfield_002dcompat-529"></a>The 4.1, 4.2 and 4.3 series of GCC ignore the <code>packed</code> attribute
+     <br><dt><code>-Wpacked-bitfield-compat</code><dd><a name="index-Wpacked_002dbitfield_002dcompat-581"></a><a name="index-Wno_002dpacked_002dbitfield_002dcompat-582"></a>The 4.1, 4.2 and 4.3 series of GCC ignore the <code>packed</code> attribute
 on bit-fields of type <code>char</code>.  This has been fixed in GCC 4.4 but
 the change can lead to differences in the structure layout.  GCC
 informs you when the offset of such a field has changed in GCC 4.4. 
@@ -1303,21 +1460,21 @@ and <code>b</code> in this structure:
      <p>This warning is enabled by default.  Use
 <samp><span class="option">-Wno-packed-bitfield-compat</span></samp> to disable this warning.
 
-     <br><dt><code>-Wpadded</code><dd><a name="index-Wpadded-530"></a><a name="index-Wno_002dpadded-531"></a>Warn if padding is included in a structure, either to align an element
+     <br><dt><code>-Wpadded</code><dd><a name="index-Wpadded-583"></a><a name="index-Wno_002dpadded-584"></a>Warn if padding is included in a structure, either to align an element
 of the structure or to align the whole structure.  Sometimes when this
 happens it is possible to rearrange the fields of the structure to
 reduce the padding and so make the structure smaller.
 
-     <br><dt><code>-Wredundant-decls</code><dd><a name="index-Wredundant_002ddecls-532"></a><a name="index-Wno_002dredundant_002ddecls-533"></a>Warn if anything is declared more than once in the same scope, even in
+     <br><dt><code>-Wredundant-decls</code><dd><a name="index-Wredundant_002ddecls-585"></a><a name="index-Wno_002dredundant_002ddecls-586"></a>Warn if anything is declared more than once in the same scope, even in
 cases where multiple declaration is valid and changes nothing.
 
-     <br><dt><code>-Wnested-externs </code><span class="roman">(C and Objective-C only)</span><dd><a name="index-Wnested_002dexterns-534"></a><a name="index-Wno_002dnested_002dexterns-535"></a>Warn if an <code>extern</code> declaration is encountered within a function.
+     <br><dt><code>-Wnested-externs </code><span class="roman">(C and Objective-C only)</span><dd><a name="index-Wnested_002dexterns-587"></a><a name="index-Wno_002dnested_002dexterns-588"></a>Warn if an <code>extern</code> declaration is encountered within a function.
 
-     <br><dt><code>-Wno-inherited-variadic-ctor</code><dd><a name="index-Winherited_002dvariadic_002dctor-536"></a><a name="index-Wno_002dinherited_002dvariadic_002dctor-537"></a>Suppress warnings about use of C++11 inheriting constructors when the
+     <br><dt><code>-Wno-inherited-variadic-ctor</code><dd><a name="index-Winherited_002dvariadic_002dctor-589"></a><a name="index-Wno_002dinherited_002dvariadic_002dctor-590"></a>Suppress warnings about use of C++11 inheriting constructors when the
 base class inherited from has a C variadic constructor; the warning is
 on by default because the ellipsis is not inherited.
 
-     <br><dt><code>-Winline</code><dd><a name="index-Winline-538"></a><a name="index-Wno_002dinline-539"></a>Warn if a function that is declared as inline cannot be inlined. 
+     <br><dt><code>-Winline</code><dd><a name="index-Winline-591"></a><a name="index-Wno_002dinline-592"></a>Warn if a function that is declared as inline cannot be inlined. 
 Even with this option, the compiler does not warn about failures to
 inline functions declared in system headers.
 
@@ -1328,42 +1485,41 @@ that has already been done in the current function.  Therefore,
 seemingly insignificant changes in the source program can cause the
 warnings produced by <samp><span class="option">-Winline</span></samp> to appear or disappear.
 
-     <br><dt><code>-Wno-invalid-offsetof </code><span class="roman">(C++ and Objective-C++ only)</span><dd><a name="index-Wno_002dinvalid_002doffsetof-540"></a><a name="index-Winvalid_002doffsetof-541"></a>Suppress warnings from applying the `<samp><span class="samp">offsetof</span></samp>' macro to a non-POD
-type.  According to the 1998 ISO C++ standard, applying `<samp><span class="samp">offsetof</span></samp>'
-to a non-POD type is undefined.  In existing C++ implementations,
-however, `<samp><span class="samp">offsetof</span></samp>' typically gives meaningful results even when
-applied to certain kinds of non-POD types (such as a simple
-`<samp><span class="samp">struct</span></samp>' that fails to be a POD type only by virtue of having a
-constructor).  This flag is for users who are aware that they are
+     <br><dt><code>-Wno-invalid-offsetof </code><span class="roman">(C++ and Objective-C++ only)</span><dd><a name="index-Wno_002dinvalid_002doffsetof-593"></a><a name="index-Winvalid_002doffsetof-594"></a>Suppress warnings from applying the <code>offsetof</code> macro to a non-POD
+type.  According to the 2014 ISO C++ standard, applying <code>offsetof</code>
+to a non-standard-layout type is undefined.  In existing C++ implementations,
+however, <code>offsetof</code> typically gives meaningful results. 
+This flag is for users who are aware that they are
 writing nonportable code and who have deliberately chosen to ignore the
 warning about it.
 
-     <p>The restrictions on `<samp><span class="samp">offsetof</span></samp>' may be relaxed in a future version
+     <p>The restrictions on <code>offsetof</code> may be relaxed in a future version
 of the C++ standard.
 
-     <br><dt><code>-Wno-int-to-pointer-cast</code><dd><a name="index-Wno_002dint_002dto_002dpointer_002dcast-542"></a><a name="index-Wint_002dto_002dpointer_002dcast-543"></a>Suppress warnings from casts to pointer type of an integer of a
+     <br><dt><code>-Wno-int-to-pointer-cast</code><dd><a name="index-Wno_002dint_002dto_002dpointer_002dcast-595"></a><a name="index-Wint_002dto_002dpointer_002dcast-596"></a>Suppress warnings from casts to pointer type of an integer of a
 different size. In C++, casting to a pointer type of smaller size is
 an error. <samp><span class="option">Wint-to-pointer-cast</span></samp> is enabled by default.
 
-     <br><dt><code>-Wno-pointer-to-int-cast </code><span class="roman">(C and Objective-C only)</span><dd><a name="index-Wno_002dpointer_002dto_002dint_002dcast-544"></a><a name="index-Wpointer_002dto_002dint_002dcast-545"></a>Suppress warnings from casts from a pointer to an integer type of a
+     <br><dt><code>-Wno-pointer-to-int-cast </code><span class="roman">(C and Objective-C only)</span><dd><a name="index-Wno_002dpointer_002dto_002dint_002dcast-597"></a><a name="index-Wpointer_002dto_002dint_002dcast-598"></a>Suppress warnings from casts from a pointer to an integer type of a
 different size.
 
-     <br><dt><code>-Winvalid-pch</code><dd><a name="index-Winvalid_002dpch-546"></a><a name="index-Wno_002dinvalid_002dpch-547"></a>Warn if a precompiled header (see <a href="Precompiled-Headers.html#Precompiled-Headers">Precompiled Headers</a>) is found in
+     <br><dt><code>-Winvalid-pch</code><dd><a name="index-Winvalid_002dpch-599"></a><a name="index-Wno_002dinvalid_002dpch-600"></a>Warn if a precompiled header (see <a href="Precompiled-Headers.html#Precompiled-Headers">Precompiled Headers</a>) is found in
 the search path but can't be used.
 
-     <br><dt><code>-Wlong-long</code><dd><a name="index-Wlong_002dlong-548"></a><a name="index-Wno_002dlong_002dlong-549"></a>Warn if `<samp><span class="samp">long long</span></samp>' type is used.  This is enabled by either
+     <br><dt><code>-Wlong-long</code><dd><a name="index-Wlong_002dlong-601"></a><a name="index-Wno_002dlong_002dlong-602"></a>Warn if <code>long long</code> type is used.  This is enabled by either
 <samp><span class="option">-Wpedantic</span></samp> or <samp><span class="option">-Wtraditional</span></samp> in ISO C90 and C++98
 modes.  To inhibit the warning messages, use <samp><span class="option">-Wno-long-long</span></samp>.
 
-     <br><dt><code>-Wvariadic-macros</code><dd><a name="index-Wvariadic_002dmacros-550"></a><a name="index-Wno_002dvariadic_002dmacros-551"></a>Warn if variadic macros are used in pedantic ISO C90 mode, or the GNU
-alternate syntax when in pedantic ISO C99 mode.  This is default. 
-To inhibit the warning messages, use <samp><span class="option">-Wno-variadic-macros</span></samp>.
+     <br><dt><code>-Wvariadic-macros</code><dd><a name="index-Wvariadic_002dmacros-603"></a><a name="index-Wno_002dvariadic_002dmacros-604"></a>Warn if variadic macros are used in ISO C90 mode, or if the GNU
+alternate syntax is used in ISO C99 mode.  This is enabled by either
+<samp><span class="option">-Wpedantic</span></samp> or <samp><span class="option">-Wtraditional</span></samp>.  To inhibit the warning
+messages, use <samp><span class="option">-Wno-variadic-macros</span></samp>.
 
-     <br><dt><code>-Wvarargs</code><dd><a name="index-Wvarargs-552"></a><a name="index-Wno_002dvarargs-553"></a>Warn upon questionable usage of the macros used to handle variable
-arguments like `<samp><span class="samp">va_start</span></samp>'.  This is default.  To inhibit the
+     <br><dt><code>-Wvarargs</code><dd><a name="index-Wvarargs-605"></a><a name="index-Wno_002dvarargs-606"></a>Warn upon questionable usage of the macros used to handle variable
+arguments like <code>va_start</code>.  This is default.  To inhibit the
 warning messages, use <samp><span class="option">-Wno-varargs</span></samp>.
 
-     <br><dt><code>-Wvector-operation-performance</code><dd><a name="index-Wvector_002doperation_002dperformance-554"></a><a name="index-Wno_002dvector_002doperation_002dperformance-555"></a>Warn if vector operation is not implemented via SIMD capabilities of the
+     <br><dt><code>-Wvector-operation-performance</code><dd><a name="index-Wvector_002doperation_002dperformance-607"></a><a name="index-Wno_002dvector_002doperation_002dperformance-608"></a>Warn if vector operation is not implemented via SIMD capabilities of the
 architecture.  Mainly useful for the performance tuning. 
 Vector operation can be implemented <code>piecewise</code>, which means that the
 scalar operation is performed on every vector element;
@@ -1372,38 +1528,38 @@ using scalars of wider type, which normally is more performance efficient;
 and <code>as a single scalar</code>, which means that vector fits into a
 scalar type.
 
-     <br><dt><code>-Wno-virtual-move-assign</code><dd><a name="index-Wvirtual_002dmove_002dassign-556"></a><a name="index-Wno_002dvirtual_002dmove_002dassign-557"></a>Suppress warnings about inheriting from a virtual base with a
+     <br><dt><code>-Wno-virtual-move-assign</code><dd><a name="index-Wvirtual_002dmove_002dassign-609"></a><a name="index-Wno_002dvirtual_002dmove_002dassign-610"></a>Suppress warnings about inheriting from a virtual base with a
 non-trivial C++11 move assignment operator.  This is dangerous because
-if the virtual base is reachable along more than one path, it will be
+if the virtual base is reachable along more than one path, it is
 moved multiple times, which can mean both objects end up in the
 moved-from state.  If the move assignment operator is written to avoid
 moving from a moved-from object, this warning can be disabled.
 
-     <br><dt><code>-Wvla</code><dd><a name="index-Wvla-558"></a><a name="index-Wno_002dvla-559"></a>Warn if variable length array is used in the code. 
+     <br><dt><code>-Wvla</code><dd><a name="index-Wvla-611"></a><a name="index-Wno_002dvla-612"></a>Warn if variable length array is used in the code. 
 <samp><span class="option">-Wno-vla</span></samp> prevents the <samp><span class="option">-Wpedantic</span></samp> warning of
 the variable length array.
 
-     <br><dt><code>-Wvolatile-register-var</code><dd><a name="index-Wvolatile_002dregister_002dvar-560"></a><a name="index-Wno_002dvolatile_002dregister_002dvar-561"></a>Warn if a register variable is declared volatile.  The volatile
+     <br><dt><code>-Wvolatile-register-var</code><dd><a name="index-Wvolatile_002dregister_002dvar-613"></a><a name="index-Wno_002dvolatile_002dregister_002dvar-614"></a>Warn if a register variable is declared volatile.  The volatile
 modifier does not inhibit all optimizations that may eliminate reads
 and/or writes to register variables.  This warning is enabled by
 <samp><span class="option">-Wall</span></samp>.
 
-     <br><dt><code>-Wdisabled-optimization</code><dd><a name="index-Wdisabled_002doptimization-562"></a><a name="index-Wno_002ddisabled_002doptimization-563"></a>Warn if a requested optimization pass is disabled.  This warning does
+     <br><dt><code>-Wdisabled-optimization</code><dd><a name="index-Wdisabled_002doptimization-615"></a><a name="index-Wno_002ddisabled_002doptimization-616"></a>Warn if a requested optimization pass is disabled.  This warning does
 not generally indicate that there is anything wrong with your code; it
 merely indicates that GCC's optimizers are unable to handle the code
 effectively.  Often, the problem is that your code is too big or too
 complex; GCC refuses to optimize programs when the optimization
 itself is likely to take inordinate amounts of time.
 
-     <br><dt><code>-Wpointer-sign </code><span class="roman">(C and Objective-C only)</span><dd><a name="index-Wpointer_002dsign-564"></a><a name="index-Wno_002dpointer_002dsign-565"></a>Warn for pointer argument passing or assignment with different signedness. 
+     <br><dt><code>-Wpointer-sign </code><span class="roman">(C and Objective-C only)</span><dd><a name="index-Wpointer_002dsign-617"></a><a name="index-Wno_002dpointer_002dsign-618"></a>Warn for pointer argument passing or assignment with different signedness. 
 This option is only supported for C and Objective-C.  It is implied by
 <samp><span class="option">-Wall</span></samp> and by <samp><span class="option">-Wpedantic</span></samp>, which can be disabled with
 <samp><span class="option">-Wno-pointer-sign</span></samp>.
 
-     <br><dt><code>-Wstack-protector</code><dd><a name="index-Wstack_002dprotector-566"></a><a name="index-Wno_002dstack_002dprotector-567"></a>This option is only active when <samp><span class="option">-fstack-protector</span></samp> is active.  It
+     <br><dt><code>-Wstack-protector</code><dd><a name="index-Wstack_002dprotector-619"></a><a name="index-Wno_002dstack_002dprotector-620"></a>This option is only active when <samp><span class="option">-fstack-protector</span></samp> is active.  It
 warns about functions that are not protected against stack smashing.
 
-     <br><dt><code>-Woverlength-strings</code><dd><a name="index-Woverlength_002dstrings-568"></a><a name="index-Wno_002doverlength_002dstrings-569"></a>Warn about string constants that are longer than the &ldquo;minimum
+     <br><dt><code>-Woverlength-strings</code><dd><a name="index-Woverlength_002dstrings-621"></a><a name="index-Wno_002doverlength_002dstrings-622"></a>Warn about string constants that are longer than the &ldquo;minimum
 maximum&rdquo; length specified in the C standard.  Modern compilers
 generally allow string constants that are much longer than the
 standard's minimum limit, but very portable programs should avoid
@@ -1417,13 +1573,18 @@ minimum maximum, so we do not diagnose overlength strings in C++.
      <p>This option is implied by <samp><span class="option">-Wpedantic</span></samp>, and can be disabled with
 <samp><span class="option">-Wno-overlength-strings</span></samp>.
 
-     <br><dt><code>-Wunsuffixed-float-constants </code><span class="roman">(C and Objective-C only)</span><dd><a name="index-Wunsuffixed_002dfloat_002dconstants-570"></a>
+     <br><dt><code>-Wunsuffixed-float-constants </code><span class="roman">(C and Objective-C only)</span><dd><a name="index-Wunsuffixed_002dfloat_002dconstants-623"></a>
 Issue a warning for any floating constant that does not have
 a suffix.  When used together with <samp><span class="option">-Wsystem-headers</span></samp> it
 warns about such constants in system header files.  This can be useful
 when preparing code to use with the <code>FLOAT_CONST_DECIMAL64</code> pragma
-from the decimal floating-point extension to C99. 
-</dl>
+from the decimal floating-point extension to C99.
+
+     <br><dt><code>-Wno-designated-init </code><span class="roman">(C and Objective-C only)</span><dd>Suppress warnings when a positional initializer is used to initialize
+a structure that has been marked with the <code>designated_init</code>
+attribute.
+
+ </dl>
 
  </body></html>
 

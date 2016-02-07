@@ -7,7 +7,7 @@
 <link title="Top" rel="top" href="#Top">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
    Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -177,7 +177,7 @@ installed but it is not in your default library search path, the
 <samp><span class="option">--with-mpc</span></samp> configure option should be used.  See also
 <samp><span class="option">--with-mpc-lib</span></samp> and <samp><span class="option">--with-mpc-include</span></samp>.
 
-     <br><dt>ISL Library version 0.12.2<dd>
+     <br><dt>ISL Library version 0.14 (or 0.12.2)<dd>
 Necessary to build GCC with the Graphite loop optimizations. 
 It can be downloaded from <a href="ftp://gcc.gnu.org/pub/gcc/infrastructure/">ftp://gcc.gnu.org/pub/gcc/infrastructure/</a>
 as <samp><span class="file">isl-0.12.2.tar.bz2</span></samp>.  If an ISL source distribution is found
@@ -185,20 +185,6 @@ in a subdirectory of your GCC sources named <samp><span class="file">isl</span><
 built together with GCC.  Alternatively, the <samp><span class="option">--with-isl</span></samp> configure
 option should be used if ISL is not installed in your default library
 search path.
-
-     <br><dt>CLooG 0.18.1<dd>
-Necessary to build GCC with the Graphite loop optimizations.  It can be
-downloaded from <a href="ftp://gcc.gnu.org/pub/gcc/infrastructure/">ftp://gcc.gnu.org/pub/gcc/infrastructure/</a> as
-<samp><span class="file">cloog-0.18.1.tar.gz</span></samp>.  If a CLooG source distribution is found
-in a subdirectory of your GCC sources named <samp><span class="file">cloog</span></samp>, it will be
-built together with GCC.  Alternatively, the <samp><span class="option">--with-cloog</span></samp> configure
-option should be used if CLooG is not installed in your default library search
-path.
-
-     <p>If you want to install CLooG separately it needs to be built against
-ISL 0.12.2 by using the <samp><span class="option">--with-isl=system</span></samp> to direct CLooG to pick
-up an already installed ISL.  Using the ISL library as bundled with CLooG
-is not supported.
 
    </dl>
 
@@ -236,7 +222,7 @@ Necessary to run the GCC testsuite; see the section on testing for
 details.  Tcl 8.6 has a known regression in RE pattern handling that
 make parts of the testsuite fail.  See
 <a href="http://core.tcl.tk/tcl/tktview/267b7e2334ee2e9de34c4b00d6e72e2f1997085f">http://core.tcl.tk/tcl/tktview/267b7e2334ee2e9de34c4b00d6e72e2f1997085f</a>
-for more information.
+for more information.  This bug has been fixed in 8.6.1.
 
      <br><dt>autogen version 5.5.4 (or later) and<dt>guile version 1.4.1 (or later)<dd>
 Necessary to regenerate <samp><span class="file">fixinc/fixincl.x</span></samp> from
@@ -270,6 +256,10 @@ included in releases.
 Necessary for running <samp><span class="command">texi2dvi</span></samp> and <samp><span class="command">texi2pdf</span></samp>, which
 are used when running <samp><span class="command">make dvi</span></samp> or <samp><span class="command">make pdf</span></samp> to create
 DVI or PDF files, respectively.
+
+     <br><dt>Sphinx version 1.0 (or later)<dd>
+Necessary to regenerate <samp><span class="file">jit/docs/_build/texinfo</span></samp> from the <samp><span class="file">.rst</span></samp>
+files in the directories below <samp><span class="file">jit/docs</span></samp>.
 
      <br><dt>SVN (any version)<dt>SSH (any version)<dd>
 Necessary to access the SVN repository.  Public releases and weekly

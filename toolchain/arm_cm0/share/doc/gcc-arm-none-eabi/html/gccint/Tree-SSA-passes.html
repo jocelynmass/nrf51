@@ -10,7 +10,7 @@
 <link rel="next" href="RTL-passes.html#RTL-passes" title="RTL passes">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -201,11 +201,19 @@ in <samp><span class="file">tree-ssa-alias.c</span></samp> and is described by <
 
      <li>Profiling
 
-     <p>This pass rewrites the function in order to collect runtime block
+     <p>This pass instruments the function in order to collect runtime block
 and value profiling data.  Such data may be fed back into the compiler
 on a subsequent run so as to allow optimization based on expected
-execution frequencies.  The pass is located in <samp><span class="file">predict.c</span></samp> and
-is described by <code>pass_profile</code>.
+execution frequencies.  The pass is located in <samp><span class="file">tree-profile.c</span></samp> and
+is described by <code>pass_ipa_tree_profile</code>.
+
+     <li>Static profile estimation
+
+     <p>This pass implements series of heuristics to guess propababilities
+of branches.  The resulting predictions are turned into edge profile
+by propagating branches across the control flow graphs. 
+The pass is located in <samp><span class="file">tree-profile.c</span></samp> and is described by
+<code>pass_profile</code>.
 
      <li>Lower complex arithmetic
 
@@ -284,10 +292,7 @@ merging and induction variable elimination.  The pass is implemented in
      <p>Loop unswitching.  This pass moves the conditional jumps that are invariant
 out of the loops.  To achieve this, a duplicate of the loop is created for
 each possible outcome of conditional jump(s).  The pass is implemented in
-<samp><span class="file">tree-ssa-loop-unswitch.c</span></samp>.  This pass should eventually replace the
-RTL level loop unswitching in <samp><span class="file">loop-unswitch.c</span></samp>, but currently
-the RTL level pass is not completely redundant yet due to deficiencies
-in tree level alias analysis.
+<samp><span class="file">tree-ssa-loop-unswitch.c</span></samp>.
 
      <p>The optimizations also use various utility functions contained in
 <samp><span class="file">tree-ssa-loop-manip.c</span></samp>, <samp><span class="file">cfgloop.c</span></samp>, <samp><span class="file">cfgloopanal.c</span></samp> and

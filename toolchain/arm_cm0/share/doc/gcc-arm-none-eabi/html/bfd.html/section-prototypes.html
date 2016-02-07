@@ -11,7 +11,7 @@
 <!--
 This file documents the BFD library.
 
-Copyright (C) 1991-2014 Free Software Foundation, Inc.
+Copyright (C) 1991-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -56,7 +56,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Sections.html#Sections">Sections</a>
 
 <p>These are the functions exported by the section handling part of BFD.
 
-   <p><a name="index-bfd_005fsection_005flist_005fclear-40"></a>
+   <p><a name="index-bfd_005fsection_005flist_005fclear-43"></a>
 
 <h5 class="subsubsection">2.6.5.1 <code>bfd_section_list_clear</code></h5>
 
@@ -67,7 +67,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Sections.html#Sections">Sections</a>
 Clears the section list, and also resets the section count and
 hash table entries.
 
-   <p><a name="index-bfd_005fget_005fsection_005fby_005fname-41"></a>
+   <p><a name="index-bfd_005fget_005fsection_005fby_005fname-44"></a>
 
 <h5 class="subsubsection">2.6.5.2 <code>bfd_get_section_by_name</code></h5>
 
@@ -78,7 +78,7 @@ hash table entries.
 Return the most recently created section attached to <var>abfd</var>
 named <var>name</var>.  Return NULL if no such section exists.
 
-   <p><a name="index-bfd_005fget_005fnext_005fsection_005fby_005fname-42"></a>
+   <p><a name="index-bfd_005fget_005fnext_005fsection_005fby_005fname-45"></a>
 
 <h5 class="subsubsection">2.6.5.3 <code>bfd_get_next_section_by_name</code></h5>
 
@@ -90,7 +90,7 @@ Given <var>sec</var> is a section returned by <code>bfd_get_section_by_name</cod
 return the next most recently created section attached to the same
 BFD with the same name.  Return NULL if no such section exists.
 
-   <p><a name="index-bfd_005fget_005flinker_005fsection-43"></a>
+   <p><a name="index-bfd_005fget_005flinker_005fsection-46"></a>
 
 <h5 class="subsubsection">2.6.5.4 <code>bfd_get_linker_section</code></h5>
 
@@ -101,7 +101,7 @@ BFD with the same name.  Return NULL if no such section exists.
 Return the linker created section attached to <var>abfd</var>
 named <var>name</var>.  Return NULL if no such section exists.
 
-   <p><a name="index-bfd_005fget_005fsection_005fby_005fname_005fif-44"></a>
+   <p><a name="index-bfd_005fget_005fsection_005fby_005fname_005fif-47"></a>
 
 <h5 class="subsubsection">2.6.5.5 <code>bfd_get_section_by_name_if</code></h5>
 
@@ -123,7 +123,7 @@ as if by
    <p>It returns the first section for which <var>func</var> returns true,
 otherwise <code>NULL</code>.
 
-   <p><a name="index-bfd_005fget_005funique_005fsection_005fname-45"></a>
+   <p><a name="index-bfd_005fget_005funique_005fsection_005fname-48"></a>
 
 <h5 class="subsubsection">2.6.5.6 <code>bfd_get_unique_section_name</code></h5>
 
@@ -138,7 +138,7 @@ a dot and a digit suffix onto the original <var>templat</var>.  If
 tried as a suffix to generate a unique name.  The value
 pointed to by <var>count</var> will be incremented in this case.
 
-   <p><a name="index-bfd_005fmake_005fsection_005fold_005fway-46"></a>
+   <p><a name="index-bfd_005fmake_005fsection_005fold_005fway-49"></a>
 
 <h5 class="subsubsection">2.6.5.7 <code>bfd_make_section_old_way</code></h5>
 
@@ -163,7 +163,7 @@ If output has already started for this BFD.
 If memory allocation fails. 
 </ul>
 
-   <p><a name="index-bfd_005fmake_005fsection_005fanyway_005fwith_005fflags-47"></a>
+   <p><a name="index-bfd_005fmake_005fsection_005fanyway_005fwith_005fflags-50"></a>
 
 <h5 class="subsubsection">2.6.5.8 <code>bfd_make_section_anyway_with_flags</code></h5>
 
@@ -183,7 +183,7 @@ new section to the value <var>flags</var>.
 <li><code>bfd_error_no_memory</code> - If memory allocation fails. 
 </ul>
 
-   <p><a name="index-bfd_005fmake_005fsection_005fanyway-48"></a>
+   <p><a name="index-bfd_005fmake_005fsection_005fanyway-51"></a>
 
 <h5 class="subsubsection">2.6.5.9 <code>bfd_make_section_anyway</code></h5>
 
@@ -201,7 +201,7 @@ is already a section with that name.
 <li><code>bfd_error_no_memory</code> - If memory allocation fails. 
 </ul>
 
-   <p><a name="index-bfd_005fmake_005fsection_005fwith_005fflags-49"></a>
+   <p><a name="index-bfd_005fmake_005fsection_005fwith_005fflags-52"></a>
 
 <h5 class="subsubsection">2.6.5.10 <code>bfd_make_section_with_flags</code></h5>
 
@@ -216,7 +216,7 @@ section named <var>name</var>.  Also set the attributes of the new section to
 the value <var>flags</var>.  If there is an error, return <code>NULL</code> and set
 <code>bfd_error</code>.
 
-   <p><a name="index-bfd_005fmake_005fsection-50"></a>
+   <p><a name="index-bfd_005fmake_005fsection-53"></a>
 
 <h5 class="subsubsection">2.6.5.11 <code>bfd_make_section</code></h5>
 
@@ -229,7 +229,7 @@ bfd_set_error ()) without changing the section chain if there is already a
 section named <var>name</var>.  If there is an error, return <code>NULL</code> and set
 <code>bfd_error</code>.
 
-   <p><a name="index-bfd_005fset_005fsection_005fflags-51"></a>
+   <p><a name="index-bfd_005fset_005fsection_005fflags-54"></a>
 
 <h5 class="subsubsection">2.6.5.12 <code>bfd_set_section_flags</code></h5>
 
@@ -249,7 +249,7 @@ requested. For example, a .bss section in <code>a.out</code> may not
 have the <code>SEC_HAS_CONTENTS</code> field set. 
 </ul>
 
-   <p><a name="index-bfd_005frename_005fsection-52"></a>
+   <p><a name="index-bfd_005frename_005fsection-55"></a>
 
 <h5 class="subsubsection">2.6.5.13 <code>bfd_rename_section</code></h5>
 
@@ -260,7 +260,7 @@ have the <code>SEC_HAS_CONTENTS</code> field set.
    <p><strong>Description</strong><br>
 Rename section <var>sec</var> in <var>abfd</var> to <var>newname</var>.
 
-   <p><a name="index-bfd_005fmap_005fover_005fsections-53"></a>
+   <p><a name="index-bfd_005fmap_005fover_005fsections-56"></a>
 
 <h5 class="subsubsection">2.6.5.14 <code>bfd_map_over_sections</code></h5>
 
@@ -284,7 +284,7 @@ alternative would be to use a loop:
                for (p = abfd-&gt;sections; p != NULL; p = p-&gt;next)
                   func (abfd, p, ...)
 </pre>
-   <p><a name="index-bfd_005fsections_005ffind_005fif-54"></a>
+   <p><a name="index-bfd_005fsections_005ffind_005fif-57"></a>
 
 <h5 class="subsubsection">2.6.5.15 <code>bfd_sections_find_if</code></h5>
 
@@ -303,7 +303,7 @@ argument. The function will be called as if by
 </pre>
    <p>It returns the first section for which <var>operation</var> returns true.
 
-   <p><a name="index-bfd_005fset_005fsection_005fsize-55"></a>
+   <p><a name="index-bfd_005fset_005fsection_005fsize-58"></a>
 
 <h5 class="subsubsection">2.6.5.16 <code>bfd_set_section_size</code></h5>
 
@@ -321,7 +321,7 @@ ok, then <code>TRUE</code> is returned, else <code>FALSE</code>.
 Writing has started to the BFD, so setting the size is invalid. 
 </ul>
 
-   <p><a name="index-bfd_005fset_005fsection_005fcontents-56"></a>
+   <p><a name="index-bfd_005fset_005fsection_005fcontents-59"></a>
 
 <h5 class="subsubsection">2.6.5.17 <code>bfd_set_section_contents</code></h5>
 
@@ -347,7 +347,7 @@ attribute, so nothing can be written to it.
    This routine is front end to the back end function
 <code>_bfd_set_section_contents</code>.
 
-   <p><a name="index-bfd_005fget_005fsection_005fcontents-57"></a>
+   <p><a name="index-bfd_005fget_005fsection_005fcontents-60"></a>
 
 <h5 class="subsubsection">2.6.5.18 <code>bfd_get_section_contents</code></h5>
 
@@ -368,7 +368,7 @@ flag set are requested or if the section does not have the
 with zeroes. If no errors occur, <code>TRUE</code> is returned, else
 <code>FALSE</code>.
 
-   <p><a name="index-bfd_005fmalloc_005fand_005fget_005fsection-58"></a>
+   <p><a name="index-bfd_005fmalloc_005fand_005fget_005fsection-61"></a>
 
 <h5 class="subsubsection">2.6.5.19 <code>bfd_malloc_and_get_section</code></h5>
 
@@ -380,7 +380,7 @@ with zeroes. If no errors occur, <code>TRUE</code> is returned, else
 Read all data from <var>section</var> in BFD <var>abfd</var>
 into a buffer, *<var>buf</var>, malloc'd by this function.
 
-   <p><a name="index-bfd_005fcopy_005fprivate_005fsection_005fdata-59"></a>
+   <p><a name="index-bfd_005fcopy_005fprivate_005fsection_005fdata-62"></a>
 
 <h5 class="subsubsection">2.6.5.20 <code>bfd_copy_private_section_data</code></h5>
 
@@ -403,7 +403,7 @@ Not enough memory exists to create private data for <var>osec</var>.
           BFD_SEND (obfd, _bfd_copy_private_section_data, \
                     (ibfd, isection, obfd, osection))
 </pre>
-   <p><a name="index-bfd_005fgeneric_005fis_005fgroup_005fsection-60"></a>
+   <p><a name="index-bfd_005fgeneric_005fis_005fgroup_005fsection-63"></a>
 
 <h5 class="subsubsection">2.6.5.21 <code>bfd_generic_is_group_section</code></h5>
 
@@ -413,7 +413,7 @@ Not enough memory exists to create private data for <var>osec</var>.
    <p><strong>Description</strong><br>
 Returns TRUE if <var>sec</var> is a member of a group.
 
-   <p><a name="index-bfd_005fgeneric_005fdiscard_005fgroup-61"></a>
+   <p><a name="index-bfd_005fgeneric_005fdiscard_005fgroup-64"></a>
 
 <h5 class="subsubsection">2.6.5.22 <code>bfd_generic_discard_group</code></h5>
 

@@ -9,7 +9,7 @@
 <link rel="next" href="objdump.html#objdump" title="objdump">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1991-2013 Free Software Foundation, Inc.
+Copyright (C) 1991-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
@@ -83,6 +83,8 @@ Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
              [<samp><span class="option">--change-warnings</span></samp>] [<samp><span class="option">--no-change-warnings</span></samp>]
              [<samp><span class="option">--set-section-flags</span></samp> <var>sectionpattern</var>=<var>flags</var>]
              [<samp><span class="option">--add-section</span></samp> <var>sectionname</var>=<var>filename</var>]
+             [<samp><span class="option">--dump-section</span></samp> <var>sectionname</var>=<var>filename</var>]
+             [<samp><span class="option">--update-section</span></samp> <var>sectionname</var>=<var>filename</var>]
              [<samp><span class="option">--rename-section</span></samp> <var>oldname</var>=<var>newname</var>[,<var>flags</var>]]
              [<samp><span class="option">--long-section-names</span></samp> {enable,disable,keep}]
              [<samp><span class="option">--change-leading-char</span></samp>] [<samp><span class="option">--remove-leading-char</span></samp>]
@@ -98,6 +100,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
              [<samp><span class="option">--localize-symbols=</span></samp><var>filename</var>]
              [<samp><span class="option">--globalize-symbols=</span></samp><var>filename</var>]
              [<samp><span class="option">--weaken-symbols=</span></samp><var>filename</var>]
+             [<samp><span class="option">--add-symbol</span></samp> <var>name</var>=[<var>section</var>:]<var>value</var>[,<var>flags</var>]
              [<samp><span class="option">--alt-machine-code=</span></samp><var>index</var>]
              [<samp><span class="option">--prefix-symbols=</span></samp><var>string</var>]
              [<samp><span class="option">--prefix-sections=</span></samp><var>string</var>]
@@ -387,7 +390,42 @@ meaningful for all object file formats.
      <br><dt><samp><span class="env">--add-section </span><var>sectionname</var><span class="env">=</span><var>filename</var></samp><dd>Add a new section named <var>sectionname</var> while copying the file.  The
 contents of the new section are taken from the file <var>filename</var>.  The
 size of the section will be the size of the file.  This option only
-works on file formats which can support sections with arbitrary names.
+works on file formats which can support sections with arbitrary names. 
+Note - it may be necessary to use the <samp><span class="option">--set-section-flags</span></samp>
+option to set the attributes of the newly created section.
+
+     <br><dt><samp><span class="env">--dump-section </span><var>sectionname</var><span class="env">=</span><var>filename</var></samp><dd>Place the contents of section named <var>sectionname</var> into the file
+<var>filename</var>, overwriting any contents that may have been there
+previously.  This option is the inverse of <samp><span class="option">--add-section</span></samp>. 
+This option is similar to the <samp><span class="option">--only-section</span></samp> option except
+that it does not create a formatted file, it just dumps the contents
+as raw binary data, without applying any relocations.  The option can
+be specified more than once.
+
+     <br><dt><samp><span class="env">--update-section </span><var>sectionname</var><span class="env">=</span><var>filename</var></samp><dd>Replace the existing contents of a section named <var>sectionname</var>
+with the contents of file <var>filename</var>.  The size of the section
+will be adjusted to the size of the file.  The section flags for
+<var>sectionname</var> will be unchanged.  For ELF format files the section
+to segment mapping will also remain unchanged, something which is not
+possible using <samp><span class="option">--remove-section</span></samp> followed by
+<samp><span class="option">--add-section</span></samp>.  The option can be specified more than once.
+
+     <p>Note - it is possible to use <samp><span class="option">--rename-section</span></samp> and
+<samp><span class="option">--update-section</span></samp> to both update and rename a section from one
+command line.  In this case, pass the original section name to
+<samp><span class="option">--update-section</span></samp>, and the original and new section names to
+<samp><span class="option">--rename-section</span></samp>.
+
+     <br><dt><samp><span class="env">--add-symbol </span><var>name</var><span class="env">=[</span><var>section</var><span class="env">:]</span><var>value</var><span class="env">[,</span><var>flags</var><span class="env">]</span></samp><dd>Add a new symbol named <var>name</var> while copying the file.  This option may be
+specified multiple times.  If the <var>section</var> is given, the symbol will be
+associated with and relative to that section, otherwise it will be an ABS
+symbol.  Specifying an undefined section will result in a fatal error.  There
+is no check for the value, it will be taken as specified.  Symbol flags can
+be specified and not all flags will be meaningful for all object file
+formats.  By default, the symbol will be global.  The special flag
+'before=<var>othersym</var>' will insert the new symbol in front of the specified
+<var>othersym</var>, otherwise the symbol(s) will be added at the end of the
+symbol table in the order they appear.
 
      <br><dt><samp><span class="env">--rename-section </span><var>oldname</var><span class="env">=</span><var>newname</var><span class="env">[,</span><var>flags</var><span class="env">]</span></samp><dd>Rename a section from <var>oldname</var> to <var>newname</var>, optionally
 changing the section's flags to <var>flags</var> in the process.  This has
@@ -540,8 +578,36 @@ object file formats.
      <br><dt><samp><span class="env">--prefix-alloc-sections=</span><var>string</var></samp><dd>Prefix all the names of all allocated sections in the output file with
 <var>string</var>.
 
-     <br><dt><samp><span class="env">--add-gnu-debuglink=</span><var>path-to-file</var></samp><dd>Creates a .gnu_debuglink section which contains a reference to <var>path-to-file</var>
-and adds it to the output file.
+     <br><dt><samp><span class="env">--add-gnu-debuglink=</span><var>path-to-file</var></samp><dd>Creates a .gnu_debuglink section which contains a reference to
+<var>path-to-file</var> and adds it to the output file.  Note: the file at
+<var>path-to-file</var> must exist.  Part of the process of adding the
+.gnu_debuglink section involves embedding a checksum of the contents
+of the debug info file into the section.
+
+     <p>If the debug info file is built in one location but it is going to be
+installed at a later time into a different location then do not use
+the path to the installed location.  The <samp><span class="option">--add-gnu-debuglink</span></samp>
+option will fail because the installed file does not exist yet. 
+Instead put the debug info file in the current directory and use the
+<samp><span class="option">--add-gnu-debuglink</span></samp> option without any directory components,
+like this:
+
+     <pre class="smallexample">           objcopy --add-gnu-debuglink=foo.debug
+     </pre>
+     <p>At debug time the debugger will attempt to look for the separate debug
+info file in a set of known locations.  The exact set of these
+locations varies depending upon the distribution being used, but it
+typically includes:
+
+          <dl>
+<dt><code>* The same directory as the executable.</code>
+<br><dt><code>* A sub-directory of the directory containing the executable</code><dd>called .debug
+
+          <br><dt><code>* A global debug directory such as /usr/lib/debug.</code><dd></dl>
+
+     <p>As long as the debug info file has been installed into one of these
+locations before the debugger is run everything should work
+correctly.
 
      <br><dt><samp><span class="env">--keep-file-symbols</span></samp><dd>When stripping a file, perhaps with <samp><span class="option">--strip-debug</span></samp> or
 <samp><span class="option">--strip-unneeded</span></samp>, retain any symbols specifying source file names,
@@ -550,6 +616,12 @@ which would otherwise get stripped.
      <br><dt><samp><span class="env">--only-keep-debug</span></samp><dd>Strip a file, removing contents of any sections that would not be
 stripped by <samp><span class="option">--strip-debug</span></samp> and leaving the debugging sections
 intact.  In ELF files, this preserves all note sections in the output.
+
+     <p>Note - the section headers of the stripped sections are preserved,
+including their sizes, but the contents of the section are discarded. 
+The section headers are preserved so that other tools can match up the
+debuginfo file with the real executable, even if that executable has
+been relocated to a different address space.
 
      <p>The intention is that this option will be used in conjunction with
 <samp><span class="option">--add-gnu-debuglink</span></samp> to create a two part executable.  One a
@@ -650,9 +722,24 @@ Specifically, the option:
 It can also be a useful way of reducing the size of a <samp><span class="option">--just-symbols</span></samp>
 linker input file.
 
-     <br><dt><samp><span class="env">--compress-debug-sections</span></samp><dd>Compress DWARF debug sections using zlib.
+     <br><dt><samp><span class="env">--compress-debug-sections</span></samp><dd>Compress DWARF debug sections using zlib with SHF_COMPRESSED from the
+ELF ABI.  Note - if compression would actually make a section
+<em>larger</em>, then it is not compressed.
 
-     <br><dt><samp><span class="env">--decompress-debug-sections</span></samp><dd>Decompress DWARF debug sections using zlib.
+     <br><dt><samp><span class="env">--compress-debug-sections=none</span></samp><dt><samp><span class="env">--compress-debug-sections=zlib</span></samp><dt><samp><span class="env">--compress-debug-sections=zlib-gnu</span></samp><dt><samp><span class="env">--compress-debug-sections=zlib-gabi</span></samp><dd>For ELF files, these options control how DWARF debug sections are
+compressed.  <samp><span class="option">--compress-debug-sections=none</span></samp> is equivalent
+to <samp><span class="option">--nocompress-debug-sections</span></samp>. 
+<samp><span class="option">--compress-debug-sections=zlib</span></samp> and
+<samp><span class="option">--compress-debug-sections=zlib-gabi</span></samp> are equivalent to
+<samp><span class="option">--compress-debug-sections</span></samp>. 
+<samp><span class="option">--compress-debug-sections=zlib-gnu</span></samp> compresses DWARF debug
+sections using zlib.  The debug sections are renamed to begin with
+`<samp><span class="samp">.zdebug</span></samp>' instead of `<samp><span class="samp">.debug</span></samp>'.  Note - if compression would
+actually make a section <em>larger</em>, then it is not compressed nor
+renamed.
+
+     <br><dt><samp><span class="env">--decompress-debug-sections</span></samp><dd>Decompress DWARF debug sections using zlib.  The original section
+names of the compressed sections are restored.
 
      <br><dt><samp><span class="env">-V</span></samp><dt><samp><span class="env">--version</span></samp><dd>Show the version number of <samp><span class="command">objcopy</span></samp>.
 

@@ -7,10 +7,10 @@
 <link title="Top" rel="start" href="index.html#Top">
 <link rel="up" href="C-Extensions.html#C-Extensions" title="C Extensions">
 <link rel="prev" href="x86-specific-memory-model-extensions-for-transactional-memory.html#x86-specific-memory-model-extensions-for-transactional-memory" title="x86 specific memory model extensions for transactional memory">
-<link rel="next" href="Cilk-Plus-Builtins.html#Cilk-Plus-Builtins" title="Cilk Plus Builtins">
+<link rel="next" href="Pointer-Bounds-Checker-builtins.html#Pointer-Bounds-Checker-builtins" title="Pointer Bounds Checker builtins">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -46,7 +46,7 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
 <div class="node">
 <p>
 <a name="Object-Size-Checking"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="Cilk-Plus-Builtins.html#Cilk-Plus-Builtins">Cilk Plus Builtins</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="Pointer-Bounds-Checker-builtins.html#Pointer-Bounds-Checker-builtins">Pointer Bounds Checker builtins</a>,
 Previous:&nbsp;<a rel="previous" accesskey="p" href="x86-specific-memory-model-extensions-for-transactional-memory.html#x86-specific-memory-model-extensions-for-transactional-memory">x86 specific memory model extensions for transactional memory</a>,
 Up:&nbsp;<a rel="up" accesskey="u" href="C-Extensions.html#C-Extensions">C Extensions</a>
 <hr>
@@ -54,12 +54,12 @@ Up:&nbsp;<a rel="up" accesskey="u" href="C-Extensions.html#C-Extensions">C Exten
 
 <h3 class="section">6.54 Object Size Checking Built-in Functions</h3>
 
-<p><a name="index-g_t_005f_005fbuiltin_005fobject_005fsize-3229"></a><a name="index-g_t_005f_005fbuiltin_005f_005f_005fmemcpy_005fchk-3230"></a><a name="index-g_t_005f_005fbuiltin_005f_005f_005fmempcpy_005fchk-3231"></a><a name="index-g_t_005f_005fbuiltin_005f_005f_005fmemmove_005fchk-3232"></a><a name="index-g_t_005f_005fbuiltin_005f_005f_005fmemset_005fchk-3233"></a><a name="index-g_t_005f_005fbuiltin_005f_005f_005fstrcpy_005fchk-3234"></a><a name="index-g_t_005f_005fbuiltin_005f_005f_005fstpcpy_005fchk-3235"></a><a name="index-g_t_005f_005fbuiltin_005f_005f_005fstrncpy_005fchk-3236"></a><a name="index-g_t_005f_005fbuiltin_005f_005f_005fstrcat_005fchk-3237"></a><a name="index-g_t_005f_005fbuiltin_005f_005f_005fstrncat_005fchk-3238"></a><a name="index-g_t_005f_005fbuiltin_005f_005f_005fsprintf_005fchk-3239"></a><a name="index-g_t_005f_005fbuiltin_005f_005f_005fsnprintf_005fchk-3240"></a><a name="index-g_t_005f_005fbuiltin_005f_005f_005fvsprintf_005fchk-3241"></a><a name="index-g_t_005f_005fbuiltin_005f_005f_005fvsnprintf_005fchk-3242"></a><a name="index-g_t_005f_005fbuiltin_005f_005f_005fprintf_005fchk-3243"></a><a name="index-g_t_005f_005fbuiltin_005f_005f_005fvprintf_005fchk-3244"></a><a name="index-g_t_005f_005fbuiltin_005f_005f_005ffprintf_005fchk-3245"></a><a name="index-g_t_005f_005fbuiltin_005f_005f_005fvfprintf_005fchk-3246"></a>
+<p><a name="index-g_t_005f_005fbuiltin_005fobject_005fsize-3577"></a><a name="index-g_t_005f_005fbuiltin_005f_005f_005fmemcpy_005fchk-3578"></a><a name="index-g_t_005f_005fbuiltin_005f_005f_005fmempcpy_005fchk-3579"></a><a name="index-g_t_005f_005fbuiltin_005f_005f_005fmemmove_005fchk-3580"></a><a name="index-g_t_005f_005fbuiltin_005f_005f_005fmemset_005fchk-3581"></a><a name="index-g_t_005f_005fbuiltin_005f_005f_005fstrcpy_005fchk-3582"></a><a name="index-g_t_005f_005fbuiltin_005f_005f_005fstpcpy_005fchk-3583"></a><a name="index-g_t_005f_005fbuiltin_005f_005f_005fstrncpy_005fchk-3584"></a><a name="index-g_t_005f_005fbuiltin_005f_005f_005fstrcat_005fchk-3585"></a><a name="index-g_t_005f_005fbuiltin_005f_005f_005fstrncat_005fchk-3586"></a><a name="index-g_t_005f_005fbuiltin_005f_005f_005fsprintf_005fchk-3587"></a><a name="index-g_t_005f_005fbuiltin_005f_005f_005fsnprintf_005fchk-3588"></a><a name="index-g_t_005f_005fbuiltin_005f_005f_005fvsprintf_005fchk-3589"></a><a name="index-g_t_005f_005fbuiltin_005f_005f_005fvsnprintf_005fchk-3590"></a><a name="index-g_t_005f_005fbuiltin_005f_005f_005fprintf_005fchk-3591"></a><a name="index-g_t_005f_005fbuiltin_005f_005f_005fvprintf_005fchk-3592"></a><a name="index-g_t_005f_005fbuiltin_005f_005f_005ffprintf_005fchk-3593"></a><a name="index-g_t_005f_005fbuiltin_005f_005f_005fvfprintf_005fchk-3594"></a>
 GCC implements a limited buffer overflow protection mechanism
 that can prevent some buffer overflow attacks.
 
 <div class="defun">
-&mdash; Built-in Function: size_t <b>__builtin_object_size</b> (<var>void * ptr, int type</var>)<var><a name="index-g_t_005f_005fbuiltin_005fobject_005fsize-3247"></a></var><br>
+&mdash; Built-in Function: size_t <b>__builtin_object_size</b> (<var>void * ptr, int type</var>)<var><a name="index-g_t_005f_005fbuiltin_005fobject_005fsize-3595"></a></var><br>
 <blockquote><p>is a built-in construct that returns a constant number of bytes from
 <var>ptr</var> to the end of the object <var>ptr</var> pointer points to
 (if known at compile time).  <code>__builtin_object_size</code> never evaluates

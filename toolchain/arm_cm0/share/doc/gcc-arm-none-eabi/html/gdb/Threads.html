@@ -10,7 +10,7 @@
 <link rel="next" href="Forks.html#Forks" title="Forks">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -48,7 +48,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Running.html#Running">Running</a>
 
 <h3 class="section">4.10 Debugging Programs with Multiple Threads</h3>
 
-<p><a name="index-threads-of-execution-160"></a><a name="index-multiple-threads-161"></a><a name="index-switching-threads-162"></a>In some operating systems, such as HP-UX and Solaris, a single program
+<p><a name="index-threads-of-execution-162"></a><a name="index-multiple-threads-163"></a><a name="index-switching-threads-164"></a>In some operating systems, such as HP-UX and Solaris, a single program
 may have more than one <dfn>thread</dfn> of execution.  The precise semantics
 of threads differ from one operating system to another, but in general
 the threads of a single program are akin to multiple processes&mdash;except
@@ -90,13 +90,13 @@ like this:
 <!-- doesn't support threads"? -->
 </blockquote>
 
-   <p><a name="index-focus-of-debugging-163"></a><a name="index-current-thread-164"></a>The <span class="sc">gdb</span> thread debugging facility allows you to observe all
+   <p><a name="index-focus-of-debugging-165"></a><a name="index-current-thread-166"></a>The <span class="sc">gdb</span> thread debugging facility allows you to observe all
 threads while your program runs&mdash;but whenever <span class="sc">gdb</span> takes
 control, one thread in particular is always the focus of debugging. 
 This thread is called the <dfn>current thread</dfn>.  Debugging commands show
 program information from the perspective of the current thread.
 
-   <p><a name="index-g_t_0040code_007bNew_007d-_0040var_007bsystag_007d-message-165"></a><a name="index-thread-identifier-_0028system_0029-166"></a><!-- FIXME-implementors!! It would be more helpful if the [New...] message -->
+   <p><a name="index-g_t_0040code_007bNew_007d-_0040var_007bsystag_007d-message-167"></a><a name="index-thread-identifier-_0028system_0029-168"></a><!-- FIXME-implementors!! It would be more helpful if the [New...] message -->
 <!-- included GDB's numeric thread handle, so you could just go to that -->
 <!-- thread without first checking `info threads'. -->
 Whenever <span class="sc">gdb</span> detects a new thread in your program, it displays
@@ -118,11 +118,11 @@ further qualifier.
 <!-- (2) *Is* there necessarily a first thread always?  Or do some -->
 <!-- multithread systems permit starting a program with multiple -->
 <!-- threads ab initio? -->
-<p><a name="index-thread-number-167"></a><a name="index-thread-identifier-_0028GDB_0029-168"></a>For debugging purposes, <span class="sc">gdb</span> associates its own thread
+<p><a name="index-thread-number-169"></a><a name="index-thread-identifier-_0028GDB_0029-170"></a>For debugging purposes, <span class="sc">gdb</span> associates its own thread
 number&mdash;always a single integer&mdash;with each thread in your program.
 
      
-<a name="index-info-threads-169"></a>
+<a name="index-info-threads-171"></a>
 <dl><dt><code>info threads </code><span class="roman">[</span><var>id</var><code>...</code><span class="roman">]</span><dd>Display a summary of all threads currently in your program.  Optional
 argument <var>id</var><small class="dots">...</small> is one or more thread ids separated by spaces, and
 means to print information only about the specified thread or threads. 
@@ -158,11 +158,11 @@ indicates the current thread.
 Solaris-specific command:
 
      <dl>
-<dt><code>maint info sol-threads</code><dd><a name="index-maint-info-sol_002dthreads-170"></a><a name="index-thread-info-_0028Solaris_0029-171"></a>Display info on Solaris user threads. 
+<dt><code>maint info sol-threads</code><dd><a name="index-maint-info-sol_002dthreads-172"></a><a name="index-thread-info-_0028Solaris_0029-173"></a>Display info on Solaris user threads. 
 </dl>
 
      
-<a name="index-thread-_0040var_007bthreadno_007d-172"></a>
+<a name="index-thread-_0040var_007bthreadno_007d-174"></a>
 <dl><dt><code>thread </code><var>threadno</var><dd>Make thread number <var>threadno</var> the current thread.  The command
 argument <var>threadno</var> is the internal <span class="sc">gdb</span> thread number, as
 shown in the first field of the `<samp><span class="samp">info threads</span></samp>' display. 
@@ -178,21 +178,23 @@ you selected, and its current stack frame summary:
 `<samp><span class="samp">Switching to</span></samp>' depends on your system's conventions for identifying
 threads.
 
-     <p><a name="index-g_t_0024_005fthread_0040r_007b_002c-convenience-variable_007d-173"></a>The debugger convenience variable `<samp><span class="samp">$_thread</span></samp>' contains the number
+     <p><a name="index-g_t_0024_005fthread_0040r_007b_002c-convenience-variable_007d-175"></a>The debugger convenience variable `<samp><span class="samp">$_thread</span></samp>' contains the number
 of the current thread.  You may find this useful in writing breakpoint
 conditional expressions, command scripts, and so forth.  See
 See <a href="Convenience-Vars.html#Convenience-Vars">Convenience Variables</a>, for general
 information on convenience variables.
 
-     <p><a name="index-thread-apply-174"></a><a name="index-apply-command-to-several-threads-175"></a><br><dt><code>thread apply [</code><var>threadno</var><code> | all] </code><var>command</var><dd>The <code>thread apply</code> command allows you to apply the named
+     <p><a name="index-thread-apply-176"></a><a name="index-apply-command-to-several-threads-177"></a><br><dt><code>thread apply [</code><var>threadno</var><code> | all [-ascending]] </code><var>command</var><dd>The <code>thread apply</code> command allows you to apply the named
 <var>command</var> to one or more threads.  Specify the numbers of the
 threads that you want affected with the command argument
 <var>threadno</var>.  It can be a single thread number, one of the numbers
 shown in the first field of the `<samp><span class="samp">info threads</span></samp>' display; or it
-could be a range of thread numbers, as in <code>2-4</code>.  To apply a
-command to all threads, type <kbd>thread apply all </kbd><var>command</var>.
+could be a range of thread numbers, as in <code>2-4</code>.  To apply
+a command to all threads in descending order, type <kbd>thread apply all
+</kbd><var>command</var>.  To apply a command to all threads in ascending order,
+type <kbd>thread apply all -ascending </kbd><var>command</var>.
 
-     <p><a name="index-thread-name-176"></a><a name="index-name-a-thread-177"></a><br><dt><code>thread name [</code><var>name</var><code>]</code><dd>This command assigns a name to the current thread.  If no argument is
+     <p><a name="index-thread-name-178"></a><a name="index-name-a-thread-179"></a><br><dt><code>thread name [</code><var>name</var><code>]</code><dd>This command assigns a name to the current thread.  If no argument is
 given, any existing user-specified name is removed.  The thread name
 appears in the `<samp><span class="samp">info threads</span></samp>' display.
 
@@ -202,7 +204,7 @@ systems, a name specified with `<samp><span class="samp">thread name</span></sam
 system-give name, and removing the user-specified name will cause
 <span class="sc">gdb</span> to once again display the system-specified name.
 
-     <p><a name="index-thread-find-178"></a><a name="index-search-for-a-thread-179"></a><br><dt><code>thread find [</code><var>regexp</var><code>]</code><dd>Search for and display thread ids whose name or <var>systag</var>
+     <p><a name="index-thread-find-180"></a><a name="index-search-for-a-thread-181"></a><br><dt><code>thread find [</code><var>regexp</var><code>]</code><dd>Search for and display thread ids whose name or <var>systag</var>
 matches the supplied regular expression.
 
      <p>As well as being the complement to the `<samp><span class="samp">thread name</span></samp>' command,
@@ -216,13 +218,13 @@ is the LWP id.
             Id   Target Id         Frame
             4    Thread 0x41e02940 (LWP 26688) 0x00000031ca6cd372 in select ()
      </pre>
-     <p><a name="index-set-print-thread_002devents-180"></a><a name="index-print-messages-on-thread-start-and-exit-181"></a><br><dt><code>set print thread-events</code><dt><code>set print thread-events on</code><dt><code>set print thread-events off</code><dd>The <code>set print thread-events</code> command allows you to enable or
+     <p><a name="index-set-print-thread_002devents-182"></a><a name="index-print-messages-on-thread-start-and-exit-183"></a><br><dt><code>set print thread-events</code><dt><code>set print thread-events on</code><dt><code>set print thread-events off</code><dd>The <code>set print thread-events</code> command allows you to enable or
 disable printing of messages when <span class="sc">gdb</span> notices that new threads have
 started or that threads have exited.  By default, these messages will
 be printed if detection of these events is supported by the target. 
 Note that these messages cannot be disabled on all targets.
 
-     <p><a name="index-show-print-thread_002devents-182"></a><br><dt><code>show print thread-events</code><dd>Show whether messages will be printed when <span class="sc">gdb</span> detects that threads
+     <p><a name="index-show-print-thread_002devents-184"></a><br><dt><code>show print thread-events</code><dd>Show whether messages will be printed when <span class="sc">gdb</span> detects that threads
 have started and exited. 
 </dl>
 
@@ -235,8 +237,8 @@ watchpoints in programs with multiple threads.
 
    <p><a name="set-libthread_002ddb_002dsearch_002dpath"></a>
      
-<a name="index-set-libthread_002ddb_002dsearch_002dpath-183"></a>
-<a name="index-search-path-for-_0040code_007blibthread_005fdb_007d-184"></a>
+<a name="index-set-libthread_002ddb_002dsearch_002dpath-185"></a>
+<a name="index-search-path-for-_0040code_007blibthread_005fdb_007d-186"></a>
 <dl><dt><code>set libthread-db-search-path </code><span class="roman">[</span><var>path</var><span class="roman">]</span><dd>If this variable is set, <var>path</var> is a colon-separated list of
 directories <span class="sc">gdb</span> will use to search for <code>libthread_db</code>. 
 If you omit <var>path</var>, `<samp><span class="samp">libthread-db-search-path</span></samp>' will be reset to
@@ -272,9 +274,9 @@ If none of <code>libthread_db</code> libraries initialize successfully,
      <p>Setting <code>libthread-db-search-path</code> is currently implemented
 only on some platforms.
 
-     <p><a name="index-show-libthread_002ddb_002dsearch_002dpath-185"></a><br><dt><code>show libthread-db-search-path</code><dd>Display current libthread_db search path.
+     <p><a name="index-show-libthread_002ddb_002dsearch_002dpath-187"></a><br><dt><code>show libthread-db-search-path</code><dd>Display current libthread_db search path.
 
-     <p><a name="index-set-debug-libthread_002ddb-186"></a><a name="index-show-debug-libthread_002ddb-187"></a><a name="index-debugging-_0040code_007blibthread_005fdb_007d-188"></a><br><dt><code>set debug libthread-db</code><dt><code>show debug libthread-db</code><dd>Turns on or off display of <code>libthread_db</code>-related events. 
+     <p><a name="index-set-debug-libthread_002ddb-188"></a><a name="index-show-debug-libthread_002ddb-189"></a><a name="index-debugging-_0040code_007blibthread_005fdb_007d-190"></a><br><dt><code>set debug libthread-db</code><dt><code>show debug libthread-db</code><dd>Turns on or off display of <code>libthread_db</code>-related events. 
 Use <code>1</code> to enable, <code>0</code> to disable. 
 </dl>
 

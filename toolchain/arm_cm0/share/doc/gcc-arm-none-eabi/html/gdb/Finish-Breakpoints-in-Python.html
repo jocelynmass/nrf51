@@ -10,7 +10,7 @@
 <link rel="next" href="Lazy-Strings-In-Python.html#Lazy-Strings-In-Python" title="Lazy Strings In Python">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -46,9 +46,9 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Python-API.html#Python-API">Python API<
 <hr>
 </div>
 
-<h5 class="subsubsection">23.2.2.29 Finish Breakpoints</h5>
+<h5 class="subsubsection">23.2.2.30 Finish Breakpoints</h5>
 
-<p><a name="index-python-finish-breakpoints-2249"></a><a name="index-gdb_002eFinishBreakpoint-2250"></a>
+<p><a name="index-python-finish-breakpoints-2320"></a><a name="index-gdb_002eFinishBreakpoint-2321"></a>
 A finish breakpoint is a temporary breakpoint set at the return address of
 a frame, based on the <code>finish</code> command.  <code>gdb.FinishBreakpoint</code>
 extends <code>gdb.Breakpoint</code>.  The underlying breakpoint will be disabled
@@ -58,7 +58,7 @@ Finish breakpoints are thread specific and must be create with the right
 thread selected.
 
 <div class="defun">
-&mdash; Function: <b>FinishBreakpoint.__init__</b> (<span class="roman">[</span><var>frame</var><span class="roman">]</span> <span class="roman">[</span><var>, internal</var><span class="roman">]</span>)<var><a name="index-FinishBreakpoint_002e_005f_005finit_005f_005f-2251"></a></var><br>
+&mdash; Function: <b>FinishBreakpoint.__init__</b> (<span class="roman">[</span><var>frame</var><span class="roman">]</span> <span class="roman">[</span><var>, internal</var><span class="roman">]</span>)<var><a name="index-FinishBreakpoint_002e_005f_005finit_005f_005f-2322"></a></var><br>
 <blockquote><p>Create a finish breakpoint at the return address of the <code>gdb.Frame</code>
 object <var>frame</var>.  If <var>frame</var> is not provided, this defaults to the
 newest frame.  The optional <var>internal</var> argument allows the breakpoint to
@@ -67,7 +67,7 @@ details about this argument.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Function: <b>FinishBreakpoint.out_of_scope</b> (<var>self</var>)<var><a name="index-FinishBreakpoint_002eout_005fof_005fscope-2252"></a></var><br>
+&mdash; Function: <b>FinishBreakpoint.out_of_scope</b> (<var>self</var>)<var><a name="index-FinishBreakpoint_002eout_005fof_005fscope-2323"></a></var><br>
 <blockquote><p>In some circumstances (e.g. <code>longjmp</code>, C<tt>++</tt> exceptions, <span class="sc">gdb</span>
 <code>return</code> command, <small class="dots">...</small>), a function may not properly terminate, and
 thus never hit the finish breakpoint.  When <span class="sc">gdb</span> notices such a
@@ -87,7 +87,7 @@ method:
         </blockquote></div>
 
 <div class="defun">
-&mdash; Variable: <b>FinishBreakpoint.return_value</b><var><a name="index-FinishBreakpoint_002ereturn_005fvalue-2253"></a></var><br>
+&mdash; Variable: <b>FinishBreakpoint.return_value</b><var><a name="index-FinishBreakpoint_002ereturn_005fvalue-2324"></a></var><br>
 <blockquote><p>When <span class="sc">gdb</span> is stopped at a finish breakpoint and the frame
 used to build the <code>gdb.FinishBreakpoint</code> object had debug symbols, this
 attribute will contain a <code>gdb.Value</code> object corresponding to the return

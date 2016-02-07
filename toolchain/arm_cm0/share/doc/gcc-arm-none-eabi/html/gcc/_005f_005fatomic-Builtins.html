@@ -7,10 +7,10 @@
 <link title="Top" rel="start" href="index.html#Top">
 <link rel="up" href="C-Extensions.html#C-Extensions" title="C Extensions">
 <link rel="prev" href="_005f_005fsync-Builtins.html#g_t_005f_005fsync-Builtins" title="__sync Builtins">
-<link rel="next" href="x86-specific-memory-model-extensions-for-transactional-memory.html#x86-specific-memory-model-extensions-for-transactional-memory" title="x86 specific memory model extensions for transactional memory">
+<link rel="next" href="Integer-Overflow-Builtins.html#Integer-Overflow-Builtins" title="Integer Overflow Builtins">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -47,13 +47,13 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
 <p>
 <a name="__atomic-Builtins"></a>
 <a name="g_t_005f_005fatomic-Builtins"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="x86-specific-memory-model-extensions-for-transactional-memory.html#x86-specific-memory-model-extensions-for-transactional-memory">x86 specific memory model extensions for transactional memory</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="Integer-Overflow-Builtins.html#Integer-Overflow-Builtins">Integer Overflow Builtins</a>,
 Previous:&nbsp;<a rel="previous" accesskey="p" href="_005f_005fsync-Builtins.html#g_t_005f_005fsync-Builtins">__sync Builtins</a>,
 Up:&nbsp;<a rel="up" accesskey="u" href="C-Extensions.html#C-Extensions">C Extensions</a>
 <hr>
 </div>
 
-<h3 class="section">6.52 Built-in functions for memory model aware atomic operations</h3>
+<h3 class="section">6.51 Built-in Functions for Memory Model Aware Atomic Operations</h3>
 
 <p>The following built-in functions approximately match the requirements for
 C++11 memory model. Many are similar to the `<samp><span class="samp">__sync</span></samp>' prefixed built-in
@@ -121,13 +121,13 @@ functions map any run-time value to <code>__ATOMIC_SEQ_CST</code> rather
 than invoke a runtime library call or inline a switch statement.  This is
 standard compliant, safe, and the simplest approach for now.
 
- <p>The memory model parameter is a signed int, but only the lower 8 bits are
+ <p>The memory model parameter is a signed int, but only the lower 16 bits are
 reserved for the memory model.  The remainder of the signed int is reserved
-for future use and should be 0.  Use of the predefined atomic values
+for target use and should be 0.  Use of the predefined atomic values
 ensures proper usage.
 
 <div class="defun">
-&mdash; Built-in Function: <var>type</var> <b>__atomic_load_n</b> (<var>type *ptr, int memmodel</var>)<var><a name="index-g_t_005f_005fatomic_005fload_005fn-3203"></a></var><br>
+&mdash; Built-in Function: <var>type</var> <b>__atomic_load_n</b> (<var>type *ptr, int memmodel</var>)<var><a name="index-g_t_005f_005fatomic_005fload_005fn-3530"></a></var><br>
 <blockquote><p>This built-in function implements an atomic load operation.  It returns the
 contents of <code>*</code><var>ptr</var>.
 
@@ -138,14 +138,14 @@ and <code>__ATOMIC_CONSUME</code>.
       </blockquote></div>
 
 <div class="defun">
-&mdash; Built-in Function: void <b>__atomic_load</b> (<var>type *ptr, type *ret, int memmodel</var>)<var><a name="index-g_t_005f_005fatomic_005fload-3204"></a></var><br>
+&mdash; Built-in Function: void <b>__atomic_load</b> (<var>type *ptr, type *ret, int memmodel</var>)<var><a name="index-g_t_005f_005fatomic_005fload-3531"></a></var><br>
 <blockquote><p>This is the generic version of an atomic load.  It returns the
 contents of <code>*</code><var>ptr</var> in <code>*</code><var>ret</var>.
 
       </blockquote></div>
 
 <div class="defun">
-&mdash; Built-in Function: void <b>__atomic_store_n</b> (<var>type *ptr, type val, int memmodel</var>)<var><a name="index-g_t_005f_005fatomic_005fstore_005fn-3205"></a></var><br>
+&mdash; Built-in Function: void <b>__atomic_store_n</b> (<var>type *ptr, type val, int memmodel</var>)<var><a name="index-g_t_005f_005fatomic_005fstore_005fn-3532"></a></var><br>
 <blockquote><p>This built-in function implements an atomic store operation.  It writes
 <var>val</var> into <code>*</code><var>ptr</var>.
 
@@ -155,14 +155,14 @@ contents of <code>*</code><var>ptr</var> in <code>*</code><var>ret</var>.
       </blockquote></div>
 
 <div class="defun">
-&mdash; Built-in Function: void <b>__atomic_store</b> (<var>type *ptr, type *val, int memmodel</var>)<var><a name="index-g_t_005f_005fatomic_005fstore-3206"></a></var><br>
+&mdash; Built-in Function: void <b>__atomic_store</b> (<var>type *ptr, type *val, int memmodel</var>)<var><a name="index-g_t_005f_005fatomic_005fstore-3533"></a></var><br>
 <blockquote><p>This is the generic version of an atomic store.  It stores the value
 of <code>*</code><var>val</var> into <code>*</code><var>ptr</var>.
 
       </blockquote></div>
 
 <div class="defun">
-&mdash; Built-in Function: <var>type</var> <b>__atomic_exchange_n</b> (<var>type *ptr, type val, int memmodel</var>)<var><a name="index-g_t_005f_005fatomic_005fexchange_005fn-3207"></a></var><br>
+&mdash; Built-in Function: <var>type</var> <b>__atomic_exchange_n</b> (<var>type *ptr, type val, int memmodel</var>)<var><a name="index-g_t_005f_005fatomic_005fexchange_005fn-3534"></a></var><br>
 <blockquote><p>This built-in function implements an atomic exchange operation.  It writes
 <var>val</var> into <code>*</code><var>ptr</var>, and returns the previous contents of
 <code>*</code><var>ptr</var>.
@@ -174,7 +174,7 @@ of <code>*</code><var>val</var> into <code>*</code><var>ptr</var>.
       </blockquote></div>
 
 <div class="defun">
-&mdash; Built-in Function: void <b>__atomic_exchange</b> (<var>type *ptr, type *val, type *ret, int memmodel</var>)<var><a name="index-g_t_005f_005fatomic_005fexchange-3208"></a></var><br>
+&mdash; Built-in Function: void <b>__atomic_exchange</b> (<var>type *ptr, type *val, type *ret, int memmodel</var>)<var><a name="index-g_t_005f_005fatomic_005fexchange-3535"></a></var><br>
 <blockquote><p>This is the generic version of an atomic exchange.  It stores the
 contents of <code>*</code><var>val</var> into <code>*</code><var>ptr</var>. The original value
 of <code>*</code><var>ptr</var> is copied into <code>*</code><var>ret</var>.
@@ -182,7 +182,7 @@ of <code>*</code><var>ptr</var> is copied into <code>*</code><var>ret</var>.
       </blockquote></div>
 
 <div class="defun">
-&mdash; Built-in Function: bool <b>__atomic_compare_exchange_n</b> (<var>type *ptr, type *expected, type desired, bool weak, int success_memmodel, int failure_memmodel</var>)<var><a name="index-g_t_005f_005fatomic_005fcompare_005fexchange_005fn-3209"></a></var><br>
+&mdash; Built-in Function: bool <b>__atomic_compare_exchange_n</b> (<var>type *ptr, type *expected, type desired, bool weak, int success_memmodel, int failure_memmodel</var>)<var><a name="index-g_t_005f_005fatomic_005fcompare_005fexchange_005fn-3536"></a></var><br>
 <blockquote><p>This built-in function implements an atomic compare and exchange operation. 
 This compares the contents of <code>*</code><var>ptr</var> with the contents of
 <code>*</code><var>expected</var> and if equal, writes <var>desired</var> into
@@ -205,7 +205,7 @@ stronger model than that specified by <var>success_memmodel</var>.
       </blockquote></div>
 
 <div class="defun">
-&mdash; Built-in Function: bool <b>__atomic_compare_exchange</b> (<var>type *ptr, type *expected, type *desired, bool weak, int success_memmodel, int failure_memmodel</var>)<var><a name="index-g_t_005f_005fatomic_005fcompare_005fexchange-3210"></a></var><br>
+&mdash; Built-in Function: bool <b>__atomic_compare_exchange</b> (<var>type *ptr, type *expected, type *desired, bool weak, int success_memmodel, int failure_memmodel</var>)<var><a name="index-g_t_005f_005fatomic_005fcompare_005fexchange-3537"></a></var><br>
 <blockquote><p>This built-in function implements the generic version of
 <code>__atomic_compare_exchange</code>.  The function is virtually identical to
 <code>__atomic_compare_exchange_n</code>, except the desired value is also a
@@ -214,12 +214,12 @@ pointer.
       </blockquote></div>
 
 <div class="defun">
-&mdash; Built-in Function: <var>type</var> <b>__atomic_add_fetch</b> (<var>type *ptr, type val, int memmodel</var>)<var><a name="index-g_t_005f_005fatomic_005fadd_005ffetch-3211"></a></var><br>
-&mdash; Built-in Function: <var>type</var> <b>__atomic_sub_fetch</b> (<var>type *ptr, type val, int memmodel</var>)<var><a name="index-g_t_005f_005fatomic_005fsub_005ffetch-3212"></a></var><br>
-&mdash; Built-in Function: <var>type</var> <b>__atomic_and_fetch</b> (<var>type *ptr, type val, int memmodel</var>)<var><a name="index-g_t_005f_005fatomic_005fand_005ffetch-3213"></a></var><br>
-&mdash; Built-in Function: <var>type</var> <b>__atomic_xor_fetch</b> (<var>type *ptr, type val, int memmodel</var>)<var><a name="index-g_t_005f_005fatomic_005fxor_005ffetch-3214"></a></var><br>
-&mdash; Built-in Function: <var>type</var> <b>__atomic_or_fetch</b> (<var>type *ptr, type val, int memmodel</var>)<var><a name="index-g_t_005f_005fatomic_005for_005ffetch-3215"></a></var><br>
-&mdash; Built-in Function: <var>type</var> <b>__atomic_nand_fetch</b> (<var>type *ptr, type val, int memmodel</var>)<var><a name="index-g_t_005f_005fatomic_005fnand_005ffetch-3216"></a></var><br>
+&mdash; Built-in Function: <var>type</var> <b>__atomic_add_fetch</b> (<var>type *ptr, type val, int memmodel</var>)<var><a name="index-g_t_005f_005fatomic_005fadd_005ffetch-3538"></a></var><br>
+&mdash; Built-in Function: <var>type</var> <b>__atomic_sub_fetch</b> (<var>type *ptr, type val, int memmodel</var>)<var><a name="index-g_t_005f_005fatomic_005fsub_005ffetch-3539"></a></var><br>
+&mdash; Built-in Function: <var>type</var> <b>__atomic_and_fetch</b> (<var>type *ptr, type val, int memmodel</var>)<var><a name="index-g_t_005f_005fatomic_005fand_005ffetch-3540"></a></var><br>
+&mdash; Built-in Function: <var>type</var> <b>__atomic_xor_fetch</b> (<var>type *ptr, type val, int memmodel</var>)<var><a name="index-g_t_005f_005fatomic_005fxor_005ffetch-3541"></a></var><br>
+&mdash; Built-in Function: <var>type</var> <b>__atomic_or_fetch</b> (<var>type *ptr, type val, int memmodel</var>)<var><a name="index-g_t_005f_005fatomic_005for_005ffetch-3542"></a></var><br>
+&mdash; Built-in Function: <var>type</var> <b>__atomic_nand_fetch</b> (<var>type *ptr, type val, int memmodel</var>)<var><a name="index-g_t_005f_005fatomic_005fnand_005ffetch-3543"></a></var><br>
 <blockquote><p>These built-in functions perform the operation suggested by the name, and
 return the result of the operation. That is,
 
@@ -230,12 +230,12 @@ return the result of the operation. That is,
       </blockquote></div>
 
 <div class="defun">
-&mdash; Built-in Function: <var>type</var> <b>__atomic_fetch_add</b> (<var>type *ptr, type val, int memmodel</var>)<var><a name="index-g_t_005f_005fatomic_005ffetch_005fadd-3217"></a></var><br>
-&mdash; Built-in Function: <var>type</var> <b>__atomic_fetch_sub</b> (<var>type *ptr, type val, int memmodel</var>)<var><a name="index-g_t_005f_005fatomic_005ffetch_005fsub-3218"></a></var><br>
-&mdash; Built-in Function: <var>type</var> <b>__atomic_fetch_and</b> (<var>type *ptr, type val, int memmodel</var>)<var><a name="index-g_t_005f_005fatomic_005ffetch_005fand-3219"></a></var><br>
-&mdash; Built-in Function: <var>type</var> <b>__atomic_fetch_xor</b> (<var>type *ptr, type val, int memmodel</var>)<var><a name="index-g_t_005f_005fatomic_005ffetch_005fxor-3220"></a></var><br>
-&mdash; Built-in Function: <var>type</var> <b>__atomic_fetch_or</b> (<var>type *ptr, type val, int memmodel</var>)<var><a name="index-g_t_005f_005fatomic_005ffetch_005for-3221"></a></var><br>
-&mdash; Built-in Function: <var>type</var> <b>__atomic_fetch_nand</b> (<var>type *ptr, type val, int memmodel</var>)<var><a name="index-g_t_005f_005fatomic_005ffetch_005fnand-3222"></a></var><br>
+&mdash; Built-in Function: <var>type</var> <b>__atomic_fetch_add</b> (<var>type *ptr, type val, int memmodel</var>)<var><a name="index-g_t_005f_005fatomic_005ffetch_005fadd-3544"></a></var><br>
+&mdash; Built-in Function: <var>type</var> <b>__atomic_fetch_sub</b> (<var>type *ptr, type val, int memmodel</var>)<var><a name="index-g_t_005f_005fatomic_005ffetch_005fsub-3545"></a></var><br>
+&mdash; Built-in Function: <var>type</var> <b>__atomic_fetch_and</b> (<var>type *ptr, type val, int memmodel</var>)<var><a name="index-g_t_005f_005fatomic_005ffetch_005fand-3546"></a></var><br>
+&mdash; Built-in Function: <var>type</var> <b>__atomic_fetch_xor</b> (<var>type *ptr, type val, int memmodel</var>)<var><a name="index-g_t_005f_005fatomic_005ffetch_005fxor-3547"></a></var><br>
+&mdash; Built-in Function: <var>type</var> <b>__atomic_fetch_or</b> (<var>type *ptr, type val, int memmodel</var>)<var><a name="index-g_t_005f_005fatomic_005ffetch_005for-3548"></a></var><br>
+&mdash; Built-in Function: <var>type</var> <b>__atomic_fetch_nand</b> (<var>type *ptr, type val, int memmodel</var>)<var><a name="index-g_t_005f_005fatomic_005ffetch_005fnand-3549"></a></var><br>
 <blockquote><p>These built-in functions perform the operation suggested by the name, and
 return the value that had previously been in <code>*</code><var>ptr</var>.  That is,
 
@@ -246,7 +246,7 @@ return the value that had previously been in <code>*</code><var>ptr</var>.  That
       </blockquote></div>
 
 <div class="defun">
-&mdash; Built-in Function: bool <b>__atomic_test_and_set</b> (<var>void *ptr, int memmodel</var>)<var><a name="index-g_t_005f_005fatomic_005ftest_005fand_005fset-3223"></a></var><br>
+&mdash; Built-in Function: bool <b>__atomic_test_and_set</b> (<var>void *ptr, int memmodel</var>)<var><a name="index-g_t_005f_005fatomic_005ftest_005fand_005fset-3550"></a></var><br>
 <blockquote>
 <p>This built-in function performs an atomic test-and-set operation on
 the byte at <code>*</code><var>ptr</var>.  The byte is set to some implementation
@@ -260,7 +260,7 @@ other types only part of the value may be set.
       </blockquote></div>
 
 <div class="defun">
-&mdash; Built-in Function: void <b>__atomic_clear</b> (<var>bool *ptr, int memmodel</var>)<var><a name="index-g_t_005f_005fatomic_005fclear-3224"></a></var><br>
+&mdash; Built-in Function: void <b>__atomic_clear</b> (<var>bool *ptr, int memmodel</var>)<var><a name="index-g_t_005f_005fatomic_005fclear-3551"></a></var><br>
 <blockquote>
 <p>This built-in function performs an atomic clear operation on
 <code>*</code><var>ptr</var>.  After the operation, <code>*</code><var>ptr</var> contains 0. 
@@ -276,7 +276,7 @@ prefer using <code>__atomic_store</code>.
       </blockquote></div>
 
 <div class="defun">
-&mdash; Built-in Function: void <b>__atomic_thread_fence</b> (<var>int memmodel</var>)<var><a name="index-g_t_005f_005fatomic_005fthread_005ffence-3225"></a></var><br>
+&mdash; Built-in Function: void <b>__atomic_thread_fence</b> (<var>int memmodel</var>)<var><a name="index-g_t_005f_005fatomic_005fthread_005ffence-3552"></a></var><br>
 <blockquote>
 <p>This built-in function acts as a synchronization fence between threads
 based on the specified memory model.
@@ -286,7 +286,7 @@ based on the specified memory model.
       </blockquote></div>
 
 <div class="defun">
-&mdash; Built-in Function: void <b>__atomic_signal_fence</b> (<var>int memmodel</var>)<var><a name="index-g_t_005f_005fatomic_005fsignal_005ffence-3226"></a></var><br>
+&mdash; Built-in Function: void <b>__atomic_signal_fence</b> (<var>int memmodel</var>)<var><a name="index-g_t_005f_005fatomic_005fsignal_005ffence-3553"></a></var><br>
 <blockquote>
 <p>This built-in function acts as a synchronization fence between a thread
 and signal handlers based in the same thread.
@@ -296,7 +296,7 @@ and signal handlers based in the same thread.
       </blockquote></div>
 
 <div class="defun">
-&mdash; Built-in Function: bool <b>__atomic_always_lock_free</b> (<var>size_t size, void *ptr</var>)<var><a name="index-g_t_005f_005fatomic_005falways_005flock_005ffree-3227"></a></var><br>
+&mdash; Built-in Function: bool <b>__atomic_always_lock_free</b> (<var>size_t size, void *ptr</var>)<var><a name="index-g_t_005f_005fatomic_005falways_005flock_005ffree-3554"></a></var><br>
 <blockquote>
 <p>This built-in function returns true if objects of <var>size</var> bytes always
 generate lock free atomic instructions for the target architecture. 
@@ -312,7 +312,7 @@ compiler may also ignore this parameter.
       </blockquote></div>
 
 <div class="defun">
-&mdash; Built-in Function: bool <b>__atomic_is_lock_free</b> (<var>size_t size, void *ptr</var>)<var><a name="index-g_t_005f_005fatomic_005fis_005flock_005ffree-3228"></a></var><br>
+&mdash; Built-in Function: bool <b>__atomic_is_lock_free</b> (<var>size_t size, void *ptr</var>)<var><a name="index-g_t_005f_005fatomic_005fis_005flock_005ffree-3555"></a></var><br>
 <blockquote>
 <p>This built-in function returns true if objects of <var>size</var> bytes always
 generate lock free atomic instructions for the target architecture.  If

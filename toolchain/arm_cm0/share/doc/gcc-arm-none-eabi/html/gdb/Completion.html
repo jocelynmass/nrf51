@@ -10,7 +10,7 @@
 <link rel="next" href="Help.html#Help" title="Help">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -105,7 +105,32 @@ means <kbd>&lt;META&gt; ?</kbd>.  You can type this either by holding down a
 key designated as the &lt;META&gt; shift on your keyboard (if there is
 one) while typing <kbd>?</kbd>, or as &lt;ESC&gt; followed by <kbd>?</kbd>.
 
-   <p><a name="index-quotes-in-commands-85"></a><a name="index-completion-of-quoted-strings-86"></a>Sometimes the string you need, while logically a &ldquo;word&rdquo;, may contain
+   <p>If the number of possible completions is large, <span class="sc">gdb</span> will
+print as much of the list as it has collected, as well as a message
+indicating that the list may be truncated.
+
+<pre class="smallexample">     (gdb) b m&lt;TAB&gt;&lt;TAB&gt;
+     main
+     &lt;... the rest of the possible completions ...&gt;
+     *** List may be truncated, max-completions reached. ***
+     (gdb) b m
+</pre>
+   <p class="noindent">This behavior can be controlled with the following commands:
+
+     
+<a name="index-set-max_002dcompletions-85"></a>
+<dl><dt><code>set max-completions </code><var>limit</var><dt><code>set max-completions unlimited</code><dd>Set the maximum number of completion candidates.  <span class="sc">gdb</span> will
+stop looking for more completions once it collects this many candidates. 
+This is useful when completing on things like function names as collecting
+all the possible candidates can be time consuming. 
+The default value is 200.  A value of zero disables tab-completion. 
+Note that setting either no limit or a very large limit can make
+completion slow. 
+<a name="index-show-max_002dcompletions-86"></a><br><dt><code>show max-completions</code><dd>Show the maximum number of candidates that <span class="sc">gdb</span> will collect and show
+during completion. 
+</dl>
+
+   <p><a name="index-quotes-in-commands-87"></a><a name="index-completion-of-quoted-strings-88"></a>Sometimes the string you need, while logically a &ldquo;word&rdquo;, may contain
 parentheses or other characters that <span class="sc">gdb</span> normally excludes from
 its notion of a word.  To permit word completion to work in this
 situation, you may enclose words in <code>'</code> (single quote marks) in
@@ -144,7 +169,7 @@ completion on an overloaded symbol.
 overload-resolution off</code> to disable overload resolution;
 see <a href="Debugging-C-Plus-Plus.html#Debugging-C-Plus-Plus"><span class="sc">gdb</span> Features for C<tt>++</tt></a>.
 
-   <p><a name="index-completion-of-structure-field-names-87"></a><a name="index-structure-field-name-completion-88"></a><a name="index-completion-of-union-field-names-89"></a><a name="index-union-field-name-completion-90"></a>When completing in an expression which looks up a field in a
+   <p><a name="index-completion-of-structure-field-names-89"></a><a name="index-structure-field-name-completion-90"></a><a name="index-completion-of-union-field-names-91"></a><a name="index-union-field-name-completion-92"></a>When completing in an expression which looks up a field in a
 structure, <span class="sc">gdb</span> also tries<a rel="footnote" href="#fn-1" name="fnd-1"><sup>1</sup></a> to
 limit completions to the field names available in the type of the
 left-hand-side:

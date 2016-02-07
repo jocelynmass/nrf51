@@ -12,7 +12,7 @@
 <!--
 This file documents the BFD library.
 
-Copyright (C) 1991-2014 Free Software Foundation, Inc.
+Copyright (C) 1991-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -61,7 +61,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="BFD-front-end.html#BFD-front-end">BFD f
 
 <h4 class="subsection">2.14.1 Functions for opening and closing</h4>
 
-<p><a name="index-bfd_005ffopen-2147"></a>
+<p><a name="index-bfd_005ffopen-2207"></a>
 
 <h5 class="subsubsection">2.14.1.1 <code>bfd_fopen</code></h5>
 
@@ -90,7 +90,7 @@ are <code>bfd_error_no_memory</code>, <code>bfd_error_invalid_target</code> or
    <p>A copy of the <var>filename</var> argument is stored in the newly created
 BFD.  It can be accessed via the bfd_get_filename() macro.
 
-   <p><a name="index-bfd_005fopenr-2148"></a>
+   <p><a name="index-bfd_005fopenr-2208"></a>
 
 <h5 class="subsubsection">2.14.1.2 <code>bfd_openr</code></h5>
 
@@ -111,7 +111,7 @@ are <code>bfd_error_no_memory</code>, <code>bfd_error_invalid_target</code> or
    <p>A copy of the <var>filename</var> argument is stored in the newly created
 BFD.  It can be accessed via the bfd_get_filename() macro.
 
-   <p><a name="index-bfd_005ffdopenr-2149"></a>
+   <p><a name="index-bfd_005ffdopenr-2209"></a>
 
 <h5 class="subsubsection">2.14.1.3 <code>bfd_fdopenr</code></h5>
 
@@ -141,7 +141,7 @@ on other files.
    <p>A copy of the <var>filename</var> argument is stored in the newly created
 BFD.  It can be accessed via the bfd_get_filename() macro.
 
-   <p><a name="index-bfd_005fopenstreamr-2150"></a>
+   <p><a name="index-bfd_005fopenstreamr-2210"></a>
 
 <h5 class="subsubsection">2.14.1.4 <code>bfd_openstreamr</code></h5>
 
@@ -155,7 +155,7 @@ the BFD is passed to <code>bfd_close</code>, the stream will be closed.
    <p>A copy of the <var>filename</var> argument is stored in the newly created
 BFD.  It can be accessed via the bfd_get_filename() macro.
 
-   <p><a name="index-bfd_005fopenr_005fiovec-2151"></a>
+   <p><a name="index-bfd_005fopenr_005fiovec-2211"></a>
 
 <h5 class="subsubsection">2.14.1.5 <code>bfd_openr_iovec</code></h5>
 
@@ -210,7 +210,7 @@ occurred.  Possible errors are <code>bfd_error_no_memory</code>,
    <p>A copy of the <var>filename</var> argument is stored in the newly created
 BFD.  It can be accessed via the bfd_get_filename() macro.
 
-   <p><a name="index-bfd_005fopenw-2152"></a>
+   <p><a name="index-bfd_005fopenw-2212"></a>
 
 <h5 class="subsubsection">2.14.1.6 <code>bfd_openw</code></h5>
 
@@ -227,7 +227,7 @@ file format <var>target</var>, and return a pointer to it.
    <p>A copy of the <var>filename</var> argument is stored in the newly created
 BFD.  It can be accessed via the bfd_get_filename() macro.
 
-   <p><a name="index-bfd_005fclose-2153"></a>
+   <p><a name="index-bfd_005fclose-2213"></a>
 
 <h5 class="subsubsection">2.14.1.7 <code>bfd_close</code></h5>
 
@@ -248,7 +248,7 @@ if it was passed in to BFD by <code>bfd_fdopenr</code>).
    <p><strong>Returns</strong><br>
 <code>TRUE</code> is returned if all is ok, otherwise <code>FALSE</code>.
 
-   <p><a name="index-bfd_005fclose_005fall_005fdone-2154"></a>
+   <p><a name="index-bfd_005fclose_005fall_005fdone-2214"></a>
 
 <h5 class="subsubsection">2.14.1.8 <code>bfd_close_all_done</code></h5>
 
@@ -269,7 +269,7 @@ to mark it as such.
    <p><strong>Returns</strong><br>
 <code>TRUE</code> is returned if all is ok, otherwise <code>FALSE</code>.
 
-   <p><a name="index-bfd_005fcreate-2155"></a>
+   <p><a name="index-bfd_005fcreate-2215"></a>
 
 <h5 class="subsubsection">2.14.1.9 <code>bfd_create</code></h5>
 
@@ -284,7 +284,7 @@ used by <var>templ</var>. The format is always set to <code>bfd_object</code>.
    <p>A copy of the <var>filename</var> argument is stored in the newly created
 BFD.  It can be accessed via the bfd_get_filename() macro.
 
-   <p><a name="index-bfd_005fmake_005fwritable-2156"></a>
+   <p><a name="index-bfd_005fmake_005fwritable-2216"></a>
 
 <h5 class="subsubsection">2.14.1.10 <code>bfd_make_writable</code></h5>
 
@@ -300,7 +300,7 @@ you will call <code>bfd_make_readable</code> on this bfd later.
    <p><strong>Returns</strong><br>
 <code>TRUE</code> is returned if all is ok, otherwise <code>FALSE</code>.
 
-   <p><a name="index-bfd_005fmake_005freadable-2157"></a>
+   <p><a name="index-bfd_005fmake_005freadable-2217"></a>
 
 <h5 class="subsubsection">2.14.1.11 <code>bfd_make_readable</code></h5>
 
@@ -317,7 +317,7 @@ direction.
    <p><strong>Returns</strong><br>
 <code>TRUE</code> is returned if all is ok, otherwise <code>FALSE</code>.
 
-   <p><a name="index-bfd_005falloc-2158"></a>
+   <p><a name="index-bfd_005falloc-2218"></a>
 
 <h5 class="subsubsection">2.14.1.12 <code>bfd_alloc</code></h5>
 
@@ -328,7 +328,7 @@ direction.
 Allocate a block of <var>wanted</var> bytes of memory attached to
 <code>abfd</code> and return a pointer to it.
 
-   <p><a name="index-bfd_005falloc2-2159"></a>
+   <p><a name="index-bfd_005falloc2-2219"></a>
 
 <h5 class="subsubsection">2.14.1.13 <code>bfd_alloc2</code></h5>
 
@@ -339,7 +339,7 @@ Allocate a block of <var>wanted</var> bytes of memory attached to
 Allocate a block of <var>nmemb</var> elements of <var>size</var> bytes each
 of memory attached to <code>abfd</code> and return a pointer to it.
 
-   <p><a name="index-bfd_005fzalloc-2160"></a>
+   <p><a name="index-bfd_005fzalloc-2220"></a>
 
 <h5 class="subsubsection">2.14.1.14 <code>bfd_zalloc</code></h5>
 
@@ -350,7 +350,7 @@ of memory attached to <code>abfd</code> and return a pointer to it.
 Allocate a block of <var>wanted</var> bytes of zeroed memory
 attached to <code>abfd</code> and return a pointer to it.
 
-   <p><a name="index-bfd_005fzalloc2-2161"></a>
+   <p><a name="index-bfd_005fzalloc2-2221"></a>
 
 <h5 class="subsubsection">2.14.1.15 <code>bfd_zalloc2</code></h5>
 
@@ -361,7 +361,7 @@ attached to <code>abfd</code> and return a pointer to it.
 Allocate a block of <var>nmemb</var> elements of <var>size</var> bytes each
 of zeroed memory attached to <code>abfd</code> and return a pointer to it.
 
-   <p><a name="index-bfd_005fcalc_005fgnu_005fdebuglink_005fcrc32-2162"></a>
+   <p><a name="index-bfd_005fcalc_005fgnu_005fdebuglink_005fcrc32-2222"></a>
 
 <h5 class="subsubsection">2.14.1.16 <code>bfd_calc_gnu_debuglink_crc32</code></h5>
 
@@ -377,7 +377,7 @@ and adding in the crc32 for <var>len</var> bytes of <var>buf</var>.
    <p><strong>Returns</strong><br>
 Return the updated CRC32 value.
 
-   <p><a name="index-bfd_005fget_005fdebug_005flink_005finfo-2163"></a>
+   <p><a name="index-bfd_005fget_005fdebug_005flink_005finfo-2223"></a>
 
 <h5 class="subsubsection">2.14.1.17 <code>bfd_get_debug_link_info</code></h5>
 
@@ -391,7 +391,7 @@ otherwise return filename and update <var>crc32_out</var>.  The
 returned filename is allocated with <code>malloc</code>; freeing it
 is the responsibility of the caller.
 
-   <p><a name="index-bfd_005fget_005falt_005fdebug_005flink_005finfo-2164"></a>
+   <p><a name="index-bfd_005fget_005falt_005fdebug_005flink_005finfo-2224"></a>
 
 <h5 class="subsubsection">2.14.1.18 <code>bfd_get_alt_debug_link_info</code></h5>
 
@@ -408,7 +408,7 @@ otherwise return filename and update <var>buildid_len</var> and
 allocated with <code>malloc</code>; freeing them is the
 responsibility of the caller.
 
-   <p><a name="index-separate_005fdebug_005ffile_005fexists-2165"></a>
+   <p><a name="index-separate_005fdebug_005ffile_005fexists-2225"></a>
 
 <h5 class="subsubsection">2.14.1.19 <code>separate_debug_file_exists</code></h5>
 
@@ -420,7 +420,7 @@ responsibility of the caller.
 Checks to see if <var>name</var> is a file and if its contents
 match <var>crc32</var>.
 
-   <p><a name="index-separate_005falt_005fdebug_005ffile_005fexists-2166"></a>
+   <p><a name="index-separate_005falt_005fdebug_005ffile_005fexists-2226"></a>
 
 <h5 class="subsubsection">2.14.1.20 <code>separate_alt_debug_file_exists</code></h5>
 
@@ -432,7 +432,7 @@ match <var>crc32</var>.
 Checks to see if <var>name</var> is a file and if its BuildID
 matches <var>buildid</var>.
 
-   <p><a name="index-find_005fseparate_005fdebug_005ffile-2167"></a>
+   <p><a name="index-find_005fseparate_005fdebug_005ffile-2227"></a>
 
 <h5 class="subsubsection">2.14.1.21 <code>find_separate_debug_file</code></h5>
 
@@ -449,7 +449,7 @@ filename that it finds.  If <var>check_crc</var> is TRUE then the
 contents of the file must also match the CRC value contained in
 <var>section_name</var>.  Returns NULL if no valid file could be found.
 
-   <p><a name="index-bfd_005ffollow_005fgnu_005fdebuglink-2168"></a>
+   <p><a name="index-bfd_005ffollow_005fgnu_005fdebuglink-2228"></a>
 
 <h5 class="subsubsection">2.14.1.22 <code>bfd_follow_gnu_debuglink</code></h5>
 
@@ -473,7 +473,7 @@ implemented].
 otherwise a pointer to a heap-allocated string containing the
 filename.  The caller is responsible for freeing this string.
 
-   <p><a name="index-bfd_005ffollow_005fgnu_005fdebugaltlink-2169"></a>
+   <p><a name="index-bfd_005ffollow_005fgnu_005fdebugaltlink-2229"></a>
 
 <h5 class="subsubsection">2.14.1.23 <code>bfd_follow_gnu_debugaltlink</code></h5>
 
@@ -497,7 +497,7 @@ implemented].
 otherwise a pointer to a heap-allocated string containing the
 filename.  The caller is responsible for freeing this string.
 
-   <p><a name="index-bfd_005fcreate_005fgnu_005fdebuglink_005fsection-2170"></a>
+   <p><a name="index-bfd_005fcreate_005fgnu_005fdebuglink_005fsection-2230"></a>
 
 <h5 class="subsubsection">2.14.1.24 <code>bfd_create_gnu_debuglink_section</code></h5>
 
@@ -513,7 +513,7 @@ to be big enough to contain a link to the specified <var>filename</var>.
 A pointer to the new section is returned if all is ok.  Otherwise <code>NULL</code> is
 returned and bfd_error is set.
 
-   <p><a name="index-bfd_005ffill_005fin_005fgnu_005fdebuglink_005fsection-2171"></a>
+   <p><a name="index-bfd_005ffill_005fin_005fgnu_005fdebuglink_005fsection-2231"></a>
 
 <h5 class="subsubsection">2.14.1.25 <code>bfd_fill_in_gnu_debuglink_section</code></h5>
 

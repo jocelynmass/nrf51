@@ -10,7 +10,7 @@
 <link rel="next" href="_0040code_007bGIMPLE_005fEH_005fFILTER_007d.html#g_t_0040code_007bGIMPLE_005fEH_005fFILTER_007d" title="@code{GIMPLE_EH_FILTER}">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -53,12 +53,12 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Tuple-specific-accessors.html#Tuple-spe
 <hr>
 </div>
 
-<h4 class="subsection">11.7.7 <code>GIMPLE_DEBUG</code></h4>
+<h4 class="subsection">11.8.7 <code>GIMPLE_DEBUG</code></h4>
 
-<p><a name="index-g_t_0040code_007bGIMPLE_005fDEBUG_007d-2277"></a><a name="index-g_t_0040code_007bGIMPLE_005fDEBUG_005fBIND_007d-2278"></a>
+<p><a name="index-g_t_0040code_007bGIMPLE_005fDEBUG_007d-2293"></a><a name="index-g_t_0040code_007bGIMPLE_005fDEBUG_005fBIND_007d-2294"></a>
 
 <div class="defun">
-&mdash; GIMPLE function: gimple <b>gimple_build_debug_bind</b> (<var>tree var, tree value, gimple stmt</var>)<var><a name="index-gimple_005fbuild_005fdebug_005fbind-2279"></a></var><br>
+&mdash; GIMPLE function: gdebug <b>*gimple_build_debug_bind</b> (<var>tree var, tree value, gimple stmt</var>)<var><a name="index-g_t_002agimple_005fbuild_005fdebug_005fbind-2295"></a></var><br>
 <blockquote><p>Build a <code>GIMPLE_DEBUG</code> statement with <code>GIMPLE_DEBUG_BIND</code> of
 <code>subcode</code>.  The effect of this statement is to tell debug
 information generation machinery that the value of user variable
@@ -98,41 +98,41 @@ taken from <code>stmt</code>, if given.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: tree <b>gimple_debug_bind_get_var</b> (<var>gimple stmt</var>)<var><a name="index-gimple_005fdebug_005fbind_005fget_005fvar-2280"></a></var><br>
+&mdash; GIMPLE function: tree <b>gimple_debug_bind_get_var</b> (<var>gimple stmt</var>)<var><a name="index-gimple_005fdebug_005fbind_005fget_005fvar-2296"></a></var><br>
 <blockquote><p>Return the user variable <var>var</var> that is bound at <code>stmt</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: tree <b>gimple_debug_bind_get_value</b> (<var>gimple stmt</var>)<var><a name="index-gimple_005fdebug_005fbind_005fget_005fvalue-2281"></a></var><br>
+&mdash; GIMPLE function: tree <b>gimple_debug_bind_get_value</b> (<var>gimple stmt</var>)<var><a name="index-gimple_005fdebug_005fbind_005fget_005fvalue-2297"></a></var><br>
 <blockquote><p>Return the value expression that is bound to a user variable at
 <code>stmt</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: tree * <b>gimple_debug_bind_get_value_ptr</b> (<var>gimple stmt</var>)<var><a name="index-gimple_005fdebug_005fbind_005fget_005fvalue_005fptr-2282"></a></var><br>
+&mdash; GIMPLE function: tree * <b>gimple_debug_bind_get_value_ptr</b> (<var>gimple stmt</var>)<var><a name="index-gimple_005fdebug_005fbind_005fget_005fvalue_005fptr-2298"></a></var><br>
 <blockquote><p>Return a pointer to the value expression that is bound to a user
 variable at <code>stmt</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: void <b>gimple_debug_bind_set_var</b> (<var>gimple stmt, tree var</var>)<var><a name="index-gimple_005fdebug_005fbind_005fset_005fvar-2283"></a></var><br>
+&mdash; GIMPLE function: void <b>gimple_debug_bind_set_var</b> (<var>gimple stmt, tree var</var>)<var><a name="index-gimple_005fdebug_005fbind_005fset_005fvar-2299"></a></var><br>
 <blockquote><p>Modify the user variable bound at <code>stmt</code> to <var>var</var>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: void <b>gimple_debug_bind_set_value</b> (<var>gimple stmt, tree var</var>)<var><a name="index-gimple_005fdebug_005fbind_005fset_005fvalue-2284"></a></var><br>
+&mdash; GIMPLE function: void <b>gimple_debug_bind_set_value</b> (<var>gimple stmt, tree var</var>)<var><a name="index-gimple_005fdebug_005fbind_005fset_005fvalue-2300"></a></var><br>
 <blockquote><p>Modify the value bound to the user variable bound at <code>stmt</code> to
 <var>value</var>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: void <b>gimple_debug_bind_reset_value</b> (<var>gimple stmt</var>)<var><a name="index-gimple_005fdebug_005fbind_005freset_005fvalue-2285"></a></var><br>
+&mdash; GIMPLE function: void <b>gimple_debug_bind_reset_value</b> (<var>gimple stmt</var>)<var><a name="index-gimple_005fdebug_005fbind_005freset_005fvalue-2301"></a></var><br>
 <blockquote><p>Modify the value bound to the user variable bound at <code>stmt</code> so
 that the variable becomes unbound. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: bool <b>gimple_debug_bind_has_value_p</b> (<var>gimple stmt</var>)<var><a name="index-gimple_005fdebug_005fbind_005fhas_005fvalue_005fp-2286"></a></var><br>
+&mdash; GIMPLE function: bool <b>gimple_debug_bind_has_value_p</b> (<var>gimple stmt</var>)<var><a name="index-gimple_005fdebug_005fbind_005fhas_005fvalue_005fp-2302"></a></var><br>
 <blockquote><p>Return <code>TRUE</code> if <code>stmt</code> binds a user variable to a value,
 and <code>FALSE</code> if it unbinds the variable. 
 </p></blockquote></div>

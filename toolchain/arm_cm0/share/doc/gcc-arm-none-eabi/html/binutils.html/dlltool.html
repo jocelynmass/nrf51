@@ -9,7 +9,7 @@
 <link rel="next" href="readelf.html#readelf" title="readelf">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1991-2013 Free Software Foundation, Inc.
+Copyright (C) 1991-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
@@ -244,10 +244,14 @@ functions. Variable names and non-stdcall function names are not modified.
 This option is useful when creating GNU-compatible import libs for third
 party DLLs that were built with MS-Windows tools.
 
-     <br><dt><samp><span class="env">-k</span></samp><dt><samp><span class="env">--kill-at</span></samp><dd>Specifies that when <samp><span class="command">dlltool</span></samp> is creating the exports file it
-should not append the string `<samp><span class="samp">@ &lt;number&gt;</span></samp>'.  These numbers are
-called ordinal numbers and they represent another way of accessing the
-function in a DLL, other than by name.
+     <br><dt><samp><span class="env">-k</span></samp><dt><samp><span class="env">--kill-at</span></samp><dd>Specifies that `<samp><span class="samp">@&lt;number&gt;</span></samp>' suffixes should be omitted from the names
+of stdcall functions that will be imported from the DLL.  This is
+useful when creating an import library for a DLL which exports stdcall
+functions but without the usual `<samp><span class="samp">@&lt;number&gt;</span></samp>' symbol name suffix.
+
+     <p>This does not change the naming of symbols provided by the import library
+to programs linked against it, but only the entries in the import table
+(ie the .idata section).
 
      <br><dt><samp><span class="env">-A</span></samp><dt><samp><span class="env">--add-stdcall-alias</span></samp><dd>Specifies that when <samp><span class="command">dlltool</span></samp> is creating the exports file it
 should add aliases for stdcall symbols without `<samp><span class="samp">@ &lt;number&gt;</span></samp>'

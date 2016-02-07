@@ -9,7 +9,7 @@
 <link rel="next" href="_0040code_007bGIMPLE_005fASSIGN_007d.html#g_t_0040code_007bGIMPLE_005fASSIGN_007d" title="@code{GIMPLE_ASSIGN}">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -51,85 +51,78 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Tuple-specific-accessors.html#Tuple-spe
 <hr>
 </div>
 
-<h4 class="subsection">11.7.1 <code>GIMPLE_ASM</code></h4>
+<h4 class="subsection">11.8.1 <code>GIMPLE_ASM</code></h4>
 
-<p><a name="index-g_t_0040code_007bGIMPLE_005fASM_007d-2186"></a>
+<p><a name="index-g_t_0040code_007bGIMPLE_005fASM_007d-2203"></a>
 
 <div class="defun">
-&mdash; GIMPLE function: gimple <b>gimple_build_asm</b> (<var>const char *string, ninputs, noutputs, nclobbers, ...</var>)<var><a name="index-gimple_005fbuild_005fasm-2187"></a></var><br>
+&mdash; GIMPLE function: gasm <b>*gimple_build_asm_vec</b> (<var> const char *string, vec&lt;tree, va_gc&gt; *inputs, vec&lt;tree, va_gc&gt; *outputs, vec&lt;tree, va_gc&gt; *clobbers, vec&lt;tree, va_gc&gt; *labels</var>)<var><a name="index-g_t_002agimple_005fbuild_005fasm_005fvec-2204"></a></var><br>
 <blockquote><p>Build a <code>GIMPLE_ASM</code> statement.  This statement is used for
 building in-line assembly constructs.  <code>STRING</code> is the assembly
-code.  <code>NINPUT</code> is the number of register inputs.  <code>NOUTPUT</code> is the
-number of register outputs.  <code>NCLOBBERS</code> is the number of clobbered
-registers.  The rest of the arguments trees for each input,
-output, and clobbered registers. 
+code.  <code>INPUTS</code>, <code>OUTPUTS</code>, <code>CLOBBERS</code>  and <code>LABELS</code>
+are the inputs, outputs, clobbered registers and labels. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: gimple <b>gimple_build_asm_vec</b> (<var>const char *, VEC</var>(<var>tree,gc</var>)<var> *, VEC</var>(<var>tree,gc</var>)<var> *, VEC</var>(<var>tree,gc</var>)<var> *</var>)<var><a name="index-gimple_005fbuild_005fasm_005fvec-2188"></a></var><br>
-<blockquote><p>Identical to gimple_build_asm, but the arguments are passed in
-VECs. 
-</p></blockquote></div>
-
-<div class="defun">
-&mdash; GIMPLE function: unsigned <b>gimple_asm_ninputs</b> (<var>gimple g</var>)<var><a name="index-gimple_005fasm_005fninputs-2189"></a></var><br>
+&mdash; GIMPLE function: unsigned <b>gimple_asm_ninputs</b> (<var>const gasm *g</var>)<var><a name="index-gimple_005fasm_005fninputs-2205"></a></var><br>
 <blockquote><p>Return the number of input operands for <code>GIMPLE_ASM</code> <code>G</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: unsigned <b>gimple_asm_noutputs</b> (<var>gimple g</var>)<var><a name="index-gimple_005fasm_005fnoutputs-2190"></a></var><br>
+&mdash; GIMPLE function: unsigned <b>gimple_asm_noutputs</b> (<var>const gasm *g</var>)<var><a name="index-gimple_005fasm_005fnoutputs-2206"></a></var><br>
 <blockquote><p>Return the number of output operands for <code>GIMPLE_ASM</code> <code>G</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: unsigned <b>gimple_asm_nclobbers</b> (<var>gimple g</var>)<var><a name="index-gimple_005fasm_005fnclobbers-2191"></a></var><br>
+&mdash; GIMPLE function: unsigned <b>gimple_asm_nclobbers</b> (<var>const gasm *g</var>)<var><a name="index-gimple_005fasm_005fnclobbers-2207"></a></var><br>
 <blockquote><p>Return the number of clobber operands for <code>GIMPLE_ASM</code> <code>G</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: tree <b>gimple_asm_input_op</b> (<var>gimple g, unsigned index</var>)<var><a name="index-gimple_005fasm_005finput_005fop-2192"></a></var><br>
+&mdash; GIMPLE function: tree <b>gimple_asm_input_op</b> (<var>const gasm *g, unsigned index</var>)<var><a name="index-gimple_005fasm_005finput_005fop-2208"></a></var><br>
 <blockquote><p>Return input operand <code>INDEX</code> of <code>GIMPLE_ASM</code> <code>G</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: void <b>gimple_asm_set_input_op</b> (<var>gimple g, unsigned index, tree in_op</var>)<var><a name="index-gimple_005fasm_005fset_005finput_005fop-2193"></a></var><br>
+&mdash; GIMPLE function: void <b>gimple_asm_set_input_op</b> (<var>gasm *g, unsigned index, tree in_op</var>)<var><a name="index-gimple_005fasm_005fset_005finput_005fop-2209"></a></var><br>
 <blockquote><p>Set <code>IN_OP</code> to be input operand <code>INDEX</code> in <code>GIMPLE_ASM</code> <code>G</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: tree <b>gimple_asm_output_op</b> (<var>gimple g, unsigned index</var>)<var><a name="index-gimple_005fasm_005foutput_005fop-2194"></a></var><br>
+&mdash; GIMPLE function: tree <b>gimple_asm_output_op</b> (<var>const gasm *g, unsigned index</var>)<var><a name="index-gimple_005fasm_005foutput_005fop-2210"></a></var><br>
 <blockquote><p>Return output operand <code>INDEX</code> of <code>GIMPLE_ASM</code> <code>G</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: void <b>gimple_asm_set_output_op</b> (<var>gimple g, unsigned index, tree out_op</var>)<var><a name="index-gimple_005fasm_005fset_005foutput_005fop-2195"></a></var><br>
+&mdash; GIMPLE function: void <b>gimple_asm_set_output_op</b> (<var>gasm *g, unsigned index, tree out_op</var>)<var><a name="index-gimple_005fasm_005fset_005foutput_005fop-2211"></a></var><br>
 <blockquote><p>Set <code>OUT_OP</code> to be output operand <code>INDEX</code> in <code>GIMPLE_ASM</code> <code>G</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: tree <b>gimple_asm_clobber_op</b> (<var>gimple g, unsigned index</var>)<var><a name="index-gimple_005fasm_005fclobber_005fop-2196"></a></var><br>
+&mdash; GIMPLE function: tree <b>gimple_asm_clobber_op</b> (<var>const gasm *g, unsigned index</var>)<var><a name="index-gimple_005fasm_005fclobber_005fop-2212"></a></var><br>
 <blockquote><p>Return clobber operand <code>INDEX</code> of <code>GIMPLE_ASM</code> <code>G</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: void <b>gimple_asm_set_clobber_op</b> (<var>gimple g, unsigned index, tree clobber_op</var>)<var><a name="index-gimple_005fasm_005fset_005fclobber_005fop-2197"></a></var><br>
+&mdash; GIMPLE function: void <b>gimple_asm_set_clobber_op</b> (<var>gasm *g, unsigned index, tree clobber_op</var>)<var><a name="index-gimple_005fasm_005fset_005fclobber_005fop-2213"></a></var><br>
 <blockquote><p>Set <code>CLOBBER_OP</code> to be clobber operand <code>INDEX</code> in <code>GIMPLE_ASM</code> <code>G</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: const char * <b>gimple_asm_string</b> (<var>gimple g</var>)<var><a name="index-gimple_005fasm_005fstring-2198"></a></var><br>
+&mdash; GIMPLE function: const char * <b>gimple_asm_string</b> (<var>const gasm *g</var>)<var><a name="index-gimple_005fasm_005fstring-2214"></a></var><br>
 <blockquote><p>Return the string representing the assembly instruction in
 <code>GIMPLE_ASM</code> <code>G</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: bool <b>gimple_asm_volatile_p</b> (<var>gimple g</var>)<var><a name="index-gimple_005fasm_005fvolatile_005fp-2199"></a></var><br>
+&mdash; GIMPLE function: bool <b>gimple_asm_volatile_p</b> (<var>const gasm *g</var>)<var><a name="index-gimple_005fasm_005fvolatile_005fp-2215"></a></var><br>
 <blockquote><p>Return true if <code>G</code> is an asm statement marked volatile. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: void <b>gimple_asm_set_volatile</b> (<var>gimple g</var>)<var><a name="index-gimple_005fasm_005fset_005fvolatile-2200"></a></var><br>
-<blockquote><p>Mark asm statement <code>G</code> as volatile. 
+&mdash; GIMPLE function: void <b>gimple_asm_set_volatile</b> (<var>gasm *g, bool volatile_p</var>)<var><a name="index-gimple_005fasm_005fset_005fvolatile-2216"></a></var><br>
+<blockquote><p>Mark asm statement <code>G</code> as volatile or non-volatile based on
+<code>VOLATILE_P</code>. 
 </p></blockquote></div>
 
  </body></html>

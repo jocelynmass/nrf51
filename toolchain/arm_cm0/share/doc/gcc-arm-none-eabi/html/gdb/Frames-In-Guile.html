@@ -10,7 +10,7 @@
 <link rel="next" href="Blocks-In-Guile.html#Blocks-In-Guile" title="Blocks In Guile">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -48,7 +48,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Guile-API.html#Guile-API">Guile API</a>
 
 <h5 class="subsubsection">23.3.3.15 Accessing inferior stack frames from Guile.</h5>
 
-<p><a name="index-frames-in-guile-2500"></a>When the debugged program stops, <span class="sc">gdb</span> is able to analyze its call
+<p><a name="index-frames-in-guile-2572"></a>When the debugged program stops, <span class="sc">gdb</span> is able to analyze its call
 stack (see <a href="Frames.html#Frames">Stack frames</a>).  The <code>&lt;gdb:frame&gt;</code> class
 represents a frame in the stack.  A <code>&lt;gdb:frame&gt;</code> object is only valid
 while its corresponding frame exists in the inferior's stack.  If you try
@@ -65,13 +65,13 @@ to use an invalid frame object, <span class="sc">gdb</span> will throw a
 <code>(gdb)</code> module:
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>frame?</b><var> object<a name="index-frame_003f-2501"></a></var><br>
+&mdash; Scheme Procedure: <b>frame?</b><var> object<a name="index-frame_003f-2573"></a></var><br>
 <blockquote><p>Return <code>#t</code> if <var>object</var> is a <code>&lt;gdb:frame&gt;</code> object. 
 Otherwise return <code>#f</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>frame-valid?</b><var> frame<a name="index-frame_002dvalid_003f-2502"></a></var><br>
+&mdash; Scheme Procedure: <b>frame-valid?</b><var> frame<a name="index-frame_002dvalid_003f-2574"></a></var><br>
 <blockquote><p>Returns <code>#t</code> if <var>frame</var> is valid, <code>#f</code> if not. 
 A frame object can become invalid if the frame it refers to doesn't
 exist anymore in the inferior.  All <code>&lt;gdb:frame&gt;</code> procedures will throw
@@ -79,19 +79,19 @@ an exception if the frame is invalid at the time the procedure is called.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>frame-name</b><var> frame<a name="index-frame_002dname-2503"></a></var><br>
+&mdash; Scheme Procedure: <b>frame-name</b><var> frame<a name="index-frame_002dname-2575"></a></var><br>
 <blockquote><p>Return the function name of <var>frame</var>, or <code>#f</code> if it can't be
 obtained. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>frame-arch</b><var> frame<a name="index-frame_002darch-2504"></a></var><br>
+&mdash; Scheme Procedure: <b>frame-arch</b><var> frame<a name="index-frame_002darch-2576"></a></var><br>
 <blockquote><p>Return the <code>&lt;gdb:architecture&gt;</code> object corresponding to <var>frame</var>'s
 architecture.  See <a href="Architectures-In-Guile.html#Architectures-In-Guile">Architectures In Guile</a>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>frame-type</b><var> frame<a name="index-frame_002dtype-2505"></a></var><br>
+&mdash; Scheme Procedure: <b>frame-type</b><var> frame<a name="index-frame_002dtype-2577"></a></var><br>
 <blockquote><p>Return the type of <var>frame</var>.  The value can be one of:
 
           <dl>
@@ -116,7 +116,7 @@ newest frame.
         </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>frame-unwind-stop-reason</b><var> frame<a name="index-frame_002dunwind_002dstop_002dreason-2506"></a></var><br>
+&mdash; Scheme Procedure: <b>frame-unwind-stop-reason</b><var> frame<a name="index-frame_002dunwind_002dstop_002dreason-2578"></a></var><br>
 <blockquote><p>Return an integer representing the reason why it's not possible to find
 more frames toward the outermost frame.  Use
 <code>unwind-stop-reason-string</code> to convert the value returned by this
@@ -162,41 +162,47 @@ versions.  Using it, you could write:
         </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>frame-pc</b><var> frame<a name="index-frame_002dpc-2507"></a></var><br>
+&mdash; Scheme Procedure: <b>frame-pc</b><var> frame<a name="index-frame_002dpc-2579"></a></var><br>
 <blockquote><p>Return the frame's resume address. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>frame-block</b><var> frame<a name="index-frame_002dblock-2508"></a></var><br>
+&mdash; Scheme Procedure: <b>frame-block</b><var> frame<a name="index-frame_002dblock-2580"></a></var><br>
 <blockquote><p>Return the frame's code block as a <code>&lt;gdb:block&gt;</code> object. 
 See <a href="Blocks-In-Guile.html#Blocks-In-Guile">Blocks In Guile</a>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>frame-function</b><var> frame<a name="index-frame_002dfunction-2509"></a></var><br>
+&mdash; Scheme Procedure: <b>frame-function</b><var> frame<a name="index-frame_002dfunction-2581"></a></var><br>
 <blockquote><p>Return the symbol for the function corresponding to this frame
 as a <code>&lt;gdb:symbol&gt;</code> object, or <code>#f</code> if there isn't one. 
 See <a href="Symbols-In-Guile.html#Symbols-In-Guile">Symbols In Guile</a>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>frame-older</b><var> frame<a name="index-frame_002dolder-2510"></a></var><br>
+&mdash; Scheme Procedure: <b>frame-older</b><var> frame<a name="index-frame_002dolder-2582"></a></var><br>
 <blockquote><p>Return the frame that called <var>frame</var>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>frame-newer</b><var> frame<a name="index-frame_002dnewer-2511"></a></var><br>
+&mdash; Scheme Procedure: <b>frame-newer</b><var> frame<a name="index-frame_002dnewer-2583"></a></var><br>
 <blockquote><p>Return the frame called by <var>frame</var>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>frame-sal</b><var> frame<a name="index-frame_002dsal-2512"></a></var><br>
+&mdash; Scheme Procedure: <b>frame-sal</b><var> frame<a name="index-frame_002dsal-2584"></a></var><br>
 <blockquote><p>Return the frame's <code>&lt;gdb:sal&gt;</code> (symtab and line) object. 
 See <a href="Symbol-Tables-In-Guile.html#Symbol-Tables-In-Guile">Symbol Tables In Guile</a>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>frame-read-var</b><var> frame variable </var><span class="roman">[</span><var>#:block block</var><span class="roman">]</span><var><a name="index-frame_002dread_002dvar-2513"></a></var><br>
+&mdash; Scheme Procedure: <b>frame-read-register</b><var> frame register<a name="index-frame_002dread_002dregister-2585"></a></var><br>
+<blockquote><p>Return the value of <var>register</var> in <var>frame</var>.  <var>register</var>
+should be a string, like `<samp><span class="samp">pc</span></samp>'. 
+</p></blockquote></div>
+
+<div class="defun">
+&mdash; Scheme Procedure: <b>frame-read-var</b><var> frame variable </var><span class="roman">[</span><var>#:block block</var><span class="roman">]</span><var><a name="index-frame_002dread_002dvar-2586"></a></var><br>
 <blockquote><p>Return the value of <var>variable</var> in <var>frame</var>.  If the optional
 argument <var>block</var> is provided, search for the variable from that
 block; otherwise start at the frame's current block (which is
@@ -206,22 +212,22 @@ object, and <var>block</var> must be a <code>&lt;gdb:block&gt;</code> object.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>frame-select</b><var> frame<a name="index-frame_002dselect-2514"></a></var><br>
+&mdash; Scheme Procedure: <b>frame-select</b><var> frame<a name="index-frame_002dselect-2587"></a></var><br>
 <blockquote><p>Set <var>frame</var> to be the selected frame.  See <a href="Stack.html#Stack">Examining the Stack</a>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>selected-frame</b><var><a name="index-selected_002dframe-2515"></a></var><br>
+&mdash; Scheme Procedure: <b>selected-frame</b><var><a name="index-selected_002dframe-2588"></a></var><br>
 <blockquote><p>Return the selected frame object.  See <a href="Selection.html#Selection">Selecting a Frame</a>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>newest-frame</b><var><a name="index-newest_002dframe-2516"></a></var><br>
+&mdash; Scheme Procedure: <b>newest-frame</b><var><a name="index-newest_002dframe-2589"></a></var><br>
 <blockquote><p>Return the newest frame object for the selected thread. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>unwind-stop-reason-string</b><var> reason<a name="index-unwind_002dstop_002dreason_002dstring-2517"></a></var><br>
+&mdash; Scheme Procedure: <b>unwind-stop-reason-string</b><var> reason<a name="index-unwind_002dstop_002dreason_002dstring-2590"></a></var><br>
 <blockquote><p>Return a string explaining the reason why <span class="sc">gdb</span> stopped unwinding
 frames, as expressed by the given <var>reason</var> code (an integer, see the
 <code>frame-unwind-stop-reason</code> procedure above in this section). 

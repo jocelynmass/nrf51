@@ -10,7 +10,7 @@
 <link rel="next" href="Predicates.html#Predicates" title="Predicates">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -54,7 +54,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Machine-Desc.html#Machine-Desc">Machine
 
 <h3 class="section">16.6 C Statements for Assembler Output</h3>
 
-<p><a name="index-output-statements-3246"></a><a name="index-C-statements-for-assembler-output-3247"></a><a name="index-generating-assembler-output-3248"></a>
+<p><a name="index-output-statements-3270"></a><a name="index-C-statements-for-assembler-output-3271"></a><a name="index-generating-assembler-output-3272"></a>
 Often a single fixed template string cannot produce correct and efficient
 assembler code for all the cases that are recognized by a single
 instruction pattern.  For example, the opcodes may depend on the kinds of
@@ -78,7 +78,7 @@ might write this pattern:
         addr %2,%0
         addm %2,%0")
 </pre>
- <p><a name="index-g_t_0040code_007b_002a_007d-in-template-3249"></a><a name="index-asterisk-in-template-3250"></a>If the output control string starts with a `<samp><span class="samp">*</span></samp>', then it is not an
+ <p><a name="index-g_t_0040code_007b_002a_007d-in-template-3273"></a><a name="index-asterisk-in-template-3274"></a>If the output control string starts with a `<samp><span class="samp">*</span></samp>', then it is not an
 output template but rather a piece of C program that should compute a
 template.  It should execute a <code>return</code> statement to return the
 template-string you want.  Most such templates use C string literals, which
@@ -102,13 +102,13 @@ will be used, then some of the bits you get from <code>INTVAL</code> will be
 superfluous.  For proper results, you must carefully disregard the
 values of those bits.
 
- <p><a name="index-output_005fasm_005finsn-3251"></a>It is possible to output an assembler instruction and then go on to output
+ <p><a name="index-output_005fasm_005finsn-3275"></a>It is possible to output an assembler instruction and then go on to output
 or compute more of them, using the subroutine <code>output_asm_insn</code>.  This
 receives two arguments: a template-string and a vector of operands.  The
 vector may be <code>operands</code>, or it may be another array of <code>rtx</code>
 that you declare locally and initialize yourself.
 
- <p><a name="index-which_005falternative-3252"></a>When an insn pattern has multiple alternatives in its constraints, often
+ <p><a name="index-which_005falternative-3276"></a>When an insn pattern has multiple alternatives in its constraints, often
 the appearance of the assembler code is determined mostly by which alternative
 was matched.  When this is so, the C code can test the variable
 <code>which_alternative</code>, which is the ordinal number of the alternative

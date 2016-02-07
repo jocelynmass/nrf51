@@ -10,7 +10,7 @@
 <link rel="next" href="_0040code_007bGIMPLE_005fRESX_007d.html#g_t_0040code_007bGIMPLE_005fRESX_007d" title="@code{GIMPLE_RESX}">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -53,45 +53,45 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Tuple-specific-accessors.html#Tuple-spe
 <hr>
 </div>
 
-<h4 class="subsection">11.7.23 <code>GIMPLE_PHI</code></h4>
+<h4 class="subsection">11.8.24 <code>GIMPLE_PHI</code></h4>
 
-<p><a name="index-g_t_0040code_007bGIMPLE_005fPHI_007d-2391"></a>
+<p><a name="index-g_t_0040code_007bGIMPLE_005fPHI_007d-2408"></a>
 
 <div class="defun">
-&mdash; GIMPLE function: unsigned <b>gimple_phi_capacity</b> (<var>gimple g</var>)<var><a name="index-gimple_005fphi_005fcapacity-2392"></a></var><br>
+&mdash; GIMPLE function: unsigned <b>gimple_phi_capacity</b> (<var>gimple g</var>)<var><a name="index-gimple_005fphi_005fcapacity-2409"></a></var><br>
 <blockquote><p>Return the maximum number of arguments supported by <code>GIMPLE_PHI</code> <code>G</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: unsigned <b>gimple_phi_num_args</b> (<var>gimple g</var>)<var><a name="index-gimple_005fphi_005fnum_005fargs-2393"></a></var><br>
+&mdash; GIMPLE function: unsigned <b>gimple_phi_num_args</b> (<var>gimple g</var>)<var><a name="index-gimple_005fphi_005fnum_005fargs-2410"></a></var><br>
 <blockquote><p>Return the number of arguments in <code>GIMPLE_PHI</code> <code>G</code>. This must always
 be exactly the number of incoming edges for the basic block
 holding <code>G</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: tree <b>gimple_phi_result</b> (<var>gimple g</var>)<var><a name="index-gimple_005fphi_005fresult-2394"></a></var><br>
+&mdash; GIMPLE function: tree <b>gimple_phi_result</b> (<var>gimple g</var>)<var><a name="index-gimple_005fphi_005fresult-2411"></a></var><br>
 <blockquote><p>Return the <code>SSA</code> name created by <code>GIMPLE_PHI</code> <code>G</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: tree * <b>gimple_phi_result_ptr</b> (<var>gimple g</var>)<var><a name="index-gimple_005fphi_005fresult_005fptr-2395"></a></var><br>
+&mdash; GIMPLE function: tree * <b>gimple_phi_result_ptr</b> (<var>gimple g</var>)<var><a name="index-gimple_005fphi_005fresult_005fptr-2412"></a></var><br>
 <blockquote><p>Return a pointer to the <code>SSA</code> name created by <code>GIMPLE_PHI</code> <code>G</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: void <b>gimple_phi_set_result</b> (<var>gimple g, tree result</var>)<var><a name="index-gimple_005fphi_005fset_005fresult-2396"></a></var><br>
+&mdash; GIMPLE function: void <b>gimple_phi_set_result</b> (<var>gphi *g, tree result</var>)<var><a name="index-gimple_005fphi_005fset_005fresult-2413"></a></var><br>
 <blockquote><p>Set <code>RESULT</code> to be the <code>SSA</code> name created by <code>GIMPLE_PHI</code> <code>G</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: struct phi_arg_d * <b>gimple_phi_arg</b> (<var>gimple g, index</var>)<var><a name="index-gimple_005fphi_005farg-2397"></a></var><br>
+&mdash; GIMPLE function: struct phi_arg_d * <b>gimple_phi_arg</b> (<var>gimple g, index</var>)<var><a name="index-gimple_005fphi_005farg-2414"></a></var><br>
 <blockquote><p>Return the <code>PHI</code> argument corresponding to incoming edge <code>INDEX</code> for
 <code>GIMPLE_PHI</code> <code>G</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: void <b>gimple_phi_set_arg</b> (<var>gimple g, index, struct phi_arg_d * phiarg</var>)<var><a name="index-gimple_005fphi_005fset_005farg-2398"></a></var><br>
+&mdash; GIMPLE function: void <b>gimple_phi_set_arg</b> (<var>gphi *g, index, struct phi_arg_d * phiarg</var>)<var><a name="index-gimple_005fphi_005fset_005farg-2415"></a></var><br>
 <blockquote><p>Set <code>PHIARG</code> to be the argument corresponding to incoming edge
 <code>INDEX</code> for <code>GIMPLE_PHI</code> <code>G</code>. 
 </p></blockquote></div>

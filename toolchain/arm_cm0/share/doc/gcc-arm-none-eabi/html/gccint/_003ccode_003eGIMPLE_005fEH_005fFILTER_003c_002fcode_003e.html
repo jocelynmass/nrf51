@@ -10,7 +10,7 @@
 <link rel="next" href="_0040code_007bGIMPLE_005fLABEL_007d.html#g_t_0040code_007bGIMPLE_005fLABEL_007d" title="@code{GIMPLE_LABEL}">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -53,52 +53,52 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Tuple-specific-accessors.html#Tuple-spe
 <hr>
 </div>
 
-<h4 class="subsection">11.7.8 <code>GIMPLE_EH_FILTER</code></h4>
+<h4 class="subsection">11.8.8 <code>GIMPLE_EH_FILTER</code></h4>
 
-<p><a name="index-g_t_0040code_007bGIMPLE_005fEH_005fFILTER_007d-2287"></a>
+<p><a name="index-g_t_0040code_007bGIMPLE_005fEH_005fFILTER_007d-2303"></a>
 
 <div class="defun">
-&mdash; GIMPLE function: gimple <b>gimple_build_eh_filter</b> (<var>tree types, gimple_seq failure</var>)<var><a name="index-gimple_005fbuild_005feh_005ffilter-2288"></a></var><br>
+&mdash; GIMPLE function: geh_filter <b>*gimple_build_eh_filter</b> (<var>tree types, gimple_seq failure</var>)<var><a name="index-g_t_002agimple_005fbuild_005feh_005ffilter-2304"></a></var><br>
 <blockquote><p>Build a <code>GIMPLE_EH_FILTER</code> statement.  <code>TYPES</code> are the filter's
 types.  <code>FAILURE</code> is a sequence with the filter's failure action. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: tree <b>gimple_eh_filter_types</b> (<var>gimple g</var>)<var><a name="index-gimple_005feh_005ffilter_005ftypes-2289"></a></var><br>
+&mdash; GIMPLE function: tree <b>gimple_eh_filter_types</b> (<var>gimple g</var>)<var><a name="index-gimple_005feh_005ffilter_005ftypes-2305"></a></var><br>
 <blockquote><p>Return the types handled by <code>GIMPLE_EH_FILTER</code> statement <code>G</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: tree * <b>gimple_eh_filter_types_ptr</b> (<var>gimple g</var>)<var><a name="index-gimple_005feh_005ffilter_005ftypes_005fptr-2290"></a></var><br>
+&mdash; GIMPLE function: tree * <b>gimple_eh_filter_types_ptr</b> (<var>gimple g</var>)<var><a name="index-gimple_005feh_005ffilter_005ftypes_005fptr-2306"></a></var><br>
 <blockquote><p>Return a pointer to the types handled by <code>GIMPLE_EH_FILTER</code>
 statement <code>G</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: gimple_seq <b>gimple_eh_filter_failure</b> (<var>gimple g</var>)<var><a name="index-gimple_005feh_005ffilter_005ffailure-2291"></a></var><br>
+&mdash; GIMPLE function: gimple_seq <b>gimple_eh_filter_failure</b> (<var>gimple g</var>)<var><a name="index-gimple_005feh_005ffilter_005ffailure-2307"></a></var><br>
 <blockquote><p>Return the sequence of statement to execute when <code>GIMPLE_EH_FILTER</code>
 statement fails. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: void <b>gimple_eh_filter_set_types</b> (<var>gimple g, tree types</var>)<var><a name="index-gimple_005feh_005ffilter_005fset_005ftypes-2292"></a></var><br>
+&mdash; GIMPLE function: void <b>gimple_eh_filter_set_types</b> (<var>geh_filter *g, tree types</var>)<var><a name="index-gimple_005feh_005ffilter_005fset_005ftypes-2308"></a></var><br>
 <blockquote><p>Set <code>TYPES</code> to be the set of types handled by <code>GIMPLE_EH_FILTER</code> <code>G</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: void <b>gimple_eh_filter_set_failure</b> (<var>gimple g, gimple_seq failure</var>)<var><a name="index-gimple_005feh_005ffilter_005fset_005ffailure-2293"></a></var><br>
+&mdash; GIMPLE function: void <b>gimple_eh_filter_set_failure</b> (<var>geh_filter *g, gimple_seq failure</var>)<var><a name="index-gimple_005feh_005ffilter_005fset_005ffailure-2309"></a></var><br>
 <blockquote><p>Set <code>FAILURE</code> to be the sequence of statements to execute on
 failure for <code>GIMPLE_EH_FILTER</code> <code>G</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: bool <b>gimple_eh_filter_must_not_throw</b> (<var>gimple g</var>)<var><a name="index-gimple_005feh_005ffilter_005fmust_005fnot_005fthrow-2294"></a></var><br>
-<blockquote><p>Return the <code>EH_FILTER_MUST_NOT_THROW</code> flag. 
+&mdash; GIMPLE function: tree <b>gimple_eh_must_not_throw_fndecl</b> (<var> geh_mnt *eh_mnt_stmt</var>)<var><a name="index-gimple_005feh_005fmust_005fnot_005fthrow_005ffndecl-2310"></a></var><br>
+<blockquote><p>Get the function decl to be called by the MUST_NOT_THROW region. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: void <b>gimple_eh_filter_set_must_not_throw</b> (<var>gimple g, bool mntp</var>)<var><a name="index-gimple_005feh_005ffilter_005fset_005fmust_005fnot_005fthrow-2295"></a></var><br>
-<blockquote><p>Set the <code>EH_FILTER_MUST_NOT_THROW</code> flag. 
+&mdash; GIMPLE function: void <b>gimple_eh_must_not_throw_set_fndecl</b> (<var> geh_mnt *eh_mnt_stmt, tree decl</var>)<var><a name="index-gimple_005feh_005fmust_005fnot_005fthrow_005fset_005ffndecl-2311"></a></var><br>
+<blockquote><p>Set the function decl to be called by GS to DECL. 
 </p></blockquote></div>
 
  </body></html>

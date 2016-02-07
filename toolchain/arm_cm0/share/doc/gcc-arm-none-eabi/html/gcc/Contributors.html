@@ -9,7 +9,7 @@
 <link rel="next" href="Option-Index.html#Option-Index" title="Option Index">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -53,7 +53,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
 
 <h2 class="unnumbered">Contributors to GCC</h2>
 
-<p><a name="index-contributors-3930"></a>
+<p><a name="index-contributors-4307"></a>
 The GCC project would like to thank its many contributors.  Without them the
 project would not have been nearly as successful as it has been.  Any omissions
 in this list are accidental.  Feel free to contact
@@ -99,6 +99,8 @@ improved alias analysis, plus migrating GCC to Bugzilla.
      <li>David Binderman tests weekly snapshots of GCC trunk against Fedora Rawhide
 for several architectures.
 
+     <li>Laurynas Biveinis for memory management work and DJGPP port fixes.
+
      <li>Uros Bizjak for the implementation of x87 math built-in functions and
 for various middle end and i386 back end improvements and bug fixes.
 
@@ -141,7 +143,8 @@ maintainer.  Dreaming up, designing and implementing much of GCJ.
 
      <li>Joerg Brunsmann for Java compiler hacking and help with the GCJ FAQ.
 
-     <li>Joe Buck for his direction via the steering committee.
+     <li>Joe Buck for his direction via the steering committee from its creation
+to 2013.
 
      <li>Craig Burley for leadership of the G77 Fortran effort.
 
@@ -285,6 +288,8 @@ multiply- and divide-by-constant optimization, improved long long
 support, improved leaf function register allocation, and his direction
 via the steering committee.
 
+     <li>Jonny Grant for improvements to <code>collect2's</code> <samp><span class="option">--help</span></samp> documentation.
+
      <li>Anthony Green for his <samp><span class="option">-Os</span></samp> contributions, the moxie port, and
 Java front end work.
 
@@ -354,7 +359,12 @@ ColdFire improvements and uClinux support.
 
      <li>Lee Iverson for random fixes and MIPS testing.
 
+     <li>Balaji V. Iyer for Cilk+ development and merging.
+
      <li>Andreas Jaeger for testing and benchmarking of GCC and various bug fixes.
+
+     <li>Martin Jambor for his work on inter-procedural optimizations, the
+switch conversion pass, and scalar replacement of aggregates.
 
      <li>Jakub Jelinek for his SPARC work and sibling call optimizations as well
 as lots of bug fixes and test cases, and for improving the Java build
@@ -411,6 +421,9 @@ porting work to Cygwin/Mingw32.
      <li>Bruce Korb for the new and improved fixincludes code.
 
      <li>Benjamin Kosnik for his G++ work and for leading the libstdc++-v3 effort.
+
+     <li>Maxim Kuvyrkov for contributions to the instruction scheduler, the Android
+and m68k/Coldfire ports, and optimizations.
 
      <li>Charles LaBrec contributed the support for the Integrated Solutions
 68020 system.
@@ -475,8 +488,13 @@ implementation of the automaton based instruction scheduler.
 
      <li>Bob Manson for his behind the scenes work on dejagnu.
 
+     <li>John Marino for contributing the DragonFly BSD port.
+
      <li>Philip Martin for lots of libstdc++ string and vector iterator fixes and
 improvements, and string clean up and testsuites.
+
+     <li>Michael Matz for his work on dominance tree discovery, the x86-64 port,
+link-time optimization framework and general optimization improvements.
 
      <li>All of the Mauve project
 <a href="http://sourceware.org/cgi-bin/cvsweb.cgi/~checkout~/mauve/THANKS?rev=1.2&amp;cvsroot=mauve&amp;only_with_tag=HEAD">contributors</a>,
@@ -626,6 +644,8 @@ translation of the old <samp><span class="file">g77-0.5.16/f/DOC</span></samp> f
 
      <li>Ken Rose for fixes to GCC's delay slot filling code.
 
+     <li>Ira Rosen for her contributions to the auto-vectorizer.
+
      <li>Paul Rubin wrote most of the preprocessor.
 
      <li>P&eacute;tur Run&oacute;lfsson for major performance improvements in C++ formatted I/O and
@@ -688,7 +708,9 @@ for GNU/Linux.
 
      <li>Christopher Smith did the port for Convex machines.
 
-     <li>Danny Smith for his major efforts on the Mingw (and Cygwin) ports.
+     <li>Danny Smith for his major efforts on the Mingw (and Cygwin) ports. 
+Retired from GCC maintainership August 2010, having mentored two
+new maintainers into the role.
 
      <li>Randy Smith finished the Sun FPA support.
 

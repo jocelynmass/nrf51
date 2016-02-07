@@ -10,7 +10,7 @@
 <link rel="next" href="Trampolines.html#Trampolines" title="Trampolines">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -52,9 +52,9 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Target-Macros.html#Target-Macros">Targe
 <hr>
 </div>
 
-<h3 class="section">17.11 Implementing the Varargs Macros</h3>
+<h3 class="section">17.10 Implementing the Varargs Macros</h3>
 
-<p><a name="index-varargs-implementation-4301"></a>
+<p><a name="index-varargs-implementation-4327"></a>
 GCC comes with an implementation of <code>&lt;varargs.h&gt;</code> and
 <code>&lt;stdarg.h&gt;</code> that work without change on machines that pass arguments
 on the stack.  Other machines require their own implementations of
@@ -73,7 +73,7 @@ the end of the named arguments is with the built-in functions described
 below.
 
 <div class="defun">
-&mdash; Macro: <b>__builtin_saveregs</b> ()<var><a name="index-g_t_005f_005fbuiltin_005fsaveregs-4302"></a></var><br>
+&mdash; Macro: <b>__builtin_saveregs</b> ()<var><a name="index-g_t_005f_005fbuiltin_005fsaveregs-4328"></a></var><br>
 <blockquote><p>Use this built-in function to save the argument registers in memory so
 that the varargs mechanism can access them.  Both ISO and traditional
 versions of <code>va_start</code> must use <code>__builtin_saveregs</code>, unless
@@ -94,7 +94,7 @@ to use them for its own purposes.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>__builtin_next_arg</b> (<var>lastarg</var>)<var><a name="index-g_t_005f_005fbuiltin_005fnext_005farg-4303"></a></var><br>
+&mdash; Macro: <b>__builtin_next_arg</b> (<var>lastarg</var>)<var><a name="index-g_t_005f_005fbuiltin_005fnext_005farg-4329"></a></var><br>
 <blockquote><p>This builtin returns the address of the first anonymous stack
 argument, as type <code>void *</code>.  If <code>ARGS_GROW_DOWNWARD</code>, it
 returns the address of the location above the first anonymous stack
@@ -105,7 +105,7 @@ of the current function.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>__builtin_classify_type</b> (<var>object</var>)<var><a name="index-g_t_005f_005fbuiltin_005fclassify_005ftype-4304"></a></var><br>
+&mdash; Macro: <b>__builtin_classify_type</b> (<var>object</var>)<var><a name="index-g_t_005f_005fbuiltin_005fclassify_005ftype-4330"></a></var><br>
 <blockquote><p>Since each machine has its own conventions for which data types are
 passed in which kind of register, your implementation of <code>va_arg</code>
 has to embody these conventions.  The easiest way to categorize the
@@ -123,7 +123,7 @@ interpret the values of <code>__builtin_classify_type</code>.
  <p>These machine description macros help implement varargs:
 
 <div class="defun">
-&mdash; Target Hook: rtx <b>TARGET_EXPAND_BUILTIN_SAVEREGS</b> (<var>void</var>)<var><a name="index-TARGET_005fEXPAND_005fBUILTIN_005fSAVEREGS-4305"></a></var><br>
+&mdash; Target Hook: rtx <b>TARGET_EXPAND_BUILTIN_SAVEREGS</b> (<var>void</var>)<var><a name="index-TARGET_005fEXPAND_005fBUILTIN_005fSAVEREGS-4331"></a></var><br>
 <blockquote><p>If defined, this hook produces the machine-specific code for a call to
 <code>__builtin_saveregs</code>.  This code will be moved to the very
 beginning of the function, before any parameter access are made.  The
@@ -132,7 +132,7 @@ to use as the return of <code>__builtin_saveregs</code>.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: void <b>TARGET_SETUP_INCOMING_VARARGS</b> (<var>cumulative_args_t args_so_far, enum machine_mode mode, tree type, int *pretend_args_size, int second_time</var>)<var><a name="index-TARGET_005fSETUP_005fINCOMING_005fVARARGS-4306"></a></var><br>
+&mdash; Target Hook: void <b>TARGET_SETUP_INCOMING_VARARGS</b> (<var>cumulative_args_t args_so_far, machine_mode mode, tree type, int *pretend_args_size, int second_time</var>)<var><a name="index-TARGET_005fSETUP_005fINCOMING_005fVARARGS-4332"></a></var><br>
 <blockquote><p>This target hook offers an alternative to using
 <code>__builtin_saveregs</code> and defining the hook
 <code>TARGET_EXPAND_BUILTIN_SAVEREGS</code>.  Use it to store the anonymous
@@ -167,7 +167,7 @@ not generate any instructions in this case.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: bool <b>TARGET_STRICT_ARGUMENT_NAMING</b> (<var>cumulative_args_t ca</var>)<var><a name="index-TARGET_005fSTRICT_005fARGUMENT_005fNAMING-4307"></a></var><br>
+&mdash; Target Hook: bool <b>TARGET_STRICT_ARGUMENT_NAMING</b> (<var>cumulative_args_t ca</var>)<var><a name="index-TARGET_005fSTRICT_005fARGUMENT_005fNAMING-4333"></a></var><br>
 <blockquote><p>Define this hook to return <code>true</code> if the location where a function
 argument is passed depends on whether or not it is a named argument.
 
@@ -183,13 +183,87 @@ except the last are treated as named.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: bool <b>TARGET_PRETEND_OUTGOING_VARARGS_NAMED</b> (<var>cumulative_args_t ca</var>)<var><a name="index-TARGET_005fPRETEND_005fOUTGOING_005fVARARGS_005fNAMED-4308"></a></var><br>
+&mdash; Target Hook: void <b>TARGET_CALL_ARGS</b> (<var>rtx, tree</var>)<var><a name="index-TARGET_005fCALL_005fARGS-4334"></a></var><br>
+<blockquote><p>While generating RTL for a function call, this target hook is invoked once
+for each argument passed to the function, either a register returned by
+<code>TARGET_FUNCTION_ARG</code> or a memory location.  It is called just
+before the point where argument registers are stored.  The type of the
+function to be called is also passed as the second argument; it is
+<code>NULL_TREE</code> for libcalls.  The <code>TARGET_END_CALL_ARGS</code> hook is
+invoked just after the code to copy the return reg has been emitted. 
+This functionality can be used to perform special setup of call argument
+registers if a target needs it. 
+For functions without arguments, the hook is called once with <code>pc_rtx</code>
+passed instead of an argument register. 
+Most ports do not need to implement anything for this hook. 
+</p></blockquote></div>
+
+<div class="defun">
+&mdash; Target Hook: void <b>TARGET_END_CALL_ARGS</b> (<var>void</var>)<var><a name="index-TARGET_005fEND_005fCALL_005fARGS-4335"></a></var><br>
+<blockquote><p>This target hook is invoked while generating RTL for a function call,
+just after the point where the return reg is copied into a pseudo.  It
+signals that all the call argument and return registers for the just
+emitted call are now no longer in use. 
+Most ports do not need to implement anything for this hook. 
+</p></blockquote></div>
+
+<div class="defun">
+&mdash; Target Hook: bool <b>TARGET_PRETEND_OUTGOING_VARARGS_NAMED</b> (<var>cumulative_args_t ca</var>)<var><a name="index-TARGET_005fPRETEND_005fOUTGOING_005fVARARGS_005fNAMED-4336"></a></var><br>
 <blockquote><p>If you need to conditionally change ABIs so that one works with
 <code>TARGET_SETUP_INCOMING_VARARGS</code>, but the other works like neither
 <code>TARGET_SETUP_INCOMING_VARARGS</code> nor <code>TARGET_STRICT_ARGUMENT_NAMING</code> was
 defined, then define this hook to return <code>true</code> if
 <code>TARGET_SETUP_INCOMING_VARARGS</code> is used, <code>false</code> otherwise. 
 Otherwise, you should not define this hook. 
+</p></blockquote></div>
+
+<div class="defun">
+&mdash; Target Hook: rtx <b>TARGET_LOAD_BOUNDS_FOR_ARG</b> (<var>rtx slot, rtx arg, rtx slot_no</var>)<var><a name="index-TARGET_005fLOAD_005fBOUNDS_005fFOR_005fARG-4337"></a></var><br>
+<blockquote><p>This hook is used by expand pass to emit insn to load bounds of
+<var>arg</var> passed in <var>slot</var>.  Expand pass uses this hook in case
+bounds of <var>arg</var> are not passed in register.  If <var>slot</var> is a
+memory, then bounds are loaded as for regular pointer loaded from
+memory.  If <var>slot</var> is not a memory then <var>slot_no</var> is an integer
+constant holding number of the target dependent special slot which
+should be used to obtain bounds.  Hook returns RTX holding loaded bounds. 
+</p></blockquote></div>
+
+<div class="defun">
+&mdash; Target Hook: void <b>TARGET_STORE_BOUNDS_FOR_ARG</b> (<var>rtx arg, rtx slot, rtx bounds, rtx slot_no</var>)<var><a name="index-TARGET_005fSTORE_005fBOUNDS_005fFOR_005fARG-4338"></a></var><br>
+<blockquote><p>This hook is used by expand pass to emit insns to store <var>bounds</var> of
+<var>arg</var> passed in <var>slot</var>.  Expand pass uses this hook in case
+<var>bounds</var> of <var>arg</var> are not passed in register.  If <var>slot</var> is a
+memory, then <var>bounds</var> are stored as for regular pointer stored in
+memory.  If <var>slot</var> is not a memory then <var>slot_no</var> is an integer
+constant holding number of the target dependent special slot which
+should be used to store <var>bounds</var>. 
+</p></blockquote></div>
+
+<div class="defun">
+&mdash; Target Hook: rtx <b>TARGET_LOAD_RETURNED_BOUNDS</b> (<var>rtx slot</var>)<var><a name="index-TARGET_005fLOAD_005fRETURNED_005fBOUNDS-4339"></a></var><br>
+<blockquote><p>This hook is used by expand pass to emit insn to load bounds
+returned by function call in <var>slot</var>.  Hook returns RTX holding
+loaded bounds. 
+</p></blockquote></div>
+
+<div class="defun">
+&mdash; Target Hook: void <b>TARGET_STORE_RETURNED_BOUNDS</b> (<var>rtx slot, rtx bounds</var>)<var><a name="index-TARGET_005fSTORE_005fRETURNED_005fBOUNDS-4340"></a></var><br>
+<blockquote><p>This hook is used by expand pass to emit insn to store <var>bounds</var>
+returned by function call into <var>slot</var>. 
+</p></blockquote></div>
+
+<div class="defun">
+&mdash; Target Hook: rtx <b>TARGET_CHKP_FUNCTION_VALUE_BOUNDS</b> (<var>const_tree ret_type, const_tree fn_decl_or_type, bool outgoing</var>)<var><a name="index-TARGET_005fCHKP_005fFUNCTION_005fVALUE_005fBOUNDS-4341"></a></var><br>
+<blockquote><p>Define this to return an RTX representing the place where a function
+returns bounds for returned pointers.  Arguments meaning is similar to
+<code>TARGET_FUNCTION_VALUE</code>. 
+</p></blockquote></div>
+
+<div class="defun">
+&mdash; Target Hook: void <b>TARGET_SETUP_INCOMING_VARARG_BOUNDS</b> (<var>cumulative_args_t args_so_far, enum machine_mode mode, tree type, int *pretend_args_size, int second_time</var>)<var><a name="index-TARGET_005fSETUP_005fINCOMING_005fVARARG_005fBOUNDS-4342"></a></var><br>
+<blockquote><p>Use it to store bounds for anonymous register arguments stored
+into the stack.  Arguments meaning is similar to
+<code>TARGET_SETUP_INCOMING_VARARGS</code>. 
 </p></blockquote></div>
 
  </body></html>

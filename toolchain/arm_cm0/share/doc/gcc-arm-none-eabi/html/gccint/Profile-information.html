@@ -10,7 +10,7 @@
 <link rel="next" href="Maintaining-the-CFG.html#Maintaining-the-CFG" title="Maintaining the CFG">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -54,7 +54,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Control-Flow.html#Control-Flow">Control
 
 <h3 class="section">14.3 Profile information</h3>
 
-<p><a name="index-profile-representation-3170"></a>In many cases a compiler must make a choice whether to trade speed in
+<p><a name="index-profile-representation-3194"></a>In many cases a compiler must make a choice whether to trade speed in
 one part of code for speed in another, or to trade code size for code
 speed.  In such cases it is useful to know information about how often
 some given block will be executed.  That is the purpose for
@@ -63,7 +63,7 @@ GCC can handle profile information obtained through <dfn>profile
 feedback</dfn>, but it can also estimate branch probabilities based on
 statics and heuristics.
 
- <p><a name="index-profile-feedback-3171"></a>The feedback based profile is produced by compiling the program with
+ <p><a name="index-profile-feedback-3195"></a>The feedback based profile is produced by compiling the program with
 instrumentation, executing it on a train run and reading the numbers
 of executions of basic blocks and edges back to the compiler while
 re-compiling the program to produce the final executable.  This method
@@ -73,13 +73,13 @@ course depends on the choice of train data set, but several studies
 have shown that the behavior of a program usually changes just
 marginally over different data sets.
 
- <p><a name="index-Static-profile-estimation-3172"></a><a name="index-branch-prediction-3173"></a><a name="index-predict_002edef-3174"></a>When profile feedback is not available, the compiler may be asked to
+ <p><a name="index-Static-profile-estimation-3196"></a><a name="index-branch-prediction-3197"></a><a name="index-predict_002edef-3198"></a>When profile feedback is not available, the compiler may be asked to
 attempt to predict the behavior of each branch in the program using a
 set of heuristics (see <samp><span class="file">predict.def</span></samp> for details) and compute
 estimated frequencies of each basic block by propagating the
 probabilities over the graph.
 
- <p><a name="index-frequency_002c-count_002c-BB_005fFREQ_005fBASE-3175"></a>Each <code>basic_block</code> contains two integer fields to represent
+ <p><a name="index-frequency_002c-count_002c-BB_005fFREQ_005fBASE-3199"></a>Each <code>basic_block</code> contains two integer fields to represent
 profile information: <code>frequency</code> and <code>count</code>.  The
 <code>frequency</code> is an estimation how often is basic block executed
 within a function.  It is represented as an integer scaled in the
@@ -91,7 +91,7 @@ instance by loop unrolling) or grow (for instance by cross-jumping
 optimization), so scaling sometimes has to be performed multiple
 times.
 
- <p><a name="index-gcov_005ftype-3176"></a>The <code>count</code> contains hard-counted numbers of execution measured
+ <p><a name="index-gcov_005ftype-3200"></a>The <code>count</code> contains hard-counted numbers of execution measured
 during training runs and is nonzero only when profile feedback is
 available.  This value is represented as the host's widest integer
 (typically a 64 bit integer) of the special type <code>gcov_type</code>.
@@ -102,7 +102,7 @@ The frequencies should always match the counts after scaling, however
 during updating of the profile information numerical error may
 accumulate into quite large errors.
 
- <p><a name="index-REG_005fBR_005fPROB_005fBASE_002c-EDGE_005fFREQUENCY-3177"></a>Each edge also contains a branch probability field: an integer in the
+ <p><a name="index-REG_005fBR_005fPROB_005fBASE_002c-EDGE_005fFREQUENCY-3201"></a>Each edge also contains a branch probability field: an integer in the
 range from 0 to <code>REG_BR_PROB_BASE</code>.  It represents probability of
 passing control from the end of the <code>src</code> basic block to the
 <code>dest</code> basic block, i.e. the probability that control will flow
@@ -117,12 +117,12 @@ represented for conditional jumps (via the <code>REG_BR_PROB</code>
 macro) since they are used when instructions are output to the
 assembly file and the flow graph is no longer maintained.
 
- <p><a name="index-reverse-probability-3178"></a>The probability that control flow arrives via a given edge to its
+ <p><a name="index-reverse-probability-3202"></a>The probability that control flow arrives via a given edge to its
 destination basic block is called <dfn>reverse probability</dfn> and is not
 directly represented, but it may be easily computed from frequencies
 of basic blocks.
 
- <p><a name="index-redirect_005fedge_005fand_005fbranch-3179"></a>Updating profile information is a delicate task that can unfortunately
+ <p><a name="index-redirect_005fedge_005fand_005fbranch-3203"></a>Updating profile information is a delicate task that can unfortunately
 not be easily integrated with the CFG manipulation API.  Many of the
 functions and hooks to modify the CFG, such as
 <code>redirect_edge_and_branch</code>, do not have enough information to
@@ -133,7 +133,7 @@ worse code, and checking profile consistency is not possible because
 of numeric error accumulation.  Hence special attention needs to be
 given to this issue in each pass that modifies the CFG.
 
- <p><a name="index-REG_005fBR_005fPROB_005fBASE_002c-BB_005fFREQ_005fBASE_002c-count-3180"></a>It is important to point out that <code>REG_BR_PROB_BASE</code> and
+ <p><a name="index-REG_005fBR_005fPROB_005fBASE_002c-BB_005fFREQ_005fBASE_002c-count-3204"></a>It is important to point out that <code>REG_BR_PROB_BASE</code> and
 <code>BB_FREQ_BASE</code> are both set low enough to be possible to compute
 second power of any frequency or probability in the flow graph, it is
 not possible to even square the <code>count</code> field, as modern CPUs are

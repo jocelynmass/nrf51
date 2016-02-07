@@ -10,7 +10,7 @@
 <link rel="next" href="Disabling.html#Disabling" title="Disabling">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -48,7 +48,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Breakpoints.html#Breakpoints">Breakpoin
 
 <h4 class="subsection">5.1.4 Deleting Breakpoints</h4>
 
-<p><a name="index-clearing-breakpoints_002c-watchpoints_002c-catchpoints-288"></a><a name="index-deleting-breakpoints_002c-watchpoints_002c-catchpoints-289"></a>It is often necessary to eliminate a breakpoint, watchpoint, or
+<p><a name="index-clearing-breakpoints_002c-watchpoints_002c-catchpoints-289"></a><a name="index-deleting-breakpoints_002c-watchpoints_002c-catchpoints-290"></a>It is often necessary to eliminate a breakpoint, watchpoint, or
 catchpoint once it has done its job and you no longer want your program
 to stop there.  This is called <dfn>deleting</dfn> the breakpoint.  A
 breakpoint that has been deleted no longer exists; it is forgotten.
@@ -63,7 +63,7 @@ automatically ignores breakpoints on the first instruction to be executed
 when you continue execution without changing the execution address.
 
      
-<a name="index-clear-290"></a>
+<a name="index-clear-291"></a>
 <dl><dt><code>clear</code><dd>Delete any breakpoints at the next instruction to be executed in the
 selected stack frame (see <a href="Selection.html#Selection">Selecting a Frame</a>).  When
 the innermost frame is selected, this is a good way to delete a
@@ -80,7 +80,7 @@ most useful ones are listed below:
 <var>linenum</var> of the specified <var>filename</var>. 
 </dl>
 
-     <p><a name="index-delete-breakpoints-291"></a><a name="index-delete-292"></a><a name="index-d-_0040r_007b_0028_0040code_007bdelete_007d_0029_007d-293"></a><br><dt><code>delete </code><span class="roman">[</span><code>breakpoints</code><span class="roman">]</span> <span class="roman">[</span><var>range</var><code>...</code><span class="roman">]</span><dd>Delete the breakpoints, watchpoints, or catchpoints of the breakpoint
+     <p><a name="index-delete-breakpoints-292"></a><a name="index-delete-293"></a><a name="index-d-_0040r_007b_0028_0040code_007bdelete_007d_0029_007d-294"></a><br><dt><code>delete </code><span class="roman">[</span><code>breakpoints</code><span class="roman">]</span> <span class="roman">[</span><var>range</var><code>...</code><span class="roman">]</span><dd>Delete the breakpoints, watchpoints, or catchpoints of the breakpoint
 ranges specified as arguments.  If no argument is specified, delete all
 breakpoints (<span class="sc">gdb</span> asks confirmation, unless you have <code>set
 confirm off</code>).  You can abbreviate this command as <code>d</code>. 

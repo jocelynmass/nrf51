@@ -10,7 +10,7 @@
 <link rel="next" href="_0040code_007bGIMPLE_005fOMP_005fSINGLE_007d.html#g_t_0040code_007bGIMPLE_005fOMP_005fSINGLE_007d" title="@code{GIMPLE_OMP_SINGLE}">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -53,12 +53,12 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Tuple-specific-accessors.html#Tuple-spe
 <hr>
 </div>
 
-<h4 class="subsection">11.7.21 <code>GIMPLE_OMP_SECTIONS</code></h4>
+<h4 class="subsection">11.8.22 <code>GIMPLE_OMP_SECTIONS</code></h4>
 
-<p><a name="index-g_t_0040code_007bGIMPLE_005fOMP_005fSECTIONS_007d-2377"></a>
+<p><a name="index-g_t_0040code_007bGIMPLE_005fOMP_005fSECTIONS_007d-2394"></a>
 
 <div class="defun">
-&mdash; GIMPLE function: gimple <b>gimple_build_omp_sections</b> (<var>gimple_seq body, tree clauses</var>)<var><a name="index-gimple_005fbuild_005fomp_005fsections-2378"></a></var><br>
+&mdash; GIMPLE function: gomp_sections <b>*gimple_build_omp_sections</b> (<var> gimple_seq body, tree clauses</var>)<var><a name="index-g_t_002agimple_005fbuild_005fomp_005fsections-2395"></a></var><br>
 <blockquote><p>Build a <code>GIMPLE_OMP_SECTIONS</code> statement. <code>BODY</code> is a sequence of
 section statements.  <code>CLAUSES</code> are any of the <code>OMP</code> sections
 construct's clauses: private, firstprivate, lastprivate,
@@ -66,40 +66,40 @@ reduction, and nowait.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: gimple <b>gimple_build_omp_sections_switch</b> (<var>void</var>)<var><a name="index-gimple_005fbuild_005fomp_005fsections_005fswitch-2379"></a></var><br>
+&mdash; GIMPLE function: gimple <b>gimple_build_omp_sections_switch</b> (<var>void</var>)<var><a name="index-gimple_005fbuild_005fomp_005fsections_005fswitch-2396"></a></var><br>
 <blockquote><p>Build a <code>GIMPLE_OMP_SECTIONS_SWITCH</code> statement. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: tree <b>gimple_omp_sections_control</b> (<var>gimple g</var>)<var><a name="index-gimple_005fomp_005fsections_005fcontrol-2380"></a></var><br>
+&mdash; GIMPLE function: tree <b>gimple_omp_sections_control</b> (<var>gimple g</var>)<var><a name="index-gimple_005fomp_005fsections_005fcontrol-2397"></a></var><br>
 <blockquote><p>Return the control variable associated with the
 <code>GIMPLE_OMP_SECTIONS</code> in <code>G</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: tree * <b>gimple_omp_sections_control_ptr</b> (<var>gimple g</var>)<var><a name="index-gimple_005fomp_005fsections_005fcontrol_005fptr-2381"></a></var><br>
+&mdash; GIMPLE function: tree * <b>gimple_omp_sections_control_ptr</b> (<var>gimple g</var>)<var><a name="index-gimple_005fomp_005fsections_005fcontrol_005fptr-2398"></a></var><br>
 <blockquote><p>Return a pointer to the clauses associated with the
 <code>GIMPLE_OMP_SECTIONS</code> in <code>G</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: void <b>gimple_omp_sections_set_control</b> (<var>gimple g, tree control</var>)<var><a name="index-gimple_005fomp_005fsections_005fset_005fcontrol-2382"></a></var><br>
+&mdash; GIMPLE function: void <b>gimple_omp_sections_set_control</b> (<var>gimple g, tree control</var>)<var><a name="index-gimple_005fomp_005fsections_005fset_005fcontrol-2399"></a></var><br>
 <blockquote><p>Set <code>CONTROL</code> to be the set of clauses associated with the
 <code>GIMPLE_OMP_SECTIONS</code> in <code>G</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: tree <b>gimple_omp_sections_clauses</b> (<var>gimple g</var>)<var><a name="index-gimple_005fomp_005fsections_005fclauses-2383"></a></var><br>
+&mdash; GIMPLE function: tree <b>gimple_omp_sections_clauses</b> (<var>gimple g</var>)<var><a name="index-gimple_005fomp_005fsections_005fclauses-2400"></a></var><br>
 <blockquote><p>Return the clauses associated with <code>OMP_SECTIONS</code> <code>G</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: tree * <b>gimple_omp_sections_clauses_ptr</b> (<var>gimple g</var>)<var><a name="index-gimple_005fomp_005fsections_005fclauses_005fptr-2384"></a></var><br>
+&mdash; GIMPLE function: tree * <b>gimple_omp_sections_clauses_ptr</b> (<var>gimple g</var>)<var><a name="index-gimple_005fomp_005fsections_005fclauses_005fptr-2401"></a></var><br>
 <blockquote><p>Return a pointer to the clauses associated with <code>OMP_SECTIONS</code> <code>G</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: void <b>gimple_omp_sections_set_clauses</b> (<var>gimple g, tree clauses</var>)<var><a name="index-gimple_005fomp_005fsections_005fset_005fclauses-2385"></a></var><br>
+&mdash; GIMPLE function: void <b>gimple_omp_sections_set_clauses</b> (<var>gimple g, tree clauses</var>)<var><a name="index-gimple_005fomp_005fsections_005fset_005fclauses-2402"></a></var><br>
 <blockquote><p>Set <code>CLAUSES</code> to be the set of clauses associated with <code>OMP_SECTIONS</code>
 <code>G</code>. 
 </p></blockquote></div>

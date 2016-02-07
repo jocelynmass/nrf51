@@ -10,7 +10,7 @@
 <link rel="next" href="Core-File-Generation.html#Core-File-Generation" title="Core File Generation">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -49,17 +49,17 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Data.html#Data">Data</a>
 
 <h3 class="section">10.18 Copy Between Memory and a File</h3>
 
-<p><a name="index-dump_002frestore-files-721"></a><a name="index-append-data-to-a-file-722"></a><a name="index-dump-data-to-a-file-723"></a><a name="index-restore-data-from-a-file-724"></a>
+<p><a name="index-dump_002frestore-files-745"></a><a name="index-append-data-to-a-file-746"></a><a name="index-dump-data-to-a-file-747"></a><a name="index-restore-data-from-a-file-748"></a>
 You can use the commands <code>dump</code>, <code>append</code>, and
 <code>restore</code> to copy data between target memory and a file.  The
 <code>dump</code> and <code>append</code> commands write data to a file, and the
 <code>restore</code> command reads data from a file back into the inferior's
-memory.  Files may be in binary, Motorola S-record, Intel hex, or
-Tektronix Hex format; however, <span class="sc">gdb</span> can only append to binary
-files.
+memory.  Files may be in binary, Motorola S-record, Intel hex,
+Tektronix Hex, or Verilog Hex format; however, <span class="sc">gdb</span> can only
+append to binary files, and cannot read from Verilog Hex files.
 
      
-<a name="index-dump-725"></a>
+<a name="index-dump-749"></a>
 <dl><dt><code>dump </code><span class="roman">[</span><var>format</var><span class="roman">]</span><code> memory </code><var>filename</var> <var>start_addr</var> <var>end_addr</var><dt><code>dump </code><span class="roman">[</span><var>format</var><span class="roman">]</span><code> value </code><var>filename</var> <var>expr</var><dd>Dump the contents of memory from <var>start_addr</var> to <var>end_addr</var>,
 or the value of <var>expr</var>, to <var>filename</var> in the given format.
 
@@ -69,6 +69,7 @@ or the value of <var>expr</var>, to <var>filename</var> in the given format.
 <br><dt><code>ihex</code><dd>Intel hex format. 
 <br><dt><code>srec</code><dd>Motorola S-record format. 
 <br><dt><code>tekhex</code><dd>Tektronix Hex format. 
+<br><dt><code>verilog</code><dd>Verilog Hex format. 
 </dl>
 
      <p><span class="sc">gdb</span> uses the same definitions of these formats as the
@@ -76,11 +77,11 @@ or the value of <var>expr</var>, to <var>filename</var> in the given format.
 <var>format</var> is omitted, <span class="sc">gdb</span> dumps the data in raw binary
 form.
 
-     <p><a name="index-append-726"></a><br><dt><code>append </code><span class="roman">[</span><code>binary</code><span class="roman">]</span><code> memory </code><var>filename</var> <var>start_addr</var> <var>end_addr</var><dt><code>append </code><span class="roman">[</span><code>binary</code><span class="roman">]</span><code> value </code><var>filename</var> <var>expr</var><dd>Append the contents of memory from <var>start_addr</var> to <var>end_addr</var>,
+     <p><a name="index-append-750"></a><br><dt><code>append </code><span class="roman">[</span><code>binary</code><span class="roman">]</span><code> memory </code><var>filename</var> <var>start_addr</var> <var>end_addr</var><dt><code>append </code><span class="roman">[</span><code>binary</code><span class="roman">]</span><code> value </code><var>filename</var> <var>expr</var><dd>Append the contents of memory from <var>start_addr</var> to <var>end_addr</var>,
 or the value of <var>expr</var>, to the file <var>filename</var>, in raw binary form. 
 (<span class="sc">gdb</span> can only append data to files in raw binary form.)
 
-     <p><a name="index-restore-727"></a><br><dt><code>restore </code><var>filename</var> <span class="roman">[</span><code>binary</code><span class="roman">]</span> <var>bias</var> <var>start</var> <var>end</var><dd>Restore the contents of file <var>filename</var> into memory.  The
+     <p><a name="index-restore-751"></a><br><dt><code>restore </code><var>filename</var> <span class="roman">[</span><code>binary</code><span class="roman">]</span> <var>bias</var> <var>start</var> <var>end</var><dd>Restore the contents of file <var>filename</var> into memory.  The
 <code>restore</code> command can automatically recognize any known <span class="sc">bfd</span>
 file format, except for raw binary.  To restore a raw binary file you
 must specify the optional keyword <code>binary</code> after the filename.

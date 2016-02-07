@@ -8,7 +8,7 @@
 <link rel="up" href="System_002dwide-configuration.html#System_002dwide-configuration" title="System-wide configuration">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -45,7 +45,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="System_002dwide-configuration.html#Syst
 
 <h4 class="subsection">C.6.1 Installed System-wide Configuration Scripts</h4>
 
-<p><a name="index-system_002dwide-configuration-scripts-3116"></a>
+<p><a name="index-system_002dwide-configuration-scripts-3192"></a>
 The <samp><span class="file">system-gdbinit</span></samp> directory, located inside the data-directory
 (as specified by <samp><span class="option">--with-gdb-datadir</span></samp> at configure time) contains
 a number of scripts which can be used as system-wide init files.  To
@@ -56,14 +56,14 @@ should be able to source them by hand as needed.
    <p>The following scripts are currently available:
      <ul>
 <li><samp><span class="file">elinos.py</span></samp>
-<a name="index-elinos_002epy-3117"></a><a name="index-ELinOS-system_002dwide-configuration-script-3118"></a>This script is useful when debugging a program on an ELinOS target. 
+<a name="index-elinos_002epy-3193"></a><a name="index-ELinOS-system_002dwide-configuration-script-3194"></a>This script is useful when debugging a program on an ELinOS target. 
 It takes advantage of the environment variables defined in a standard
 ELinOS environment in order to determine the location of the system
 shared libraries, and then sets the `<samp><span class="samp">solib-absolute-prefix</span></samp>'
 and `<samp><span class="samp">solib-search-path</span></samp>' variables appropriately.
 
      <li><samp><span class="file">wrs-linux.py</span></samp>
-<a name="index-wrs_002dlinux_002epy-3119"></a><a name="index-Wind-River-Linux-system_002dwide-configuration-script-3120"></a>This script is useful when debugging a program on a target running
+<a name="index-wrs_002dlinux_002epy-3195"></a><a name="index-Wind-River-Linux-system_002dwide-configuration-script-3196"></a>This script is useful when debugging a program on a target running
 Wind River Linux.  It expects the <samp><span class="env">ENV_PREFIX</span></samp> to be set to
 the host-side sysroot used by the target system.
 

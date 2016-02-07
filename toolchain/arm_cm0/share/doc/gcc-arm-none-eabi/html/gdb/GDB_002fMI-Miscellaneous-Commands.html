@@ -9,7 +9,7 @@
 <link rel="prev" href="GDB_002fMI-Support-Commands.html#GDB_002fMI-Support-Commands" title="GDB/MI Support Commands">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -50,7 +50,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="GDB_002fMI.html#GDB_002fMI">GDB/MI</a>
 <!-- @subheading -gdb-complete -->
 <h4 class="subheading">The <code>-gdb-exit</code> Command</h4>
 
-<p><a name="index-g_t_002dgdb_002dexit-2910"></a>
+<p><a name="index-g_t_002dgdb_002dexit-2986"></a>
 
 <h5 class="subsubheading">Synopsis</h5>
 
@@ -70,7 +70,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="GDB_002fMI.html#GDB_002fMI">GDB/MI</a>
 </pre>
 <h4 class="subheading">The <code>-gdb-set</code> Command</h4>
 
-<p><a name="index-g_t_002dgdb_002dset-2911"></a>
+<p><a name="index-g_t_002dgdb_002dset-2987"></a>
 
 <h5 class="subsubheading">Synopsis</h5>
 
@@ -92,7 +92,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="GDB_002fMI.html#GDB_002fMI">GDB/MI</a>
 </pre>
 <h4 class="subheading">The <code>-gdb-show</code> Command</h4>
 
-<p><a name="index-g_t_002dgdb_002dshow-2912"></a>
+<p><a name="index-g_t_002dgdb_002dshow-2988"></a>
 
 <h5 class="subsubheading">Synopsis</h5>
 
@@ -114,7 +114,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="GDB_002fMI.html#GDB_002fMI">GDB/MI</a>
 <!-- @subheading -gdb-source -->
 <h4 class="subheading">The <code>-gdb-version</code> Command</h4>
 
-<p><a name="index-g_t_002dgdb_002dversion-2913"></a>
+<p><a name="index-g_t_002dgdb_002dversion-2989"></a>
 
 <h5 class="subsubheading">Synopsis</h5>
 
@@ -148,7 +148,7 @@ default shows this information when you start an interactive session.
 </pre>
 <h4 class="subheading">The <code>-list-thread-groups</code> Command</h4>
 
-<p><a name="index-g_t_002dlist_002dthread_002dgroups-2914"></a>
+<p><a name="index-g_t_002dlist_002dthread_002dgroups-2990"></a>
 
 <h4 class="subheading">Synopsis</h4>
 
@@ -210,6 +210,10 @@ valid type.
      <br><dt><code>pid</code><dd>The target-specific process identifier.  This field is only present
 for thread groups of type `<samp><span class="samp">process</span></samp>' and only if the process exists.
 
+     <br><dt><code>exit-code</code><dd>The exit code of this group's last exited thread, formatted in octal. 
+This field is only present for thread groups of type `<samp><span class="samp">process</span></samp>' and
+only if the process is not running.
+
      <br><dt><code>num_children</code><dd>The number of children this thread group has.  This field may be
 absent for an available thread group.
 
@@ -251,7 +255,7 @@ and only if there is a corresponding executable file.
 </pre>
 <h4 class="subheading">The <code>-info-os</code> Command</h4>
 
-<p><a name="index-g_t_002dinfo_002dos-2915"></a>
+<p><a name="index-g_t_002dinfo_002dos-2991"></a>
 
 <h5 class="subsubheading">Synopsis</h5>
 
@@ -276,28 +280,30 @@ like this:
 
 <pre class="smallexample">     gdb
      -info-os
-     ^done,OSDataTable={nr_rows="9",nr_cols="3",
+     ^done,OSDataTable={nr_rows="10",nr_cols="3",
      hdr=[{width="10",alignment="-1",col_name="col0",colhdr="Type"},
           {width="10",alignment="-1",col_name="col1",colhdr="Description"},
           {width="10",alignment="-1",col_name="col2",colhdr="Title"}],
-     body=[item={col0="processes",col1="Listing of all processes",
+     body=[item={col0="cpus",col1="Listing of all cpus/cores on the system",
+                 col2="CPUs"},
+           item={col0="files",col1="Listing of all file descriptors",
+                 col2="File descriptors"},
+           item={col0="modules",col1="Listing of all loaded kernel modules",
+                 col2="Kernel modules"},
+           item={col0="msg",col1="Listing of all message queues",
+                 col2="Message queues"},
+           item={col0="processes",col1="Listing of all processes",
                  col2="Processes"},
            item={col0="procgroups",col1="Listing of all process groups",
                  col2="Process groups"},
-           item={col0="threads",col1="Listing of all threads",
-                 col2="Threads"},
-           item={col0="files",col1="Listing of all file descriptors",
-                 col2="File descriptors"},
-           item={col0="sockets",col1="Listing of all internet-domain sockets",
-                 col2="Sockets"},
-           item={col0="shm",col1="Listing of all shared-memory regions",
-                 col2="Shared-memory regions"},
            item={col0="semaphores",col1="Listing of all semaphores",
                  col2="Semaphores"},
-           item={col0="msg",col1="Listing of all message queues",
-                 col2="Message queues"},
-           item={col0="modules",col1="Listing of all loaded kernel modules",
-                 col2="Kernel modules"}]}
+           item={col0="shm",col1="Listing of all shared-memory regions",
+                 col2="Shared-memory regions"},
+           item={col0="sockets",col1="Listing of all internet-domain sockets",
+                 col2="Sockets"},
+           item={col0="threads",col1="Listing of all threads",
+                 col2="Threads"}]
      gdb
      -info-os processes
      ^done,OSDataTable={nr_rows="190",nr_cols="4",
@@ -321,7 +327,7 @@ popup menu, but is needless clutter on the command line, and
 
 <h4 class="subheading">The <code>-add-inferior</code> Command</h4>
 
-<p><a name="index-g_t_002dadd_002dinferior-2916"></a>
+<p><a name="index-g_t_002dadd_002dinferior-2992"></a>
 
 <h4 class="subheading">Synopsis</h4>
 
@@ -342,7 +348,7 @@ thread group corresponding to the new inferior.
 </pre>
 <h4 class="subheading">The <code>-interpreter-exec</code> Command</h4>
 
-<p><a name="index-g_t_002dinterpreter_002dexec-2917"></a>
+<p><a name="index-g_t_002dinterpreter_002dexec-2993"></a>
 
 <h4 class="subheading">Synopsis</h4>
 
@@ -368,7 +374,7 @@ thread group corresponding to the new inferior.
 </pre>
 <h4 class="subheading">The <code>-inferior-tty-set</code> Command</h4>
 
-<p><a name="index-g_t_002dinferior_002dtty_002dset-2918"></a>
+<p><a name="index-g_t_002dinferior_002dtty_002dset-2994"></a>
 
 <h4 class="subheading">Synopsis</h4>
 
@@ -389,7 +395,7 @@ thread group corresponding to the new inferior.
 </pre>
 <h4 class="subheading">The <code>-inferior-tty-show</code> Command</h4>
 
-<p><a name="index-g_t_002dinferior_002dtty_002dshow-2919"></a>
+<p><a name="index-g_t_002dinferior_002dtty_002dshow-2995"></a>
 
 <h4 class="subheading">Synopsis</h4>
 
@@ -413,7 +419,7 @@ thread group corresponding to the new inferior.
 </pre>
 <h4 class="subheading">The <code>-enable-timings</code> Command</h4>
 
-<p><a name="index-g_t_002denable_002dtimings-2920"></a>
+<p><a name="index-g_t_002denable_002dtimings-2996"></a>
 
 <h4 class="subheading">Synopsis</h4>
 

@@ -10,7 +10,7 @@
 <link rel="next" href="_0040code_007bGIMPLE_005fWITH_005fCLEANUP_005fEXPR_007d.html#g_t_0040code_007bGIMPLE_005fWITH_005fCLEANUP_005fEXPR_007d" title="@code{GIMPLE_WITH_CLEANUP_EXPR}">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -53,12 +53,12 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Tuple-specific-accessors.html#Tuple-spe
 <hr>
 </div>
 
-<h4 class="subsection">11.7.27 <code>GIMPLE_TRY</code></h4>
+<h4 class="subsection">11.8.28 <code>GIMPLE_TRY</code></h4>
 
-<p><a name="index-g_t_0040code_007bGIMPLE_005fTRY_007d-2417"></a>
+<p><a name="index-g_t_0040code_007bGIMPLE_005fTRY_007d-2434"></a>
 
 <div class="defun">
-&mdash; GIMPLE function: gimple <b>gimple_build_try</b> (<var>gimple_seq eval, gimple_seq cleanup, unsigned int kind</var>)<var><a name="index-gimple_005fbuild_005ftry-2418"></a></var><br>
+&mdash; GIMPLE function: gtry <b>*gimple_build_try</b> (<var>gimple_seq eval, gimple_seq cleanup, unsigned int kind</var>)<var><a name="index-g_t_002agimple_005fbuild_005ftry-2435"></a></var><br>
 <blockquote><p>Build a <code>GIMPLE_TRY</code> statement.  <code>EVAL</code> is a sequence with the
 expression to evaluate.  <code>CLEANUP</code> is a sequence of statements to
 run at clean-up time.  <code>KIND</code> is the enumeration value
@@ -68,41 +68,41 @@ construct.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: enum gimple_try_flags <b>gimple_try_kind</b> (<var>gimple g</var>)<var><a name="index-gimple_005ftry_005fkind-2419"></a></var><br>
+&mdash; GIMPLE function: enum gimple_try_flags <b>gimple_try_kind</b> (<var>gimple g</var>)<var><a name="index-gimple_005ftry_005fkind-2436"></a></var><br>
 <blockquote><p>Return the kind of try block represented by <code>GIMPLE_TRY</code> <code>G</code>. This is
 either <code>GIMPLE_TRY_CATCH</code> or <code>GIMPLE_TRY_FINALLY</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: bool <b>gimple_try_catch_is_cleanup</b> (<var>gimple g</var>)<var><a name="index-gimple_005ftry_005fcatch_005fis_005fcleanup-2420"></a></var><br>
+&mdash; GIMPLE function: bool <b>gimple_try_catch_is_cleanup</b> (<var>gimple g</var>)<var><a name="index-gimple_005ftry_005fcatch_005fis_005fcleanup-2437"></a></var><br>
 <blockquote><p>Return the <code>GIMPLE_TRY_CATCH_IS_CLEANUP</code> flag. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: gimple_seq <b>gimple_try_eval</b> (<var>gimple g</var>)<var><a name="index-gimple_005ftry_005feval-2421"></a></var><br>
+&mdash; GIMPLE function: gimple_seq <b>gimple_try_eval</b> (<var>gimple g</var>)<var><a name="index-gimple_005ftry_005feval-2438"></a></var><br>
 <blockquote><p>Return the sequence of statements used as the body for <code>GIMPLE_TRY</code>
 <code>G</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: gimple_seq <b>gimple_try_cleanup</b> (<var>gimple g</var>)<var><a name="index-gimple_005ftry_005fcleanup-2422"></a></var><br>
+&mdash; GIMPLE function: gimple_seq <b>gimple_try_cleanup</b> (<var>gimple g</var>)<var><a name="index-gimple_005ftry_005fcleanup-2439"></a></var><br>
 <blockquote><p>Return the sequence of statements used as the cleanup body for
 <code>GIMPLE_TRY</code> <code>G</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: void <b>gimple_try_set_catch_is_cleanup</b> (<var>gimple g, bool catch_is_cleanup</var>)<var><a name="index-gimple_005ftry_005fset_005fcatch_005fis_005fcleanup-2423"></a></var><br>
+&mdash; GIMPLE function: void <b>gimple_try_set_catch_is_cleanup</b> (<var>gimple g, bool catch_is_cleanup</var>)<var><a name="index-gimple_005ftry_005fset_005fcatch_005fis_005fcleanup-2440"></a></var><br>
 <blockquote><p>Set the <code>GIMPLE_TRY_CATCH_IS_CLEANUP</code> flag. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: void <b>gimple_try_set_eval</b> (<var>gimple g, gimple_seq eval</var>)<var><a name="index-gimple_005ftry_005fset_005feval-2424"></a></var><br>
+&mdash; GIMPLE function: void <b>gimple_try_set_eval</b> (<var>gtry *g, gimple_seq eval</var>)<var><a name="index-gimple_005ftry_005fset_005feval-2441"></a></var><br>
 <blockquote><p>Set <code>EVAL</code> to be the sequence of statements to use as the body for
 <code>GIMPLE_TRY</code> <code>G</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: void <b>gimple_try_set_cleanup</b> (<var>gimple g, gimple_seq cleanup</var>)<var><a name="index-gimple_005ftry_005fset_005fcleanup-2425"></a></var><br>
+&mdash; GIMPLE function: void <b>gimple_try_set_cleanup</b> (<var>gtry *g, gimple_seq cleanup</var>)<var><a name="index-gimple_005ftry_005fset_005fcleanup-2442"></a></var><br>
 <blockquote><p>Set <code>CLEANUP</code> to be the sequence of statements to use as the
 cleanup body for <code>GIMPLE_TRY</code> <code>G</code>. 
 </p></blockquote></div>

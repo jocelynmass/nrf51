@@ -124,7 +124,7 @@
 .\" ========================================================================
 .\"
 .IX Title "ADDR2LINE 1"
-.TH ADDR2LINE 1 "2015-09-21" "binutils-2.24.0" "GNU Development Tools"
+.TH ADDR2LINE 1 "2015-12-19" "binutils-2.25.90" "GNU Development Tools"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -165,26 +165,33 @@ standard input, and prints the file name and line number for each
 address on standard output.  In this mode, \fBaddr2line\fR may be used
 in a pipe to convert dynamically chosen addresses.
 .PP
-The format of the output is \fB\s-1FILENAME:LINENO\s0\fR.  The file name and
-line number for each input address is printed on separate lines.
+The format of the output is \fB\s-1FILENAME:LINENO\s0\fR.  By default
+each input address generates one line of output.
 .PP
-If the \fB\-f\fR option is used, then each \fB\s-1FILENAME:LINENO\s0\fR
-line is preceded by \fB\s-1FUNCTIONNAME\s0\fR which is the name of the
-function containing the address.
+Two options can generate additional lines before each
+\&\fB\s-1FILENAME:LINENO\s0\fR line (in that order).
+.PP
+If the \fB\-a\fR option is used then a line with the input address
+is displayed.
+.PP
+If the \fB\-f\fR option is used, then a line with the
+\&\fB\s-1FUNCTIONNAME\s0\fR is displayed.  This is the name of the function
+containing the address.
+.PP
+One option can generate additional lines after the
+\&\fB\s-1FILENAME:LINENO\s0\fR line.
 .PP
 If the \fB\-i\fR option is used and the code at the given address is
-present there because of inlining by the compiler then the
-\&\fB{\s-1FUNCTIONNAME\s0} \s-1FILENAME:LINENO\s0\fR information for the inlining
-function will be displayed afterwards.  This continues recursively
-until there is no more inlining to report.
+present there because of inlining by the compiler then additional
+lines are displayed afterwards.  One or two extra lines (if the
+\&\fB\-f\fR option is used) are displayed for each inlined function.
 .PP
-If the \fB\-a\fR option is used then the output is prefixed by the
-input address.
-.PP
-If the \fB\-p\fR option is used then the output for each input
-address is displayed on one, possibly quite long, line.  If
-\&\fB\-p\fR is not used then the output is broken up into multiple
-lines, based on the paragraphs above.
+Alternatively if the \fB\-p\fR option is used then each input
+address generates a single, long, output line containing the address,
+the function name, the file name and the line number.  If the
+\&\fB\-i\fR option has also been used then any inlined functions will
+be displayed in the same manner, but on separate lines, and prefixed
+by the text \fB(inlined by)\fR.
 .PP
 If the file name or function name can not be determined,
 \&\fBaddr2line\fR will print two question marks in their place.  If the
@@ -289,7 +296,7 @@ with a backslash.  The \fIfile\fR may itself contain additional
 Info entries for \fIbinutils\fR.
 .SH "COPYRIGHT"
 .IX Header "COPYRIGHT"
-Copyright (c) 1991\-2013 Free Software Foundation, Inc.
+Copyright (c) 1991\-2015 Free Software Foundation, Inc.
 .PP
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the \s-1GNU\s0 Free Documentation License, Version 1.3

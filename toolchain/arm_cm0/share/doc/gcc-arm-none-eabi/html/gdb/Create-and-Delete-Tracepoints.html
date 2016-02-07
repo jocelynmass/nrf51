@@ -9,7 +9,7 @@
 <link rel="next" href="Enable-and-Disable-Tracepoints.html#Enable-and-Disable-Tracepoints" title="Enable and Disable Tracepoints">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -47,8 +47,8 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Set-Tracepoints.html#Set-Tracepoints">S
 <h4 class="subsection">13.1.1 Create and Delete Tracepoints</h4>
 
      
-<a name="index-set-tracepoint-789"></a>
-<a name="index-trace-790"></a>
+<a name="index-set-tracepoint-814"></a>
+<a name="index-trace-815"></a>
 <dl><dt><code>trace </code><var>location</var><dd>The <code>trace</code> command is very similar to the <code>break</code> command. 
 Its argument <var>location</var> can be a source line, a function name, or
 an address in the target program.  See <a href="Specify-Location.html#Specify-Location">Specify Location</a>.  The
@@ -89,7 +89,7 @@ if the value is nonzero&mdash;that is, if <var>cond</var> evaluates as true.
 See <a href="Tracepoint-Conditions.html#Tracepoint-Conditions">Tracepoint Conditions</a>, for more
 information on tracepoint conditions.
 
-     <br><dt><code>ftrace </code><var>location</var><code> [ if </code><var>cond</var><code> ]</code><dd><a name="index-set-fast-tracepoint-791"></a><a name="index-fast-tracepoints_002c-setting-792"></a><a name="index-ftrace-793"></a>The <code>ftrace</code> command sets a fast tracepoint.  For targets that
+     <br><dt><code>ftrace </code><var>location</var><code> [ if </code><var>cond</var><code> ]</code><dd><a name="index-set-fast-tracepoint-816"></a><a name="index-fast-tracepoints_002c-setting-817"></a><a name="index-ftrace-818"></a>The <code>ftrace</code> command sets a fast tracepoint.  For targets that
 support them, fast tracepoints will use a more efficient but possibly
 less general technique to trigger data collection, such as a jump
 instruction instead of a trap, or some sort of hardware support.  It
@@ -114,7 +114,7 @@ to set the <code>mmap_min_addr</code> kernel parameter, as in
      <p class="noindent">which sets the low address to 32K, which leaves plenty of room for
 trampolines.  The minimum address should be set to a page boundary.
 
-     <br><dt><code>strace </code><var>location</var><code> [ if </code><var>cond</var><code> ]</code><dd><a name="index-set-static-tracepoint-794"></a><a name="index-static-tracepoints_002c-setting-795"></a><a name="index-probe-static-tracepoint-marker-796"></a><a name="index-strace-797"></a>The <code>strace</code> command sets a static tracepoint.  For targets that
+     <br><dt><code>strace </code><var>location</var><code> [ if </code><var>cond</var><code> ]</code><dd><a name="index-set-static-tracepoint-819"></a><a name="index-static-tracepoints_002c-setting-820"></a><a name="index-probe-static-tracepoint-marker-821"></a><a name="index-strace-822"></a>The <code>strace</code> command sets a static tracepoint.  For targets that
 support it, setting a static tracepoint probes a static
 instrumentation point, or marker, found at <var>location</var>.  It may not
 be possible to set a static tracepoint at the desired location, in
@@ -161,10 +161,10 @@ the `<samp><span class="samp">Data:</span></samp>' field.
 the $_sdata variable like any other variable available to
 <span class="sc">gdb</span>.  See <a href="Tracepoint-Actions.html#Tracepoint-Actions">Tracepoint Action Lists</a>.
 
-     <p><a name="index-g_t_0024tpnum-798"></a><a name="index-last-tracepoint-number-799"></a><a name="index-recent-tracepoint-number-800"></a><a name="index-tracepoint-number-801"></a>The convenience variable <code>$tpnum</code> records the tracepoint number
+     <p><a name="index-g_t_0024tpnum-823"></a><a name="index-last-tracepoint-number-824"></a><a name="index-recent-tracepoint-number-825"></a><a name="index-tracepoint-number-826"></a>The convenience variable <code>$tpnum</code> records the tracepoint number
 of the most recently set tracepoint.
 
-     <p><a name="index-delete-tracepoint-802"></a><a name="index-tracepoint-deletion-803"></a><br><dt><code>delete tracepoint </code><span class="roman">[</span><var>num</var><span class="roman">]</span><dd>Permanently delete one or more tracepoints.  With no argument, the
+     <p><a name="index-delete-tracepoint-827"></a><a name="index-tracepoint-deletion-828"></a><br><dt><code>delete tracepoint </code><span class="roman">[</span><var>num</var><span class="roman">]</span><dd>Permanently delete one or more tracepoints.  With no argument, the
 default is to delete all tracepoints.  Note that the regular
 <code>delete</code> command can remove tracepoints also.
 

@@ -10,7 +10,7 @@
 <link rel="next" href="Alias-analysis.html#Alias-analysis" title="Alias analysis">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -54,7 +54,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Tree-SSA.html#Tree-SSA">Tree SSA</a>
 
 <h3 class="section">12.3 Static Single Assignment</h3>
 
-<p><a name="index-SSA-2498"></a><a name="index-static-single-assignment-2499"></a>
+<p><a name="index-SSA-2515"></a><a name="index-static-single-assignment-2516"></a>
 Most of the tree optimizers rely on the data flow information provided
 by the Static Single Assignment (SSA) form.  We implement the SSA form
 as described in <cite>R. Cytron, J. Ferrante, B. Rosen, M. Wegman, and
@@ -81,7 +81,7 @@ the version number and the statement that created the
 <code>SSA_NAME</code>.  Only definitions and virtual definitions may
 create new <code>SSA_NAME</code> nodes.
 
- <p><a name="index-PHI-nodes-2500"></a>Sometimes, flow of control makes it impossible to determine the
+ <p><a name="index-PHI-nodes-2517"></a>Sometimes, flow of control makes it impossible to determine the
 most recent version of a variable.  In these cases, the compiler
 inserts an artificial definition for that variable called
 <dfn>PHI function</dfn> or <dfn>PHI node</dfn>.  This new definition merges
@@ -109,35 +109,35 @@ which&rdquo;.
  <p>The following functions can be used to examine PHI nodes
 
 <div class="defun">
-&mdash; Function: <b>gimple_phi_result</b> (<var>phi</var>)<var><a name="index-gimple_005fphi_005fresult-2501"></a></var><br>
+&mdash; Function: <b>gimple_phi_result</b> (<var>phi</var>)<var><a name="index-gimple_005fphi_005fresult-2518"></a></var><br>
 <blockquote><p>Returns the <code>SSA_NAME</code> created by PHI node <var>phi</var> (i.e.,
 <var>phi</var>'s LHS). 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Function: <b>gimple_phi_num_args</b> (<var>phi</var>)<var><a name="index-gimple_005fphi_005fnum_005fargs-2502"></a></var><br>
+&mdash; Function: <b>gimple_phi_num_args</b> (<var>phi</var>)<var><a name="index-gimple_005fphi_005fnum_005fargs-2519"></a></var><br>
 <blockquote><p>Returns the number of arguments in <var>phi</var>.  This number is exactly
 the number of incoming edges to the basic block holding <var>phi</var>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Function: <b>gimple_phi_arg</b> (<var>phi, i</var>)<var><a name="index-gimple_005fphi_005farg-2503"></a></var><br>
+&mdash; Function: <b>gimple_phi_arg</b> (<var>phi, i</var>)<var><a name="index-gimple_005fphi_005farg-2520"></a></var><br>
 <blockquote><p>Returns <var>i</var>th argument of <var>phi</var>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Function: <b>gimple_phi_arg_edge</b> (<var>phi, i</var>)<var><a name="index-gimple_005fphi_005farg_005fedge-2504"></a></var><br>
+&mdash; Function: <b>gimple_phi_arg_edge</b> (<var>phi, i</var>)<var><a name="index-gimple_005fphi_005farg_005fedge-2521"></a></var><br>
 <blockquote><p>Returns the incoming edge for the <var>i</var>th argument of <var>phi</var>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Function: <b>gimple_phi_arg_def</b> (<var>phi, i</var>)<var><a name="index-gimple_005fphi_005farg_005fdef-2505"></a></var><br>
+&mdash; Function: <b>gimple_phi_arg_def</b> (<var>phi, i</var>)<var><a name="index-gimple_005fphi_005farg_005fdef-2522"></a></var><br>
 <blockquote><p>Returns the <code>SSA_NAME</code> for the <var>i</var>th argument of <var>phi</var>. 
 </p></blockquote></div>
 
 <h4 class="subsection">12.3.1 Preserving the SSA form</h4>
 
-<p><a name="index-update_005fssa-2506"></a><a name="index-preserving-SSA-form-2507"></a>Some optimization passes make changes to the function that
+<p><a name="index-update_005fssa-2523"></a><a name="index-preserving-SSA-form-2524"></a>Some optimization passes make changes to the function that
 invalidate the SSA property.  This can happen when a pass has
 added new symbols or changed the program so that variables that
 were previously aliased aren't anymore.  Whenever something like this
@@ -252,7 +252,7 @@ renaming are processed.
 
 <h4 class="subsection">12.3.2 Preserving the virtual SSA form</h4>
 
-<p><a name="index-preserving-virtual-SSA-form-2508"></a>
+<p><a name="index-preserving-virtual-SSA-form-2525"></a>
 The virtual SSA form is harder to preserve than the non-virtual SSA form
 mainly because the set of virtual operands for a statement may change at
 what some would consider unexpected times.  In general, statement
@@ -284,11 +284,11 @@ need to be marked for renaming.
 
 <h4 class="subsection">12.3.3 Examining <code>SSA_NAME</code> nodes</h4>
 
-<p><a name="index-examining-SSA_005fNAMEs-2509"></a>
+<p><a name="index-examining-SSA_005fNAMEs-2526"></a>
 The following macros can be used to examine <code>SSA_NAME</code> nodes
 
 <div class="defun">
-&mdash; Macro: <b>SSA_NAME_DEF_STMT</b> (<var>var</var>)<var><a name="index-SSA_005fNAME_005fDEF_005fSTMT-2510"></a></var><br>
+&mdash; Macro: <b>SSA_NAME_DEF_STMT</b> (<var>var</var>)<var><a name="index-SSA_005fNAME_005fDEF_005fSTMT-2527"></a></var><br>
 <blockquote><p>Returns the statement <var>s</var> that creates the <code>SSA_NAME</code>
 <var>var</var>.  If <var>s</var> is an empty statement (i.e., <code>IS_EMPTY_STMT
 (</code><var>s</var><code>)</code> returns <code>true</code>), it means that the first reference to
@@ -296,14 +296,14 @@ this variable is a USE or a VUSE.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>SSA_NAME_VERSION</b> (<var>var</var>)<var><a name="index-SSA_005fNAME_005fVERSION-2511"></a></var><br>
+&mdash; Macro: <b>SSA_NAME_VERSION</b> (<var>var</var>)<var><a name="index-SSA_005fNAME_005fVERSION-2528"></a></var><br>
 <blockquote><p>Returns the version number of the <code>SSA_NAME</code> object <var>var</var>. 
 </p></blockquote></div>
 
 <h4 class="subsection">12.3.4 Walking the dominator tree</h4>
 
 <div class="defun">
-&mdash; Tree SSA function: void <b>walk_dominator_tree</b> (<var>walk_data, bb</var>)<var><a name="index-walk_005fdominator_005ftree-2512"></a></var><br>
+&mdash; Tree SSA function: void <b>walk_dominator_tree</b> (<var>walk_data, bb</var>)<var><a name="index-walk_005fdominator_005ftree-2529"></a></var><br>
 <blockquote>
 <p>This function walks the dominator tree for the current CFG calling a
 set of callback functions defined in <var>struct dom_walk_data</var> in

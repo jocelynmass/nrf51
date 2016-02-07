@@ -10,7 +10,7 @@
 <link rel="next" href="Target-Options.html#Target-Options" title="Target Options">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -52,9 +52,9 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Invoking-GCC.html#Invoking-GCC">Invokin
 <hr>
 </div>
 
-<h3 class="section">3.15 Specifying subprocesses and the switches to pass to them</h3>
+<h3 class="section">3.15 Specifying Subprocesses and the Switches to Pass to Them</h3>
 
-<p><a name="index-Spec-Files-1120"></a>
+<p><a name="index-Spec-Files-1255"></a>
 <samp><span class="command">gcc</span></samp> is a driver program.  It performs its job by invoking a
 sequence of other programs to do the work of compiling, assembling and
 linking.  GCC interprets its command-line parameters and uses these to
@@ -76,13 +76,13 @@ character on the line, which can be one of the following:
 appear here are:
 
           <dl>
-<dt><code>%include &lt;</code><var>file</var><code>&gt;</code><dd><a name="index-g_t_0040code_007b_0025include_007d-1121"></a>Search for <var>file</var> and insert its text at the current point in the
+<dt><code>%include &lt;</code><var>file</var><code>&gt;</code><dd><a name="index-g_t_0040code_007b_0025include_007d-1256"></a>Search for <var>file</var> and insert its text at the current point in the
 specs file.
 
-          <br><dt><code>%include_noerr &lt;</code><var>file</var><code>&gt;</code><dd><a name="index-g_t_0040code_007b_0025include_005fnoerr_007d-1122"></a>Just like `<samp><span class="samp">%include</span></samp>', but do not generate an error message if the include
+          <br><dt><code>%include_noerr &lt;</code><var>file</var><code>&gt;</code><dd><a name="index-g_t_0040code_007b_0025include_005fnoerr_007d-1257"></a>Just like `<samp><span class="samp">%include</span></samp>', but do not generate an error message if the include
 file cannot be found.
 
-          <br><dt><code>%rename </code><var>old_name</var> <var>new_name</var><dd><a name="index-g_t_0040code_007b_0025rename_007d-1123"></a>Rename the spec string <var>old_name</var> to <var>new_name</var>.
+          <br><dt><code>%rename </code><var>old_name</var> <var>new_name</var><dd><a name="index-g_t_0040code_007b_0025rename_007d-1258"></a>Rename the spec string <var>old_name</var> to <var>new_name</var>.
 
      </dl>
 
@@ -258,7 +258,7 @@ support additional <var>suffix</var> characters following `<samp><span class="sa
 following, for example, `<samp><span class="samp">.o</span></samp>'.
 
      <br><dt><code>%p</code><dd>Substitutes the standard macro predefinitions for the
-current target machine.  Use this when running <code>cpp</code>.
+current target machine.  Use this when running <samp><span class="command">cpp</span></samp>.
 
      <br><dt><code>%P</code><dd>Like `<samp><span class="samp">%p</span></samp>', but puts `<samp><span class="samp">__</span></samp>' before and after the name of each
 predefined macro, except for macros that start with `<samp><span class="samp">__</span></samp>' or with
@@ -328,10 +328,10 @@ the last object files that are passed to the linker.
 to be passed to the C preprocessor.
 
      <br><dt><code>%1</code><dd>Process the <code>cc1</code> spec.  This is used to construct the options to be
-passed to the actual C compiler (`<samp><span class="samp">cc1</span></samp>').
+passed to the actual C compiler (<samp><span class="command">cc1</span></samp>).
 
      <br><dt><code>%2</code><dd>Process the <code>cc1plus</code> spec.  This is used to construct the options to be
-passed to the actual C++ compiler (`<samp><span class="samp">cc1plus</span></samp>').
+passed to the actual C++ compiler (<samp><span class="command">cc1plus</span></samp>).
 
      <br><dt><code>%*</code><dd>Substitute the variable part of a matched option.  See below. 
 Note that each comma in the substituted string is replaced by
@@ -446,14 +446,14 @@ for each matching switch, with the <code>%*</code> replaced by the part of
 that switch matching the <code>*</code>.
 
      <p>If <code>%*</code> appears as the last part of a spec sequence then a space
-will be added after the end of the last substitution.  If there is more
-text in the sequence however then a space will not be generated.  This
+is added after the end of the last substitution.  If there is more
+text in the sequence, however, then a space is not generated.  This
 allows the <code>%*</code> substitution to be used as part of a larger
 string.  For example, a spec string like this:
 
      <pre class="smallexample">          %{mcu=*:--script=%*/memory.ld}
      </pre>
-     <p>when matching an option like <code>-mcu=newchip</code> will produce:
+     <p class="noindent">when matching an option like <samp><span class="option">-mcu=newchip</span></samp> produces:
 
      <pre class="smallexample">          --script=newchip/memory.ld
      </pre>

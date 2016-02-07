@@ -10,7 +10,7 @@
 <link rel="next" href="Interrupts.html#Interrupts" title="Interrupts">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -49,7 +49,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Remote-Protocol.html#Remote-Protocol">R
 
 <h3 class="section">E.7 Host I/O Packets</h3>
 
-<p><a name="index-Host-I_002fO_002c-remote-protocol-3350"></a><a name="index-file-transfer_002c-remote-protocol-3351"></a>
+<p><a name="index-Host-I_002fO_002c-remote-protocol-3444"></a><a name="index-file-transfer_002c-remote-protocol-3445"></a>
 The <dfn>Host I/O</dfn> packets allow <span class="sc">gdb</span> to perform I/O
 operations on the far side of a remote link.  For example, Host I/O is
 used to upload and download files to a remote target with its own
@@ -127,6 +127,12 @@ packet is used.  `<samp><span class="samp">vFile:write</span></samp>' returns th
 which may be shorter than the length of <var>data</var>, or -1 if an
 error occurred.
 
+     <br><dt>`<samp><span class="samp">vFile:fstat: </span><var>fd</var></samp>'<dd>Get information about the open file corresponding to <var>fd</var>. 
+On success the information is returned as a binary attachment
+and the return value is the size of this attachment in bytes. 
+If an error occurs the return value is -1.  The format of the
+returned binary attachment is as described in <a href="struct-stat.html#struct-stat">struct stat</a>.
+
      <br><dt>`<samp><span class="samp">vFile:unlink: </span><var>filename</var></samp>'<dd>Delete the file at <var>filename</var> on the target.  Return 0,
 or -1 if an error occurs.  The <var>filename</var> is a string.
 
@@ -138,6 +144,19 @@ If zero bytes were read, the response should include an empty binary
 attachment (i.e. a trailing semicolon).  The return value is the
 number of target bytes read; the binary attachment may be longer if
 some characters were escaped.
+
+     <br><dt>`<samp><span class="samp">vFile:setfs: </span><var>pid</var></samp>'<dd>Select the filesystem on which <code>vFile</code> operations with
+<var>filename</var> arguments will operate.  This is required for
+<span class="sc">gdb</span> to be able to access files on remote targets where
+the remote stub does not share a common filesystem with the
+inferior(s).
+
+     <p>If <var>pid</var> is nonzero, select the filesystem as seen by process
+<var>pid</var>.  If <var>pid</var> is zero, select the filesystem as seen by
+the remote stub.  Return 0 on success, or -1 if an error occurs. 
+If <code>vFile:setfs:</code> indicates success, the selected filesystem
+remains selected until the next successful <code>vFile:setfs:</code>
+operation.
 
    </dl>
 

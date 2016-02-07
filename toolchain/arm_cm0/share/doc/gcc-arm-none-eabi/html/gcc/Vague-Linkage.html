@@ -10,7 +10,7 @@
 <link rel="next" href="C_002b_002b-Interface.html#C_002b_002b-Interface" title="C++ Interface">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -54,7 +54,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="C_002b_002b-Extensions.html#C_002b_002b
 
 <h3 class="section">7.3 Vague Linkage</h3>
 
-<p><a name="index-vague-linkage-3825"></a>
+<p><a name="index-vague-linkage-4200"></a>
 There are several constructs in C++ that require space in the object
 file but are not clearly tied to a single translation unit.  We say that
 these constructs have &ldquo;vague linkage&rdquo;.  Typically such constructs are
@@ -74,7 +74,7 @@ it always requires a copy.
 are also considered to have vague linkage, since they must be shared
 between all inlined and out-of-line instances of the function.
 
-     <br><dt>VTables<dd><a name="index-vtable-3826"></a>C++ virtual functions are implemented in most compilers using a lookup
+     <br><dt>VTables<dd><a name="index-vtable-4201"></a>C++ virtual functions are implemented in most compilers using a lookup
 table, known as a vtable.  The vtable contains pointers to the virtual
 functions provided by a class, and each object of the class contains a
 pointer to its vtable (or vtables, in some multiple-inheritance
@@ -88,7 +88,7 @@ vtable is still emitted in every translation unit that defines it.
 Make sure that any inline virtuals are declared inline in the class
 body, even if they are not defined there.
 
-     <br><dt><code>type_info</code> objects<dd><a name="index-g_t_0040code_007btype_005finfo_007d-3827"></a><a name="index-RTTI-3828"></a>C++ requires information about types to be written out in order to
+     <br><dt><code>type_info</code> objects<dd><a name="index-g_t_0040code_007btype_005finfo_007d-4202"></a><a name="index-RTTI-4203"></a>C++ requires information about types to be written out in order to
 implement `<samp><span class="samp">dynamic_cast</span></samp>', `<samp><span class="samp">typeid</span></samp>' and exception handling. 
 For polymorphic classes (classes with virtual functions), the `<samp><span class="samp">type_info</span></samp>'
 object is written out along with the vtable so that `<samp><span class="samp">dynamic_cast</span></samp>'

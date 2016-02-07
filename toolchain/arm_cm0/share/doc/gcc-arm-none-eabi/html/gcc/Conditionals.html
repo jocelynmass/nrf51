@@ -10,7 +10,7 @@
 <link rel="next" href="_005f_005fint128.html#g_t_005f_005fint128" title="__int128">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -54,7 +54,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="C-Extensions.html#C-Extensions">C Exten
 
 <h3 class="section">6.7 Conditionals with Omitted Operands</h3>
 
-<p><a name="index-conditional-expressions_002c-extensions-2699"></a><a name="index-omitted-middle_002doperands-2700"></a><a name="index-middle_002doperands_002c-omitted-2701"></a><a name="index-extensions_002c-_0040code_007b_003f_003a_007d-2702"></a><a name="index-g_t_0040code_007b_003f_003a_007d-extensions-2703"></a>
+<p><a name="index-conditional-expressions_002c-extensions-2893"></a><a name="index-omitted-middle_002doperands-2894"></a><a name="index-middle_002doperands_002c-omitted-2895"></a><a name="index-extensions_002c-_0040code_007b_003f_003a_007d-2896"></a><a name="index-g_t_0040code_007b_003f_003a_007d-extensions-2897"></a>
 The middle operand in a conditional expression may be omitted.  Then
 if the first operand is nonzero, its value is the value of the conditional
 expression.
@@ -70,7 +70,7 @@ expression.
 
 <pre class="smallexample">     x ? x : y
 </pre>
- <p><a name="index-side-effect-in-_0040code_007b_003f_003a_007d-2704"></a><a name="index-g_t_0040code_007b_003f_003a_007d-side-effect-2705"></a>In this simple case, the ability to omit the middle operand is not
+ <p><a name="index-side-effect-in-_0040code_007b_003f_003a_007d-2898"></a><a name="index-g_t_0040code_007b_003f_003a_007d-side-effect-2899"></a>In this simple case, the ability to omit the middle operand is not
 especially useful.  When it becomes useful is when the first operand does,
 or may (if it is a macro argument), contain a side effect.  Then repeating
 the operand in the middle would perform the side effect twice.  Omitting

@@ -10,7 +10,7 @@
 <link rel="next" href="Assembler-Format.html#Assembler-Format" title="Assembler Format">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -52,9 +52,9 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Target-Macros.html#Target-Macros">Targe
 <hr>
 </div>
 
-<h3 class="section">17.20 Position Independent Code</h3>
+<h3 class="section">17.19 Position Independent Code</h3>
 
-<p><a name="index-position-independent-code-4519"></a><a name="index-PIC-4520"></a>
+<p><a name="index-position-independent-code-4550"></a><a name="index-PIC-4551"></a>
 This section describes macros that help implement generation of position
 independent code.  Simply defining these macros is not enough to
 generate valid PIC; you must also add support to the hook
@@ -68,7 +68,7 @@ relative addresses.
 <!-- them to the next line, to eliminate an overfull hbox. -mew 10feb93 -->
 
 <div class="defun">
-&mdash; Macro: <b>PIC_OFFSET_TABLE_REGNUM</b><var><a name="index-PIC_005fOFFSET_005fTABLE_005fREGNUM-4521"></a></var><br>
+&mdash; Macro: <b>PIC_OFFSET_TABLE_REGNUM</b><var><a name="index-PIC_005fOFFSET_005fTABLE_005fREGNUM-4552"></a></var><br>
 <blockquote><p>The register number of the register used to address a table of static
 data addresses in memory.  In some cases this register is defined by a
 processor's &ldquo;application binary interface&rdquo; (ABI).  When this macro
@@ -80,7 +80,7 @@ when <code>flag_pic</code> is true).
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>PIC_OFFSET_TABLE_REG_CALL_CLOBBERED</b><var><a name="index-PIC_005fOFFSET_005fTABLE_005fREG_005fCALL_005fCLOBBERED-4522"></a></var><br>
+&mdash; Macro: <b>PIC_OFFSET_TABLE_REG_CALL_CLOBBERED</b><var><a name="index-PIC_005fOFFSET_005fTABLE_005fREG_005fCALL_005fCLOBBERED-4553"></a></var><br>
 <blockquote><p>A C expression that is nonzero if the register defined by
 <code>PIC_OFFSET_TABLE_REGNUM</code> is clobbered by calls.  If not defined,
 the default is zero.  Do not define
@@ -88,7 +88,7 @@ this macro if <code>PIC_OFFSET_TABLE_REGNUM</code> is not defined.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>LEGITIMATE_PIC_OPERAND_P</b> (<var>x</var>)<var><a name="index-LEGITIMATE_005fPIC_005fOPERAND_005fP-4523"></a></var><br>
+&mdash; Macro: <b>LEGITIMATE_PIC_OPERAND_P</b> (<var>x</var>)<var><a name="index-LEGITIMATE_005fPIC_005fOPERAND_005fP-4554"></a></var><br>
 <blockquote><p>A C expression that is nonzero if <var>x</var> is a legitimate immediate
 operand on the target machine when generating position independent code. 
 You can assume that <var>x</var> satisfies <code>CONSTANT_P</code>, so you need not

@@ -10,7 +10,7 @@
 <link rel="next" href="TUI-Configuration.html#TUI-Configuration" title="TUI Configuration">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -48,7 +48,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="TUI.html#TUI">TUI</a>
 
 <h3 class="section">25.4 TUI-specific Commands</h3>
 
-<p><a name="index-TUI-commands-2751"></a>
+<p><a name="index-TUI-commands-2825"></a>
 The TUI has specific commands to control the text windows. 
 These commands are always available, even when <span class="sc">gdb</span> is not in
 the TUI mode.  When <span class="sc">gdb</span> is in the standard mode, most
@@ -61,9 +61,15 @@ these commands will fail with an error, because it would not be
 possible or desirable to enable curses window management.
 
      <dl>
-<dt><code>info win</code><dd><a name="index-info-win-2752"></a>List and give the size of all displayed windows.
+<dt><code>tui enable</code><dd><a name="index-tui-enable-2826"></a>Activate TUI mode.  The last active TUI window layout will be used if
+TUI mode has prevsiouly been used in the current debugging session,
+otherwise a default layout is used.
 
-     <br><dt><code>layout next</code><dd><a name="index-layout-2753"></a>Display the next layout.
+     <br><dt><code>tui disable</code><dd><a name="index-tui-disable-2827"></a>Disable TUI mode, returning to the console interpreter.
+
+     <br><dt><code>info win</code><dd><a name="index-info-win-2828"></a>List and give the size of all displayed windows.
+
+     <br><dt><code>layout next</code><dd><a name="index-layout-2829"></a>Display the next layout.
 
      <br><dt><code>layout prev</code><dd>Display the previous layout.
 
@@ -75,7 +81,7 @@ possible or desirable to enable curses window management.
 
      <br><dt><code>layout regs</code><dd>Display the register window together with the source or assembly window.
 
-     <br><dt><code>focus next</code><dd><a name="index-focus-2754"></a>Make the next window active for scrolling.
+     <br><dt><code>focus next</code><dd><a name="index-focus-2830"></a>Make the next window active for scrolling.
 
      <br><dt><code>focus prev</code><dd>Make the previous window active for scrolling.
 
@@ -87,26 +93,39 @@ possible or desirable to enable curses window management.
 
      <br><dt><code>focus cmd</code><dd>Make the command window active for scrolling.
 
-     <br><dt><code>refresh</code><dd><a name="index-refresh-2755"></a>Refresh the screen.  This is similar to typing <kbd>C-L</kbd>.
+     <br><dt><code>refresh</code><dd><a name="index-refresh-2831"></a>Refresh the screen.  This is similar to typing <kbd>C-L</kbd>.
 
-     <br><dt><code>tui reg float</code><dd><a name="index-tui-reg-2756"></a>Show the floating point registers in the register window.
+     <br><dt><code>tui reg </code><var>group</var><dd><a name="index-tui-reg-2832"></a>Changes the register group displayed in the tui register window to
+<var>group</var>.  If the register window is not currently displayed this
+command will cause the register window to be displayed.  The list of
+register groups, as well as their order is target specific. The
+following groups are available on most targets:
+          <dl>
+<dt><code>next</code><dd>Repeatedly selecting this group will cause the display to cycle
+through all of the available register groups.
 
-     <br><dt><code>tui reg general</code><dd>Show the general registers in the register window.
+          <br><dt><code>prev</code><dd>Repeatedly selecting this group will cause the display to cycle
+through all of the available register groups in the reverse order to
+<var>next</var>.
 
-     <br><dt><code>tui reg next</code><dd>Show the next register group.  The list of register groups as well as
-their order is target specific.  The predefined register groups are the
-following: <code>general</code>, <code>float</code>, <code>system</code>, <code>vector</code>,
-<code>all</code>, <code>save</code>, <code>restore</code>.
+          <br><dt><code>general</code><dd>Display the general registers. 
+<br><dt><code>float</code><dd>Display the floating point registers. 
+<br><dt><code>system</code><dd>Display the system registers. 
+<br><dt><code>vector</code><dd>Display the vector registers. 
+<br><dt><code>all</code><dd>Display all registers. 
+</dl>
 
-     <br><dt><code>tui reg system</code><dd>Show the system registers in the register window.
+     <br><dt><code>update</code><dd><a name="index-update-2833"></a>Update the source window and the current execution point.
 
-     <br><dt><code>update</code><dd><a name="index-update-2757"></a>Update the source window and the current execution point.
-
-     <br><dt><code>winheight </code><var>name</var><code> +</code><var>count</var><dt><code>winheight </code><var>name</var><code> -</code><var>count</var><dd><a name="index-winheight-2758"></a>Change the height of the window <var>name</var> by <var>count</var>
+     <br><dt><code>winheight </code><var>name</var><code> +</code><var>count</var><dt><code>winheight </code><var>name</var><code> -</code><var>count</var><dd><a name="index-winheight-2834"></a>Change the height of the window <var>name</var> by <var>count</var>
 lines.  Positive counts increase the height, while negative counts
-decrease it.
+decrease it.  The <var>name</var> parameter can be one of <code>src</code> (the
+source window), <code>cmd</code> (the command window), <code>asm</code> (the
+disassembly window), or <code>regs</code> (the register display window).
 
-     <br><dt><code>tabset </code><var>nchars</var><dd><a name="index-tabset-2759"></a>Set the width of tab stops to be <var>nchars</var> characters. 
+     <br><dt><code>tabset </code><var>nchars</var><dd><a name="index-tabset-2835"></a>Set the width of tab stops to be <var>nchars</var> characters.  This
+setting affects the display of TAB characters in the source and
+assembly windows. 
 </dl>
 
    </body></html>

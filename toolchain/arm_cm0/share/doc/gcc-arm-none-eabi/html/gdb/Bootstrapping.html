@@ -10,7 +10,7 @@
 <link rel="next" href="Debug-Session.html#Debug-Session" title="Debug Session">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -48,7 +48,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Remote-Stub.html#Remote-Stub">Remote St
 
 <h4 class="subsection">20.5.2 What You Must Do for the Stub</h4>
 
-<p><a name="index-remote-stub_002c-support-routines-1298"></a>The debugging stubs that come with <span class="sc">gdb</span> are set up for a particular
+<p><a name="index-remote-stub_002c-support-routines-1343"></a>The debugging stubs that come with <span class="sc">gdb</span> are set up for a particular
 chip architecture, but they have no information about the rest of your
 debugging target machine.
 
@@ -56,16 +56,16 @@ debugging target machine.
 serial port.
 
      <dl>
-<dt><code>int getDebugChar()</code><dd><a name="index-getDebugChar-1299"></a>Write this subroutine to read a single character from the serial port. 
+<dt><code>int getDebugChar()</code><dd><a name="index-getDebugChar-1344"></a>Write this subroutine to read a single character from the serial port. 
 It may be identical to <code>getchar</code> for your target system; a
 different name is used to allow you to distinguish the two if you wish.
 
-     <br><dt><code>void putDebugChar(int)</code><dd><a name="index-putDebugChar-1300"></a>Write this subroutine to write a single character to the serial port. 
+     <br><dt><code>void putDebugChar(int)</code><dd><a name="index-putDebugChar-1345"></a>Write this subroutine to write a single character to the serial port. 
 It may be identical to <code>putchar</code> for your target system; a
 different name is used to allow you to distinguish the two if you wish. 
 </dl>
 
-   <p><a name="index-control-C_002c-and-remote-debugging-1301"></a><a name="index-interrupting-remote-targets-1302"></a>If you want <span class="sc">gdb</span> to be able to stop your program while it is
+   <p><a name="index-control-C_002c-and-remote-debugging-1346"></a><a name="index-interrupting-remote-targets-1347"></a>If you want <span class="sc">gdb</span> to be able to stop your program while it is
 running, you need to use an interrupt-driven serial driver, and arrange
 for it to stop when it receives a <code>^C</code> (`<samp><span class="samp">\003</span></samp>', the control-C
 character).  That is the character which <span class="sc">gdb</span> uses to tell the
@@ -79,7 +79,7 @@ is to just execute a breakpoint instruction (the &ldquo;dirty&rdquo; part is tha
    <p>Other routines you need to supply are:
 
      <dl>
-<dt><code>void exceptionHandler (int </code><var>exception_number</var><code>, void *</code><var>exception_address</var><code>)</code><dd><a name="index-exceptionHandler-1303"></a>Write this function to install <var>exception_address</var> in the exception
+<dt><code>void exceptionHandler (int </code><var>exception_number</var><code>, void *</code><var>exception_address</var><code>)</code><dd><a name="index-exceptionHandler-1348"></a>Write this function to install <var>exception_address</var> in the exception
 handling tables.  You need to do this because the stub does not have any
 way of knowing what the exception handling tables on your target system
 are like (for example, the processor's table might be in <span class="sc">rom</span>,
@@ -99,7 +99,7 @@ should be at privilege level 0 (the most privileged level).  The
 <span class="sc">sparc</span> and 68k stubs are able to mask interrupts themselves without
 help from <code>exceptionHandler</code>.
 
-     <br><dt><code>void flush_i_cache()</code><dd><a name="index-flush_005fi_005fcache-1304"></a>On <span class="sc">sparc</span> and <span class="sc">sparclite</span> only, write this subroutine to flush the
+     <br><dt><code>void flush_i_cache()</code><dd><a name="index-flush_005fi_005fcache-1349"></a>On <span class="sc">sparc</span> and <span class="sc">sparclite</span> only, write this subroutine to flush the
 instruction cache, if any, on your target machine.  If there is no
 instruction cache, this subroutine may be a no-op.
 
@@ -110,7 +110,7 @@ function to make certain that the state of your program is stable.
 <p class="noindent">You must also make sure this library routine is available:
 
      <dl>
-<dt><code>void *memset(void *, int, int)</code><dd><a name="index-memset-1305"></a>This is the standard library function <code>memset</code> that sets an area of
+<dt><code>void *memset(void *, int, int)</code><dd><a name="index-memset-1350"></a>This is the standard library function <code>memset</code> that sets an area of
 memory to a known value.  If you have one of the free versions of
 <code>libc.a</code>, <code>memset</code> can be found there; otherwise, you must
 either obtain it from your hardware manufacturer, or write your own. 

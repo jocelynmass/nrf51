@@ -6,10 +6,10 @@
 <meta name="generator" content="makeinfo 4.8">
 <link title="Top" rel="start" href="index.html#Top">
 <link rel="up" href="GIMPLE.html#GIMPLE" title="GIMPLE">
-<link rel="next" href="GIMPLE-instruction-set.html#GIMPLE-instruction-set" title="GIMPLE instruction set">
+<link rel="next" href="Class-hierarchy-of-GIMPLE-statements.html#Class-hierarchy-of-GIMPLE-statements" title="Class hierarchy of GIMPLE statements">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -45,14 +45,14 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
 <div class="node">
 <p>
 <a name="Tuple-representation"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="GIMPLE-instruction-set.html#GIMPLE-instruction-set">GIMPLE instruction set</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="Class-hierarchy-of-GIMPLE-statements.html#Class-hierarchy-of-GIMPLE-statements">Class hierarchy of GIMPLE statements</a>,
 Up:&nbsp;<a rel="up" accesskey="u" href="GIMPLE.html#GIMPLE">GIMPLE</a>
 <hr>
 </div>
 
 <h3 class="section">11.1 Tuple representation</h3>
 
-<p><a name="index-tuples-2117"></a>
+<p><a name="index-tuples-2133"></a>
 GIMPLE instructions are tuples of variable size divided in two
 groups: a header describing the instruction and its locations,
 and a variable length body with all the operands. Tuples are
@@ -60,7 +60,7 @@ organized into a hierarchy with 3 main classes of tuples.
 
 <h4 class="subsection">11.1.1 <code>gimple_statement_base</code> (gsbase)</h4>
 
-<p><a name="index-gimple_005fstatement_005fbase-2118"></a>
+<p><a name="index-gimple_005fstatement_005fbase-2134"></a>
 This is the root of the hierarchy, it holds basic information
 needed by most GIMPLE statements. There are some fields that
 may not be relevant to every GIMPLE statement, but those were
@@ -159,7 +159,7 @@ information generation.
 
 <h4 class="subsection">11.1.2 <code>gimple_statement_with_ops</code></h4>
 
-<p><a name="index-gimple_005fstatement_005fwith_005fops-2119"></a>
+<p><a name="index-gimple_005fstatement_005fwith_005fops-2135"></a>
 This tuple is actually split in two:
 <code>gimple_statement_with_ops_base</code> and
 <code>gimple_statement_with_ops</code>. This is needed to accommodate the
@@ -249,34 +249,7 @@ reduce memory utilization further by removing these sets).
 </ul>
 
  <p>All the other tuples are defined in terms of these three basic
-ones. Each tuple will add some fields. The main gimple type
-is defined to be the union of all these structures (<code>GTY</code> markers
-elided for clarity):
+ones. Each tuple will add some fields.
 
-<pre class="smallexample">     union gimple_statement_d
-     {
-       struct gimple_statement_base gsbase;
-       struct gimple_statement_with_ops gsops;
-       struct gimple_statement_with_memory_ops gsmem;
-       struct gimple_statement_omp omp;
-       struct gimple_statement_bind gimple_bind;
-       struct gimple_statement_catch gimple_catch;
-       struct gimple_statement_eh_filter gimple_eh_filter;
-       struct gimple_statement_phi gimple_phi;
-       struct gimple_statement_resx gimple_resx;
-       struct gimple_statement_try gimple_try;
-       struct gimple_statement_wce gimple_wce;
-       struct gimple_statement_asm gimple_asm;
-       struct gimple_statement_omp_critical gimple_omp_critical;
-       struct gimple_statement_omp_for gimple_omp_for;
-       struct gimple_statement_omp_parallel gimple_omp_parallel;
-       struct gimple_statement_omp_task gimple_omp_task;
-       struct gimple_statement_omp_sections gimple_omp_sections;
-       struct gimple_statement_omp_single gimple_omp_single;
-       struct gimple_statement_omp_continue gimple_omp_continue;
-       struct gimple_statement_omp_atomic_load gimple_omp_atomic_load;
-       struct gimple_statement_omp_atomic_store gimple_omp_atomic_store;
-     };
-</pre>
  </body></html>
 

@@ -10,7 +10,7 @@
 <link rel="next" href="Return-Address.html#Return-Address" title="Return Address">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -52,9 +52,9 @@ Up:&nbsp;<a rel="up" accesskey="u" href="C-Extensions.html#C-Extensions">C Exten
 <hr>
 </div>
 
-<h3 class="section">6.47 Function Names as Strings</h3>
+<h3 class="section">6.46 Function Names as Strings</h3>
 
-<p><a name="index-g_t_0040code_007b_005f_005ffunc_005f_005f_007d-identifier-3178"></a><a name="index-g_t_0040code_007b_005f_005fFUNCTION_005f_005f_007d-identifier-3179"></a><a name="index-g_t_0040code_007b_005f_005fPRETTY_005fFUNCTION_005f_005f_007d-identifier-3180"></a>
+<p><a name="index-g_t_0040code_007b_005f_005ffunc_005f_005f_007d-identifier-3505"></a><a name="index-g_t_0040code_007b_005f_005fFUNCTION_005f_005f_007d-identifier-3506"></a><a name="index-g_t_0040code_007b_005f_005fPRETTY_005fFUNCTION_005f_005f_007d-identifier-3507"></a>
 GCC provides three magic variables that hold the name of the current
 function, as a string.  The first of these is <code>__func__</code>, which
 is part of the C99 standard:
@@ -68,20 +68,9 @@ definition, the declaration
  <p class="noindent">appeared, where function-name is the name of the lexically-enclosing
 function.  This name is the unadorned name of the function.
 
- <p><code>__FUNCTION__</code> is another name for <code>__func__</code>.  Older
-versions of GCC recognize only this name.  However, it is not
-standardized.  For maximum portability, we recommend you use
-<code>__func__</code>, but provide a fallback definition with the
-preprocessor:
+ <p><code>__FUNCTION__</code> is another name for <code>__func__</code>, provided for
+backward compatibility with old versions of GCC.
 
-<pre class="smallexample">     #if __STDC_VERSION__ &lt; 199901L
-     # if __GNUC__ &gt;= 2
-     #  define __func__ __FUNCTION__
-     # else
-     #  define __func__ "&lt;unknown&gt;"
-     # endif
-     #endif
-</pre>
  <p>In C, <code>__PRETTY_FUNCTION__</code> is yet another name for
 <code>__func__</code>.  However, in C++, <code>__PRETTY_FUNCTION__</code> contains
 the type signature of the function as well as its bare name.  For
@@ -113,13 +102,9 @@ example, this program:
 <pre class="smallexample">     __FUNCTION__ = sub
      __PRETTY_FUNCTION__ = void a::sub(int)
 </pre>
- <p>These identifiers are not preprocessor macros.  In GCC 3.3 and
-earlier, in C only, <code>__FUNCTION__</code> and <code>__PRETTY_FUNCTION__</code>
-were treated as string literals; they could be used to initialize
-<code>char</code> arrays, and they could be concatenated with other string
-literals.  GCC 3.4 and later treat them as variables, like
-<code>__func__</code>.  In C++, <code>__FUNCTION__</code> and
-<code>__PRETTY_FUNCTION__</code> have always been variables.
+ <p>These identifiers are variables, not preprocessor macros, and may not
+be used to initialize <code>char</code> arrays or be concatenated with other string
+literals.
 
  </body></html>
 

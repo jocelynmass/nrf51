@@ -7,9 +7,10 @@
 <link title="Top" rel="start" href="index.html#Top">
 <link rel="up" href="Statements.html#Statements" title="Statements">
 <link rel="prev" href="Cleanups.html#Cleanups" title="Cleanups">
+<link rel="next" href="OpenACC.html#OpenACC" title="OpenACC">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -45,6 +46,7 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
 <div class="node">
 <p>
 <a name="OpenMP"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="OpenACC.html#OpenACC">OpenACC</a>,
 Previous:&nbsp;<a rel="previous" accesskey="p" href="Cleanups.html#Cleanups">Cleanups</a>,
 Up:&nbsp;<a rel="up" accesskey="u" href="Statements.html#Statements">Statements</a>
 <hr>
@@ -52,7 +54,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Statements.html#Statements">Statements<
 
 <h4 class="subsection">10.7.7 OpenMP</h4>
 
-<p><a name="index-OMP_005fPARALLEL-1937"></a><a name="index-OMP_005fFOR-1938"></a><a name="index-OMP_005fSECTIONS-1939"></a><a name="index-OMP_005fSINGLE-1940"></a><a name="index-OMP_005fSECTION-1941"></a><a name="index-OMP_005fMASTER-1942"></a><a name="index-OMP_005fORDERED-1943"></a><a name="index-OMP_005fCRITICAL-1944"></a><a name="index-OMP_005fRETURN-1945"></a><a name="index-OMP_005fCONTINUE-1946"></a><a name="index-OMP_005fATOMIC-1947"></a><a name="index-OMP_005fCLAUSE-1948"></a>
+<p><a name="index-OMP_005fPARALLEL-1943"></a><a name="index-OMP_005fFOR-1944"></a><a name="index-OMP_005fSECTIONS-1945"></a><a name="index-OMP_005fSINGLE-1946"></a><a name="index-OMP_005fSECTION-1947"></a><a name="index-OMP_005fMASTER-1948"></a><a name="index-OMP_005fORDERED-1949"></a><a name="index-OMP_005fCRITICAL-1950"></a><a name="index-OMP_005fRETURN-1951"></a><a name="index-OMP_005fCONTINUE-1952"></a><a name="index-OMP_005fATOMIC-1953"></a><a name="index-OMP_005fCLAUSE-1954"></a>
 All the statements starting with <code>OMP_</code> represent directives and
 clauses used by the OpenMP API <a href="http://www.openmp.org/">http://www.openmp.org/</a><!-- /@w -->.
 
@@ -82,8 +84,8 @@ the <code>VAR_DECL</code> that contains all the shared values and
 variables.
 
      <br><dt><code>OMP_FOR</code><dd>
-Represents <code>#pragma omp for [clause1 ... clauseN]</code>.  It
-has 5 operands:
+Represents <code>#pragma omp for [clause1 ... clauseN]</code>.  It has
+six operands:
 
      <p>Operand <code>OMP_FOR_BODY</code> contains the loop body.
 
@@ -165,10 +167,9 @@ building code (<code>omp-low.c</code>).
 
      <br><dt><code>OMP_CONTINUE</code><dd>
 Similarly, this instruction does not represent an OpenMP
-directive, it is used by <code>OMP_FOR</code> and
+directive, it is used by <code>OMP_FOR</code> (and similar codes) as well as
 <code>OMP_SECTIONS</code> to mark the place where the code needs to
-loop to the next iteration (in the case of <code>OMP_FOR</code>) or
-the next section (in the case of <code>OMP_SECTIONS</code>).
+loop to the next iteration, or the next section, respectively.
 
      <p>In some cases, <code>OMP_CONTINUE</code> is placed right before
 <code>OMP_RETURN</code>.  But if there are cleanups that need to
@@ -212,8 +213,5 @@ compilation.
 
  </dl>
 
-<!--  -->
-<!-- Functions -->
-<!--  -->
-</body></html>
+ </body></html>
 

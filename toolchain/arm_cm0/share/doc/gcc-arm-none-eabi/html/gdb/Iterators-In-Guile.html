@@ -9,7 +9,7 @@
 <link rel="prev" href="Memory-Ports-in-Guile.html#Memory-Ports-in-Guile" title="Memory Ports in Guile">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -46,14 +46,14 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Guile-API.html#Guile-API">Guile API</a>
 
 <h5 class="subsubsection">23.3.3.25 Iterators In Guile</h5>
 
-<p><a name="index-guile-iterators-2680"></a><a name="index-g_t_003cgdb_003aiterator_003e-2681"></a>
+<p><a name="index-guile-iterators-2753"></a><a name="index-g_t_003cgdb_003aiterator_003e-2754"></a>
 A simple iterator facility is provided to allow, for example,
 iterating over the set of program symbols without having to first
 construct a list of all of them.  A useful contribution would be
 to add support for SRFI 41 and SRFI 45.
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>make-iterator</b><var> object progress next!<a name="index-make_002diterator-2682"></a></var><br>
+&mdash; Scheme Procedure: <b>make-iterator</b><var> object progress next!<a name="index-make_002diterator-2755"></a></var><br>
 <blockquote><p>A <code>&lt;gdb:iterator&gt;</code> object is constructed with the <code>make-iterator</code>
 procedure.  It takes three arguments: the object to be iterated over,
 an object to record the progress of the iteration, and a procedure to
@@ -94,29 +94,29 @@ functions in <code>my-global-block</code>.
         </blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>iterator?</b><var> object<a name="index-iterator_003f-2683"></a></var><br>
+&mdash; Scheme Procedure: <b>iterator?</b><var> object<a name="index-iterator_003f-2756"></a></var><br>
 <blockquote><p>Return <code>#t</code> if <var>object</var> is a <code>&lt;gdb:iterator&gt;</code> object. 
 Otherwise return <code>#f</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>iterator-object</b><var> iterator<a name="index-iterator_002dobject-2684"></a></var><br>
+&mdash; Scheme Procedure: <b>iterator-object</b><var> iterator<a name="index-iterator_002dobject-2757"></a></var><br>
 <blockquote><p>Return the first argument that was passed to <code>make-iterator</code>. 
 This is the object being iterated over. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>iterator-progress</b><var> iterator<a name="index-iterator_002dprogress-2685"></a></var><br>
+&mdash; Scheme Procedure: <b>iterator-progress</b><var> iterator<a name="index-iterator_002dprogress-2758"></a></var><br>
 <blockquote><p>Return the object tracking iteration progress. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>set-iterator-progress!</b><var> iterator new-value<a name="index-set_002diterator_002dprogress_0021-2686"></a></var><br>
+&mdash; Scheme Procedure: <b>set-iterator-progress!</b><var> iterator new-value<a name="index-set_002diterator_002dprogress_0021-2759"></a></var><br>
 <blockquote><p>Set the object tracking iteration progress. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>iterator-next!</b><var> iterator<a name="index-iterator_002dnext_0021-2687"></a></var><br>
+&mdash; Scheme Procedure: <b>iterator-next!</b><var> iterator<a name="index-iterator_002dnext_0021-2760"></a></var><br>
 <blockquote><p>Invoke the procedure that was the third argument to <code>make-iterator</code>,
 passing it one argument, the <code>&lt;gdb:iterator&gt;</code> object. 
 The result is either the next element in the iteration, or an end
@@ -125,12 +125,12 @@ By convention the end marker is the result of <code>(end-of-iteration)</code>.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>end-of-iteration</b><var><a name="index-end_002dof_002diteration-2688"></a></var><br>
+&mdash; Scheme Procedure: <b>end-of-iteration</b><var><a name="index-end_002dof_002diteration-2761"></a></var><br>
 <blockquote><p>Return the Scheme object that denotes end of iteration. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>end-of-iteration?</b><var> object<a name="index-end_002dof_002diteration_003f-2689"></a></var><br>
+&mdash; Scheme Procedure: <b>end-of-iteration?</b><var> object<a name="index-end_002dof_002diteration_003f-2762"></a></var><br>
 <blockquote><p>Return <code>#t</code> if <var>object</var> is the end of iteration marker. 
 Otherwise return <code>#f</code>. 
 </p></blockquote></div>
@@ -139,35 +139,35 @@ Otherwise return <code>#f</code>.
 assist in using iterators.
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>make-list-iterator</b><var> list<a name="index-make_002dlist_002diterator-2690"></a></var><br>
+&mdash; Scheme Procedure: <b>make-list-iterator</b><var> list<a name="index-make_002dlist_002diterator-2763"></a></var><br>
 <blockquote><p>Return a <code>&lt;gdb:iterator&gt;</code> object that will iterate over <var>list</var>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>iterator-&gt;list</b><var> iterator<a name="index-iterator_002d_003elist-2691"></a></var><br>
+&mdash; Scheme Procedure: <b>iterator-&gt;list</b><var> iterator<a name="index-iterator_002d_003elist-2764"></a></var><br>
 <blockquote><p>Return the elements pointed to by <var>iterator</var> as a list. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>iterator-map</b><var> proc iterator<a name="index-iterator_002dmap-2692"></a></var><br>
+&mdash; Scheme Procedure: <b>iterator-map</b><var> proc iterator<a name="index-iterator_002dmap-2765"></a></var><br>
 <blockquote><p>Return the list of objects obtained by applying <var>proc</var> to the object
 pointed to by <var>iterator</var> and to each subsequent object. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>iterator-for-each</b><var> proc iterator<a name="index-iterator_002dfor_002deach-2693"></a></var><br>
+&mdash; Scheme Procedure: <b>iterator-for-each</b><var> proc iterator<a name="index-iterator_002dfor_002deach-2766"></a></var><br>
 <blockquote><p>Apply <var>proc</var> to each element pointed to by <var>iterator</var>. 
 The result is unspecified. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>iterator-filter</b><var> pred iterator<a name="index-iterator_002dfilter-2694"></a></var><br>
+&mdash; Scheme Procedure: <b>iterator-filter</b><var> pred iterator<a name="index-iterator_002dfilter-2767"></a></var><br>
 <blockquote><p>Return the list of elements pointed to by <var>iterator</var> that satisfy
 <var>pred</var>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>iterator-until</b><var> pred iterator<a name="index-iterator_002duntil-2695"></a></var><br>
+&mdash; Scheme Procedure: <b>iterator-until</b><var> pred iterator<a name="index-iterator_002duntil-2768"></a></var><br>
 <blockquote><p>Run <var>iterator</var> until the result of <code>(pred element)</code> is true
 and return that as the result.  Otherwise return <code>#f</code>. 
 </p></blockquote></div>

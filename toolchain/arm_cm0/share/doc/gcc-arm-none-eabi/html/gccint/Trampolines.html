@@ -10,7 +10,7 @@
 <link rel="next" href="Library-Calls.html#Library-Calls" title="Library Calls">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -52,9 +52,9 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Target-Macros.html#Target-Macros">Targe
 <hr>
 </div>
 
-<h3 class="section">17.12 Trampolines for Nested Functions</h3>
+<h3 class="section">17.11 Trampolines for Nested Functions</h3>
 
-<p><a name="index-trampolines-for-nested-functions-4309"></a><a name="index-nested-functions_002c-trampolines-for-4310"></a>
+<p><a name="index-trampolines-for-nested-functions-4343"></a><a name="index-nested-functions_002c-trampolines-for-4344"></a>
 A <dfn>trampoline</dfn> is a small piece of code that is created at run time
 when the address of a nested function is taken.  It normally resides on
 the stack, in the stack frame of the containing function.  These macros
@@ -79,7 +79,7 @@ may be necessary to take out pieces of the address and store them
 separately.
 
 <div class="defun">
-&mdash; Target Hook: void <b>TARGET_ASM_TRAMPOLINE_TEMPLATE</b> (<var>FILE *f</var>)<var><a name="index-TARGET_005fASM_005fTRAMPOLINE_005fTEMPLATE-4311"></a></var><br>
+&mdash; Target Hook: void <b>TARGET_ASM_TRAMPOLINE_TEMPLATE</b> (<var>FILE *f</var>)<var><a name="index-TARGET_005fASM_005fTRAMPOLINE_005fTEMPLATE-4345"></a></var><br>
 <blockquote><p>This hook is called by <code>assemble_trampoline_template</code> to output,
 on the stream <var>f</var>, assembler code for a block of data that contains
 the constant parts of a trampoline.  This code should not include a
@@ -92,18 +92,18 @@ to generate it on the spot.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>TRAMPOLINE_SECTION</b><var><a name="index-TRAMPOLINE_005fSECTION-4312"></a></var><br>
+&mdash; Macro: <b>TRAMPOLINE_SECTION</b><var><a name="index-TRAMPOLINE_005fSECTION-4346"></a></var><br>
 <blockquote><p>Return the section into which the trampoline template is to be placed
 (see <a href="Sections.html#Sections">Sections</a>).  The default value is <code>readonly_data_section</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>TRAMPOLINE_SIZE</b><var><a name="index-TRAMPOLINE_005fSIZE-4313"></a></var><br>
+&mdash; Macro: <b>TRAMPOLINE_SIZE</b><var><a name="index-TRAMPOLINE_005fSIZE-4347"></a></var><br>
 <blockquote><p>A C expression for the size in bytes of the trampoline, as an integer. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>TRAMPOLINE_ALIGNMENT</b><var><a name="index-TRAMPOLINE_005fALIGNMENT-4314"></a></var><br>
+&mdash; Macro: <b>TRAMPOLINE_ALIGNMENT</b><var><a name="index-TRAMPOLINE_005fALIGNMENT-4348"></a></var><br>
 <blockquote><p>Alignment required for trampolines, in bits.
 
       <p>If you don't define this macro, the value of <code>FUNCTION_ALIGNMENT</code>
@@ -111,7 +111,7 @@ is used for aligning trampolines.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: void <b>TARGET_TRAMPOLINE_INIT</b> (<var>rtx m_tramp, tree fndecl, rtx static_chain</var>)<var><a name="index-TARGET_005fTRAMPOLINE_005fINIT-4315"></a></var><br>
+&mdash; Target Hook: void <b>TARGET_TRAMPOLINE_INIT</b> (<var>rtx m_tramp, tree fndecl, rtx static_chain</var>)<var><a name="index-TARGET_005fTRAMPOLINE_005fINIT-4349"></a></var><br>
 <blockquote><p>This hook is called to initialize a trampoline. 
 <var>m_tramp</var> is an RTX for the memory block for the trampoline; <var>fndecl</var>
 is the <code>FUNCTION_DECL</code> for the nested function; <var>static_chain</var> is an
@@ -131,7 +131,7 @@ initializing the trampoline proper.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: rtx <b>TARGET_TRAMPOLINE_ADJUST_ADDRESS</b> (<var>rtx addr</var>)<var><a name="index-TARGET_005fTRAMPOLINE_005fADJUST_005fADDRESS-4316"></a></var><br>
+&mdash; Target Hook: rtx <b>TARGET_TRAMPOLINE_ADJUST_ADDRESS</b> (<var>rtx addr</var>)<var><a name="index-TARGET_005fTRAMPOLINE_005fADJUST_005fADDRESS-4350"></a></var><br>
 <blockquote><p>This hook should perform any machine-specific adjustment in
 the address of the trampoline.  Its argument contains the address of the
 memory block that was passed to <code>TARGET_TRAMPOLINE_INIT</code>.  In case
@@ -156,7 +156,7 @@ latter makes initialization faster.
 the following macro.
 
 <div class="defun">
-&mdash; Macro: <b>CLEAR_INSN_CACHE</b> (<var>beg, end</var>)<var><a name="index-CLEAR_005fINSN_005fCACHE-4317"></a></var><br>
+&mdash; Macro: <b>CLEAR_INSN_CACHE</b> (<var>beg, end</var>)<var><a name="index-CLEAR_005fINSN_005fCACHE-4351"></a></var><br>
 <blockquote><p>If defined, expands to a C expression clearing the <em>instruction
 cache</em> in the specified interval.  The definition of this macro would
 typically be a series of <code>asm</code> statements.  Both <var>beg</var> and
@@ -170,7 +170,7 @@ beginning of the trampoline code is always aligned at the same point in
 its cache line.  Look in <samp><span class="file">m68k.h</span></samp> as a guide.
 
 <div class="defun">
-&mdash; Macro: <b>TRANSFER_FROM_TRAMPOLINE</b><var><a name="index-TRANSFER_005fFROM_005fTRAMPOLINE-4318"></a></var><br>
+&mdash; Macro: <b>TRANSFER_FROM_TRAMPOLINE</b><var><a name="index-TRANSFER_005fFROM_005fTRAMPOLINE-4352"></a></var><br>
 <blockquote><p>Define this macro if trampolines need a special subroutine to do their
 work.  The macro should expand to a series of <code>asm</code> statements
 which will be compiled with GCC.  They go in a library function named

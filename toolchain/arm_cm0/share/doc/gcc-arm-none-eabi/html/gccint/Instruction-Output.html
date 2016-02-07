@@ -10,7 +10,7 @@
 <link rel="next" href="Dispatch-Tables.html#Dispatch-Tables" title="Dispatch Tables">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -52,20 +52,20 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Assembler-Format.html#Assembler-Format"
 <hr>
 </div>
 
-<h4 class="subsection">17.21.7 Output of Assembler Instructions</h4>
+<h4 class="subsection">17.20.7 Output of Assembler Instructions</h4>
 
 <!-- prevent bad page break with this line -->
 <p>This describes assembler instruction output.
 
 <div class="defun">
-&mdash; Macro: <b>REGISTER_NAMES</b><var><a name="index-REGISTER_005fNAMES-4654"></a></var><br>
+&mdash; Macro: <b>REGISTER_NAMES</b><var><a name="index-REGISTER_005fNAMES-4687"></a></var><br>
 <blockquote><p>A C initializer containing the assembler's names for the machine
 registers, each one as a C string constant.  This is what translates
 register numbers in the compiler into assembler language. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>ADDITIONAL_REGISTER_NAMES</b><var><a name="index-ADDITIONAL_005fREGISTER_005fNAMES-4655"></a></var><br>
+&mdash; Macro: <b>ADDITIONAL_REGISTER_NAMES</b><var><a name="index-ADDITIONAL_005fREGISTER_005fNAMES-4688"></a></var><br>
 <blockquote><p>If defined, a C initializer for an array of structures containing a name
 and a register number.  This macro defines additional names for hard
 registers, thus allowing the <code>asm</code> option in declarations to refer
@@ -73,7 +73,7 @@ to registers using alternate names.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>OVERLAPPING_REGISTER_NAMES</b><var><a name="index-OVERLAPPING_005fREGISTER_005fNAMES-4656"></a></var><br>
+&mdash; Macro: <b>OVERLAPPING_REGISTER_NAMES</b><var><a name="index-OVERLAPPING_005fREGISTER_005fNAMES-4689"></a></var><br>
 <blockquote><p>If defined, a C initializer for an array of structures containing a
 name, a register number and a count of the number of consecutive
 machine registers the name overlaps.  This macro defines additional
@@ -90,7 +90,7 @@ VFP register &ldquo;d0&rdquo; implies clobbering both single-precision registers
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>ASM_OUTPUT_OPCODE</b> (<var>stream, ptr</var>)<var><a name="index-ASM_005fOUTPUT_005fOPCODE-4657"></a></var><br>
+&mdash; Macro: <b>ASM_OUTPUT_OPCODE</b> (<var>stream, ptr</var>)<var><a name="index-ASM_005fOUTPUT_005fOPCODE-4690"></a></var><br>
 <blockquote><p>Define this macro if you are using an unusual assembler that
 requires different names for the machine instructions.
 
@@ -109,7 +109,7 @@ that includes `<samp><span class="samp">%</span></samp>'-sequences to substitute
 care of the substitution yourself.  Just be sure to increment
 <var>ptr</var> over whatever text should not be output normally.
 
-      <p><a name="index-recog_005fdata_002eoperand-4658"></a>If you need to look at the operand values, they can be found as the
+      <p><a name="index-recog_005fdata_002eoperand-4691"></a>If you need to look at the operand values, they can be found as the
 elements of <code>recog_data.operand</code>.
 
       <p>If the macro definition does nothing, the instruction is output
@@ -117,7 +117,7 @@ in the usual way.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>FINAL_PRESCAN_INSN</b> (<var>insn, opvec, noperands</var>)<var><a name="index-FINAL_005fPRESCAN_005fINSN-4659"></a></var><br>
+&mdash; Macro: <b>FINAL_PRESCAN_INSN</b> (<var>insn, opvec, noperands</var>)<var><a name="index-FINAL_005fPRESCAN_005fINSN-4692"></a></var><br>
 <blockquote><p>If defined, a C statement to be executed just prior to the output of
 assembler code for <var>insn</var>, to modify the extracted operands so
 they will be output differently.
@@ -140,7 +140,7 @@ writing conditional output routines in those patterns.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: void <b>TARGET_ASM_FINAL_POSTSCAN_INSN</b> (<var>FILE *file, rtx insn, rtx *opvec, int noperands</var>)<var><a name="index-TARGET_005fASM_005fFINAL_005fPOSTSCAN_005fINSN-4660"></a></var><br>
+&mdash; Target Hook: void <b>TARGET_ASM_FINAL_POSTSCAN_INSN</b> (<var>FILE *file, rtx_insn *insn, rtx *opvec, int noperands</var>)<var><a name="index-TARGET_005fASM_005fFINAL_005fPOSTSCAN_005fINSN-4693"></a></var><br>
 <blockquote><p>If defined, this target hook is a function which is executed just after the
 output of assembler code for <var>insn</var>, to change the mode of the assembler
 if necessary.
@@ -154,7 +154,7 @@ by checking the contents of the vector.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>PRINT_OPERAND</b> (<var>stream, x, code</var>)<var><a name="index-PRINT_005fOPERAND-4661"></a></var><br>
+&mdash; Macro: <b>PRINT_OPERAND</b> (<var>stream, x, code</var>)<var><a name="index-PRINT_005fOPERAND-4694"></a></var><br>
 <blockquote><p>A C compound statement to output to stdio stream <var>stream</var> the
 assembler syntax for an instruction operand <var>x</var>.  <var>x</var> is an
 RTL expression.
@@ -167,7 +167,7 @@ operand.  If the specification was just `<samp><span class="samp">%</span><var>d
 <var>code</var> is 0; if the specification was `<samp><span class="samp">%</span><var>ltr</var>
 <var>digit</var></samp>' then <var>code</var> is the ASCII code for <var>ltr</var>.
 
-      <p><a name="index-reg_005fnames-4662"></a>If <var>x</var> is a register, this macro should print the register's name. 
+      <p><a name="index-reg_005fnames-4695"></a>If <var>x</var> is a register, this macro should print the register's name. 
 The names can be found in an array <code>reg_names</code> whose type is
 <code>char *[]</code>.  <code>reg_names</code> is initialized from
 <code>REGISTER_NAMES</code>.
@@ -179,7 +179,7 @@ with a null pointer for <var>x</var> and the punctuation character for
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>PRINT_OPERAND_PUNCT_VALID_P</b> (<var>code</var>)<var><a name="index-PRINT_005fOPERAND_005fPUNCT_005fVALID_005fP-4663"></a></var><br>
+&mdash; Macro: <b>PRINT_OPERAND_PUNCT_VALID_P</b> (<var>code</var>)<var><a name="index-PRINT_005fOPERAND_005fPUNCT_005fVALID_005fP-4696"></a></var><br>
 <blockquote><p>A C expression which evaluates to true if <var>code</var> is a valid
 punctuation character for use in the <code>PRINT_OPERAND</code> macro.  If
 <code>PRINT_OPERAND_PUNCT_VALID_P</code> is not defined, it means that no
@@ -188,21 +188,21 @@ in this way.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>PRINT_OPERAND_ADDRESS</b> (<var>stream, x</var>)<var><a name="index-PRINT_005fOPERAND_005fADDRESS-4664"></a></var><br>
+&mdash; Macro: <b>PRINT_OPERAND_ADDRESS</b> (<var>stream, x</var>)<var><a name="index-PRINT_005fOPERAND_005fADDRESS-4697"></a></var><br>
 <blockquote><p>A C compound statement to output to stdio stream <var>stream</var> the
 assembler syntax for an instruction operand that is a memory reference
 whose address is <var>x</var>.  <var>x</var> is an RTL expression.
 
-      <p><a name="index-g_t_0040code_007bTARGET_005fENCODE_005fSECTION_005fINFO_007d-usage-4665"></a>On some machines, the syntax for a symbolic address depends on the
+      <p><a name="index-g_t_0040code_007bTARGET_005fENCODE_005fSECTION_005fINFO_007d-usage-4698"></a>On some machines, the syntax for a symbolic address depends on the
 section that the address refers to.  On these machines, define the hook
 <code>TARGET_ENCODE_SECTION_INFO</code> to store the information into the
 <code>symbol_ref</code>, and then check for it here.  See <a href="Assembler-Format.html#Assembler-Format">Assembler Format</a>. 
 </p></blockquote></div>
 
- <p><a name="index-dbr_005fsequence_005flength-4666"></a>
+ <p><a name="index-dbr_005fsequence_005flength-4699"></a>
 
 <div class="defun">
-&mdash; Macro: <b>DBR_OUTPUT_SEQEND</b> (<var>file</var>)<var><a name="index-DBR_005fOUTPUT_005fSEQEND-4667"></a></var><br>
+&mdash; Macro: <b>DBR_OUTPUT_SEQEND</b> (<var>file</var>)<var><a name="index-DBR_005fOUTPUT_005fSEQEND-4700"></a></var><br>
 <blockquote><p>A C statement, to be executed after all slot-filler instructions have
 been output.  If necessary, call <code>dbr_sequence_length</code> to
 determine the number of slots filled in a sequence (zero if not
@@ -214,20 +214,20 @@ reading assembly output if the extent of the delay sequence is made
 explicit (e.g. with white space). 
 </p></blockquote></div>
 
- <p><a name="index-final_005fsequence-4668"></a>Note that output routines for instructions with delay slots must be
+ <p><a name="index-final_005fsequence-4701"></a>Note that output routines for instructions with delay slots must be
 prepared to deal with not being output as part of a sequence
 (i.e. when the scheduling pass is not run, or when no slot fillers could be
 found.)  The variable <code>final_sequence</code> is null when not
 processing a sequence, otherwise it contains the <code>sequence</code> rtx
 being output.
 
- <p><a name="index-asm_005ffprintf-4669"></a>
+ <p><a name="index-asm_005ffprintf-4702"></a>
 
 <div class="defun">
-&mdash; Macro: <b>REGISTER_PREFIX</b><var><a name="index-REGISTER_005fPREFIX-4670"></a></var><br>
-&mdash; Macro: <b>LOCAL_LABEL_PREFIX</b><var><a name="index-LOCAL_005fLABEL_005fPREFIX-4671"></a></var><br>
-&mdash; Macro: <b>USER_LABEL_PREFIX</b><var><a name="index-USER_005fLABEL_005fPREFIX-4672"></a></var><br>
-&mdash; Macro: <b>IMMEDIATE_PREFIX</b><var><a name="index-IMMEDIATE_005fPREFIX-4673"></a></var><br>
+&mdash; Macro: <b>REGISTER_PREFIX</b><var><a name="index-REGISTER_005fPREFIX-4703"></a></var><br>
+&mdash; Macro: <b>LOCAL_LABEL_PREFIX</b><var><a name="index-LOCAL_005fLABEL_005fPREFIX-4704"></a></var><br>
+&mdash; Macro: <b>USER_LABEL_PREFIX</b><var><a name="index-USER_005fLABEL_005fPREFIX-4705"></a></var><br>
+&mdash; Macro: <b>IMMEDIATE_PREFIX</b><var><a name="index-IMMEDIATE_005fPREFIX-4706"></a></var><br>
 <blockquote><p>If defined, C string expressions to be used for the `<samp><span class="samp">%R</span></samp>', `<samp><span class="samp">%L</span></samp>',
 `<samp><span class="samp">%U</span></samp>', and `<samp><span class="samp">%I</span></samp>' options of <code>asm_fprintf</code> (see
 <samp><span class="file">final.c</span></samp>).  These are useful when a single <samp><span class="file">md</span></samp> file must
@@ -236,7 +236,7 @@ files can define these macros differently.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>ASM_FPRINTF_EXTENSIONS</b> (<var>file, argptr, format</var>)<var><a name="index-ASM_005fFPRINTF_005fEXTENSIONS-4674"></a></var><br>
+&mdash; Macro: <b>ASM_FPRINTF_EXTENSIONS</b> (<var>file, argptr, format</var>)<var><a name="index-ASM_005fFPRINTF_005fEXTENSIONS-4707"></a></var><br>
 <blockquote><p>If defined this macro should expand to a series of <code>case</code>
 statements which will be parsed inside the <code>switch</code> statement of
 the <code>asm_fprintf</code> function.  This allows targets to define extra
@@ -250,7 +250,7 @@ upon, is pointed to by <var>format</var>.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>ASSEMBLER_DIALECT</b><var><a name="index-ASSEMBLER_005fDIALECT-4675"></a></var><br>
+&mdash; Macro: <b>ASSEMBLER_DIALECT</b><var><a name="index-ASSEMBLER_005fDIALECT-4708"></a></var><br>
 <blockquote><p>If your target supports multiple dialects of assembler language (such as
 different opcodes), define this macro as a C expression that gives the
 numeric index of the assembler language dialect to use, with zero as the
@@ -282,7 +282,7 @@ opcodes or operand order.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>ASM_OUTPUT_REG_PUSH</b> (<var>stream, regno</var>)<var><a name="index-ASM_005fOUTPUT_005fREG_005fPUSH-4676"></a></var><br>
+&mdash; Macro: <b>ASM_OUTPUT_REG_PUSH</b> (<var>stream, regno</var>)<var><a name="index-ASM_005fOUTPUT_005fREG_005fPUSH-4709"></a></var><br>
 <blockquote><p>A C expression to output to <var>stream</var> some assembler code
 which will push hard register number <var>regno</var> onto the stack. 
 The code need not be optimal, since this macro is used only when
@@ -290,7 +290,7 @@ profiling.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>ASM_OUTPUT_REG_POP</b> (<var>stream, regno</var>)<var><a name="index-ASM_005fOUTPUT_005fREG_005fPOP-4677"></a></var><br>
+&mdash; Macro: <b>ASM_OUTPUT_REG_POP</b> (<var>stream, regno</var>)<var><a name="index-ASM_005fOUTPUT_005fREG_005fPOP-4710"></a></var><br>
 <blockquote><p>A C expression to output to <var>stream</var> some assembler code
 which will pop hard register number <var>regno</var> off of the stack. 
 The code need not be optimal, since this macro is used only when

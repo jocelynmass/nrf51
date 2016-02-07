@@ -10,7 +10,7 @@
 <link rel="next" href="_0040code_007bGIMPLE_005fOMP_005fATOMIC_005fSTORE_007d.html#g_t_0040code_007bGIMPLE_005fOMP_005fATOMIC_005fSTORE_007d" title="@code{GIMPLE_OMP_ATOMIC_STORE}">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -53,34 +53,34 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Tuple-specific-accessors.html#Tuple-spe
 <hr>
 </div>
 
-<h4 class="subsection">11.7.11 <code>GIMPLE_OMP_ATOMIC_LOAD</code></h4>
+<h4 class="subsection">11.8.12 <code>GIMPLE_OMP_ATOMIC_LOAD</code></h4>
 
-<p><a name="index-g_t_0040code_007bGIMPLE_005fOMP_005fATOMIC_005fLOAD_007d-2306"></a>
+<p><a name="index-g_t_0040code_007bGIMPLE_005fOMP_005fATOMIC_005fLOAD_007d-2323"></a>
 
 <div class="defun">
-&mdash; GIMPLE function: gimple <b>gimple_build_omp_atomic_load</b> (<var>tree lhs, tree rhs</var>)<var><a name="index-gimple_005fbuild_005fomp_005fatomic_005fload-2307"></a></var><br>
+&mdash; GIMPLE function: gomp_atomic_load <b>*gimple_build_omp_atomic_load</b> (<var> tree lhs, tree rhs</var>)<var><a name="index-g_t_002agimple_005fbuild_005fomp_005fatomic_005fload-2324"></a></var><br>
 <blockquote><p>Build a <code>GIMPLE_OMP_ATOMIC_LOAD</code> statement.  <code>LHS</code> is the left-hand
 side of the assignment.  <code>RHS</code> is the right-hand side of the
 assignment. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: void <b>gimple_omp_atomic_load_set_lhs</b> (<var>gimple g, tree lhs</var>)<var><a name="index-gimple_005fomp_005fatomic_005fload_005fset_005flhs-2308"></a></var><br>
+&mdash; GIMPLE function: void <b>gimple_omp_atomic_load_set_lhs</b> (<var> gomp_atomic_load *g, tree lhs</var>)<var><a name="index-gimple_005fomp_005fatomic_005fload_005fset_005flhs-2325"></a></var><br>
 <blockquote><p>Set the <code>LHS</code> of an atomic load. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: tree <b>gimple_omp_atomic_load_lhs</b> (<var>gimple g</var>)<var><a name="index-gimple_005fomp_005fatomic_005fload_005flhs-2309"></a></var><br>
+&mdash; GIMPLE function: tree <b>gimple_omp_atomic_load_lhs</b> (<var> const gomp_atomic_load *g</var>)<var><a name="index-gimple_005fomp_005fatomic_005fload_005flhs-2326"></a></var><br>
 <blockquote><p>Get the <code>LHS</code> of an atomic load. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: void <b>gimple_omp_atomic_load_set_rhs</b> (<var>gimple g, tree rhs</var>)<var><a name="index-gimple_005fomp_005fatomic_005fload_005fset_005frhs-2310"></a></var><br>
+&mdash; GIMPLE function: void <b>gimple_omp_atomic_load_set_rhs</b> (<var> gomp_atomic_load *g, tree rhs</var>)<var><a name="index-gimple_005fomp_005fatomic_005fload_005fset_005frhs-2327"></a></var><br>
 <blockquote><p>Set the <code>RHS</code> of an atomic set. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: tree <b>gimple_omp_atomic_load_rhs</b> (<var>gimple g</var>)<var><a name="index-gimple_005fomp_005fatomic_005fload_005frhs-2311"></a></var><br>
+&mdash; GIMPLE function: tree <b>gimple_omp_atomic_load_rhs</b> (<var> const gomp_atomic_load *g</var>)<var><a name="index-gimple_005fomp_005fatomic_005fload_005frhs-2328"></a></var><br>
 <blockquote><p>Get the <code>RHS</code> of an atomic set. 
 </p></blockquote></div>
 

@@ -12,7 +12,7 @@
 <!--
 This file documents the BFD library.
 
-Copyright (C) 1991-2014 Free Software Foundation, Inc.
+Copyright (C) 1991-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -133,7 +133,7 @@ to use <samp><span class="file">host-aout.c</span></samp>, specify:
 <pre class="example">            TDEFAULTS = -DDEFAULT_VECTOR=host_aout_big_vec
             TDEPFILES= host-aout.o trad-core.o
 </pre>
-   <p>in the <samp><span class="file">config/</span><var>XXX</var><span class="file">.mt</span></samp> file, and modify <samp><span class="file">configure.in</span></samp>
+   <p>in the <samp><span class="file">config/</span><var>XXX</var><span class="file">.mt</span></samp> file, and modify <samp><span class="file">configure.ac</span></samp>
 to use the
 <samp><var>XXX</var><span class="file">.mt</span></samp> file (by setting "<code>bfd_target=XXX</code>") when your
 configuration is selected.
@@ -156,7 +156,7 @@ addend.
 contents of an a.out file, which are gathered and exported in
 turn by various format specific files (eg sunos.c).
 
-   <p><a name="index-aout_005f_0040var_007bsize_007d_005fswap_005fexec_005fheader_005fin-2206"></a>
+   <p><a name="index-aout_005f_0040var_007bsize_007d_005fswap_005fexec_005fheader_005fin-2266"></a>
 
 <h5 class="subsubsection">3.2.2.1 <code>aout_</code><var>size</var><code>_swap_exec_header_in</code></h5>
 
@@ -171,7 +171,7 @@ Swap the information in an executable header <var>raw_bytes</var> taken
 from a raw byte stream memory image into the internal exec header
 structure <var>execp</var>.
 
-   <p><a name="index-aout_005f_0040var_007bsize_007d_005fswap_005fexec_005fheader_005fout-2207"></a>
+   <p><a name="index-aout_005f_0040var_007bsize_007d_005fswap_005fexec_005fheader_005fout-2267"></a>
 
 <h5 class="subsubsection">3.2.2.2 <code>aout_</code><var>size</var><code>_swap_exec_header_out</code></h5>
 
@@ -185,7 +185,7 @@ structure <var>execp</var>.
 Swap the information in an internal exec header structure
 <var>execp</var> into the buffer <var>raw_bytes</var> ready for writing to disk.
 
-   <p><a name="index-aout_005f_0040var_007bsize_007d_005fsome_005faout_005fobject_005fp-2208"></a>
+   <p><a name="index-aout_005f_0040var_007bsize_007d_005fsome_005faout_005fobject_005fp-2268"></a>
 
 <h5 class="subsubsection">3.2.2.3 <code>aout_</code><var>size</var><code>_some_aout_object_p</code></h5>
 
@@ -202,7 +202,7 @@ for access if it really is.  Call back to the calling
 environment's "finish up" function just before returning, to
 handle any last-minute setup.
 
-   <p><a name="index-aout_005f_0040var_007bsize_007d_005fmkobject-2209"></a>
+   <p><a name="index-aout_005f_0040var_007bsize_007d_005fmkobject-2269"></a>
 
 <h5 class="subsubsection">3.2.2.4 <code>aout_</code><var>size</var><code>_mkobject</code></h5>
 
@@ -212,7 +212,7 @@ handle any last-minute setup.
    <p><strong>Description</strong><br>
 Initialize BFD <var>abfd</var> for use with a.out files.
 
-   <p><a name="index-aout_005f_0040var_007bsize_007d_005fmachine_005ftype-2210"></a>
+   <p><a name="index-aout_005f_0040var_007bsize_007d_005fmachine_005ftype-2270"></a>
 
 <h5 class="subsubsection">3.2.2.5 <code>aout_</code><var>size</var><code>_machine_type</code></h5>
 
@@ -231,7 +231,7 @@ and machine can't be represented in a.out format.
    <p>If the architecture is understood, machine type 0 (default)
 is always understood.
 
-   <p><a name="index-aout_005f_0040var_007bsize_007d_005fset_005farch_005fmach-2211"></a>
+   <p><a name="index-aout_005f_0040var_007bsize_007d_005fset_005farch_005fmach-2271"></a>
 
 <h5 class="subsubsection">3.2.2.6 <code>aout_</code><var>size</var><code>_set_arch_mach</code></h5>
 
@@ -246,7 +246,7 @@ Set the architecture and the machine of the BFD <var>abfd</var> to the
 values <var>arch</var> and <var>machine</var>.  Verify that <var>abfd</var>'s format
 can support the architecture required.
 
-   <p><a name="index-aout_005f_0040var_007bsize_007d_005fnew_005fsection_005fhook-2212"></a>
+   <p><a name="index-aout_005f_0040var_007bsize_007d_005fnew_005fsection_005fhook-2272"></a>
 
 <h5 class="subsubsection">3.2.2.7 <code>aout_</code><var>size</var><code>_new_section_hook</code></h5>
 

@@ -7,7 +7,7 @@
 <link title="Top" rel="top" href="#Top">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
    Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -50,6 +50,7 @@ here, only the ones that require host-specific or target-specific
 information have to.
 
      <ul>
+<li><a href="#aarch64-x-x">aarch64*-*-*</a>
 <li><a href="#alpha-x-x">alpha*-*-*</a>
 <li><a href="#alpha-dec-osf51">alpha*-dec-osf5.1</a>
 <li><a href="#amd64-x-solaris210">amd64-*-solaris2.10</a>
@@ -64,7 +65,6 @@ information have to.
 <li><a href="#hppa-hp-hpux11">hppa*-hp-hpux11</a>
 <li><a href="#x-x-linux-gnu">*-*-linux-gnu</a>
 <li><a href="#ix86-x-linux">i?86-*-linux*</a>
-<li><a href="#ix86-x-solaris289">i?86-*-solaris2.9</a>
 <li><a href="#ix86-x-solaris210">i?86-*-solaris2.10</a>
 <li><a href="#ia64-x-linux">ia64-*-linux</a>
 <li><a href="#ia64-x-hpux">ia64-*-hpux*</a>
@@ -83,6 +83,7 @@ information have to.
 <li><a href="#mips-sgi-irix6">mips-sgi-irix6</a>
 <li><a href="#nds32le-x-elf">nds32le-*-elf</a>
 <li><a href="#nds32be-x-elf">nds32be-*-elf</a>
+<li><a href="#nvptx-x-none">nvptx-*-none</a>
 <li><a href="#powerpc-x-x">powerpc*-*-*</a>
 <li><a href="#powerpc-x-darwin">powerpc-*-darwin*</a>
 <li><a href="#powerpc-x-elf">powerpc-*-elf</a>
@@ -107,6 +108,7 @@ information have to.
 <li><a href="#tilegx-x-linux">tilegx-*-linux*</a>
 <li><a href="#tilegxbe-x-linux">tilegxbe-*-linux*</a>
 <li><a href="#tilepro-x-linux">tilepro-*-linux*</a>
+<li><a href="#visium-x-elf">visium-*-elf</a>
 <li><a href="#x-x-vxworks">*-*-vxworks*</a>
 <li><a href="#x86-64-x-x">x86_64-*-*</a> amd64-*-*
 <li><a href="#x86-64-x-solaris210">x86_64-*-solaris2.1[0-9]*</a>
@@ -125,9 +127,38 @@ information have to.
 </ul>
 
    <p><!-- -------- host/target specific issues start here ---------------- -->
-<hr /><a name="alpha_002dx_002dx"></a>
+<hr /><a name="aarch64_002dx_002dx"></a>
 
-<h3 class="heading"><a name="TOC0"></a>alpha*-*-*</h3>
+<h3 class="heading"><a name="TOC0"></a>aarch64*-*-*</h3>
+
+<p>Binutils pre 2.24 does not have support for selecting <samp><span class="option">-mabi</span></samp> and
+does not support ILP32.  If it is used to build GCC 4.9 or later, GCC will
+not support option <samp><span class="option">-mabi=ilp32</span></samp>.
+
+   <p>To enable a workaround for the Cortex-A53 erratum number 835769 by default
+(for all CPUs regardless of -mcpu option given) at configure time use the
+<samp><span class="option">--enable-fix-cortex-a53-835769</span></samp> option.  This will enable the fix by
+default and can be explicitly disabled during compilation by passing the
+<samp><span class="option">-mno-fix-cortex-a53-835769</span></samp> option.  Conversely,
+<samp><span class="option">--disable-fix-cortex-a53-835769</span></samp> will disable the workaround by
+default.  The workaround is disabled by default if neither of
+<samp><span class="option">--enable-fix-cortex-a53-835769</span></samp> or
+<samp><span class="option">--disable-fix-cortex-a53-835769</span></samp> is given at configure time.
+
+   <p>To enable a workaround for the Cortex-A53 erratum number 843419 by default
+(for all CPUs regardless of -mcpu option given) at configure time use the
+<samp><span class="option">--enable-fix-cortex-a53-843419</span></samp> option.  This workaround is applied at
+link time.  Enabling the workaround will cause GCC to pass the relevant option
+to the linker.  It can be explicitly disabled during compilation by passing the
+<samp><span class="option">-mno-fix-cortex-a53-843419</span></samp> option.  Conversely,
+<samp><span class="option">--disable-fix-cortex-a53-843419</span></samp> will disable the workaround by default. 
+The workaround is disabled by default if neither of
+<samp><span class="option">--enable-fix-cortex-a53-843419</span></samp> or
+<samp><span class="option">--disable-fix-cortex-a53-843419</span></samp> is given at configure time.
+
+   <p><hr /><a name="alpha_002dx_002dx"></a>
+
+<h3 class="heading"><a name="TOC1"></a>alpha*-*-*</h3>
 
 <p>This section contains general configuration information for all
 alpha-based platforms using ELF (in particular, ignore this section for
@@ -141,7 +172,7 @@ shared libraries.
 
    <p><hr /><a name="alpha_002ddec_002dosf51"></a>
 
-<h3 class="heading"><a name="TOC1"></a>alpha*-dec-osf5.1</h3>
+<h3 class="heading"><a name="TOC2"></a>alpha*-dec-osf5.1</h3>
 
 <p>Systems using processors that implement the DEC Alpha architecture and
 are running the DEC/Compaq/HP Unix (DEC OSF/1, Digital UNIX, or Compaq/HP
@@ -154,13 +185,13 @@ are the versions which identify themselves as DEC OSF/1.)
 
    <p><hr /><a name="amd64_002dx_002dsolaris210"></a>
 
-<h3 class="heading"><a name="TOC2"></a>amd64-*-solaris2.1[0-9]*</h3>
+<h3 class="heading"><a name="TOC3"></a>amd64-*-solaris2.1[0-9]*</h3>
 
 <p>This is a synonym for `<samp><span class="samp">x86_64-*-solaris2.1[0-9]*</span></samp>'.
 
    <p><hr /><a name="arc_002dx_002delf32"></a>
 
-<h3 class="heading"><a name="TOC3"></a>arc-*-elf32</h3>
+<h3 class="heading"><a name="TOC4"></a>arc-*-elf32</h3>
 
 <p>Use `<samp><span class="samp">configure --target=arc-elf32 --with-cpu=</span><var>cpu</var><span class="samp"> --enable-languages="c,c++"</span></samp>'
 to configure GCC, with <var>cpu</var> being one of `<samp><span class="samp">arc600</span></samp>', `<samp><span class="samp">arc601</span></samp>',
@@ -168,13 +199,13 @@ or `<samp><span class="samp">arc700</span></samp>'.
 
    <p><hr /><a name="arc_002dlinux_002duclibc"></a>
 
-<h3 class="heading"><a name="TOC4"></a>arc-linux-uclibc</h3>
+<h3 class="heading"><a name="TOC5"></a>arc-linux-uclibc</h3>
 
 <p>Use `<samp><span class="samp">configure --target=arc-linux-uclibc --with-cpu=arc700 --enable-languages="c,c++"</span></samp>' to configure GCC.
 
    <p><hr /><a name="arm_002dx_002deabi"></a>
 
-<h3 class="heading"><a name="TOC5"></a>arm-*-eabi</h3>
+<h3 class="heading"><a name="TOC6"></a>arm-*-eabi</h3>
 
 <p>ARM-family processors.  Subtargets that use the ELF object format
 require GNU binutils 2.13 or newer.  Such subtargets include:
@@ -183,7 +214,7 @@ and <code>arm-*-rtemseabi</code>.
 
    <p><hr /><a name="avr"></a>
 
-<h3 class="heading"><a name="TOC6"></a>avr</h3>
+<h3 class="heading"><a name="TOC7"></a>avr</h3>
 
 <p>ATMEL AVR-family micro controllers.  These are used in embedded
 applications.  There are no standard Unix configurations. 
@@ -209,7 +240,7 @@ can also be obtained from:
 
    <p><hr /><a name="bfin"></a>
 
-<h3 class="heading"><a name="TOC7"></a>Blackfin</h3>
+<h3 class="heading"><a name="TOC8"></a>Blackfin</h3>
 
 <p>The Blackfin processor, an Analog Devices DSP. 
 See &ldquo;Blackfin Options&rdquo; in the main manual
@@ -219,7 +250,7 @@ is available at <a href="http://blackfin.uclinux.org">http://blackfin.uclinux.or
 
    <p><hr /><a name="cr16"></a>
 
-<h3 class="heading"><a name="TOC8"></a>CR16</h3>
+<h3 class="heading"><a name="TOC9"></a>CR16</h3>
 
 <p>The CR16 CompactRISC architecture is a 16-bit architecture. This
 architecture is used in embedded applications.
@@ -234,7 +265,7 @@ configure GCC for building a CR16 uclinux cross-compiler.
 
    <p><hr /><a name="cris"></a>
 
-<h3 class="heading"><a name="TOC9"></a>CRIS</h3>
+<h3 class="heading"><a name="TOC10"></a>CRIS</h3>
 
 <p>CRIS is the CPU architecture in Axis Communications ETRAX system-on-a-chip
 series.  These are used in embedded applications.
@@ -260,7 +291,7 @@ information about this platform is available at
 
    <p><hr /><a name="dos"></a>
 
-<h3 class="heading"><a name="TOC10"></a>DOS</h3>
+<h3 class="heading"><a name="TOC11"></a>DOS</h3>
 
 <p>Please have a look at the <a href="binaries.html">binaries page</a>.
 
@@ -271,14 +302,14 @@ and includes all the necessary compilation tools and libraries.
 
    <p><hr /><a name="epiphany_002dx_002delf"></a>
 
-<h3 class="heading"><a name="TOC11"></a>epiphany-*-elf</h3>
+<h3 class="heading"><a name="TOC12"></a>epiphany-*-elf</h3>
 
 <p>Adapteva Epiphany. 
 This configuration is intended for embedded systems.
 
    <p><hr /><a name="x_002dx_002dfreebsd"></a>
 
-<h3 class="heading"><a name="TOC12"></a>*-*-freebsd*</h3>
+<h3 class="heading"><a name="TOC13"></a>*-*-freebsd*</h3>
 
 <p>Support for FreeBSD 1 was discontinued in GCC 3.2.  Support for
 FreeBSD 2 (and any mutant a.out variants of FreeBSD 3) was
@@ -315,7 +346,7 @@ the FreeBSD 7.0 release with GNU binutils after 2.16.1.
 
    <p><hr /><a name="h8300_002dhms"></a>
 
-<h3 class="heading"><a name="TOC13"></a>h8300-hms</h3>
+<h3 class="heading"><a name="TOC14"></a>h8300-hms</h3>
 
 <p>Renesas H8/300 series of processors.
 
@@ -328,7 +359,7 @@ longer a multiple of 2 bytes.
 
    <p><hr /><a name="hppa_002dhp_002dhpux"></a>
 
-<h3 class="heading"><a name="TOC14"></a>hppa*-hp-hpux*</h3>
+<h3 class="heading"><a name="TOC15"></a>hppa*-hp-hpux*</h3>
 
 <p>Support for HP-UX version 9 and older was discontinued in GCC 3.4.
 
@@ -380,7 +411,7 @@ a list of the predefines used with each standard.
 
    <p><hr /><a name="hppa_002dhp_002dhpux10"></a>
 
-<h3 class="heading"><a name="TOC15"></a>hppa*-hp-hpux10</h3>
+<h3 class="heading"><a name="TOC16"></a>hppa*-hp-hpux10</h3>
 
 <p>For hpux10.20, we <em>highly</em> recommend you pick up the latest sed patch
 <code>PHCO_19798</code> from HP.
@@ -392,7 +423,7 @@ with the one implemented under HP-UX 11 using secondary definitions.
 
    <p><hr /><a name="hppa_002dhp_002dhpux11"></a>
 
-<h3 class="heading"><a name="TOC16"></a>hppa*-hp-hpux11</h3>
+<h3 class="heading"><a name="TOC17"></a>hppa*-hp-hpux11</h3>
 
 <p>GCC 3.0 and up support HP-UX 11.  GCC 2.95.x is not supported and cannot
 be used to compile GCC 3.0 and up.
@@ -501,7 +532,7 @@ supported, so <samp><span class="option">--enable-threads=dce</span></samp> does
 
    <p><hr /><a name="x_002dx_002dlinux_002dgnu"></a>
 
-<h3 class="heading"><a name="TOC17"></a>*-*-linux-gnu</h3>
+<h3 class="heading"><a name="TOC18"></a>*-*-linux-gnu</h3>
 
 <p>Versions of libstdc++-v3 starting with 3.2.1 require bug fixes present
 in glibc 2.2.5 and later.  More information is available in the
@@ -509,7 +540,7 @@ libstdc++-v3 documentation.
 
    <p><hr /><a name="ix86_002dx_002dlinux"></a>
 
-<h3 class="heading"><a name="TOC18"></a>i?86-*-linux*</h3>
+<h3 class="heading"><a name="TOC19"></a>i?86-*-linux*</h3>
 
 <p>As of GCC 3.3, binutils 2.13.1 or later is required for this platform. 
 See <a href="http://gcc.gnu.org/PR10877">bug 10877</a> for more information.
@@ -517,26 +548,6 @@ See <a href="http://gcc.gnu.org/PR10877">bug 10877</a> for more information.
    <p>If you receive Signal 11 errors when building on GNU/Linux, then it is
 possible you have a hardware problem.  Further information on this can be
 found on <a href="http://www.bitwizard.nl/sig11/">www.bitwizard.nl</a>.
-
-   <p><hr /><a name="ix86_002dx_002dsolaris29"></a>
-
-<h3 class="heading"><a name="TOC19"></a>i?86-*-solaris2.9</h3>
-
-<p>The Sun assembler in Solaris 9 has several bugs and limitations. 
-While GCC works around them, several features are missing, so it is
-<!-- FIXME: which ones? -->
-recommended to use the GNU assembler instead.  There is no bundled
-version, but the current version, from GNU binutils 2.22, is known to
-work.
-
-   <p>Solaris&nbsp;<!-- /@w -->2/x86 doesn't support the execution of SSE/SSE2 instructions
-before Solaris&nbsp;<!-- /@w -->9 4/04, even if the CPU supports them.  Programs will
-receive <code>SIGILL</code> if they try.  The fix is available both in
-Solaris&nbsp;<!-- /@w -->9 Update&nbsp;<!-- /@w -->6 and kernel patch 112234-12 or newer.  To
-avoid this problem,
-<samp><span class="option">-march</span></samp> defaults to `<samp><span class="samp">pentiumpro</span></samp>' on Solaris 9.  If
-you have the patch installed, you can configure GCC with an appropriate
-<samp><span class="option">--with-arch</span></samp> option, but need GNU <samp><span class="command">as</span></samp> for SSE2 support.
 
    <p><hr /><a name="ix86_002dx_002dsolaris210"></a>
 
@@ -601,39 +612,10 @@ is required to build GCC.  For GCC 3.3 and later, this is the default.
 For gcc 3.4.3 and later, <samp><span class="option">--enable-libunwind-exceptions</span></samp> is
 removed and the system libunwind library will always be used.
 
-   <p><hr /><a name="aarch64_002dx_002dx"></a>
-
-<h3 class="heading"><a name="TOC23"></a>aarch64*-*-*</h3>
-
-<p>Binutils pre 2.24 does not have support for selecting <samp><span class="option">-mabi</span></samp> and
-does not support ILP32.  If it is used to build GCC 4.9 or later, GCC will
-not support option <samp><span class="option">-mabi=ilp32</span></samp>.
-
-   <p>To enable a workaround for the Cortex-A53 erratum number 835769 by default
-(for all CPUs regardless of -mcpu option given) at configure time use the
-<samp><span class="option">--enable-fix-cortex-a53-835769</span></samp> option.  This will enable the fix by
-default and can be explicitly disabled during compilation by passing the
-<samp><span class="option">-mno-fix-cortex-a53-835769</span></samp> option.  Conversely,
-<samp><span class="option">--disable-fix-cortex-a53-835769</span></samp> will disable the workaround by
-default.  The workaround is disabled by default if neither of
-<samp><span class="option">--enable-fix-cortex-a53-835769</span></samp> or
-<samp><span class="option">--disable-fix-cortex-a53-835769</span></samp> is given at configure time.
-
-   <p>To enable a workaround for the Cortex-A53 erratum number 843419 by default
-(for all CPUs regardless of -mcpu option given) at configure time use the
-<samp><span class="option">--enable-fix-cortex-a53-843419</span></samp> option.  This workaround is applied at
-link time.  Enabling the workaround will cause GCC to pass the relevant option
-to the linker.  It can be explicitly disabled during compilation by passing the
-<samp><span class="option">-mno-fix-cortex-a53-843419</span></samp> option.  Conversely,
-<samp><span class="option">--disable-fix-cortex-a53-843419</span></samp> will disable the workaround by default. 
-The workaround is disabled by default if neither of
-<samp><span class="option">--enable-fix-cortex-a53-843419</span></samp> or
-<samp><span class="option">--disable-fix-cortex-a53-843419</span></samp> is given at configure time.
-
    <p><hr />
 <!-- rs6000-ibm-aix*, powerpc-ibm-aix* --><a name="x_002dibm_002daix"></a>
 
-<h3 class="heading"><a name="TOC24"></a>*-ibm-aix*</h3>
+<h3 class="heading"><a name="TOC23"></a>*-ibm-aix*</h3>
 
 <p>Support for AIX version 3 and older was discontinued in GCC 3.4. 
 Support for AIX version 4.2 and older was discontinued in GCC 4.5.
@@ -699,7 +681,8 @@ APAR IY26685 (AIX 4.3) or APAR IY25528 (AIX 5.1).  It also requires a
 fix for another AIX Assembler bug and a co-dependent AIX Archiver fix
 referenced as APAR IY53606 (AIX 5.2) or as APAR IY54774 (AIX 5.1)
 
-   <p>`<samp><span class="samp">libstdc++</span></samp>' in GCC 3.4 increments the major version number of the
+   <p><a name="TransferAixShobj"></a>
+`<samp><span class="samp">libstdc++</span></samp>' in GCC 3.4 increments the major version number of the
 shared object and GCC installation places the <samp><span class="file">libstdc++.a</span></samp>
 shared library in a common location which will overwrite the and GCC
 3.3 version of the shared library.  Applications either need to be
@@ -723,6 +706,11 @@ available for runtime dynamic loading, but not linking:
 <samp><span class="file">libstdc++.a</span></samp> archive:
 <pre class="smallexample">     % ar -q libstdc++.a libstdc++.so.4 libstdc++.so.5
 </pre>
+   <p>Eventually, the
+<a href="./configure.html#WithAixSoname"><samp><span class="option">--with-aix-soname=svr4</span></samp></a>
+configure option may drop the need for this procedure for libraries that
+support it.
+
    <p>Linking executables and shared libraries may produce warnings of
 duplicate symbols.  The assembly files generated by GCC for AIX always
 have included multiple symbol definitions for certain global variable
@@ -773,42 +761,42 @@ switch and using the configure option <samp><span class="option">--with-cpu-</sp
 
    <p><hr /><a name="iq2000_002dx_002delf"></a>
 
-<h3 class="heading"><a name="TOC25"></a>iq2000-*-elf</h3>
+<h3 class="heading"><a name="TOC24"></a>iq2000-*-elf</h3>
 
 <p>Vitesse IQ2000 processors.  These are used in embedded
 applications.  There are no standard Unix configurations.
 
    <p><hr /><a name="lm32_002dx_002delf"></a>
 
-<h3 class="heading"><a name="TOC26"></a>lm32-*-elf</h3>
+<h3 class="heading"><a name="TOC25"></a>lm32-*-elf</h3>
 
 <p>Lattice Mico32 processor. 
 This configuration is intended for embedded systems.
 
    <p><hr /><a name="lm32_002dx_002duclinux"></a>
 
-<h3 class="heading"><a name="TOC27"></a>lm32-*-uclinux</h3>
+<h3 class="heading"><a name="TOC26"></a>lm32-*-uclinux</h3>
 
 <p>Lattice Mico32 processor. 
 This configuration is intended for embedded systems running uClinux.
 
    <p><hr /><a name="m32c_002dx_002delf"></a>
 
-<h3 class="heading"><a name="TOC28"></a>m32c-*-elf</h3>
+<h3 class="heading"><a name="TOC27"></a>m32c-*-elf</h3>
 
 <p>Renesas M32C processor. 
 This configuration is intended for embedded systems.
 
    <p><hr /><a name="m32r_002dx_002delf"></a>
 
-<h3 class="heading"><a name="TOC29"></a>m32r-*-elf</h3>
+<h3 class="heading"><a name="TOC28"></a>m32r-*-elf</h3>
 
 <p>Renesas M32R processor. 
 This configuration is intended for embedded systems.
 
    <p><hr /><a name="m68k_002dx_002dx"></a>
 
-<h3 class="heading"><a name="TOC30"></a>m68k-*-*</h3>
+<h3 class="heading"><a name="TOC29"></a>m68k-*-*</h3>
 
 <p>By default,
 `<samp><span class="samp">m68k-*-elf*</span></samp>', `<samp><span class="samp">m68k-*-rtems</span></samp>',  `<samp><span class="samp">m68k-*-uclinux</span></samp>' and
@@ -836,7 +824,7 @@ be a <samp><span class="option">-mcpu</span></samp> argument or one of the follo
 
    <p><hr /><a name="m68k_002dx_002duclinux"></a>
 
-<h3 class="heading"><a name="TOC31"></a>m68k-*-uclinux</h3>
+<h3 class="heading"><a name="TOC30"></a>m68k-*-uclinux</h3>
 
 <p>GCC 4.3 changed the uClinux configuration so that it uses the
 `<samp><span class="samp">m68k-linux-gnu</span></samp>' ABI rather than the `<samp><span class="samp">m68k-elf</span></samp>' ABI. 
@@ -845,21 +833,21 @@ both of which were ABI changes.
 
    <p><hr /><a name="mep_002dx_002delf"></a>
 
-<h3 class="heading"><a name="TOC32"></a>mep-*-elf</h3>
+<h3 class="heading"><a name="TOC31"></a>mep-*-elf</h3>
 
 <p>Toshiba Media embedded Processor. 
 This configuration is intended for embedded systems.
 
    <p><hr /><a name="microblaze_002dx_002delf"></a>
 
-<h3 class="heading"><a name="TOC33"></a>microblaze-*-elf</h3>
+<h3 class="heading"><a name="TOC32"></a>microblaze-*-elf</h3>
 
 <p>Xilinx MicroBlaze processor. 
 This configuration is intended for embedded systems.
 
    <p><hr /><a name="mips_002dx_002dx"></a>
 
-<h3 class="heading"><a name="TOC34"></a>mips-*-*</h3>
+<h3 class="heading"><a name="TOC33"></a>mips-*-*</h3>
 
 <p>If on a MIPS system you get an error message saying &ldquo;does not have gp
 sections for all it's [sic] sectons [sic]&rdquo;, don't worry about it.  This
@@ -910,13 +898,13 @@ made after Nov. 9, 2006) should be free from both of these problems.
 
    <p><hr /><a name="mips_002dsgi_002dirix5"></a>
 
-<h3 class="heading"><a name="TOC35"></a>mips-sgi-irix5</h3>
+<h3 class="heading"><a name="TOC34"></a>mips-sgi-irix5</h3>
 
 <p>Support for IRIX 5 has been removed in GCC 4.6.
 
    <p><hr /><a name="mips_002dsgi_002dirix6"></a>
 
-<h3 class="heading"><a name="TOC36"></a>mips-sgi-irix6</h3>
+<h3 class="heading"><a name="TOC35"></a>mips-sgi-irix6</h3>
 
 <p>Support for IRIX 6.5 has been removed in GCC 4.8.  Support for IRIX 6
 releases before 6.5 has been removed in GCC 4.6, as well as support for
@@ -924,28 +912,48 @@ the O32 ABI.
 
    <p><hr /><a name="moxie_002dx_002delf"></a>
 
-<h3 class="heading"><a name="TOC37"></a>moxie-*-elf</h3>
+<h3 class="heading"><a name="TOC36"></a>moxie-*-elf</h3>
 
 <p>The moxie processor.
 
    <p><hr /><a name="msp430_002dx_002delf"></a>
 
-<h3 class="heading"><a name="TOC38"></a>msp430-*-elf</h3>
+<h3 class="heading"><a name="TOC37"></a>msp430-*-elf</h3>
 
 <p>TI MSP430 processor. 
 This configuration is intended for embedded systems.
 
    <p><hr /><a name="nds32le_002dx_002delf"></a>
 
-<h3 class="heading"><a name="TOC39"></a>nds32le-*-elf</h3>
+<h3 class="heading"><a name="TOC38"></a>nds32le-*-elf</h3>
 
 <p>Andes NDS32 target in little endian mode.
 
    <p><hr /><a name="nds32be_002dx_002delf"></a>
 
-<h3 class="heading"><a name="TOC40"></a>nds32be-*-elf</h3>
+<h3 class="heading"><a name="TOC39"></a>nds32be-*-elf</h3>
 
 <p>Andes NDS32 target in big endian mode.
+
+   <p><hr /><a name="nvptx_002dx_002dnone"></a>
+
+<h3 class="heading"><a name="TOC40"></a>nvptx-*-none</h3>
+
+<p>Nvidia PTX target.
+
+   <p>Instead of GNU binutils, you will need to install
+<a href="https://github.com/MentorEmbedded/nvptx-tools/">nvptx-tools</a>. 
+Tell GCC where to find it:
+<samp><span class="option">--with-build-time-tools=[install-nvptx-tools]/nvptx-none/bin</span></samp>.
+
+   <p>A nvptx port of newlib is available at
+<a href="https://github.com/MentorEmbedded/nvptx-newlib/">nvptx-newlib</a>. 
+It can be automatically built together with GCC.  For this, add a
+symbolic link to nvptx-newlib's <samp><span class="file">newlib</span></samp> directory to the
+directory containing the GCC sources.
+
+   <p>Use the <samp><span class="option">--disable-sjlj-exceptions</span></samp> and
+<samp><span class="option">--enable-newlib-io-long-long</span></samp> options when configuring.
 
    <p><hr /><a name="powerpc_002dx_002dx"></a>
 
@@ -1066,10 +1074,9 @@ supported as cross-compilation target only.
 
 <h3 class="heading"><a name="TOC56"></a>*-*-solaris2*</h3>
 
-<p>Support for Solaris 9 has been obsoleted in GCC 4.9, but can still be
-enabled by configuring with <samp><span class="option">--enable-obsolete</span></samp>.  Support will be
-removed in GCC 4.10.  Support for Solaris 8 has removed in GCC 4.8. 
-Support for Solaris 7 has been removed in GCC 4.6.
+<p>Support for Solaris 9 has been removed in GCC 4.10.  Support for Solaris
+8 has been removed in GCC 4.8.  Support for Solaris 7 has been removed
+in GCC 4.6.
 
    <p>Sun does not ship a C compiler with Solaris 2 before Solaris 10, though
 you can download the Sun Studio compilers for free.  In Solaris 10 and
@@ -1145,25 +1152,6 @@ itself, rather it is a kernel bug triggered by the <samp><span class="command">e
 program which is used only by the GCC testsuite driver.  When the bug
 causes the <samp><span class="command">expect</span></samp> program to miss anticipated output, extra
 testsuite failures appear.
-
-   <p>There are patches for Solaris 9 (117171-11 or newer for
-SPARC, 117172-11 or newer for Intel) that address this problem.
-
-   <p>Thread-local storage (TLS) is supported in Solaris&nbsp;<!-- /@w -->9, but requires
-some patches.  The `<samp><span class="samp">libthread</span></samp>' patches provide the
-<code>__tls_get_addr</code> (SPARC, 64-bit x86) resp. <code>___tls_get_addr</code>
-(32-bit x86) functions.  On Solaris&nbsp;<!-- /@w -->9, the necessary support
-on SPARC is present since FCS, while 114432-05 or newer is required on
-Intel.  Additionally, on Solaris&nbsp;<!-- /@w -->9/x86, patch 113986-02 or newer is
-required for the Sun <samp><span class="command">ld</span></samp> and runtime linker (<samp><span class="command">ld.so.1</span></samp>)
-support, while Solaris&nbsp;<!-- /@w -->9/SPARC works since FCS.  The linker
-patches must be installed even if GNU <samp><span class="command">ld</span></samp> is used. Sun
-<samp><span class="command">as</span></samp> in Solaris&nbsp;<!-- /@w -->9 doesn't support the necessary
-relocations, so GNU <samp><span class="command">as</span></samp> must be used.  The <samp><span class="command">configure</span></samp>
-script checks for those prerequisites and automatically enables TLS
-support if they are met.  Although those minimal patch versions should
-work, it is recommended to use the latest patch versions which include
-additional bug fixes.
 
    <p><hr /><a name="sparc_002dx_002dx"></a>
 
@@ -1307,9 +1295,16 @@ port requires binutils-2.23 or newer.
 <p>The TILEPro processor running GNU/Linux.  This port requires
 binutils-2.22 or newer.
 
+   <p><hr /><a name="visium_002dx_002delf"></a>
+
+<h3 class="heading"><a name="TOC67"></a>visium-*-elf</h3>
+
+<p>CDS VISIUMcore processor. 
+This configuration is intended for embedded systems.
+
    <p><hr /><a name="x_002dx_002dvxworks"></a>
 
-<h3 class="heading"><a name="TOC67"></a>*-*-vxworks*</h3>
+<h3 class="heading"><a name="TOC68"></a>*-*-vxworks*</h3>
 
 <p>Support for VxWorks is in flux.  At present GCC supports <em>only</em> the
 very recent VxWorks 5.5 (aka Tornado 2.2) release, and only on PowerPC. 
@@ -1344,7 +1339,7 @@ VxWorks will incorporate this module.)
 
    <p><hr /><a name="x86_002d64_002dx_002dx"></a>
 
-<h3 class="heading"><a name="TOC68"></a>x86_64-*-*, amd64-*-*</h3>
+<h3 class="heading"><a name="TOC69"></a>x86_64-*-*, amd64-*-*</h3>
 
 <p>GCC supports the x86-64 architecture implemented by the AMD64 processor
 (amd64-*-* is an alias for x86_64-*-*) on GNU/Linux, FreeBSD and NetBSD. 
@@ -1353,7 +1348,7 @@ both 64-bit x86-64 and 32-bit x86 code (via the <samp><span class="option">-m32<
 
    <p><hr /><a name="x86_002d64_002dx_002dsolaris210"></a>
 
-<h3 class="heading"><a name="TOC69"></a>x86_64-*-solaris2.1[0-9]*</h3>
+<h3 class="heading"><a name="TOC70"></a>x86_64-*-solaris2.1[0-9]*</h3>
 
 <p>GCC also supports the x86-64 architecture implemented by the AMD64
 processor (`<samp><span class="samp">amd64-*-*</span></samp>' is an alias for `<samp><span class="samp">x86_64-*-*</span></samp>') on
@@ -1368,7 +1363,7 @@ and `<samp><span class="samp">CC=gcc -m64</span></samp>'.
 
    <p><hr /><a name="xtensa_002dx_002delf"></a>
 
-<h3 class="heading"><a name="TOC70"></a>xtensa*-*-elf</h3>
+<h3 class="heading"><a name="TOC71"></a>xtensa*-*-elf</h3>
 
 <p>This target is intended for embedded Xtensa systems using the
 `<samp><span class="samp">newlib</span></samp>' C library.  It uses ELF but does not support shared
@@ -1385,7 +1380,7 @@ which you can use to replace the default header file.
 
    <p><hr /><a name="xtensa_002dx_002dlinux"></a>
 
-<h3 class="heading"><a name="TOC71"></a>xtensa*-*-linux*</h3>
+<h3 class="heading"><a name="TOC72"></a>xtensa*-*-linux*</h3>
 
 <p>This target is for Xtensa systems running GNU/Linux.  It supports ELF
 shared objects and the GNU C library (glibc).  It also generates
@@ -1396,9 +1391,9 @@ respects, this target is the same as the
 
    <p><hr /><a name="windows"></a>
 
-<h3 class="heading"><a name="TOC72"></a>Microsoft Windows</h3>
+<h3 class="heading"><a name="TOC73"></a>Microsoft Windows</h3>
 
-<h4 class="subheading"><a name="TOC73"></a>Intel 16-bit versions</h4>
+<h4 class="subheading"><a name="TOC74"></a>Intel 16-bit versions</h4>
 
 <p>The 16-bit versions of Microsoft Windows, such as Windows 3.1, are not
 supported.
@@ -1406,7 +1401,7 @@ supported.
    <p>However, the 32-bit port has limited support for Microsoft
 Windows 3.11 in the Win32s environment, as a target only.  See below.
 
-<h4 class="subheading"><a name="TOC74"></a>Intel 32-bit versions</h4>
+<h4 class="subheading"><a name="TOC75"></a>Intel 32-bit versions</h4>
 
 <p>The 32-bit versions of Windows, including Windows 95, Windows NT, Windows
 XP, and Windows Vista, are supported by several different target
@@ -1424,7 +1419,7 @@ the Win32 subsystem that provides a subset of POSIX.
 <a href="http://www.mkssoftware.com/">http://www.mkssoftware.com/</a> for more information. 
 </ul>
 
-<h4 class="subheading"><a name="TOC75"></a>Intel 64-bit versions</h4>
+<h4 class="subheading"><a name="TOC76"></a>Intel 64-bit versions</h4>
 
 <p>GCC contains support for x86-64 using the mingw-w64
 runtime library, available from <a href="http://mingw-w64.sourceforge.net/">http://mingw-w64.sourceforge.net/</a>. 
@@ -1432,12 +1427,12 @@ This library should be used with the target triple x86_64-pc-mingw32.
 
    <p>Presently Windows for Itanium is not supported.
 
-<h4 class="subheading"><a name="TOC76"></a>Windows CE</h4>
+<h4 class="subheading"><a name="TOC77"></a>Windows CE</h4>
 
 <p>Windows CE is supported as a target only on Hitachi
 SuperH (sh-wince-pe), and MIPS (mips-wince-pe).
 
-<h4 class="subheading"><a name="TOC77"></a>Other Windows Platforms</h4>
+<h4 class="subheading"><a name="TOC78"></a>Other Windows Platforms</h4>
 
 <p>GCC no longer supports Windows NT on the Alpha or PowerPC.
 
@@ -1453,7 +1448,7 @@ be inactive.  See <a href="http://pw32.sourceforge.net/">http://pw32.sourceforge
 
    <p><hr /><a name="x_002dx_002dcygwin"></a>
 
-<h3 class="heading"><a name="TOC78"></a>*-*-cygwin</h3>
+<h3 class="heading"><a name="TOC79"></a>*-*-cygwin</h3>
 
 <p>Ports of GCC are included with the
 <a href="http://www.cygwin.com/">Cygwin environment</a>.
@@ -1469,7 +1464,7 @@ or version 2.20 or above if building your own.
 
    <p><hr /><a name="x_002dx_002dinterix"></a>
 
-<h3 class="heading"><a name="TOC79"></a>*-*-interix</h3>
+<h3 class="heading"><a name="TOC80"></a>*-*-interix</h3>
 
 <p>The Interix target is used by OpenNT, Interix, Services For UNIX (SFU),
 and Subsystem for UNIX-based Applications (SUA).  Applications compiled
@@ -1478,7 +1473,7 @@ the Win32 subsystem.  This target was last known to work in GCC 3.3.
 
    <p><hr /><a name="x_002dx_002dmingw32"></a>
 
-<h3 class="heading"><a name="TOC80"></a>*-*-mingw32</h3>
+<h3 class="heading"><a name="TOC81"></a>*-*-mingw32</h3>
 
 <p>GCC will build with and support only MinGW runtime 3.12 and later. 
 Earlier versions of headers are incompatible with the new default semantics
@@ -1486,7 +1481,7 @@ of <code>extern inline</code> in <code>-std=c99</code> and <code>-std=gnu99</cod
 
    <p><hr /><a name="older"></a>
 
-<h3 class="heading"><a name="TOC81"></a>Older systems</h3>
+<h3 class="heading"><a name="TOC82"></a>Older systems</h3>
 
 <p>GCC contains support files for many older (1980s and early
 1990s) Unix variants.  For the most part, support for these systems
@@ -1530,7 +1525,7 @@ current GCC) is to be found in the GCC texinfo manual.
 
    <p><hr /><a name="elf"></a>
 
-<h3 class="heading"><a name="TOC82"></a>all ELF targets (SVR4, Solaris 2, etc.)</h3>
+<h3 class="heading"><a name="TOC83"></a>all ELF targets (SVR4, Solaris 2, etc.)</h3>
 
 <p>C++ support is significantly better on ELF targets if you use the
 <a href="./configure.html#with-gnu-ld">GNU linker</a>; duplicate copies of

@@ -10,7 +10,7 @@
 <link rel="next" href="Special-Accessors.html#Special-Accessors" title="Special Accessors">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -54,8 +54,8 @@ Up:&nbsp;<a rel="up" accesskey="u" href="RTL.html#RTL">RTL</a>
 
 <h3 class="section">13.3 Access to Operands</h3>
 
-<p><a name="index-accessors-2540"></a><a name="index-access-to-operands-2541"></a><a name="index-operand-access-2542"></a>
-<a name="index-XEXP-2543"></a><a name="index-XINT-2544"></a><a name="index-XWINT-2545"></a><a name="index-XSTR-2546"></a>Operands of expressions are accessed using the macros <code>XEXP</code>,
+<p><a name="index-accessors-2557"></a><a name="index-access-to-operands-2558"></a><a name="index-operand-access-2559"></a>
+<a name="index-XEXP-2560"></a><a name="index-XINT-2561"></a><a name="index-XWINT-2562"></a><a name="index-XSTR-2563"></a>Operands of expressions are accessed using the macros <code>XEXP</code>,
 <code>XINT</code>, <code>XWINT</code> and <code>XSTR</code>.  Each of these macros takes
 two arguments: an expression-pointer (RTX) and an operand number
 (counting from zero).  Thus,
@@ -93,13 +93,13 @@ macro <code>XVEC</code> to get the vector-pointer itself, or the macros
 vector.
 
      
-<a name="index-XVEC-2547"></a>
+<a name="index-XVEC-2564"></a>
 <dl><dt><code>XVEC (</code><var>exp</var><code>, </code><var>idx</var><code>)</code><dd>Access the vector-pointer which is operand number <var>idx</var> in <var>exp</var>.
 
-     <p><a name="index-XVECLEN-2548"></a><br><dt><code>XVECLEN (</code><var>exp</var><code>, </code><var>idx</var><code>)</code><dd>Access the length (number of elements) in the vector which is
+     <p><a name="index-XVECLEN-2565"></a><br><dt><code>XVECLEN (</code><var>exp</var><code>, </code><var>idx</var><code>)</code><dd>Access the length (number of elements) in the vector which is
 in operand number <var>idx</var> in <var>exp</var>.  This value is an <code>int</code>.
 
-     <p><a name="index-XVECEXP-2549"></a><br><dt><code>XVECEXP (</code><var>exp</var><code>, </code><var>idx</var><code>, </code><var>eltnum</var><code>)</code><dd>Access element number <var>eltnum</var> in the vector which is
+     <p><a name="index-XVECEXP-2566"></a><br><dt><code>XVECEXP (</code><var>exp</var><code>, </code><var>idx</var><code>, </code><var>eltnum</var><code>)</code><dd>Access element number <var>eltnum</var> in the vector which is
 in operand number <var>idx</var> in <var>exp</var>.  This value is an RTX.
 
      <p>It is up to you to make sure that <var>eltnum</var> is not negative

@@ -10,7 +10,7 @@
 <link rel="next" href="Symbols-In-Guile.html#Symbols-In-Guile" title="Symbols In Guile">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -48,7 +48,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Guile-API.html#Guile-API">Guile API</a>
 
 <h5 class="subsubsection">23.3.3.16 Accessing blocks from Guile.</h5>
 
-<p><a name="index-blocks-in-guile-2518"></a><a name="index-g_t_003cgdb_003ablock_003e-2519"></a>
+<p><a name="index-blocks-in-guile-2591"></a><a name="index-g_t_003cgdb_003ablock_003e-2592"></a>
 In <span class="sc">gdb</span>, symbols are stored in blocks.  A block corresponds
 roughly to a scope in the source code.  Blocks are organized
 hierarchically, and are represented individually in Guile as an object
@@ -101,13 +101,13 @@ iterate over all the blocks in a symbol table (see <a href="Symbol-Tables-In-Gui
 <code>(gdb)</code> module:
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>block?</b><var> object<a name="index-block_003f-2520"></a></var><br>
+&mdash; Scheme Procedure: <b>block?</b><var> object<a name="index-block_003f-2593"></a></var><br>
 <blockquote><p>Return <code>#t</code> if <var>object</var> is a <code>&lt;gdb:block&gt;</code> object. 
 Otherwise return <code>#f</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>block-valid?</b><var> block<a name="index-block_002dvalid_003f-2521"></a></var><br>
+&mdash; Scheme Procedure: <b>block-valid?</b><var> block<a name="index-block_002dvalid_003f-2594"></a></var><br>
 <blockquote><p>Returns <code>#t</code> if <code>&lt;gdb:block&gt;</code> <var>block</var> is valid,
 <code>#f</code> if not.  A block object can become invalid if the block it
 refers to doesn't exist anymore in the inferior.  All other
@@ -117,17 +117,17 @@ during iteration over symbols of the block.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>block-start</b><var> block<a name="index-block_002dstart-2522"></a></var><br>
+&mdash; Scheme Procedure: <b>block-start</b><var> block<a name="index-block_002dstart-2595"></a></var><br>
 <blockquote><p>Return the start address of <code>&lt;gdb:block&gt;</code> <var>block</var>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>block-end</b><var> block<a name="index-block_002dend-2523"></a></var><br>
+&mdash; Scheme Procedure: <b>block-end</b><var> block<a name="index-block_002dend-2596"></a></var><br>
 <blockquote><p>Return the end address of <code>&lt;gdb:block&gt;</code> <var>block</var>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>block-function</b><var> block<a name="index-block_002dfunction-2524"></a></var><br>
+&mdash; Scheme Procedure: <b>block-function</b><var> block<a name="index-block_002dfunction-2597"></a></var><br>
 <blockquote><p>Return the name of <code>&lt;gdb:block&gt;</code> <var>block</var> represented as a
 <code>&lt;gdb:symbol&gt;</code> object. 
 If the block is not named, then <code>#f</code> is returned.
@@ -139,41 +139,41 @@ happens for an inlined function.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>block-superblock</b><var> block<a name="index-block_002dsuperblock-2525"></a></var><br>
+&mdash; Scheme Procedure: <b>block-superblock</b><var> block<a name="index-block_002dsuperblock-2598"></a></var><br>
 <blockquote><p>Return the block containing <code>&lt;gdb:block&gt;</code> <var>block</var>. 
 If the parent block does not exist, then <code>#f</code> is returned. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>block-global-block</b><var> block<a name="index-block_002dglobal_002dblock-2526"></a></var><br>
+&mdash; Scheme Procedure: <b>block-global-block</b><var> block<a name="index-block_002dglobal_002dblock-2599"></a></var><br>
 <blockquote><p>Return the global block associated with <code>&lt;gdb:block&gt;</code> <var>block</var>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>block-static-block</b><var> block<a name="index-block_002dstatic_002dblock-2527"></a></var><br>
+&mdash; Scheme Procedure: <b>block-static-block</b><var> block<a name="index-block_002dstatic_002dblock-2600"></a></var><br>
 <blockquote><p>Return the static block associated with <code>&lt;gdb:block&gt;</code> <var>block</var>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>block-global?</b><var> block<a name="index-block_002dglobal_003f-2528"></a></var><br>
+&mdash; Scheme Procedure: <b>block-global?</b><var> block<a name="index-block_002dglobal_003f-2601"></a></var><br>
 <blockquote><p>Return <code>#t</code> if <code>&lt;gdb:block&gt;</code> <var>block</var> is a global block. 
 Otherwise return <code>#f</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>block-static?</b><var> block<a name="index-block_002dstatic_003f-2529"></a></var><br>
+&mdash; Scheme Procedure: <b>block-static?</b><var> block<a name="index-block_002dstatic_003f-2602"></a></var><br>
 <blockquote><p>Return <code>#t</code> if <code>&lt;gdb:block&gt;</code> <var>block</var> is a static block. 
 Otherwise return <code>#f</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>block-symbols</b><var><a name="index-block_002dsymbols-2530"></a></var><br>
+&mdash; Scheme Procedure: <b>block-symbols</b><var><a name="index-block_002dsymbols-2603"></a></var><br>
 <blockquote><p>Return a list of all symbols (as &lt;gdb:symbol&gt; objects) in
 <code>&lt;gdb:block&gt;</code> <var>block</var>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>make-block-symbols-iterator</b><var> block<a name="index-make_002dblock_002dsymbols_002diterator-2531"></a></var><br>
+&mdash; Scheme Procedure: <b>make-block-symbols-iterator</b><var> block<a name="index-make_002dblock_002dsymbols_002diterator-2604"></a></var><br>
 <blockquote><p>Return an object of type <code>&lt;gdb:iterator&gt;</code> that will iterate
 over all symbols of the block. 
 Guile programs should not assume that a specific block object will
@@ -183,14 +183,14 @@ See <a href="Iterators-In-Guile.html#Iterators-In-Guile">Iterators In Guile</a>.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>block-symbols-progress?</b><var><a name="index-block_002dsymbols_002dprogress_003f-2532"></a></var><br>
+&mdash; Scheme Procedure: <b>block-symbols-progress?</b><var><a name="index-block_002dsymbols_002dprogress_003f-2605"></a></var><br>
 <blockquote><p>Return #t if the object is a &lt;gdb:block-symbols-progress&gt; object. 
 This object would be obtained from the <code>progress</code> element of the
 <code>&lt;gdb:iterator&gt;</code> object returned by <code>make-block-symbols-iterator</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Scheme Procedure: <b>lookup-block</b><var> pc<a name="index-lookup_002dblock-2533"></a></var><br>
+&mdash; Scheme Procedure: <b>lookup-block</b><var> pc<a name="index-lookup_002dblock-2606"></a></var><br>
 <blockquote><p>Return the innermost <code>&lt;gdb:block&gt;</code> containing the given <var>pc</var>
 value.  If the block cannot be found for the <var>pc</var> value specified,
 the function will return <code>#f</code>. 

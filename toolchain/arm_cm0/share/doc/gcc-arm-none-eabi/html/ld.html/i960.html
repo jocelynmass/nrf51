@@ -12,9 +12,9 @@
 <!--
 This file documents the GNU linker LD
 (GNU Tools for ARM Embedded Processors)
-version 2.24.0.
+version 2.25.90.
 
-Copyright (C) 1991-2013 Free Software Foundation, Inc.
+Copyright (C) 1991-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
@@ -47,7 +47,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Machine-Dependent.html#Machine-Dependen
 
 <h3 class="section">4.2 <samp><span class="command">ld</span></samp> and the Intel 960 Family</h3>
 
-<p><a name="index-i960-support-579"></a>
+<p><a name="index-i960-support-597"></a>
 You can use the `<samp><span class="samp">-A</span><var>architecture</var></samp>' command line option to
 specify one of the two-letter names identifying members of the 960
 family; the option specifies the desired output target, and warns of any
@@ -74,7 +74,7 @@ the 960 architecture family allows combination of target architectures; each
 use will add another pair of name variants to search for when `<samp><span class="samp">-l</span></samp>'<!-- /@w -->
 specifies a library.
 
-   <p><a name="index-g_t_0040option_007b_002d_002drelax_007d-on-i960-580"></a><a name="index-relaxing-on-i960-581"></a><samp><span class="command">ld</span></samp> supports the `<samp><span class="samp">--relax</span></samp>' option for the i960 family.  If
+   <p><a name="index-g_t_0040option_007b_002d_002drelax_007d-on-i960-598"></a><a name="index-relaxing-on-i960-599"></a><samp><span class="command">ld</span></samp> supports the `<samp><span class="samp">--relax</span></samp>' option for the i960 family.  If
 you specify `<samp><span class="samp">--relax</span></samp>', <samp><span class="command">ld</span></samp> finds all <code>balx</code> and
 <code>calx</code> instructions whose targets are within 24 bits, and turns
 them into 24-bit program-counter relative <code>bal</code> and <code>cal</code>
@@ -82,16 +82,6 @@ instructions, respectively.  <samp><span class="command">ld</span></samp> also t
 instructions into <code>bal</code> instructions when it determines that the
 target subroutine is a leaf routine (that is, the target subroutine does
 not itself call any subroutines).
-
-   <p><a name="index-Cortex_002dA8-erratum-workaround-582"></a><a name="index-g_t_002d_002dfix_002dcortex_002da8-583"></a><a name="index-g_t_002d_002dno_002dfix_002dcortex_002da8-584"></a>The `<samp><span class="samp">--fix-cortex-a8</span></samp>' switch enables a link-time workaround for an erratum in certain Cortex-A8 processors.  The workaround is enabled by default if you are targeting the ARM v7-A architecture profile.  It can be enabled otherwise by specifying `<samp><span class="samp">--fix-cortex-a8</span></samp>', or disabled unconditionally by specifying `<samp><span class="samp">--no-fix-cortex-a8</span></samp>'.
-
-   <p>The erratum only affects Thumb-2 code.  Please contact ARM for further details.
-
-   <p><a name="index-Cortex_002dA53-erratum-835769-workaround-585"></a><a name="index-g_t_002d_002dfix_002dcortex_002da53_002d835769-586"></a><a name="index-g_t_002d_002dno_002dfix_002dcortex_002da53_002d835769-587"></a>The `<samp><span class="samp">--fix-cortex-a53-835769</span></samp>' switch enables a link-time workaround for erratum 835769 present on certain early revisions of Cortex-A53 processors.  The workaround is disabled by default.  It can be enabled by specifying `<samp><span class="samp">--fix-cortex-a53-835769</span></samp>', or disabled unconditionally by specifying `<samp><span class="samp">--no-fix-cortex-a53-835769</span></samp>'.
-
-   <p>Please contact ARM for further details.
-
-   <p><a name="index-g_t_002d_002dmerge_002dexidx_002dentries-588"></a><a name="index-g_t_002d_002dno_002dmerge_002dexidx_002dentries-589"></a>The `<samp><span class="samp">--no-merge-exidx-entries</span></samp>' switch disables the merging of adjacent exidx entries in debuginfo.
 
    </body></html>
 

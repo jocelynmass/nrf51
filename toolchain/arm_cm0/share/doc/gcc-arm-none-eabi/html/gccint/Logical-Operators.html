@@ -9,7 +9,7 @@
 <link rel="prev" href="Conditional-Expressions.html#Conditional-Expressions" title="Conditional Expressions">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -50,9 +50,9 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Operands.html#Operands">Operands</a>
 <hr>
 </div>
 
-<h4 class="subsection">11.5.4 Logical Operators</h4>
+<h4 class="subsection">11.6.4 Logical Operators</h4>
 
-<p><a name="index-Logical-Operators-2127"></a>
+<p><a name="index-Logical-Operators-2144"></a>
 Except when they appear in the condition operand of a
 <code>GIMPLE_COND</code>, logical `and' and `or' operators are simplified
 as follows: <code>a = b &amp;&amp; c</code> becomes
@@ -65,7 +65,7 @@ as follows: <code>a = b &amp;&amp; c</code> becomes
  <p>Note that <code>T1</code> in this example cannot be an expression temporary,
 because it has two different assignments.
 
-<h4 class="subsection">11.5.5 Manipulating operands</h4>
+<h4 class="subsection">11.6.5 Manipulating operands</h4>
 
 <p>All gimple operands are of type <code>tree</code>.  But only certain
 types of trees are allowed to be used as operand tuples.  Basic
@@ -122,7 +122,7 @@ and flattened into the GIMPLE tuple as follows:
 
 <pre class="smallexample">     GIMPLE_ASSIGN &lt;PLUS_EXPR, VAR_DECL &lt;a&gt;, VAR_DECL &lt;b&gt;, VAR_DECL &lt;c&gt;&gt;
 </pre>
- <h4 class="subsection">11.5.6 Operand vector allocation</h4>
+ <h4 class="subsection">11.6.6 Operand vector allocation</h4>
 
 <p>The operand vector is stored at the bottom of the three tuple
 structures that accept operands. This means, that depending on
@@ -131,17 +131,17 @@ different offsets from the base of the structure.  To access
 tuple operands use the following accessors
 
 <div class="defun">
-&mdash; GIMPLE function: unsigned <b>gimple_num_ops</b> (<var>gimple g</var>)<var><a name="index-gimple_005fnum_005fops-2128"></a></var><br>
+&mdash; GIMPLE function: unsigned <b>gimple_num_ops</b> (<var>gimple g</var>)<var><a name="index-gimple_005fnum_005fops-2145"></a></var><br>
 <blockquote><p>Returns the number of operands in statement G. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: tree <b>gimple_op</b> (<var>gimple g, unsigned i</var>)<var><a name="index-gimple_005fop-2129"></a></var><br>
+&mdash; GIMPLE function: tree <b>gimple_op</b> (<var>gimple g, unsigned i</var>)<var><a name="index-gimple_005fop-2146"></a></var><br>
 <blockquote><p>Returns operand <code>I</code> from statement <code>G</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: tree * <b>gimple_ops</b> (<var>gimple g</var>)<var><a name="index-gimple_005fops-2130"></a></var><br>
+&mdash; GIMPLE function: tree * <b>gimple_ops</b> (<var>gimple g</var>)<var><a name="index-gimple_005fops-2147"></a></var><br>
 <blockquote><p>Returns a pointer into the operand vector for statement <code>G</code>.  This
 is computed using an internal table called <code>gimple_ops_offset_</code>[]. 
 This table is indexed by the gimple code of <code>G</code>.
@@ -158,7 +158,7 @@ choose to memoize the result from <code>gimple_ops</code>() and use that to
 access the operands. 
 </p></blockquote></div>
 
-<h4 class="subsection">11.5.7 Operand validation</h4>
+<h4 class="subsection">11.6.7 Operand validation</h4>
 
 <p>When adding a new operand to a gimple statement, the operand will
 be validated according to what each tuple accepts in its operand
@@ -167,7 +167,7 @@ vector.  These predicates are called by the
 following predicates (Note, this list is not exhaustive):
 
 <div class="defun">
-&mdash; GIMPLE function: bool <b>is_gimple_val</b> (<var>tree t</var>)<var><a name="index-is_005fgimple_005fval-2131"></a></var><br>
+&mdash; GIMPLE function: bool <b>is_gimple_val</b> (<var>tree t</var>)<var><a name="index-is_005fgimple_005fval-2148"></a></var><br>
 <blockquote><p>Returns true if t is a "GIMPLE value", which are all the
 non-addressable stack variables (variables for which
 <code>is_gimple_reg</code> returns true) and constants (expressions for which
@@ -175,35 +175,35 @@ non-addressable stack variables (variables for which
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: bool <b>is_gimple_addressable</b> (<var>tree t</var>)<var><a name="index-is_005fgimple_005faddressable-2132"></a></var><br>
+&mdash; GIMPLE function: bool <b>is_gimple_addressable</b> (<var>tree t</var>)<var><a name="index-is_005fgimple_005faddressable-2149"></a></var><br>
 <blockquote><p>Returns true if t is a symbol or memory reference whose address
 can be taken. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: bool <b>is_gimple_asm_val</b> (<var>tree t</var>)<var><a name="index-is_005fgimple_005fasm_005fval-2133"></a></var><br>
+&mdash; GIMPLE function: bool <b>is_gimple_asm_val</b> (<var>tree t</var>)<var><a name="index-is_005fgimple_005fasm_005fval-2150"></a></var><br>
 <blockquote><p>Similar to <code>is_gimple_val</code> but it also accepts hard registers. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: bool <b>is_gimple_call_addr</b> (<var>tree t</var>)<var><a name="index-is_005fgimple_005fcall_005faddr-2134"></a></var><br>
+&mdash; GIMPLE function: bool <b>is_gimple_call_addr</b> (<var>tree t</var>)<var><a name="index-is_005fgimple_005fcall_005faddr-2151"></a></var><br>
 <blockquote><p>Return true if t is a valid expression to use as the function
 called by a <code>GIMPLE_CALL</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: bool <b>is_gimple_mem_ref_addr</b> (<var>tree t</var>)<var><a name="index-is_005fgimple_005fmem_005fref_005faddr-2135"></a></var><br>
+&mdash; GIMPLE function: bool <b>is_gimple_mem_ref_addr</b> (<var>tree t</var>)<var><a name="index-is_005fgimple_005fmem_005fref_005faddr-2152"></a></var><br>
 <blockquote><p>Return true if t is a valid expression to use as first operand
 of a <code>MEM_REF</code> expression. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: bool <b>is_gimple_constant</b> (<var>tree t</var>)<var><a name="index-is_005fgimple_005fconstant-2136"></a></var><br>
+&mdash; GIMPLE function: bool <b>is_gimple_constant</b> (<var>tree t</var>)<var><a name="index-is_005fgimple_005fconstant-2153"></a></var><br>
 <blockquote><p>Return true if t is a valid gimple constant. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: bool <b>is_gimple_min_invariant</b> (<var>tree t</var>)<var><a name="index-is_005fgimple_005fmin_005finvariant-2137"></a></var><br>
+&mdash; GIMPLE function: bool <b>is_gimple_min_invariant</b> (<var>tree t</var>)<var><a name="index-is_005fgimple_005fmin_005finvariant-2154"></a></var><br>
 <blockquote><p>Return true if t is a valid minimal invariant.  This is different
 from constants, in that the specific value of t may not be known
 at compile time, but it is known that it doesn't change (e.g.,
@@ -211,49 +211,49 @@ the address of a function local variable).
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: bool <b>is_gimple_ip_invariant</b> (<var>tree t</var>)<var><a name="index-is_005fgimple_005fip_005finvariant-2138"></a></var><br>
+&mdash; GIMPLE function: bool <b>is_gimple_ip_invariant</b> (<var>tree t</var>)<var><a name="index-is_005fgimple_005fip_005finvariant-2155"></a></var><br>
 <blockquote><p>Return true if t is an interprocedural invariant.  This means that t
 is a valid invariant in all functions (e.g. it can be an address of a
 global variable but not of a local one). 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: bool <b>is_gimple_ip_invariant_address</b> (<var>tree t</var>)<var><a name="index-is_005fgimple_005fip_005finvariant_005faddress-2139"></a></var><br>
+&mdash; GIMPLE function: bool <b>is_gimple_ip_invariant_address</b> (<var>tree t</var>)<var><a name="index-is_005fgimple_005fip_005finvariant_005faddress-2156"></a></var><br>
 <blockquote><p>Return true if t is an <code>ADDR_EXPR</code> that does not change once the
 program is running (and which is valid in all functions). 
 </p></blockquote></div>
 
-<h4 class="subsection">11.5.8 Statement validation</h4>
+<h4 class="subsection">11.6.8 Statement validation</h4>
 
 <div class="defun">
-&mdash; GIMPLE function: bool <b>is_gimple_assign</b> (<var>gimple g</var>)<var><a name="index-is_005fgimple_005fassign-2140"></a></var><br>
+&mdash; GIMPLE function: bool <b>is_gimple_assign</b> (<var>gimple g</var>)<var><a name="index-is_005fgimple_005fassign-2157"></a></var><br>
 <blockquote><p>Return true if the code of g is <code>GIMPLE_ASSIGN</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: bool <b>is_gimple_call</b> (<var>gimple g</var>)<var><a name="index-is_005fgimple_005fcall-2141"></a></var><br>
+&mdash; GIMPLE function: bool <b>is_gimple_call</b> (<var>gimple g</var>)<var><a name="index-is_005fgimple_005fcall-2158"></a></var><br>
 <blockquote><p>Return true if the code of g is <code>GIMPLE_CALL</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: bool <b>is_gimple_debug</b> (<var>gimple g</var>)<var><a name="index-is_005fgimple_005fdebug-2142"></a></var><br>
+&mdash; GIMPLE function: bool <b>is_gimple_debug</b> (<var>gimple g</var>)<var><a name="index-is_005fgimple_005fdebug-2159"></a></var><br>
 <blockquote><p>Return true if the code of g is <code>GIMPLE_DEBUG</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: bool <b>gimple_assign_cast_p</b> (<var>gimple g</var>)<var><a name="index-gimple_005fassign_005fcast_005fp-2143"></a></var><br>
+&mdash; GIMPLE function: bool <b>gimple_assign_cast_p</b> (<var>const_gimple g</var>)<var><a name="index-gimple_005fassign_005fcast_005fp-2160"></a></var><br>
 <blockquote><p>Return true if g is a <code>GIMPLE_ASSIGN</code> that performs a type cast
 operation. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: bool <b>gimple_debug_bind_p</b> (<var>gimple g</var>)<var><a name="index-gimple_005fdebug_005fbind_005fp-2144"></a></var><br>
+&mdash; GIMPLE function: bool <b>gimple_debug_bind_p</b> (<var>gimple g</var>)<var><a name="index-gimple_005fdebug_005fbind_005fp-2161"></a></var><br>
 <blockquote><p>Return true if g is a <code>GIMPLE_DEBUG</code> that binds the value of an
 expression to a variable. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; GIMPLE function: bool <b>is_gimple_omp</b> (<var>gimple g</var>)<var><a name="index-is_005fgimple_005fomp-2145"></a></var><br>
+&mdash; GIMPLE function: bool <b>is_gimple_omp</b> (<var>gimple g</var>)<var><a name="index-is_005fgimple_005fomp-2162"></a></var><br>
 <blockquote><p>Return true if g is any of the OpenMP codes. 
 </p></blockquote></div>
 

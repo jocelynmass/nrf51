@@ -10,7 +10,7 @@
 <link rel="next" href="Expander-Definitions.html#Expander-Definitions" title="Expander Definitions">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -54,7 +54,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Machine-Desc.html#Machine-Desc">Machine
 
 <h3 class="section">16.14 Canonicalization of Instructions</h3>
 
-<p><a name="index-canonicalization-of-instructions-3639"></a><a name="index-insn-canonicalization-3640"></a>
+<p><a name="index-canonicalization-of-instructions-3679"></a><a name="index-insn-canonicalization-3680"></a>
 There are often cases where multiple RTL expressions could represent an
 operation performed by a single machine instruction.  This situation is
 most commonly encountered with logical, branch, and multiply-accumulate
@@ -78,7 +78,7 @@ can itself be a <code>plus</code>.  <code>and</code>, <code>ior</code>, <code>xo
 <code>umax</code> are associative when applied to integers, and sometimes to
 floating-point.
 
-     <li><a name="index-g_t_0040code_007bneg_007d_002c-canonicalization-of-3641"></a><a name="index-g_t_0040code_007bnot_007d_002c-canonicalization-of-3642"></a><a name="index-g_t_0040code_007bmult_007d_002c-canonicalization-of-3643"></a><a name="index-g_t_0040code_007bplus_007d_002c-canonicalization-of-3644"></a><a name="index-g_t_0040code_007bminus_007d_002c-canonicalization-of-3645"></a>For these operators, if only one operand is a <code>neg</code>, <code>not</code>,
+     <li><a name="index-g_t_0040code_007bneg_007d_002c-canonicalization-of-3681"></a><a name="index-g_t_0040code_007bnot_007d_002c-canonicalization-of-3682"></a><a name="index-g_t_0040code_007bmult_007d_002c-canonicalization-of-3683"></a><a name="index-g_t_0040code_007bplus_007d_002c-canonicalization-of-3684"></a><a name="index-g_t_0040code_007bminus_007d_002c-canonicalization-of-3685"></a>For these operators, if only one operand is a <code>neg</code>, <code>not</code>,
 <code>mult</code>, <code>plus</code>, or <code>minus</code> expression, it will be the
 first operand.
 
@@ -89,7 +89,7 @@ the operations as far as possible.  For instance,
 <code>(plus (mult (neg B) C) A)</code> is canonicalized as
 <code>(minus A (mult B C))</code>.
 
-     <p><a name="index-g_t_0040code_007bcompare_007d_002c-canonicalization-of-3646"></a><li>For the <code>compare</code> operator, a constant is always the second operand
+     <p><a name="index-g_t_0040code_007bcompare_007d_002c-canonicalization-of-3686"></a><li>For the <code>compare</code> operator, a constant is always the second operand
 if the first argument is a condition code register or <code>(cc0)</code>.
 
      <li>An operand of <code>neg</code>, <code>not</code>, <code>mult</code>, <code>plus</code>, or
@@ -106,7 +106,7 @@ of <code>ltu</code>.
      <li>Within address computations (i.e., inside <code>mem</code>), a left shift is
 converted into the appropriate multiplication by a power of two.
 
-     <p><a name="index-g_t_0040code_007bior_007d_002c-canonicalization-of-3647"></a><a name="index-g_t_0040code_007band_007d_002c-canonicalization-of-3648"></a><a name="index-De-Morgan_0027s-law-3649"></a><li>De Morgan's Law is used to move bitwise negation inside a bitwise
+     <p><a name="index-g_t_0040code_007bior_007d_002c-canonicalization-of-3687"></a><a name="index-g_t_0040code_007band_007d_002c-canonicalization-of-3688"></a><a name="index-De-Morgan_0027s-law-3689"></a><li>De Morgan's Law is used to move bitwise negation inside a bitwise
 logical-and or logical-or operation.  If this results in only one
 operand being a <code>not</code> expression, it will be the first one.
 
@@ -133,7 +133,7 @@ for that instruction as
      <p>In both cases, it is not necessary to include patterns for the many
 logically equivalent RTL expressions.
 
-     <p><a name="index-g_t_0040code_007bxor_007d_002c-canonicalization-of-3650"></a><li>The only possible RTL expressions involving both bitwise exclusive-or
+     <p><a name="index-g_t_0040code_007bxor_007d_002c-canonicalization-of-3690"></a><li>The only possible RTL expressions involving both bitwise exclusive-or
 and bitwise negation are <code>(xor:</code><var>m</var> <var>x</var> <var>y</var><code>)</code>
 and <code>(not:</code><var>m</var><code> (xor:</code><var>m</var> <var>x</var> <var>y</var><code>))</code>.
 
@@ -142,11 +142,11 @@ the form
 
      <pre class="smallexample">          (plus:<var>m</var> (plus:<var>m</var> <var>x</var> <var>y</var>) <var>constant</var>)
      </pre>
-     <p><a name="index-g_t_0040code_007bzero_005fextract_007d_002c-canonicalization-of-3651"></a><a name="index-g_t_0040code_007bsign_005fextract_007d_002c-canonicalization-of-3652"></a><li>Equality comparisons of a group of bits (usually a single bit) with zero
+     <p><a name="index-g_t_0040code_007bzero_005fextract_007d_002c-canonicalization-of-3691"></a><a name="index-g_t_0040code_007bsign_005fextract_007d_002c-canonicalization-of-3692"></a><li>Equality comparisons of a group of bits (usually a single bit) with zero
 will be written using <code>zero_extract</code> rather than the equivalent
 <code>and</code> or <code>sign_extract</code> operations.
 
-     <p><a name="index-g_t_0040code_007bmult_007d_002c-canonicalization-of-3653"></a><li><code>(sign_extend:</code><var>m1</var><code> (mult:</code><var>m2</var><code> (sign_extend:</code><var>m2</var> <var>x</var><code>)
+     <p><a name="index-g_t_0040code_007bmult_007d_002c-canonicalization-of-3693"></a><li><code>(sign_extend:</code><var>m1</var><code> (mult:</code><var>m2</var><code> (sign_extend:</code><var>m2</var> <var>x</var><code>)
 (sign_extend:</code><var>m2</var> <var>y</var><code>)))</code> is converted to <code>(mult:</code><var>m1</var><code>
 (sign_extend:</code><var>m1</var> <var>x</var><code>) (sign_extend:</code><var>m1</var> <var>y</var><code>))</code>, and likewise
 for <code>zero_extend</code>.

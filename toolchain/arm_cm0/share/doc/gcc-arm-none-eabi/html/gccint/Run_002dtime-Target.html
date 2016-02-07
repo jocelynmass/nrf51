@@ -10,7 +10,7 @@
 <link rel="next" href="Per_002dFunction-Data.html#Per_002dFunction-Data" title="Per-Function Data">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -55,12 +55,12 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Target-Macros.html#Target-Macros">Targe
 
 <h3 class="section">17.3 Run-time Target Specification</h3>
 
-<p><a name="index-run_002dtime-target-specification-3856"></a><a name="index-predefined-macros-3857"></a><a name="index-target-specifications-3858"></a>
+<p><a name="index-run_002dtime-target-specification-3896"></a><a name="index-predefined-macros-3897"></a><a name="index-target-specifications-3898"></a>
 <!-- prevent bad page break with this line -->
 Here are run-time target specifications.
 
 <div class="defun">
-&mdash; Macro: <b>TARGET_CPU_CPP_BUILTINS</b> ()<var><a name="index-TARGET_005fCPU_005fCPP_005fBUILTINS-3859"></a></var><br>
+&mdash; Macro: <b>TARGET_CPU_CPP_BUILTINS</b> ()<var><a name="index-TARGET_005fCPU_005fCPP_005fBUILTINS-3899"></a></var><br>
 <blockquote><p>This function-like macro expands to a block of code that defines
 built-in preprocessor macros and assertions for the target CPU, using
 the functions <code>builtin_define</code>, <code>builtin_define_std</code> and
@@ -97,13 +97,13 @@ preprocessing.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>TARGET_OS_CPP_BUILTINS</b> ()<var><a name="index-TARGET_005fOS_005fCPP_005fBUILTINS-3860"></a></var><br>
+&mdash; Macro: <b>TARGET_OS_CPP_BUILTINS</b> ()<var><a name="index-TARGET_005fOS_005fCPP_005fBUILTINS-3900"></a></var><br>
 <blockquote><p>Similarly to <code>TARGET_CPU_CPP_BUILTINS</code> but this macro is optional
 and is used for the target operating system instead. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>TARGET_OBJFMT_CPP_BUILTINS</b> ()<var><a name="index-TARGET_005fOBJFMT_005fCPP_005fBUILTINS-3861"></a></var><br>
+&mdash; Macro: <b>TARGET_OBJFMT_CPP_BUILTINS</b> ()<var><a name="index-TARGET_005fOBJFMT_005fCPP_005fBUILTINS-3901"></a></var><br>
 <blockquote><p>Similarly to <code>TARGET_CPU_CPP_BUILTINS</code> but this macro is optional
 and is used for the target object format.  <samp><span class="file">elfos.h</span></samp> uses this
 macro to define <code>__ELF__</code>, so you probably do not need to define
@@ -111,21 +111,21 @@ it yourself.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Variable: extern int <b>target_flags</b><var><a name="index-target_005fflags-3862"></a></var><br>
+&mdash; Variable: extern int <b>target_flags</b><var><a name="index-target_005fflags-3902"></a></var><br>
 <blockquote><p>This variable is declared in <samp><span class="file">options.h</span></samp>, which is included before
 any target-specific headers. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Common Target Hook: int <b>TARGET_DEFAULT_TARGET_FLAGS</b><var><a name="index-TARGET_005fDEFAULT_005fTARGET_005fFLAGS-3863"></a></var><br>
+&mdash; Common Target Hook: int <b>TARGET_DEFAULT_TARGET_FLAGS</b><var><a name="index-TARGET_005fDEFAULT_005fTARGET_005fFLAGS-3903"></a></var><br>
 <blockquote><p>This variable specifies the initial value of <code>target_flags</code>. 
 Its default setting is 0. 
 </p></blockquote></div>
 
- <p><a name="index-optional-hardware-or-system-features-3864"></a><a name="index-features_002c-optional_002c-in-system-conventions-3865"></a>
+ <p><a name="index-optional-hardware-or-system-features-3904"></a><a name="index-features_002c-optional_002c-in-system-conventions-3905"></a>
 
 <div class="defun">
-&mdash; Common Target Hook: bool <b>TARGET_HANDLE_OPTION</b> (<var>struct gcc_options *opts, struct gcc_options *opts_set, const struct cl_decoded_option *decoded, location_t loc</var>)<var><a name="index-TARGET_005fHANDLE_005fOPTION-3866"></a></var><br>
+&mdash; Common Target Hook: bool <b>TARGET_HANDLE_OPTION</b> (<var>struct gcc_options *opts, struct gcc_options *opts_set, const struct cl_decoded_option *decoded, location_t loc</var>)<var><a name="index-TARGET_005fHANDLE_005fOPTION-3906"></a></var><br>
 <blockquote><p>This hook is called whenever the user specifies one of the
 target-specific options described by the <samp><span class="file">.opt</span></samp> definition files
 (see <a href="Options.html#Options">Options</a>).  It has the opportunity to do some option-specific
@@ -140,7 +140,7 @@ via attributes).
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; C Target Hook: bool <b>TARGET_HANDLE_C_OPTION</b> (<var>size_t code, const char *arg, int value</var>)<var><a name="index-TARGET_005fHANDLE_005fC_005fOPTION-3867"></a></var><br>
+&mdash; C Target Hook: bool <b>TARGET_HANDLE_C_OPTION</b> (<var>size_t code, const char *arg, int value</var>)<var><a name="index-TARGET_005fHANDLE_005fC_005fOPTION-3907"></a></var><br>
 <blockquote><p>This target hook is called whenever the user specifies one of the
 target-specific C language family options described by the <samp><span class="file">.opt</span></samp>
 definition files(see <a href="Options.html#Options">Options</a>).  It has the opportunity to do some
@@ -155,32 +155,32 @@ should use <code>TARGET_HANDLE_C_OPTION</code> instead.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; C Target Hook: tree <b>TARGET_OBJC_CONSTRUCT_STRING_OBJECT</b> (<var>tree string</var>)<var><a name="index-TARGET_005fOBJC_005fCONSTRUCT_005fSTRING_005fOBJECT-3868"></a></var><br>
+&mdash; C Target Hook: tree <b>TARGET_OBJC_CONSTRUCT_STRING_OBJECT</b> (<var>tree string</var>)<var><a name="index-TARGET_005fOBJC_005fCONSTRUCT_005fSTRING_005fOBJECT-3908"></a></var><br>
 <blockquote><p>Targets may provide a string object type that can be used within and between C, C++ and their respective Objective-C dialects. A string object might, for example, embed encoding and length information. These objects are considered opaque to the compiler and handled as references. An ideal implementation makes the composition of the string object match that of the Objective-C <code>NSString</code> (<code>NXString</code> for GNUStep), allowing efficient interworking between C-only and Objective-C code. If a target implements string objects then this hook should return a reference to such an object constructed from the normal `C' string representation provided in <var>string</var>. At present, the hook is used by Objective-C only, to obtain a common-format string object when the target provides one. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; C Target Hook: void <b>TARGET_OBJC_DECLARE_UNRESOLVED_CLASS_REFERENCE</b> (<var>const char *classname</var>)<var><a name="index-TARGET_005fOBJC_005fDECLARE_005fUNRESOLVED_005fCLASS_005fREFERENCE-3869"></a></var><br>
+&mdash; C Target Hook: void <b>TARGET_OBJC_DECLARE_UNRESOLVED_CLASS_REFERENCE</b> (<var>const char *classname</var>)<var><a name="index-TARGET_005fOBJC_005fDECLARE_005fUNRESOLVED_005fCLASS_005fREFERENCE-3909"></a></var><br>
 <blockquote><p>Declare that Objective C class <var>classname</var> is referenced  by the current TU. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; C Target Hook: void <b>TARGET_OBJC_DECLARE_CLASS_DEFINITION</b> (<var>const char *classname</var>)<var><a name="index-TARGET_005fOBJC_005fDECLARE_005fCLASS_005fDEFINITION-3870"></a></var><br>
+&mdash; C Target Hook: void <b>TARGET_OBJC_DECLARE_CLASS_DEFINITION</b> (<var>const char *classname</var>)<var><a name="index-TARGET_005fOBJC_005fDECLARE_005fCLASS_005fDEFINITION-3910"></a></var><br>
 <blockquote><p>Declare that Objective C class <var>classname</var> is defined  by the current TU. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; C Target Hook: bool <b>TARGET_STRING_OBJECT_REF_TYPE_P</b> (<var>const_tree stringref</var>)<var><a name="index-TARGET_005fSTRING_005fOBJECT_005fREF_005fTYPE_005fP-3871"></a></var><br>
+&mdash; C Target Hook: bool <b>TARGET_STRING_OBJECT_REF_TYPE_P</b> (<var>const_tree stringref</var>)<var><a name="index-TARGET_005fSTRING_005fOBJECT_005fREF_005fTYPE_005fP-3911"></a></var><br>
 <blockquote><p>If a target implements string objects then this hook should return <code>true</code> if <var>stringref</var> is a valid reference to such an object. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; C Target Hook: void <b>TARGET_CHECK_STRING_OBJECT_FORMAT_ARG</b> (<var>tree format_arg, tree args_list</var>)<var><a name="index-TARGET_005fCHECK_005fSTRING_005fOBJECT_005fFORMAT_005fARG-3872"></a></var><br>
+&mdash; C Target Hook: void <b>TARGET_CHECK_STRING_OBJECT_FORMAT_ARG</b> (<var>tree format_arg, tree args_list</var>)<var><a name="index-TARGET_005fCHECK_005fSTRING_005fOBJECT_005fFORMAT_005fARG-3912"></a></var><br>
 <blockquote><p>If a target implements string objects then this hook should should  provide a facility to check the function arguments in <var>args_list</var>  against the format specifiers in <var>format_arg</var> where the type of  <var>format_arg</var> is one recognized as a valid string reference type. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: void <b>TARGET_OVERRIDE_OPTIONS_AFTER_CHANGE</b> (<var>void</var>)<var><a name="index-TARGET_005fOVERRIDE_005fOPTIONS_005fAFTER_005fCHANGE-3873"></a></var><br>
+&mdash; Target Hook: void <b>TARGET_OVERRIDE_OPTIONS_AFTER_CHANGE</b> (<var>void</var>)<var><a name="index-TARGET_005fOVERRIDE_005fOPTIONS_005fAFTER_005fCHANGE-3913"></a></var><br>
 <blockquote><p>This target function is similar to the hook <code>TARGET_OPTION_OVERRIDE</code>
 but is called when the optimize level is changed via an attribute or
 pragma or when it is reset at the end of the code affected by the
@@ -191,7 +191,7 @@ actions then, you should have <code>TARGET_OPTION_OVERRIDE</code> call
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>C_COMMON_OVERRIDE_OPTIONS</b><var><a name="index-C_005fCOMMON_005fOVERRIDE_005fOPTIONS-3874"></a></var><br>
+&mdash; Macro: <b>C_COMMON_OVERRIDE_OPTIONS</b><var><a name="index-C_005fCOMMON_005fOVERRIDE_005fOPTIONS-3914"></a></var><br>
 <blockquote><p>This is similar to the <code>TARGET_OPTION_OVERRIDE</code> hook
 but is only used in the C
 language frontends (C, Objective-C, C++, Objective-C++) and so can be
@@ -200,7 +200,7 @@ frontends.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Common Target Hook: const struct default_options * <b>TARGET_OPTION_OPTIMIZATION_TABLE</b><var><a name="index-TARGET_005fOPTION_005fOPTIMIZATION_005fTABLE-3875"></a></var><br>
+&mdash; Common Target Hook: const struct default_options * <b>TARGET_OPTION_OPTIMIZATION_TABLE</b><var><a name="index-TARGET_005fOPTION_005fOPTIMIZATION_005fTABLE-3915"></a></var><br>
 <blockquote><p>Some machines may desire to change what optimizations are performed for
 various optimization levels.   This variable, if defined, describes
 options to enable at particular sets of optimization levels.  These
@@ -215,17 +215,17 @@ options are changed via <code>#pragma GCC optimize</code> or by using the
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Common Target Hook: void <b>TARGET_OPTION_INIT_STRUCT</b> (<var>struct gcc_options *opts</var>)<var><a name="index-TARGET_005fOPTION_005fINIT_005fSTRUCT-3876"></a></var><br>
+&mdash; Common Target Hook: void <b>TARGET_OPTION_INIT_STRUCT</b> (<var>struct gcc_options *opts</var>)<var><a name="index-TARGET_005fOPTION_005fINIT_005fSTRUCT-3916"></a></var><br>
 <blockquote><p>Set target-dependent initial values of fields in <var>opts</var>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Common Target Hook: void <b>TARGET_OPTION_DEFAULT_PARAMS</b> (<var>void</var>)<var><a name="index-TARGET_005fOPTION_005fDEFAULT_005fPARAMS-3877"></a></var><br>
+&mdash; Common Target Hook: void <b>TARGET_OPTION_DEFAULT_PARAMS</b> (<var>void</var>)<var><a name="index-TARGET_005fOPTION_005fDEFAULT_005fPARAMS-3917"></a></var><br>
 <blockquote><p>Set target-dependent default values for <samp><span class="option">--param</span></samp> settings, using calls to <code>set_default_param_value</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>SWITCHABLE_TARGET</b><var><a name="index-SWITCHABLE_005fTARGET-3878"></a></var><br>
+&mdash; Macro: <b>SWITCHABLE_TARGET</b><var><a name="index-SWITCHABLE_005fTARGET-3918"></a></var><br>
 <blockquote><p>Some targets need to switch between substantially different subtargets
 during compilation.  For example, the MIPS target has one subtarget for
 the traditional MIPS architecture and another for MIPS16.  Source code
@@ -245,7 +245,7 @@ is 0.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: bool <b>TARGET_FLOAT_EXCEPTIONS_ROUNDING_SUPPORTED_P</b> (<var>void</var>)<var><a name="index-TARGET_005fFLOAT_005fEXCEPTIONS_005fROUNDING_005fSUPPORTED_005fP-3879"></a></var><br>
+&mdash; Target Hook: bool <b>TARGET_FLOAT_EXCEPTIONS_ROUNDING_SUPPORTED_P</b> (<var>void</var>)<var><a name="index-TARGET_005fFLOAT_005fEXCEPTIONS_005fROUNDING_005fSUPPORTED_005fP-3919"></a></var><br>
 <blockquote><p>Returns true if the target supports IEEE 754 floating-point exceptions and rounding modes, false otherwise.  This is intended to relate to the <code>float</code> and <code>double</code> types, but not necessarily <code>long double</code>. By default, returns true if the <code>adddf3</code> instruction pattern is available and false otherwise, on the assumption that hardware floating point supports exceptions and rounding modes but software floating point does not. 
 </p></blockquote></div>
 

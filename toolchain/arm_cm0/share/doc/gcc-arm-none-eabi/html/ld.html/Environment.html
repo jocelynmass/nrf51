@@ -11,9 +11,9 @@
 <!--
 This file documents the GNU linker LD
 (GNU Tools for ARM Embedded Processors)
-version 2.24.0.
+version 2.25.90.
 
-Copyright (C) 1991-2013 Free Software Foundation, Inc.
+Copyright (C) 1991-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
@@ -50,7 +50,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Invocation.html#Invocation">Invocation<
 <code>GNUTARGET</code>,
 <code>LDEMULATION</code> and <code>COLLECT_NO_DEMANGLE</code>.
 
-   <p><a name="index-GNUTARGET-339"></a><a name="index-default-input-format-340"></a><code>GNUTARGET</code> determines the input-file object format if you don't
+   <p><a name="index-GNUTARGET-357"></a><a name="index-default-input-format-358"></a><code>GNUTARGET</code> determines the input-file object format if you don't
 use `<samp><span class="samp">-b</span></samp>' (or its synonym `<samp><span class="samp">--format</span></samp>').  Its value should be one
 of the BFD names for an input format (see <a href="BFD.html#BFD">BFD</a>).  If there is no
 <code>GNUTARGET</code> in the environment, <samp><span class="command">ld</span></samp> uses the natural format
@@ -62,7 +62,7 @@ object-file formats is unique.  However, the configuration procedure for
 BFD on each system places the conventional format for that system first
 in the search-list, so ambiguities are resolved in favor of convention.
 
-   <p><a name="index-LDEMULATION-341"></a><a name="index-default-emulation-342"></a><a name="index-emulation_002c-default-343"></a><code>LDEMULATION</code> determines the default emulation if you don't use the
+   <p><a name="index-LDEMULATION-359"></a><a name="index-default-emulation-360"></a><a name="index-emulation_002c-default-361"></a><code>LDEMULATION</code> determines the default emulation if you don't use the
 `<samp><span class="samp">-m</span></samp>' option.  The emulation can affect various aspects of linker
 behaviour, particularly the default linker script.  You can list the
 available emulations with the `<samp><span class="samp">--verbose</span></samp>' or `<samp><span class="samp">-V</span></samp>' options.  If
@@ -70,7 +70,7 @@ the `<samp><span class="samp">-m</span></samp>' option is not used, and the <cod
 variable is not defined, the default emulation depends upon how the
 linker was configured.
 
-   <p><a name="index-COLLECT_005fNO_005fDEMANGLE-344"></a><a name="index-demangling_002c-default-345"></a>Normally, the linker will default to demangling symbols.  However, if
+   <p><a name="index-COLLECT_005fNO_005fDEMANGLE-362"></a><a name="index-demangling_002c-default-363"></a>Normally, the linker will default to demangling symbols.  However, if
 <code>COLLECT_NO_DEMANGLE</code> is set in the environment, then it will
 default to not demangling symbols.  This environment variable is used in
 a similar fashion by the <code>gcc</code> linker wrapper program.  The default

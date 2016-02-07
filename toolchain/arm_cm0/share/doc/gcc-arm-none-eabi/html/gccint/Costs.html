@@ -10,7 +10,7 @@
 <link rel="next" href="Scheduling.html#Scheduling" title="Scheduling">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -52,14 +52,14 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Target-Macros.html#Target-Macros">Targe
 <hr>
 </div>
 
-<h3 class="section">17.17 Describing Relative Costs of Operations</h3>
+<h3 class="section">17.16 Describing Relative Costs of Operations</h3>
 
-<p><a name="index-costs-of-instructions-4408"></a><a name="index-relative-costs-4409"></a><a name="index-speed-of-instructions-4410"></a>
+<p><a name="index-costs-of-instructions-4442"></a><a name="index-relative-costs-4443"></a><a name="index-speed-of-instructions-4444"></a>
 These macros let you describe the relative speed of various operations
 on the target machine.
 
 <div class="defun">
-&mdash; Macro: <b>REGISTER_MOVE_COST</b> (<var>mode, from, to</var>)<var><a name="index-REGISTER_005fMOVE_005fCOST-4411"></a></var><br>
+&mdash; Macro: <b>REGISTER_MOVE_COST</b> (<var>mode, from, to</var>)<var><a name="index-REGISTER_005fMOVE_005fCOST-4445"></a></var><br>
 <blockquote><p>A C expression for the cost of moving data of mode <var>mode</var> from a
 register in class <var>from</var> to one in class <var>to</var>.  The classes are
 expressed using the enumeration values such as <code>GENERAL_REGS</code>.  A
@@ -82,7 +82,7 @@ if the `<samp><span class="samp">mov</span><var>m</var></samp>' pattern's constr
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: int <b>TARGET_REGISTER_MOVE_COST</b> (<var>enum machine_mode mode, reg_class_t from, reg_class_t to</var>)<var><a name="index-TARGET_005fREGISTER_005fMOVE_005fCOST-4412"></a></var><br>
+&mdash; Target Hook: int <b>TARGET_REGISTER_MOVE_COST</b> (<var>machine_mode mode, reg_class_t from, reg_class_t to</var>)<var><a name="index-TARGET_005fREGISTER_005fMOVE_005fCOST-4446"></a></var><br>
 <blockquote><p>This target hook should return the cost of moving data of mode <var>mode</var>
 from a register in class <var>from</var> to one in class <var>to</var>.  The classes
 are expressed using the enumeration values such as <code>GENERAL_REGS</code>. 
@@ -104,7 +104,7 @@ if the `<samp><span class="samp">mov</span><var>m</var></samp>' pattern's constr
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>MEMORY_MOVE_COST</b> (<var>mode, class, in</var>)<var><a name="index-MEMORY_005fMOVE_005fCOST-4413"></a></var><br>
+&mdash; Macro: <b>MEMORY_MOVE_COST</b> (<var>mode, class, in</var>)<var><a name="index-MEMORY_005fMOVE_005fCOST-4447"></a></var><br>
 <blockquote><p>A C expression for the cost of moving data of mode <var>mode</var> between a
 register of class <var>class</var> and memory; <var>in</var> is zero if the value
 is to be written to memory, nonzero if it is to be read in.  This cost
@@ -132,7 +132,7 @@ are the same as to this macro.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: int <b>TARGET_MEMORY_MOVE_COST</b> (<var>enum machine_mode mode, reg_class_t rclass, bool in</var>)<var><a name="index-TARGET_005fMEMORY_005fMOVE_005fCOST-4414"></a></var><br>
+&mdash; Target Hook: int <b>TARGET_MEMORY_MOVE_COST</b> (<var>machine_mode mode, reg_class_t rclass, bool in</var>)<var><a name="index-TARGET_005fMEMORY_005fMOVE_005fCOST-4448"></a></var><br>
 <blockquote><p>This target hook should return the cost of moving data of mode <var>mode</var>
 between a register of class <var>rclass</var> and memory; <var>in</var> is <code>false</code>
 if the value is to be written to memory, <code>true</code> if it is to be read in. 
@@ -157,7 +157,7 @@ are the same as to this target hook.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>BRANCH_COST</b> (<var>speed_p, predictable_p</var>)<var><a name="index-BRANCH_005fCOST-4415"></a></var><br>
+&mdash; Macro: <b>BRANCH_COST</b> (<var>speed_p, predictable_p</var>)<var><a name="index-BRANCH_005fCOST-4449"></a></var><br>
 <blockquote><p>A C expression for the cost of a branch instruction.  A value of 1 is
 the default; other values are interpreted relative to that. Parameter
 <var>speed_p</var> is true when the branch in question should be optimized
@@ -172,7 +172,7 @@ but only that certain actions are more expensive than GCC would
 ordinarily expect.
 
 <div class="defun">
-&mdash; Macro: <b>SLOW_BYTE_ACCESS</b><var><a name="index-SLOW_005fBYTE_005fACCESS-4416"></a></var><br>
+&mdash; Macro: <b>SLOW_BYTE_ACCESS</b><var><a name="index-SLOW_005fBYTE_005fACCESS-4450"></a></var><br>
 <blockquote><p>Define this macro as a C expression which is nonzero if accessing less
 than a word of memory (i.e. a <code>char</code> or a <code>short</code>) is no
 faster than accessing a word of memory, i.e., if such access
@@ -188,7 +188,7 @@ other fields in the same word of the structure, but to different bytes.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>SLOW_UNALIGNED_ACCESS</b> (<var>mode, alignment</var>)<var><a name="index-SLOW_005fUNALIGNED_005fACCESS-4417"></a></var><br>
+&mdash; Macro: <b>SLOW_UNALIGNED_ACCESS</b> (<var>mode, alignment</var>)<var><a name="index-SLOW_005fUNALIGNED_005fACCESS-4451"></a></var><br>
 <blockquote><p>Define this macro to be the value 1 if memory accesses described by the
 <var>mode</var> and <var>alignment</var> parameters have a cost many times greater
 than aligned accesses, for example if they are emulated in a trap
@@ -206,7 +206,7 @@ this macro is defined, it should produce a nonzero value when
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>MOVE_RATIO</b> (<var>speed</var>)<var><a name="index-MOVE_005fRATIO-4418"></a></var><br>
+&mdash; Macro: <b>MOVE_RATIO</b> (<var>speed</var>)<var><a name="index-MOVE_005fRATIO-4452"></a></var><br>
 <blockquote><p>The threshold of number of scalar memory-to-memory move insns, <em>below</em>
 which a sequence of insns should be generated instead of a
 string move insn or a library call.  Increasing the value will always
@@ -223,21 +223,48 @@ optimized for speed rather than size.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>MOVE_BY_PIECES_P</b> (<var>size, alignment</var>)<var><a name="index-MOVE_005fBY_005fPIECES_005fP-4419"></a></var><br>
-<blockquote><p>A C expression used to determine whether <code>move_by_pieces</code> will be used to
-copy a chunk of memory, or whether some other block move mechanism
-will be used.  Defaults to 1 if <code>move_by_pieces_ninsns</code> returns less
-than <code>MOVE_RATIO</code>. 
+&mdash; Target Hook: bool <b>TARGET_USE_BY_PIECES_INFRASTRUCTURE_P</b> (<var>unsigned HOST_WIDE_INT size, unsigned int alignment, enum by_pieces_operation op, bool speed_p</var>)<var><a name="index-TARGET_005fUSE_005fBY_005fPIECES_005fINFRASTRUCTURE_005fP-4453"></a></var><br>
+<blockquote><p>GCC will attempt several strategies when asked to copy between
+two areas of memory, or to set, clear or store to memory, for example
+when copying a <code>struct</code>. The <code>by_pieces</code> infrastructure
+implements such memory operations as a sequence of load, store or move
+insns.  Alternate strategies are to expand the
+<code>movmem</code> or <code>setmem</code> optabs, to emit a library call, or to emit
+unit-by-unit, loop-based operations.
+
+      <p>This target hook should return true if, for a memory operation with a
+given <var>size</var> and <var>alignment</var>, using the <code>by_pieces</code>
+infrastructure is expected to result in better code generation. 
+Both <var>size</var> and <var>alignment</var> are measured in terms of storage
+units.
+
+      <p>The parameter <var>op</var> is one of: <code>CLEAR_BY_PIECES</code>,
+<code>MOVE_BY_PIECES</code>, <code>SET_BY_PIECES</code>, <code>STORE_BY_PIECES</code>. 
+These describe the type of memory operation under consideration.
+
+      <p>The parameter <var>speed_p</var> is true if the code is currently being
+optimized for speed rather than size.
+
+      <p>Returning true for higher values of <var>size</var> can improve code generation
+for speed if the target does not provide an implementation of the
+<code>movmem</code> or <code>setmem</code> standard names, if the <code>movmem</code> or
+<code>setmem</code> implementation would be more expensive than a sequence of
+insns, or if the overhead of a library call would dominate that of
+the body of the memory operation.
+
+      <p>Returning true for higher values of <code>size</code> may also cause an increase
+in code size, for example where the number of insns emitted to perform a
+move would be greater than that of a library call. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>MOVE_MAX_PIECES</b><var><a name="index-MOVE_005fMAX_005fPIECES-4420"></a></var><br>
+&mdash; Macro: <b>MOVE_MAX_PIECES</b><var><a name="index-MOVE_005fMAX_005fPIECES-4454"></a></var><br>
 <blockquote><p>A C expression used by <code>move_by_pieces</code> to determine the largest unit
 a load or store used to copy memory is.  Defaults to <code>MOVE_MAX</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>CLEAR_RATIO</b> (<var>speed</var>)<var><a name="index-CLEAR_005fRATIO-4421"></a></var><br>
+&mdash; Macro: <b>CLEAR_RATIO</b> (<var>speed</var>)<var><a name="index-CLEAR_005fRATIO-4455"></a></var><br>
 <blockquote><p>The threshold of number of scalar move insns, <em>below</em> which a sequence
 of insns should be generated to clear memory instead of a string clear insn
 or a library call.  Increasing the value will always make code faster, but
@@ -250,15 +277,7 @@ optimized for speed rather than size.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>CLEAR_BY_PIECES_P</b> (<var>size, alignment</var>)<var><a name="index-CLEAR_005fBY_005fPIECES_005fP-4422"></a></var><br>
-<blockquote><p>A C expression used to determine whether <code>clear_by_pieces</code> will be used
-to clear a chunk of memory, or whether some other block clear mechanism
-will be used.  Defaults to 1 if <code>move_by_pieces_ninsns</code> returns less
-than <code>CLEAR_RATIO</code>. 
-</p></blockquote></div>
-
-<div class="defun">
-&mdash; Macro: <b>SET_RATIO</b> (<var>speed</var>)<var><a name="index-SET_005fRATIO-4423"></a></var><br>
+&mdash; Macro: <b>SET_RATIO</b> (<var>speed</var>)<var><a name="index-SET_005fRATIO-4456"></a></var><br>
 <blockquote><p>The threshold of number of scalar move insns, <em>below</em> which a sequence
 of insns should be generated to set memory to a constant value, instead of
 a block set insn or a library call. 
@@ -272,96 +291,76 @@ optimized for speed rather than size.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>SET_BY_PIECES_P</b> (<var>size, alignment</var>)<var><a name="index-SET_005fBY_005fPIECES_005fP-4424"></a></var><br>
-<blockquote><p>A C expression used to determine whether <code>store_by_pieces</code> will be
-used to set a chunk of memory to a constant value, or whether some
-other mechanism will be used.  Used by <code>__builtin_memset</code> when
-storing values other than constant zero. 
-Defaults to 1 if <code>move_by_pieces_ninsns</code> returns less
-than <code>SET_RATIO</code>. 
-</p></blockquote></div>
-
-<div class="defun">
-&mdash; Macro: <b>STORE_BY_PIECES_P</b> (<var>size, alignment</var>)<var><a name="index-STORE_005fBY_005fPIECES_005fP-4425"></a></var><br>
-<blockquote><p>A C expression used to determine whether <code>store_by_pieces</code> will be
-used to set a chunk of memory to a constant string value, or whether some
-other mechanism will be used.  Used by <code>__builtin_strcpy</code> when
-called with a constant source string. 
-Defaults to 1 if <code>move_by_pieces_ninsns</code> returns less
-than <code>MOVE_RATIO</code>. 
-</p></blockquote></div>
-
-<div class="defun">
-&mdash; Macro: <b>USE_LOAD_POST_INCREMENT</b> (<var>mode</var>)<var><a name="index-USE_005fLOAD_005fPOST_005fINCREMENT-4426"></a></var><br>
+&mdash; Macro: <b>USE_LOAD_POST_INCREMENT</b> (<var>mode</var>)<var><a name="index-USE_005fLOAD_005fPOST_005fINCREMENT-4457"></a></var><br>
 <blockquote><p>A C expression used to determine whether a load postincrement is a good
 thing to use for a given mode.  Defaults to the value of
 <code>HAVE_POST_INCREMENT</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>USE_LOAD_POST_DECREMENT</b> (<var>mode</var>)<var><a name="index-USE_005fLOAD_005fPOST_005fDECREMENT-4427"></a></var><br>
+&mdash; Macro: <b>USE_LOAD_POST_DECREMENT</b> (<var>mode</var>)<var><a name="index-USE_005fLOAD_005fPOST_005fDECREMENT-4458"></a></var><br>
 <blockquote><p>A C expression used to determine whether a load postdecrement is a good
 thing to use for a given mode.  Defaults to the value of
 <code>HAVE_POST_DECREMENT</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>USE_LOAD_PRE_INCREMENT</b> (<var>mode</var>)<var><a name="index-USE_005fLOAD_005fPRE_005fINCREMENT-4428"></a></var><br>
+&mdash; Macro: <b>USE_LOAD_PRE_INCREMENT</b> (<var>mode</var>)<var><a name="index-USE_005fLOAD_005fPRE_005fINCREMENT-4459"></a></var><br>
 <blockquote><p>A C expression used to determine whether a load preincrement is a good
 thing to use for a given mode.  Defaults to the value of
 <code>HAVE_PRE_INCREMENT</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>USE_LOAD_PRE_DECREMENT</b> (<var>mode</var>)<var><a name="index-USE_005fLOAD_005fPRE_005fDECREMENT-4429"></a></var><br>
+&mdash; Macro: <b>USE_LOAD_PRE_DECREMENT</b> (<var>mode</var>)<var><a name="index-USE_005fLOAD_005fPRE_005fDECREMENT-4460"></a></var><br>
 <blockquote><p>A C expression used to determine whether a load predecrement is a good
 thing to use for a given mode.  Defaults to the value of
 <code>HAVE_PRE_DECREMENT</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>USE_STORE_POST_INCREMENT</b> (<var>mode</var>)<var><a name="index-USE_005fSTORE_005fPOST_005fINCREMENT-4430"></a></var><br>
+&mdash; Macro: <b>USE_STORE_POST_INCREMENT</b> (<var>mode</var>)<var><a name="index-USE_005fSTORE_005fPOST_005fINCREMENT-4461"></a></var><br>
 <blockquote><p>A C expression used to determine whether a store postincrement is a good
 thing to use for a given mode.  Defaults to the value of
 <code>HAVE_POST_INCREMENT</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>USE_STORE_POST_DECREMENT</b> (<var>mode</var>)<var><a name="index-USE_005fSTORE_005fPOST_005fDECREMENT-4431"></a></var><br>
+&mdash; Macro: <b>USE_STORE_POST_DECREMENT</b> (<var>mode</var>)<var><a name="index-USE_005fSTORE_005fPOST_005fDECREMENT-4462"></a></var><br>
 <blockquote><p>A C expression used to determine whether a store postdecrement is a good
 thing to use for a given mode.  Defaults to the value of
 <code>HAVE_POST_DECREMENT</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>USE_STORE_PRE_INCREMENT</b> (<var>mode</var>)<var><a name="index-USE_005fSTORE_005fPRE_005fINCREMENT-4432"></a></var><br>
+&mdash; Macro: <b>USE_STORE_PRE_INCREMENT</b> (<var>mode</var>)<var><a name="index-USE_005fSTORE_005fPRE_005fINCREMENT-4463"></a></var><br>
 <blockquote><p>This macro is used to determine whether a store preincrement is a good
 thing to use for a given mode.  Defaults to the value of
 <code>HAVE_PRE_INCREMENT</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>USE_STORE_PRE_DECREMENT</b> (<var>mode</var>)<var><a name="index-USE_005fSTORE_005fPRE_005fDECREMENT-4433"></a></var><br>
+&mdash; Macro: <b>USE_STORE_PRE_DECREMENT</b> (<var>mode</var>)<var><a name="index-USE_005fSTORE_005fPRE_005fDECREMENT-4464"></a></var><br>
 <blockquote><p>This macro is used to determine whether a store predecrement is a good
 thing to use for a given mode.  Defaults to the value of
 <code>HAVE_PRE_DECREMENT</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>NO_FUNCTION_CSE</b><var><a name="index-NO_005fFUNCTION_005fCSE-4434"></a></var><br>
+&mdash; Macro: <b>NO_FUNCTION_CSE</b><var><a name="index-NO_005fFUNCTION_005fCSE-4465"></a></var><br>
 <blockquote><p>Define this macro if it is as good or better to call a constant
 function address than to call an address kept in a register. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>LOGICAL_OP_NON_SHORT_CIRCUIT</b><var><a name="index-LOGICAL_005fOP_005fNON_005fSHORT_005fCIRCUIT-4435"></a></var><br>
+&mdash; Macro: <b>LOGICAL_OP_NON_SHORT_CIRCUIT</b><var><a name="index-LOGICAL_005fOP_005fNON_005fSHORT_005fCIRCUIT-4466"></a></var><br>
 <blockquote><p>Define this macro if a non-short-circuit operation produced by
 `<samp><span class="samp">fold_range_test ()</span></samp>' is optimal.  This macro defaults to true if
 <code>BRANCH_COST</code> is greater than or equal to the value 2. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: bool <b>TARGET_RTX_COSTS</b> (<var>rtx x, int code, int outer_code, int opno, int *total, bool speed</var>)<var><a name="index-TARGET_005fRTX_005fCOSTS-4436"></a></var><br>
+&mdash; Target Hook: bool <b>TARGET_RTX_COSTS</b> (<var>rtx x, int code, int outer_code, int opno, int *total, bool speed</var>)<var><a name="index-TARGET_005fRTX_005fCOSTS-4467"></a></var><br>
 <blockquote><p>This target hook describes the relative costs of RTL expressions.
 
       <p>The cost may depend on the precise form of the expression, which is
@@ -394,7 +393,7 @@ processed, and false when <code>rtx_cost</code> should recurse.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: int <b>TARGET_ADDRESS_COST</b> (<var>rtx address, enum machine_mode mode, addr_space_t as, bool speed</var>)<var><a name="index-TARGET_005fADDRESS_005fCOST-4437"></a></var><br>
+&mdash; Target Hook: int <b>TARGET_ADDRESS_COST</b> (<var>rtx address, machine_mode mode, addr_space_t as, bool speed</var>)<var><a name="index-TARGET_005fADDRESS_005fCOST-4468"></a></var><br>
 <blockquote><p>This hook computes the cost of an addressing mode that contains
 <var>address</var>.  If not defined, the cost is computed from
 the <var>address</var> expression and the <code>TARGET_RTX_COST</code> hook.

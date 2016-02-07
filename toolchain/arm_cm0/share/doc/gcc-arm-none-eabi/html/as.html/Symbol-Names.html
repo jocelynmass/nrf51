@@ -12,7 +12,7 @@
 <!--
 This file documents the GNU Assembler "as".
 
-Copyright (C) 1991-2013 Free Software Foundation, Inc.
+Copyright (C) 1991-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
@@ -56,6 +56,9 @@ particular target machine), and underscores.
    <p>Case of letters is significant: <code>foo</code> is a different symbol name
 than <code>Foo</code>.
 
+   <p>Symbol names do not start with a digit.  An exception to this rule is made for
+Local Labels.  See below.
+
    <p>Multibyte characters are supported.  To generate a symbol name containing
 multibyte characters enclose it within double quotes and use escape codes. cf
 See <a href="Strings.html#Strings">Strings</a>.  Generating a multibyte symbol name from a label is not
@@ -75,19 +78,20 @@ On the HPPA local symbols begin with `<samp><span class="samp">L$</span></samp>'
 
    <p>Local symbols are defined and used within the assembler, but they are
 normally not saved in object files.  Thus, they are not visible when debugging. 
-You may use the `<samp><span class="samp">-L</span></samp>' option (see <a href="L.html#L">Include Local Symbols: <samp><span class="option">-L</span></samp></a>) to retain the local symbols in the object files.
+You may use the `<samp><span class="samp">-L</span></samp>' option (see <a href="L.html#L">Include Local Symbols</a>)
+to retain the local symbols in the object files.
 
 <h4 class="subheading">Local Labels</h4>
 
-<p><a name="index-local-labels-217"></a><a name="index-temporary-symbol-names-218"></a><a name="index-symbol-names_002c-temporary-219"></a>Local labels help compilers and programmers use names temporarily. 
-They create symbols which are guaranteed to be unique over the entire scope of
-the input source code and which can be referred to by a simple notation. 
-To define a local label, write a label of the form `<samp><b>N</b><span class="samp">:</span></samp>' (where <b>N</b>
-represents any positive integer).  To refer to the most recent previous
-definition of that label write `<samp><b>N</b><span class="samp">b</span></samp>', using the same number as when
-you defined the label.  To refer to the next definition of a local label, write
-`<samp><b>N</b><span class="samp">f</span></samp>'&mdash;the `<samp><span class="samp">b</span></samp>' stands for &ldquo;backwards&rdquo; and the `<samp><span class="samp">f</span></samp>' stands
-for &ldquo;forwards&rdquo;.
+<p><a name="index-local-labels-217"></a><a name="index-temporary-symbol-names-218"></a><a name="index-symbol-names_002c-temporary-219"></a>Local labels are different from local symbols.  Local labels help compilers and
+programmers use names temporarily.  They create symbols which are guaranteed to
+be unique over the entire scope of the input source code and which can be
+referred to by a simple notation.  To define a local label, write a label of
+the form `<samp><b>N</b><span class="samp">:</span></samp>' (where <b>N</b> represents any non-negative integer). 
+To refer to the most recent previous definition of that label write
+`<samp><b>N</b><span class="samp">b</span></samp>', using the same number as when you defined the label.  To refer
+to the next definition of a local label, write `<samp><b>N</b><span class="samp">f</span></samp>'.  The `<samp><span class="samp">b</span></samp>'
+stands for &ldquo;backwards&rdquo; and the `<samp><span class="samp">f</span></samp>' stands for &ldquo;forwards&rdquo;.
 
    <p>There is no restriction on how you can use these labels, and you can reuse them
 too.  So that it is possible to repeatedly define the same local label (using
@@ -144,12 +148,12 @@ the 44th <code>3:</code> may be named <code>.L3</code><kbd>C-B</kbd><code>44</co
 <h4 class="subheading">Dollar Local Labels</h4>
 
 <p><a name="index-dollar-local-symbols-220"></a>
-<code>as</code> also supports an even more local form of local labels called
-dollar labels.  These labels go out of scope (i.e., they become undefined) as
-soon as a non-local label is defined.  Thus they remain valid for only a small
-region of the input source code.  Normal local labels, by contrast, remain in
-scope for the entire file, or until they are redefined by another occurrence of
-the same local label.
+On some targets <code>as</code> also supports an even more local form of
+local labels called dollar labels.  These labels go out of scope (i.e., they
+become undefined) as soon as a non-local label is defined.  Thus they remain
+valid for only a small region of the input source code.  Normal local labels,
+by contrast, remain in scope for the entire file, or until they are redefined
+by another occurrence of the same local label.
 
    <p>Dollar labels are defined in exactly the same way as ordinary local labels,
 except that they have a dollar sign suffix to their numeric value, e.g.,

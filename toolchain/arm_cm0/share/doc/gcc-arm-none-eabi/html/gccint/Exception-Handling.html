@@ -10,7 +10,7 @@
 <link rel="next" href="Stack-Checking.html#Stack-Checking" title="Stack Checking">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -52,12 +52,12 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Stack-and-Calling.html#Stack-and-Callin
 <hr>
 </div>
 
-<h4 class="subsection">17.10.2 Exception Handling Support</h4>
+<h4 class="subsection">17.9.2 Exception Handling Support</h4>
 
-<p><a name="index-exception-handling-4149"></a>
+<p><a name="index-exception-handling-4169"></a>
 
 <div class="defun">
-&mdash; Macro: <b>EH_RETURN_DATA_REGNO</b> (<var>N</var>)<var><a name="index-EH_005fRETURN_005fDATA_005fREGNO-4150"></a></var><br>
+&mdash; Macro: <b>EH_RETURN_DATA_REGNO</b> (<var>N</var>)<var><a name="index-EH_005fRETURN_005fDATA_005fREGNO-4170"></a></var><br>
 <blockquote><p>A C expression whose value is the <var>N</var>th register number used for
 data by exception handlers, or <code>INVALID_REGNUM</code> if fewer than
 <var>N</var> registers are usable.
@@ -73,7 +73,7 @@ handling like that provided by DWARF 2.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>EH_RETURN_STACKADJ_RTX</b><var><a name="index-EH_005fRETURN_005fSTACKADJ_005fRTX-4151"></a></var><br>
+&mdash; Macro: <b>EH_RETURN_STACKADJ_RTX</b><var><a name="index-EH_005fRETURN_005fSTACKADJ_005fRTX-4171"></a></var><br>
 <blockquote><p>A C expression whose value is RTL representing a location in which
 to store a stack adjustment to be applied before function return. 
 This is used to unwind the stack to an exception handler's call frame. 
@@ -91,7 +91,7 @@ that provided by DWARF 2.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>EH_RETURN_HANDLER_RTX</b><var><a name="index-EH_005fRETURN_005fHANDLER_005fRTX-4152"></a></var><br>
+&mdash; Macro: <b>EH_RETURN_HANDLER_RTX</b><var><a name="index-EH_005fRETURN_005fHANDLER_005fRTX-4172"></a></var><br>
 <blockquote><p>A C expression whose value is RTL representing a location in which
 to store the address of an exception handler to which we should
 return.  It will not be assigned on code paths that return normally.
@@ -113,7 +113,7 @@ define either this macro or the <code>eh_return</code> instruction pattern.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>RETURN_ADDR_OFFSET</b><var><a name="index-RETURN_005fADDR_005fOFFSET-4153"></a></var><br>
+&mdash; Macro: <b>RETURN_ADDR_OFFSET</b><var><a name="index-RETURN_005fADDR_005fOFFSET-4173"></a></var><br>
 <blockquote><p>If defined, an integer-valued C expression for which rtl will be generated
 to add it to the exception handler address before it is searched in the
 exception handling tables, and to subtract it again from the address before
@@ -121,7 +121,7 @@ using it to return to the exception handler.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>ASM_PREFERRED_EH_DATA_FORMAT</b> (<var>code, global</var>)<var><a name="index-ASM_005fPREFERRED_005fEH_005fDATA_005fFORMAT-4154"></a></var><br>
+&mdash; Macro: <b>ASM_PREFERRED_EH_DATA_FORMAT</b> (<var>code, global</var>)<var><a name="index-ASM_005fPREFERRED_005fEH_005fDATA_005fFORMAT-4174"></a></var><br>
 <blockquote><p>This macro chooses the encoding of pointers embedded in the exception
 handling sections.  If at all possible, this should be defined such
 that the exception handling section will not require dynamic relocations,
@@ -137,7 +137,7 @@ represented directly.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>ASM_MAYBE_OUTPUT_ENCODED_ADDR_RTX</b> (<var>file, encoding, size, addr, done</var>)<var><a name="index-ASM_005fMAYBE_005fOUTPUT_005fENCODED_005fADDR_005fRTX-4155"></a></var><br>
+&mdash; Macro: <b>ASM_MAYBE_OUTPUT_ENCODED_ADDR_RTX</b> (<var>file, encoding, size, addr, done</var>)<var><a name="index-ASM_005fMAYBE_005fOUTPUT_005fENCODED_005fADDR_005fRTX-4175"></a></var><br>
 <blockquote><p>This macro allows the target to emit whatever special magic is required
 to represent the encoding chosen by <code>ASM_PREFERRED_EH_DATA_FORMAT</code>. 
 Generic code takes care of pc-relative and indirect encodings; this must
@@ -150,7 +150,7 @@ to be emitted.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>MD_FALLBACK_FRAME_STATE_FOR</b> (<var>context, fs</var>)<var><a name="index-MD_005fFALLBACK_005fFRAME_005fSTATE_005fFOR-4156"></a></var><br>
+&mdash; Macro: <b>MD_FALLBACK_FRAME_STATE_FOR</b> (<var>context, fs</var>)<var><a name="index-MD_005fFALLBACK_005fFRAME_005fSTATE_005fFOR-4176"></a></var><br>
 <blockquote><p>This macro allows the target to add CPU and operating system specific
 code to the call-frame unwinder for use when there is no unwind data
 available.  The most common reason to implement this macro is to unwind
@@ -171,7 +171,7 @@ the macro should evaluate to <code>_URC_END_OF_STACK</code>.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>MD_HANDLE_UNWABI</b> (<var>context, fs</var>)<var><a name="index-MD_005fHANDLE_005fUNWABI-4157"></a></var><br>
+&mdash; Macro: <b>MD_HANDLE_UNWABI</b> (<var>context, fs</var>)<var><a name="index-MD_005fHANDLE_005fUNWABI-4177"></a></var><br>
 <blockquote><p>This macro allows the target to add operating system specific code to the
 call-frame unwinder to handle the IA-64 <code>.unwabi</code> unwinding directive,
 usually used for signal or interrupt frames.
@@ -185,7 +185,7 @@ be updated in <var>fs</var>.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>TARGET_USES_WEAK_UNWIND_INFO</b><var><a name="index-TARGET_005fUSES_005fWEAK_005fUNWIND_005fINFO-4158"></a></var><br>
+&mdash; Macro: <b>TARGET_USES_WEAK_UNWIND_INFO</b><var><a name="index-TARGET_005fUSES_005fWEAK_005fUNWIND_005fINFO-4178"></a></var><br>
 <blockquote><p>A C expression that evaluates to true if the target requires unwind
 info to be given comdat linkage.  Define it to be <code>1</code> if comdat
 linkage is necessary.  The default is <code>0</code>. 

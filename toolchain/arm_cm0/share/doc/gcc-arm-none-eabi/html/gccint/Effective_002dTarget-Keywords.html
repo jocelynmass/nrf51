@@ -10,7 +10,7 @@
 <link rel="next" href="Add-Options.html#Add-Options" title="Add Options">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -252,6 +252,8 @@ Some multilibs may be incompatible with this option.
 
      <br><dt><code>arm_neon</code><dd>ARM target supports generating NEON instructions.
 
+     <br><dt><code>arm_tune_string_ops_prefer_neon</code><dd>Test CPU tune supports inlining string operations with NEON instructions.
+
      <br><dt><code>arm_neon_hw</code><dd>Test system supports executing NEON instructions.
 
      <br><dt><code>arm_neonv2_hw</code><dd>Test system supports executing NEON v2 instructions.
@@ -287,6 +289,9 @@ Some multilibs may be incompatible with these options.
 
      <br><dt><code>arm_prefer_ldrd_strd</code><dd>ARM target prefers <code>LDRD</code> and <code>STRD</code> instructions over
 <code>LDM</code> and <code>STM</code> instructions.
+
+     <br><dt><code>arm_thumb1_movt_ko</code><dd>ARM target generates Thumb-1 code for <code>-mthumb</code> with no
+<code>MOVT</code> instruction available.
 
 </dl>
 
@@ -369,6 +374,8 @@ PowerPC target supports PowerPC 405.
 
      <br><dt><code>hard_float</code><dd>Target supports FPU instructions.
 
+     <br><dt><code>non_strict_align</code><dd>Target does not require strict alignment.
+
      <br><dt><code>sse</code><dd>Target supports compiling <code>sse</code> instructions.
 
      <br><dt><code>sse_runtime</code><dd>Target supports the execution of <code>sse</code> instructions.
@@ -385,7 +392,9 @@ PowerPC target supports PowerPC 405.
 accepts only <code>EM_SPARC</code> executables and chokes on <code>EM_SPARC32PLUS</code>
 or <code>EM_SPARCV9</code> executables.
 
-     <br><dt><code>vect_cmdline_needed</code><dd>Target requires a command line argument to enable a SIMD instruction set. 
+     <br><dt><code>vect_cmdline_needed</code><dd>Target requires a command line argument to enable a SIMD instruction set.
+
+     <br><dt><code>pie_copyreloc</code><dd>The x86-64 target linker supports PIE with copy reloc. 
 </dl>
 
 <h5 class="subsubsection">7.2.3.10 Environment attributes</h5>
@@ -420,6 +429,8 @@ in the header, as some systems have only <code>inttypes.h</code>.
 conversion functions and overflow is not always detected correctly by
 those functions.
 
+     <br><dt><code>mempcpy</code><dd>Target provides <code>mempcpy</code> function.
+
      <br><dt><code>mmap</code><dd>Target supports <code>mmap</code>.
 
      <br><dt><code>newlib</code><dd>Target supports Newlib.
@@ -440,6 +451,8 @@ hardware (i.e. fast).
      <br><dt><code>stdint_types</code><dd>Target has the basic signed and unsigned C types in <code>stdint.h</code>. 
 This will be obsolete when GCC ensures a working <code>stdint.h</code> for
 all targets.
+
+     <br><dt><code>stpcpy</code><dd>Target provides <code>stpcpy</code> function.
 
      <br><dt><code>trampolines</code><dd>Target supports trampolines.
 
@@ -466,6 +479,8 @@ all targets.
      <br><dt><code>fgraphite</code><dd>Target supports Graphite optimizations.
 
      <br><dt><code>fixed_point</code><dd>Target supports fixed-point extension to C.
+
+     <br><dt><code>fopenacc</code><dd>Target supports OpenACC via <samp><span class="option">-fopenacc</span></samp>.
 
      <br><dt><code>fopenmp</code><dd>Target supports OpenMP via <samp><span class="option">-fopenmp</span></samp>.
 
@@ -498,6 +513,8 @@ all targets.
 
      <br><dt><code>nonpic</code><dd>Target does not generate PIC by default.
 
+     <br><dt><code>pie_enabled</code><dd>Target generates PIE by default.
+
      <br><dt><code>pcc_bitfield_type_matters</code><dd>Target defines <code>PCC_BITFIELD_TYPE_MATTERS</code>.
 
      <br><dt><code>pe_aligned_commons</code><dd>Target supports <samp><span class="option">-mpe-aligned-commons</span></samp>.
@@ -528,7 +545,9 @@ or equal to the required vector alignment.
 
      <br><dt><code>wchar_t_char16_t_compatible</code><dd>Target supports <code>wchar_t</code> that is compatible with <code>char16_t</code>.
 
-     <br><dt><code>wchar_t_char32_t_compatible</code><dd>Target supports <code>wchar_t</code> that is compatible with <code>char32_t</code>. 
+     <br><dt><code>wchar_t_char32_t_compatible</code><dd>Target supports <code>wchar_t</code> that is compatible with <code>char32_t</code>.
+
+     <br><dt><code>comdat_group</code><dd>Target uses comdat groups. 
 </dl>
 
 <h5 class="subsubsection">7.2.3.12 Local to tests in <code>gcc.target/i386</code></h5>

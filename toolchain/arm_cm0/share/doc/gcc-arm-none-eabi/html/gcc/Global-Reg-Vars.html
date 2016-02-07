@@ -9,7 +9,7 @@
 <link rel="next" href="Local-Reg-Vars.html#Local-Reg-Vars" title="Local Reg Vars">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -50,9 +50,9 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Explicit-Reg-Vars.html#Explicit-Reg-Var
 <hr>
 </div>
 
-<h4 class="subsection">6.44.1 Defining Global Register Variables</h4>
+<h5 class="subsubsection">6.43.5.1 Defining Global Register Variables</h5>
 
-<p><a name="index-global-register-variables-3163"></a><a name="index-registers_002c-global-variables-in-3164"></a>
+<p><a name="index-global-register-variables-3490"></a><a name="index-registers_002c-global-variables-in-3491"></a>
 You can define a global register variable in GNU C like this:
 
 <pre class="smallexample">     register int *foo asm ("a5");
@@ -61,8 +61,8 @@ You can define a global register variable in GNU C like this:
 register that is normally saved and restored by function calls on your
 machine, so that library routines will not clobber it.
 
- <p>Naturally the register name is cpu-dependent, so you need to
-conditionalize your program according to cpu type.  The register
+ <p>Naturally the register name is CPU-dependent, so you need to
+conditionalize your program according to CPU type.  The register
 <code>a5</code> is a good choice on a 68000 for a variable of pointer
 type.  On machines with register windows, be sure to choose a &ldquo;global&rdquo;
 register that is not affected magically by the function call mechanism.
@@ -88,7 +88,7 @@ handlers, or from more than one thread of control, because the system
 library routines may temporarily use the register for other things (unless
 you recompile them specially for the task at hand).
 
- <p><a name="index-g_t_0040code_007bqsort_007d_002c-and-global-register-variables-3165"></a>It is not safe for one function that uses a global register variable to
+ <p><a name="index-g_t_0040code_007bqsort_007d_002c-and-global-register-variables-3492"></a>It is not safe for one function that uses a global register variable to
 call another such function <code>foo</code> by way of a third function
 <code>lose</code> that is compiled without knowledge of this variable (i.e. in a
 different source file in which the variable isn't declared).  This is
@@ -112,7 +112,7 @@ Therefore, the function that is the entry point into the part of the
 program that uses the global register variable must explicitly save and
 restore the value that belongs to its caller.
 
- <p><a name="index-register-variable-after-_0040code_007blongjmp_007d-3166"></a><a name="index-global-register-after-_0040code_007blongjmp_007d-3167"></a><a name="index-value-after-_0040code_007blongjmp_007d-3168"></a><a name="index-longjmp-3169"></a><a name="index-setjmp-3170"></a>On most machines, <code>longjmp</code> restores to each global register
+ <p><a name="index-register-variable-after-_0040code_007blongjmp_007d-3493"></a><a name="index-global-register-after-_0040code_007blongjmp_007d-3494"></a><a name="index-value-after-_0040code_007blongjmp_007d-3495"></a><a name="index-longjmp-3496"></a><a name="index-setjmp-3497"></a>On most machines, <code>longjmp</code> restores to each global register
 variable the value it had at the time of the <code>setjmp</code>.  On some
 machines, however, <code>longjmp</code> does not change the value of global
 register variables.  To be portable, the function that called <code>setjmp</code>

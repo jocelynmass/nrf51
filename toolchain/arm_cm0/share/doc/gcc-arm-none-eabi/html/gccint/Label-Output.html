@@ -10,7 +10,7 @@
 <link rel="next" href="Initialization.html#Initialization" title="Initialization">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 1988-2014 Free Software Foundation, Inc.
+Copyright (C) 1988-2015 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -52,15 +52,15 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Assembler-Format.html#Assembler-Format"
 <hr>
 </div>
 
-<h4 class="subsection">17.21.4 Output and Generation of Labels</h4>
+<h4 class="subsection">17.20.4 Output and Generation of Labels</h4>
 
 <!-- prevent bad page break with this line -->
 <p>This is about outputting labels.
 
- <p><a name="index-assemble_005fname-4583"></a>
+ <p><a name="index-assemble_005fname-4615"></a>
 
 <div class="defun">
-&mdash; Macro: <b>ASM_OUTPUT_LABEL</b> (<var>stream, name</var>)<var><a name="index-ASM_005fOUTPUT_005fLABEL-4584"></a></var><br>
+&mdash; Macro: <b>ASM_OUTPUT_LABEL</b> (<var>stream, name</var>)<var><a name="index-ASM_005fOUTPUT_005fLABEL-4616"></a></var><br>
 <blockquote><p>A C statement (sans semicolon) to output to the stdio stream
 <var>stream</var> the assembler definition of a label named <var>name</var>. 
 Use the expression <code>assemble_name (</code><var>stream</var><code>, </code><var>name</var><code>)</code> to
@@ -70,7 +70,7 @@ definition of this macro is provided which is correct for most systems.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>ASM_OUTPUT_FUNCTION_LABEL</b> (<var>stream, name, decl</var>)<var><a name="index-ASM_005fOUTPUT_005fFUNCTION_005fLABEL-4585"></a></var><br>
+&mdash; Macro: <b>ASM_OUTPUT_FUNCTION_LABEL</b> (<var>stream, name, decl</var>)<var><a name="index-ASM_005fOUTPUT_005fFUNCTION_005fLABEL-4617"></a></var><br>
 <blockquote><p>A C statement (sans semicolon) to output to the stdio stream
 <var>stream</var> the assembler definition of a label named <var>name</var> of
 a function. 
@@ -83,10 +83,10 @@ definition of this macro is provided which is correct for most systems.
 usual manner as a label (by means of <code>ASM_OUTPUT_LABEL</code>). 
 </p></blockquote></div>
 
- <p><a name="index-assemble_005fname_005fraw-4586"></a>
+ <p><a name="index-assemble_005fname_005fraw-4618"></a>
 
 <div class="defun">
-&mdash; Macro: <b>ASM_OUTPUT_INTERNAL_LABEL</b> (<var>stream, name</var>)<var><a name="index-ASM_005fOUTPUT_005fINTERNAL_005fLABEL-4587"></a></var><br>
+&mdash; Macro: <b>ASM_OUTPUT_INTERNAL_LABEL</b> (<var>stream, name</var>)<var><a name="index-ASM_005fOUTPUT_005fINTERNAL_005fLABEL-4619"></a></var><br>
 <blockquote><p>Identical to <code>ASM_OUTPUT_LABEL</code>, except that <var>name</var> is known
 to refer to a compiler-generated label.  The default definition uses
 <code>assemble_name_raw</code>, which is like <code>assemble_name</code> except
@@ -94,7 +94,7 @@ that it is more efficient.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>SIZE_ASM_OP</b><var><a name="index-SIZE_005fASM_005fOP-4588"></a></var><br>
+&mdash; Macro: <b>SIZE_ASM_OP</b><var><a name="index-SIZE_005fASM_005fOP-4620"></a></var><br>
 <blockquote><p>A C string containing the appropriate assembler directive to specify the
 size of a symbol, without any arguments.  On systems that use ELF, the
 default (in <samp><span class="file">config/elfos.h</span></samp>) is `<samp><span class="samp">"\t.size\t"</span></samp>'; on other
@@ -108,7 +108,7 @@ define this macro.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>ASM_OUTPUT_SIZE_DIRECTIVE</b> (<var>stream, name, size</var>)<var><a name="index-ASM_005fOUTPUT_005fSIZE_005fDIRECTIVE-4589"></a></var><br>
+&mdash; Macro: <b>ASM_OUTPUT_SIZE_DIRECTIVE</b> (<var>stream, name, size</var>)<var><a name="index-ASM_005fOUTPUT_005fSIZE_005fDIRECTIVE-4621"></a></var><br>
 <blockquote><p>A C statement (sans semicolon) to output to the stdio stream
 <var>stream</var> a directive telling the assembler that the size of the
 symbol <var>name</var> is <var>size</var>.  <var>size</var> is a <code>HOST_WIDE_INT</code>. 
@@ -117,7 +117,7 @@ provided.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>ASM_OUTPUT_MEASURED_SIZE</b> (<var>stream, name</var>)<var><a name="index-ASM_005fOUTPUT_005fMEASURED_005fSIZE-4590"></a></var><br>
+&mdash; Macro: <b>ASM_OUTPUT_MEASURED_SIZE</b> (<var>stream, name</var>)<var><a name="index-ASM_005fOUTPUT_005fMEASURED_005fSIZE-4622"></a></var><br>
 <blockquote><p>A C statement (sans semicolon) to output to the stdio stream
 <var>stream</var> a directive telling the assembler to calculate the size of
 the symbol <var>name</var> by subtracting its address from the current
@@ -132,7 +132,7 @@ to redefine <code>ASM_OUTPUT_MEASURED_SIZE</code> to use some other technique.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>NO_DOLLAR_IN_LABEL</b><var><a name="index-NO_005fDOLLAR_005fIN_005fLABEL-4591"></a></var><br>
+&mdash; Macro: <b>NO_DOLLAR_IN_LABEL</b><var><a name="index-NO_005fDOLLAR_005fIN_005fLABEL-4623"></a></var><br>
 <blockquote><p>Define this macro if the assembler does not accept the character
 `<samp><span class="samp">$</span></samp>' in label names.  By default constructors and destructors in
 G++ have `<samp><span class="samp">$</span></samp>' in the identifiers.  If this macro is defined,
@@ -140,7 +140,7 @@ G++ have `<samp><span class="samp">$</span></samp>' in the identifiers.  If this
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>NO_DOT_IN_LABEL</b><var><a name="index-NO_005fDOT_005fIN_005fLABEL-4592"></a></var><br>
+&mdash; Macro: <b>NO_DOT_IN_LABEL</b><var><a name="index-NO_005fDOT_005fIN_005fLABEL-4624"></a></var><br>
 <blockquote><p>Define this macro if the assembler does not accept the character
 `<samp><span class="samp">.</span></samp>' in label names.  By default constructors and destructors in G++
 have names that use `<samp><span class="samp">.</span></samp>'.  If this macro is defined, these names
@@ -148,7 +148,7 @@ are rewritten to avoid `<samp><span class="samp">.</span></samp>'.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>TYPE_ASM_OP</b><var><a name="index-TYPE_005fASM_005fOP-4593"></a></var><br>
+&mdash; Macro: <b>TYPE_ASM_OP</b><var><a name="index-TYPE_005fASM_005fOP-4625"></a></var><br>
 <blockquote><p>A C string containing the appropriate assembler directive to specify the
 type of a symbol, without any arguments.  On systems that use ELF, the
 default (in <samp><span class="file">config/elfos.h</span></samp>) is `<samp><span class="samp">"\t.type\t"</span></samp>'; on other
@@ -161,7 +161,7 @@ types at all, do not define this macro.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>TYPE_OPERAND_FMT</b><var><a name="index-TYPE_005fOPERAND_005fFMT-4594"></a></var><br>
+&mdash; Macro: <b>TYPE_OPERAND_FMT</b><var><a name="index-TYPE_005fOPERAND_005fFMT-4626"></a></var><br>
 <blockquote><p>A C string which specifies (using <code>printf</code> syntax) the format of
 the second operand to <code>TYPE_ASM_OP</code>.  On systems that use ELF, the
 default (in <samp><span class="file">config/elfos.h</span></samp>) is `<samp><span class="samp">"@%s"</span></samp>'; on other systems,
@@ -174,7 +174,7 @@ types at all, do not define this macro.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>ASM_OUTPUT_TYPE_DIRECTIVE</b> (<var>stream, type</var>)<var><a name="index-ASM_005fOUTPUT_005fTYPE_005fDIRECTIVE-4595"></a></var><br>
+&mdash; Macro: <b>ASM_OUTPUT_TYPE_DIRECTIVE</b> (<var>stream, type</var>)<var><a name="index-ASM_005fOUTPUT_005fTYPE_005fDIRECTIVE-4627"></a></var><br>
 <blockquote><p>A C statement (sans semicolon) to output to the stdio stream
 <var>stream</var> a directive telling the assembler that the type of the
 symbol <var>name</var> is <var>type</var>.  <var>type</var> is a C string; currently,
@@ -186,7 +186,7 @@ definition of this macro is provided.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>ASM_DECLARE_FUNCTION_NAME</b> (<var>stream, name, decl</var>)<var><a name="index-ASM_005fDECLARE_005fFUNCTION_005fNAME-4596"></a></var><br>
+&mdash; Macro: <b>ASM_DECLARE_FUNCTION_NAME</b> (<var>stream, name, decl</var>)<var><a name="index-ASM_005fDECLARE_005fFUNCTION_005fNAME-4628"></a></var><br>
 <blockquote><p>A C statement (sans semicolon) to output to the stdio stream
 <var>stream</var> any text necessary for declaring the name <var>name</var> of a
 function which is being defined.  This macro is responsible for
@@ -202,7 +202,7 @@ of this macro.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>ASM_DECLARE_FUNCTION_SIZE</b> (<var>stream, name, decl</var>)<var><a name="index-ASM_005fDECLARE_005fFUNCTION_005fSIZE-4597"></a></var><br>
+&mdash; Macro: <b>ASM_DECLARE_FUNCTION_SIZE</b> (<var>stream, name, decl</var>)<var><a name="index-ASM_005fDECLARE_005fFUNCTION_005fSIZE-4629"></a></var><br>
 <blockquote><p>A C statement (sans semicolon) to output to the stdio stream
 <var>stream</var> any text necessary for declaring the size of a function
 which is being defined.  The argument <var>name</var> is the name of the
@@ -216,7 +216,7 @@ of this macro.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>ASM_DECLARE_OBJECT_NAME</b> (<var>stream, name, decl</var>)<var><a name="index-ASM_005fDECLARE_005fOBJECT_005fNAME-4598"></a></var><br>
+&mdash; Macro: <b>ASM_DECLARE_OBJECT_NAME</b> (<var>stream, name, decl</var>)<var><a name="index-ASM_005fDECLARE_005fOBJECT_005fNAME-4630"></a></var><br>
 <blockquote><p>A C statement (sans semicolon) to output to the stdio stream
 <var>stream</var> any text necessary for declaring the name <var>name</var> of an
 initialized variable which is being defined.  This macro must output the
@@ -231,7 +231,7 @@ usual manner as a label (by means of <code>ASM_OUTPUT_LABEL</code>).
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: void <b>TARGET_ASM_DECLARE_CONSTANT_NAME</b> (<var>FILE *file, const char *name, const_tree expr, HOST_WIDE_INT size</var>)<var><a name="index-TARGET_005fASM_005fDECLARE_005fCONSTANT_005fNAME-4599"></a></var><br>
+&mdash; Target Hook: void <b>TARGET_ASM_DECLARE_CONSTANT_NAME</b> (<var>FILE *file, const char *name, const_tree expr, HOST_WIDE_INT size</var>)<var><a name="index-TARGET_005fASM_005fDECLARE_005fCONSTANT_005fNAME-4631"></a></var><br>
 <blockquote><p>A target hook to output to the stdio stream <var>file</var> any text necessary
 for declaring the name <var>name</var> of a constant which is being defined.  This
 target hook is responsible for outputting the label definition (perhaps using
@@ -246,7 +246,7 @@ usual manner as a label (by means of <code>assemble_label</code>).
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>ASM_DECLARE_REGISTER_GLOBAL</b> (<var>stream, decl, regno, name</var>)<var><a name="index-ASM_005fDECLARE_005fREGISTER_005fGLOBAL-4600"></a></var><br>
+&mdash; Macro: <b>ASM_DECLARE_REGISTER_GLOBAL</b> (<var>stream, decl, regno, name</var>)<var><a name="index-ASM_005fDECLARE_005fREGISTER_005fGLOBAL-4632"></a></var><br>
 <blockquote><p>A C statement (sans semicolon) to output to the stdio stream
 <var>stream</var> any text necessary for claiming a register <var>regno</var>
 for a global variable <var>decl</var> with name <var>name</var>.
@@ -256,7 +256,7 @@ nothing.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>ASM_FINISH_DECLARE_OBJECT</b> (<var>stream, decl, toplevel, atend</var>)<var><a name="index-ASM_005fFINISH_005fDECLARE_005fOBJECT-4601"></a></var><br>
+&mdash; Macro: <b>ASM_FINISH_DECLARE_OBJECT</b> (<var>stream, decl, toplevel, atend</var>)<var><a name="index-ASM_005fFINISH_005fDECLARE_005fOBJECT-4633"></a></var><br>
 <blockquote><p>A C statement (sans semicolon) to finish up declaring a variable name
 once the compiler has processed its initializer fully and thus has had a
 chance to determine the size of an array when controlled by an
@@ -271,7 +271,7 @@ nothing.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: void <b>TARGET_ASM_GLOBALIZE_LABEL</b> (<var>FILE *stream, const char *name</var>)<var><a name="index-TARGET_005fASM_005fGLOBALIZE_005fLABEL-4602"></a></var><br>
+&mdash; Target Hook: void <b>TARGET_ASM_GLOBALIZE_LABEL</b> (<var>FILE *stream, const char *name</var>)<var><a name="index-TARGET_005fASM_005fGLOBALIZE_005fLABEL-4634"></a></var><br>
 <blockquote><p>This target hook is a function to output to the stdio stream
 <var>stream</var> some commands that will make the label <var>name</var> global;
 that is, available for reference from other files.
@@ -281,7 +281,7 @@ that is, available for reference from other files.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: void <b>TARGET_ASM_GLOBALIZE_DECL_NAME</b> (<var>FILE *stream, tree decl</var>)<var><a name="index-TARGET_005fASM_005fGLOBALIZE_005fDECL_005fNAME-4603"></a></var><br>
+&mdash; Target Hook: void <b>TARGET_ASM_GLOBALIZE_DECL_NAME</b> (<var>FILE *stream, tree decl</var>)<var><a name="index-TARGET_005fASM_005fGLOBALIZE_005fDECL_005fNAME-4635"></a></var><br>
 <blockquote><p>This target hook is a function to output to the stdio stream
 <var>stream</var> some commands that will make the name associated with <var>decl</var>
 global; that is, available for reference from other files.
@@ -290,7 +290,15 @@ global; that is, available for reference from other files.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>ASM_WEAKEN_LABEL</b> (<var>stream, name</var>)<var><a name="index-ASM_005fWEAKEN_005fLABEL-4604"></a></var><br>
+&mdash; Target Hook: void <b>TARGET_ASM_ASSEMBLE_UNDEFINED_DECL</b> (<var>FILE *stream, const char *name, const_tree decl</var>)<var><a name="index-TARGET_005fASM_005fASSEMBLE_005fUNDEFINED_005fDECL-4636"></a></var><br>
+<blockquote><p>This target hook is a function to output to the stdio stream
+<var>stream</var> some commands that will declare the name associated with
+<var>decl</var> which is not defined in the current translation unit.  Most
+assemblers do not require anything to be output in this case. 
+</p></blockquote></div>
+
+<div class="defun">
+&mdash; Macro: <b>ASM_WEAKEN_LABEL</b> (<var>stream, name</var>)<var><a name="index-ASM_005fWEAKEN_005fLABEL-4637"></a></var><br>
 <blockquote><p>A C statement (sans semicolon) to output to the stdio stream
 <var>stream</var> some commands that will make the label <var>name</var> weak;
 that is, available for reference from other files but only used if
@@ -305,7 +313,7 @@ macro.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>ASM_WEAKEN_DECL</b> (<var>stream, decl, name, value</var>)<var><a name="index-ASM_005fWEAKEN_005fDECL-4605"></a></var><br>
+&mdash; Macro: <b>ASM_WEAKEN_DECL</b> (<var>stream, decl, name, value</var>)<var><a name="index-ASM_005fWEAKEN_005fDECL-4638"></a></var><br>
 <blockquote><p>Combines (and replaces) the function of <code>ASM_WEAKEN_LABEL</code> and
 <code>ASM_OUTPUT_WEAK_ALIAS</code>, allowing access to the associated function
 or variable decl.  If <var>value</var> is not <code>NULL</code>, this C statement
@@ -316,14 +324,14 @@ to make <var>name</var> weak.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>ASM_OUTPUT_WEAKREF</b> (<var>stream, decl, name, value</var>)<var><a name="index-ASM_005fOUTPUT_005fWEAKREF-4606"></a></var><br>
+&mdash; Macro: <b>ASM_OUTPUT_WEAKREF</b> (<var>stream, decl, name, value</var>)<var><a name="index-ASM_005fOUTPUT_005fWEAKREF-4639"></a></var><br>
 <blockquote><p>Outputs a directive that enables <var>name</var> to be used to refer to
 symbol <var>value</var> with weak-symbol semantics.  <code>decl</code> is the
 declaration of <code>name</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>SUPPORTS_WEAK</b><var><a name="index-SUPPORTS_005fWEAK-4607"></a></var><br>
+&mdash; Macro: <b>SUPPORTS_WEAK</b><var><a name="index-SUPPORTS_005fWEAK-4640"></a></var><br>
 <blockquote><p>A preprocessor constant expression which evaluates to true if the target
 supports weak symbols.
 
@@ -333,7 +341,7 @@ is defined, the default definition is `<samp><span class="samp">1</span></samp>'
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>TARGET_SUPPORTS_WEAK</b><var><a name="index-TARGET_005fSUPPORTS_005fWEAK-4608"></a></var><br>
+&mdash; Macro: <b>TARGET_SUPPORTS_WEAK</b><var><a name="index-TARGET_005fSUPPORTS_005fWEAK-4641"></a></var><br>
 <blockquote><p>A C expression which evaluates to true if the target supports weak symbols.
 
       <p>If you don't define this macro, <samp><span class="file">defaults.h</span></samp> provides a default
@@ -343,7 +351,7 @@ flag such as <samp><span class="option">-melf</span></samp>.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>MAKE_DECL_ONE_ONLY</b> (<var>decl</var>)<var><a name="index-MAKE_005fDECL_005fONE_005fONLY-4609"></a></var><br>
+&mdash; Macro: <b>MAKE_DECL_ONE_ONLY</b> (<var>decl</var>)<var><a name="index-MAKE_005fDECL_005fONE_005fONLY-4642"></a></var><br>
 <blockquote><p>A C statement (sans semicolon) to mark <var>decl</var> to be emitted as a
 public symbol such that extra copies in multiple translation units will
 be discarded by the linker.  Define this macro if your object file
@@ -353,7 +361,7 @@ requires changes to <var>decl</var>, such as putting it in a separate section.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>SUPPORTS_ONE_ONLY</b><var><a name="index-SUPPORTS_005fONE_005fONLY-4610"></a></var><br>
+&mdash; Macro: <b>SUPPORTS_ONE_ONLY</b><var><a name="index-SUPPORTS_005fONE_005fONLY-4643"></a></var><br>
 <blockquote><p>A C expression which evaluates to true if the target supports one-only
 semantics.
 
@@ -366,14 +374,14 @@ be emitted as one-only.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: void <b>TARGET_ASM_ASSEMBLE_VISIBILITY</b> (<var>tree decl, int visibility</var>)<var><a name="index-TARGET_005fASM_005fASSEMBLE_005fVISIBILITY-4611"></a></var><br>
+&mdash; Target Hook: void <b>TARGET_ASM_ASSEMBLE_VISIBILITY</b> (<var>tree decl, int visibility</var>)<var><a name="index-TARGET_005fASM_005fASSEMBLE_005fVISIBILITY-4644"></a></var><br>
 <blockquote><p>This target hook is a function to output to <var>asm_out_file</var> some
 commands that will make the symbol(s) associated with <var>decl</var> have
 hidden, protected or internal visibility as specified by <var>visibility</var>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>TARGET_WEAK_NOT_IN_ARCHIVE_TOC</b><var><a name="index-TARGET_005fWEAK_005fNOT_005fIN_005fARCHIVE_005fTOC-4612"></a></var><br>
+&mdash; Macro: <b>TARGET_WEAK_NOT_IN_ARCHIVE_TOC</b><var><a name="index-TARGET_005fWEAK_005fNOT_005fIN_005fARCHIVE_005fTOC-4645"></a></var><br>
 <blockquote><p>A C expression that evaluates to true if the target's linker expects
 that weak symbols do not appear in a static archive's table of contents. 
 The default is <code>0</code>.
@@ -393,7 +401,7 @@ table of contents.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>ASM_OUTPUT_EXTERNAL</b> (<var>stream, decl, name</var>)<var><a name="index-ASM_005fOUTPUT_005fEXTERNAL-4613"></a></var><br>
+&mdash; Macro: <b>ASM_OUTPUT_EXTERNAL</b> (<var>stream, decl, name</var>)<var><a name="index-ASM_005fOUTPUT_005fEXTERNAL-4646"></a></var><br>
 <blockquote><p>A C statement (sans semicolon) to output to the stdio stream
 <var>stream</var> any text necessary for declaring the name of an external
 symbol named <var>name</var> which is referenced in this compilation but
@@ -405,21 +413,21 @@ The GNU assembler and most Unix assemblers don't require anything.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: void <b>TARGET_ASM_EXTERNAL_LIBCALL</b> (<var>rtx symref</var>)<var><a name="index-TARGET_005fASM_005fEXTERNAL_005fLIBCALL-4614"></a></var><br>
+&mdash; Target Hook: void <b>TARGET_ASM_EXTERNAL_LIBCALL</b> (<var>rtx symref</var>)<var><a name="index-TARGET_005fASM_005fEXTERNAL_005fLIBCALL-4647"></a></var><br>
 <blockquote><p>This target hook is a function to output to <var>asm_out_file</var> an assembler
 pseudo-op to declare a library function name external.  The name of the
 library function is given by <var>symref</var>, which is a <code>symbol_ref</code>. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: void <b>TARGET_ASM_MARK_DECL_PRESERVED</b> (<var>const char *symbol</var>)<var><a name="index-TARGET_005fASM_005fMARK_005fDECL_005fPRESERVED-4615"></a></var><br>
+&mdash; Target Hook: void <b>TARGET_ASM_MARK_DECL_PRESERVED</b> (<var>const char *symbol</var>)<var><a name="index-TARGET_005fASM_005fMARK_005fDECL_005fPRESERVED-4648"></a></var><br>
 <blockquote><p>This target hook is a function to output to <var>asm_out_file</var> an assembler
 directive to annotate <var>symbol</var> as used.  The Darwin target uses the
 .no_dead_code_strip directive. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>ASM_OUTPUT_LABELREF</b> (<var>stream, name</var>)<var><a name="index-ASM_005fOUTPUT_005fLABELREF-4616"></a></var><br>
+&mdash; Macro: <b>ASM_OUTPUT_LABELREF</b> (<var>stream, name</var>)<var><a name="index-ASM_005fOUTPUT_005fLABELREF-4649"></a></var><br>
 <blockquote><p>A C statement (sans semicolon) to output to the stdio stream
 <var>stream</var> a reference in assembler syntax to a label named
 <var>name</var>.  This should add `<samp><span class="samp">_</span></samp>' to the front of the name, if that
@@ -428,12 +436,12 @@ systems.  This macro is used in <code>assemble_name</code>.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: tree <b>TARGET_MANGLE_ASSEMBLER_NAME</b> (<var>const char *name</var>)<var><a name="index-TARGET_005fMANGLE_005fASSEMBLER_005fNAME-4617"></a></var><br>
+&mdash; Target Hook: tree <b>TARGET_MANGLE_ASSEMBLER_NAME</b> (<var>const char *name</var>)<var><a name="index-TARGET_005fMANGLE_005fASSEMBLER_005fNAME-4650"></a></var><br>
 <blockquote><p>Given a symbol <var>name</var>, perform same mangling as <code>varasm.c</code>'s <code>assemble_name</code>, but in memory rather than to a file stream, returning result as an <code>IDENTIFIER_NODE</code>.  Required for correct LTO symtabs.  The default implementation calls the <code>TARGET_STRIP_NAME_ENCODING</code> hook and then prepends the <code>USER_LABEL_PREFIX</code>, if any. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>ASM_OUTPUT_SYMBOL_REF</b> (<var>stream, sym</var>)<var><a name="index-ASM_005fOUTPUT_005fSYMBOL_005fREF-4618"></a></var><br>
+&mdash; Macro: <b>ASM_OUTPUT_SYMBOL_REF</b> (<var>stream, sym</var>)<var><a name="index-ASM_005fOUTPUT_005fSYMBOL_005fREF-4651"></a></var><br>
 <blockquote><p>A C statement (sans semicolon) to output a reference to
 <code>SYMBOL_REF</code> <var>sym</var>.  If not defined, <code>assemble_name</code>
 will be used to output the name of the symbol.  This macro may be used
@@ -442,7 +450,7 @@ encoded by <code>TARGET_ENCODE_SECTION_INFO</code>.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>ASM_OUTPUT_LABEL_REF</b> (<var>stream, buf</var>)<var><a name="index-ASM_005fOUTPUT_005fLABEL_005fREF-4619"></a></var><br>
+&mdash; Macro: <b>ASM_OUTPUT_LABEL_REF</b> (<var>stream, buf</var>)<var><a name="index-ASM_005fOUTPUT_005fLABEL_005fREF-4652"></a></var><br>
 <blockquote><p>A C statement (sans semicolon) to output a reference to <var>buf</var>, the
 result of <code>ASM_GENERATE_INTERNAL_LABEL</code>.  If not defined,
 <code>assemble_name</code> will be used to output the name of the symbol. 
@@ -453,7 +461,7 @@ being taken.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Target Hook: void <b>TARGET_ASM_INTERNAL_LABEL</b> (<var>FILE *stream, const char *prefix, unsigned long labelno</var>)<var><a name="index-TARGET_005fASM_005fINTERNAL_005fLABEL-4620"></a></var><br>
+&mdash; Target Hook: void <b>TARGET_ASM_INTERNAL_LABEL</b> (<var>FILE *stream, const char *prefix, unsigned long labelno</var>)<var><a name="index-TARGET_005fASM_005fINTERNAL_005fLABEL-4653"></a></var><br>
 <blockquote><p>A function to output to the stdio stream <var>stream</var> a label whose
 name is made from the string <var>prefix</var> and the number <var>labelno</var>.
 
@@ -471,7 +479,7 @@ convention your system uses, and follow it.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>ASM_OUTPUT_DEBUG_LABEL</b> (<var>stream, prefix, num</var>)<var><a name="index-ASM_005fOUTPUT_005fDEBUG_005fLABEL-4621"></a></var><br>
+&mdash; Macro: <b>ASM_OUTPUT_DEBUG_LABEL</b> (<var>stream, prefix, num</var>)<var><a name="index-ASM_005fOUTPUT_005fDEBUG_005fLABEL-4654"></a></var><br>
 <blockquote><p>A C statement to output to the stdio stream <var>stream</var> a debug info
 label whose name is made from the string <var>prefix</var> and the number
 <var>num</var>.  This is useful for VLIW targets, where debug info labels
@@ -485,7 +493,7 @@ used.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>ASM_GENERATE_INTERNAL_LABEL</b> (<var>string, prefix, num</var>)<var><a name="index-ASM_005fGENERATE_005fINTERNAL_005fLABEL-4622"></a></var><br>
+&mdash; Macro: <b>ASM_GENERATE_INTERNAL_LABEL</b> (<var>string, prefix, num</var>)<var><a name="index-ASM_005fGENERATE_005fINTERNAL_005fLABEL-4655"></a></var><br>
 <blockquote><p>A C statement to store into the string <var>string</var> a label whose name
 is made from the string <var>prefix</var> and the number <var>num</var>.
 
@@ -503,7 +511,7 @@ you should know what it does on your machine.)
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>ASM_FORMAT_PRIVATE_NAME</b> (<var>outvar, name, number</var>)<var><a name="index-ASM_005fFORMAT_005fPRIVATE_005fNAME-4623"></a></var><br>
+&mdash; Macro: <b>ASM_FORMAT_PRIVATE_NAME</b> (<var>outvar, name, number</var>)<var><a name="index-ASM_005fFORMAT_005fPRIVATE_005fNAME-4656"></a></var><br>
 <blockquote><p>A C expression to assign to <var>outvar</var> (which is a variable of type
 <code>char *</code>) a newly allocated string made from the string
 <var>name</var> and the number <var>number</var>, with some suitable punctuation
@@ -526,28 +534,28 @@ which is correct for most systems.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>ASM_OUTPUT_DEF</b> (<var>stream, name, value</var>)<var><a name="index-ASM_005fOUTPUT_005fDEF-4624"></a></var><br>
+&mdash; Macro: <b>ASM_OUTPUT_DEF</b> (<var>stream, name, value</var>)<var><a name="index-ASM_005fOUTPUT_005fDEF-4657"></a></var><br>
 <blockquote><p>A C statement to output to the stdio stream <var>stream</var> assembler code
 which defines (equates) the symbol <var>name</var> to have the value <var>value</var>.
 
-      <p><a name="index-SET_005fASM_005fOP-4625"></a>If <code>SET_ASM_OP</code> is defined, a default definition is provided which is
+      <p><a name="index-SET_005fASM_005fOP-4658"></a>If <code>SET_ASM_OP</code> is defined, a default definition is provided which is
 correct for most systems. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>ASM_OUTPUT_DEF_FROM_DECLS</b> (<var>stream, decl_of_name, decl_of_value</var>)<var><a name="index-ASM_005fOUTPUT_005fDEF_005fFROM_005fDECLS-4626"></a></var><br>
+&mdash; Macro: <b>ASM_OUTPUT_DEF_FROM_DECLS</b> (<var>stream, decl_of_name, decl_of_value</var>)<var><a name="index-ASM_005fOUTPUT_005fDEF_005fFROM_005fDECLS-4659"></a></var><br>
 <blockquote><p>A C statement to output to the stdio stream <var>stream</var> assembler code
 which defines (equates) the symbol whose tree node is <var>decl_of_name</var>
 to have the value of the tree node <var>decl_of_value</var>.  This macro will
 be used in preference to `<samp><span class="samp">ASM_OUTPUT_DEF</span></samp>' if it is defined and if
 the tree nodes are available.
 
-      <p><a name="index-SET_005fASM_005fOP-4627"></a>If <code>SET_ASM_OP</code> is defined, a default definition is provided which is
+      <p><a name="index-SET_005fASM_005fOP-4660"></a>If <code>SET_ASM_OP</code> is defined, a default definition is provided which is
 correct for most systems. 
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>TARGET_DEFERRED_OUTPUT_DEFS</b> (<var>decl_of_name, decl_of_value</var>)<var><a name="index-TARGET_005fDEFERRED_005fOUTPUT_005fDEFS-4628"></a></var><br>
+&mdash; Macro: <b>TARGET_DEFERRED_OUTPUT_DEFS</b> (<var>decl_of_name, decl_of_value</var>)<var><a name="index-TARGET_005fDEFERRED_005fOUTPUT_005fDEFS-4661"></a></var><br>
 <blockquote><p>A C statement that evaluates to true if the assembler code which defines
 (equates) the symbol whose tree node is <var>decl_of_name</var> to have the value
 of the tree node <var>decl_of_value</var> should be emitted near the end of the
@@ -557,7 +565,7 @@ This macro affects defines output by `<samp><span class="samp">ASM_OUTPUT_DEF</s
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>ASM_OUTPUT_WEAK_ALIAS</b> (<var>stream, name, value</var>)<var><a name="index-ASM_005fOUTPUT_005fWEAK_005fALIAS-4629"></a></var><br>
+&mdash; Macro: <b>ASM_OUTPUT_WEAK_ALIAS</b> (<var>stream, name, value</var>)<var><a name="index-ASM_005fOUTPUT_005fWEAK_005fALIAS-4662"></a></var><br>
 <blockquote><p>A C statement to output to the stdio stream <var>stream</var> assembler code
 which defines (equates) the weak symbol <var>name</var> to have the value
 <var>value</var>.  If <var>value</var> is <code>NULL</code>, it defines <var>name</var> as
@@ -568,7 +576,7 @@ an undefined weak symbol.
 </p></blockquote></div>
 
 <div class="defun">
-&mdash; Macro: <b>OBJC_GEN_METHOD_LABEL</b> (<var>buf, is_inst, class_name, cat_name, sel_name</var>)<var><a name="index-OBJC_005fGEN_005fMETHOD_005fLABEL-4630"></a></var><br>
+&mdash; Macro: <b>OBJC_GEN_METHOD_LABEL</b> (<var>buf, is_inst, class_name, cat_name, sel_name</var>)<var><a name="index-OBJC_005fGEN_005fMETHOD_005fLABEL-4663"></a></var><br>
 <blockquote><p>Define this macro to override the default assembler names used for
 Objective-C methods.
 
