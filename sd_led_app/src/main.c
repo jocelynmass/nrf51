@@ -54,7 +54,7 @@ static void led_set_cb(uint8_t value)
 {
     NRF_GPIO->OUTSET = (1UL << RED_LED_PIN);
     NRF_GPIO->OUTSET = (1UL << BLUE_LED_PIN);
-    NRF_GPIO->OUTSET = (1UL << 12);
+    NRF_GPIO->OUTSET = (1UL << GREEN_LED_PIN);
 
         
     switch(value)
