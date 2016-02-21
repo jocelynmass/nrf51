@@ -1,3 +1,5 @@
+si SWD
+speed auto
 device nrf51
 r
 w4 4001e504 2

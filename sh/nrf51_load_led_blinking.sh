@@ -11,11 +11,7 @@ Sleep 200
 w4 4001e504 0
 Sleep 200
 r
-loadfile stack_img/s110_softdevice.hex 0
-r
-Sleep 200
-loadbin sd_adv_app/sd_adv_app.bin 0X18000
-Sleep 200
+loadfile led_blinking/led_blinking.bin 0x00000000
 r
 Sleep 200
 g
