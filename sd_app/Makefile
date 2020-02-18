@@ -56,7 +56,8 @@ CPFLAGS	+= -DBLE_STACK_SUPPORT_REQD
 # Generate dependency information
 CPFLAGS += -MD -MP -MF .dep\$(@F).d
  
-
+# JLINK
+JLINK = -JLinkExe 
 
 # Rules
  
@@ -82,3 +83,8 @@ clean:
 	rm -f $(PROJECT_NAME).bin
 	rm $(SRC:.c=.lst)
 	rm -r  .dep*
+
+rebuild: clean all
+
+flash: all 
+	$(JLINK) loadScript.sh

@@ -54,7 +54,7 @@ static void led_set_cb(uint8_t value)
 {
     NRF_GPIO->OUTSET = (1UL << RED_LED_PIN);
     NRF_GPIO->OUTSET = (1UL << BLUE_LED_PIN);
-    NRF_GPIO->OUTSET = (1UL << 12);
+    NRF_GPIO->OUTSET = (1UL << GREEN_LED_PIN);
 
         
     switch(value)
@@ -84,7 +84,7 @@ static void softdevice_init(void)
     uint32_t err_code;
 
     // Initialize the SoftDevice handler module.
-    SOFTDEVICE_HANDLER_INIT(NRF_CLOCK_LFCLKSRC_XTAL_20_PPM, NULL);
+    SOFTDEVICE_HANDLER_INIT(NRF_CLOCK_LFCLKSRC_SYNTH_250_PPM, NULL);
 
     // Enable BLE stack.
     ble_enable_params_t ble_enable_params;
